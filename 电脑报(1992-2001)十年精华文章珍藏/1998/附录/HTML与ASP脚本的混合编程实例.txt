@@ -1,0 +1,434 @@
+HTML与ASP脚本的混合编程实例
+
+夏文
+1998年 第52期 17版
+
+    ASP功能强大，尤其是其方便的数据库连接功能格外引人注目。利用ADO，只需要寥寥数行代码就可以写出非常好的Web数据库应用程序。
+    下面是一个“在线商场”系统实例，主页面显示最新产品的前九条信息；系统管理员通过输入帐号和密码，正确登录后方可进入数据维护（录入）。
+#1    一、主页（界面）程序
+    主页界面如^52asp01^所示。
+    下面是主页的源代码，文件名为Index.asp：
+    <%sql="SELECT * FROM info order by data desc"
+    Set Conn = Server.CreateObject（"ADODB.Connection"）
+    Conn.Open "shop"   
+    set rs=conn.execute（sql）
+    set cmd=server.createobject（"ADODB.command"）
+    Set RS = Server.CreateObject（"ADODB.RecordSet"）
+    cmd.commandtext=sql
+    cmd.commandtype=1
+    set cmd.activeconnection=conn
+    rs.open cmd，，1，1
+    RS.PageSize = 9
+    RS.AbsolutePage =1%>
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>在线购物</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+    </head>
+    <body bgcolor="#000080" topmargin="0">
+    <div align="center"><center>
+    <table border="0" width="600" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tr>
+    <td width="100%"><br>
+    <img src="/shop/image1/title1.jpg" width="600" height="100"
+    alt="title1.jpg （26355 字节）"><br>
+　　</td>
+    </tr>
+    <tr>
+    <td width="100%"><div align="center"><center><table border="0" width="97%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="63%" valign="top"><table border="0" width="100%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="100%" valign="top" height="50"><table border="0" width="100%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="48%"><img src="/shop/image1/title1_1.jpg" width="171" height="42"
+    alt="title1_1.jpg （8001 字节）"></td>
+    <td width="52%" align="center">
+    <applet code="Fade.class" width="190" height="35">
+    <param name="bgcolor" value="ff0000">
+    <param name="txtcolor" value="ffff00">
+    <param name="changefactor" value="5">
+    <param name="text1" value="Welcome ">
+    <param name="font1" value="宋体，30">
+    <param name="text2" value="This site is expending">
+    <param name="font2" value="宋体，20">
+    <param name="text3" value="Come back every two week">
+    <param name="font3" value="宋体，30">
+    </applet>
+    </td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    <tr>
+    <td width="100%"><table border="1" width="100%" cellspacing="0" cellpadding="2"
+    bordercolor="#C0C0C0">
+    <%RowCount = rs.PageSize
+    do While Not RS.EOF and rowcount > 0 %>
+    <tr>
+    <td width="9%" align="center" height="26"><img src="/shop/image1/Paw.gif" width="16"
+    height="16" alt="Paw.gif （121 字节）"></td>
+    <td width="91%" height="26"><a href="/shop/read.asp?id=<%=rs（"id"）%>"
+    style="text-decoration: none"><%=rs（"bt"）%></a></td>
+    </tr>
+    <%
+    RowCount = RowCount - 1
+    RS.MoveNext
+    Loop
+    %>
+    </table>
+    </td>
+    </tr>
+    </table>
+    </td>
+    <td width="5%"></td>
+    <td width="32%" valign="top"><table border="0" width="100%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="100%" align="center"><img src="/shop/image1/title1_2.jpg" width="176"
+    height="55" alt="title1_2.jpg （7652 字节）"></td>
+    </tr>
+    <tr>
+    <td width="100%"><form method="POST" action="--WEBBOT-SELF--">
+    <!--webbot bot="SaveResults" startspan U-File="_private/form_results.txt"
+    S-Format="TEXT/CSV" S-Label-Fields="TRUE" --><!--webbot bot="SaveResults" endspan --><table
+    border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="100%" align="center" height="40"><img src="/shop/image1/title1_3.jpg"
+    width="176" height="34" alt="title1_3.jpg （4601 字节）"></td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"><input type="text" name="T1" size="16"></td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"><img src="/shop/image1/title1_4.jpg" width="176"
+    height="34" alt="title1_4.jpg （4902 字节）"></td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"><input type="password" name="T2" size="16"></td>
+    </tr>
+    <tr>
+    <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="50%" align="center" height="40"><input type="image" img
+    src="/shop/image1/title1_5.jpg" width="64" height="26" alt="title1_5.jpg （4799 字节）"
+    border="0" name="jr"></td>
+    <td width="50%" align="center" height="40"><a href="help.htm"><img
+    src="/shop/image1/title1_7.jpg" width="64" height="26" alt="title1_7.jpg （4986 字节）"
+    border="0"></a></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+    </form>
+    </td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"><a href="user_inser.asp"><img
+    src="/shop/image1/title1_6.jpg" width="176" height="42" alt="title1_6.jpg （6925 字节）"
+    border="0"></a></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+    </center></div></td>
+    </tr>
+    <tr>
+    <td width="100%"><hr noshade size="3" color="#808080">
+    </td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"><br>
+    <font color="#408080">本网站由</font><font color="#8000FF">XXXXXXXXXXXXXXXX公司　</font><font
+    color="#408080">联合制作</font><font color="#8000FF"><br>
+    重庆XXXXXXXXXXXXX工作室</font><br>
+  　<br>
+    1998.11.1<br>
+  　<br>
+  　<br>
+  　</td>
+    </tr>
+    </table>
+    </center></div>
+    </body>
+    </html>
+    <%set rs = nothing
+    set Conn = nothing
+    set cmd=nothing
+    %>
+#1    二、数据维护程序实例
+    数据维护（录入）界面如^52asp02^所示，程序文件名为sjtj.asp。
+    源代码如下：
+    <% 
+    if request.form（"bt"）<>"" then
+    set conn=server.createobject（"adodb.connection"）
+    conn.open "shop"
+    sql="insert into info（bt，nr，data） values（＇"&request.form（"bt"）&"＇，＇"&request.form（"nr"）&"＇，＇"&now（）&"＇）"
+    set rs=conn.execute（sql）
+    conn.close
+    end if %>
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>数据添加</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+    </head>
+    <body topmargin="0" bgcolor="#000080">
+    <div align="center"><center>
+    <table border="0" width="600" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tr>
+    <td width="100%"> <br>
+    <img src="image1/title2_1.jpg" width="600" height="60" alt="title2_1.jpg （13298 字节）"><hr
+    color="#000080">
+    <p> </td>
+    </tr>
+    <tr>
+    <td width="100%"><form method="POST" action="/shop/sjtj.asp">
+    <table border="0" width="100%" cellpadding="0" height="236">
+    <tr>
+    <td width="17%" height="25" align="right" bgcolor="#E7FCF7">标题　</td>
+    <td width="83%" height="25"><input type="text" name="bt" size="64"></td>
+    </tr>
+    <tr>
+    <td width="17%" height="26" align="right" bgcolor="#F8E9FE">内容　</td>
+    <td width="83%" height="26" bgcolor="#F8E9FE"></td>
+    </tr>
+    <tr>
+    <td width="17%" height="176"></td>
+    <td width="83%" height="176"><textarea rows="8" name="nr" cols="67"></textarea></td>
+    </tr>
+    <tr>
+    <td width="17%" height="18"></td>
+    <td width="83%" height="18" align="center"><input type="submit" value="提交" name="B1"><input
+    type="reset" value="复原" name="B2"> </td>
+    </tr>
+    </table>
+    </form>
+    </td>
+    </tr>
+    <tr>
+    <td width="100%" height="36"><table border="0" width="100%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="16%"></td>
+    <td width="67%" align="center">|广而告之|　|用户订单|　|商品添加|　|邮件列表|</td>
+    <td width="17%"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    <tr>
+    <td width="100%"> </td>
+    </tr>
+    </table>
+    </center></div>
+    <p>%&gt; </p>
+    </body>
+    </html>
+#1    三、新用户注册程序
+    新用户注册界面如^52asp03^所示，程序文件名user_inser.asp。
+    源代码如下：
+    <%
+    name=request.form（"name"）
+    userid=request.form（"userid"）
+    pass1=request.form（"pass1"）
+    pass2=request.form（"pass2"）
+    idcard=request.form（"idcard"）
+    phone=request.form（"phone"）
+    fax=request.form（"fax"）
+    email=request.form（"email"）
+    adders=request.form（"adders"）
+    post=request.form（"post"）
+    if name<>"" and userid<>"" and idcard<>"" and phone<>"" and fax<>"" and email<>"" and adders<>"" and post<>"" then
+    set conn=server.createobject（"adodb.connection"）
+    conn.open "shop"
+    sql="insert into user_info（name，userid，pass，idcard，phone，fax，email，adders，post，data） values（＇"&name&"＇，＇"&userid&"＇，＇"&pass1&"＇，＇"&idcard&"＇，＇"&phone&"＇，＇"&fax&"＇，＇"&email&"＇，＇"&adders&"＇，＇"&post&"＇，＇"&now（）&"＇）"
+    set rs=conn.execute（sql）
+    conn.close
+    response.redirect"main.asp"
+    end if %>
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+    <title>新用户注册－－在线购物</title>
+    </head>
+    <body bgcolor="#000080" topmargin="0">
+    <div align="center"><center>
+    <table border="0" width="600" bgcolor="#FFFFFF" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="100%">　　<br>
+    <img src="image1/title4.jpg" width="600" height="65" alt="title4.jpg （16711 字节）"><br>
+    <br>
+    <%if name<>"" or userid<>"" or idcard<>"" or phone<>"" or fax<>"" or email<>"" or adders<>"" or post<>"" then%>    <font color="#FF0000"><em>请填完所有表中所有选项</em></font></td>
+    <%else%>
+    <td> </td>
+    <%end if%>
+    </tr>
+    <tr>
+    <td width="100%"><form method="POST" action="user_inser.asp">
+    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="100%"><div align="center"><center><table border="0" width="98%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="50%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="9%" bgcolor="#FCE6D3" height="28"></td>
+    <td width="38%" align="right" bgcolor="#FCE6D3" height="28">姓名　</td>
+    <td width="54%" bgcolor="#FCE6D3" height="28"><input type="text" name="name" size="20"
+    value="<%=name%>"></td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"> </td>
+    <td width="38%" align="right" height="28"> </td>
+    <td width="54%" height="28"> </td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#EAFCDC" height="28"></td>
+    <td width="38%" align="right" bgcolor="#EAFCDC" height="28">账号　</td>
+    <td width="54%" bgcolor="#EAFCDC" height="28"><input type="text" name="userid" size="20"
+    value="<%=userid%>"></td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"></td>
+    <td width="38%" align="right" height="28">　　</td>
+    <td width="54%" height="28">　　　</td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#FCE6D3" height="28"></td>
+    <td width="38%" align="right" bgcolor="#FCE6D3" height="28">口令　</td>
+    <td width="54%" bgcolor="#FCE6D3" height="28"><input type="password" name="pass1"
+    size="20" value="<%=pass1%>"> </td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"> </td>
+    <td width="38%" align="right" height="28"> </td>
+    <td width="54%" height="28"> </td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#EAFCDC" height="28"></td>
+    <td width="38%" align="right" bgcolor="#EAFCDC" height="28">再输入一次　</td>
+    <td width="54%" bgcolor="#EAFCDC" height="28"><input type="password" name="pass2"
+    size="20" value="<%=pass2%>"></td>
+    </tr>
+    </table>
+    </td>
+    <td width="50%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="9%" bgcolor="#FCE6D3" height="28"></td>
+    <td width="38%" align="right" bgcolor="#FCE6D3" height="28">身份证　</td>
+    <td width="54%" bgcolor="#FCE6D3" height="28"><input type="text" name="idcard" size="20"
+    value="<%=idcard%>"></td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"></td>
+    <td width="38%" align="right" height="28"></td>
+    <td width="54%" height="28">　　　</td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#EAFCDC" height="28"></td>
+    <td width="38%" align="right" bgcolor="#EAFCDC" height="28">联系电话　</td>
+    <td width="54%" bgcolor="#EAFCDC" height="28"><input type="text" name="phone" size="20"
+    value="<%=phone%>"></td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"></td>
+    <td width="38%" align="right" height="28"></td>
+    <td width="54%" height="28">　　　　　</td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#FCE6D3" height="28"></td>
+    <td width="38%" align="right" bgcolor="#FCE6D3" height="28">传　　真　</td>
+    <td width="54%" bgcolor="#FCE6D3" height="28"><input type="text" name="fax" size="20"
+    value="<%=fax%>"></td>
+    </tr>
+    <tr>
+    <td width="9%" height="28"></td>
+    <td width="38%" align="right" height="28"></td>
+    <td width="54%" height="28">　　　　</td>
+    </tr>
+    <tr>
+    <td width="9%" bgcolor="#EAFCDC" height="28"></td>
+    <td width="38%" align="right" bgcolor="#EAFCDC" height="28">电子邮件　</td>
+    <td width="54%" bgcolor="#EAFCDC" height="28"><input type="text" name="email" size="20"
+    value="<%=email%>"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+    </center> </div> </td>
+    </tr>
+    <tr>
+    <td width="100%" height="28"> </td>
+    </tr>
+    <tr>
+    <td width="100%"><div align="center"><center><table border="0" width="98%" cellspacing="0"
+    cellpadding="0">
+    <tr>
+    <td width="23%" align="right" height="28" bgcolor="#FCE6D3">联系地址　</td>
+    <td width="77%" height="28" bgcolor="#FCE6D3"><input type="text" name="adders" size="60"
+    value="<%=adders%>"></td>
+    </tr>
+    <tr>
+    <td width="23%" align="right" height="28"></td>
+    <td width="77%" height="28"> </td>
+    </tr>
+    <tr>
+    <td width="23%" align="right" height="28" bgcolor="#EAFCDC">邮　　编　</td>
+    <td width="77%" height="28" bgcolor="#EAFCDC"><input type="text" name="post" size="20"
+    value="<%=post%>"></td>
+    </tr>
+    </table>
+    </center></div></td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"> <br>
+  　<br>
+    <input type="submit" value="提交" name="B1"><input type="reset" value="复原" name="B2"></td>
+    </tr>
+    </table>
+    </form>
+    </td>
+    </tr>
+    <tr>
+    <td width="100%"> </td>
+    </tr>
+    <tr>
+    <td width="100%"><hr noshade color="#008080" width="98%">
+    </td>
+    </tr>
+    <tr>
+    <td width="100%" align="center"> <br>
+    本网站XXXXXXXXXXXXXXXXXXXX公司　联合制作<br>
+    重庆XXXXXXXXXXXX工作室<br>
+    <br>
+    1998.11.1</td>
+    </tr>
+    <tr>
+    <td width="100%"> <br>
+    <br>
+　　</td>
+    </tr>
+    <tr>
+    <td width="100%"> </td>
+    </tr>
+    <tr>
+    <td width="100%"> </td>
+    </tr>
+    </table>
+    </center> </div>
+    </body>
+    </html>
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

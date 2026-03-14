@@ -1,0 +1,103 @@
+四世同堂办公网
+
+刘一才
+1998年 第38期 39版
+
+　　我们计划科以前办公时，是用软盘传递数据和在各个计算机上分散保存数据，这种工作方式效率低下，而且经常遗失数据， 因此我们想到了办公网络。我们科计算机档次参差不齐，有286计算机两台、 386计算机一台、 486计算机两台、PENTIUM级以上计算机五台，我们戏称为“四世同堂”。经过仔细考虑，我们选择了NETWARE 3.12与WINDOWS 95珠联璧合的方式组网。 现该办公网络已稳定运行一年多，为我们各项任务的顺利完成起到了很大作用。实践证明该网有如下优点: 一、 投资少； 二、 稳定可靠；三、 维护简单；四、 业务数据的传输和保存有序、安全。下面我就把这一方案介绍给大家。
+#1    一、硬件采购及连接
+    我们科的10台PC共配备了一台CD－ROM（足矣!  后面将介绍此光驱的共享方法）和一台UPS， 因而需要采购如下器材:
+　　1. 终结器一套（5元）
+　　2. BNC头12对（2.5元/对）
+　　3. BNC网卡11块（NE2000兼容以太网卡，60元/块）
+　　4. 引导芯片5个（2元/个）
+　　5. 细缆200米（2元/米）
+　　6. 塑料线卡钉400个（80元）
+　　7. 压线钳一把（120元）
+　　上述器材共花费1305元， 采购回来后即可开始硬件连接，网卡和BNC头采购时都留有富余量， 以备不时之需， UPS连在作为服务器的计算机上。
+#1　　二、NETWARE 3.12 文件服务器的安装
+　　选一台档次高的计算机做服务器进行软件安装。
+　　1．所用安装光盘的NETWARE.312目录下应含有如下子目录:BASICMHS、 INSTALL、  MIGRATE、   NETVIEW、 SYSTEM、 SYSTEM1_8、  UNICODE、  WSDOS、 WSDRV、  WSOS2和 WSWIN。
+　　2. 将服务器硬盘分为两个区C:和D:，  其中C: 为引导盘，容量100M， 在CONFIG.SYS文件中应有FILES=60， BUFFERS=40两句， DOS不要驻留高端。
+　　3.接上光驱， 启动机器， 进入\NETWARE.312 执行INSTALL， 此时会在C:中建立SERVER.312 子目录， 并将SYSTEM1－8中的文件全部拷贝至该目录中。
+    4. 进入C:\SERVER.312， 执行SERVER进入网络操作系统， 并提示输入服务器名（如NX_SERVER）和IPX内部网络号（如3512D2F7）。
+    5. 在网络操作系统提示符下（如NX_SERVER:）输入:
+　　LOAD  ISADISK
+　　LOAD  NE2000
+　　6. 为NIC（网卡）挂上通信协议:BIND IPX TO NE2000
+　　7. 安装INSTALL模块:
+    （1） 输入命令：LOAD INSTALL
+    （2）在DISK OPTION选项中选PARTITION TABLES， 将非DOS活动分区转化为NETWARE分区，按ESC键返回上一层菜单。
+　　（3） 在VOLUME OPTION中按INS键加入SYS卷，  此卷大小可定为200M， SYS卷建好后再按INS键建一数据卷，将剩下空间均分配给此数据卷，数据卷建好后返回上一层，再次选择SYS卷， 进行设置。
+　　（4） 在SYSTEM OPTION 中选COPY  FILES，把SYSTEM 和PUBLIC文件从光盘中拷入SYS卷（ 这时需要输入文件在光盘中的路径， 如D:\NETWARE.312）。　　（5） 在SYSTEM  OPTION  中选CREATE  STARTUP. NCF 和 CREATE AUTOEXEC.NCF， 创建启动文件。其中STARTUP.NCF文件内容如下:
+　　LOAD ISADISK PORT=1F0 INT=E
+　　AUTOEXEC.NCF文件内容如下:
+　　FILE SERVER NAME  NX_SERVER
+　　IPX INTENAL NET 3512D2F7
+　　LOAD NE2000 PORT=300 INT=3 FRAME=ETHERNET_802.3
+#1　　（注: 缺省值为802.2， PORT值和INT值必须和网卡的实际值相符， 可运行网卡安装程序测出上述二值。）
+　　BIND IPX TO NE2000 NET=001
+　　MOUNT ALL
+　　8.完成上述工作后， 退出， 重新启动机器， 服务器即可正常工作。
+#1　　三、有盘工作站的建立
+     我们采用ODI方式入网，具体步骤如下：
+　　1. 将WSDOS下所有文件拷入第一张软盘， 并标记为WSDOS。
+　　2. 将WSDRV下所有文件拷入第二张软盘， 并标记为WSDRV。
+　　3. 将WSWIN下所有文件拷入第三张软盘， 并标记为WSWIN。
+　　4. 将WSDOS软盘插入计算机， 执行INSTALL，若要使该计算机支持WINDOWS， 则请在安装过程的第3步回答YES， 进入第4步时， 插入WSDRV盘， 选NOVELL/EAGLE NE2000选项后输入节点地址（如21E101E1）， 输入地址后按提示插入WSDOS盘即可。
+　　5. 在C:\NWCLIENT目录下编辑NET.CFG文件，将帧类型由802.2改为802.3， 重新启动计算机即可。
+#1　　四、多重无盘工作站的建立
+　　1. 将IPX.COM和NETX.EXE 拷入一系统软盘中，此软盘中应有如下CONFIG.SYS和AUTOEXEC.BAT文件。CONFIG.SYS 文件内容如下:
+　　  DEVICE=HIMEM.SYS
+　　  DEVICE=SETVER.EXE
+　　  FILES=30
+　　  BUFFERS=30
+　　AUTOEXEC.BAT文件内容如下:
+　　  @ECHO OFF
+　　  PROMPT ＄P＄g
+　　  PATH A:
+　　  F:
+        LOGIN
+    2.启动有盘工作站并以SUPERVISOR身份入网。
+　　3. 执行以下命令：
+　　MAP G:=SYS:SYSTEM
+　　MAP F:=SYS:LOGIN
+　　F:\LOGIN>G:DOSGEN A: TIMAX.SYS
+      FLAG TIMAX.SYS S
+      COPY A:\AUTOEXEC.BAT F:\LOGIN
+　　4. 在F:\AUOGIN目录下建一BOOTCONF.SYS文件， 内容如下:0X001，21E0FFBE=TIMAX.SYS
+　　5. 用上述方法可做出不同环境的引导文件， 将不同的网卡地址加入BOOTCONF.SYS中， 并将引导芯片插入网卡就能自动引导。
+#1　　五、打印服务器的建立
+　　1. 打印机硬件连接: 将打印机连在服务器上并在DOS环境下测试打印机。
+　　2. 在任一台工作站上以SUPERVISOR身份入网。
+　　3. 执行PCONSOLE，选择PRINT SERVER INFORMATION；按INS 键建立新的打印服务器， 输入打印服务器名，  如NXPSER。在NXPSER上敲回车后执行以下命令：
+　　PRINT SERVER CONFIGURATION
+　　PRINT CONFIGURATION
+　　NOT INSTALL 0 
+　　TYPE: PARALLEL， LPT1
+　　4. 选择打印设备
+　　（1） 运行PRINTDEF
+　　（2）选PRINT DEVICES|IMPORT PRINT DEVICE ，选EPLQ800.PDF。
+　　（3）执行下述命令：
+       EDIT PRINT DEVICES|DEVICE MODES DEVICE FUNCTIONS
+       FORMS
+　　5. 配置打印机
+　　（1） 运行PRINTCON；
+　　（2） 输入命令：EDIT PRINT JOB CONFIGURATIONS；
+　　（3） 按INS， 输入PRINT JOB NAME 如Q1；
+　　（4） 在DEVICE栏选EPSON LQ－800/LQ－1000。
+　　6. 打印实现
+　　（1） 打印服务器加载， 在服务器AUTOEXEC.NCF 文件中加入如下一行，  就可实现服务器启动时自动加载打印服务器:LOAD PSERVER NXPSER
+　　（2） 远程打印:在F:\PUBLIC目录下编辑PP.BAT文件，内容如下：CAPURE Q=Q1 NB  NT T1 12FF， 每台工作站要打印文件时只需先执行PP一次即可。
+#1　　六、WINDOWS 95与NETWARE3.12的连接
+　　1. 将WINDOWS95安装光盘放在光驱中。
+　　2. 依次单击“开始”、“设置”、“控制面板”、“网络”、“添加”、“适配器”、“添加”。 在“厂商”栏选Novell/Anthem，在“网络适配器”栏选Novell/Anther NE2000，然后按“确定”。在“网络组件”中将NetBEUI项删除，在“基本网络登录方式”选“Microsoft 网络客户”， 在“标识”栏输入计算机名（如P200）， 在“工作组”中输入NXPCB， “计算机说明”中输入附注，如PENTIUM， 在“访问控制”栏选“共享级访问控制”， 在“资源”栏里选IRQ=3 I/O=300－31F，然后按“确定” 。重启动PC后屏幕上会出现“输入网络口令”对话框， 在“用户名”栏输入NOVELL用户名， 在“口令”栏输入口令， 在“登录服务器”栏输入NX_SERVER后按“确定”即可登录NOVELL网，  上网后会出现一网上邻居图标， 用鼠标右键单击该图标， 选“映射网络驱动器”， 在驱动器栏选H:，并选中登录时重连接， 确定后每次启动WINDOWS95就会自动连上NX_SERVER。
+#1    七、IDE接口CD－ROM的共享
+　　根据实际需要，我们将光驱安装在一台工作站上，具体方法为：
+　　1． 在安装有光驱的工作站上，打开“控制面板”后，依次点击“系统”、“性能”、“文件系统”、“此计算机的主要用途”，在这里将该计算机设为"网络服务器"。
+　　2． 在需要共享光驱的每台（包括本台）工作站上，打开控制面板，依次点击“网络”、“标识”、“工作组”，输入NXPCB（每个计算机都输入此名）。
+　　3． 在装有光驱的工作站上，双击"我的电脑"，用鼠标右键点击CD－ROM，然后在"共享"栏进行设定。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

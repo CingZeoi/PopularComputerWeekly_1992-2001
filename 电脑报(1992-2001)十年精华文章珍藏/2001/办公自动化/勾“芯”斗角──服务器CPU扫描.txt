@@ -1,0 +1,32 @@
+勾“芯”斗角──服务器CPU扫描
+
+王寒晖 
+2001年 14期
+
+    市场的竞争是残酷的，优胜劣汰是必然的发展规律。目前，在桌面型CPU市场，已形成Intel、AMD、VIA三足鼎立的局面。随着Intel与AMD也雄心勃勃地将触角伸到高端服务器市场，使服务器CPU市场的竞争更加白热化。
+　　    服务器用处理器几乎都是清一色的RISC（精简指令集）架构，用在高端的工作站或服务器中。据市场分析机构IDC报告，2000年的美国服务器市场，Sun荣居榜首，IBM暂居老二，Compaq名列第三。随着Intel与AMD纷纷介入这块厚利市场，使高端服务器市场形成百家争鸣的新格局。下面我们就来认识这些真正的服务器CPU。
+　　#1    一、Compaq Digital Alpha
+　　    Alpha处理器原先是DEC公司的产品，后来被Compaq归入旗下，而Compaq又与Digital进行合并。Alpha最早在1992年现身市场，领先其它RISC处理器厂商达两三年之久。在Alpha推出时，个人电脑正从386时代发展到486时代。Alpha的最大特色其实是在时钟速度上取得领先地位，例如，1995年推出300MHz的Alpha 21164就是当时时钟速度最快的CPU。
+　　    Alpha 21164是Alpha的第二代处理器，它有两种版本，一种是原来的21164，另一种则是去掉部分Cache的21164PC，希望进攻较低端的市场。此外，1998年初DEC发表了第三代Alpha 21264。Alpha可以运行在UNIX、OpenVMS，以及Windows NT中，这是Alpha跟其它几个RISC处理器不同的地方。未来Compaq、Digital、Alpha将会开发出Alpha 21364与EV8处理器。
+　　#1    二、SGI MIPS
+　　    MIPS处理器是RISC架构的开山鼻祖，SGI在并购MIPS后，将MIPS处理器分成两个市场方向：一方面强调高性能，继续向高端方向发展；另一方面着重高产量，转向市场庞大的嵌入式及消费电子产品领域。其实SGI只负责处理器的研发设计，产品的生产与销售是授权其它半导体大厂进行。
+　　    目前最高端的MIPS处理器是R10000，用在SGI公司的全系列产品，包括从单一处理器的O2工作站，直到高达128颗处理器的Origin高端服务器。SGI的专长是图形运算，拥有很强的系统I/O及内存总线，MIPS处理器并不单独强调时钟频率，而是着重整体性能的提升。SGI MIPS处理器主要运行在自身的64位操作系统IRIX（与UNIX同一族系的操作系统）上；此外，MIPS作为一些掌上电脑的处理器，因此也可以运行在Windows CE上。为了能够继续在高端市场站稳脚跟，SGI不得不全力以赴发展更先进的MIPS处理器，包括R12000与R14000等。
+　　#1    三、SUN SPARC
+　　    Sun是世界上第一个将RISC架构量产的厂商。为了推动SPARC成为业界标准，并提高全球广泛供应来源，SUN也授权多家半导体厂生产自己的SPARC芯片。SPARC的性能超强，价格也较高，公认在UNIX上的表现杰出。
+　　    早期的RISC处理器也是32位，直到6年前Alpha诞生后，才把RISC推进到64位。就SUN的SPARC而言，其64位处理器是1995年的SPARC-v9架构，产品则称为Ultra SPARC。目前最高端的SPARC产品是64位的Ultra SPARC Ⅲ，采用了Uptime Bus的技术。Ultra SPARC Ⅲ的工作频率有900MHz、750MHz和600MHz三种。与以前的UltraSPARC Ⅱ相比，UltraSPARC Ⅲ运行程序的速度要快一倍。近几年来，Intel进军高端市场的企图明显，一些拥有RISC处理器的大厂已逐渐向Intel的IA-64方向发展，而Sun仍坚持发展自己的Ultra SPARC处理器，成为阻挡Intel来犯的中流砥柱。Sun公司还将在今年推出基于MAJC架构设计的1.2GHz的Ultra Space 4处理器，它将是Sun公司在高端服务器市场竞争的希望所在。
+　　#1    四、HP PA-RISC
+　　    HP也有自己的RISC处理器，称为PA-RISC（精准架构的RISC）。PA-RISC于1986年现身，HP也是当时全球第一家将系统架构全面由CISC移转到RISC的计算机厂商，随后HP就荣登市场销售第一的宝座。
+　　    目前PA-RISC处理器的版本是PA-8200，主要用在HP的企业服务器（例如最高端的HP9000系列）。在PA-8200之后，HP还将推出PA-8500与PA-8700处理器。HP PA-RISC把Alpha当成性能上的主要对手，例如PA-8500的对手就锁定Alpha-21264。惠普在产品上采取双向并进策略，为了两种芯片都能用在电脑上，一边发展PA-RISC 8700，一边与Intel共同开发IA-64处理器。IA-64融合了x86与RISC架构，x86源自Intel本身的架构，而RISC部分就是HP的PA-RISC架构。
+　　#1    五、IBM PowerPC
+　　    虽然RISC这个名词是1980年初由柏克莱大学Patterson教授率先使用，并成为后来的通称。其实首先推出RISC的真正先驱是70年代就悄悄展开实验计划的蓝色巨人IBM公司。IBM于1975年开始进行一项801计划，希望设计出新的计算机架构。但是801计划最终并没有成功的产品推出，不过，IBM另一条与801平行的发展线，在80年代中期成为America计划，这个计划成功地开发出新的架构产品，它就是1990年出现的Power架构，IBM以此构建了RS6000处理器与工作站产品。1991年，IBM再推出第二代Power架构，并与Motorola、Apple共组一个“PowerPC”联盟，发展新的PowerPC处理器架构。这个PowerPC架构就是以IBM的Power架构为基础的。
+　　    1992年，IBM发表第一颗PowerPC处理器PowerPC-601，它是一颗32位的RISC架构处理器，Apple旋即进行架构更替，采用PowerPC-601作为新一代Mac电脑的核心处理器。随后，IBM又陆续发表了603、604等系列的PowerPC处理器，目前最新版是PowerPC 750（G3实际上就是PowerPC 750的商标）和740系列（如图1）（^14050101a^）。另外，新一代64位Power 4（G4）处理器也已推出。
+　　#1    六、Intel Itanium
+　　    Intel公司于3月29日公布了IA-64架构的Intel Itanium（安腾）软硬件开发状况（图2）（^14050101b^）。Itanium最早的芯片（即所谓的First Silicon）是在1999年8月完成加工的，并紧接着于8月底举行的IDF上进行Windows和Linux的启动演示，但其进程不能称之为顺利。历经出货延期的磨难，现在Intel终于决定在2001年6月30日之前一定推出配备Itanium的服务器和工作站。
+　　    以服务器及工作站为基础的Intel Itanium处理器要在性能上战胜竞争对手RISC处理器，关键在于运用创新的合并功能EPIC（Explicitly Parallel Instruction Computing：明确平等指令运算）。IA-64架构是基于EPIC（明确平行指令计算机），EPIC的性能超过了RISC和CISC（复杂指令计算机），它可与具智能编辑器的大型处理源媲美，将平行指令明确通知处理器。测试结果显示，Itanium已超过单一RISC处理器的速度，英特尔表示，Itanium正式投产时，其工作计算频率可达每秒20亿，与Sun Ultra SPARC Ⅲ比较足足快上10倍。Intel除了Itanium处理器外，新一代IA-64架构的McKinley处理器也将亮相。
+　　#1    七、AMD Hammer处理器
+　　    由于Intel和IBM策略联盟，提前在64位处理器、高端服务器市场布局，这招策略迫使AMD也要加把劲。AMD准备发布下一代x86-64架构Hammer处理器。AMD的64位处理器将针对服务器和高端应用程序。AMD准备发布两种Hammer处理器：即用于一两个CPU服务器的ClawHammer芯片和用于三四个CPU服务器SledgeHammer芯片。AMD准备用它们来与英特尔的Itanium相抗衡。AMD公司计划在2002年第一季度推出ClawHammer和SledgeHammer处理器的工业样品，并将在同年第二季度投入批量生产。如果AMD公司这两种芯片的研制和生产比较顺利，AMD将有能力在从桌面电脑、笔记本电脑电脑到企业服务器的所有市场与Intel公司展开竞争。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

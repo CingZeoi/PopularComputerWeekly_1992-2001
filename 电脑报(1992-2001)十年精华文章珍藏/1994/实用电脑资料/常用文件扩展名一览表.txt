@@ -1,0 +1,224 @@
+常用文件扩展名一览表
+
+
+1994-01-07
+
+        扩展名	来  源		说   明
+        $$$	DOS		重定向命令产生的“管道”文件
+        $$$	多种程序	临时文件或不正确存储的文件
+        @@@	CodeviewDisk	临时文件
+        @@@	DOS BACKUP	DOS 2.0及以下版的磁盘备份盘说明文件
+        %A%	WPS		WPS格式字处理文档中间文件
+        %B%	WPS		同上
+        ACT	Actor		Actor源程序文件
+        ACT	BITCOM		通讯帐户文件
+        AIO	Apl		由Apl文件转换成的格式文件
+        AMG	Actor		Actor系统映象文件
+        APL	Apl		Apl工作区格式文件
+        ARC	Pkarc		压缩文件
+        ARF	BASCOM		由BM系列编译所产生的自动响应文件
+        ARF	FORTRAN		同上
+        ARF	COBOL		同上
+        ASK	AskSam		使用说明及教学文件
+        ASC	多种程序	文本文件(ASCII码)，可在屏幕上列出
+        ASM	MASM		汇编语言源程序文件
+        AUX	Paradox	
+        BAK	多种程序	备份文件
+        BAS	BASIC		BASIC源程序文件
+        BAS	Auto CAD	DXF提取文件
+        BAT	DOS		批处理文件
+        BIN	多种程序	二进制文件
+        BLK	ShowPartner	块文件，含可供Showparther处理的块信息
+        BMP	MS Windows	位象文件，含Windows位象结构数据
+        C	C Compilers	C语言源程序文件
+        CAL	SuperCals	分层(SPREEDSHEET)文件
+        CCL	Intalk		通讯命令语言文件
+        CFG	多种程序	配置文件，含系统设备和环境信息
+        CHK	CHKDSK		由CHKDSK/F恢复的数据文件
+        CLR	Showparther	颜色调色板文件
+        CLS	Actor		Actor程序设计语言的分类库文件
+        CMD	dBASE		命令文件，含dBASE程序的文件
+        CMD	CP/M-86		瞬变过程命令文件，类似DOS的EXE和COM文件
+        CNF	多种程序	配置文件，含设备配置信息
+        COB	COBOL		COBOL语言源程序文件
+        COD	FORTAAN		FORTRAN程序编译代码文件
+        COL	MS multipaln	分层数据文件
+        COM	DOS		命令(程序)文件
+        CPS	CPAV		CPAV病毒检测软件产生的磁盘文档监视文件
+        CRF	MASM		交叉汇编文件
+        CRS	Word Tour Golf	课程教学数据文件
+        CPI	DOS		包含有指定国家字符集代码页信息文件
+        CTX	Microsoft	课程文本文件，含联机指导信息
+        CVR	MS Windows	光标文件，含Windows的光标信息
+        DAT	多种程序	数据文件，通常为ASCII或指定格式数据
+        DB	Paradox		数据文件，含Paradox表的数据文件
+        DB	dBASE		配置文件，含系统运行环境参数(CONFIG.DB)
+        DBD	Bricklin'sDEMO	演示数据文件
+        DBF	dBASE，FOXBASE	数据库文件
+        DBS	dBASE		dBASE数据库帮助信息文件
+        DBS	SQL Windows	数据文件
+        DBT	dBASE，FOXBASE	数据文件，由MEMO字段产生
+        DBT	SQL Windows	临时数据文件
+        DCT	Spellstar	字典文件，含拼法字典
+        DEF	MS Windows	模式定义文件
+        DEF	Access	
+        DEM	多种程序	演示数据文件
+        DES	Access	
+        DEV	多种程序	设备驱动器文件，含CONFIG.SYS所需参数
+        DFM	Palantir Filer	数据登记项形式文件
+        DGS	DOS		设备诊断文件
+        DIC	多种程序	字典文件，含拼法字典
+        DIF	多种程序	数据交换格式文件，用于两个系统间数据交换
+        DIR	SideKick	目录文件，用于数字键选择
+        DIS	Q&A		Q&A的初始化文件
+        DOC	多种程序	文档(资料)文件
+        DRV	多种程序	设备驱动器文件
+        DTA	多种程序	数据文件
+        DTF	Paradox		数据库文件
+        DVP	Auto CAD	设备参数文件
+        DWG	Auto CAD	绘图示范文件
+        DXF	Auto CAD	绘图交换文件
+        DXX	Auto CAD	属性析取文件
+        EMU	BITCOM		终端仿真文件，含仿真一个终端的信息
+        EPS	Pagemaker	压缩的仿真文件，含压缩的附录打印数据
+        EXE	DOS		可执行的程序文件
+        FMT	dBASE，FOXBASE	屏幕格式文件
+        F#	Paradox		形式数据文件，含形式定义信息
+        FNT	Windows		字形数据文件
+        FNT	LaserFonts	同上
+        FNT	Paint brush	同上
+        FON	Windows		GDI可输入字形数据文件
+        FOR	FORTRAN		FORTRAN语言源程序文件
+        FOX	FOXBASE		FOXBASE伪编译生成的目标文件
+        FRM	dBASE，FOXBAE	报表格式数据文件
+        FX	FOXBASE		配置文件，含系统运行环境参数(CONFIG.Fx)
+        GIB	Graph-Box	统计数据图形文件
+        GRB	MS Windows	
+        GXI	ShowPartner	屏幕图形捕捉文件
+        H	C Compilers	头文件
+        HDX	Auto CAD	索引文件
+        HEX	DEBUG		十六进制数据文件
+        HIN	Access	
+        HLP	多种程序	求助文件，含帮助说明信息
+        ICE	Lhice		压缩文件
+        ICO	MS Windows	图像数据文件，含一幅图像的位映象数据
+        IDX	Q&A，FOXBASE	索引数据文件，含数据库的索引信息
+        IMG	MS Windows	Hi-res扫描图形文件
+        IMP	PC PASCAL	IBM PASCAL实施文件
+        INC	MS PASCAL	包含文件
+        INC	Turbo BASIC	包含文件
+        INI	MS Windows	初始化文件，含初始化系统状态的信息
+        INI	MS Word		打印机初始化文件
+        INT	PC PASCAL	接口文件
+        INT	Xywrite		命令文件
+        IT	Intalk		设置文件
+        JOR	SQL Windows	日志文件
+        KBD	Xywrite		键盘配置文件
+        LAY	Suuperkey	配置文件，含键盘再组合信息
+        LBL	dBASE		标签格式方式
+        LIB	多种程序	库文件，含由编译器产生的标准格式信息
+        LIN	Auto CAD	线形库文件
+        LNK	MS Windows/C	连接文件
+        LOD	多种程序	装入文件
+        LRN	多种程序	教学文件
+        LSP	Auto CAD	列表文件
+        LZH	Lha，Lharc	压缩文件
+        MAC	Prokey		键盘宏定义文件
+        MAC	Superkey	同上
+        MAP	Link		链接映象文件
+        MDM	Access		调制解调器文件，含调制解调器有关信息
+        ME	多种程序	通常为磁盘文件信息READ.ME文件
+        MEM	dBASE，FOXBASE	内存变量文件
+        MID	Atuo CAD	说明文件
+        MNU	Access		菜单数据文件
+        MNX	Auto CAD	编译菜单文件
+        MSG	多种程序	系统说明文件
+        MSP	MS Windows	窗口图形数据文件
+        MOD	MS Windows	
+        NDX	dBASE		索引数据文件
+        NET	Paradox		网络配置文件
+        OBJ	MASM		目标代码文件
+        OVD	Paradox		覆盖文件
+        OVL	多种程序	同上
+        OVR	多种程序	同上
+        OV#	多种程序	同上
+        OV?	Office		覆盖文件：?代表A～Z、0～5
+        PAL	Paint brush	调色板文件
+        PAK	Pak		压缩文件
+        PAS	PASCAL		PASCAL语言源程序文件
+        PAT	Auto CAD	窗口图形体文件
+        PCX	Paint brush	图形数据文件
+        PCC	Paint brush	剪裁图形数据文件
+        PFM	MS Windows	打印机字形组合文件
+        PGM	多种程序	程序覆盖文件
+        PGP	Auto CAD	外部命令列表文件
+        PHB	Access	
+        PIC	多种程序	图形数据文件
+        PIF	MS Windows	程序信息文件
+        PIX	多种程序	含一个或多个图形数据文件
+        PJ	SuperProject	设计草图数据文件
+        POL	OFFICE		数据表格文件
+        PRD	MS Word		打印机定义文件
+        PRF	VisiCalc	打印格式文件
+        PRG	dBASE，FOXBASE	过程或程序文件
+        PRJ	Harvard TPM	设计数据文件
+        PRN	多种程序	打印格式文件
+        PRO	PROLOG		PROLOG语言源程序文件
+        PRO	PCSHELL		常常键定义文件
+        PRS	MS Word	
+        PUB	Pagemaker	出版系统数据文件，含页布置数据
+        PX	Paradox		原始索引文件
+        RC	MS Windows	资源正本文件，含MS Windows定义的资源列表
+        REF	CREF		可打印的交叉文件
+        REF	多种程序	使用说明文件
+        R#	Paradox		报表格式文件
+        SC	Paradox		正本文件，含一个PAL正本程序
+        SCN	Microsoft	屏幕文件
+        SCP	BITCOM		正本文件，含对通讯期间的一个宏正本
+        SCR	Access		正本文件
+        SCR	Auto CAD	命令草体文件
+        SET	Paradox		设置文件，含设置一个表或格式的信息
+        SHP	Auto CAD	形状/字体定义源文件
+        SHX	Auto CAD	形状/字体定义已编辑文件
+        SLD	Auto CAD	幻灯文件
+        SOB	Microsoft	联机指导文件
+        SOM	Paradox		分类信息文件
+        SPL	SQL Windows	SQL TALK假脱机文件
+        SPS	Mouse	
+        SPT	SuperStar(SPT)	图形文件，可与WPS文件混合排版
+        SQL	SQL Windows	数据文件
+        SRF	Auto CAD	矢量文件
+        STY	MS Word		类型表文件，含类型格式化信息
+        SYM	MS Windows	符号调试定义文件
+        SYN	Word Finderk	同义词数据文件
+        SYM	Windows		符号调试定义文件
+        SYN	Word Finderk	同义词数据文件
+        SYS	多种程序	系统设置驱动器文件，设置在CONFIG.SYS中
+        TAB	多种程序	表格文件
+        TEL	PCSHELL		通讯数据文件
+        TIF	Microsoft	标签格式信息文件
+        TIF	SuperStar	SPT图像文件
+        TM	Desktop		时间计划文件
+        TMP	多种程序	临时文件
+        TRE	PCSHELL		系统路径文件
+        TPL	Access	
+        TUT	多种程序	教学文件
+        TXT	多种程序	文本文件
+        VAL	Paradox		有效的校对文件
+        VC	VisiCalc	VisiCalc分层文件
+        WKI	Lotus 1-2-3	版本2分层文件
+        WKS	Lotus 1-2-3	版本1分层文件
+        WMF	MS Winodws	中间图形文件
+        WPS	WPS		WPS字处理格式文档文件
+        WRI	MS Winodws	写文档文件
+        X#	Paradox		索引文件
+        XLC	MS Excel	图表文件
+        XLT	MS Excel	分层文件
+        XLT	Lotus 1-2-3	系统结构转换数据文件
+        Y#	Paradox		索引文件
+        Z#	Paradox		同上
+        ZIP	Pkzip		压缩文件
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

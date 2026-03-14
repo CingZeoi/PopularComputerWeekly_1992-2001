@@ -1,0 +1,96 @@
+FoxMail 4.0使用秘技
+
+ 唐奂知 
+2001年 37期
+
+FoxMail 4.0 beta 1版（以下简称FoxMail 4.0）于2001年8月20日成功首发，笔者于当天就下载了该软件抢鲜试用，发现它比原3.11版增色不少（详见《电脑报》2001年33期D12版），这里将我使用中的一些收获撰写成文，但愿对你有所帮助。
+　　#1一、高级模板的建立
+　　FoxMail 4.0新增了HTML邮件编辑功能，并提供了比FoxMail 3.11更强大的模板，其中的HTML模板将使邮件增色不少。但是，FoxMail 4.0毕竟不是专业的HTML编辑器，其HTML模板编辑功能相当简单，其中还存在一些Bug。
+　　为了得到更精美的HTML邮件模板，笔者对FoxMail 4.0作了分析，发现其模板完全是用HTML格式保存的，既然如此，我们就可以用其它专业的主页编辑软件（如FrontPage、IBM网页制作2001、东方网页王Ⅱ、Dreamweaver 4.0、Flash 5.0等）来建立FoxMail 4.0更精美的高级模板。
+　　进入FoxMail 4.0的安装目录，发现里面多了（与FoxMail 3.11相比）几个文件夹，其中的Template文件夹就是用来保存模板的，在Template文件夹的Forward文件夹中是转发邮件的模板、Macro文件夹中为宏、New文件夹中为撰写新邮件的模板、Reply文件夹中为回复邮件时的模板。每个文件夹中的模板都是用*.htm文件格式保存的，用FrontPage2000（或其它网页编辑软件）打开其中一个htm文件，你就可以随意编辑了。
+　　如果要建立新模板，你只需要用专业的网页编辑软件按照自己的意思设计制作，然后将htm文件保存到相应的文件夹，FoxMail 4.0会自动将这些模板添加进去。值得注意的是，新建模板时一定要处理好图片的位置以及FoxMail 4.0的“宏”。
+　　既然可以用FrontPage2000等软件编辑模板，能不能在模板中也来点音乐呢？因为用FrontPage2000等软件为网页添加音乐是轻而易举的事。遗憾的是，对FoxMail试验的结果是模板不支持音乐。
+　　#1二、为HTML邮件增加提示文本
+　　用HTML格式发送电子邮件，能够使邮件更加漂亮美观、富有个性化、易于阅读，但用FoxMail 4.0编写的HTML邮件保存后既有HTML格式，也有文本格式。其中的文本格式就是HTML格式中的文字部分，缺少HTML格式的背景、图片等，当保存或者发送给对方接收后，首先出现的是默认的文本格式，而这些文本是针对HTML格式编写的，阅读反而不方便。
+　　笔者按照图1（^37040406a^）编辑了一个HTML邮件，保存后在FoxMail中打开，首先看到的是如下的默认文本格式：
+　　
+　　欢迎访问飞龙电子主页，  网址：fldz.126.com，  所长：唐奂知
+　　回首页产品信息企业介绍专利介绍论坛联系我们网站大搜索
+　　2001年3月25日　星期日 13:15
+　　
+　　其中的HTML菜单被连在一起，阅读十分不便。能不能不用HTML中的文字作文本格式的内容呢？回答是肯定的。在安装成功FoxMail 4.0后，第一次运行时会收到FoxMail 开发组给你的一封新邮件，这封邮件的文本格式中的文字与HTML格式中的文字格式就完全不同，文本格式内容如下：
+　　
+　　您好，欢迎使用FoxMail 4.0！
+　　这是一个HTML格式的邮件，请用鼠标点击右上方带放大镜图标的按钮进行阅读。
+　　				——FoxMail开发组
+　　
+　　其HTML格式的内容如图2所示（^37040406b^），文本格式只是对HTML格式邮件的一个说明，提示收件人用HTML方式阅读这封邮件。但FoxMail 4.0没有提供这种邮件的编写功能。
+　　为了弄清这种邮件是如何撰写的，笔者对FoxMail 开发组的这一封新邮件进行了分析，在邮件目录中右键单击，选择右键菜单的“原始信息”，也可以用“Ctrl+I”直接打开该邮件的“原始信息”，再选择“原始信息”中的“全部”，你可以看到如下的部分内容：
+　　This is a multi-part message  in  MIME format.
+　　--===001_Dragon356184867805_====
+　　Content-Type: multipart/alternative
+　　boundary=“=====002_Dragon35618 4867805_=====”
+　　--====002_Dragon356184867805_ ====
+　　Content-Type: text/plain
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: 8bit
+　　您好，欢迎使用FoxMail 4.0！
+　　这是一个HTML格式的邮件，请用鼠标点击右上方带放大镜图标的按钮进行阅读。	                                                —— FoxMail开发组
+　　--===002_Dragon356184867805_ ====
+　　Content-Type= text/html
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64
+　　PGh0bWw+DQoNCjxtZXRhIGh0dHAt
+　　ZXF1aXZlPSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9 InRleHQv
+　　……
+　　其中包含了文本格式的“您好，欢迎使用FoxMail 4.0！这是一个HTML格式的邮件，请用鼠标点击右上方带放大镜图标的按钮进行阅读。——FoxMail开发组”内容。
+　　关闭“原始信息”窗口，再右键单击该邮件，选择右键菜单中的“再次发送”，这时出现撰写邮件窗口，不对邮件作任何改变，直接保存为“草稿”，这时的文本格式内容全部变成了HTML格式中的文字，刚才的提示信息丢失！然后打开这封草稿的“原始信息”窗口，选择窗口中的“全部”，可以看到如下的内容：
+　　This is a multi-part message   in   MIME format.
+　　--===001_Dragon030335554654_ ====
+　　Content-Type: multipart/alternative;
+　　boundary=“=====002_Dragon0303355 54654_=====”
+　　--====002_Dragon030335554654_ ====
+　　Content-Type: text/plain;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64
+　　DQqhoaGhICANCiBGb3htYWlsICAgtKbA7dPKvP64/Mfhy8kgDQogIA0KoaGhobjQ0LvE+sq508NG
+　　……
+　　oaGhteO79734yOs+Pg0KDQqhqqGqRm 94bWFpbL+qt6LX6Q0K
+　　--====002_Dragon030335554654_ ====
+　　Content-Type: text/html;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64
+　　PGh0bWw+DQoNCjxtZXRhIGh0dHAt ZXF1aXZlPSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQv
+　　……
+　　不难发现，两次原始信息的内容有了明显的变化，笔者在主要变化部分加了下划线，不难看出，
+　　“Content-Type: text/plain;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”语句后的内容属于在文本格式中显示的内容。
+　　“Content-Type: text/html;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”语句后的内容属于在HTML格式中显示的内容。
+　　如果将上面加着重号的内容更改为我们需要在文本格式下显示的任何内容，也许就能够达到我们的目的，但这样更改后FoxMail提示为无效的文件格式。原来，文本格式应该使用8bit编码方式，超文本格式（HTML格式）应该使用base64方式。再将
+　　“Content-Type: text/plain;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”中的base64改为8bit，终于如愿以偿！
+　　十分遗憾的是，FoxMail不能对邮件“原始信息”直接进行编辑，我们必须另辟蹊径，具体步骤如下：
+　　1.先用FoxMail编辑一封HTML格式的邮件，然后存为草稿。
+　　2.右键单击该草稿→原始信息→全部→编辑→全选→复制，将该草稿的全部原始信息复制到剪贴板。
+　　3.通过“开始→程序→附件→记事本”打开记事本。
+　　4.在记事本中粘贴刚才复制的“原始信息”。
+　　5.将“Content-Type: text/plain;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”语句到
+　　“Content-Type: text/html;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”语句之间的内容改为你需要在文本格式中显示的文字内容。
+　　6.将“Content-Type: text/plain;
+　　charset=“GB2312”
+　　Content-Transfer-Encoding: base64”中的base64改为8bit。
+　　7.打开记事本“文件”菜单中的“另存为”，将该文件保存到合适的路径，保存类型选择“所有文件（*.*）”，“文件名（N）”的扩展名一定要输入eml。
+　　8.关闭记事本。
+　　9.选中FoxMail刚才编辑邮件所在账户的发件箱，再通过FoxMail“文件”菜单中的“导入邮件”，导入刚才的*.eml文件。更改成功！
+　　如果读者需要与我交流，请发E-mail给我（fldzyjs@sina.com）。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

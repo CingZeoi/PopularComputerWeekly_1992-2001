@@ -1,0 +1,97 @@
+硬盘测试工具集锦
+
+冯小民  方汗 
+2001年 50期
+
+面对种类繁多的硬盘和狡猾的JS，需要购买硬盘的朋友要想买到一块又好又正宗的硬盘，单凭肉眼是很难分辨的。如何才能选购到质量过硬、货真价实的硬盘呢？下面介绍主要硬盘厂商各自的测试工具，并对测速结果做出分析，从技术的角度来分辨哪块硬盘好，哪块硬盘正宗。
+　　#1一、IBM之DFT
+　　支持硬盘：IBM系列及其它硬盘
+　　启动方式：软盘启动
+　　发布日期：2001年10月15日
+　　下载地址：http://www.mydrivers.com/dir38/d15404.htm
+　　文件大小：1963KB
+　　最新版本：V2.30
+　　DFT（Drive Fitness Test，驱动器适应性测试）是由IBM公司采用的一种硬盘测试技术，DFT可以提供快捷和可靠的方法去测试IBM的SCSI、IDE接口的硬盘，能够全面检测你的IBM硬盘的质量和稳定性，同时，DFT还具有清除引导区、低级格式化硬盘的功能。
+　　#21.安装
+　　直接运行下载的文件会出现一个安装向导，一路“Next”，之后在软驱中插入软盘，DFT安装向导会在软盘中自动安装PC DOS2000，然后重新启动电脑即可。以后使用DFT的时候，就只要这张生成的DFT启动盘就行了。DFT不仅可以在Windows中创建该启动盘，而且在Linux中也可以（前提是下载该软件的Linux版本）。
+　　#22.用法
+　　用DFT启动盘启动后，DFT先检测SCSI设备，随后要求接受最终用户许可协议，之后检测系统中挂接的硬盘，并显示检测结果画面（注意：系统中必须接有IBM硬盘，否则将不能进行任何测试），从列表中选择要操作的硬盘（经笔者使用发现，只要有IBM硬盘挂接在系统中，选择任何硬盘均可），然后进入主界面。
+　　在主画面上有“Quick Test”与“Advanced Test”两个主要的功能按钮，它们可以对硬盘进行不同的测试：执行“Quick test”将依次进行“Basic Test”（基本测试）、“Interface Test”（接口测试）、“Analyzing Media”（分析磁盘介质）、“Seek Test”（寻道测试）、“SMART Self Test”（SMART状态测试）。“Advanced Test”与“Quick Test”相比，在“Interface Test”之后将进行“Analyzing SMART”测试，然后再进入“Analyzing Media”阶段，且“Analyzing Media”用时较多。两种测试中途都将屏蔽鼠标，要终止测试可随时按ESC键。
+　　在主界面的“Fitness Test”菜单下，单击“Exerciser”（练习）项将先进行“Advanced Test”，然后用随机数据在设定的时间内（最少为30分钟）模拟硬盘处于大数据量读写时的状态，以检查硬盘是否会断续出现问题，建议最好进行此项测试。
+　　在“Utilities”菜单下，“Erase Boot Sector”用于清除硬盘的主引导记录；“Erase Disk”将向硬盘的每个扇区填入空白数据（当怀疑硬盘介质有问题时可以尝试用它来修复）。
+　　#23.测试结果分析
+　　在完成测试之后，DFT都会出示一份测试结果（Test Results），并以十六进制（在0x00-0x7f之间）数的值作为错误代码来表示对应的测试结果。如果测试成功会显示“Operation Completed Successfully”（成功完成测试），并显示“0x00”。你还可以通过“Utilities”下的“Drive Info”来查看所测试的硬盘信息（包括型号、容量、缓存大小、Ultra DMA、S.M.A.R.T.功能等）。下面是部分十六进制数对应的结果：
+　　0x00──没有错误，0x10──测试失败，0x40──系统错误，0x41──线路损坏，0x44──系统震动，0x70──硬盘有缺陷，0x72──硬盘SMART错误，0x73──硬盘由于震动而损坏，0x74──SMART安全测试错误
+　　#1二、希捷（Seagate）之SDD
+　　支持硬盘：希捷及其它硬盘
+　　启动方式：软盘启动
+　　发布日期：2001年8月20日
+　　下载地址：http://www.mydrivers.com/dir35/d14379.htm
+　　文件大小：1616KB
+　　最新版本：V1.04.03
+　　SDD（SeaTool Disc Diagnostic，希捷硬盘诊断工具）可以对希捷系列硬盘和其它硬盘进行全面测试，如果系统有故障，它还会帮助确定故障原因，并出示测试报告。主要包括Seagate Diagnostic（希捷诊断）和Generic Diagnostic（通用硬盘诊断）部分。它可以运行在386以上、8MB内存的PC中，它的物理测试可以运行在所有PC操作系统中，如Windows 95/98/2000/NT，OS/2等。SDD支持测试FAT文件系统结构，但不支持NTFS、HPFS文件系统的检测。
+　　#21.安装
+　　和IBM的DFI一样，运行下载后的软件，SDD将自动生成一个启动工具盘，软盘内包括一个能启动的特别的Ontrack操作系统。
+　　#22.用法
+　　用SDD启动盘运行ONTRACK Standalone OS V2.00操作系统，在SDD主界面中，选择“SeaTools Short Diagnostic”项对希捷系列硬盘进行快速测试（大约需要90秒），然后选择“SeaTools Extended Diagnostic”项作彻底分析，通过测试、扫描来发现硬盘中的物理错误，它是以90GB/s的速度测试，最后选择“View SeaTools Diagnostic Report”项查看对硬盘测试的结果。
+　　如果你使用的硬盘不是希捷硬盘，可以选择“Generic Diagnostic”项对其它种类的硬盘进行测试，其中又包括Quick Diagnostic（快速诊断）和Full Diagnostic（全面诊断）两项，快速诊断的过程需要90秒左右，而全面诊断需要的时间就更长了，测试界面下方会显示剩余的时间。对非希捷系列的硬盘测试完毕之后，可通过选择“View Generic Diagnostic Report File”项来查看对该硬盘的测试结果。
+　　#23.测试结果分析
+　　对希捷硬盘进行测试时，SDD会将“Short Diagnostic”或“Extended Diagnostic”测试结果保存到一个名为“Seagate.log”的日志文件中，可以通过该文件来查看希捷硬盘的各项参数，型号，有无错误等。
+　　对其它硬盘进行测试时，如选择快速诊断，只对Device Diagnostic（硬盘诊断）、SMART状况检查、Quick Functional Test（快速功能测试）、Random Read Test（硬盘随机读取测试）四项进行90秒的测试，测试后，如左侧出现“绿灯”就表示通过，还会有“Drive is Good”的字样；如果选择的是全面诊断，SDD会进行Quick Functional Test、SMART Status Check（SMART状况检查）、Complete Surface Scan（硬盘全面扫描）、File Structure Test（文件分区结构测速）、System Memory Test（系统内存测试），只有在对应的方框中都标上了“绿钩”，或者在右侧“Test Status”中的“Test”下都显示“Passed”后，才可以认为该硬盘符合要求。在检测S.M.A.R.T.的时候，如出现“Alert”字样就表明有问题发生，如出现“Unsupported”字样就表示该硬盘不支持SMART技术；在检测其它项目时，如出现“Minor Error”或“Failed”字样，就表明该硬盘有问题，应该要求更换硬盘重试。另外，在完成对非希捷硬盘的测试后，结果将保存到一个名为“Advlog.txt”文件中。
+　　#1三、昆腾（Quantum）之DPS
+　　支持硬盘：昆腾和其它硬盘
+　　启动方式：软盘启动
+　　发布日期：2001年2月3日
+　　下载地址：http://www.mydrivers.com/dir28/d11323.htm
+　　文件大小：724KB
+　　最新版本：V1.02
+　　DPS（Data Protection System，昆腾数据保护系统）是昆腾公司针对昆腾系列硬盘开发的检测工具软件，支持S.M.A.R.T.技术，可以测试ATA（IDE）、SCSI硬盘。在最新的V1.02版中，DPS有能力去修复硬盘已损坏的扇区，特别的是，DPS还可以对硬盘进行完全备份。目前，QPS可以支持昆腾出品的大脚（Bigfoot）、火球（Fireball）、大力神（Atlas）系列及海盗船（Viking）Ⅱ代硬盘（不支持早期的SCSI硬盘）。
+　　#21.安装
+　　直接运行已下载的文件，并按照提示一步一步创建一个启动盘，软盘内就包括了DPS的全部内容。有了这张软盘，你就可以对硬盘进行质量检测了。
+　　#22.用法
+　　用DPS工具盘启动后，程序先要求选择是否有SCSI硬盘，然后会自动搜寻挂接的硬盘并进入DPS主界面。你可从硬盘前面的编号中选择相应的硬盘进行测试。注意：PName项目下“Pmaster”表示接在IDE0上的主设备，“Pslave”代表IDE0上的从设备，“Smaster”代表IDE1上的主设备，“Sslave”代表IDE1上的从设备。
+　　接下来，DPS将对硬盘进行“SMART Check”（检测SMART状态）、“Ram Buffer TEST”（缓冲测试）、“Drive Diagnostics”（驱动器检测）、“Physical Head Test”（磁头测试）、“Random Verify Test”（随机校验测试）、“Quick Media Scan”（快速介质扫描）、“Surface Scan”（磁盘表面测试）等多项测试，其中“Surface Scan”耗时较长。每测试完一项，程序就会在该项后显示结果，当所有测试项目都显示“PASS”时才表示硬盘完好，否则应尽早备份硬盘数据并将硬盘送修。
+　　此外，DPS这个工具也可用于测试非昆腾硬盘，不过在检测“SMART Check”一项时，软件会提示不支持（因为各个厂商所用的S.M.A.R.T技术不完全相同）。最后，完成测试之后，DPS会询问你是否保存测试结果，选择“S”就可将测试结果保存到一个名为“Qdps.prn”文件中。
+　　#23.测试结果分析
+　　QDPS可以进行S.M.A.R.T.测试、RAM Buffer Test（RAM缓冲区测试）、Drive Diagnostics（硬盘驱动器诊断）、Physical Head Test（硬盘物理磁头测试）、Random Verify Test（随机校验测试）、Quick Media Scan（硬盘快速扫描）、Full Surface Scan（硬盘全面扫描）等，只有当所有项目测试结果都显示为“Pass”，才可以认为该硬盘符合要求。而且，在界面的右侧会显示出测试结果及QDPS提出的相关建议。
+　　#1四、西部数据（WesternDigital，简称WD）之DLT
+　　支持硬盘：WD硬盘
+　　启动方式：软盘启动
+　　发布日期：2001年10月27日
+　　下载地址：http：//www.mydrivers.com/dir39/d15857.htm
+　　文件大小：1353KB
+　　最新版本：V2.8
+　　DLT（Data Lifeguard Tools，数据卫士工具）是由WD公司开发的一个集EZ-Install（EZmaker.exe，EZ-安装）、Diagnostics（dlgdiag.zip，诊断）、BIOS Check（dlgchk.zip，BIOS检测）、Ultra ATA Management（dlgudma.zip，Ultra ATA管理器）四项功能的工具套装，分别对应的功能是快速、容易地安装WD硬盘并分区和格式化硬盘、迅速而安全地在硬盘间复制数据，全面测试、诊断WD硬盘、在出现问题时迅速诊断和修复硬盘，通过BIOS检测报告实际测到硬盘数量及各项硬盘参数信息，对WD EIDE硬盘的Ultra ATA 33/66/100功能进行开启或禁用。
+　　另外，DLT还具有“S.M.A.R.T.监测硬盘”及特有的“环境保护过滤器”（保护硬盘内部免受潮湿、温度和污染的影响）、“保护性磁头归位”（即使在其他系统部件丧失功能的情况下也能安全归位磁头）等功能。
+　　#21.安装
+　　在Windows下直接双击已下载的文件，之后会启动MS-DOS方式，并运行“Data Lifegaurd Disk Maker”来制作DLT启动盘，选择“Continue”，再插入软盘到软驱中，再选择“Continue”即可开始制作DLT启动盘。
+　　#22.用法
+　　在软驱中插入制作完成的DLT盘，再从软驱重新启动电脑，它跟QDPS一样都是借助于Caldera DR-DOS来启动诊断工具的。因为本文主要介绍的是硬盘测试的内容，所以这里着重介绍DLT的“Diagnostics”（诊断）功能。大家使用的时候，可以在DLT主界面的“Select Program”下选择“Diagnostics”项，之后会载入“Dlgdiag.exe”程序进入诊断主菜单，其中通过“Select Drive”项可以选择硬盘驱动器，通过“Quick Test”项可以对所选的硬盘进行90秒左右的智能测试（可能不支持早期的WD硬盘），通过“Extended Test”项可以对所测的硬盘进行5～20分钟的全面测试（容量大的硬盘，测试的时间会长一些，而且电脑性能的好坏也会影响到测试的时间），通过“Write Zeros to Drive”项对硬盘进行低级格式化的操作，通过“View Test Results”项可以查看最近一次测试的结果，通过“Print Test Results”项可以将最近一次测试的结果打印出来。在测试的同时，如果DLT发现硬盘有错误，它会自动去修复该错误。至于DLT其它功能的使用，大家可以参考各项功能后的“Quick help”。
+　　#23.测试结果分析
+　　DLT只能对WD系列硬盘进行测试和诊断，完成测试后会出示结果。在测试结果中，如出现“DRIVE HAS NO ERRORS”就表示被测试的硬盘已通过测试，没有错误；如出现“CONTACT WD TECH SUPPORT”就表示被测试的硬盘未通过测试，但用户可以寻求WD的技术支持；“NON-WD DRIVE DETECTED”表示被测硬盘不是WD硬盘也不是额外支持测试的硬盘。
+　　#1五、迈拓（Maxtor）之PD
+　　支持硬盘：仅支持迈拓硬盘
+　　启动方式：可在Windows下的MS-DOS方式中运行
+　　发布日期：2001年10月23日
+　　下载地址：http：//www.mydrivers.com/dir39/d15680.htm2
+　　文件大小：146KB
+　　最新版本：V3.0
+　　PD（PowerMax Diagnostic，超级诊断）是Maxtor官方网站发布的迈拓硬盘专用检测软件，可以对迈拓硬盘的读/写功能进行诊断，测定迈拓硬盘的完整性，可以发现并解决硬盘潜在的问题（如有坏簇、有坏扇区、分区/格式化错误等等），适用于全部的Maxtor 3000、7000、8000、5000以及9000系列硬盘。可运行在Windows 95/98/2000/NT操作系统环境下。注：Maxtor以前的硬盘检测软件名为MAXDIAG.EXE，可在他们早期发布的MaxBlast/MaxBlast Plus程序中找到。
+　　#21.安装
+　　直接点击下载的文件，就可以安装，安装完成之后会生成“Powermax.exe”、“CHIPSET.DRV”、“20014.txt”三个文件。运行Powermax.exe就可以启动Maxtor的硬盘专用检测程序。
+　　#22.用法
+　　在Windows中双击“Powermax.exe”，键入两次“Y”字母键后，该程序会检测已安装的硬盘驱动器，如果正确的话，再键入一次“Y”键，在选择要检测的硬盘后，就会进入主界面，随后大家在“Select Test”下选择“Basic Quick Test”项可以对你的迈拓硬盘进行90秒的快速测试，如果测试未获通过，可以选择下面的“Advanced Test”项对该迈拓硬盘重新进行高级测试，这个测试过程大概需要20～30分钟的时间。“Burn In Test”项可以对迈拓硬盘进行长时间的反复测试，你可以在“How Many Passes（1-60）？”中输入循环的次数。大家要注意的是，不要选择“Write Disk Pack（low level format）”项，因为该项功能就是对硬盘进行低级格式化操作。购买迈拓硬盘的朋友，也可以将上述完成PD安装之后生成的三个文件拷贝到软盘中，这样就可以直接通过软盘中的诊断程序来对迈拓硬盘进行测试了。
+　　#23.测试结果分析
+　　测试完毕，在主界面右侧的测试结果框中显示“Congratulations! Your drive has passed the Basic Quick Test.”就表示你的迈拓硬盘顺利通过快速测试；如果显示“Congratulations Your drive is certified error free Press any key to continue and return to the Powermax Main Menu”就表示通过高级测试；如果显示“Passed”就表示该迈拓硬盘通过PD的“Burn In”（强化）测试。朋友们在购买迈拓硬盘的时候，如果时间充裕可以考虑使用“Burn In Test”来对硬盘进行反复测试，这样可以确保硬盘的质量和稳定性。
+　　#1六、三星（Samsung）之SD
+　　支持硬盘：仅支持三星硬盘
+　　启动方式：纯DOS下运行
+　　发布日期：2000年8月23日
+　　下载地址：http：//www.mydrivers.com/dir21/d8414.htm
+　　文件大小：213KB
+　　最新版本：V1.23
+　　SD（Self-diagnostic，自我诊断）是由三星公司开发的专门诊断三星硬盘故障的程序，主程序名为“Shdiag.exe”，只能在纯DOS模式下运行，想购买三星硬盘的朋友可以将该程序拷贝到软盘中随身携带使用。使用的方法很简单，在DOS中运行“Shdiag.exe”，之后程序会询问你“Do you agree to above terms?”（是否同意上述条款），选择“Y”就可以检测出发现的硬盘列表，选择某个三星硬盘，回车之后就可以测试了。测试内容包括硬盘磁道柱面、SMART属性测试、硬盘读/写测试等六个项目，当这六个项目都“PASS”过去，我们还可以选择“Y”对硬盘进行全面扫描，完毕后，如果显示“Your Samsung HDD has no errors”字样，就表示所测的硬盘没有错误，这样我们可以就购买该硬盘。由于使用三星硬盘的朋友不是很多，所以这里只简单地介绍一下。
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

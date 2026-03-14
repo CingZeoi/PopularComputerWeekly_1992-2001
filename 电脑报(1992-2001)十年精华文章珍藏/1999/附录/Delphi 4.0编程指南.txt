@@ -1,0 +1,360 @@
+Delphi 4.0编程指南
+
+何渝
+1999年 第52期 01版
+
+    Delphi是一种基于Object Pascal的快速开发工具，具有执行效率和开发效率都很高的特点。Delphi的生产厂家Insprise（其前身是Borland公司）是一家专门生产开发工具的公司，其产品有Delphi、Borland C++/Borland C++Builder等，很受我国程序员欢迎。
+#1一、Delphi编程特色
+    Delphi和初学者常用的VB一样是可视化开发工具，比较而言，用VB写的程序最终的执行程序是P-Code伪代码，要解释执行，速度与Delphi自然不可比；VB的程序不是独立的，它需要一些DLL动态链接库文件的支持，而Delphi 可以生成一个独立的完整的.EXE文件。而且Delphi 的源程序极类似于自然语言，还有易读易懂的优势。
+    Delphi几乎可以写出所有Windows应用程序，包括系统工具软件在内的一般应用程序、多媒体应用程序等。还具有丰富的数据库支持，被公众评为最有前途的开发系统。
+    Delphi最大的特色在于VCL——一个封装了Windows几乎所有的API（应用程序接口）和消息的可视化类库。注意，Delphi的可视化编程思想和VB一样，因此Delphi的界面设计也是将各种可视化组件（VCL）放到窗体（Form）上合适的位置，体现Windows的所见即所得。
+    对初学编程者，VCL的好处在于没必要去研究Windows的API，你只需要熟悉你所要应用领域的计算机解决的方法。
+    对于Delphi的编程，我们总结了“Delphi编程三境界”和大家共同讨论：
+    第一境界：VCL编程。在这个层次上，你只知道Pascal的基本语法，了解对象的一点概念，能理解VCL的作用，知道一点Windows编程的特点就可以了。
+    第二境界：Win32编程。在这个层次上，你要明白Win32的工作原理，熟悉Win32 API。就能编写出有特色的Windows应用程序。
+    第三境界：面向对象编程。不知道有多少人向往着达到这个境界。在这个层次上，你要对OOP的思想方法和Object Pascal的语法有着比较深刻的了解。对于某一个领域的应用，你要能快速的用面向对象的方法分析，并得到一定的类层次结构，然后用一种工具实现。
+    对于大多数应用，达到VCL编程的境界就可以了。今天的人们，更多是用VCL做软件，而不是编写软件。
+#1二、经典的Hello World
+    一个新的开发工具的出现，程序员就用显示出“Hello World”之类的语句来测试它，以了解它的特点。
+    我第一次用Delphi打出这句话的时候，几乎目瞪口呆！因为实现同样的功能，用C语言要写近100行代码，而用Delphi则一行都不用写。
+    让我们看看怎么做：
+    启动Delphi，出现Delphi的界面（^520107a^1）。你可以按一下F9执行一下程序，噢，只是一个空的窗口，什么也做不了。
+    这就是Delphi的一大特色了，她提供了一个基本的应用程序骨架，你只要给她添加血肉，美美容，丑小鸭就能变成白天鹅。
+    首先，单击Object Inspector（对象浏览器）下的Properties（属性）页的Caption，将Form1，改成Hello，World。这将是程序窗口的显示名。
+    然后，单击组件栏中Standard页的“A”图标，接着就在设计窗体Form1上点一下，你会发现一个标签（Label）出现在窗体上。一般把这种操作称为“夹菜”。
+    然后，我们修改Label1的Caption属性为“Hello，Delphi”。按F9执行，在Delphi下的第一个Windows程序就制作完毕了。
+    可以看出，Delphi编程的最大特点是可视化，你只须把相应的组件拖动到合适的位置，设置相应的属性即可。而少量的代码，只不过是让窗体上众多组件协同工作，起一个胶水的作用。
+    比如，我们在Label1的Event（事件）页的OnClick处双击，在代码窗体的begin和end之间加入：“Label1.Caption:=＇Hello，World!＇；”语句。
+    按F9执行，我们看到：当单击“Hello，Delphi”时，就变成了“Hello，World”。
+    我们已经知道学好Delphi的第一步就是掌握常用VCL组件，这是构建大多数应用程序的基础。所以我们下面就对Delphi中的常用VCL组件进行介绍，方便大家编程时备查。
+#1三、Standard页上的组件
+    Standard页上含有14个组件（^520107b^2），它们对构造窗体是十分有用的，下面介绍它们的功能和部分属性。
+#11.MainMenu组件
+　  主菜单是应用程序的重要组成部分，使用Delphi提供的MainMenu组件可以快速方便地建立下拉式菜单。
+    【常用属性】
+    ·Items属性控制菜单项的内容。单击右边的“...”可弹出菜单设计器窗口（Menu Designer），在其中可以设置各个菜单项。
+    在Delphi 4中，TMenuItem增加了Bitmap项，你可以在菜单名前放置一个小图标，就象Delphi4自己的菜单。
+#12.PopupMenu组件
+    PopupMenu组件用来建立弹出式菜单，也就是单击鼠标右键弹出的菜单，这些菜单对许多应用程序是非常有用的。
+    【常用属性】
+    ·Alignment  控制菜单弹出后鼠标箭头的位置，可选值有：
+    paCenter—位于菜单中间。
+    paLeft—位于菜单左侧（缺省值）。
+    paRight—位于菜单右侧。
+    ·Items  该属性控制菜单项的内容。同样单击该属性右边的“...”按钮，可出现菜单设计器窗口。
+#13.Label组件
+    Label组件用于标注事物的含义，如窗体名称、输入提示等上面我们已经用过。
+    【常用属性】
+    ·Align  控制Label组件的位置。可选值有：
+    alBottom—位于窗体的底部。
+    alClient—充满整个窗体。
+    alLeft—位于窗体的左部。
+    alNone—用户自定义大小和位置（缺省值）。
+    alRight—位于窗体的右部。
+    alTop—位于窗体的下部。
+    ·Alignment  控制标注内文字的位置。可选值有：
+    taCenter—居中。
+    taLeftJustify—居左（缺省值）。
+    taRightJustify—居右。
+    ·AutoSize  当值为真时，能自动使标签的大小和标签内文字的大小保持一致。
+    ·Caption  标题，即标签内的文字。
+    ·Color  颜色。控制标签的背景颜色。缺省值为clBtnFace，即与窗体的背景颜色相同。
+    ·Cursor  鼠标指针移入标签内后的形状。
+    ·DragMode  拖动的作用方式。该属性决定DragCursor属性是否起作用。仅当设置为dmAutomatic时，DragCursor属性才会起作用。
+    ·DragCursor  决定按下鼠标左键后鼠标指针的形状。
+    ·Enabled  决定标注是否处于激活状态。当其值为False时，标签内的文字呈浅灰色。
+    ·Font  字体。用于控制标签内文字的各项特征。单击Font右边的“...”按钮将会弹出Font对话框，在其中可以设置字体、字体样式、字体大小和字体颜色等。
+    ·Hint  提示信息。
+    ·ShowHint  仅当该属性为True时提示信息才会出现。
+    【常用事件】
+    ·OnClick  当单击组件时发生的事件。
+    ·OnDblClick  当双击组件时发生的事件。
+    后面的组件大多有上述事件，不再重复。
+#14.Edit组件
+    Edit是编辑框组件，可以在其中输入单行文本。
+    【常用属性】
+    ·BorderStyle  边界类型。可选值有：
+    bsNone—无边界。
+    bsSingle—单线边界（缺省值）。  
+    ·CharCase  控制文本框中字符的大小写。可选值有：
+    ecLowerCase— 文本框内的字符全部为小写。
+    ecNormal—文本框内的字符为标准状态，可大小写。
+    ecUpperCase—文本框内的字符全部为大写。
+    ·Ctrl3D  控制文本框是否以3D（三维）形式显示。
+    ·Cursor  指针形状。决定鼠标指针移入文本框内后的形状。缺省值为crDefault，即通常看到的箭头形状。
+    ·Enabled  决定文本框是否可以输入文本。
+    ·Font  字体。单击Font右边的“...”按钮将会弹出Font对话框，在其中可以设置字体、字体样式、字体大小和字体颜色等。
+    ·MaxLength  能够输入字符的最大长度。缺省值为0，表示没有限制。
+    ·Text  文本框的文本。
+    【常用事件】
+    OnChange  当文本框中的文本改变时发生该事件。
+#15.Memo组件
+    与Edit组件不同，Memo组件用于处理多行文本
+    【常用属性】
+    ·Ctl3D  决定该组件是否具有3D效果。当其值为True时具有3D效果；当其值为False时无3D效果。缺少值为True。
+    ·DragMode  决定DragCursor属性是否起作用。缺省值为dmManual，即不起作用。必须将其设置为dmAutomatic，DragCursor属性才起作用。
+    ·DragCursor  决定按下鼠标左键后鼠标指针的状态。
+    ·Enabled  决定该组件是否处于激活状态，可以处理事件。
+    ·Lines　Memo组件框中的字符串设置。按下该属性右边的“...”按钮，可弹出一个对话框，在其中可以设置Memo组件框的缺省显示内容。
+    ·MaxLength  最大长度，为0表明不受限制。
+    ·ReadOnly  只读属性。决定Memo组件框中的文本是否为只读，缺省值为False。
+    ·ScrollBars  滚动条。决定是否为Memo组件框加上滚动条。可选项有：
+    ssBoth—垂直滚动条和水平滚动条。
+    ssHorizontal—水平滚动条。
+    ssNone—两种滚动条都不要（缺省值）。
+    ssVertical—垂直滚动条。
+    ·WantReturns  当该值为True时，在Memo组件框中按下回车键时，则在当前光标处产生一个回车符。若为False，则只有按下Ctrl+Enter键才产生一个回车符。
+    【常用方法】
+    ·Clear  清除Memo组件框中的文本。用法如下：
+    Memo1.Clear；
+    ·Add  向Memo组件框中添加文本。用法如下：
+    Memo1.Lines.Add（字符串）；
+    ·SelectAll  选中Lines中所有内容。
+    ·ClearSelection  清除所选内容。例如：
+    memo1.SelectAll；
+    memo1.ClearSelection；
+    【常用事件】
+    OnChange  当Memo组件框中的内容变化时产生该事件。
+#16.Button组件
+    Button组件用于向窗体添加命令按钮。
+    【常用属性】
+    ·Cannel  决定此Button组件的OnClick事件是否执行当Esc键按下时，非常有用。
+    ·Caption  标题，即命令按钮上出现的文字。通过该属性还可为按钮设置快捷键，方法是在希望其成为快捷键的字符前加“&”符号。
+    ·Cursor  控制当鼠标指针移到命令按钮上时的形状，缺省值为crDefault。
+    ·DragMode  决定DragCursor属性是否起作用。缺省值为dmManual，即不起作用。必须将其设置为dmAutomatic，DragCursor属性才会起作用。
+    ·Enabled  决定命令按钮是否有效。
+#17.CheckBox组件和RadioButton组件
+    CheckBox是复选框组件，RadioButton组件用于向窗体添加单选按钮。用于在程序中设置参数，许多对话框中可以看到。
+    【常用属性】
+    ·Caption  标题。用来说明复选框的作用。
+    ·Checked  确定复选框/单选按钮是否处于选中状态。为True表示选中。缺省值为False。
+    ·DragCursor  决定按下鼠标左键后鼠标指针的形状。
+    ·State  用于说明复选框当前处于什么状态。有cbChecked，cbCrayed，cbUnChecked三种，单选按钮无此属性。
+#18.ListBox组件
+    ListBox组件用于向窗体添加列表框，使用户可以从列表中进行选择。
+    【常用属性】
+    ·BorderStyle  边界类型。
+    ·Items  设置列表框中的项。单击该属性右边的“...”按钮可出现String List Editor对话框，在其中可输入列表框的缺省项。
+    ·ExtendedSelect  扩展选择框。决定是否允许列表框存在多选模式。仅当值为True时，MultiSelect属性才会起作用。
+    ·MultiSelect  决定是否允许选择多项。
+    ·Sorted  决定是否自动为列表框中的项排序。
+    【常用方法】
+    ·Clear  清除列表框中的所有项。如：
+    ListBox1.Items.Clear；
+    ·Add  向列表框中添加项，Append有类似功能。如：
+    ListBox1.Items.Add（＇字符串＇）；
+    ·Delete 删除某一项。  
+    listbox1.Items.Delete（1）。
+#19.ComboBox组件
+    ComboBox组件用于向窗体添加组合框。其作用是从下拉式列表中选择一项。比如常见的Word中字体，字号选择。
+    【常用属性】
+    ·DropDownCount  在组合框下拉区域可以容纳的项的个数。缺省值为8。注意，这并不意味着只能写8个项，而是在一个框内可以显示的项，其他项可通过滚动条来选择。
+    ·Enabled  决定复选框是否处于激活状态。
+    ·Items  设置组合框中的项。单击该属性右边的“...”按钮可出现String List Editor对话框，在其中可输入组合框的缺省项。
+    ·MaxLength  决定一个数据项的最大长度。缺省值为0，表示没有限制。
+    ·Name  程序中标识名字。
+    ·Sorted  决定是否自动为组合框中的项排序。
+    ·Style  决定组合框的类型。可选值有：
+    csDropDown—有编辑功能，并且还有下拉式列表。
+    csDropDownList—没有编辑功能，但有下拉式列表。
+    csOwnerDrawFixed—高度由itemHeight属性决定。
+    csOwnerDrawVariable—项的高度视实际情况而变化。
+    csSimple—有编辑功能，但没有下拉式列表。
+    ·Text  文本。用来显示当前选中的项。
+    【常用方法】
+    和ListBox组件相似，主要是用Items下的Add，Append，Clear，Delete。
+#110.ScrollBar组件
+　   ScrollBar组件用于向窗体添加滚动条。
+    【常用属性】
+    ·Kind  设置滚动条的摆放样式。可选值有：
+    sbHorizontal  水平滚动条。
+    sbVertical  垂直滚动条。
+    ·LargeChange  最大改变值。设置单击滚动条上滑块与箭头之间的区域时滑块的移动值。缺省值为1。
+    ·Max  最大值。设置滚动条代表的最大数值。缺省为100。
+    ·Min  最小值。设置滚动条代表的最小数值。缺省为0。
+    ·SmallChange  最小改变值。设置单击滚动条两边的箭头时滑块的移动值。
+    【常用事件】
+    OnScroll  当用户使用滚动条时发生的事件。
+    OnChange  当滚动条位置发生变化时产生该事件。
+#111.GroupBox组件
+    GroupBox组件用来在窗体上放置一个组框。在这个组框上可以放置其他组件，以作为一个组同别的组件相区别。
+#112.RadioGroup组件
+    RadioGroup组件用于产生一个单选组框。它也是一个组框，专门用来放置单选按钮。
+    【常用属性】
+    ·Items  设置出现在单选组框内的按钮。单击该属性右边的“...”按钮可出现String list editor窗口，其中的每一行作为一个单选按钮出现。
+#113.Panel组件
+    Panel组件用来产生一个面板。在窗体上放置几个面板可反窗体分为几个功能区，使用户界面清晰、美观。
+    【常用属性】
+    ·BevelInner  内部方式。面板分外框和内部两个部分。决定内部的存在方式。可选值有：
+    bvLowered—凹进。
+    bvNone—不设置（缺省值）。
+    bvRaised—凸出。
+    ·BevelOuter  外框方式。该属性决定外框的存在方式。可选值有：
+    bvLowered—凹进。
+    bvNone—不设置（缺省值）。
+    bvRaised—凸出。
+    ·BevelWidth  外框宽度。缺省值为1。
+    ·BorderStyle  边界类型。可选值有：
+    bsNone—无边界（缺省值）。
+    bsSingle—单线边界。
+    ·BorderWidth  边界宽度。缺省值为0。
+    以上几个属性使得Pannel组件显出不同形态。
+    【常用事件】
+    OnResize  当Pannel组件的尺寸发生改变时产生的事件。
+#1四、Additional页上的组件
+    Additional页上含有13个组件（^520107c^3）。这些组件是标准组件的补充，利用这些组件可以设计出功能强大的应用程序。
+#11.BitBtn组件
+    BitBtn组件用于向窗体添加位图按钮。这些按钮上可以带一个小的位图。它的属性、事件和方法都和Button组件差不多。
+    另有一个SpeedButton组件用于产生一个快捷按钮。我们常把它放在工具栏上。
+    【常用属性】
+    ·Glyph  位图按钮上的位图。单击该属性右边的“...”按钮，可出现Picture Editor对话框，在其中可以选择一个位图。
+    ·Kind  样式。指位图按钮上位图的样式。可选值有：bkAbort，bkAll，bkCancel，bkClose，bkCustom，bkHelp，bkIgnore，bkNo，bkOk，bkRetry，bkYes。可以看出，这里除了bkCustom项以外都是一些常用的操作。在Kind属性里提供它们的目的在于可以直接使用标准的“Cancel”、“No”等命令按钮的图片，而不必繁锁地去寻找它们。bkCustom是一个缺省项。如果设置了Glphy属性，则该项自动出现在Kind属性框中。
+    ·Layout  决定位图按钮上的位图所处的位置。可选值有：blGlyphLeft位于按钮上文字的左边（缺省值）；blGlyphRight位于按钮上文字的右边等等。
+    ·Spacing  控制位图与文字之间的距离。
+#12.Image组件
+    Image组件用于在窗体的某一位置放置一幅图像。Delphi还有一个ImageList组件，它是一个不可视组件，用于存放同样大小的图像，每一幅图像可以通过索引来引用。而Shape组件则仅仅用于显示一些基本的图形。
+    【常用属性】
+    ·AutoSize  使Image组件大小与图像的尺寸自动相符合。缺省值为False。
+    ·Center  使图像居于Image组件的中央。缺省值为False。
+    ·Picture  设置在Image组件中显示的图像。单击该属性右边的“...”按钮会弹出Picture Editor窗口，在其中可以载入.bmp，.iw，.wmf三种格式的图像文件。
+    ·Stretch  设置是否使图像自动适应组件的大小。
+    ·Visible  决定运行时图像是否可见。
+#13.ScrollBox组件
+    ScrollBox组件用于向窗体添加滚动框。当要添加的组件较大或较多时，使用滚动框十分方便。
+    【常用属性】
+    ·AutoScroll  当滚动框上的组件超出其边界时，是否自动加上滚动条。
+    ·Enabled  确定运行时滚动框是否处于激活状态。
+    ·Visible  确定运行时滚动框是否可见。
+    ·HorzScollBar  垂直方向上滚动条。
+    ·VertScollBar  水平方向上滚动条。
+#1五、Win32页上的组件
+    Win32页含有16个组件（^520107d^4）。利用这些组件可以建立具有32位Windows 95/NT用户界面风格的应用程序。
+#11.TabControl组件
+    该组件用于向窗体添加标签，当用户选择不同的标签时，可以在该组件的OnChange事件处理程序中更新其内容。
+    【常用属性】
+    ·Enable  决定TabControl组件是否有效。缺省值为True，表示有效。如果将其值改为False，则运行时不能选择标签。
+    ·Hint  提示信息。该属性与ShowHint属性配套使用，如果把ShowHint属性设置为True，则运行时当鼠标移到TabControl组件上时，就会出现Hint属性中的提示信息。
+    ·TabIndex  标识选定标签的组件中的序号，第一个标签的TabIndex值为0，依次类推。
+    ·TabPosition  控制标签的位置。注意，该属性控制的是标签按钮的位置，而不是TabControl组件的位置。可选值有：
+    tpTop—位于组件上部（缺省值）。
+    tpBottom —位于组件下部。
+    ·Tabs  确定标签的个数与名称。单击该属性右边的“...”按钮可出现String list editor对话框，在其中可以输入标签名，一行代表一个标签。
+    【常用事件】
+    OnChange  当选择一个标签后发生该事件。根据TabIndex属性可确定选择的是哪一个标签，并作出相应的处理。
+    OnChanging  当选择一个标签前发生该事件。
+#12.PageControl组件
+    该组件含有一套页面，单击不同的标签可出现不同的页面。它与TabControl不同，TabControl只有一个页面，单击不同的标签时组件显示什么内容由程序控制；而PageControl在单击不同的标签时可出现不同的页，每页可以含有自己的内容。
+    【常用属性】
+    ·ActivePage  PageControl组件当前显示的页。
+    ·Enable  决定PageControl组件是否有效。缺省值为True，表示有效。如果将其值改为False，则运行时不能选择标签。
+    PageControl组件所含的TabSheet页的属性
+    ·Caption  指定该页的标题。
+    ·Enable  决定TabSheet页上的组件运行时是否有效。为True时表示有效；为False时表示无效。可以选择该页，但不能修改该页组件的值。
+    ·PageIndex  标签页的索引，值从0开始。
+#13.RichEdit组件
+    RichEdit是一个富文本框，用户可以在其中输入具有各种字体属性和段落格式的文本，而不像Memo组件只能编辑文本。
+    【常用属性】
+    ·Lines  RichEdit中的字符串设置。单击该属性右边的“...”按钮可弹出String list editor对话框，在其中可以设置RichEdit中要显示的文字。
+    ·MaxLength  决定能向RichEdit中写入的字符串的最大长度。缺省值为0，表示可写入最大长度的字符串。如果为大于0的值，则最多只能写入与这个数值相等个数的字符。
+    ·ReadOnly  只读属性。决定RichEdit中的文本是否为只读。为True表示只读，为False表示可读写。缺省值为False。
+    ·ScrollBars  决定是否为RichEdit组件加上滚动条。
+    【常用事件】
+    ·OnChange  当RichEdit中的文本被改变时发生。
+    ·OnKeyPress  当按下一个字符键时发生。
+#14.TrackBar组件
+    TrackBar是一个滑块组件。它用于表示在一个选中范围内所处的位置。在程序运行时可拖动滑块或单击滑杆来移动位置。还可以通过按PageUp和PageDown键来移动滑块。
+    【常用属性】
+    ·Frequency  指定刻度的大小。
+    ·Max  滑杆的最大刻度。
+    ·Min  滑杆的最小刻度。
+    ·Orientation  控制滑杆的方向。可选值有：
+       trHorizontal—水平方向（缺省值）。
+       trVertical—垂直方向。
+    ·Position  滑块的缺省位置。
+#15.ProgressBar组件
+    ProgressBar组件是一个进度栏组件。用于反馈应用程序中过程的处理进度。
+    【常用属性】
+    ·Max  指定可能位置范围的上限。当处理过程完成之后，Position的值应该等于Max的值。
+    ·Min  指定可能位置范围的下限。
+    ·Position  进度栏当前位置。
+#16.UpDown组件
+    UpDown组件含有一对箭头按钮，单击这两个箭头按钮可改变数值的大小。
+    【常用属性】
+    ·AlignButton  指定与相关组件的相对位置。可选值有：
+       udLeft—位于相关组件的左边。
+       udRight—位于相关组件的右边。
+    ·ArrowKeys  指定是否允许用箭头键来改变值的大小。True表示允许，False表示不允许。
+    ·Associate  相关组件的名称。
+    ·Max  指定值的上限。
+    ·Min  指定值的下限。
+    ·Position  指定相关组件的缺省值。
+#17.HotKey组件
+    HotKey组件用于给应用程序添加热键支持。
+    【常用属性】
+    ·AutoSize  决定热键是否随字体大小自动改变自己的高度。
+    ·HotKey  热键组件当前所含的键组合。
+#18.Animate组件
+    Animate是一个动画组件，用于播放AVI剪辑。例如在拷贝文件期间，可显示从一个文件夹移动到另一个文件夹的文件。
+    【常用属性】
+    ·Active  决定Animate组件是否处于活动状态。当值为True时，组件就会动起来。
+    ·AutoSize  决定Animate组件是否随AVI剪辑自动调整。
+    ·Color  背景颜色。
+    ·CommonAVI  指定Animate组件是否显示一个通用Windows AVI剪辑。可选值有：
+    aviCopyFile—拷贝文件。
+    aviCopyFiles—拷贝多个文件。
+    aviDeleteFile—删除文件。
+    aviEmptyRecycle—清空回收站。
+    aviFindComputer—查找计算机。
+    aviFindFile—查找文件。
+    aviFindFolder—查找文件夹。
+    aviNone—无（默认）。
+    aviRecyleFile—将文件放入回收站。
+#19.StatusBar组件
+    StatusBar是状态栏组件。它通常被放置在窗体底部，用于显示有关应用程序的运行信息。
+    【常用属性】
+    ·Pannels  单击该属性右边的“...”可出现状态栏编辑对话框，在其中可以添加状态栏面板，也就是把状态栏分为多个部分。
+    ·SimplePanel  决定状态栏含有一个还是多个部分。
+    ·SimpleText  当SimplePanel设置为True时，指定状态栏中显示的字符串。
+#110.ToolBar组件
+    ToolBar组件是工具栏。它用于放置工具按钮。
+    【常用属性】
+    ·AutoSize  使工具栏的高度随它所含的组件高度自动调整。
+    ·ButtonHeight  工具栏内按钮的高度。
+    ·EdgeBorders  决定工具栏的边界。
+       ebLeft—有左边界。
+       ebTop—有上边界。
+       ebRight—有右边界。
+       ebBottom—有下边界。
+    ·Edgeinner和EdgeOuter  决定组件的外观效果。  
+    ·Flat  使工具栏透明并清除工具按钮的边界。
+#111.CoolBar组件
+    CoolBar组件是一个容器，在其中可以放置组件，每个组件占据一个带形区域。
+    【常用属性】
+    ·Bands  单击该属性右边的“...”按钮可出现CoolBar带编辑对话框，在其中可以设置几个带形区域。
+    ·Bitmap  组件的背景图片。
+#1六、System页上的组件
+    System页上含有8个组件（^520107e^5）。它们能使用户充分利用Windows的功能。
+#11.Timer组件
+    Timer是一个不可视组件，用于产生一个定时器，以便对事件进行实时控制。
+    【常用属性】
+    ·Interval  用于控制定时器事件发生的时间间隔，单位为毫秒。缺省值为1000，代表1秒。最大值为65535，即65秒。
+    【常用事件】
+    OnTimer  当指定的时间超过后发生该事件，时间间隔取决于Interval属性的值。
+#12.MediaPlayer组件
+    MediaPlayer组件用于产生一个媒体播放器。它的应用使得在应用程序中加入多媒体控制变得简单易行。开发人员只需经过简单的设置即可在自己的应用程序中加上播放音乐、动画或电影的功能。
+    【常用属性】
+    ·AutoEnabled  自动激活。使该组件在选择播放源之后即处于激活状态。缺省值为True。
+    ·AutoOpen  自动打开。自动打开一个文件。使用该属性时必须指定一些相关的其他属性，例如FileName属性。
+    ·AutoRewind  自动重卷。指在播放音乐或其他媒体结果后，自动复位到开始位置。缺省值为True。
+    ·ColoredButtons  彩色按钮。使控制板上的不同按钮具有不同的颜色。它有9个子属性，分别代表控制板上的9个按钮。这9个子属性缺省值为True。
+    ·DeviceType  指定多媒体设备的类型。用以选择一个供MediaPlayer使用的驱动程序。
+    ·EnabledButtons  激活按钮。用来设置是否使按钮处于激活状态。该属性有9个子属性，对应于控制板上的9个按钮。缺省情况下这9个子属性的值均为True。
+    ·FileName  文件名。用来为播放器指定一个缺省的文件名。当属性AutoOpen的值为True时，必须设置FileName属性。
+    ·VisibleButtons  它有9个子属性，分别用来控制控制板上9个按钮的可见性。为True表示可见。缺省情况下，这9个子属性的值均为True。
+    【常用事件】
+    OnPostClick  这是个很有意思的事件，它发生在OnClick事件传送前。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

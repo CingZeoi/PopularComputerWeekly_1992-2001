@@ -1,0 +1,398 @@
+Windows 95/98 注册表应用精解
+
+王玲、纪斌
+1999年 第52期 01版
+
+#1一、Windows 95／98注册表的功能及其管理
+#1（一）注册表的作用
+　　我们知道，Windows 3.x是用扩展名为.ini的配置文件来保存系统及应用程序的各种初始化配置信息的。启动时系统都会从两个最重要的.ini文件即System.ini和Win.ini中读取各种初始化信息对整个系统的软硬件环境进行配置。Win.ini文件中主要包含着控制Windows用户窗口环境的信息（如各硬件的驱动程序等），我们可以利用文本编辑器通过修改这两个文件来调整一些软硬件的配置以适应自己的需要。
+　　从Windows 95开始，原来保存在以上两个初始化文件中的有关信息，都被移到了系统的注册表中，这样注册表就成了Windows系统关键信息的集中存放地，而原来的Win.ini和System.ini两个初始化配置文件，则因Windows系统还需兼容老的16位Windows应用程序而仍然在Windows 95及Windows 98中保留着。
+　　注册表是Windows 95及Windows 98一个巨大的核心数据库，表中存放着各种参数，直接控制着Windows的启动、硬件驱动程序的装载以及一些Windows应用程序的运行，从而在整个系统中起着核心作用。它包括:
+　　（1）软、硬件的有关配置和状态信息，注册表中保存有应用程序和资源管理器外壳的初始条件、首选项和卸载数据。
+　　（2）联网计算机的整个系统的设置和各种许可，文件扩展名与应用程序的关联，硬件部件的描述、状态和属性。
+　　（3）性能记录和其它底层的系统状态信息，以及其它数据。
+　　如果该注册表受到了破坏，轻者使Windows的启动过程出现异常，重者可能会导致整个Windows系统的完全瘫痪。因此正确地认识、使用，特别是及时备份以及有问题时恢复注册表，对Windows用户来说就显得非常重要了。
+#1（二）注册表的组成和结构
+　　1.注册表的组成
+　　在Windows 95／98中，注册表由两个文件组成：System.dat和User.dat，保存在Windows 95／98所在的文件夹中。它们是由二进制数据组成，因而无法用文本编辑器加以查看与修改。前者包含系统硬件和软件的设置，而后者保存着与用户有关的信息，例如颜色方案、资源管理器的设置以及网络口令等。
+    在Windows 95／98的文件夹中提供了注册表编辑器（Regedit.exe）这个工具，用来查看和维护注册表。
+　　2.打开注册表编辑器
+　　单击“开始”菜单，选择“运行”项，在“打开”栏中键入“regedit”，确定后就可打开注册表编辑器。
+　　3.注册表的结构
+　　注册表编辑器与资源管理器的界面相似，在菜单之下是两个窗格，而数据的组织也与资源管理器类似。左面窗格中，由“我的电脑”开始，以下是六个分支，每个分支名都以HKEY开头，称为主键，右面窗格显示的是所选主键内包含的一个或多个键值。
+　　键值由键值名及键值数据两部分组成，这就是右窗格中的两个列表（名称、数据）所表示。主键中可包括多级次级主键，注册表中的信息就是按多级的层次结构组织起来的。注册表中的每个分支中保存有该计算机中软硬件设置中某一方面的特定信息与数据。
+　　在注册表编辑器窗口的底部是状态栏，当选定一个主键或次级主键时，状态栏中显示出所选主键所处的路径。注册表中各个分支的功能如下：
+　　HKEY_CLASSES_ROOT:存储可打开文件的类型、扩展名等，适用于所有用户。
+　　HKEY_CURRENT_USER:保存登录用户的设置、控制面板选项、映射的网络驱动器。
+　　HKEY_LOCAL_MACHINE:包含机器的所有硬件和本机上安装的软件信息。
+　　HKEY_USERS:保存所有登录在此机上的用户的信息，如应用程序、自定义桌面等。
+　　HKEY_CURRENT_CONFIG:连接到计算机上的硬件配置数据，如显示器、打印机等。
+　　HKEY_DYN_DATA:存储系统性能和即插即用状态的动态信息。
+#1（三）如何备份与恢复Windows 98注册表
+　　在Widnows 95／98系统中，注册表中包含的是关于如何运行计算机的重要信息，通过修改它，可以实现Windows 95／98的某些性能。但是如果注册表有问题，则会造成系统发生问题甚至瘫痪。所以对注册表文件进行各种操作前请务必在Windows文件夹中备份注册表文件：user.dat、user.da0、system.dat和system.da0备份，然后再从注册表中导出一个“＊.reg”文件作为备份；同时要非常小心地进行删除和修改。
+　　Windows 98注册表的备份与恢复和Windows 95不同，Windows 98对注册表的备份及恢复做了一些改进。在Windows 98中的Windows目录下，仍有System.dat和User.dat两个文件用来存放系统注册表信息，但没有了System.da0和User.da0这二个备份文件。因此在Windows 98中，注册表的备份及恢复工作与Windows 95就有所不同，常用的几种方法如下:
+　　1.直接进行备份及恢复
+　　这是一种很原始的方法，直接将所需的system.dat和user.dat两个文件拷贝存放在硬盘某个指定目录下或直接拷贝到软盘上作为备份，恢复时再将该备份替换覆盖回原处即可，当然在备份及恢复时都需对这两个文件的只读和隐藏属性进行相应的修改操作。
+　　2.利用注册表编辑器自带的导出及引入功能
+　　运行Regedit.exe，打开Windows 98注册表后，利用“注册表”的“导出”及“引入”功能也可以用来备份或恢复注册表信息。
+　　具体方法为打开左上角“注册表”下拉菜单，点击“导出注册表文件”项，在出现的“导出注册表文件”对话框中，键入欲备份注册表的文件名及其保存位置，再按“保存”按钮即可。需恢复注册表时，用同样的方法打开注册表编辑器，打开“注册表”下拉菜单后点击“引入注册表文件”，在出现的对话框中选中所需恢复的备份文件，再按“打开”按钮即可将该注册表备份恢复回Windows系统了。
+　　该方法主要适合于Windows系统还未瘫痪或能用启动时按F8键的方法，选择安全模式启动Windows 98系统时恢复注册表之用，如因注册表问题而连Windows系统都进入不了时，则该法就无法应用了。此外因备份无法压缩而其大小又超过1.44M软盘容量，所以应用该法也只能将备份保存在硬盘里了。
+　　3.用Windows 98中新增的注册表自动备份功能
+　　在Windows 98中，取消了Windows 95中每一次开机时自动以System.da0和User.da0为名的二个文件来备份注册表数据的功能，而新增加了一个以.cab （Cabinet）作后缀的压缩文件来备份注册表数据的功能，具体使用如下：
+　　该备份过程是由Windows 98系统自动完成的。在用户当天第一次（注意“当天”二字）开机时，Windows 98将会自动将系统中原来的注册表信息，包括System.dat和user.dat，甚至包括了system.ini和win.ini，这四个文件都压缩成cab形式的文件，以rb00＊.cab之名存放在Windows＼Sysbckup目录下（其中＊为0－4的数字）。
+　　系统自动保存最近5开机天（注意不是5天）的注册表数据，超过5开机天时则自动挤掉最早日期的备份文件。
+　　恢复：可以用Windows自带的Extract.exe（在Windows＼command目录下）解开该压缩文件恢复替换回原注册表文件即可，也可用其他解压缩程序如winzip 7.0解开所需要的rb00＊.cab备份压缩文件覆盖回去。
+　　该方法增加了注册表恢复的灵活性，可以对最近5开机天的注册表备份数据根据需要选择进行恢复。
+　　4.用SCANREG程序恢复正常注册表
+　　某些软件在安装以后，会自动修改系统注册表。有时会引起系统崩溃，我们可用SCANREG程序来恢复正常注册表。
+　　步骤1:进入纯DOS模式。
+　　步骤2:进入Windows所在目录，如cd windows。
+　　步骤3:键入“c:＼scanreg／restore”命令， 系统提示注册表更动状况，此时选择欲恢复项目即可。
+　　步骤4：更改完成后系统将重新启动。
+　　5.引入正确的注册表文件恢复注册表错误
+　　注册表信息存放在Windows系统目录下的system.dat和user.dat文件中。如果在启动Windows 95／98系统时遇到注册表错误，可以进入安全模式，修改system.dat和user.dat文件，修复注册表问题。在安全模式下启动Windows 95／98成功后，即可在正常模式（Normal）下启动Windows 95／98。
+　　步骤1：重新启动计算机，出现“Starting Windows 95／98时，按F8键，进入启动菜单。
+　　步骤2：选择“Safe mode command prompt only”项，进入安全模式，执行以下命令：
+　　regedit ／l:c:＼windows＼system.dat／e c:／system.txt（导出注册表）
+　　regedit ／l:c:＼windows＼user.dat／e c:／system.txt（导出注册表）
+　　cd＼windows（Windows 95／98系统目录）
+　　-s -h -r system.dat（改system.dat系统、隐含、只读属性）
+　　ren system.dat system.old（将当前的system.dat文件改名）
+　　attrib -s -h -r user.dat（改user.dat的系统、隐含、只读属性）
+　　ren user.dat user.old（将当前的user.dat文件改名）
+　　attrib +s +h +r system.dat（加上属性）
+　　attrib +s +h +r user.dat（加上属性）
+　　regedit ／l:c:＼windows＼system.dat／c c:＼system.txt（引入注册表）
+　　regedit ／l:c:＼windows＼user.dat／c c:＼user.txt（引入注册表）
+　　步骤3：以正常方式重新启动系统。
+　　［注］：在安全模式下，Windows 95／98并没有将注册表文件锁住，可以在这种方式下复制注册表文件。
+　　在复制完以后，切记将文件属性修改回去。
+　　6.恢复系统最后一次成功运行时的注册表文件
+　　步骤1：重新启动计算机，在出现“Starting Windows95／ 98”时，按F8键，进入启动菜单。
+　　步骤2：选择“Safe mode command prompt only”项，进入安全模式，执行以下命令：
+　　cd＼windows
+　　attrib -s -h -r system.dat（去掉system.dat的系统、隐含、只读属性）
+　　ren system.dat system.bad（将当前的system.dat文件改名）
+　　步骤3：以正常方式重新启动Windows系统。
+　　［注］：在启动时，如果系统没有发现system.dat文件，会使用System.da0文件，并自动将System.da0文件改名为system.dat。
+　　7.恢复系统第一次成功运行时的注册表文件
+　　如果Windows 95／98启动或者运行时故障太多，而以前又忘给Windows 95／98正常运行时的系统注册表作备份，无法启动Windows 95／98，则可以使用System.1st恢复系统注册表。
+　　Windows 95／98在安装成功后会把第一次正常运行的Windows 95／98系统信息保存在启动盘（通常为C盘）根目录下System.1st的HSR（隐藏、系统、只读）属性的文件中，此文件不会随Windows 95／98系统配置的改变而改变。因此，在没有其他办法的情况下，可以使用这个文件进行最保守的恢复。
+　　步骤1：重新启动计算机，在出现“Starting Windows 95／98时，按F8键，进入启动菜单。 
+　　步骤2：选择“Safe mode command prompt only”项，进入安全模式，执行以下命令：
+　　cd＼windows
+　　attrib -s -h -r system.dat（改system.dat系统、隐含、只读属性）
+　　ren system.dat system.xxx 　（将当前的system.dat文件改名）
+　　cd＼
+　　attrib -s -h -r system.1st（改system.lst系统、隐含、只读属性）
+　　copy system.1st c:＼windows＼system.dat
+　　（使用system.1st替代system.dat）
+　　attrib +s +h +r system.1st（加上属性）
+　　attrib +h +r +s C:＼Windows＼System.dat（加上属性）
+　　步骤3：以正常方式重新启动系统。
+#1二、Windows 98注册表妙用大全
+　　注册表是Windows 98操作系统的系统信息中心，计算机的软硬件配置都是通过注册表来实现的。注册表的功能十分强大，所以我们可以通过编辑注册表来实现很多常规方法难以实现的功能。比如可以在HKEY_CURRNT_USER＼Control panel＼Desktop中，建立一个名为“Menushowdelay”的串值，取一个以毫秒为单位的数值，如:800。重新启动系统后就可将在开始菜单中用鼠标移取弹出一级级菜单的反应时间调节为0.8秒。
+#1（一）操作篇
+　　1.使用注册表编辑器的快捷操作
+　　（1）查找：按Ctrl+F组合键，打开“查找”对话框，输入所要查找的主键、值键或数据，然后按“查找下一个”按钮，让系统进行搜索，省去自己动手寻找的麻烦。
+　　（2）按F3键，继续上一次的查找动作，查找下一个符合条件的对象。
+　　（3）添加键值：可在注册表右面窗口中点击鼠标右键，在“新建”菜单中选择建立所需类型的键值。
+　　（4）删除：在要删除的键值名上单击鼠标右键，在快捷菜单中选择“删除”项，然后确定即可。  
+　　选择要删除的键值名，按下键盘上的“Delete”键，然后确定即可。
+　　（5）复制键名：在注册表左面窗口中的一个主键上单击鼠标右键，在快捷菜单中选择“复制键名”项，然后粘贴到打开的文档中，即可得到该主键所在的分支路径。
+　　（6）修改键值：双击要修改键值的键值名，即可打开相对应的键值编辑对话框进行修改。
+　　在要修改键值的键值名上单击鼠标右键，在快捷菜单中选择“修改”项，即可打开相对应的键值编辑对话框进行修改。
+　　2.快速更新注册表
+　　一般对注册表进行修改以后，要重新启动Windows 98，所作的修改才会生效，如何避免这种既费时又费力的操作呢？
+　　我们可以在不重新引导系统的情况下快速更新注册表。
+　　步骤1：选择“开始＼关闭系统”命令。
+　　步骤2：在系统弹出“关闭Windows”窗口时，按Ctrl+Alt+Del组合键。
+　　步骤3：在系统弹出“关闭程序”对话框时，选择“Explorer”（资源管理器）项，点击“结束任务”按钮。
+　　步骤4：屏幕显示“Explorer警告”对话框，提示该程序还未作出反应，点击“结束任务”，更新注册表并返回到Windows 98。
+#1（二）应用篇
+  　在对某一主键的键值进行操作的过程中，如果没有找到实例中所指的键值，请根据上下文所指的键值名的键值类型，自己动手添加一个新的键值，其效果是相同的。
+　　1.锁定桌面
+　　桌面设置包括诸如壁纸、图标以及快捷方式，一般都是我们经过精心选择才设定好的。大多数情况下，我们不希望他人随意修改桌面设置或随意删除快捷方式。怎么办?注册表可以帮你锁定桌面，这里“锁定”的含义是对他们的修改不做储存，不管别人怎么改，只要你重新启动一下计算机，你的设置就会原封不动地出现在你面前。
+　　（1）运行regedit.exe，进入下面的目录：
+　　Hkey_Users＼.default＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer。
+　　（2）双击“NoSaveSetting”，并将其键值由0改为1。
+　　（3）确认后退出注册表编辑器，重新启动即可。
+　　上面的修改是把计算机上所有用户的桌面设置全部锁定了，如果你只想锁定你自己的桌面，而不理会别人的是否被修改，可以在下面的路径中执行相同的操作：
+　　Hkey_Current_User＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer。
+　　2.从开始菜单中移走“关闭计算机”菜单项
+　　有些时候，也许我们并不希望别人随意地关闭或重新启动我们的电脑，尤其对于商用的计算机，这一点十分重要。从开始菜单中把“关闭计算机”一项移除，可以起到一定的保护作用。
+　　（1）运行regedit.exe打开注册表，进入如下路径：
+　　Hkey_Users＼.default＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer。
+　　（2）双击“NoClose”，将键值由0改为1。
+　　（3）确认后退出，重新启动计算机。
+　　此时你会发现开始菜单中“关闭计算机”选项已经不见了，试着使用Ctrl＋Alt＋Del来热启动一下，你会发现屏幕上出现的关闭菜单是虚设的，无法使用。修改以后，要想关机可以将此值改回0，或者关闭计算机的电源开关。
+　　3.关闭“单击从这里开始”动画箭头
+　　Windows 98开机时，有些时候屏幕底部的任务条中会出现一个从右向左的动画箭头，指示“单击从这里开始”，这样会影响开机速度，如果你愿意，可以把它关掉：
+　　（1）打开注册表，进入下面路径：
+　　Hkey_Current_User＼Software＼Microsoft＼Windows＼Current Version＼Policies＼Explorer。
+　　（2）建立一个二进制键名：“NoStartBanner”。
+　　（3）双击该键名，输入键值：“01000000”；
+　　（4）确认后退出，重新启动计算机。
+　　如果想使这个修改对所有用户生效，可到下面路径中执行相同的操作：
+　　Hkey－Users＼.default＼Software＼Microsoft＼Windows＼Current Version＼Policies＼Explorer。
+　　［注］：如果你的电脑开机时没这个动画箭头，一定是你的计算机在开机时自动加载了某个应用程序。
+　　4.汉化Word插入对象的名称
+　　在Word菜单“插入／对象”中的一个个英文名称，可能令人眼花缭乱，将Hkey_Classes_Root＼Equation.3右窗口键的“默认”值由“Microsoft Equation 3.0”改为“微软公式编辑器3.0”，关闭注册表编辑器，再打开Word，就会发现它被汉化了。
+　　5.修改软件的所有权名称
+　　在安装Windows 98时，可能把软件的所有权内容填错了或者不合适，你一定想修改它，怎么办?注册表能帮助你。
+　　将HKEY_LOCALl_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion右窗口RegisteredOwner（所有权）键值修改一下，重新启动Windows 98，这个软件的所有权就属于自己的了。
+　　6.任意定制窗口颜色
+　　尽管Windows 98的“控制面板／显示器／外观”可定义多种窗口显示方案，但要定义某一个部位的颜色，如黑色的按钮字体，你想定义成红色，可就无能为力了，修改注册表能容易的实现。
+　　将HKEY_CURRENT_USER＼Control Panel＼Colors右窗口键的“ButtonText”值改为“255 0 0”，关闭注册表编辑器，启动Windows 98，红色的字体将显示在你的按钮上。
+　　7.改变级联菜单的显示速度
+　　将HKEY_CURRENT_USER＼Control Panel＼Desktop点亮，再用鼠标右键点击“Desktop”，选择“新建／串值”，输入“MenuShowDelay”，然后在该项后输入一个0～100000之间的数字，表示延时长度，单位为毫秒，关闭注册表编辑器，重新启动Windows 98。
+　　8.改变Windows 98的名字
+　　有的用户想给自己的操作系统起一个更浪漫的名字，如“Windows 98蓝天白云”，若将HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion右窗口的“Version”键值改为“Windows 98蓝天白云”（注意串值长度≤29个英文字符），关闭注册表编辑器，打开“资源管理器”，在“帮助”菜单中，选择“关于Windows 98”即完成。
+　　9.缩短桌面上“新建”的选项
+　　当用鼠标右键点击桌面上空白处，选新建时，会弹出建立多种程序文件的菜单，有些你可能并不常用，如Access数据库，可以删掉它，缩短菜单。打开“注册表编辑器”，点击菜单的“编辑＼查找”，输入“shellnew”，再点“查找下一个”，找到适合的文件类型后，删掉整个ShellNew分支即可。
+　　10.通过修改注册表来更改文件图标
+　　计算机中JPG文件是和ACDSee 32关联的，JPG文件的图标也是ACDSee 32中所默认的图标类型。安装了Photoshop后，JPG文件又与Photoshop建立了关联。当卸载Photoshop之后，JPG文件的图标就变成了白底上一个视窗，非常难看。运行Regedit.exe，找到名为“.JPG”的主键，删掉它之后，再从资源管理器中的“查看＼选项＼文件类型＼新类型”中建立后缀为“.JPG”的文件类型，屏幕上再也没有给出“请选择另一个扩展名”的提示了。建立JPG文件类型后，选择由ACDSee 32打开它，并在“更改图标”中将图标位置选择为“C：＼Program Files＼ACDSee32.exe”，即可从ACDSee 32所提供的图标中选择一种来替代Windows默认的那种难看的图标。
+　　11.修改Windows 95系统的用户名和组织名称
+　　Windows 95的用户名和组织名称可以通过用鼠标右击“我的电脑”，然后选择“属性”，在“常规”标签栏的“注册为”中看到。如果您确实要修改它，只能从注册表入手。请先备份好注册表信息文件System.dat和User.dat。
+　　备份完成之后，选择“开始＼运行”，键入注册表编辑器命令“regedit”，打开注册表，然后依次进入“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion”。在右边的窗口里，选择“RegisteredOwner”，然后回车，现在您可以输入新的用户名信息了；选择“Registered Organiza-tion”，同样可以修改组织名称。
+　　12.删除“安装卸载”列表中的应用程序
+　　长期使用Windows操作系统后，硬盘中安装了许多应用程序，其中有些应用程序已经删除，但进入“控制面板”，在“增加删除程序”中的“安装／卸载”列表中仍存在这些被删除的应用程序名，选定其中某一个应用程序名，单击“添加／删除”按钮，系统提示不能删除此应用程序。删除的方法如下：
+　　在Windows系统中，首先将注册表进行备份，然后单击“开始”按钮，选择“运行”，在“打开”输入框内输入“regedit”命令，单击“确定”按钮进入注册表编辑器。依次进入注册表“HKEY_LOCAL_MACHINE／Software／Microsoft／Windows／CurrentVersion／Uninstall”，在Unistall下的分支内选定要删除的应用程序，按下Delete键，单击“是”按钮确认删除，退出注册表编辑器。待Windows 95系统重新启动后，此应用程序在列表中就被删除了。
+　　13.改变“查找”对话框中的默认搜索路径
+　　每次打开“开始＼查找”对话框查找某个文件时，在“查找”对话框的“搜索”栏中的默认路径总是“C:＼Windows＼StartMenu”，可以这样修改默认路径：
+　　在“开始＼运行”中输入命令“regedit”，打开注册表编辑器，然后依次导航到注册表“HKEY_CLAS-SES_ROOT＼Directory＼Shell＼Find＼Ddeexec”，在窗口的右侧一栏中，在“（默认）”一行的图标上单击鼠标右键，然后选择“修改”，将“键值”一栏中的“%l”和“%I”修改成您希望设置的默认路径即可。比如您希望默认的路径是C:＼Windows，则“键值”一栏中的信息应该是这样的：“［Find Folder（“C:＼Windows”，C:＼Windows）］”。最后关闭注册表，这项修改不必重新启动机器就可以起作用。
+　　14.修改桌面和屏幕设置
+　　打开注册表编辑器，打开“我的电脑＼HKEY_CURRENT_USER＼Control Panel＼Desktop”可以看到一些项目，介绍其中的几个如下：
+　　（1） HungAppTimeout，是指一个应用程序出错时试图等待响应的时间，值为毫秒，缺省值为5000毫秒（即5秒），可以减少为3000毫秒，以加快系统的响应能力。
+　　（2）MenuShowDelay，是指“开始”菜单中当鼠标指向一个具有下级菜单的菜单项时等待出现下级菜单的延迟时间，单位也是毫秒，可以设成100，即等0.1秒就出现。
+　　（3）ScreenSaveActive，指现在屏幕保护功能是否可用，值为0或1，0即为不用屏幕保护功能，1为可用。
+　　（4）ScreenSaveTimeOut，指屏幕保护的延时，值为一数值。单位是秒，最小值是60秒。
+　　（5）ScreenSaveUsePassword，指屏幕保护是否使用密码，值为0或1，0即不设密码，1为使用预设的密码。
+　　（6）WaitToKillAppTimeout，是指当用Crtl+Alt+Del出现“关闭程序”对话框来关闭一个应用程序时出现提示“结束任务”、“等待”时选择“等待”的等待时间，单位是毫秒，默认值是10000。可以减小等待时间。
+　　15.修改Windows 95的系统设置
+　　打开“我的电脑＼HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVesion”，你会看到一些子文件夹，这里就是当前的一些系统设置，让我们来看一些文件夹：
+　　（1）Run文件夹，当Windows 95启动时，我们会发现有一些程序一启动便开始运行，但是在菜单“开始”“程序”“启动”中却找不到，这是为什么呢?，哦，原来都放在这个文件夹下面了，如果要想不让某个程序在启动时自动执行，只要将在Run文件夹下面的相应项目删除即可。
+　　（2）各种输入法文件夹，如“全拼”文件夹，其下有一些关于全拼输入法的设置，其中，“Enter”表示是否用“回车”键代表取消错误的输入。一般值为0，而95版的“五笔字型”4.0版中则为1，经常让人感到非常厌烦，敲回车键在输入文章时却不是换行，只要此处改成0即可。“插空格”是指输入的每个汉字之间是否加一个空格，默认值是0，指不插空格，当我们要写HTML中文文档或者在某些英文软件中输入汉字时就需要汉字之间加空格，那么就在此将0变成1即可。
+　　（3）打开“我的电脑＼HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼”在此文件夹下有很多项目和子文件夹，现在先看一下右边窗口的项目：
+　　①ProductKey即安装Windows 95／windows 98时的注册码。
+　　②在我们安装很多微软公司的软件和其他一些软件时会发现系统已经默认了一个用户和用户单位，这个默认值是在安装Windows95／98时输入的，如果想要修改这个用户设置只要更改右边的RegisteredOwner和Registered Organization的值。值的类型是字符串。
+　　③在此文件夹下也有Run子文件夹，功能与前面提到的功能1中的Run功能相同，也是用来在系统启动时运行一些程序，对于不需要启动运行的程序可以删除。
+　　④RunServices子文件夹，这些文件夹内的项目是指当将windows 95／98作为服务来运行的程序，这些程序也是在开机启动时作为服务来运行的，如微软的Persional Web Server、Wingate等小型服务器软件。一般不必去动它们，以免不必要的麻烦。
+　　⑤有的计算机的Windows 95／98关机特别慢，在选择完“关闭计算机”后会等上好几分钟才关机，打开“我的电脑＼HKEY_LOCAL_MACHINE＼System＼Courrent-ControlSet＼Control＼Shutdown”，在文件夹下创建一个名为FastReboot的字符串键，输入键值为1，你就可以享受快速关机了。
+　　16.使拨号网络可以储存密码
+　　有些朋友在打开拨号网络连接项时，“保存口令”一栏的小方格是以灰色显示，不能打勾储存密码，解决方法如下：
+　　点击“开始＼运行”，键入“regedit”，启动注册表编辑器（REGEDIT.EXE），打开“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Network＼Real Mode Net”。
+　　如果你看到右面的Autologon的数值是“00”，在上面双击鼠标，把数值改为“01 00 00 00 00”，再启动Windows看看。如果找不到Autologon这个值，可以用手工添加，并把它设定为“Dword”，值设为“1”（若为“0”则设定为灰色方格），再重新启动Windows看看。
+　　17.加快网络传输速度
+　　Windows 95在网络拨号设计上有加强的余地，只需增加MaxMTU、MaxSSS、DefaultRcvWindow及DefaultTTL就能加快网上奔驰的速度。
+　　（1）修改MaxMTU及MaxSSS：启动“注册表编辑器”，找出以下关键字：“HKEY_LOCAL_MACHINE＼System＼CurrentControl Set＼Services＼Class＼NetTrans＼000n”（n表示个别拔号网络连接项号码）。例如0002，在000n右面Windows会有一些如DeviceVxDs、IpAddress等名称，在右边窗口任意空白外点击，在菜单上选“编辑＼新增＼字符串值”，右边窗口就会多出一个新字符串，把它命名为“MaxMTU”，再双击这个字符串值并把它设定为“576”。同样，在右边窗口加上“MaxSSS”字符串值并将它的值设定为“536”。
+　　（2）修改DefaultRcvWindow及DefaultTTL：
+　　启动“注册表编辑器”，找出以下关键字：HKEY_LOCAL_MACHINE＼System＼CurrentControl Set＼Services＼VxD＼MSTCP在右边窗口加上字符串值“DefaultRcvWindow”并把它的值设定为“2144”，再增加另一字符串值“DefaultTTL”并把它的值设定为“60”至“64”，完成后关闭注册表编辑器并重新启动Windows即可。
+　　18.不想用连接管理器（Connection Manager）
+　　IE4自带了一个连接管理器，可以取代Windows 95拔号网络的功能。若你不想使用连接管理器而直接使用拨号网络可修改以下的注册表：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼App Paths＼CMMGR32.EXE的“预设值”及“Path”值改为：
+　　“{C:＼Program Files＼Internet Explorer 4＼Connection Manager＼CMMGR32.EXE”及“{C:＼ProgramFiles＼InternetExplorer4＼Connection Manager＼CMMGR32.EXE”，两者的值可能一样，记住在修改前要键入“{”。
+　　19.关闭窗口动画
+　　Windows 98默认在一些情况下会出现动画显示，但对速度较慢的计算机可能希望关闭动画。方法是：运行“Regedit.exe”，依次打开HKEY_CURRENT_USER＼Control Panel＼Desktop＼WindowMetrics，再右键单击右侧窗口，出现“新增”菜单后选择“字符串值”，命名为“MinAnimate”，设置其值 为0，重新启动Windows 98后就可关闭动画（如设置为1就还原）。
+   　20.给程序配乐
+　　Windows 98中一些程序启动时会有音乐，但常用的也就那么几个。实际操作时可以自己给动作配乐的，办法是：运行Regedit.exe，依次打开HKEY_CURRENT_USER＼AppEvents＼Schem es＼Apps，在这里至少可以看见.Default和Explorer两个子文件夹。在“Apps”上单击右键，选“新建＼主键”，命名为要配乐的程序名（例如MyProgram.exe就可命名为MyProgram），此时在右侧窗口就可以看到“默认”键值，可以改名为易于记忆和辨认的名字（例如“我的程序”），然后右键单击“MyProgram”，选“新建＼主键”，命名为“Close”，再新建一个“Open”。这样，就可以到“控制面板＼声音”中为MyProgram的启动和退出配乐了。
+　　如果要为Windows 98的每一个程序配乐，可以选择配乐的常用动作:
+　　AppGPFault
+　　Close
+　　Maximize
+　　MenuCommand
+　　MenuPopup
+　　Minimize
+　　Open
+　　RestoreDown
+　　RestoreUp
+　　SystemAsterisk
+　　SystemExclamation
+　　SystemHand
+　　SystemQuestion
+　　21.取消或增加“AutoRun”（自动运行）功能
+　　运行Regedit.exe，在注册表窗口中找到“HKEY CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer”，编辑二进制值“NoDriveTypeAUTOrun”，双击后输入键值“b5 00 00 00”将取消“AutoRun”功能；输入的键值为“95  00 00 00”则恢复“AutoRun”功能。
+　　22.取消或增加CD自动播放功能
+　　运行Regedit.exe，在注册表窗口中找到“HKEY CLASSES ROOT＼AudioCD＼Shell”，如果“默认”里的键值为“Play”，则会自动播放CD，如果“默认”里没有数据则是关闭自动播放CD功能。另外，可以在“资源管理器＼查看＼文件夹选项”里的“文件类型”中找到“CD曲目”，双击它后按Alt+S键还原为默认值，如果操作里的“播放（P）”是粗体时为自动播放CD，不是粗体时为关闭自动播放CD功能。
+　　23.取消或增加“开始”菜单中“程序”上面的水平线
+　　运行“Regedit.exe”，在注册表窗口中找到“HKEY_CURRENT_USER＼software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer”，在右窗口单击右键，选择“新建＼DWORD值”，然后对“Editlevel”进行编辑：输入键值“1”是取消“开始”菜单里“程序”上面的水平线；键入键值“0”为恢复该水平线。
+　　24.取消或恢复“关闭系统”功能
+　　运行“Regedit.exe”，在注册表窗口中找到“HKEY_CURRENT_USER＼Software＼Microsort”，在右窗口单击右键，选择“新建＼DWORD值”，然后对“NoCLose”进行编辑，输入键值“1”是取消“关闭系统”功能；键入键值“0”为恢复该功能。
+　　25.让“回收站”拥有两个不同的图标
+　　运行“Regedit.exe”，在注册表窗口中按Ctrl+F键查找“empty”，查找到目标后会有“默认”、“empty”和“full”三行串值，把“默认”，“empty”的键值改为同一图标，例如我们有“Empty.ico、Full.ico”这两个图标文件，这样就更改了“回收站”（empty）时的图标；然后再输入“full”的键值，例如键入“C：＼Icon＼Full.ico，0”，这样就更改了“回收站”（full）时的图标。
+　　26.确定文件的类型
+　　注册表中含有所有文件名与应用程序的关联记录，当不能确定某一文件，如：m3.mlv的文件类型时，可以利用注册表。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY-CLASSES-ROOT”。
+　　步骤3：查找到不能识别“.mlv”扩展名文件夹，打开文件夹。则右窗口中将显示有关该文件的信息，主要是与之相关的程序，根据与之相关的程序则可以确定文件的类型。
+　　27.修饰桌面快捷图标 
+    步骤1：运行Regedit。
+    步骤2：进入“HKEY_CLASSES_ROOT＼lnkfile”目录：
+　　·在右窗口中删除“IsShortCut”，以除去快捷图标上的小箭头；
+　　·更改“NeverShowExt”键值名为“AlwayShwExt”，以显示快捷图标下的文件扩展名，如果更改“AlwayShwExt”键值名为“NeverShowExt”，则隐藏快捷图标下的文件扩展名。
+　　28.显示.Bmp文件的微缩图
+    步骤1:运行Regedit。
+    步骤2:打开主键“HKEY_CLASS_ROOT＼Paint.Pricture＼DefaultIcon”。
+    步骤3:双击窗口右侧的默认字符串，在打开的“编辑字符串”对话框中更改原来的键值“C:＼Progra~1＼Access~1＼MSPAINT.EXE，1”为“%1”。
+    步骤4:更新注册表。
+　　29.在当前位置清空回收站
+　　在“我的电脑”或“资源管理器”中进行操作时，如果想要清空“回收站”，一般要先找到“回收站”，这样比较麻烦，如果能从任何文件夹窗口清空“回收站”，则相当便利。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_CLASSES_ROOT＼＊＼shellex＼ContextMenuHandlers”。
+　　步骤3：在主键“ContextMenuHandlers”下新建“主键”，设置主键名为”{645FF040-5081-101B-9F08-00AA002F954E}”，然后确定。
+　　步骤4：更新注册表。
+　　当右键单击任何文件时，快捷菜单中会有一个“清空回收站”的选项。
+　　30.加速关闭应用程序
+　　更改关闭应用程序时的等待时间，以实现快速关闭，节省时间，提高工作效率。
+　　步骤1：运行“Regedit”。
+　　步骤2：打开主键“HKEY_CURRENT_USER＼ControlPanel＼desktop”。
+　　步骤3：在右窗口中新建“字符串值”，键值名为“WaitToKillAppTimeOut”。
+　　步骤4：双击该键值名，然后在“编辑字符串”对话框设置键值为“10000”，确定。
+　　步骤5：更新注册表。
+　　［注］：在步骤4中，通过设置键值的大小来设置关闭应用程序的等待时间，这个键值的计算单位为“ms”，系统默认值为20000ms，即20秒，所以设置键值小于20000，才能实现加速关闭应用程序。
+　　31.隐藏浏览过的URL地址
+　　在访问Web站点的同时，浏览器会自动将URL地址记入硬盘上的很多文件中。如果您不想让他人看到您所访问过的URL，保证自己访问Web隐私性，则可以隐藏浏览过的URL地址。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_CURRENT_USER＼Software＼Microsoft＼Internet Explorer＼TypedURLs”。
+　　步骤3：在右窗口中选择相应的URL，按Del键删除。
+　　步骤4：更新注册表。
+　　［注］：在步骤2中，如果您使用的是Netscape Navigator，则进入主键“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Netscape＼NetscapeNavigator”，然后重复步骤3和步骤4。
+　　32.“开始”菜单项的设置
+　　步骤1：运行Regedit。
+　　步骤2：打开主键“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer”。
+　　步骤3：在右窗口中进行设置：（^520105a^）
+　　33.禁止他人使用您的驱动器
+　　隐藏“我的电脑”和“资源管理器”中磁盘驱动器的图标，禁止他人使用您的驱动器。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer”。
+步骤3：双击键值名“NoDrives”，在打开的“编辑二进制值”对话框中设置键值：
+键值         　作用
+00 00 00 00　　默认值，不隐藏任何驱动器。
+01 00 00 00　　隐藏A驱。
+02 00 00 00　　隐藏B驱。
+03 00 00 00　　隐藏A和B驱。
+04 00 00 00　　隐藏C驱。
+08 00 00 00　　隐藏D驱。
+10 00 00 00　　隐藏E驱。
+20 00 00 00　　隐藏F驱。
+e2 ff ff 03　　隐藏除A、B、C、D和E驱以外的所有驱动器。
+ff ff ff ff　　隐藏所有驱动器。
+    设置完成后确定。
+　　步骤4：更新注册表。
+　　［注］：磁盘驱动器所对应的键值按驱动器英文标识顺序从十六进制的二倍数递增。
+　　如果要隐藏二个或二个以上的驱动器，则把几个驱动器的键值按十六进制数相加，得到的和即为此键值。
+　　34.保护您的系统环境
+　　一般情况下，退出Windows 98时各种环境设置都将自动保存，以便重启动时发生作用。但是在多用户操作环境下，每个用户都可能更改系统环境的设置，这将造成系统环境的混乱。我们可以通过修改注册表，使每次修改的环境设置不发生作用。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入“HKEY_CURRENT_USER＼Software＼Micorosoft＼Windows＼CurrentVersion＼Policies＼Explorer”。
+　　步骤3：在右窗口中新建一个“DWORD值”，键值名为“NoSaveSettings”。
+　　步骤4：双击“NoSaveSettings”，然后在“编辑DWORD值”对话框中设置键值为“1”。
+　　步骤5：更新注册表。
+　　［注］：步骤4中若设置键值为“0”，则“保存环境设置”。
+　　35.保留CD音碟的自动播放功能
+　　在禁止光盘的自动运行功能的同时，仍保留CD音碟的自动播放功能。
+　　步骤1：进入“开始＼设置＼控制面板＼系统”。
+　　步骤2：在弹出的“系统属性”对话框中选择“设备管理器”选项卡，打开CDROM项，选择当前计算机配置的CDROM，单击“属性”按钮或点击鼠标右键选择“属性”项，在弹出的“CDROM属性设置”对话框中的“设置”选项卡中激活“自动插入通告”项。
+　　步骤3：运行“Regedit”。
+　　步聚4：进入“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer”。
+　　步骤5：在右窗口中双击键值名“NoDrive－TypeAutoRun”，在弹出的“编辑二进制值”对话框中设置键值为“bd 00 00 00”（原值为：95，00，00，00），然后确定。
+　　步骤6：更新注册表。
+　　36.禁止“控制面板”中的图标功能
+　　禁止“控制面板”中的图标功能，以限制用户的使用权限。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼System”。
+　　步骤3：在右窗口中新建“DWOR值”，并设置键值为“1”：（^520105b^）
+　　步骤4：更新注册表。
+　　37.限制用户修改注册表
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼System”。
+　　步骤3：在右窗口中新建“DWORD值”，键值名为“DisableRegistryTools”，设置键值为“1”。
+　　步骤4：更新注册表。
+　　［注］：此功能只能限制Windows自带的注册表编辑器，而对其它的注册表编辑器无效。
+　　38.查看已安装的设备驱动程序
+　　从Windows 98的System.ini文件只能查看到16位的驱动程序，要了解32位的驱动程序安装情况怎么办呢？
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY-LOCAL-MACHINE”，即可查看子关键词窗口，以获知计算机中已安装的设备驱动程序。
+　　39.删除虚拟光盘图标
+　　在系统中安装了虚拟光盘后，“我的电脑”中会多出一个光盘图标，我们可以删除它。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入“HKEY_LOCAL_MACHINE＼Enum＼SCSI”。
+　　步骤3：在“SCSI”主键下有两个子键，分别对应虚拟光盘子键和真光驱子键，将SCSI下的子键全删除。
+　　步骤4：更新注册表。
+　　40.在“开始”按钮右击快捷菜单添加“快速重启动系统”项
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼Software＼Classes＼Directory＼Shell”。
+　　步骤3：在主键“Shell”下新建主键“qRestart”，双击默认键值名，设置键值为“快速重启动系统”，然后确定。
+　　步骤4：在主键“qReset”下新建主键“Command”，设置其默认键值为“C:＼＼WINDOWS＼＼Rundll.exe user.exe，exitwindowsexec”，然后确定。
+　　步骤5：更新注册表。
+　　设置好后，在“开始”菜单按钮上单击鼠标右键，在快捷菜单中选择“快速重启系统”项，即可重新启动Windows。
+　　［注］：可用上述方法在“开始”菜单右击快捷菜单中添加“快速关闭计算机”项。在步骤3时，新建主键“qQuit”，设置键值为“快速关闭计算机”。
+　　在步骤4时，在主键“qQuit”下新建主键“Command”，设置其键值为C:＼＼WINDOWS＼＼rundll.exe user.exe，exitwindows”。Rundll.exe和user.exe之间空一格。
+　　41.删除桌面右下角任务栏中的图标
+　　对于一些不能在Windows中进行删除的任务栏中的图标，可以通过修改注册表来完成。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Run”。
+　　步骤3：在右边窗口选择要删除的图标对应项，删除即可。
+　　步骤4：更新注册表。
+　　［注］：删除对应键值后，原软件提供的自动功能随之消失。
+　　42.进入Windows 98前显示自定义信息框
+　　我们可以在电脑中添加一些重要事情的信息，在每次开机后进入系统之前显示出来，以作提醒。
+　　步骤1：运行“Regedit”。
+　　步骤2：打开主键“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Winlogon”。
+　　步骤3：在右窗口中新键字符串值，键值名为“LegalNoticeCaption”，键值为“提醒”，确定。
+　　步骤4：再新建一个字符串值，键值名为“LegalNoticeText”，键值为“21号A君来信，匆忘抽空回复！”，然后确定。
+　　步骤5：更新注册表。
+　　43.禁止使用带“尾巴”的长文件名
+　　如果长文件名为文件名后缀加1、2等带尾巴的数字形式，常常会让使用者不清楚所指文件是哪一个，如何禁止这种长文件名形式，以提高对文件的管理呢？
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKDY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼FileSystem”。
+　　步骤3：在右窗口中新建一个“二进制值”，键值名为“NameNumerTail”，设置键值为“00”时，禁止长文件名的尾巴，改为“01”则相反。
+　　步骤4：更新注册表。
+　　44.优化文件系统
+　　优化文件系统，使文件分配更合理。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼FileSystem”。
+　　步骤3：在右窗口中双击键值名“Contig－FileAllocSize”，在弹出的“编辑二进制值”对话框中更改键值为“00 00 01 f4”。
+　　步骤4：更新注册表。
+　　45.极限发挥CDROM的性能
+　　根据CDROM速度和应用的不同用途，可以通过修改注册表，将CDROM性能发挥到极限。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼FileSystem＼CDFS”。
+　　步骤3：根据CDROM的速度来优化CDROM的预读取性能：
+　　在右窗口中双击键值名“Prefetch”，在弹出的“编辑DWORD值”对话框中根据下表设置十六进制键值，如“e4 00 00 00”（缺省值）。
+　　CDROM速度　   十六进制键值
+　　4倍速    　  　缺省值
+　　8倍速以上 　  1c0（c0 01 00 00）
+　　16倍速以上　  380（80 03 00 00）
+　　24倍速以上　  540（40 05 00 00）
+　　32倍速以上　  700（00 07 00 00）
+　　步骤4：根据CDROM的用途来确定缓存大小：
+　　双击键值名“CacheSize”，在弹出的“编辑DWORD值”对话框中改十六进制键值为“6b 02 00 00”（缺省值）。
+［注］：CDROM用途与键值取值参数对照
+  CDROM用途　　　  　十六进制键值
+  正常用途　　　　   缺省值
+  用于媒体　　　　   4d6（d6 04 00 00）
+  最大化CDROM速度    9ac（ac 09 00 00）
+　　步骤5：更新注册表。
+　　［注］：如果修改以上两个键值导致CDROM工作不正常（如：播放VCD时找不到VCD碟），则降低一个级别取值。
+　　46.优化软盘驱动器性能
+　　通过禁止软盘驱动器的FIFO特性来优化软盘驱动器性能。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼Class＼fdc＼0000”。
+　　步骤3：在右窗口中双击键值名“ForceFIFO”，在弹出的“编辑字符串”对话框中更改其键值为“0”。
+　　步骤4：更新注册表。
+　　47.为一台计算机设置多个IP地址
+　　一般情况下只能为一个网络适配器配置一个IP地址，通过修改系统注册表后，我们可以为一个网卡配置多个IP地址。
+　　步骤1：运行“Regedit”。
+　　步骤2：进入主键“HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼Class＼NetTrans”。
+　　步骤3：查找键值名“DriverDesc”，键值为“TCP／IP”的主键。
+　　步骤4：在右窗口修改“IPAddress”和“IPMask”两个键值。例如设置“IPAddress”键值为“202.10.1.10，202.10.1.25”，“IPMask”键值为“255.255.255.0，255.255.255.0”，确定。
+　　步骤5：更新注册表。
+　　“202.10.1.10”和“202.10.1.25”即为系统设置的两个IP地址。
+　　［注］：主键“NetTrans”下另有名为0000、0001子键，它们用于记录协议的安装情况。
+　　IPAddress为用逗号隔开的多个IP地址，IPMask是对应的掩码。
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

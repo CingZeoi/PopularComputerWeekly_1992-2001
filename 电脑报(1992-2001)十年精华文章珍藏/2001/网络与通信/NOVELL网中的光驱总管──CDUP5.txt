@@ -1,0 +1,84 @@
+NOVELL网中的光驱总管──CDUP5
+
+苗芳 
+2001年 22期
+
+在Windows网络中实现CD-ROM的资源共享是一件很容易的事，但如果你使用的是NOVELL网络，要实现CD-ROM的共享和管理却不是件轻松的事了。大多用户采用的方法是在系统的CONFIG.SYS中加入CD-ROM驱动程序，但这种方法资源占用较多，管理不便且极易出现故障。笔者偶得一工具，使用它在NOVELL网中进行CD-ROM的各种操作非常轻松，现与大家共享。
+　　#1一、CD-ROM的硬件安装
+　　#21.SCSI接口
+　　安装SCSI接口的CD-ROM驱动器需要注意的是适当的ID号和正确的终止。CD-ROM相对于硬盘来说是慢速设备，因此，它的ID号宜选用优先级较低的（如5号或6号）。另外，当CD-ROM是SCSI设备链上的末端设备时，必须在CD-ROM上进行终止，相反，则应当去掉CD-ROM上的终止电阻。
+　　#22.IDE接口
+　　安装IDE接口的CD-ROM驱动器关键是正确设置主从设备。若CD-ROM与硬盘共用一条数据线，则应将硬盘置为主设备（Master），CD-ROM置为从设备（Slave）；若主板上有两个IDE插槽，则应使CD-ROM和硬盘各自使用一条数据线，这样一来可以提高读写速度，二来可以避免在使用某些软件时出现问题。
+　　#1二、软件安装
+　　该工具名称为CDUP5.EXE，是一款自解压软件，只有287KB，解压后会形成NETWARE.312\和NETWARE.410\两个子目录，分别存放适用于3.12和4.x版本的模块。
+　　在NOVELL网络中安装CD-ROM卷需要在主控制台上顺序加载三类模块：一是主总线适配器（HBA）及其它有关设备的驱动程序；二是与NetWare系统版本有关的程序；三是CD-ROM设备管理模块。安装过程如下：
+　　#21.SCSI接口
+　　（1）将所需文件拷入服务器启动分区目录（如C:\SERVER.410）及SYS卷SYSTEM目录下。
+　　（2）在系统控制台上依次键入如下命令：
+　　load aha1540.dsk
+　　load aspitran.dsk
+　　load aspicd.dsk
+　　load after311.nlm（4.x版本不需要）
+　　load npa312.nlm（4.x版本不需要）
+　　load cdrom.nlm
+　　（3）重新启动服务器即可。
+　　#22.IDE接口
+　　（1）将所需文件复制到服务器启动分区目录（如C:\SERVER.410）及SYS卷SYSTEM目录下，对于NetWare3.12版本来说还需将与其有关的专用文件复制到服务器启动分区目录中。
+　　（2）在系统控制台上依次键入如下命令：
+　　load npapatch.nlm （4.x版本不需要）
+　　load ideata.ham
+　　load idehd.cdm
+　　load idecd.cdm
+　　load after311.nlm （4.x版本不需要）
+　　load nwpa.nlm
+　　load nmpaload.nlm
+　　load cdrom.nlm
+　　由于CDROM.NLM是报文激发，因此它必须从SYS卷加载。对于运行NetWare3.12的服务器来说，需要删除SYS卷上存在的CDROM.MSG文件，并确认设置的第一条搜索路径指向CDROM.NLM文件所存放的目录。
+　　（3）重新启动服务器即可。
+　　#1三、CD-ROM卷的管理
+　　当在系统控制台加载CDROM.NLM以后，所有管理和维护CD-ROM卷的工作均可在控制台上通过CD命令来完成。CDROM.NLM的命令列表如下：
+　　CD HELP
+　　该命令显示CDROM.NLM的帮助信息（包括CD命令的格式、功能及相应参数说明）。
+　　CD DEVICE LIST
+　　该命令以10个为一组列出SERVER上所有被检测到的CD-ROM设备列表，包括它们的编号、工作状态、设备名称、卷名称和装载状态等。
+　　CD VOLUME LIST
+　　该命令以10个为一组列出自加载CDROM.NLM以来所有CD-ROM设备中曾经加载过的CD-ROM卷名。显示信息中包括设备列表号（No.）、盘片卷名（Volume Name）、盘片装载状态（Mounted  Y表示已装载）以及该卷所在设备名称（Device Name）。其中设备号及设备名只有在该卷在线时才有所显示。
+　　CD MOUNT [No.] or [volume name][flags]
+　　该命令装载CD-ROM为一个NetWare卷。 [No.]及[volume name]可用CD VOLUME LIST命令获得。
+　　CD DISMOUNT [No.]or[volume name]
+　　一个CD-ROM盘片从CD-ROM驱动器取出时必须先卸载该卷。该命令卸载一个已被装载为NetWare卷的CD-ROM卷.[No.]和[volume name]可用CD VOLUME LIST命令获得。
+　　CD CHANGE [No.]or[volume name][flags]
+　　为了从不同的CD-ROM盘上读取信息，换盘操作必不可少。此命令用来更换一个已被加载为NetWare卷的CD-ROM盘片。当在控制台输入此命令后，指定的卷将被卸载，同时系统提示更换新盘片，并将新的CD-ROM卷装载。
+　　由于安装一个CD-ROM卷要花费较长的时间，我们可以用参数/R减少它的安装时间。此时，系统将使用已有的数据文件而不再创建新的，虽然盘片已改变，但其卷名仍是原来的，用户设立的网络映射也不需要修改。
+　　CD DIR [No.][Volume Name]
+　　此命令用来查看某一个CD-ROM卷根目录下的内容。
+　　CD GROUP （[group name]and[group number]）
+　　该命令用来显示已分配的组并给它分配一个组号（从0至9）。 为了授权访问一个CD-ROM卷，需要在服务器上创建一个组对象，并将要授权的用户作为该组的成员，然后通过CD命令使该组有权访问此CD-ROM卷。例如：CD GROUP TECH 3授权访问组TECH并分配组号为3。系统缺省的EVERYONE组的组号为0，是系统自动生成的。若使用“del”作为组名将会删除一个已分配的组号。如：CD GROUP DEL 1。
+　　CD PURGE
+　　清除所有装载CD-ROM卷时在硬盘上建立的隐含索引文件及缓存文件。
+　　CD RENAME （/D=No.） （new Volume Name）
+　　更改一个CD-ROM卷的装载名。
+　　#1四、[FLAGS]选项
+　　/MAC或/NFS  为该卷加载Macintosh或NFS名字空间支持。这将增加必要的数据和资源，以便工作站能够存取CD上的信息。
+　　/G=（group number）  指定对该卷具有存取权限的用户组号。 （group number）是分配给组的组号，可使用CD GROUP命令获得。
+　　/R  重建指定卷的索引文件。
+　　/rx  用来重建指定卷的索引文件并扩展分配给文件的空间这一选项在装载一个含有异常大的文件或大量目录的CD-ROM时十分有用。
+　　/dup  当一个CD-ROM被装载时用来删除目录中重复的文件名。
+　　/X=（irectory name）  当CD-ROM卷装载后排除一个目录树使之不能共享CD-ROM卷上的内容。directory name可由CD DIR命令列出。
+　　特殊选项/I  在安装一个CD-ROM时用来忽略发现的有关CDROM的错误。
+　　注意：用此选项将导致CD-ROM安装后文件不能显现。
+　　/W   安装卷时将只读状态改为读写状态（保留一部分硬盘空间作为CD-ROM卷的可写区域，可用来增加对该卷的受托者指定，更新记录文件或加载新的命名空间支持等）。
+　　#1五、CD-ROM卷的使用
+　　#21.将CD-ROM卷映射为逻辑盘
+　　CD-ROM卷安装后，就可以像其它卷一样使用了。但CD-ROM卷不能作为一个卷对象直接出现在目录树中，我们可以通过卷名映射分配一个驱动器号给它。例如：CD-ROM卷名为HVTTC，文件服务器名为SER410，则可通过命令：
+　　MAP N：=SER410/HVTTC
+　　将CD-ROM卷映射为本地工作站的驱动器N，之后，所有对N盘的操作即是对服务器上共享CD-ROM卷的操作。
+　　#22.自动加载CD-ROM卷
+　　我们可以修改AUTOEXEC.NCF文件的内容使服务器启动后自动装载CD-ROM卷。例如：在该文件中加入如下几行内容：
+　　LOAD CDROM.NLM（加载CD-ROM管理模块）
+　　CD GROUP STUD 2（授权访问组STUD，组号为2）
+　　CD MOUNT 1/G=2/R（安装卷到CD-ROM设备1）
+　　好了，现在大家可以在NOVELL网中轻松自如地使用共享光驱了。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

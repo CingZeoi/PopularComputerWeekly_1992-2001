@@ -1,0 +1,88 @@
+五年磨一剑 奔腾战犹酣——奔腾4处理器抢鲜测试
+
+电脑报评测实验室
+2000年 第47期 
+
+　　2000年11月20日，Intel正式发布了下一代处理器——奔腾4。这不仅仅是一款新产品的发布，它还标志着一个处理器新时代的开始，奔腾4可以说对Intel至关重要。《电脑报》评测实验室抢先取得奔腾4处理器和i850主板的测试样品，本周我们就和《电脑报》的读者一起来看看这款目前还难得一见的奔腾家族新成员。
+#1    登场的契机
+    从8086开始，大约每3～4年，Intel会将处理器的核心架构更新换代。目前市场上的Intel处理器都基于P6内核，从第一块基于P6核心的处理器——奔腾Pro问世以来，已经过了近五年时间。在这五年中，P6内核经过MMX和SSE两次指令集扩展，产品从低端的赛扬到高端的Coppermine，直到服务器专用的Xeon，真的算得上是物尽其用了。在Intel原来的计划中，继P6之后登场的是IA－64体系的P7（Merced）核心，令Intel难堪的是应该在1998年量产的Merced直到现在还没有搞妥当。并且，AMD推出的Athron处理器和EV6总线超乎Intel想象的厉害，其设计明显优于P6核心，凭借这一利器，AMD可以轻轻松松地同时在高低端市场和Intel展开全面竞争。更严重的问题是，在制程工艺相同的情况下，Athron可以比P6取得更高的时钟频率，而时钟频率正是Intel长期以来的绝对领先领域，可以说是最后一道防线，当1.13GHz奔腾Ⅲ出现问题时，这最后的一道防线似乎也要失守了。在这种情况下，Intel实在是需要一款新产品登场救急。幸运的是Intel有两套独立的处理器研发队伍，尽管研发P7团队遭到了挫折，另一研发团队还是可以及时地推出P67（Willamette）核心，它的第一款实用产品就是奔腾4。（如^47070201a^ 奔腾4和Coppermine处理器的正面，可以看到奔腾4的封装面积明显大于Coppermine，并且核心覆盖有金属散热片）
+　　很难说奔腾4是一个周密策划的产品。这项计划最初只是为了把P7的x86指令扩展为64位，算是P7计划的一个部分，后来才转为开发出新一代32位x86内核。该计划原本的名称是P67，它在1998年正式归入Intel的规划表，代号：Willamette，当初人们甚至搞不清楚Willamette计划的目的所在。现在看起来，Intel倒是走了一步好棋：如果Merced能够正常运作，Willamette就是面向低端市场的主力产品，如果Merced出了什么状况（事实就是如此），Willamette还可以当作一条保险绳。（如^47070201b^ 奔腾4和Coppermine处理器的底面，注意奔腾4的针脚排列，四边的针脚列数并不相同）
+#1    功能简介
+#1    奔腾4
+　　奔腾4的核心面积为217 mm2，是奔腾Ⅲ的两倍多，接近Athron的两倍，在核心中集成了4200万个晶体管。从核心面积大小显露出来的信息是奔腾4的产量不会太高，而且其价格可能不会太便宜。
+　　它的针脚数为423针，比奔腾Ⅲ多出53针。问题是Intel会在Socket423上坚持多长时间呢？按计划，2001年下半年将会推出Socket478，那时Socket423会处于什么样的地位呢？
+　　目前的奔腾4仍然使用0.18微米工艺、铝连接技术制造，可能一直要到明年年底，Intel才会在更高频率的奔腾4中采用0.13微米制造工艺和铜导线连接技术。
+　　目前已经推出的奔腾4包括1.4GHz和1.5GHz两款，稍后会推出频率较低的产品，不过都是GigaHz级别。出乎大多数人意料的是奔腾4的功率实际上只有52瓦，远低于预计的68到76瓦。
+    奔腾4采用了Intel最新的“NetBurst”核心体系。从字面意义上看，“NetBurst”是Net（网络）和Burst（淬发）的组合词，希望读者不要认为使用奔腾4处理器会大幅度提高网络连接的速度，对于这个名字，Intel或许另有深意吧。
+　　按照Intel的提法，奔腾4包括了四项特色技术，它们是400MHz system bus、Hyper－pipelined technology、Rapid execution engine和Execution trace cache。另外，还在P6核心基础上增强了四项功能：Advanced Dynamic Execution， Advanced Transfer Cache， Enhanced Floating Point ＆ Multimedia Unit， and Streaming SIMD Extensions 2。
+#1    400MHz system bus
+　　在奔腾4系统中，系统的时钟频率还是100MHz，数据宽度为64bit，但是它采用了“quad－pumped”技术。像AGP4×一样，它可以在不提高频率的情况下以4倍速传输数据，这意味着奔腾4的带宽达到了8 byte×100 million/s×4=3200MB/s，还远远超过了增强EV6总线的2133 MB/s。
+#1    Hyper－pipelined technology
+　　这可能是奔腾4采用的新技术中最为重要的一项。奔腾4的管线深度是P6核心奔腾Ⅲ处理器的两倍，在关键的分支预测和恢复管线上，奔腾4包括20个工位而奔腾Ⅲ只有10个，这意味着奔腾4在每个时钟周期处理的任务要少于奔腾Ⅲ。Hyper－pipelined带来的好处显而易见，它的每一个工位只需要较少的晶体管和门电路，这使得奔腾4可以在未改进制程之前就可以达到较高的频率。
+　　也许读者要问：既然更精细地划分管线工位可以提高频率，为什么不将它分到50个或者100个？这是因为频率的提高还受到其它因素的影响，所以这一方法不是无限适用的。并且，过细的分支预测会导致准确率降低，一旦分支树预测失误，必须回到出发点重新开始，这会大幅度降低性能。因为新算法的采用，奔腾4的分支预测准确率并没有下降，根据Intel的资料，它反而比奔腾Ⅲ减少了约33％的错误率。
+#1    Rapid execution engine
+　　奔腾4的核心中包括能够“倍速操作”的ALU（Arithmetic Logic Unit整数逻辑单元）和AGU（Address Generation Unit地址发生单元）各两个，也就是说在每一时钟周期可以进行两次操作，理论上相当于以3GHz运行。这可能会使奔腾4的整数性能达到前所未有的高度。所有采用NetBurst核心体系的处理器都将拥有这一特征。
+#1    Execution trace cache
+　　奔腾4采用的L1－Cache是一种崭新的模式，解释起来相当复杂。令人吃惊的是奔腾4只有8K的数据缓存，采用动态模式，可以处理12000条μOP （Micro－Operation/Operand Intel指令的名称，这些指令可以被执行单元理解和操作）。奔腾4的L1－Cache采用4路联合体系和64byte缓冲线，双端口设计使它可以同时进行读和写操作。
+　　在奔腾4增强的四种功能中，增强型浮点/多媒体单元和SSE2指令集特别值得注意，这使得奔腾4在多媒体解码以及3D游戏中可以发挥出更高的性能。不过跟以前的MMX和SSE一样，SSE2指令集需要软件厂商的支持。在今年的COMDEX上，超过60家软件公司已经宣布对SSE2提供支持。（128MB 800MHz RambusDRAM内存和内存条终结器如^47070201e^）
+#1    I850芯片组
+　　Intel850芯片组是目前唯一支持奔腾4的主板芯片组。82850 Memory Controller Hub （MCH）芯片支持双重RambusDRAM 内存通道和奔腾4的400 MHz总线，也支持AGP 4×。它的I/O Controller Hub仍然采用82801BA （ICH2），支持ATA/100。
+　　总体上看，i850芯片组并没有提出什么新的技术亮点，它仍然采用Intel Hub体系，双重RambusDRAM 内存通道也是一项成熟技术，在Intel840E芯片组上使用了相当长的时间。至于ICH2芯片的各项技术特色也早已是人尽皆知了。（如^47070201d^i850芯片组的82850MCH芯片，支持RambusDRAM和400MHz总线，它的封装和以前的主板芯片组明显不同）
+#1    测试样品简介
+　　我们用来测试的是一颗1.5GHz的奔腾4处理器（^47070201c^）和微星MSI 850Pro主板。
+#1    处理器
+　　外观上，奔腾4和Coppermine比较相似，不过封装形式有很大的不同，它的面积比Coppermine稍大。从处理器的正面来看，绿色的电路板上是一层面积较小的褐色电路板，上面安装了一块厚厚的散热片。散热片上标志出这颗处理器仍然是Intel的测试版本，在哥斯达黎加生产。实际上，Coppermine的核心直接接触到风扇散热片，散热效果很好，为什么频率更高，功率更大的奔腾4要在核心外包上散热片呢？这是因为Coppermine的封装确实比较脆弱，在操作时稍有不慎，就可能对CPU造成物理损伤。奔腾4的核心面积更大，危险程度更高，所以不得不采取保护措施，散热片实际上起到了盔甲的作用。奔腾4的底面更具特色，它的针脚不再是对称分布，四边型的四个边分别是五、六、七、八列针脚不等。且不论这样的针脚排列方式是否有什么特殊意义，最直接的好处是：安装CPU时，插错方向实际是不可能的事了。在奔腾4核心的背面，还有12颗电器元件。
+#1    主板
+　　搭配进行本次测试的主板是微星MSI－6339（^47070201f^），当然，它基于Intel850芯片组。参加测试的这块主板已经是正式上市的版本，看来微星公司的行动相当敏捷，已经为奔腾4的全面上市做好了完全地准备。
+　　MSI 850 主板的编号为MS－6339，这款ATX结构的主板做工很不错，提供一条AGP Pro插槽，五条PCI插槽和CNR扩展槽，按微星一贯的作风，扩展槽都采用了名牌大厂——FOXCONN的产品。MS－6339提供4条RambusDRAM扩展槽，为了配合处理器、内存和加速卡，它在电源方面有特别周密的考量。这款主板集成了AC’97声卡，接口都符合PC’99规范，用不同颜色加以区分。当然它也包括微星的特色技术故障诊断指示灯，用户可以通过四颗LED不同的颜色组合方式，来发现和排除常见的故障。
+　　i850芯片组的82850 MCH芯片的封装形式和奔腾4相同，看上去非常精致。MSI 850Pro在MCH芯片上安装了大大的散热片，可见82850的发热量不会很小。Socket423也非常有特色，它的周围有四个固定孔，可以用来固定专用的奔腾4风扇。而插座上的风扇卡明显比Socket370插座宽，也就是说普通风扇无法安装到Socket423插座上。（如^47070201g^ 使用RambusDRAM必须用内存条终结器填满来使用的内存插槽。同时可以看到82850MCH芯片上覆盖有散热片。）
+　　本周我们向大家介绍了奔腾4处理器的新技术及参加本次测试的1.5GHz奔腾4处理器和微星MS－6339 i850主板的特征，在本文的下篇中，奔腾4和i850的组合将携手出击，参加全面的性能大考验。
+　　要对Pentium4 1.5GHz这样刚刚上市不到一周的处理器进行评价，难度非常大，因为凡是对新上市的CPU进行测试都会面临一个同样的问题：测试软件能否充分发挥新处理器的性能？新发表的处理器往往会增加一些更强的指令集，尤其是针对多媒体应用方面，Pentium4就首次引入了SSE2指令集，包含144个用于增强128位SIMD单指令多数据流整数运算和128位双精度浮点运算性能的新指令，使得运行一些特定任务减少了指令数量，从而提高执行效率，像视频、语音识别、图形处理以及工程科学应用等方面。不过要使用SSE2提高效率，必须使用Intel最优化的C/C＋＋编译器进行重新编译。尽管Intel早就作好准备，向各应用软件开发商提供自己的SSE2 SIMD指令支持，但至今我们除了了解到有60多家软件公司宣布支持SSE2外，仍然没有看到一款支持SSE2的正式软件发表。这就使得用目前的测试软件来测试Pentium4会导致Pentium4的一些新功能得不到发挥，而如果仅仅是与其他处理器比频率高低，显然不能很好地反映CPU的真正性能。不过，幸好几天前SiSsoft发表了针对Pentium4优化过的Sandra2001测试软件，CPUID也增加了对Pentium4的识别功能，使得这次测试多少有些把握。（^47070201h^）
+#1　　一、测试方案
+　　除了测试这款频率最高的CPU目前能够表现的最高性能，我们还将它与Athlon进行了比较测试，以考察Pentium4在系统设计上是否有优势。
+　　平台一
+　　CPU：Pentium4 1.5GHz、Pentium4 1GHz（我们这颗Pentium4 1.5GHz没有锁频，降频到1GHz）
+　　主板：微星MS－6339 i850主板
+　　内存：256MB PC800 Rambus
+　　平台二
+　　CPU：Athlon 1GHz
+　　主板：联想K7T KT133主板
+　　内存：金邦金条256MB（128MB 2×PC133）
+　　其他配件完全相同
+　　显卡：ELSA GeForce2 GTS Ultra 64MB DDR
+　　硬盘：IBM Deskstar 75GXP
+　　CD－ROM：志美50X CD－ROM
+　　显示器：LG 795FP Plus
+　　电源：七喜牛魔王服务器电源DPS－3000（符合ATX 2.03规范）
+　　软件系统：Microsoft Windows98SE、DirectX8.0
+　　i850芯片组驱动程序 Version 2.60.001A
+　　VIA KT133芯片组驱动程序 Version4.25A
+　　GeForce2GTS Ultra显卡驱动程序 Version6.31
+　　为了在测试中尽量减少3D性能测试部分显卡瓶颈对测试的影响，我们选用了目前最顶级的配置，ELSA GeForce2GTS Ultra 64MB DDR。与1GHz Althon配合的KT133主板，我们特意选择了在上次KT133横向测试中，性能出众的联想QDI K7T主板。
+　　根据Intel的建议，Pentium4需要使用符合ATX2.03规格的电源，ATX 2.03规格除了我们常见的与主板电源相连接的插头外，还多出一个专为i850主板准备的ATX12V电源插头。保证了主板上Pentium4处理器部分更大的功耗，也进一步确保有充足的电力供应Pentium4专用CPU散热风扇的运行。所以我们选用了符合ATX 2.03规范的七喜牛魔王电源。
+　　在测试之前我们感觉对Pentium4 1.5GHz的测试应该很轻松，因为Intel以Pentium4 1.5GHz再一次夺得时钟频率的桂冠，远远领先于对手AMD目前最高的Athlon1.2GHz，似乎测试难逢对手。
+#1　　二、测试分析
+　　●SiSsoft Sandra2001内存带宽测试（^47070201i^表一）
+　　从Pentium4的规格我们知道，尽管奔腾4仍然采用100MHz的总线时钟频率，数据宽度为64bit，但Intel独创的“Quad－pumped”技术，使得数据传输得以提升至4倍，所以Pentium4的带宽理论值达到3.2GB/s，比AMD Athlon采用的EV6总线的2.1GB/s高出近40％。从SiSoft Sandra2001的Int ALU/RAM Bandwidth以及Float FPU/RAM Bandwidth测试成绩来看，Pentium4的“Quad－pumped”400MHz总线驱动i850的Dual RDRAM通道，的确使得内存带宽遥遥领先，突破1000大关，这也是我们见到的最大测试值，是Athlon 的两倍多。
+　　●处理器级的整数性能和浮点性能（表一）
+　　Winbench99的CPU Mark99和FPU WinMark99，以及Sandra2001的CPU Dhrystone和FPU Whetstone是专门针对CPU整数性能和浮点性能进行处理器级的测试。从测试情况来看，Pentium4的表现比较令人失望。1.5GHz Pentium4的整数性能和1GHz的Athlon差不多，而相同频率的Pentium4则远远落后Athlon，浮点性能从FPU WinMark99看来1.5GHz Pentium4比1GHz Athlon略低，算是性能相当，不过在SiSsoft2001中1.5GHz Pentium4的FPU Whetstone成绩还是要比1GHz Athlon好一些，这也许应该归功于SiSsoft2001对Pentium4的优化。
+　　从SiSsoft Sandra2001的多媒体性能测试我们可以更清楚地看到针对SSE2优化的重要性。SiSsoft Sandra2001已经可以识别Pentium4的SSE2指令，并专门针对SSE2进行测试，测试后显示Integer SSE2和Floating－Point SSE2，而测试完Athlon后显示的是Interger MMX Enh和Floating－Point 3Dnow！ Enh。从测试结果来看，1.5GHz的Pentium4与1GHz的Athlon相比，SSE2的整数性能和浮点性能都略强于Athlon（MMX整数性能、3Dnow！浮点性能），但相同频率下，Pentium4还是表现得落后不少，差距在30％，如果Sandra2001能够完全发挥SSE2和3D Now！的性能，这样的差距似乎显示出，Intel从Athlon推出后就开始落后的CPU整数浮点性能有进一步扩大的趋势。总的来说，相同频率的Pentium4与Athlon相比，无论是整数性能还是浮点性能，Pentium4的性能表现都要差一些。
+　　●Business Winstone99、Content Creation Winstone 2000系统整体性能测试（表一）
+　　ZD的Business Winstone99、Content Creation 2000都是主要针对系统整体性能的测试套件，是对系统硬盘系统、内存带宽和CPU性能，尤其是整数性能的综合考验，Business Winstone99通过应用Windows下常用的8个办公套件和浏览器运行一系列脚本，模拟主流商业应用环境；Content Creation 2000是在多任务环境中使用Adobe PhotoShop 5.0、Adobe Premiere 5.1、Macromedia Director 7.0、Macromedia Dreamweaver 2.0、Netscape Navigator 4.6和Sonic Foundry Sound Forge scripts等应用软件，模拟现实的Internet内容创建操作。从上面分析我们已经知道Pentium4在整数性能方面并不令人满意，甚至不及PentiumⅢ，尽管有内存带宽的优势，但毕竟影响Business Winstone99、Content Creation 2000成绩最主要的因素是处理器的整数性能，所以1.5GHz的Pentium4降频到1GHz后性能远远不及相同频率的Athlon，即使1.5GHz Pentium4在Content Creation 2000测试中也只比1GHz的Athlon多一点点，而在Business Winstone99测试中甚至比1GHz Athlon还低。
+　　●Quake3（^47070201j^表二）
+　　在OpenGL经典游戏Quake3的测试中，Pentium4终于一展雄威，性能表现非常出色。在Fastest模式下，640×480分辨率下跑出了246帧/秒的惊人成绩，这可是我们见到过的Quake3最高记录。
+　　我们知道，Quake3的测试中，分辨率越低，性能的发挥对CPU的依赖越大，不同频率的CPU下往往性能表现差异巨大，而到了高分辨率，大量的材质渲染使得显卡不堪重负，往往表现出瓶颈现象，所以你会看到在高分辨率下，不管使用什么频率的CPU测试结果会相同。表格中加灰色底纹的成绩就是处于显卡瓶颈限制状态，所以我们主要考察低分辨率下不受显卡瓶颈限制的成绩。将Pentium4 1.5GHz降频到1GHz与同频率的Athlon相比，Pentium4仍然超出不少，低分辨率下性能差距可以达到15％，而1.5GHz的Pentium4更是高出30％。
+　　其实在我们以前的测试中已经发现，Quake3是一款对内存尤其是FSB总线速度十分敏感的游戏，Pentium4采用的100MHz的“Quad－pumped”技术使得CPU以相当于400MHz的频率传输数据，同时与RAMBUS的高内存带宽作配合，这显然要比Athlon的200MHz总线速度配合PC133 SDRAM内存性能强很多。
+　　●MDK2（表二）
+　　MDK2同样是我们常用的OpenGL测试游戏，不过在Quake3中不可一世的Pentium4在MDK2中又变得很温和，MDK2并没有针对Pentium4的SSE2作优化，所以增强指令集对Pentium4没有任何帮助，在测试中我们将硬件T＆L关闭，使所有T＆L的工作交给CPU来完成，进一步加重CPU的负荷。
+　　1.5GHz Pentium4性能表现只比1GHz Athlon好一点，性能差距保持在7％，如果我们采用1.2GHz的Athlon，其MDK2的性能表现一定可以超过1.5GHz Pentium4。将1.5GHz的Pentium4降频到1GHz后，MDK2的性能表现只相当于1GHz Athlon的80％多一点。看来Pentium要在这样的游戏中超越Athlon，必须进一步提高频率，以高频率取胜。
+　　●3D Mark2000（^47070201k^表三）
+　　尽管3D Mark2000是我们最常用的D3D测试软件，考察CPU的浮点性能，但3D Mark2000并没有针对SSE2优化，只是使用了SSE，针对Athlon倒是优化过。从测试的情况来看，无论是CPU Speed还是3D Mark的成绩，1.5GHz还是领先很多，高出1GHz Athlon15％，但反过来，相同频率的Pentium4和Athlon比较，Athlon又表现好一些，性能高出Pentum4近10个百分点。3D Mark2000的测试并不能够完全反映Pentium4的实际效能，但从测试成绩来看，如果用到SSE2指令，Pentium4的浮点性能表现应该会更好些。
+　　●OpenGL专业测试SPEC viewperf、Indy3D（^47070201l^表四）
+　　在专业OpenGL测试SPEC viewperf中，Pentium4 1.5GHz基本上保持了领先，比1GHz Athlon高出10％以上，但相同频率的Pentium4和Athlon相比，并不占优势，甚至部分测试项成绩还略低一些。在Indy3D 16MB的测试中，Pentium4有相似的表现。
+#1    结　论
+　　从整个测试来看，Intel  Pentium4的体系结构的确非常优秀，400MHz 3.2GB/s系统总线以及双通道3.2GB/s的RAMBUS，的确使Pentium4更好地解决了内存带宽瓶颈。但新增加的SSE2指令没有表现出令人满意的性能。至少在目前支持SSE2指令集的应用程序尚未普及的情况下，SSE2指令集对Pentium4性能的发挥没有任何帮助。不过Pentium4还是取得频率上的桂冠，但AMD 凭借目前上市的Athlon 1GHz尤其是1.2GHz处理器就可以在绝大多数应用中与Pentium4 1.5GHz战成平手。Pentium4的市场前景除了应用软件厂商的支持，使Pentium4的潜能真正发挥出来外，价格会是更主要的因素。从目前上万元的零售价来看，还是显得离我们太遥远。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

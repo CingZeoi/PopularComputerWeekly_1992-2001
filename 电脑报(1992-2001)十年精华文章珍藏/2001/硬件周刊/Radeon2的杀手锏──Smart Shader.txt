@@ -1,0 +1,27 @@
+Radeon2的杀手锏──Smart Shader
+
+朱云 
+2001年 31期
+
+由于NVIDIA在事实上已经垄断了PC显示市场，失去竞争活力，这不能不令人担忧。因此有识之士无不盼望着NVIDIA的对手们尽快强大起来，每当出现一款能够向GeForce系列显卡挑战的产品，必定引起业界的关注与轰动，过去ATI的Radeon是这样，ST（意法半导体）的KyroII也是如此，ATI还未露面的Radeon2更是如此。
+　　随着Radeon2相关的各项专利技术相继公开，行业巨头如英特尔和微软也纷纷为ATI撑腰、打气，ATI似乎在不知不觉间站到了PC舞台的聚光灯下，成了人气不断上升的主角。ATI继TruForm曲面处理技术之后，又于近日介绍了DirectX 8.1兼容的Smart Shader可编程引擎，这让我们对即将登场的Radeon2神往不已。
+　　究竟Smart Shader能否帮助Radeon2挑战NVIDIA的“一代天骄”GeForce3呢？让我们深入浅出地分析一下，看个究竟。
+　　#1Radeon2如虎添翼
+　　目前看来，Radeon2的主要技术基础构建于TruForm和Smart Shader两大智能技术之上，当然，在不远的将来ATI也可能再次透露Radeon2令人好奇的一鳞半爪。
+　　TruForm曲面技术实际上主要基于DirectX 8.0中的N-Patch，它是将曲面分解为小三角形进行几何处理与纹理渲染的一种方法，TruForm的含义可以理解为“真实形体”。但是为了与NVIDIA参与制定的N-Patch规范拉开距离，ATI一不做二不休，又在TruForm中添上了将普通多边形建模的3D物体曲面化的方法，这样TruForm就可以顺理成章变成3D游戏从多边形为主向曲面化顺利转变的中间桥梁。在这一点上NVIDIA的想法更加激进，它在GeForce3中配备了与众不同的“四边曲面”处理功能，简单地说就是完全以曲面作为各阶段3D处理的基本单位——当年NV2就是因为“四边曲面”的渲染模式输给了以三角形（多边形）为基础的Voodoo等主流产品，那次失败几乎导致NVIDIA一蹶不振；当然现在NVIDIA正踌躇满志，希望随心所欲地引导3D技术的发展方向。
+　　而ATI新推出的Smart Shader技术则源于DirectX 8.0中引入的Vertex Shader（顶点处理单元）和Pixel Shader（像素处理单元），但是主要基于DirectX 8.1改进过的两种Shader。Shader最初是3D渲染中的明暗涂色装置，现在被广泛引伸到几何顶点和光栅像素处理的范畴，译为“效果引擎”最为恰当。微软使用Shader来表示可以比较自由地改变工作方式的3D处理架构，说穿了就是给3D芯片内的标准运算单元编写各种不同的小程序来实现特定的3D功能，Vertex Shader是对构成3D物理的三角形顶点进行处理的，而Pixel Shader是对屏幕显示的每个像素进行处理的。DirextX 8.1的改进在于加强了上述两种Shader的灵活性，这就是为什么ATI将自己的技术称为“智能效果引擎”。
+　　种种迹象表明，代号为R200的Radeon2将很快被公布，因此最合理的预期是Radeon2于今年夏末秋初正式登场。尽管我们还很难了解Radeon2的准确指标，但是从TruForm和Smart Shader的实力来看，Radeon2比GeForce3只会强不会弱，趁着NVIDIA还未能广泛推广DirectX 8.0新功能的机会，这次ATI很有机会赶上来——尽管届时GeForce3的Ultra版和简化版NV17将加入战团，但是ATI也有“半个 Radeon2”的RV 200进行还击。
+　　#1Smart Shader成为新的DX标准
+　　那么究竟DirectX 8.1比8.0版本有多大的进步呢？或者说Smart Shader比VertexShader和PixelShader有那些改进呢？其实NVIDIA全力推广的T&L引擎早已比较成熟，因此DirectX 8.0中的Vertex Shader没有什么问题；而可编程的渲染引擎即使在GeForce3上也是问题多多，当然微软这次升级API主要针对的就是Pixel Shader（性能对比参见下表）。（^31030101b^）新的Pixel Shader将单周期渲染的最大纹理数由4重提高到6重，最大的可编程序长度由12个指令变成了22个指令，纹理数据的寻址方式也由40种增加到无穷多种——这说明微软采纳了更加底层的Shader指令和更加复杂的Shader程序。本来Pixel Shader的程序分成地址Shader和色彩Shader两种，新版的Shader编程语言统一这两种程序，简化了编写过程。
+　　NVIDIA和ATI在各自图形芯片中集成的Shader处理单元可以实现很多超酷的图形效果，例如通过顶点处理单元来实现实时阴影和物体变形的效果。ATI Smart Shader技术中的顶点处理功能要比nVIDIA Geforce3 nFinite FX 引擎中的顶点处理功能强很多，Radoen2芯片可以为图形的每个顶点处理多达16组的独立数据流，游戏设计人员编制出来的一个典型顶点处理程序可以拥有128条指令，其中就包含了96个顶点数值并利用到了12个临时数据寄存器。
+　　DirectX 8.1的演示效果（见图）（^31030101a^）很引人注目，ATI特别声称有4种效果是Smart Shader独有的。这4种效果是Ture Phong Shading（真实高亮度涂色）、Anisotropic Lighting（各向异性光照）、Advanced Bump Mapping（先进凹凸贴图）和Procedural Textures（程序生成纹理）。
+　　随即NVIDIA就声明GeForce3也能够实现这些DirectX 8.1的3D特效，这是为什么呢？据NVIDIA的内幕消息，相对于DirectX 8.0中的1.1版Pixel Shader，DirectX 8.1集成了两种版本的新Pixel Shader：GeForce3的nfiniteFX引擎兼容的1.2/1.3版，和Radeon2的Smart Shader引擎兼容的1.4版。光看版本号也可以知道，这一回ATI在Pixel Shader的争夺中占了上风，就像当初NVIDIA在制定Vertex Shader标准时获得领先一样。
+　　#1  ATI VS NVIDIA
+　　在谈到ATI的计划和Radeon2的实力时，我们总是不得不提到NVIDIA，毕竟现在是人家说了算。NVIDIA目前以坚定的意志把3D市场推向自己计划的方向，毫不顾忌其它公司的反对和用户的意愿。
+　　NVIDIA这种敢于同“全世界”为敌的惊人姿态，也引起了不少IT巨头的不满。英特尔早就反感NVIDIA产品对AMD的优化，也抱恨于i740/752的失败，再加上NVIDIA决心进军主板芯片组市场，英特尔因而把NVIDIA看作自己潜在和危险的对手；微软一向是NVIDIA的合作伙伴，可以说NVIDIA就是随着微软的DirectX发展起来的，现在NVIDIA不愿再臣服于微软制定的3D发展方向，终于在DirectX 9.0的开发会议上拒签保密协定，被微软从首要的合作伙伴名单中除名。
+　　位居第二的ATI的实力同NVIDIA相比相差并不太远。在技术方面，ATI产品的3D速度略逊于NVIDIA（Radeon2一出，形势定会有所改变），但是图形质量有一定的优势，而且ATI在视频方面具有压倒性的实力；在笔记本电脑市场，ATI的Mobility Radeon能够阻止GeForce2 Go的进攻；在专业绘图卡方面，ATI新购入的FireGL系列比NVIDIA的Quadro系列更加根深蒂固；在苹果电脑中，Radeon也比GeForce2 MX更为成熟。然而，在市场方面，ATI就不能同NVIDIA相提并论了，最近ATI总算放开了显示芯片的出售，一下子涌现出了不少生产ATI“兼容显示卡”的小公司，尽管暂时还不能同NVIDIA旗下的“正规军”正面对抗，但是这已经足以将ATI的市场占有率提升到引起潜在顾客重视的程度。
+　　综上所述，“古老”而又“古板”的ATI正在努力地做出改变，希望借着环境的支持和自身的努力挑战NVIDIA的3D之王的显赫地位。
+　　我们也盼望Radeon2凭借TruForm和Smart Shader等独特的技术，能够显著提高3D游戏的图形表现和游戏感受。而且有竞争就有价格战，希望更加强大的ATI能迫使NVIDIA不再孤芳自赏，不再强硬地操纵市场价格。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,412 @@
+WEB上的电视——SMIL简明教程
+
+黄剑
+1999年 第53期 01版
+
+
+    随着互联网的普及，开发者和网虫对网页质量的要求也越来越高，尤其对死板的静态页面越来越不满意。由于各种需要，许多人希望能够在页面中加入视频节目，能更有声有色地表现自己的特色。但HTML只擅长处理静态内容，在动态的多媒体方面一直存在带宽限制和资料同步等问题，在这种情况下，1998年W3C联盟正式推荐了SMIL语言。
+    SMIL（Synchronized Multimedia Integration Language  同步多媒体集成语言）是可扩充标志语言（XML）的一种应用，它是一种类似于HTML的标记语言。开发者只需使用纯文本编辑器，就可容易地安排网页上的视频、声音及文字各部分的时序，可以很方便地实现WWW上的视频广播、视频点播，因此，许多人将SMIL称为WWW上的电视。本文将向WEB开发者和多媒体制作爱好者详细介绍这一功能强大的标记语言。
+#1一、SMIL 的特点
+#1    1.简单的创作过程
+    通常视频节目创作需要有专门的技术和工具，所以很少人开发WEB上的同步多媒体信息。而创建SMIL文件极为简单，只需要一个文本编辑器和使用一些基本的语法，为视频、声音、文本、静态图像等节目素材指定播出时序和表现形式，就可以合成一个视频节目，并不需使用非线性编辑软件合成。这些素材可以放在不同的位置，甚至可以放在不同的网站上。创作过程之简单，即使是非专业人员也可创作出很专业的视频节目。
+#1    2.很好的可维护性
+    许多节目制作人都有这种经验，节目制作完成之后，由于其中一个素材出了问题，整个节目就不得不重新编辑并重新生成，既麻烦又耽误时间，而使用SMIL编辑的文件，只需对出现问题的素材进行修改即可满足维护的需要。
+#1    3.节省带宽
+    SMIL很好地解决了视频节目在网上传播过程中的带宽和资料同步问题，在显示节目内容时，SMIL避免将低带宽的文本、图片转换成高带宽的视频，从而降低了对带宽的需求。SMIL还可以控制节目组成元素的下载，在同一网页中，只有被使用的资料才会下载；如果使用视讯流服务器，视频节目不需下载，即可实现视频广播。
+#1    4.设置播放选项
+    SMIL可以设置智能化的选项，可以根据客户端的网络带宽、操作系统语言等自动下载不同的节目版本。例如：SMIL文件可以同时包含汉语和英语的视、音频文件，然后根据用户的参数设置自动选择下载中文或英文版本。
+#1    5.与WEB体系结构紧密集成
+    SMIL中包括所有WEB用户熟悉的部件，如URL、基于CSS的页面布局、基于HTML的超文本链接以及基于XML的语法。SMIL是W3C推荐的第一个使用XML的语言，SMIL元素也可以加入到其它需要同步功能的XML应用中去。
+#1二、SMIL语法
+    大家熟悉的RealNetworks公司的RealPlayer G2 是第一个支持SMIL的商业软件，目前它已能支持大部分的SMIL 1.0规范。它使用的文件以“.smi”为后缀，语言与HTML相似。RealNetworks公司的产品还包括RealServer， RealPlayer Plus， RealAudio Encoder， RealVideo Encoder， RealEncoder， RealPublisher， RealProducer， RealProducer Plus， RealProducer Pro， RealBroadcast Network等。
+#1    1.SMIL文件的基本结构
+    SMIL文件可以用任意纯文本编辑器创建。与HTML类似，SMIL是一种标记式语言，使用RealPlayer做为播放器。下面的例子表示了SMIL文件的基本结构。
+    <smil>
+    <head>
+    <meta name=″Title″ content=″欢迎使用SMIL″/>
+    <meta name=″Copyright″content = ″（c） 1998， RealNetworks， Inc.″/>
+    </head>
+    <body>
+    <animation id=″logo″ src=″firstrun.rp″ />
+    </body>
+    </smil>
+    整个SMIL文件在RealPlayer G2中播放的结果如^530113a^所示：
+    SMIL文件组成的基本规则：
+    （1）SMIL文件必须以<smil> 开始，以</smil>结束，其它的标记嵌在这个标记对之间。
+    （2）SMIL文件必须包括<body></body> 标记，所有节目素材都集中在<body></body> 标记中进行组织。
+    （3）SMIL文件可以包括<head></head> 标记，在此区中，可以定义显示标题、版权信息、作者以及整个节目的显示特征。显示特征名称使用    <meta name=″特征名″>表示。
+    （4）<head></head>标记不是必需的。  
+    在<head>区中定义的作者、标题以及版权信息等信息，可以根据需要在<body>区内重新设置，例如，在例1中第一段节目素材后加入下列代码：
+    <video src=″second.rm″  title=″改变显示标题″/>
+    当此节目素材开始播放时，显示在RealPlayer标题栏中的标题就改变了。
+    （5）SMIL 标记必须是小写字母。 
+    （6）没有结束符的标记，必须以斜杠“/”结束，如上例中：
+    <animation id=″logo″ src=″firstrun.rp″ />
+    （7）属性值必须用双引号引起来，如上例动画素材的属性src=″firstrun.rp″。
+    （8）在SMIL文件中，“″”、“＇”、“&”、“<”、“>”等符号是语法符号。如果需要在节目文本中显示这些符号，可以用转义符号来实现。如下表所示；
+    转意符号        意义
+    &quot；         ″双引号
+    &amp；          & and符号
+    &apos；         ＇ 单引号
+    &lt；           < 左尖括号
+    &gt；           > 右尖括号
+    例如， 如果需在RealPlayer标题中显示 “Multimedia＇s<smil> & you” ，在SMIL文件中可以写成：<meta name=″title″ content= ″&quot；Multimedia&apos；s &lt；smil&gt； &amp； you&quot；″/>
+    （9）与HTML一样，注释语句表示为：<!--注释句-->
+#1    2.指定节目素材
+    整个节目是由视频、音频、文本、静态图像等素材组成的。在组合节目时，需定义节目素材的类型、素材源文件等信息，这些信息在SMIL文件的<body>区中定义，如下例所示： 
+    <audio src=″rtsp://realserver.company.com/audio/first.ra″/>
+    （1）节目素材类型如下表所示：
+    素材类型    意义
+    Animation   动画文件，如flash等文件。
+    Audio       音频文件。
+    Img         静态图像文件（如JPEG、GIF等格式）。
+    Ref         其它任意类型的文件。
+    Text        静态文本文件。
+    Textstream  文本流文件。
+    Video       视频文件。
+    尽管在SMIL中必须指定每一个节目素材的类型，实际上素材类型并不影响播放，因为RealPlayer 能够自动识别节目素材的类型，以正确的方式播放节目。
+    （2）素材源：“src”标记用于定义节目的素材源文件。
+    <audio src=″rtsp://realserver.company.com:554/audio/first.ra″/>
+    素材源各部分表示的意义：
+    URL组成            
+    Rtsp://  
+    表示意义: 指定使用的协议，类似于HTML使用HTTP协议，RealServer服务器使用的是RTSP协议。当然，也可使用HTTP协议，但如果实现视讯流技术，好使用RSTP协议。
+    Realserver.company.com  
+    表示意义:放置节目素材的服务器的地址。
+    :554   
+    表示意义: 用于连接服务的端口，554是默认值，可以由管理员修改。
+    First.ra  
+    表示意义:节目素材文件名。
+#1    3.定义URL
+    （1）如果节目中的所有节目素材都放在同一个RealServer服务器上，可以在<head>区中定义服务器地址，在<body>区中，只定义节目的路径，如下例所示
+    <head>
+    <meta name=″base″ content=″rtsp://realserver.company.com/″/>
+    </head>
+    <body>
+    <audio src=″audio/first.ra″/>
+    <audio src=″audio/second.ra″/>
+    <audio src=″rtsp://realserver.real.com/audio/third.ra″/>
+    </body>
+    上例中，前两个音频素材使用的是相对路径，而第三个音频素材定义了完整的URL地址，定义在<head>区的服务器地址将被忽略。
+    （2）如果节目素材放在其它的Web服务器上时，其URL也可以按HTTP形式描述，如：<img src=″http://www.company.com/images/logo.gif″/>
+    （3）如果节目素材放在本地服务器上，其URL可以使用相对路径，其格式与HTML格式相同，如：src=″audio/first.ra″ 表示节目素材在下级目录audio中。
+    （4）节目素材也可以使用绝对路径，其格式因不同的操作系统而异（下例中格式是在Windows操作系统中的格式），类似于HTML格式：
+    src=″file://c:audiofirst.ra″
+    【注】： 如果使用IE 3浏览器，它试图将本地机上的SMIL文件按HTML解释，忽略<head>标记。但如果是从RealServer服务器上传播的视频流SMIL，就不存在这种问题，在Netscape 或 IE 4中也不存在这种问题。
+#1    4.组织节目
+    使用SMIL语言，可以容易地组织视频、音频、文本、静态图像等素材，指定它们的播放时序、表现形式，最终组合成一个完整的节目。
+    SMIL用于组织节目最基本的标记有<par></seq>和<par></par>，其中<seq>标记表示按排列次序播放标记对中的节目素材，<par>标记表示同时播放标记对中的节目素材。结合使用这些标记，可以达到类似于使用非线性编辑软件编辑节目的目的。下面分别就各个标记进行说明。
+    （1）<seq>标记：<seq>标记表示按顺序播放标记对中的节目素材，我们称之为<seq>片段，请看例子：
+    <seq>
+    <audio src=″audio/newsong.ra″/>
+    <audio src=″audio/oldsong.ra″/>
+    </seq>
+    上例中，第一段音频素材播放完毕，立即播放第二段素材。
+    如果节目中所有的素材全部按排列顺序播放，可以不使用<seq>标记，只须简单地将素材段按播出顺序排列即可。<seq>标记通常与<par>标记一同使用，将素材按播放顺序组合成复杂的节目。
+    （2）<par>标记：<par>标记表示同时播放标记对中的节目素材。我们称之为<par>片段。
+    例如，我们希望在RealPlayer播放器开两个播放区，其中一个播放区播放视频节目，另一个播放区显示视频节目的文字说明，同时配上解说音，如下例所示：：
+    <par>
+    <video src=″videos/newsong.rm″ region=″region_02″/>
+    <textstream  src=″lyrics/newsong.rt″ region=″region_01″/>
+    <audio src=″audio/oldsong.ra″/>
+    </par>
+    当同时播放多个节目素材时，还需要为每个节目素材定义播放区，上例中出现的 region属性表示播放区，播放区的定义将在以下内容里介绍。
+    RealSystem 保证<par>标记中包含的每个素材保持同步，如果其中某个素材播放时有所延迟，RealPlayer自动调整其它素材的播放速度，以便整个节目保持同步。
+    设置<par>片段的结束方式：
+    由于<par>片段的各个素材播放时间往往不一样，所以，有时需要指定何时结束整个<par>片段。如果没有设置<par>片段的结束方式，它将在时间最长的节目素材播放完毕后结束。
+    控制<par>片段结束方式的属性是endsync。下^530113b^中列出了该属性的值及示例：
+    （3）设置重复播放次数
+    ①repeat=″n″ 表示素材或节目片段按指定的次数重复播放，如下例所示：
+    <video src=″videos/newsong.rm″ repeat=″4″/> 素材newsong.rm重复播放4次。
+    ②指定整个节目片段重复播放的次数：
+    <par repeat=″3″>
+    <video src=″videos/newsong.rm″/>
+    <textstream src=″lyrics/newsong.rt″/>
+    </par>
+    ③下例中，在<par>片段内的视频素材重复播放两次，假设视频素材持续时间长于文本素材，整个片段在视频素材播放两次后结束：
+    <par>
+    <video src=″videos/newsong.rm″ repeat=″2″/>
+    <textstream src=″lyrics/newsong.rt″/>
+    </par>
+    ④下例中，<seq>片段的第一个视频素材播放两次后开始播放第二个视频素材：
+    <seq>
+    <video src=″videos/newsong.rm″ repeat=″2″/>
+    <video src=″videos/newsong2.rm″/>
+    </seq>
+    （4）节目素材播放时序组合：使用<seq>和<par>组合，可以对节目素材按需要的播放次序进行组合，达到预期的效果，请参见下面两个不同组合形式的示例：
+    <seq>
+    clip 1
+    <par>
+    clip 2
+    clip 3
+    </par>
+    clip 4
+    </seq>
+    上例中，素材clip 1首先播放，clip 1结束后， clip 2和clip 3同时开始播放。clip 2和clip 3结束后，clip 4开始播放。再如：
+    <par>
+    clip 1
+    <seq>
+    clip 2
+    clip 3
+    </seq>
+    clip 4
+    </par>
+    在此例中，clip 1 、2、4 同时播放，clip 2结束播放后，clip 3开始播放。
+    （5）定义节目播放时间：通过定义播放时间指定节目素材何时开始播放，播放时间多久等，如果没有定义播放时间，RealPlayer将根据节目素材时间长度及在<par>、<seq>片段中定义的结束方式确定何时开始播放及播放的时间。时间符号包括h， min， s 及 ms， 如下表所示： 
+    时间符示例     表示意义
+    2.5h           2小时30分。
+    2.75min        2分45秒。
+    15.55s         15秒550毫秒。
+    670.2ms        670.2毫秒。
+    ①定义播放时间长度：播放时间可以用npt（normal play time 正常播放时间）来描述，格式为：
+    ″npt=hh:mm:ss.xy″
+    hh表示小时 mm表示分钟 ss表示秒 x表示十分之一秒 y表示百分之一秒如 ″npt=02:34.0″节目的播放时间为2分钟34秒。
+    如果npt不包含小数点，RealPlayer 将认为最后一位时间值是以秒为单位。例如，″npt=02:34″ 表示播放时间为2分34秒而不是2小时34分。
+    ②设置素材起始及终止时间：
+    ●begin属性适用于所有节目素材。用于定义节目或节目素材开始播放的时间，如下例如示：
+    <video src=″videos/newsong.rm″ begin=″20.5s″/>
+    此例中，如果节目素材包含在<par>片段中，素材将在整个节目播放20.5秒后开始播放。如果节目素材是包含在 <seq>片段中，将在节目素材播放前插入20.5秒的空白段。
+    ●end属性用于指定节目结束时间，使用begin和end属性的组合，可以定义节目或素材开始播放及播放结束的时间。
+    <video src=″videos/newsong.rm″ begin=″20.5s″ end=″62.7s″/>
+    ③设置播放时间：dur属性控制节目素材在节目中持续播出的时间。如：
+    <img  src=″images/newpic.gif″ begin=″20.5s″ dur=″14.5s″/>
+    上例表示在节目开始20.5秒后显示一幅静态图像，此图显示14.5秒后消失。
+    Dur和end 属性均可以用于定义节目或素材的结束时间，dur是相对于起始时间的持续播放时间，而end表示但不要同时在同一个标记对中使用。
+    （6）设置fill属性：fill属性定义节目播放完后所处的状态，其值有remove和freeze，我们用表格表示（如^530113c^）：
+    fill属性对音频节目无效。
+    （7）设置节目素材的内部播放起始及结束时间：clip-begin 及 clip-end 用于定义节目素材内部播放起始和终止时间：
+    <video src=″videos/newsong.rm″ clip-begin=″10.5s″ clip-end=″50.7s″/>
+    此例中，节目素材从其内部时间10.5秒处开始播放，当播放至50.7秒时结束。共播放40.2秒。下例演示了一个由两段不同定时选项的音频素材组合的节目：
+    <par>
+    <audio src=″song1.ra″ clip-begin=″30.4s″ clip-end=″60.4s″/>
+    <audio src=″song2.ra″ begin=″28s″ clip-begin=″2.4s″clip-end=″13.7s″/></par>
+    定时属性改变了<par>片段播放的时间顺序，所以两段音乐素材开始播放的时间不一致。第一段音乐在节目开始时立即播放，但是是从其内部时间30.4秒处开始，持续时间30秒。第二段素材在节目开始28秒后播放，这意味着它与第一段音频素材有2秒的重叠。它在内部时间2.4秒处开始，结束于内部时间13.7秒处，持续11.3秒。总的播出时间为第一段节目的30秒加上第二段节目的11.3秒，减去重叠的2秒，播放时间总计39.3秒。
+    （8）设置可选节目：在网上播放多媒体节目，有时要考虑到网络带宽、用户操作系统语言等条件的限制，希望用户播放器能根据不同的条件播放不同的节目，例如，使用英文Windows操作系统的用户可自动播放英语版本的节目，而使用中文Windows操作系统的用户则自动选择播放中文版本的节目。
+    使用<switch>标记，可以为RealPlayer指定多种选择：
+    <switch>
+    <choice1 test-attribute=″value1″/>
+    <choice2 test-attribute=″value2″/>
+    ...
+    </switch>
+    播放器按照排列次序，依次进行测试，最终确定开始播放哪段节目。
+    ①设置语言选择：RealPlayer可以根据客户端操作系统的语言类型选择播放内容，如下例所示：
+    <par>
+    <video src=″slides/seattle.rm″/>
+    <!-- select audio based on RealPlayer language preference setting -->
+    <switch>
+    <audio src=″english/seattle.ra″ system-language=″en″/>
+    <audio src=″french/seattle.ra″ system-language=″fr″/>
+    <audio src=″german/seattle.ra″ system-language=″gr″/>
+    </switch>
+    </par>
+    语言代码举例：
+    代码    语言
+    ZH-HK   Chinese（Hong Kong）
+    zh-cn   Chinese （People＇s Republic）
+    zh-sg   Chinese （Singapore）
+    zh-tw   Chinese （Taiwan）
+    it      Italian （Standard）
+    en      English
+    En-us   English（United States）
+    el      Greek
+    fr      French（Standard）
+    Ja      Japanese
+    Ko      Korean
+    ko      Korean（Johab） 
+    ②设置带宽选择：在制作节目素材时，可根据不同的传播要求，将节目压缩成适合在不同带宽网络上传输的素材。在SMIL中，可以将这些素材通过<switch>标记组合成节目，由播放器自动选择合适的播放节目。下例中，Realplayer可自动根据不同的带宽选择不同的节目：
+    <switch>
+    <par system-bitrate=″75000″>
+    <!-双ISDN 及更高的传播带宽-->
+    <audio src=″audio/newsong1.ra″/>
+    <video src=″video/newsong1.rm″/>
+    <textstream src=″lyrics/newsong1.rt″/>
+    </par>
+    <par system-bitrate=″47000″>
+    <!-单ISDN-->
+    <audio src=″audio/newsong2.ra″/>
+    <video src=″video/newsong2.rm″/>
+    <textstream src=″lyrics/newsong2.rt″/>
+    </par>
+    <par system-bitrate=″20000″>
+    <!-- 28.8 modems-->
+    <audio src=″audio/newsong3.ra″/>
+    <video src=″video/newsong3.rm″/>
+    <textstream src=″lyrics/newsong3.rt″/>
+    </par>
+    </switch>
+    通常节目按传播带宽从高到低排列。RealPlayer按排列顺序依次评测，选择第一个效果比较好的节目播放，可能其后的节目播放效果更好，但RealPlayer会忽略。
+    要保证最后的选项能够满足你希望支持的最低的传播速率。上例中，如果你没有列出适合28.8Kpbs Modem连接的节目，以此速率连接在网上的RealPlayer将不会没有可播放的节目。
+#1    5.创建节目布局
+    如果节目只包括一个节目素材，就没有创建节目布局的必要。节目在RealPlayer的主窗口中播放，窗口尺寸自动随节目尺寸调整。如果希望RealPlayer的窗口在不同节目素材播放时保持一定的尺寸，或同时在RealPlayer中显示多个节目素材窗口，就需要为每个节目素材定义播放区（不在播放器窗口显示的素材，如音频节目，不需要定义播放区）。 
+    节目布局在SMIL的<head>区内定义，<region>定义了每个播放区的名称，并定义在RealPlayer播放窗口内的位置及尺寸。节目素材的播放区在在SMIL的 <body>区内分配。播放区以RealPlayer的左上角为坐标起点。以pixel为单位或以百分比形式定义播放区的尺寸。
+    下面是一个节目布局实例，在<head>区定义了一个“根区”，它占据了整个播放器窗口。另外为视频素材和文本素材分别定义了一个播放区：
+    <head>
+    <layout>
+    <root-layout background-color=″maroon″ width=″250″ height=″230″/>
+    <region id=″videoregion″ top=″5″ left=″5″ width=″240″ height=″180″/>
+    <region id=″textregion″ top=″200″ left=″5″ width=″240″ height=″20″/>
+    </layout>
+    </head>
+    （1）定义根区：根区是RealPlayer的整个播放区域，其它的播放区均在根区内，节目素材或静态图像不能在根区内播放或显示。
+    上例中，根区尺寸是230×250pixels，节目开始时，RealPlayer窗口尺寸调整至230×250pixels，其它播放区均在根区内。
+    【注】：根区不是必需的，RealPlayer可以自己计算各播放区的位置及尺寸，但为了避免不可预知的结果，最好定义一个根区。
+    （2）定义播放区：使用<region>标记创建播放区。播放区必须位于根区内。超出根区以外的部分会被裁掉。上例中定义了名为“videoregion”和“textregion”的两个区域。两个区域距根区左上角的偏移量分别为5、5和5、200 pixels。
+    必须为每个播放区定义高度和宽度。播放区的高、宽以及坐标位置也可以用百分比表示播放区占根区的比例。下例中使用百分比定义的布局与上例所示的布局一样：
+    <head>
+    <layout>
+    <root-layout background-color=″maroon″ width=″250″ height=″230″/>
+    <region id=″videoregion″ top=″2%″ left=″2%″ width=″96%″ height=″78%″/>
+    <region id=″textregion″ top=″80%″ left=″2%″ width=″96%″ height=″18%″/>
+    </layout>
+    </head>
+    使用百分比定义播放区的要点：
+    ●根区必须以pixels为单位。 
+    ●可以混合使用pixels和百分比例定义播放区域。例如，可以用百分比定义播放区的偏移量，用pixels定义播放区的高、宽。 
+    ●可以用整数或小数定义百分比，如4%各4.5%都是有效的。 
+    ●超出根区的部分会被裁去，所以不会使用100%的比例定义播放区。 
+    （3）调整节目段以适合播放区：如果节目素材的尺寸与播放区的尺寸不一致，可以使用fit 属性指定节目素材如何与播放区匹配。
+    <region id=″videoregion″ width=″128″ height=″64″ fit=″meet″/>
+    fit 属性值如下表所示 
+    （4）定义背景色：根区缺省的背景色是黑色。播放区的缺省背景色为透明色。在<head>区中，可以定义播放区的背景色。
+    <layout>
+    <root-layout background-color=″maroon″/>
+    <region id=″videoregion″ background-color=″silver″.../>
+    <region id=″textregion″ background-color=″#C2EBD7″.../>
+    </layout>
+    背景色的值以RGB或颜色名定义，下表列出了颜色及其对应的颜色值。
+    （5）透明色：没有定义背景色的播放区的背景色是透明色，表示节目开始之前此区域是不可见的。它并不是真正透明的。如果节目素材也包含透明部分，也无法透过素材的透明区看到它所覆盖的内容。
+    （6）安排节目素材重叠次序：如果播放区相互重叠，z-index属性指定重叠播放区的前后位置，下例定义了相互重叠的视频素材播放区与静态图片播放区。
+    <layout>
+    <root-layout background-color=″gray″ width=″280″ height=″220″/>
+    <region id=″image″ top=″10″ left=″10″ width=″260″ height=″200″z-index=″0″/>
+    <region id=″video″ top=″20″ left=″20″ width=″240″ height=″180″z-index=″1″/>
+    </layout>
+    此例中定义了一个背景色为灰色的220×280的根区，一个图像播放区，位于根区正中。其z-inder属性为0，表示它位于除根区以外其它播放区的后面。视频区位于图像区的正中，由于它的z-index值比图像区的大，它位于图像区的前面。
+    定义z-index值的注意事项：
+    ●根区永远位于所有其它播放区的后面，它没有z-index属性。
+    ●z-index值是从0开始的任意正整数，不能为负值。
+    ●如果没有指定值，缺省值是0。
+    ●z-index值可以是严格递增的值（如0、1、2、3、4…），也可以是跳跃变化的，在两层之间加入新层时更方便。
+    ●如果两个播放区有相同的z-index值，后出现的节目素材将位于前面。
+    （7）为节目素材分配播放区：在<head>区定义节目布局后，在<body>中为每个节目素材指定播放区。
+    <body>
+    <par>
+    <video src=″video.rm″ region=″videoregion″/>
+    <audio src=″audio.ra″/>
+    <textstream src=″text.rt″ region=″textregion″/>
+    </par>
+    </body>
+    上例中，视频节目和文本节目分别被分配给视频区和文本区，当节目素材播放完毕，将自动释放播放区，可以重新使用。
+    （8）SMIL布局示例：在下例中，定义了3个播放区：一个播放新闻，一个播放视频，一个显示股票指数：
+    <smil>
+    <head>
+    <!-由两个文本素材和一个视频素材构成的节目-->
+    <meta name=″title″ content=″Music of the Week″/>
+    <layout>
+    <root-layout width=″430″ height=″165″/>
+    <region id=″newsregion″ top=″0″ left=″0″ width=″250″ height=″144″/>
+    <region id=″videoregion″ top=″0″ left=″250″width=″180″ height=″144″/>
+    <region id=″stockregion″ top=″145″ left=″0″width=″430″ height=″20″/>
+    </layout>
+    </head>
+    <body>
+    <par> 
+    <!--play these 3 clips simultaneously-->
+    <textstream src=″news.rt″ region=″newsregion″/>
+    <video src=″newsvid.rm″ region=″videoregion″/>
+    <textstream src=″stocks.rt″ region=″stockregion″/>
+    </par>
+    </body>
+    </smil>
+    （9）定义与其它节目素材的链接：可以在SMIL文件中定义一段节目素材与其它节目素材的链接。如果一个视频素材定义了与另一个视频素材的链接。点击此链接时，第二个视频素材开始播放。视频素材也可以与HTML链接。甚至可以定义在不同播放时间点的不同链接。 
+    ①为节目指定链接：最简单的链接是将整个节目段链接到另一个节目段。如HTML一样，定义SMIL的链接也使用<a></a>标记，如下例所示：
+    <a href=″rtsp://realserver.company.com/video2.rm″> 
+    <video src=″video.rm″ region=″videoregion″/>
+    </a>
+    上例中，将视频素材video.rm链接到视频素材video2.rm上，当鼠标移至正在播放的video.rm素材上时，光标变成手形， 表明此素材有一个链接。点击链接，video2.rm取代video.rm开始播放。如果被链接的文件放在RealServer服务器，URL使用 rtsp://，如果被链接的文件放在其它web服务器上，则使用http://。
+    ②指定目标播放器或浏览器：与HTML类似，<a>或<anchor>标记中的show属性，可以定义被链接的素材在何处播放，如下例所示：
+    <a href=″http://www.company.com/index.htm″ show=″new″> 
+    <video src=″video.rm″ region=″videoregion″/>
+    </a>
+    但RealPlayer与浏览器不太一样，其主要的区别有：
+    ●播放器没有“后退”功能。 
+    ●播放器只能同时播放一个实例，不能象浏览器可以在新的窗口打开HTML文件一样在新的窗口打开SMIL文件。 
+    ●点击链接将清除现存的播放区。如果定义了三个播放区，点击一个区内的链接时，目标节目段取代所有的播放区。可以在链接目标SMIL文件中定义同样的播放区以保护同样的播放区，但是不能保护在这此播放区内的节目段的播放时间位置。
+    Show的属性值见下表：
+    属性: Replace 
+    意义: 缺省值是replace，节目素材将在同一个播放器中播放被链接的节目素材取代正在播放的节目。
+    属性:New，pause
+    意义:在缺省的浏览器内打开链接（指HTML文件）。如果show=“new”，打开链接后，源节目素材继续在播放器内播放，如果show=“pause”，源节目素材暂停播放，按下播放器上的“播放（play）”键可以继续播放源节目段。
+    （10）定义热点链接区：在SMIL文件内可以使用<ncchor>标记定义热点链接区，如同HTML文件的<map>标记。SMIL中的<a>标记把整个文件定义为链接点，而<anchor>只将节目素材中的一部分区域定义为链接点。SMIL区中的热点链接区也可以是暂时性的，一个链接可以只在节目播放的某一段时间内有效。
+    ①设置 anchor：与<a>标记不同，<anchor>标记是定义在节目素材标记内，如下例所示： 
+    <video src=″video.rm″ region=″videoregion″>
+    <anchor href=″rtsp://realserver.company.com/video2.rm″ .../>
+    </video>
+    可以发现，上例中<anchor>标记以“/”结束，而视频节目不象通常一样以“/”结束。而是以</video>结束符结束，<anchor>热点链接在<video></video>标记对内定义。<anchor>链接的目标根据链接的节目所放置的位置是RealServer服务器还是Web服务器，以“rtsp://”或“http://”作为URL头。
+    ②定义热点区的坐标：
+    <anchor>标记的corrds属性用于定义热点区的坐标，节目素材的左上角作为坐标原点，以pixels为单位或以百分比定义，热点链接区是一个矩形。如下例所示。<video src=″video.rm″ region=″videoregion″>
+    <anchor href=″...″ coords=″20，40，80，120″/>
+    </video>
+    各坐标的表示的意义依次为： 
+    ●距节目素材左边界位置。 
+    ●距节目素材上边界位置。
+    ●距节目素材右边界位置。 
+    ●距节目素材下边界位置。 
+    上例所定义了一个宽60pixels（80-20），高80pixels（120-40）的热点区，
+    ③设置暂时热点区坐标：除了可以设置热点区，<anchor>标记还可以设置节目播放过程中的暂时性链接。
+    下例中，为video.rm创建了两个暂时链接区，第一个链接区在节目开始的前5秒有效，第二个链接区是在紧随之后的的5秒钟内有效。因为没有设置热点链接区，整个播放区都是链接点。
+    <video src=″video.rm″ region=″videoregion″>
+    <anchor href=″rtsp://.../video2.rm″ begin=″0s″ end=″5s″/>
+    <anchor href=″rtsp://.../video3.rm″ begin=″5s″ end=″10s″/>
+    </video>
+    ④链接到SMIL文件或节目内的素材：视频素材可以链接到另一个SMIL文件，只须简单地在<a>或<anchor>标记中指向新的SMIL文件URL即可。当点击链接时，RealPlayer开始播放新的节目。也可以链接到节目内的某个素材上。
+    下例中用ID属性定义了一个片段，然后在一个节目素材中用“#”指定链接到的节目区：
+    <!-源节目区-->
+    <a href=″rtsp://realserver.company.com/newmedia.smi#text_and_video″> 
+    <video src=″video.rm″ region=″videoregion″/>
+    </a>
+    <!-目标区-->
+    <par id=″text_and_video″>
+    <video src=″video2.rm″ region=″newsregion″/>
+    <textstream src=″text.rt″ region=″textregion″/>
+    </par>
+    注意，源节目区中只有一个播放区：videoregion，目标区中定义了两个播放区：newsregion和textregion，当RealPlayer播放新的节目时，将重新创建两个播放区。
+    注意事项：
+    ●通过为素材或节目片段定义id标识号，可以链接到节目素材，或链接到<par>或<seq>片段，不要链接到文件内的元素或是<switch>片段上。 
+    ●不能只链接到节目片段中的某一个节目素材上，节目片段中所有的节目将在指定的播放区内播放 
+    ●如果在源SMIL文件中有其它节目排列在链接目标之后，当链接目标内的节目播放完毕，将继续播放源SMIL文件中的节目。
+    ●如果只链接到单独的节目素材，可直接在链接中指向它而不需要创建新的SMIL文件。或是创建一个只包括此节目的SMIL文件。 
+    ●链接到节目内的某个节目素材时，只需将href指向目标的标识号id。 
+    如<a href=″#text_and_video″>。
+    ⑤带时间偏移的链接：可以使用<anchor>标记的时间属性创建链接目标的时间偏移量。假设希望将一个视频素材链接到另一个视频素材，使它从目标的30秒处开始播放。可以在源SMIL件中，为第一个视频素材的<a><anchor>中指定链接，指向包含第二个视频素材的目标文件，在目标文件中定义视频素材开始播放的偏移量。如下例所示：
+    源SMIL文件中的节目：
+    <a href=″rtsp://realserver.company.com/newmedia.smi#vid2″> 
+    <video src=″video.rm″ region=″videoregion″/>
+    </a>
+    目标SMIL文件的节目：
+    <video src=″video2.rm″ region=″newsregion″>
+    <anchor id=″vid2″ begin=″30s″/>
+    </video>
+#1三、结束语
+    上面只是介绍了SMIL 1.0规范的一部分，感兴趣的读者可以到http://www.w3c.org站点获得规范全文。
+    SMIL使用的素材有多种，如果要制作出比较优秀的节目，还需要掌握视频、音频、文本流文件等素材的处理技术。如，使用静态图片实现有如perimere中滤镜的效果，就可以使用RealNetWorks的RealPix技术，这类技术还包括RealText、RealFlash等，这些技术同样也是以文本文件的方式将节目组合。
+    SMIL是一种正在完善中的语言，但它顺应了家庭娱乐与计算机技术相融合的趋势，拓展了Web的使用范围，必将为今后WWW技术的发展带来深远的影响。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

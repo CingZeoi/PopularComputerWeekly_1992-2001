@@ -1,0 +1,424 @@
+XML简明教程
+
+李永阔 张立东 
+2001年 60期
+
+#1    一、XML的背景和应用前景
+　　    （一）起源
+　　　　XML（eXtended Markup Language）是从SGML（Standard Generalized Markup Language）进化来的，最初SGML是为了解决文档及其格式问题的一种标记语言，所以非常的复杂和难以使用，那时计算机的应用水平还处在很低的阶段，并且那时人们只需要传递和显示一些简单的数据。因此，89年Tim Berners-lee依据SGML开发出一种超文本格式，就叫HTML（HyperText Markup Language），非常的简单。当计算机的应用水平也大幅度的提高的时候，人们已经对太简单的HTML开始不满意，因此又开始对其进行修改、升级，就这样HTML从1.0一直升到4.0的版本，扩展了许多的命令，实际上也是为了让HTML解决更多的问题，但是因为HTML本身的缺陷，为了解决更多的问题，是不是会把简单的HTML变成一个非常复杂的，难以理解的语言，就连现在看一个HTML的源文件，都会头大好几圈，再加上HTML是把数据和显示格式一起存放的，如果我们只想使用数据而不需要格式，可以想象，分离这些数据和格式是多么的困难。而随着Internet的发展， 98年1月W3C公布了XML1.0版本，立即成为计算机史上一个重要的里程碑。
+　　　　XML包括XML元数据文件、Schema文件、XSLT显示文件、XLL链接、Xpath等一系列相关部分，但是对于不是计算机方面的专业人士来讲，最好只看它的元数据文件，而把别的问题交给开发和制作人员，这样就可以让非专业人士脱离看懂那些头疼的术语的痛苦。在此就先说说XML的特点：
+　　    1. 电子数据交换（EDI）
+　　    2. 灵活的开发
+　　　　因为XML是数据和格式分离设计的，所以XML元数据文件就是纯数据的文件，这样就可以使用同一个数据源，显示多种样式了。而使用HTML的话，每显示一种式样，就必须重新把数据和格式混到一起，这是一件很痛苦的事情。
+　　　　XML采用的TAG是自己定义的，这样我们的数据文件的可读性就能大大提高，也不再局限于HTML文件那些标准的TAG了。而且因为XML支持Unicode，所以我们就可以使用中文标记（TAG），是不是感觉很自由呢？看看这样一个存放职员数据的XML数据文件：
+　　　　<职员>
+　　　　		<姓名>于青</姓名>
+　　　　		<性别>女</性别>
+　　　　		<年龄>23</年龄>
+　　　　		<学历></学历>
+　　　　<教育经历>
+　　　　	<毕业学校>北京大学</毕业学校>
+　　　　	<入学时间>1996-09-01</入学时间>
+　　　　	<毕业时间>2001-07-01</毕业时间>
+　　　　	<专业>中文</专业>
+　　　　</教育经历>
+　　　　</职员>
+　　    看到这个文件感觉是不是很棒？这样的文件不需要使用很复杂和专业的工具就可以增加、修改和编辑（使用微软的记事本就可以做到这些），而且大部分人都可以使用，可以让一个非计算机的专业人士，在10分钟内学会，这就是一个XML元数据文件的样子。当然XML文件也不象HTML那样可以写的不完整，XML必须写的中规中矩（well formed），否则XML的解析器就会报错。
+　　    3. 面向对象的特性
+　　　　XML的文件是以树状方式存储，同时也有属性，这非常符合面向对象方面的编程，而且也体现了以对象方式存储，ORACLE数据库就使用了这种面向对象的特性，但是ORACLE数据库的根本是关系型的数据库，因此速度和稳定性都有一定的问题，而且特别的复杂，所以大家基本上是很少使用它的这一特性，深怕跳到坑里去！
+　　    4. 缺陷
+　　　　世界上永远也不会出现完美的语言的，XML也是一样，它也有很多的缺陷，虽然它是树状存储的，搜索的效率极高，但是问题不是在搜索，而是在于目前它的插入和修改，！
+　　
+　　#1    二、XML基础
+　　    （一）XML术语
+　　　　在学习XML之前，我想先给大家介绍一些XML使用的术语。平常我们学习新的语言时，总会遇到许多难以理解的术语，在这里就先介绍一些主要的给大家。
+　　    元素（Elements）：代表XML文档中的每一个组件，包含字符、元素或者两者皆有，允许有空元素（empty element）。
+　　    属性（Attributes）：放在元素后面的数据，代表这个元素的另一种特性和特征。
+　　    统一编码（Unicode）：一种字符集，包括了全世界各种语言中有用的字符。
+　　    实体：“文本片”，实体也像一个缩写，一个实体可以是一个字符也可以是一个文档的数据，是XML文本的基本单位。
+　　    标记（Markup）：像标记（TAG）、实体引用（Entity reference）和声明这样的构件。
+　　    样式表（XSL）：描述XML的元数据文件格式的语言（因为CSS对于XML来讲不够用）。
+　　    序言（Prolog）：关于文档实例表现形式的信息。
+　　    文档实例（Document instance）：以元素的层次结构组织的实际文档数据。
+　　    （二）XML语法简介
+　　　  1．看一个简单的例子
+　　　　这是一个关于库存物品清单的简单例子，大家可以从中发现XML的许多特性，并且可以体会到XML的元数据文件是非常清晰易读的：
+　　<!—XML文件示例-->
+　　<?xml version="1.0" encoding="GB2312" ?>
+　　<库存清单>
+　　	<!--这里就是注释-->
+　　	<库存物品>
+　　		<名称>毛巾</名称>
+　　		<规格 单位="cm">25*50</规格>
+　　		<生产厂家>中国棉纺厂</生产厂家>
+　　		<生产日期>20010-09-01</生产日期>
+　　		<数量 单位="条">400</数量>
+　　		<进货价 单位="元">2.5</进货价>
+　　		<零售价 单位="元">6.5</零售价>
+　　	</库存物品>
+　　	<库存物品>
+　　		<名称>碗</名称>
+　　		<规格 单位="cm">5*15</规格>
+　　		<生产厂家>中国搪瓷厂</生产厂家>
+　　		<生产日期>20010-09-11</生产日期>
+　　		<数量 单位="个">200</数量>
+　　		<进货价 单位="元">1.5</进货价>
+　　		<零售价 单位="元">4.5</零售价>
+　　	</库存物品>
+　　	<库存物品>
+　　		<名称>筷子</名称>
+　　		<规格 单位="个">1*10</规格>
+　　		<生产厂家>中国搪瓷厂</生产厂家>
+　　		<生产日期>20010-09-11</生产日期>
+　　		<数量 单位="把">200</数量>
+　　		<进货价 单位="元">1.5</进货价>
+　　		<零售价 单位="元">3.5</零售价>
+　　	</库存物品>
+　　</库存清单>
+　　
+　　　　看过了XML语言的基本格式，下面将详细讲解XML元数据文件的各个组成部分，实际就上面这些而言是非常简单的，当然，我们要想更清楚的了解和学习XML，就必须清楚地知道这些定义的意义。
+　　  　2．声明（Declaration）
+　　　　XML数据文件的定义不象HTML那样自由，它是非常严格的，缺少一个就会出错！因为每个XML的解析器第一步要做的事情就是检查XML文件是否合格，就是“well-formed”，所以大家看到第一句是这样些的：
+　　<?xml version="1.0" encoding="GB2312" ?>
+　　    注意的是：不能漏掉此句，否则解析器不予解析的！当然里面的encoding可以不用写，缺省是Unicode，在此对XML使用的字符编码作一下说明，大家都应该知道中文和英文的区别吧，呵呵，有人说了，这也太简单了，实际上平时有区别就罢了，结果闹到计算机上真是比较麻烦，大家用过古董DOS的就知道使用汉字在计算机上是一件多么困难的事情，别人26个字母就可以搞定，汉字却要好几万个。现在的计算机的发展虽然神速，可国际化的问题却一直存在，况且不属英语语系的国家也都有此类问题，因此美国的各大电脑厂商组成了一个Unicode促进会，结合ISO的字库标准，推出了Unicode，这个编码可以满足绝大多数语系的需要！
+　　  　3．元素（Elements）和属性（Attributes）
+　　　　<元素名 属性名=”属性值”>
+　　       <子元素>元素的数据</子元素>
+　　　　</元素名>
+　　　　大家看上面的这个例子，就能很形象的理解什么是元素什么是属性，但是需要注意的是元素的大小写是不一样的，也就是说<t></t>和<T></T>不是同一个元素。还有就是元素里的数据，只要是合法的就会完全忠实的成为数据，就如:
+　　　　<元素名>这是一个</元素名>
+　　　　<!—这是另一个-->
+　　　　<元素名>这是一个 </元素名>
+　　　　<!—这又是另一个-->
+　　　　<元素名>这是一个
+　　　　</元素名>
+　　　　大家注意到没有，第一、二只差一个空格，第三个则是多了一个回车符，但是这三个数据却是不同的数据，因此大伙在写这些数据的时候可一定要小心！
+　　　　如果大家对于面向对象熟悉的话，一定清楚类也是有属性的，而XML自然也是包括属性的，XML的元素是拥有属性的，而且可以有许多属性，并且属性值必须使用单引号或双引号包含起来。
+　　  　4．注释（Comments）
+　　　　如果大家编写过程序，就一定知道，看别人的程序是一件非常痛苦的事情。如果别人的程序是没有注释的话，那简直就成了一种惨无人道的折磨，呵呵，所以，在文档中嵌入关于文档和标记的信息就是很有帮助的。这样不但可以帮助别人也可以帮助自己。
+　　    在XML的注释里是这样的：
+　　<!—啊，这就是帮助-->
+　　    在这个注释中间，可以放入除了“--”符号以外的所有字符，这稍稍有些不习惯，我们往往会使用这个符号来分离不同组成部分的文档，在XML的文件里则需要改一改了。
+　　    5．预定义实体
+　　　　当我们创建XML时候，有些符号例如“<”等和XML相重的标记，譬如下面的：
+　　　　<文章>
+　　    <段落>
+　　     <html>
+　　        <head>
+　　     <title></title>
+　　　　</head>
+　　        <body>
+　　             <h1>我们那嘎都是活雷锋</h1>
+　　             <b>老张开车去东北……撞了</b>
+　　        </body>
+　　     </html>
+　　    </段落>
+　　　　</文章>
+　　    这样是肯定行不通的，HTML和XML的定义相重，因为XML有5种预定义的实体，如下：
+　　&amp;-------------------&
+　　&lt;----------------------<
+　　&gt;--------------------- >
+　　&apos;------------------‘
+　　&quot;------------------“
+　　    这样再写这些文件就会象下面这样：
+　　<文章>
+　　  <段落>
+　　     &lt;html&gt;
+　　        &lt;head&gt;
+　　     &lt;title&gt;&lt;/title&gt;
+　　　　&lt;/head&gt;
+　　        &lt;body&gt;
+　　             &lt;h1&gt;我们那嘎都是活雷锋&lt;/h1&gt;
+　　             &lt;b&gt;老张开车去东北……撞了&lt;/b&gt;
+　　        &lt;/body&gt;
+　　     &lt;/html&gt;
+　　  </段落>
+　　</文章>
+　　    解析器会自动把这些符号转换成我们所要的文件，但是这样实在是不好看懂，所以就又有了这个CDATA。
+　　    6．CDATA
+　　　　从上面那一节的例子可以看出，使用预定义实体实在是难以看懂，但是有了这个CDATA之后，我们就可以让分析器把那些特殊数据当作普通的数据来处理了！
+　　    CDATA的定义如下：
+　　<![CDATA[  内容 ]]>
+　　    将上节的例子拿来使用：
+　　<文章>
+　　  <段落><![CDATA[
+　　     <html>
+　　        <head>
+　　     <title></title>
+　　　　</head>
+　　        <body>
+　　             <h1>我们那嘎都是活雷锋</h1>
+　　             <b>老张开车去东北……撞了</b>
+　　        </body>
+　　     </html>
+　　     ]]>
+　　  </段落>
+　　</文章>
+　　    这样，解析器就可以解释在这个符号中间的特殊字符了！
+　　#1    三、 CHEMA简介
+　　     （一） Schema的引入
+　　　　通过上几章介绍，相信大家对XML的基本语法已经有了一个基本了解。 XML本身的语法很严谨，也就是要求格式必须严整，包括区分大小写、整个文档有且只有一个根、需要序言等等。在符合格式化良好的要求以后，就可以写出规则整齐、可以通过内置XML解析器的浏览器解析XML文档了。但XML本身也相当的灵活，在符合基本语法的前提下，可以任意的编写各种符合XML语法要求的文档，这也正是XML可扩展的灵活性所在，但同时也产生了问题，比如要写一个说明个人信息的XML文档，可以这样写：
+　　<?xml version = “1.0” encoding=”GB2312” ?>
+　　<resume>
+　　 <name>张立东</name>
+　　 <sex>男</sex>
+　　　<age>28</age>
+　　　<birthday>1974-8-10</birthday>
+　　   <address>北京市 海淀区</address>
+　　</resume>
+　　    也可以这么写：
+　　<?xml version = “1.0” encoding=”GB2312”?>
+　　 <resume>
+　　 <name>张立东</name>
+　　 <sex>男</sex>
+　　　<age>28</age>
+　　　<birthday>
+　　 			<year>1974</year>
+　　 			<month>8</month>
+　　 			<day>10</day>
+　　 </birthday>
+　　 <address>北京市 海淀区</address>
+　　</resume>
+　　    上面的两个文档对于人来说是很容易看懂的，但对于机器来说，它们就无法判断
+　　<birthday>1974-8-10</birthday>和
+　　 <birthday>
+　　 		<year>1974</year>
+　　 	<month>8</month>
+　　 		<day>10</day>
+　　 </birthday>
+　　中的内容是否相同了。这就需要一个相应的“约束”，来规定一个固定的格式，这样机器才可以正确的识别、比较和处理。正如没有规矩难以成方圆一样， XML这么强大的语言自然也有这方面的考虑，这也就是DTD和Schema所要完成的功能。
+　　    （二）DTD和Schema
+　　　　提到Schema就必须提到DTD。最早建立对SGML约束的是DTD，而XML又是SGML的超集，所以DTD由于历史的原因也可以对XML本身进行约束，比如：每个节点可以含有的元素、元素的个数等等。但它也有很多的局限性，如不能定义元素值的范围、学习起来有一定的难度（要学习一种新的语法）等等。而最新的XML约束标准就可以轻松的满足要求，这就是Schema。Schema与DTD不同，DTD本身有自己的语法和要求，而Schema是完全符合XML语法的，只要对XML有初步的了解，就很容易对Schema上手。说了这么多，还是首先让我们通过一个例子来看看Schema是如何定义XML结构的吧：
+　　[1]<?xml version="1.0" encoding="GB2312" ?>
+　　[2]<Schema xmlns="urn:schemas-microsoft-com:xml-data" 
+　　[3]             xmlns:dt="urn:schemas-microsoft-com:datatypes">
+　　[4]    <ElementType name= "name"/>
+　　[5]    <ElementType name= "sex"/>
+　　[6]    <ElementType name= "age"/> 
+　　[7]    
+　　[8]    <ElementType name= "address" />
+　　[9]    <ElementType name= "month"/> 
+　　[10]   <ElementType name= "year"/>
+　　[11]   <ElementType name= "day"/>
+　　[12]   <ElementType name= "birthday" content="eltOnly">
+　　[13]       <element type= "year" />
+　　[14]       <element type= "month" />
+　　[15]       <element type= "day" />
+　　[16]   </ElementType>
+　　[17]   <ElementType name= "resume" content="eltOnly">
+　　[18]       <element type= "name" />
+　　[19]       <element type="sex"/>
+　　[20]		 <element type="age"/>
+　　[21]		 <element type="birthday"/>
+　　[22]		 <element type="address"/>
+　　[23]   </ElementType>
+　　[24]</Schema>
+　　    下面对上面的例子做一个简单的讲解：
+　　    [1]行是一个XML序言，从这行也可以看出Schema是符合XML基本语法要求的。
+　　    [2]－[3]是对Schema名域的一个定义。（由于我们这里是一个XML的入门文章，有关XML的名域问题可以参考相应的XML文档。）
+　　    [4]定义一个名字为name的元素。
+　　    [5]－[11]分别是对sex、age、address、month、year、day元素的定义。
+　　    [12]－[16]是对birthday元素的一个定义，但birthday这个元素比较特殊，它其中又包含了year、month和day三个元素。 其中content这个属性是对元素中的数据进行说明的。根据content中的数据eltOnly可以知道这个birthday元素的数据只能够由元素构成。
+　　    [17]－[23]是对resume这个元素的定义，resume这个元素是由name、sex、age、birthday、address这几个元素构成的。
+　　    从上面的例子可以知道如何对一个简单的元素进行定义，也可以知道一个由其他元素组成的元素如何定义。通过由元素组成的元素的这种定义，就可以定义一个嵌套结构的XML树的基本结构。
+　　　　到这里读者对Schema已经就有了一个基本的了解，也该是我们给Schame下一个简单定义的时候了：
+　　　　XML Schema是用来描述XML元素和属性的。它包括属性和元素类型说明，是可以为XML元素和属性提供数据的类型校验模块。
+　　#1    四、xslt简介
+　　　　了解XML的基本语法、Schema的语法还远远不够，XML是对数据和数据结构的存储，而Schema是对XML数据类型的定义。直到这里还没有对XML数据的显示进行处理。虽然可以通过内置有XML解析器的浏览器直接对XML数据进行查看，但毕竟看到的只是以树状结构显示的XML数据。
+　　　　如果要把XML数据以漂亮的形式显示出来就需要XSLT帮忙了。XSLT可以把XML处理成HTML形式输出、WAP形式输出，甚至也可以是Word文档的格式。其中最常用到的还是HTML的格式，下面讲解中用到的所有例子都以HTML的转换格式为例子。那就不说废话了，还是先看一个XSLT的例子吧！
+　　    这个XSLT用到的一个XML文档，文档如下：
+　　<?xml version = "1.0" encoding="GB2312"?>
+　　<?xml:stylesheet type="text/xsl" href="s_xlt.xslt"?>
+　　 <resumes>
+　　 <resume>
+　　 <name>张立东</name>
+　　　<sex>男</sex>
+　　　<age>28</age>
+　　   <birthday>
+　　 				<year>1974</year>
+　　 				<month>8</month>
+　　 	<day>10</day>
+　　 </birthday>
+　　 <address>北京市 海淀区</address>
+　　　　</resume>
+　　 <resume>
+　　 <name>张三</name>
+　　　<sex>男</sex>
+　　　<age>50</age>
+　　   <birthday>
+　　 		<year>1951</year>
+　　 	<month>6</month>
+　　　		<day>9</day>
+　　　</birthday>
+　　   <address>山西省</address>
+　　 </resume>
+　　 <resume>
+　　　<name>李四</name>
+　　   <sex>男</sex>
+　　　　<age>29</age>
+　　 <birthday>
+　　 	<year>1973</year>
+　　　	<month>7</month>
+　　　	<day>12</day>
+　　   </birthday>
+　　　　<address>山东省</address>
+　　 </resume>
+　　</resumes>
+　　    注：在上面的XML文档中多了下面的一句：
+　　<?xml:stylesheet type="text/xsl" href="s_xlt.xslt"?>
+　　　　这一句就是对XSLT的引用，其中href中的内容是对具体XSLT文档位置的指定，有关s_xlt.xslt中的内容就是下面要介绍的XSLT例子的内容。有关如何对XML，XLST、Schema的使用和测试，可以参考“一个应用了xml、schema和xlst的例子”部分。
+　　    对这个XML文档进行转换处理的XSLT文档如下：
+　　[1]<?xml version="1.0" encoding="GB2312"?>
+　　[2]<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+　　[3]		<xsl:template match="/">
+　　[4]		<HTML>
+　　[5]		<HEAD>
+　　[6]			<TITLE>个人简历</TITLE>
+　　[7]		</HEAD>
+　　[8]		<BODY>
+　　[9]			<xsl:for-each select="/resumes/resume">
+　　[10]			<P>
+　　[11]			<TABLE border="1" >
+　　[12]			<CAPTION style="font-size: 150%; font-weight: bold">
+　　[13]			个人简历
+　　[14]			</CAPTION>
+　　[15]			<TR>
+　　[16]			<TH>姓名</TH><TD><xsl:value-of select="name"/></TD>
+　　[17]			<TH>性别</TH><TD><xsl:value-of select="sex"/></TD>
+　　[18]				<TH>生日</TH><TD><xsl:value-of select="birthday/year"/>年
+　　<xsl:value-of 	select="birthday/month"/>月<xsl:value-of select="birthday/day"/>日</TD>
+　　[19]			</TR>
+　　[20]			<TR>
+　　[21]			<TH>地址</TH><TD colspan="5"><xsl:value-of select="address"/></TD>
+　　[22]			</TR>
+　　[23]			</TABLE>
+　　[24]			</xsl:for-each>
+　　[25]		</BODY>
+　　[26]		</HTML>
+　　[27]		</xsl:template>
+　　[28]</xsl:stylesheet>
+　　    [1]XML的序言，从第一条语句可以看出XSLT也是符合XML语法的。
+　　    [2]XSLT的名域。Xsl:stylesheet是XSLT的根元素，xsl是XSLT的名域标识。所以都要在XSLT的语句前面加上xsl：来表明是XSLT的语句。
+　　    [3] <xsl:template match="/"> 是XSLT语言的匹配模式，主要是和引用它的XML文档的根进行匹配。其中/是代表XML文档根的含义。 例如：个人简介中的name可以用/resumes/resume/name 的方式进行引用。（由于这里只是对XSLT入门的一个初步介绍，对有关XML路径想详细了解的读者可以参考XML文档的XPATH部分。）
+　　    [4]－[8]可以直接输出，这部分是符合HTML语法的信息结构，HTML文档的开始部分和head的定义。
+　　    [9]	<xsl:for-each select="/resumes/resume">是XSLT语言的选择模式，是循环的对所有的/resumes/resume元素和这个元素所包含的子元素进行处理。
+　　    [10]－[15] 可以直接输出，符合HTML的语法结构。
+　　    [16] <TH>姓名</TH><TD><xsl:value-of select="name"/></TD> 在这一行中有HTML的语句和也有XSLT的语句。其中<xsl:value-of select="name"/>也是属于选择模式的语句，可以直接把select选中的元素内容提取处理，处理以后的结果应该是：<TH>姓名</TH><TD>张立东</TD>。
+　　    [18]-[23]分别是对其他部分信息的显示处理，其中也包含了部分的HTML语句。
+　　    [24] <xsl:for-each> 语句的结束部分。
+　　    [25]－[26]HTML语句。
+　　    [27] <xsl:template> 语句的结束部分。也就是对整个XML文档处理的结束。因为每个XML文档只有一个根而这条语句是对根的部分处理，所以是对整个XML文档处理的结束。
+　　    [28] XSLT文档的结束。
+　　　　经上面对这个简单例子的介绍，大家对XSLT对XML文档的处理可能已经有了一个基本的了解，可以简单的通过XSLT对XML进行处理啦。在结束这个部分之前对XSLT的语法做一个简单的小结：
+　　　　可以大致的把模式语言分为三种：
+　　　　选择模式
+　　　　<xsl:for-each>、<xsl:value-of>，和 <xsl:apply-templates>　 
+　　　　测试模式
+　　　　<xsl:if> 和<xsl:when>
+　　　　匹配模式
+　　　　<xsl:template> 
+　　　　选择模式语句将数据从XML中提取出来，这是一种简单获得数据的方法。这几个标记都有一个select属性，选取XML中特定结点名的数据。
+　　　　测试模式是对数据的一个判断，然后根据判断和匹配的结果进行处理。有些和程序语言中的判断语句和多判断语句形似。
+　　　　匹配模式是一个可以单独列出来的XSLT语句片断，可以完成对一个特定部分的XSLT处理。有些和程序设计中的子程序相似。
+　　#1    五、一个应用了xml、schema和xlst的例子
+　　　　通过上面的介绍，大家可能都已经跃跃欲试，想自己做一个XML方面的小应用了。那么在这里就满足大家的要求，举一个比较全面的有实际意义的例子。
+　　    假如有一个订单要处理，订单的基本内容包括客户的信息和产品信息两个部分。
+　　    客户信息主要由客户姓名、电话、传真、地址组成。
+　　　  产品信息由编号、名称、规格、价格、购买数量组成。
+　　　　为了写一个标准的XML文档，首先要写一个Schema来对XML文档进行约束：
+　　<?xml version="1.0" encoding="GB2312" ?>
+　　<Schema xmlns="urn:schemas-microsoft-com:xml-data" 
+　　             xmlns:dt="urn:schemas-microsoft-com:datatypes">
+　　<ElementType name= "姓名"/>
+　　<ElementType name= "电话"/>
+　　 <ElementType name= "传真"/> 
+　　 <ElementType name= "地址" />
+　　 <ElementType name= "编号"/> 
+　　 <ElementType name= "名称"/>
+　　　　<ElementType name= "规格"/>
+　　　　<ElementType name= "价格"/>
+　　　　<ElementType name= "购买数量"/>
+　　 <ElementType name= "客户" content="eltOnly">
+　　       <element type= "姓名" />
+　　       <element type= "电话" />
+　　       <element type= "传真" />
+　　       <element type= "地址" />
+　　 </ElementType>
+　　 <ElementType name= "产品" content="eltOnly">
+　　      <element type= "名称" />
+　　      <element type="规格"/>
+　　　<element type="价格"/>
+　　		  <element type="购买数量"/>
+　　  </ElementType>
+　　　<ElementType name= "订单" content="eltOnly">
+　　       <element type= "客户" />
+　　       <element type="产品"/>
+　　  </ElementType>
+　　　<ElementType name= "全部订单" content="eltOnly">
+　　       <element type= "订单" />
+　　  </ElementType>
+　　</Schema>
+　　    可以把上面的Schema文档存储为：Sch.xml，在下面的xml文档中会用到这个Schema。
+　　    下面是根据上面的约束写的一段XML文档：
+　　<?xml version = "1.0" encoding="GB2312"?>
+　　<?xml:stylesheet type="text/xsl" href="s2_xlt.xslt"?>
+　　<全部订单 xmlns="x-schema:Sch.xml”>
+　　<订单 >
+　　<客户>
+　　<名称>张立东</名称>
+　　<电话>010-12345678</电话>
+　　<传真>010-87654321</传真>
+　　<地址>北京市 海淀区</地址>
+　　</客户>
+　　<产品>
+　　	<名称>扳手</名称>
+　　	<价格>10</价格>
+　　	<规格>中</规格>
+　　	<购买数量>2</购买数量>
+　　</产品>
+　　</订单>
+　　</全部订单>
+　　    下面是对XML进行处理的S2_xls.xslt的内容:
+　　<?xml version="1.0" encoding="GB2312"?>
+　　<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+　　		<xsl:template match="/">
+　　		<HTML>
+　　		<HEAD>
+　　			<TITLE>全部订单</TITLE>
+　　		</HEAD>
+　　		<BODY>
+　　			<h1>订单内容</h1>			
+　　			<xsl:for-each select="全部订单/订单">
+　　		<TABLE border="1" >
+　　			<TR>
+　　			<TH>客户名称:</TH><TD><xsl:value-of select="客户/名称"/></TD>
+　　			<TH>电话</TH><TD><xsl:value-of select="客户/电话"/></TD>
+　　			<TH>传真</TH><TD><xsl:value-of select="客户/传真"/> </TD>			
+　　			</TR>
+　　			<TR>
+　　			<TH>地址</TH><TD colspan="5"><xsl:value-of select="客户/地址"/></TD>
+　　			</TR>
+　　			</TABLE>
+　　			<TABLE border="1" >
+　　			<TR>
+　　			<TH>产品名称:</TH><TD><xsl:value-of select="产品/名称"/></TD>
+　　			<TH>价格</TH><TD><xsl:value-of select="产品/价格"/></TD>
+　　			<TH>规格</TH><TD><xsl:value-of select="产品/规格"/> </TD>			
+　　			</TR>
+　　			<TR>
+　　			<TH>购买数量</TH><TD colspan="5"><xsl:value-of select="产品/购买数量"/></TD>
+　　			</TR>
+　　			</TABLE>		
+　　		</xsl:for-each>
+　　		</BODY>
+　　		</HTML>
+　　		</xsl:template>
+　　</xsl:stylesheet>
+　　　　把上面的Schema和XSLT按照例子中的名字存储到磁盘，然后把XML的内容存储成为文件，放到相同的子目录下，然后用IE 5.0进行解析处理，就会看到符合Schema要求、经过XSLT处理的文档了.
+　　#1    六、后记
+　　　　以上只是简单介绍了XML的前端应用部分，如果各位对XML的后台开发还感兴趣的话，就需要了解XML更加复杂的部分，也需要知道XML的解析器是如何解析XML的。限于篇幅，只能给大家一个简单的介绍。
+　　　　XML文件的解析器目前分为两种：
+　　　　一个是DOM（Document Object Model），一个是SAX。这两个解析器都是可以解析XML的，但是在解析XML的方式上有很大的不同，DOM是一次性的把XML文件读入到内存里解析，处理速度很快，而SAX则是一部分一部分的解析，所以资源占用较少，大伙了解了这两种特性后，就可以有选择的使用解析器了。目前Microsoft和Java都支持这两种解析器，因此大家可以放心的使用。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

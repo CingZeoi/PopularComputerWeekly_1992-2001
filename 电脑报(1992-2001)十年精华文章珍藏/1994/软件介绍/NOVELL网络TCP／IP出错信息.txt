@@ -1,0 +1,217 @@
+NOVELL网络TCP／IP出错信息
+
+
+1994-01-07
+
+        (1)普通错误(Simple error)、
+        (2)致命错误(Fatal error)、
+        (3)消息报告(Informational message)、
+        (4)警告错误(Warning)、
+        (5)报警信息(Alert)，以下按字母顺序排列：
+        一、Error (普通错误类)
+        Error:Could not get memory to add <IP address> to the peer list.系统内存溢出。
+        IP Tunnel不能增加新的对等实体到对等实体表(peer list)中。
+        Error:Found `<character>'. Each byte of an IP address must be separated by `.'.
+        命令行中包含的IP地址两个字节之间应用`.'隔开，而本错误信息中是被指明的字符<character>所隔开。
+        Error:<IP address> is a local adderss. I cannot talk to myself.
+        赋给IP Tunnel的对等实体参数指明本地址是IP Tunnel的对等实体，这是不合法的。
+        Error:<IP address> is already being used by another interface.
+        Each interface must have its own unique IP address.
+        连接到该接口的IP地址已被连接到本系统内的其它接口上，每个接口必须有其自己独立IP地址。
+        Error:<IP address> is illegal. Must be class A, B or C.
+        IP地址中的addr参数不合法。IP地址的第1个字节必须小于224(十进制)。
+        Error:The {first | second |third|fourth} byte of the address is not legal.
+        包含IP地址的命令行中，指定的字节里有句法问题(不合法)。
+        Error:<IP address> is not currently a local IP address.
+        IP Tunnel找到了本地参数，但该参数指出的地址不是本地IP地址。
+        Error:There are no network bits set in <IP address>.
+        addr参数域中的IP地址没有网络域的位。
+        二、Fatal errors (致命错误类)
+        Fatal Error:ARP could not get resource tag.
+        系统内存太小，ARP无法获得资源。
+        Fatal Error:Could not detemine ARP's protocol ID.
+        APP无法决定IP的协议标号。
+        Fatal Error:Could not add interface to routing database.
+        系统内存大小，无法增加接口发送数据。
+        Fatal Error:Could not allocate a resource tag.
+        系统内存不够。IP Tunnel无法完成初始化。
+        Fatal Error:Could not determine IP's protocol ID.
+        IP无法决定它所连接的协议标识号。
+        Fatal Error:Could not register ARP.
+        NetWare拒绝承认ARP协议模块。这可能表示系统中运行的其它NLM占用了ARP协议。
+        Fatal Error:Could not register IP(LSL error code=<value>)
+        NetWare拒绝承认IP协议模块。这可能表示系统中运行的其它一些NLM占用了IP协议。
+        Fatal Error:Host part of <IP address> is all zeroes or all ones.IP bind failed becarse the local IP address was illegal.
+        该命令试图将不合法的IP地址与接口相连。被网络掩码屏蔽的位能为0或为1。
+        Fatal Error:Interface allocation failed.系统内存太小，接口配置失败。
+        Fatal Error:IP could not get enough memory to remember interface.
+        系统内存太少，IP不能获得足够的内存分配给接口。
+        Fatal Error:IP could not get MLID configuration pointer.
+        IP请求LAN driver给出配置作息，但LAN driver拒绝给出。
+        Fatal Error:IP conld not get MLID control entry point.
+        IP请求NetWare内核给出LAN driver的控制访问点，以支持IP所连接的适配器，但是NetWare并没有控制访问点。
+        Fatal Error:IP is already bound to that board.
+        该命令试图将IP连接到IP已经连接过的适配器和帧类型上。
+        Fatal Error:IP must be bound first;no local IP address found.
+        IP无法打到任何本地的IP地址，因为IP未与任何driver相连接。
+        Fatal Error:It is not legal to bind ARP directly to a device.
+        BIND ARP控制命令在系统控制台上给出。直接将ARP连接到介质设备上是不合法的，ARP自动被BEND IP控制命令连接。
+        Fatal Error:No protocol ID for ARP on that media.
+        ARP不能连接到IP已连接的介质上，因为介质没有供ARP用的协议标识号。一般在此错误下还带有如下信息。
+        Warning:ARP does not recognize the media <name>.Using defaults.
+        当ARP不能确认介质类型时，ARP协议标识号必须用手动登录。通常是使用PROTOCOL REGISTER这一控制台命令，但这一命令未被执行。
+        Fatal Error:No protocol ID for IP on that media.
+        IP无法连接到指定的适配卡上，因为适配卡的介质没有供IP的协议标识号。一般情况下，此错误下还带有以下信息：
+        Warning:IP does not recognize the media <name>.Using default.
+        当IP不能确认介质时，IP协议标识号必须用PROTOCOL REGISTER命令手动输入，但这一命令并未被执行。
+        Fatal Error:System rejected ARP's bind request.
+        NetWare内核不允许将ARP连接到IP已连接的适配器上。
+        Fatal Error:System rejected IP's bind request.
+        NetWare内核不允许将IP连接到指定的适配器上。
+        Fatal Error:UDP port <port number>in use.
+        IP Tunnel试图使用指定的UDP端口，但这一端口已被占用。
+        Fatal Error:UDP registeration for port <port number> failed with error code <error number>.
+        IP Tunnel在登录UDP端口时遇到了未预料的错误。
+        Fatal Error:UDP rejected UDP interface version <version number>.
+        UDP不再支持IP Tunnel使用的接口版本号。这一般发生在IPTUNNEL.LAN与TCP/IP.NLM的版本号不兼容时。
+        Fatal Error:UDP rejected port <port number> as invalid.
+        UDP不支持在IP Tunnel的port参数域中给出的端口号。端口号必须小于65536。
+        三、Informational message(消息报告类)
+        (一) ID messages (IP消息报告类)
+        IP:ARP disabled. BIND命令行中含有arp=no
+        IP:Bound to board <number>. IP address <address>. net mask <address>.
+        IP已经成功地与指定的适配器相连。
+        IP:Configured as default router for this network.
+        BIND命令行中含有defaute=yes。
+        IP:Configured for gateway operations. 命令行中含有参数forward=yes。
+        IP:Interface cost set to <number>.
+        BIND命令行中有cost参数，命令中将此参数设置成指定值。
+        IP:RIP disabled. 命令行含有参数rip=no。
+        IP:SNMP traps will be sent to <IP address>.
+        LOAD命令行含有trap参数，它指明trap信息应发送给特写的IP地址。
+        IP:Subnetwork mask adjusted to agree with mask used with <IP address>.
+        在BIND命令中未给出netmask参数，但此命令行中IP地址网络号与早已联接到某一接口的网络号相同。同一网络的子网应有相同的掩码位，因此，IP使用另一接口的子网掩码位。
+        IP:User cancelled request.
+        用户在响应IP的请求信息时，输入了Esc键取消请求。
+        IP:Using <IP address> as a dafault gateway.
+        gate参数在命令行中被指定，设置IP地址作为缺省网关使用。
+        IP:Using `poison reverse' in RIP's split horizon.
+        BIND命令行中有参数poison=yse。
+        (二) Config messages (配置消息报告类)
+        IPConfig:Conld not create a screen for error messages.
+        IPCONFIG在处理gateway文件时出现问题，但是在它报告问题时，却又无法在屏幕上输出。
+        IPConfig Error:Could not open sys:etc\gateways: <NetWare error string> No static routes configured.
+        NetWare不允许IPCONFIG打开SYS：ETC\GATEWAYS文件。最一般的原因是“No such file or directory”，这表明未创建目录SYS：ETC\GATEWAYS。
+        (三) IPTunnel messages (IPTunnel消息报告类)
+        IPTunnel:Added <IP address> to the list of peers.
+        IP Tunnel找到peer参数并将参数值填入对等实体表
+        IPTunnel:UDP checksums are (enabled | disabled) for transmission.
+        IP Tunnel发现checksum参数
+        IPTunnel:Using <IP address> as the loal IP address for tunneling.
+        IP Tunnel在命令行中发现local参数，并使用给出的local地址作IPTunnel的流量处理
+        IPTunnel:Using UDP port <pot number> decimal (<port number>) (hex).
+        IP Tunnel发现port参数，并使用给出的UDP port参数值。
+        (四) SNMP messages (SNMP消息报告类)
+        SNMP:<community> is now disabled.
+        通过在SNMP.NLM命令行中指定community(但后不跟等号)来禁止指定community。
+        SNMP:<community> is now <string>.
+        SNMP.NLM在命令行中发现参数已设置community成指定值。
+        SNMP:<community> now accepts any community name。
+        在SNMP.NLM的命令行后接等号以打开某个community，允许它接收任何community名字。
+        (五)SNMPLog messages (SNMPLog消息报告类)
+        SNMPLog:Could not open/etc/snmpSLog.bin.
+        SNMP无法打开log文件。
+        SNMPLog Fatal Error:Cannot bind UDP socket.
+        SNMP试图连接UDP套接字到SNMP trap端口，但是NetWare不允许这样做。
+        SNMPLog:I/O error reading UDP packet.
+        SNMPLOG试图读出下一个UDP trap包，但它被NetWare所拒绝。
+        四、TCP/IP alerts (TCP/IP报警信息类)
+        TCP/IP:Hardware failure. Lost interface <IP address>
+        IP地址早已与系统中的适配器相连。支持这一适配器的LAN driver已经检测到了硬件错误并删去了这一服务。这样，IP将不能再使用这一接口。
+        TCP/IP:<media address> is using our IP address: <IP address>.
+        ARP协议已经在网络上发现了一个结点使用与本地结点相同的IP地址。
+        TCP/IP:Unbound from address.
+        指定的IP地址先前已与系统中的适配器相连，但现在已被解除连接。
+        五、Warnings (警告辑误类)
+        Warning:ARP does not recognize the media <name>.Using defaults.
+        ARP模块无法识别出IP所连接的介质，它对待这种介质就对待Ethernet一样。
+        Warning:Cannot disabie ARP:media has no alternative mapping mechanism.
+        BIND命令行中有参数ARP=No，但IP并没有提供这种介质的地址映射机制。
+        Warning:Could not add ARP's protocol ID(<number>).
+        ARP不能为IP所连接的介质登录它的协议标识号。括号中的数字是错误代码。
+        Warning:Could not start TCP Character Generator service on port 19.
+        系统内存太少，TCP服务不能启动。
+        Warning:Could not start TCP Echo Discard service on port 9.
+        系统内存太少，TCP服务无法启动。
+        Warning:Cold not start TCP Echo Generator service on port 7.
+        系统内存太少，TCP服务无法启动。
+        Warning:ICMP could not register with IP (<error code>).Continuing.
+        Internet协议ICMP试图用IP登录，但无法实现。
+        Warning:Could not unload the streams device /dev/ {tcp|udp|ip}.
+        NetWare操作系统的“流”支持模块不允许TCP删去它的一个“流”设备。
+        Warning:Failed to add IPX's protocol ID.
+        IP Tunnel试图将IPX协议增加到系统协议表中，但没有成功。
+        Warning:Ignoring <IP address>: peer is already in the peer list.
+        IP Tunnel发现了Peer参数，但该参数给出的peer值已在peer表中出现。
+        Warning:<IP address> not on the same network as <IP address>.
+        Nevertheless,IP will assume <IP address> is on the local network and will use if as a default gateway.
+        一个gate参数在BIND IP命令行中给出，但该网关(gateway)不具有与接口本身相同的网络号。IP希望直接将信息发送到网关，因此，网关必须直接连接到接口的网络上。
+        Warning:IP does not recognize the media <name>. Using defaults.
+        IP不能识别它所连接的介质，IP对待这种介质就像它对待Ethernet一样。
+        Warning:IP Local Addrcheck returned <error number> while cheeking for local peer.
+        IP Tunnel在检查本地地址是否已被作为对等实体(peer)使用时，发现了未曾预料的错误。
+        Warning:On <media name>.an IP packet size of <number> bytes is too small.
+        (In STARTUP.NCF, set Maximun physical packet size to <number>.)
+        LAN driver报告最大分组包长度，在IP看来对使用的介质来说太短。正常情况下，这是因为最大物理接收分组包长度参数设置行太小，不足以处理所用介质的包长。
+        Warning:Registration of UDP<name>service failed with error code<value>.
+        某个UDP测试服务无法启动，表明内部出现了错误。
+        Warning:RIP not running:Could not create polling process.
+        系统内存太小，RIP不能运行，不能产生POLLING PROCESS。
+        Warning:RIP not running:Could not open UDP port.
+        RIP不能打开RIPVPP端口。
+        Warning:Routing module could not allocate resource tag.
+        系统内存不够，该传送模式不能分配资源。
+        Warning:SNMP conld not allocate a resource tag.
+        系统内存不够，SNMP不能分配资源。
+        Warning:SNMP failed to register client with UDP.
+        网络管理协议SNMP试图向UDP登录，但没有成功。
+        Warning:SNMP failed to register TCP/IP trap handler with agent.
+        系统内存不够，网络管理协议SNMP试图向TCP/IP登录，但没有成功。
+        Warning:SNMP failed to register 1066 MIB with agent.
+        系统内存不够，SNMP登录失败。
+        Warning:Some utilities have sockets open to the TCP/IP-protocols.
+        TCP/IP service to those utilies will be terminated.
+        TCP/IP警告，仍有一些实用程序在使用TCP/IP协议。TCP/IP服务将终止那些实用程序。
+        Warning:Subnetwork mask disagrees with mask used with <IP address>.
+        BIND命令中IP地址的网络号与另一个接口IP地址的网络号相同，但是命令行中的mask参数却表明另一接口使用了不同的网络掩码。同一网络的子网应有同样的掩码。
+        Warning:The streams device/dev/{tcp|udp} is still being used.
+        Warning:Some utilites have streams open to the TCP/IP protocols. TCP/IP service to those utilities will be terminated,and SYSTEM INTEGRI TY MAY BE COMPROMISED.
+        TCP/IP警告一些实用程序仍在使用指出的TCP/IP“流”设备。倘若这些实用程序中有些正在传送数据。而却继续卸载TCPIP.NLM，系统可能崩溃。
+        Warning:`<token>' could not be understood as IP address.
+        IP地址的格式不对，无法理解。
+        Warning:`<token>' ignored following an IP address.
+        在命令行处理程序分析IP地址时，发现了一些不能识别的字符，因此忽略这些字符。
+        Warning:`<token>' is a duplicate parameter. Overriding previous <name> parameter.
+        一个参数在命令行中重复出现。命令行解释程序舍弃前一个参数值，接受第二个参数。
+        Warning:`<token>' is an ambiguous parameter.
+        命令行中的某个参数可能是某两个参数共同的缩写形式。
+        Warning:`<token>' is an invalid interface cost.
+        cost参数无法作为cost值，来理解cost应为不小于1且不大于15的十进制数。(cost参数无效)
+        Warning:`<token>' is an unrecognized parameter.
+        某个参数根据当时的情况无法作为合法参数来接受。这种情况通常发生在参数不匹配时。
+        Warning:`<token>' is not recognized as either affirmative negative.
+        Please use `Yse' or `No' as the argument to the <name> parameter.
+        某个参数需要Yes或No作为参数值。
+        Warning:TCP not running:Could not allocate timer process.
+        系统内存不够，不能分配时间进程。
+        Warning:TCP trivial service could not be started.
+        系统内存不够，TCP测试服务例程无法运行。
+        Warning:Unable to register TCP adapter.
+        Warning:Unable to register UDP adapter.
+        TCP或UDP BSD套接字不能向CLIB登录。
+        Warning:Unexpected failure from TCP registration:error code <value>.
+        试图向IP登录，但是登录失败并返回错误代码。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

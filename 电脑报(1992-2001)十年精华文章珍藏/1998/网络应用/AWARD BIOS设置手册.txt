@@ -1,0 +1,94 @@
+AWARD BIOS设置手册
+
+刘树林
+1998年 第15期 37版
+
+　　AWARD BIOS是目前兼容机中应用较为广泛的一种BIOS，但是由于里面的信息全为英文且需要用户对于相关专业知识的理解相对深入，所以有些用户设置起来感到困难很大。如果这些有关信息设置不当的话，将会大大影响整台电脑主机的性能。下面介绍一下AWARD BIOS中的有关设置选项的含义和设置方法：
+　　AWARD BIOS的主菜单主要有以下几个菜单项：
+#1Standard CMOS Setup（标准CMOS设定）
+　　在本菜单中，用户可以修改日期、时间、第一主IDE设备（硬盘）和IDE设备（硬盘或CD－ROM）、第二个主IDE设备（硬盘或CD－ROM）和从IDE设备（硬盘或CD－ROM）、软驱A与B、显示系统的类型、什么出错状态要导致系统启动暂停等。
+　　说明：
+　　（1）用户可以在Type（类型）和Mode（模式）项设置为Auto，使BIOS自动检测硬盘。也可以在主菜单中的IDE HDD Auto Detection操作来设置。用户还可以使用User选项，手动设定硬盘的参数。您必须输入柱面数（Cyls），磁头数（Heads），写预补偿（Precomp），磁头着陆区（Landz），每柱面扇区数（Sectorxs），工作模式（Mode）等几种参数。硬盘大小在上述参数设定后自动产生。
+　　（2） 显示类型可选EGA/VGA（EGA、VGA、SEGA、SVGA、PGA显示适配卡选用）、CGA 40（CGA显示卡，40列方式）、CGA80（CGA显示卡，80列方式）、MONO（单色显示方式，包括高分辨率单显卡）等四种，用户应根据情况正确选用。
+　　（3） 暂停的出错状态选项有：All Errors（BIOS检测到任何错误，系统启动均暂停并且给出出错提示）、No Errors （BIOS检测到任何错误都不使系统启动暂停）、All But Keyboard（BIOS检测到除了磁盘之外的错误后使系统启动暂停，磁盘错误暂停）、All But Disk/Key（BIOS检测到除了键盘或磁盘之外的错误后使系统启动暂停。
+#1BIOS Features Setup（BIOS功能设定）
+　　该项用来设置系统配置选项清单，其中有些选项由主板本身设计确定，有些选项用户可以进行修改设定，以改善系统的性能。主要说明如下：
+　　（1） CPU Internal Cache:缺省为Enable（开启），它允许系统使用CPU内部的第一级Cache。486、586档次的CPU内部一般都带有Cache，除非当该项设为开启时系统工作不正常，此项一般不要轻易改动。该项若置为Disable（关闭），将会降低系统的性能。
+　　（2） External Cache：缺省设为Enable，它用来控制主板上的第二级（L2）Cache。根据主板上是否带有Cache，选择该项的设置。
+　　（3） Quick Power On Self Test：缺省设置为Enable，该项主要功能为加速系统上电自测过程，它将跳过一些自测试。使引导过程加快。
+　　（4） Hard Disk Boot From:选择由主盘、从盘或SCSI硬盘启动。
+　　（5） Boot Sequence：选择机器开电时的启动顺序。当机器开电时，有以下四种启动顺序：
+　　C，A　　　系统将按硬盘，软驱顺序寻找启动盘
+　　A，C　　　系统将按软驱，硬盘顺序寻找启动盘
+　　CDROM，C，A　系统按CDROM，硬盘，软驱顺序寻找启动盘
+　　C，CDROM，A　系统按硬盘，CDROM，软驱顺序寻找启动盘
+　　请注意，某些老式主板并不支持由CD－ROM启动。
+　　现在的新主板增加了更多的启动顺序如D，A；LS120，C；ZIP，C等。
+　　（6） Swap Floppy Drive:（交换软盘驱动器）缺省设定为Disable。当它Disable时，BIOS把软驱连线扭接端子所接的软盘驱动器当作第一驱动器。当它开启时，BIOS将把软驱连线对接端子所接的软盘驱动器当作第一驱动器，即在DOS下A盘当作B盘用，B盘当作A盘用。
+　　（7） Boot Up Floppy Seek：当Enable时，机器启动时BIOS将对软驱进行寻道操作。
+　　（8） Floppy Disk Access Contol：当该项选在R/W状态时，软驱可以读和写，其它状态只能读。
+　　（9） Boot Up Numlock Strtus:该选项用来设置小键盘的缺省状态。当设置为ON时，系统启动后，小键盘的缺省为数字状态；设为OFF时，系统启动后，小键盘的状态为箭头状态。
+　　（10） Boot Up System Speed：该选项用来确定系统启动时的速度为HIGH还是LOW。
+　　（11）Typematic Rate Setting:该项可选Enable和Disable。当置为Enable时，如果按下键盘上的某个键不放，机器按您重复按下该键对待；当置为Disable时，如果按下键盘上的某个键不放，机器按键入该键一次对待。
+　　（12） Typematic Rate:如果（11）选项置为Enable，那么可以用此选项设定当您按下键盘上的某个键一秒钟，那么相当于按该键6次。该项可选6、8、10、12、15、20、24、30。
+　　（13） Typematic Delay：如果（11）选项置为Enable，那么可以用此选项设定按下某一个键时，延迟多长时间后开始视为重复键入该键。该项可选250、500、750、1000，单位为毫秒。
+　　（14） Security Option:选择System时，每次开机启动时都会提示您输入密码，选择Setup时，仅在进入CMOS Setup时会提示您输入密码。
+　　（15）PS/2 Mouse Function Control：当该项设为Enable，机器提供对于PS/2类型鼠标的支持。否则，选Disable。
+　　（16） Assign PCI IRQ For VGA:选Enable时，机器将自动设定PCI显示卡的IRQ到系统的DRAM中，以提高显示速度和改善系统的性能。
+　　（17） PCI/VGA Palett Snoop：该项用来设置PCI/VGA卡能否与MPEG ISA/VESA VGA卡一起用。当PCI/VGA卡与MPEG ISA/VESA VGA卡一起用时，该项应设为Enable，否则，设为Disable。
+　　（18） OS Select For DRAM>64MB：该项允许您在OS/2操作系统中，使用64M以上的内存。该项可选为NON－OS2，OS2。
+　　（19） System BIOS Shadow:该选项的缺省设置默认为Enable，当它开启时，系统BIOS将拷贝到系统Dram中，以提高系统的运行速度和改善系统的性能。
+　　（20） Video BIOS Shadow:缺省设定为开启（Enable），当它开启时，显示卡的BIOS将拷贝到系统DRAM中，以提高显示速度和改善系统的性能。
+　　（21） C8000－CBFFF Shadow/DFFFF Shadow:这些内存区域用来作为其他扩充卡的ROM映射区，一般都设定为禁止（Disable）。如果有某一扩充卡ROM需要映射，则用户应搞清楚该ROM将映射地址和范围，可以将上述的几个内存区域都置为Enable;但这样将造成内存空间的浪费。因为映射区的地址空间将占用系统的640K～1024K之间的某一段内存。
+#1Chipset Features Setup（芯片组功能设定）
+该项用来设置系统板上芯片的特性。它有以下选项：
+　　（1） ISA Bus Clock frequency（PCICLK/4）ISA传输速率率设定
+　　设定值有：PCICLK/3；PCICLK/4。
+　　（2） Auto Configuration（Enabled）自动状态设定
+　　当设定为Enabled时BIOS依最佳状况状态设定，此时BIOS会自动设定DRAM Timing，所以会有无法修改DRAM的细项时序，我们强烈建议选用Enabled，因为任意改变DRAM的时序可能造成系统不稳或不开机。
+　　（3） Aggressive Mode（Disabled）高级模式设定
+　　当您想获得较好的效能时，而且系统在非常稳定状态下，可以尝试Enabled此项功能以增加系统效能，不过必须使用较快速DRAM（60ns以下）。
+#1Power Management Setup（节电功能设定）
+　　该项为电源管理设定，用来控制主板上的“绿色”功能。该功能定时关闭视频显示和硬盘驱动器以实现节能的效果。
+　　具体来说，实现节电的模式有四种：
+　　1、Doze模式       当设定时间一到，CPU时钟变慢，其他设备照常运作；
+　　2、Standby模式    当设定时间一到，硬盘和显示将停止工作，其他设备照常运作；
+　　3、Suspend模式    当设定时间一到，除CPU以外的所有设备都将停止工作；
+　　4、HDD Power Down模式　当设定时间一到，硬盘停止工作，其他设备照常运作。
+　　该菜单项下面的可供选择的内容有以下几种：
+　　（1） Power Management节电模式的主控项，有四种设定：
+　　Max Saving（最大节电）在一个较短的系统不活动的周期（Doze、Standby、Suspend、HDD Power Down四种模式的缺省值均为1分钟）以后，使系统进入节电模式，这种模式节电最大。
+　　MIN Saving（最小节电）在一段较长的系统不活动的周期在这种情况下，（Doze，Standby，Suspend三种模式的缺省值均为1小时，HDD Power Down模式的缺省值为15分钟）后，使系统进入节电模式。
+　　Disable　关闭节电功能，是缺省设置。
+　　User Defined（用户定义）允许用户根据自己的需要设定节电的模式。
+　　（2） Video Off Method（视频关闭）该选项可设为V/H Sync＋Blank、Dpms、Blank Screen三种。
+　　V/H Sync＋Blank将关闭显示卡水平与垂直同步信号的输出端口，向视频缓冲区写入空白信号。
+　　DPMS（显示电源管理系统）设定允许BIOS在显示卡有节电功能时，对显示卡进行节能信息的初始化。只有显示卡支持绿色功能时，用户才能使用这些设定。如果没有绿色功能，则应将该行设定为Blank Screen（关掉屏幕）。
+　　Blank Screen（关掉屏幕）当管理关掉显示器屏幕时，缺省设定能通过关闭显示器的垂直和水平扫描以节约更多的电能。没有绿色功能的显示器，缺省设定只能关掉屏幕而不能终止CRT的扫描。
+　　（3） PM Timers（电源管理记时器）下面的几项分别表示对电源管理超时设置的控制。Doze，Stand By和Suspend Mode项设置分别为该种模式激活前的机器闲置时间，在MAX Saving模式，它每次在一分钟后激活。在MIN Saving模式，它在一小时后激活。
+　　（4）Power Down和Resume Events（进入节电模式和从节电状态中唤醒的事件）。该项下面所列述的事件可以将硬盘设在最低耗电模式，工作、等待和悬挂系统等非活动模式中若有事件发生，如敲任何键或IRQ唤醒、鼠标动作、MODEM振铃时，系统自动从电源节电模式下恢复过来。
+　　（5）Soft－Off By Pwr－Bttn:ATX机箱的设计不同于传统机箱，按下开关4秒以上才能关闭系统；选择instant－off方式将使ATX机器等同于传统机器，而若置为delay 4 sec方式，那么您按住开关的时间不足4秒时将使系统进入Suspend Mode。
+PNP/PCI Configuration Setup（即插即用与PCI状态设定）
+　　该菜单项用来设置即插即用设备和PCI设备的有关属性。
+　　（1）PNP OS Installed：如果软件系统支持Plug－Play，如Win 95，可以设置为YES。
+　　（2）Resources Controlled By：AWARD BIOS支持“即插即用”功能，可以检测到全部支持“即插即用”的设备，这种功能是为类似Win95之类操作系统所设计，可以设置Auto（自动）或Manual（手动）。
+　　（3） Resources Configuration Data：缺省值是Disabled，如果选择Enabled，每次开机时，Extend System Configuration Data（扩展系统设置数据）都会重新设置。
+　　（4）IRQ3/4/5/7/9/10/11/12/14/15， Assingned To：在缺省状态下，所有的资源除了IRQ3/4，都设计为被PCI设备占用，如果某些ISA卡要占用某资源可以手动设置。
+#1Intergrated Peripherals Setup（外部设备设定）
+　　该菜单项用来设置集成主板上的外部设备的属性。
+　　（1） IDE HDD Block Mode：如果选择Enable，可以允许硬盘用快速块模式（Fast Block Mode）来传输数据。
+　　（2） IDE PIO Mode　这个设置取决于系统硬盘的速度，共有AUTO，0，1，2，3，4五个选项，Mode4硬盘传输速率大于是16.6MB/秒，其它模式的小于这个速率。请不要选择超过硬盘速率的模式，这样会丢失数据。
+　　（3） IDE UMDA（Ultra DMA）Mode:Intel 430TX芯片提供了Ultra DMA Mode，它可以把传输速率提高到一个新的水准。
+#1Load BIOS Defaults（装入BIOS缺省值）
+　　主机板的CMOS中有一个出厂时设定的值。若CMOS内容被破坏，则要使用该项进行恢复。由于BIOS缺省设定值可能关掉了所有用来提高系统的性能的参数，因此使用它容易找到主机板的安全值和除去主板的错误。
+　　该项设定只影响BIOS和Chipset特性的选定项。不会影响标准的CMOS设定。移动光标到屏幕的该项然后按下<Enter>键，屏幕显示是否要装入BIOS缺省设定值，回答Y即装入，回答N即不装入。选择完后，返回主菜单。
+#1Supervisor Password And User Password Setup（管理者与使用者密码设定）
+　　User Passowrd Setting功能为设定密码。如果要设定此密码，首先应输入当前密码，确定密码后按<Enter>，屏幕自动回到主画面。输入User Passowrd可以使用系统，但不能修改CMOS的内容。输入Supervisor Password可以输入、修改CMOS BIOS的值，Supervisor Password是为了防止他人擅自修改CMOS的内容而设置的。
+　　用户如果使用IDE硬盘驱动器，该项功能可以自动读出硬盘参数，并将它们自动记入标准CMOS设定中，它最多可以读出四个IDE硬盘的参数。
+　　以上介绍了Award BIOS Setup的常用选项的含义及设置办法。更改设置后，请选Save and Exit Setup项来保存修改的内容，以便使所修改的内容生效。
+#1　　编后：AWARD BIOS是一种常用的BIOS，各大主板制造商都在它的基础上进行了修改与添加，因而本文只是一个参考，读者最好能仔细阅读随机附带的主板说明书。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

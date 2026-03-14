@@ -1,0 +1,55 @@
+其他计算机考试认证
+
+  
+2001年 9期
+
+#1    其它计算机考试认证
+　　#2    CCCP（网络规划和网络支持工程师资格认证）
+　　    网络设计和网络支持工程师资格认证计划（Cisco Career Certification Program，简称CCCP）是由网络领域著名的厂商Cisco公司推出的针对其产品的职业资格认证体系， CCIE（Cisco Certified Internetwork Expert）资格认证是整个互联网行业最高水平的技术专业人员认证项目之一，根据行业的专业分工，Cisco职业资格认证体系具有两个系列（track）：系列1──网络支持（Network Support，简称NS）；系列2──网络设计（Network Design，简称ND）。
+　　    CCNA培训（^09060106a^）
+　　    途径1：ITM—网际互联技术多媒体；CRLS—CISCO路由器LAN交换。
+　　    途径2：ITM—网际互联技术多媒体；ICRC—CISCO路由器配置简介；HPSDC—桌面系统连接的高性能解决方案。
+　　    CCNP培训/CCNA培训：（^09060106b^）
+　　    先进的CISCO路由选取择和配置；配置、监控拨号业务并排除故障；CISCO LAN交换机配置；CISCO网际互联故障排除；R/S基础考试
+　　    CCIE培训（需两年以上业界工作经验）：
+　　    CCDP/CCNP培训；IMCR--CISCO路由器的安装和维护；CID--CISCO互联网设计
+　　    （2）ND系列CCDA->CCDP
+　　    CCDA培训：ITM──网络互联技术多媒体CD-ROM；CRLS或ICRC+HPSDC-CISCO路由选择和LAN交换或CISCO路由器配置简介+桌面系统连接的高性能解决方案；DCN──设计CISCO网络。
+　　    CCDP培训/CCDA培训：ACRC──先进的CISCO路由选择及配置；CMTD--配置、监控拨号业务并排除故障；CLSC--CISCO LAN交换机配置；CID──CISCO互联网设计。
+　　    CCIE认证由实验室考试资格认证（由Sylvan Prometric公司考试中心进行的长达三小时的多选择题笔试，费用为200美元），以及一项由Cisco实施的长达两天时间的实验室认证考试共同组成（每一次1000美元）。在两天实验室考试中，考生们将必须：建立、配置以及测试复杂的因特网（互联网络系统）；诊断并判定介质、传输以及会话层的问题；隔离应用层问题；使用数据包/帧分析以及Cisco调试工具；证明并报告问题解决处理过程。
+　　    对于上述每个认证系列及其分支，按照知识和技能水平的高低，又划分为三个等级：工程师（CCNA/CCDA）、专家（CCNP/CCDP）、高级专家（CCIE）。参加Cisco推荐的、由Cisco授权的培训中心（Cisco Training Partner，简称CTP）开设的培训课程。也可大部分课程自学而仅参加实验课程。通过指定的系列科目考试后，将收到Cisco签发的结业证书。
+　　#2    CIT证书考试
+　　    CIT是剑桥信息技术的简称，由剑桥大学考试委员会主办的一种信息技术技能培训及资格认证，它提供国际认可的实用信息技术能力，1993年12月，经国家教委批准，由考试中心将CIT引入我国，目前在我国实施应用的有19个模块。完成某一个模块学习的学员可获得剑桥CIT模块证书，通过5个模块（5个模块可以任意选择）的学员，除分别获得5张剑桥CIT模块证书以外，还可向剑桥大学考试委员会申请获得剑桥CIT信息技术证书。CIT在众多国家中已得到系统化的发展，并为社会和企业所广泛认可，并形成计算机培训的国际化标准。世界上使用CIT的国家逐年增多，已有英国、法国、荷兰、瑞士、希腊等42 个国家和地区采用CIT。CIT证书在许多国家被广泛认可，并作为升学、求职的重要依据。
+　　#2    Novell资格认证
+　　    查询网址：http://education.novell.com/certionfo/（^09060106c^）
+　　    Novell是信息技术（IT）和信息系统（IS）培训和教育认证的先锋，在10年前便已经开始培训IT/IS专业人员。Novell推出的资格认证包括CNA（Certified Novell Administor，Novell认证网络管理师，可以为软件用户提供直接的技术支持）、CNE（Certified Novel Engineer，Novell认证网络工程师，能对网络进行规划、安装、配置、排障等）、Master CNE（Master Certified Novell Engineer，Novell认证高级网络工程师，能提供有关网络的解决方案）、CNI（Certified Novell Instructor，Novell认证Internet专家）。
+　　#2    3COM资格认证
+　　    由3COM公司推出的Master of Network Science（MNS，网络大师）认证代表着当今网络界对网络工程师的专业技术水准所给予的最高认可。MNS共设五种独立的3COM解决方案MNS证书，包括LAN解决方案证书、WAN解决方案证书、远程访问解决方案证书、网络管理证书、网络结构证书。每个工程师可攻取多种证书或专攻一种。
+　　#2    ADOBE认证
+　　    查询网址：http://www.adobeedu.com.cn（^09060106d^）
+　　    这是特意为那些为自己的 Adobe（图形图像及排版）产品专门知识寻求认可的专业人士，包括图形设计者、Web 设计者、系统集成商、增值分销商、开发人员和商务人员设计的Adobe的初级证书。通过了Adobe产品专业水平考试之后，你便有资格把自己作为高度熟练的、专家水平的Adobe软件使用者推销给潜在的客户。Adobe认证证书包括Adobe单科软件产品通过证书和 Adobe认证设计师证书。凡通过四门产品认证考试的学员，可获得“Adobe认证设计师”（ACCD）的称号和证书。目前推出的认证培训（以结果为培训导向）包括以下四种：Adobe中国认证专业平面设计师；Adobe中国认证网页设计师；Adobe中国认证数码视频设计师；Adobe中国认证商务出版设计师。
+　　#2    Autodesk认证
+　　    参加该认证考试，成绩合格者由美国Autodesk公司颁发全球认证证书。该证书分初、中、高级。开考的科目包括：AutoCAD、3DS、3DSMAX、3DSVIZ、GIS、MDT等。报名和考试可到美国Autodesk在中国的授权培训中心，考试周期为每月一次。
+　　#2    Sun Java认证
+　　    查询网址：http://suned.sun.com/（^09060106e^）
+　　    Sun公司针对最先进的科技，推出Java以及Solaris 技术认证方案。根据这些认证，在企业方面可以藉此作为招聘人才的评判标准，或是作为衡量员工技术水准的依据；在技术方面，通过这些认证也可以证明个人的技术能力。Sun推出的专业认证包括下列三种：Java认证考试，Solaris系统管理认证考试，Solaris网络管理认证考试。通过SUN任何一门专业认证后，将会收到Sun Microsystems总公司寄发的资格证书及徽章，并有权将通过Sun认证的标记印在个人名片上，作为个人技术能力的肯定。
+　　#1    CPD（Certified PowerBuilder Developer）认证考试
+　　    CPD认证考试是SYBASE公司推出的高级计算机人员认证考试，由SYBASE公司总裁John Chen（程守宗）先生签发的CPD证书在全球90个国家均可得到承认，CPD证书代表着企业及个人技术实力。目前，为了便于广大的中国客户参加CPD考试，提高中国用户的应用开发水平，SYBASE公司和美国SYLVAN PROMETRICS在中国正式联合推出CPD认证考试，并授权予考试中心APTC，现在可在中国50多家APTC参加考试。另外，考试所需费用也做了相应调整，目前中国的CPD考试价格仅仅相当于美国考试价格的30%。
+　　#2    Oracle认证
+　　    OCP是由Oracle公司颁布并实施的一项权威的专业技术标准，它是专为的那些能够满足对ORACLE核心产品的服务与支持，并具有娴熟的操作能力与广泛理论知识的专业人士认证。一经认证，在行业内的专业资格将被确认，从而使个人或企业更具竞争实力。一次性通过Oracle认证专家计划包含了两个目前IT行业十分热门的认证角色，即数据库管理员（DBA-atabaseAdministrator）和应用程序开发员（DEV-ApplicationDeveloper）。
+　　#2    COMPAQ认证
+　　    http://www.compaq.com/education（^09060106f^）
+　　    ASE是COMPAQ的授权系统工程师。COMPAQASE是美国COMPAQ公司推出的全球通行网络硬件方面的专业证书，学员需完成NOVELLCNE或微软MCSE的课程及COMPAQ专业课程并通过全部考试后方可获得，并可成为COMPAQASE俱乐部会员。
+　　#2    如何选择考试
+　　    以上我们给大家介绍了目前计算机方面比较权威的一些认证，最后就认证的选择提几点建议：
+　　    1.知己知彼。要对自己的兴趣和所掌握的知识有所了解，根据自己的能力进行选择。
+　　    2.考生应该明确考试目的。
+　　    3.充分了解认证考试的组织机构。
+　　    4.有条件尽量参加培训，获取第一手资料。
+　　    5.要适当考虑费用。
+　　    最后，祝各位“证”途一路顺风。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

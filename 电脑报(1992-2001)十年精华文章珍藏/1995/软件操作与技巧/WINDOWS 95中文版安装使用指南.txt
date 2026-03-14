@@ -1,0 +1,1102 @@
+WINDOWS 95中文版安装使用指南
+
+曹国钧
+1995-01-06
+
+        一、概述
+        二、WINDOWS  95中文版的文档说明
+        三、WINDOWS  95中文版的安装
+        四、启动WINDOWS  95中文版出现一些问题
+        五、在WINDOWS  95中文版的显示器配置有关问题
+        六、 在WINDOWS  95中文版使用常见打印机
+        七、在WINDOWS  95中运行MS-DOS和WINDOWS  3.1程序的一些方法及注意点
+        八、WINDOWS  95中文版的CONFIG新配置介绍
+        九、WINDOWS  95中文版使用技巧
+        一、概述
+        WINDOWS  95中文版是MICROSOFT  WINDOWS的中文升级版本，它在西文WINDOWS  95基础上进行了内核双字节化，因此，其速度、功能与西文WINDOWS  95无异。另外，它同WINDOWS  3.X不同，它不仅是一个图形用户界面(GUI)，而且是一个完全的32位中文操作系统， 适应了当今的硬件潮流。因此486DX2/66将成为1995年运行WINDOWS  95的标准处理器。
+        WINDOWS  95中文版有以下特点：
+        1.支持即插即用(PLUG  &  PLAY)特性，插入一个即插即用新的硬件，则WINDOWS  95在启动时均能感知，并自动搜索SYSTEM目录中有关驱动程序，减少了人工配置步骤，给用户带来了极大的方便。
+        2.新型WINDOWS  95的用户新视图，考虑了WINDOWS  3.1向WINDOWS  95平稳过渡的特性。
+        (1)  WINDOWS  95界面中充满了WINDOWS  3.1用户可以立即识别出的符号和控件，例如，WINDOWS  95的下拉菜单仍在一个菜单选择指示它打开一个子菜单之后出一个向右的三角，并用省略号(...)表明一个菜单选择将打开一个对话框。WINDOWS  3.1用户很容易识别WINDOWS  95对话的复选框、单选框和命令按钮。WINDOWS  3.1的大多数键盘命令，例如ALT＋F4、CTRL＋ESC等在WINDOWS  95中的作用相同。
+        (2)  WINDOWS  95在安装完毕后将在屏幕上出现如下图标：
+        ┏━━━━━━━━━━━━━━━┓
+        ┃  我的电脑                    ┃
+        ┃回收站                      ┃
+        ┃收件箱                      ┃
+        ┃安装The  MicroOsft  Network ┃
+        ┗━━━━━━━━━━━━━━━┛
+        在WINDOWS  95桌面上的图标履行许多不同的任务，桌面上一个图标可以代表一个单一的对象，如一个应用程序，就象WINDOWS  3.1中的应用程序图标，或一个文件。它还代表某种容器，例如“我的电脑”、一个文件夹或一个磁盘驱动器等。一个文件夹可能包含文件、应用程序或其它文件夹。实际上，文件夹确实与DOS和WINDOWS  3.1中的子目录具有相同的意义。
+        我们平时用得最多可能是“我的电脑”和“回收站”。“我的电脑”实际上把用户电脑上所有驱动器(如A、B、C、D等)包容在此图标中。另外，“我的电脑”中还包括了“控制面板”、“打印机”等。WINDOWS  95的屏幕或打印机的配置图标。每个驱动器图标相当于软盘或硬盘分区中的内容，例如D：图标则包容D盘所有目录和文件，因此，要执行某个文件，则只要打开该盘图标下的该文件所在目录即可。例如，要打开原中文WINDOWS  3.1的主组窗口，则只要打开D： \PWIN目录，然后，执行该目录下的CMAINGRP图标，则WINDOWS  95将执行开始菜单的快捷转换方式， 显示出WINDOWS 3.1的主组窗口，十分方便。
+        在WINDOWS  95桌面的最下一行(在WINDOWS  95中被称为“任务条”)开始处有一个“开始”图标，在它上面点一下，将出现一个上托的菜单，它包括了“程序”(附件、启动、WINDOWS的资源管理器、MS  DOS方式)、“文档”(15个文件菜单)、“设置”(硬件和软件配置)、“查找”(相当于UNIX的GREP)、“帮助系统”、“运行”(相当于WINDOWS  3.1的FILE-RUN菜单)和“关闭系统”。每当您在WINDOWS  95中运行一个程序或打开一个任务，均在此任务条中依次显示打开的任务，要找到一个打开的、被缩小的窗口的唯一方法就是寻找任务条上的指令按钮。3.WINDOWS  95允许用户命名255个字符的文件名，例如“SECOND  QUARTER  SALES  REPORT”都是合法的文件名。
+        4.WINDOWS  95提供了一个集成文本编辑器和字处理器的“写字板”(WORDPAD)，它可处理文本文件、格式化文档(WORD  6.0  FOR  WINDOWS和WINDOWS  WRITE)。
+        5.在WINDOWS  95中文版中运行汉化DOS应用程序时，不再需要DOS上的汉字操作系统，且在运行时可使用WINDOWS  95中文版的汉字输入方法。
+        6.WINDOWS  95中文版提供了全拼输入法，双拼输入法，郑码输入法，内码输入法和智能ABC输入法，并可利用其提供的通用编码编译器CONVMB自己扩充其它汉字输入法，如五笔字型输入法等。
+        “开始”菜单的最右边有一个“En”图标，这是WINDOWS  95默认的输入法状态-英文输入法(English) 。WINDOWS  95的汉字输入法可在此激活，即点一下此图标，则在出现一个上托菜单，显示WINDOWS  95中提供的输入法，您可从选择一个，例如“拼音输入版本2.0”。在选择该输入法后，“En”图标将变为您所选择输入的图标，但看不到输入法行。若在“开始”按钮的右边上边缘处点一下， 则将出现一个输入法提示窗口，有全角/半角、输入法名称、键盘图标等。此时，若您在“附件”中打开“写字板”，就可在“写字板”中输入汉字了。与WINDOWS  3.1中文版不同的是，汉字输入框与光标键有很大的关系，即汉字输入框将紧随光标键移动，在不输入汉字时，汉字输入框将不出现。另外，在输入法图标左边有一个图标，它的作用是否显示IME输入法，它有“显示IME输入状态”和“关闭IME输入状态”。为了清楚起见，我们一般应选择“显示IME输入状态”，以便知道现处于哪一种输入法状态。
+        7.从WINDOWS  95开始告别了多媒体驱动程序MSCDEX.EXE，它提供一个独立的32位保护模式的CD-ROM文件系统CDFS，此文件系统比MSCDEX快得多，并有自己的内存高速缓存，类似于32位硬盘驱动器(VFAT)的高速缓存。
+        8.WINDOWS  95用REGISTRY代替了WIN.INI、SYSTEM.INI和REG.DAT，它是一个比WINDOWS  3.1的REG.DAT更为可靠的数据库系统，不易遭到外部损坏。WINDOWS  95的REGISTRY主要由三个文件组成的，即SYSTEM.DAT、USER.DAT和POLLICES.DAT，它们为只读、隐藏和系统文件属性的二进制文件，一般不能被DOS命令删除，也不能被一般编辑软件进行编辑修改。
+        9.在WINDOWS  95中增加或增强了一些DOS命令：
+        (1)  所有的DOS文件命令，如DIR、XCOPY、REN等被扩充使用长文件名，要使用长文件名只要用双引号“”括起来就行：
+        COPY  “NEW  DOCUMENT”  “ANOTHER  DOCUMENT”
+        (2)  DIR命令已经扩充配合了长文件名，若用DIR命令显示文件列表时，我们可发现列表的前六列显示了通常的DIR信息，新添的一列显示了文件的长文件名。 另外，DIR命令也多了一个新的命令行开关：/V，此开关将产生一个长的目录列表，其中包括文件属性、最后访问的时间和文件最后修改的信息等，
+        (3)WINDOWS  95提供了一个新命令START，此命令支持WINDOWS  95文档趋势及消除DOS和WINDOWS应用程序的差别。START命令可以从DOS行命令启动WINDOWS和DOS应用程序 (DOSVM提供的命令提示符)，其方法是指明要启动的程序名或文档名。
+        START  WORD
+        START  “LETTER  TO  DAVE.DOC”
+        以上每条命令都打开WORD  FOR  WINDOWS，但第一条只是启动WORD-MS  WORD的装入，并显示空的文档。第二条命令启动WORD，并让它装入或打开LETTER  TO  DAVE，其扩展名为DOC是告诉WINDOWS  95，它是WORD的文档。
+        若用户使用了DOS  START命令启动DOS应用程序，WINDOWS95将创建一个新的DOS  VM(DOS虚拟内存)，并在其中运行DOS应用程序。
+        10.WINDOWS  95中文版可识别PDOS  6.22中文版，并可自动汉化WINDOWS  95中的DOS  VM窗口。
+        二、WINDOWS  95中文版的文档说明
+        在使用WINDOWS  95中文版过程中，应参考如下相关README的说明文件。
+        CONFIG.txt		包含了CONFIG.sys使用的命令的语法信息。	
+        Display.txt		提供如何配置、修改已有显示驱动程序，以及如何获得另外的显示驱动程序的信息。	
+        EXchange.txt    	提供安装和运行MICROSOFT EXchange的信息。	
+        EXtra. txt		除了在WINDOWS 95 CD-ROM版中已有的文件外，提供如何寻找其它的WINDOWS 95文件，比如更新和显示驱动程序等的信息。	
+        Faq.txt         	回答经常会遇到的有关WINDOWS 95的问题。	
+        General.txt		提供有关启动、Window 95所带的程序、磁盘工具、磁盘和CD、驱动程序、可移动介质、MICROSOFT传真和笔服务的信息。该文件还包括来不及归类到其它文件的信息。比如，如果您有关于打印机的问题，除了Printers.txt外，看此文件也会得到帮助。	
+        Hardware.txt	提供关于硬件的已知问题，以及如何解决这些问题。请参考：Printer.txt或Mouse.txt查询特定的问题。	
+        Internet.txt  	帮助连接Internet以及提供到何处装载MICROSOFT新的Webbrowser和Internet EXplorer。	
+        Mouse.txt		提供关于鼠标和键盘的已知问题，以及如何解决这些问题的方法。	
+        Msdosdrv.txt		包含MS-DOS设备驱动程序的语法信息。其它关于MS-DOS的命
+        令帮助，请参见CONFIG.txt。也可以在命令行状态下键入/?取得帮助。	
+        Msn.txt         	帮助连接The MICROSOFT Network。	
+        Network.txt     	提供关于安装和运行网络服务器的信息。	
+        Printers.txt    	提供关于打印机的已知问题，以及如何解决这些问题。	
+        Programs.txt    	提供关于在WINDOWS 95下运行一些特定的基于WINDOWS和MS-DOS的程序的信息和运行环境。	
+        Support.txt     	提供关于如何得到WINDOWS 95附加支持的信息。	
+        Tips.txt        	包含一些使用WINDOWS 95的技巧和窍门，其中大多数信息是在联机帮助或书面手册中找不到的。
+        即使还没有安装WINDOWS 95, 也能打开上述的readme文件。
+        在安装WINDOWS 95前打开readme文件：
+        1.如果您购买的是WINDOWS 95软盘版本：
+        (1)在A 驱动器(或任何其它的驱动器)中插入第一张盘。
+        (2)将A盘中的EXTRACT.EXE拷贝到C：\DOS中。
+        (3)将WINDOWS  95中文版的第5张盘插入A驱中。
+        (4)在MS-DOS提示符下, 键入如下命令：
+        eXtract.exe /a /l c:\WINDOWS win95_05.cab filename.txt
+        例如，如果您想打开General.txt, 应当键入：
+        a:eXtract.exe /a /l c:\WINDOWS win95_02.cab general.txt
+        (5)换到\WINDOWS目录下。
+        (6)在命令行键入：edit filename.txt
+        1.如果您购买的是WINDOWS 95光盘版本:
+        (1)在光盘驱动器(例如驱动器X)中放入光盘。
+        (2)在光盘驱动器中换到\Win95目录。
+        (3)在MS-DOS提示符下，键入如下命令：
+        eXtract.exe /a /l c:\WINDOWS win95_05.cab filename.txt
+        例如，如果您想打开General.txt, 应当键入：
+        eXtract.exe /a /l c:\WINDOWS win95_02.cab general.txt
+        (4)在C驱动器下换到WINDOWS目录。
+        (5)在命令行提示符下, 键入：edit filename.txt。
+        三、WINDOWS  95中文版的安装
+        如果还没有安装WINDOWS 95，则有关安装的一些附加信息可在Setup. txt文件中找到， 此文件在WINDOWS 95的第一张安装盘上，可以使用WINDOWS 3.1的记事本进行阅读。若您购买的是WINDOWS 95光盘版本，则可在\Win95目录下找到此文件。
+        (一)安装需求
+        安装WINDOWS 95的需求如下：
+        1. 最小内存容量: 运行WINDOWS 95中文版最小内存容量应达到6MB。最好为486DX2/33以上配置，8MB以上内存。
+        2. 常规内存: Setup安装程序需要至少432,128字节的常规内存才能运行。
+        (二)WINDOWS  95中文版的安装
+        1.首先决定如何安装WINDOWS  95中文版
+        WINDOWS  95中文版在安装过程中，将提供了两种安装方法，即
+        (1) 勇敢地踏入WINDOWS  95这个新的领域，从现有的WINDOWS系统中升级到WINDOWS  95中文版系统上。
+        实际上，该选择是明智的选择，因为在这种升级过程中，WINDOWS  95中文版的安装程序SETUP将把用户的程序管理器中的全部现存的程序组自动地转换为WINDOWS  95的格式，在这里的“全部”的意思就是每一个程序组，包括STARTUP程序组。在安装完WINDOWS  95后，所有WINDOWS  3.1的应用程序均可WINDOWS  95中直接运行，而无需要重新安装和配置这些程序。以升级的方法安装WINDOWS  95，将保留和转换配置，例如用户原来使用的那种WINDOWS屏幕锁定程序和它的设备。若用户是在网络中升级WINDOWS  95中文版，则它还会转换一些网络信息，例如计算机和工作组的名字等。
+        (2) 仅在必要的时候，才选择第二种安装方法即“双启动安装”。
+        该安装方法主要目的是为了满足那些想要把WINDOWS  3.X中文版移植到WINDOWS  95中文版，但要立刻接受新的系统而又有怀疑的用户。当使用WINDOWS  95的建立双启动安装时， 实际上安装的WINDOWS95同现在的DOS和WINDOWS系统并存于一个系统之中，双启动安装选择项使用户原有的WINDOWS  3.1系统保持完整且不受任何干扰。结果是，可以忽略WINDOWS  95的启动过程，且使用原来的DOS和WINDOWS  3.1系统，就好象从未安装过WINDOWS  95一样。
+        由于双启动安装方式不会把现有的WINDOWS  3.1程序组、打印机或其它设备驱动程序转换为WINDOWS  95格式，因此，要在WINDOWS95上运行原来WINDOWS  3.1的程序， 必须重新安装WINDOWS3.1的应用程序，否则，将无法运行。于是，在计算机中将会出现两个同样程序的拷贝，占用了大量磁盘空间。
+        2.安装前的一些准备工作
+        (1)  在开始安装之前应该关闭已运行的屏幕保护程序和任何一种防病毒软件，包括新版CMOS中的防病毒软件。
+        (2)WINDOWS 95 安装程序将自动运行磁盘扫描程序检查硬盘。 如果遇到问题，安装将会停止，直到解决问题以后，才能继续安装。
+        注意: 安装程序加载的磁盘扫描程序如果是 MS-DOS 版本的，可能会检测到长文件名错误，但不能修复它们。安装程序会忽略这些问题继续运行。但一旦安装完毕，应该在 WINDOWS 95 下运行新的 WINDOWS 版 SeanDisk 修复这些错误。
+        如果在安装过程中提示运行磁盘扫描程序修复硬盘错误，可以按后面所述的步骤进行修复。 如果在 MS-DOS 或 WINDOWS 的早期版本 (如 WINDOWS 3.1) 下安装WINDOWS 95:，请按下列步骤进行：
+        ①退出 WINDOWS。
+        ②如果从软盘安装，请将 1 号安装盘插入软驱，然后在命令行中键入:
+        a:scandisk.exe /all
+        其中 “a:” 是包含 WINDOWS 盘的驱动器。
+        如果从 CD-ROM 上安装，请插入 CD-ROM 并键入以下命令 :
+        f:\win95\scandisk.exe /all
+        其中 “f：”是CD-ROM 驱动器。
+        ③按屏幕上的指导，修复磁盘扫描程序发现的所有问题。
+        ④启动 WINDOWS，再次运行安装程序。
+        如果在安装过程中遇到“内存不够，无法运行磁盘扫描程序”的提示，可以释放一些常规或高端内存， 然后再次运行安装程序。 如果有 MS-DOS 6. X，可以使用MEMMAKER 释放内存。
+        如果仍旧出现内存不够问题，或在安装时运行磁盘扫描程序存在其它问题，可在运行安装程序时加上 /IS 选项跳过磁盘扫描程序，即键入下列命令:
+        setup /is
+        注意: 建议最好不要在安装时跳过磁盘扫描程序。如果跳过，可能会因为硬盘问题而无法安装 WINDOWS 95， 或无法正确运行 WINDOWS 95。如果带 /IS 选项运行 Setup 仍出现问题，可以再试用 /IQ 选项。即键入下列命令:
+        setup  /is /iq
+        (3) 使用了压缩驱动器的处理
+        如果您使用压缩软件压缩过硬盘，那么可能会在安装过程中看见一条信息：“压缩驱动器的主分区没有足够的空间” 。安装程序可能会将部分文件复制到启动盘、启动盘的主分区或WINDOWS 盘的主分区。如果您收到这则消息，您应该释放指定盘上的部分空间，然后再次运行安装程序。可以按下列方式释放空间:
+        - 如果在压缩驱动器上安装 WINDOWS，您可以试试将其安装到非压缩驱动器上。
+        - 删除主分区上所有无用文件。
+        - 如果正在运行 WINDOWS 3.1 而且有一个永久交换文件， 可以试一试减小文件尺寸。即在“控制面板”中双击“386 增强模式”图标，然后单击“虚拟内存”，更改交换文件的大小。
+        -  使用磁盘压缩软件为压缩驱动器释放主驱动器上的部分空间。
+        ①  DRVSPACE或DBLSPACE压缩驱动器的处理
+        如果使用DriveSpace 或 DoubleSpace 压缩过驱动器，请按下列步骤操作:
+        1. 退出 WINDOWS。
+        2. 运行 DRVSPACE.EXE 或 DBLSAPCE.EXE。
+        3. 选取要释放主驱动器空间的压缩驱动器。
+        4. 单击“驱动器”菜单中的“更改大小”。
+        如果使用的是其它压缩软件，如 Stacker，请参阅该软件的文档。
+        注意: 如果安装程序报告的可用空间数和您认为的主驱动器上应该有的容量存在差异， 可能是因为  WINDOWS  为创建交换文件占用了一些空间。  在没有运行WINDOWS时不会占用任何空间。
+        注意: 如果在安装过程中创建了启动盘，请确认您的启动盘不是压缩盘。
+        ②使用 SuperStor 压缩驱动器的处理
+        如果您使用 SuperStor 压缩过硬盘， 安装程序可能会找不到启动盘，无法安装  WINDOWS  95。  如果在安装过程中收到这样的信息，   请解压缩硬盘并删除SuperStor，然后再次运行安装程序。
+        ③使用 XtraDrive 压缩驱动器的处理
+        如果您使用 XtraDrive 压缩过硬盘，并且从 WINDOWS 早期版本中升级，则无法安装 WINDOWS 95，除非关闭 XtraDrive 的写缓冲。您可以按下列步骤关闭此选项:
+        a. 退出 WINDOWS。
+        b. 运行 Vmu.exe(XtraDrive 的卷维护实用程序)。
+        c. 选择“高级”，并按 ENTER 键。
+        d. 将 EMS 缓存大小设置为 0。
+        e. 将常规缓存大小设置为 1 (最小值)。
+        f. 将“允许写缓冲”设置为“不”。
+        g. 在出现确认提示时选择“是”。 这时您将看见一则消息，要您重新启动计算机以使所作更改生效。  h. 退出卷维护实用程序，重新启动计算机。
+        i. 启动 WINDOWS，然后再次运行安装程序。
+        3.WINDOWS  95中文版的安装
+        (1)   在MS  DOS或WINDOWS  3.1中安装WINDOWS95中文版
+        WINDOWS  95中文版系统分装在22张3.5"磁盘中，用第一张系统盘中的SETUP.EXE程序执行WINDOWS  95的安装过程。若您有过WINDOWS  3.1系统的安装过程，则WINDOWS  95的安装是十分简单的，只不过，有一点要注意就是：若要建立双启动系统，您必须使用“定制安装”(Customize Setup)来为WINDOWS  95声明一个安装目录，此目录不是用户当前的WINDOWS  3.1目录，例如，原WINDOWS  3.1中文版的目录为D：\PWIN，则可为WINDOWS  95中文版声明为D：\PWIN95，以后的过程就是WINDOWS  95中文版的双启动安装过程。若您要从WINDOWS  3.1升级为WINDOWS  95中文版，这也是安装程序的默认安装配置， 则选择“典型安装” (或称为“标准安装”，StandardSETUP)，在WINDOWS  95的安装程序自动找到当前WINDOWS的目录时(注意：若您在机器中安装了两种以上WINDOWS系统，则WINDOWS95的安装程序将希望您选择一个WINDOWS的目录)，用户只按回车键，以后的安装就是升级方式的安装，它可为您的磁盘空间节省出10MB左右，它还不包括其它WINDOWS  3.1的应用程序安装的磁盘空间。
+        下图就是WINDOWS  95中文版的四阶段安装过程，这对于在安装WINDOWS  95时有一定的指导作用。
+        ┏━━━━━━━━━━━━━━━━━┓
+        ┃  ┌─────┐                  ┃
+        ┃  │开始SETUP │                  ┃
+        ┃  └─────┘                  ┃
+        ┃        ↓                        ┃
+        ┃┌───────┐  ┌─────┐┃
+        ┃│是否从WINDOWS │NO│ 安装最小 │┃
+        ┃│   开始安装   │→│ WINDOWS  │┃
+        ┃└───────┘  └─────┘┃
+        ┃        ↓YES(是)                 ┃
+        ┃  ┌─────┐                  ┃
+        ┃  │ 硬件检测 │                  ┃
+        ┃  └─────┘                  ┃
+        ┃        ↓                        ┃
+        ┃┌───────┐                ┃
+        ┃│从用户获得有关│                ┃
+        ┃│     数据     │                ┃
+        ┃└───────┘                ┃
+        ┃        ↓                        ┃
+        ┃┌───────┐                ┃
+        ┃│解开并拷贝系统│                ┃
+        ┃│  盘中的文件  │                ┃
+        ┃└───────┘                ┃
+        ┃        ↓                        ┃
+        ┃┌───────┐                ┃
+        ┃│在WINDOWS 95中│                ┃
+        ┃│ 重新启动系统 │                ┃
+        ┃└───────┘                ┃
+        ┃                                  ┃
+        ┗━━━━━━━━━━━━━━━━━┛
+        在WINDOWS  95中文版安装完毕后，将自动重新启动WINDOWS95系统。在第一次启动WINDOWS  95系统时，需要较长时间的硬件测试和自动配置，然后，将这些硬件配置记录在登录文件中，它为以后您的机器硬件改变提供了数据资料。在以后启动WINDOWS  95时速度就快多了。
+        在安装好WINDOWS  95中文版后，其目录结构如下(这里以WINDOWS  3.1中文版升级为WINDOWS  95中文版为例，其原始目录为D：\PWIN)，每个目录的含义如下：
+        D:\PWIN                           ──WINDOWS 95中文版主目录
+        ┌─COMMAND                        ──MS DOS 7.0外部命令目录
+        ├─HELP
+        ├─CURSORS                        ──光标资源子目录
+        ├─CONFIG                         ──硬件配置子目录
+        ├─SYSTEM                         ──系统(包括字库、驱动程序、输入法等)
+        │    │
+        │    ├─VMM32                    ──VMM32程序子目录
+        │    ├─IOSUBSYS                 ──IO输入与输出系统子目录
+        │    └─COLOR                    ──颜色配置子目录
+        ├─MEDIA                          ──多媒体目录
+        ├─TEMP                           ──临时目录
+        ├─开始菜单                       ──WINDOWS 95的"开始"上托菜单目录
+        │     │
+        │     └─程序                    ──"程序"菜单子目录
+        │          │
+        │          ├─主组               ──"主组"子目录
+        │          ├─附件               ──"附件"子目录
+        │          │   │
+        │          │   ├─游戏          ──"游戏"子目录
+        │          │   ├─系统工具      ──"系统工具"(磁盘扫描等工具)子目录
+        │          │   └─多媒体        ──"多媒体"工具子目录
+        │          │
+        │          ├─启动               ──"启动"组子目录
+        │          ├─VISUAL-1.0         ──"VISUAL BASIC 3.0"组子目录
+        │          ├─MICROS-1.0         ──"Microsoft WORD 5.0中文版"组子目录
+        │          ├─BORLAN-1.1         ──"Borland C++ 3.1"组子目录
+        │          ├─POWERS-1           ──"Poweisoft"组子目录
+        │          ├─LOANSE-1           ──"Loadn Selup"组子目录
+        │          └─群组               ──其它组的子目录
+        │
+        ├─桌面                           ──桌面目录
+        └─SENOTO                         ──MS MAIL的发送邮件信箱的目录
+        在安装WINDOWS  95后，不管是系统升级还是双启动安装，SETUP将不会删除DOS系统文件：CONFIG.SYS和AUTOEXEC.BAT，SETUP在把替代文件拷贝到硬盘之前，它将现有的系统文件改名，使它们均有.DOS扩展名，这些文件将对双启动系统如何工作有十分大的作用。下面是安装WINDOWS  95中文版后系统文件所作的改变。
+        原名				新名
+        IO.SYS				IO.DOS
+        MSDOS.SYS			MSDOS.DOS
+        COMMADN.COM			COMMAND.DOS
+        CONFIG.SYS			CONFIG.DOS
+        AUTOEXEC.BAT			AUTOEXEC.DOS
+        无论何时启动机器，都可以跳过加载WINDOWS  95中文版，而按下F4键返回到以前的DOS版本。当您按下F4键时，WINDOWS  95将首先为自己的系统文件换名，使其具有.W95扩展名，然后恢复原来的DOS系统文件名，继续启动原来的DOS系统。在您经双启动回到以前的DOS版本时，在启动驱动器根目录中将出现如下WINDOWS  95系统文件的新名，此时，WINDOWS  95将使用WINBOOT.SYS文件恢复启动I/O系统， 而不再使用IO.SYS和MSDOS.SYS文件了。
+        原名			新名
+        COMMADN.COM		COMMAND.W95
+        CONFIG.SYS		CONFIG.W95
+        AUTOEXEC.BAT		AUTOEXEC.W95
+        因此，在运行WINDOWS  95中文版时，不要删除以.DOS扩展名的任何文件，否则，经双启动回到原来的DOS版本便不可能了。同样地，在运行用户以前的DOS版本时，也不能删除以.W95为扩展名的任何文件，否则，要使计算机重新启动回到WINDOWS  95中文系统就不再可能了。
+        另外，WINDOWS  95中文版在启动驱动器的根目录中还将形成如下文件:
+        SYSTEM.LST ：关于用户计算机的硬件和配置的信息数据库
+        SULOGO.SYS：它包含WINDOWS  95启动时屏幕显示的系统标志LOGO
+        DETCRASH.LOG：日志文件
+        DETLOG.TXT：日志文件
+        SETUPLOG.TXT：安装跟踪日志文件
+        SETUPLOG.PRV：日志文件
+        BOOTLOG.TXT：启动跟踪日志文件
+        SHUTLOG.DAT：关闭WINDOWS 95的日志文件
+        NETLOG.TXT：网络日志文件
+        IO.SYS：WINDOWS  95系统启动文件
+        (2)在WINDOWS  95早期版本上安装WINDOWS  95中文版
+        如果您是在 WINDOWS 95 的早期版本下安装 WINDOWS 95中文版， 则必须执行如下步骤：
+        ①退出安装程序。
+        ②指向“开始”菜单中的“程序”，再指向“附件”，然后指向“系统工具”，单击“磁盘扫描程序”。
+        ③检查硬盘和任何一个主驱动器，修复发现的任何错误。
+        ④在WINDOWS NT 上安装 WINDOWS 95中文版
+        如果您既可以引导到 MS-DOS， 也可以引导到 WINDOWS NT，那么请引导到MS-DOS 下，然后在MS-DOS 或 WINDOWS 3. X 下运行安装程序。此时您不能把WINDOWS95 安装到能共享 WINDOWS 3. X/WINDOWS NT 配置的目录下，而需要将其安装到另一个目录。
+        如果您不能多重引导 MS-DOS 和 WINDOWS NT， 请先将计算机配置成能够多重引导 MD-DOS 和 WINDOWS NT，然后再按上面的指导操作。
+        如果从软盘启动 MS-DOS 再运行安装程序， 以后将无法启动 WINDOWS NT。不过您可以通过 WINDOWS NT 的引导/修复盘启动， 选择  “修复”  选项即可恢复WINDOWS NT。
+        (3)在 OS/2上安装 WINDOWS 95
+        安装程序无法在 OS/2 下运行。 您需要先用软盘启动 MS-DOS，然后从命令行运行WINDOWS  95的安装程序。
+        注意: 如果在 OS/2 HPFS 分区上升级，那么安装过程中需要 OS/2 的 1 号盘。如果使用 OS/2 的引导管理模块选择要引导的操作系统，安装程序将会使其无效，以确保 WINDOWS 95 能够重新启动计算机并完成安装。 安装完后可以用  WINDOWS95下的Fdisk 重新激活引导管理模块。
+        如果未使用引导管理模块，请配置它，然后再按上面的指导操作。如果从软盘启动 MS-DOS 再运行安装程序，安装完 WINDOWS 95 后将无法再次启动 OS/2。在运行 WINDOWS 95 安装程序之前需要删除 OS/2 的 Autoexec. bat 和  CONFIG.sys。
+        如果在安装完 WINDOWS 95 后想删除 OS/2，请执行下列操作 :
+        1. 将有用的数据文件备份到软盘或网络驱动器。
+        2. 删除每个 OS/2 目录及其子目录下的所有文件，然后再删除所有 OS/2 目录。
+        3. 需要删除下列在根目录下隐藏的系统文件 :
+        EA DATA.SF、OS2LDR.MSG、OS2KRNL、OS2BOOT、WP DATA.SF
+        请确认“我的电脑” 或“ WINDOWS 资源管理器”中隐藏文件是否可见。您可以这样做: 先单击“查看”菜单，单击“选项”，再单击“显示所有文件”，然后删除上面列出的 OS/2 文件。
+        注意: 如果 OS/2 不是 2.0 版的， 例如3.0  WARP版本，则硬盘上的OS/2 文件可能与上面所列的文件不同。另外，根据不同版本的 OS/2，您可能会在根目录下看见下列需要删除的文件:
+        OS2DUMP、OS2LDR、OS2LOGO、OS2VER。
+        4. 请记住清空回收站以便永久删除这些文件。
+        如果安装了引导管理模块，而现在想删除它，可以重新启动计算机，执行下列操作(建议在重启动计算机前打印本文件)。
+        1. 出现“引导管理模块”菜单时，选择 MS-DOS，然后运行 FDisk。
+        2. 将 MS-DOS 分区 (C) 设置为活动分区。
+        3. 退出 FDisk，重新启动计算机。
+        如果在安装完 WINDOWS 95 后想再次使用引导管理模块，可以执行下列操作 :
+        1. 在“开始”菜单中单击“运行”，然后键入 FDISK。
+        2. 选第 2 项-“设置活动分区”。
+        3. 键入引导管理模块的分区号。该分区是非 MS-DOS 分区，容量为 1 MB，通常位于分区的内存区的顶端或底端。
+        4. 退出 FDisk，按指导重新启动计算机。
+        现在您可以随时启动 OS/2，并通过 OS/2 的 FDisk 程序更改引导管理模块的标识名。
+        6.在LANTASTIC 计算机上安装 WINDOWS 95
+        如果正在运行 LANtastic 服务器， 必须在安装 WINDOWS 95 前禁用它。具体方法是：在 Autoexec.bat 中删除 Server.exe 或键入下列命令:
+        server /remove
+        如果正在运行 LANtastic，并拥有已映射或共享的启动盘(通常是 C 盘)，安装程序将无法确定哪一个是启动盘，导致无法继续安装。所以在运行安装程序之前必须禁用映射的或共享的启动盘。
+        (三)  安装WINDOWS  95中文版的出现问题
+        1.安装时的错误信息解释
+        下面列出安装过程中可能会遇到的特别信息，并提供解决问题的办法。
+        ①SU-0010、SU-0012、SU-0015、SU-0016
+        如果在安装过程中遇到这些信息之一， 请参阅前面的关于 OS/2 和WindowsNT 部分，那里有解决该问题的方法。
+        ②SU-0011
+        如果您的硬盘受口令保护，安装程序将无法正确完成。您必须首先删除口令保护。
+        ③SU-0013
+        要安装 Windows 95， 您的启动盘必须是 MS-DOS 引导盘。如果启动盘为HPFS或 Windows NT 文件系统，则必须在运行安装程序前创建 MS-DOS 引导区。关于创建MS-DOS 引导区的详细内容，请参阅有关MS  DOS方面的书籍。
+        如果带 LANtastic 联网或 SuperStor 压缩，请参阅前面部分介绍。
+        ⑤SU0167
+        如果在当前 Windows 目录中有一个叫“桌面” 的目录，那么安装程序将无法把 Winodows 95 安装到当前的 Windows 目录中去。 因为 Windows 95  将创建“桌面”目录，用于存放系统文件。如果在安装过程中看见这则信息，应该将“桌面”这个目录换名或将其移走，然后再次运行安装程序。
+        2.标准模式信息
+        如果您在安装过程中看见下列任何一则错误信息，必须删除 Config.sys 文件中所有的内存管理程序(如 EMM386. exe, QEMM 或 386Max)，然后再次运行安装程序。
+        标准模式 : 返回非法的 DPMI。
+        标准模式 : MS-DOS 扩展程序错。
+        标准模式 : MS-DOS 扩展程序严重错误。
+        标准模式 : 错误处理程序的未知堆栈。
+        标准模式 : 堆栈溢出。
+        注意: 如果仍有问题，请试将 EMM386.EXE 重新加入到 Config.sys 文件中，并且排除所有的地址范围。例如 :
+        device=c:\windows\emm386.exe x=A000-FFFF
+        如果在安装过程中遇见这些信息或出现莫名的死机现象，可能需要在SmartDrive中打开双缓冲选项。因为部分 SCSI 硬盘和 ESDI 硬盘需要双缓冲。在Config.sys文件的开头加上下列语句就能打开双缓冲功能:
+        device=c:\windows\smartdrv.exe /double_buffer+
+        其中 "c:\windows" 是到 Windows 目录的路径。
+        3.无法读取安装文件 (.CAB)
+        如果有多媒体 Cloaking 并且从软盘安装 Windows 95，安装程序可能无法正常运行。如果在安装过程中看见无法读取 .CAB 文件的信息，请按下列步骤执行:
+        ①将 Config.sys 和 Autoexec.bat 文件中有关 CACHECLK.EXE 的行删掉。
+        ②重新启动计算机。
+        ③再次运行安装程序。
+        4.安装程序无法备份系统文件
+        如果在安装程序保存系统文件时看到这条错误信息，可能是压缩盘上的部分磁盘空间不够。应该删除盘上的无用文件以释放该盘(默认情况为 C)上的部分空间。
+        5.此系统配置下无法继续
+        如果遇到这样一则消息-“此系统配置下无法继续”，可能是由于磁盘分区太老或不兼容。请在运行安装程序前，备份数据然后重新分区。
+        (四)卸载WINDOWS 95中文版
+        在安装过程中有一选项， 可以选择保存系统文件，以便日后可以卸载Windows95。若您想以后能卸载Windows 95，请选择“是”。安装程序会把您的系统文件保存在一个压缩的隐含文件里。若不想以后能卸载Windows 95，请选择“否”。
+        如果是在下列情况下进行的安装，您将看不到安装选项：
+        - 在早期的Windows 95版本上升级安装。
+        - 安装到一个新的目录。
+        - 在低于MS-DOS 5.0的版本上运行。
+        注意: 卸载文件必须保存在本地硬盘驱动器上，不能把这些文件存放在网络驱动器或软盘上。如果您有多个本地驱动器，可以任选一个来存放这些卸载信息。
+        要卸载Windows 95并使您的计算机完全恢复到以前的MS-DOS和Windows 3. x版本，可以使用如下操作：
+        1. 单击“开始”按钮，指向“设置”，然后单击“控制面板”。
+        2. 双击“添加/删除程序”图标。
+        3. 在＂安装/卸载＂标签中，选择Windows 95，然后单击“删除”。
+        或者，当您在启动Windows 95时遇到了问题，可使用您的启动盘来启动您的计算机，然后在启动盘上运行UNINSTAL命令。
+        注意： 卸载程序需要关闭Windows 95系统。如果您的计算机在关闭Windows95系统时出现了问题，请重新启动机器，在出现“正在启动Windows 95”信息时，按F8键，然后选择Command Prompt Only，在命令提示符下运行UNINSTAL命令。
+        如果没有将文件保存到 C 盘，可以使用 /W 选项指定文件所在的驱动器。例如:
+        uninstal /w e:
+        其中 e: 是保存旧系统文件的驱动器。
+        如果在运行Windows 95时您想移走这些卸载文件，以释放6MB 到9MB 磁盘空间，可按以下步骤执行：
+        1. 单击“开始”按钮，指向“设置”，然后单击“控制面板”。
+        2. 双击“添加/删除程序”图标。
+        3. 在＂安装/卸载＂标签中，选择旧的Windows 3.x/MS-DOS文件，然后单击“删除”。
+        以后您将不能卸载Windows 95。
+        (五)安装注意项
+        1.WINDOWS  95的DOS窗口的汉化
+        下面就是WINDOWS  95中文版中的DOS窗口的汉化方法：
+        (1)如果已安装MS-DOS 6.22中文版，Window 95的DOS窗口将升级为中文方式，并自动更新原DOS系统的一些程序模块，  更新的模块放在Windows95安装路径下的COMMAND目录中。
+        (2)请确保MS-DOS中文环境的安装路径正确设置在autoexec.bat文件中。
+        (3)请不要在原MS-DOS中文环境的安装路径下启动PDOS.BAT。
+        (4)请注意不要把中文DOS环境加载到全局。         (6)当从窗口方式切换到全屏方式时， 中文方式状态行并不刷新，用户按下任意一键后，状态行刷新。  (7)在窗口式DOS中文环境下，不支持 CTRL+F10 功能。
+        (8)在Windows 95的DOS中文方式下，不支持网络打印。
+        (9)在DOS屏幕尺寸被设为34/50行显示方式下加载中文DOS模块, 屏幕将会自动切换为VGA的标准25行方式。
+        (10)当在DOS自带的编辑器下激活CTRL+F10时，有时会挂起系统，若用户持续按键，系统会恢复正常。
+        2.显示驱动程序
+        (1). Windows 95会自动安装自己的显示驱动程序，不保留任何Windows 3.1的显示驱动程序。Windows  95的显示驱动程序支持的分辨率和颜色可能与Windows3.1支持的不一样。  Windows  95支持Windows  3.1的显示驱动程序，  但不支持Windows 3.1的VDDs。请不要在Windows 95上安装Windows 3.1的显示驱动程序。
+        (2) . 如果您的显示卡上有S3显示适配器，在代码页437下，当在DOS的窗口方式和全屏方式之间切换时， 显示器可能会出现黑屏幕。这可能是因为在Window 95下，S3显示驱动程序设置的水平扫描频率过低，而您的显示器不支持这种扫描频率。为解决这个问题，可以从\drivers\display\s3vxd目录下拷一个新的S3显示驱动程序(S3.VXD)到您的\Windows\system目录下。
+        3.声音驱动程序
+        IBM ThinkPad 230Cs的声音驱动程序在Windows 95安装和启动时会引起错误。Windows 95一旦发现该驱动程序的日期早于5/22/95，则将它从system.ini 文件中删去。
+        4.一般注意事项
+        下面包括特定系统配置的注意事项， 这些配置可能会导致 Windows95 的安装失败。
+        (1) Sager NP8200 或 Wedge Technologies 466/DX2
+        如果在 Sager NP 8200  或  Wedge  Technologies  466/DX2  笔记机上安装Windows 95， 您将无法再次使用计算机，即使您重新安装以前的 Windows 版本也不行。
+        (2) Micron P90/1000 和 Zeos P90/100
+        如果在这些计算机上遇到一些随机错误， 可能是由于系统的 2 级高速缓存有问题。 严重的时候可能会导致数据完全丢失。这种情况下建议您关闭 2 级缓存。
+        (3) 即插即用网卡和 16 位实模式驱动程序
+        如果您需要为 NIC(NIC 比 DLC 或其它实模式协议更为常用) 运行 16 位实模式驱动程序，您的即插即用卡可能无法正常工作，因为在 Windows 95 打开即插即用卡之前， 16 位的 NIC 驱动程序就已经加载了。同样，一些 16 位的 NIC 驱动程序不能识别即插即用卡(大多数的 NE2000 即插即用卡均属于此类)。
+        使用带 16 位 NIC 驱动程序的即插即用卡:
+        ①运行即插即用卡自带的 Softset 实用程序，将之设置为非即插即用模式。
+        ②双击“控制面板”中的“网络”图标，然后删除网卡。
+        ③双击控制面板中的 “添加新硬件”  图标，  然后按屏幕上的指导进行。Windows 95会自动检测网卡。
+        如果以后想改为 32 位保护模式的 NIC 驱动程序，可以再次运行 Softset 打开即插即用模式。
+        (4) Intel EtherExpress 16 NICs 和 PCI 计算机
+        如果在带有 Diamond Speed Star PCI 显示卡的 PCI 计算机上使用 IntelEtherExpress 16 位 NIC，您可能会遇到系统挂起或初始化方面的问题。以下内容选自 Intel 的客户支持数据库。 这些问题与 Windows 95 无关，在不同的操作系统平台上均可能出现。 总而言之， 如果在 PCI 计算机上遇到有关 EtherExpress16的其它问题，请在把问题报告给 Microsoft 之前试试替换该卡。
+        如果有下列显示卡，应该更换新的视频 BIOS。
+        - Diamond Speed Star PCI 显示卡， BIOS 1.01 版
+        - Diamond Viper PCI VGA 显示卡
+        - Diamond Stealth 显示卡，BIOS 1.03 版
+        (5) IBM Thinkpad 型号 750X/755X/360X
+        如果有下列型号的 Thinkpad(包括 C、 CE、 CX、 CS 和 CSE) ，应在安装Windows 95 之前升级更新的 BIOS 和 Mwave 驱动程序。 如果没有升级 BIOS，在计算机打开或关闭挂起模式时移动鼠标可能会出现问题。
+        (6)内存管理程序
+        如果计算机上已经安装了 QEMM， 建议在安装 Windows 95 前把它从 Config.sys文件中删掉。可以在安装完 Windows 95 后再恢复它。
+        下述内存管理程序与 Windows 95 不兼容， 可能会出问题。 建议在 Config.sys和 Autoexec.bat 文件中将所有对它们的引用删掉，而用 Windows 95 提供的 Emm386.exe 和 Himem.sys 程序管理内存。
+        ALLEMM4.SYS - All Charge 386 3.1 版
+        HPEMM386.SYS 和 HPEMM486.SYS
+        HPMM.SYS - HP 内存管理程序(必须在安装前删掉)
+        IEMM.SYS 内存管理程序
+        Intel(R) 扩充内存仿真程序 (ILIM386.SYS)
+        最大优化内存管理程序 (MAX1MIZE.COM)
+        NetRoom 内存管理程序 (RM386.SYS)
+        QMAPS 内存管理程序 5.16 版
+        UMB PRO 1.07 版
+        注意: 根据 386MAX 文档的建议， EXT 参数设置最好大于 64。如果该参数设置为 0，将导致安装失败。
+        注意: 如果从 Config. sys 文件中删除含 Rm386.sys 的那一行，可能需要安装Windows 或 MS-DOS 下的 Himem.sys。您可以在 Config.sys 文件中加入下面的语句:
+        DEVICE=<path>\HIMEM.SYS
+        其中 <path> 是 HIMEM.SYS 文件的路径(例如 C:\Windows)。
+        (7) 磁盘缓存程序
+        建议在运行安装程序之前删除所有其它磁盘缓存程序，如PCSHELL、NORTON的CACHE程序，应使用 Windows 95提供的 Smartdrv.exe。
+        运行 Windows 95 以后，则没有必要使用磁盘缓存实用程序，因此安装程序将删除大多数磁盘缓存程序。
+        如果您运行了下列磁盘缓存程序之一，应该将它删除。某些情况下，安装程序会自动删除它。
+        386MAX 磁盘缓存实用程序 (Qcache.exe)(请不要与 SmartDrive 一起使用)
+        Cache.exe 磁盘缓存实用程序
+        Cache.sys 磁盘缓存实用程序
+        Flash 磁盘缓存实用程序 (Flash.exe)(请不要与 SmartDrive 一起使用)
+        Hyperdisk 磁盘缓存实用程序(请不要与 SmartDrive 一起使用)
+        ICACHE.SYS 磁盘缓存实用程序
+        IBMCACHE.SYS 磁盘缓存实用程序
+        Mace 磁盘缓存实用程序 (Mache.exe)
+        Norton Speed Drive 磁盘缓存实用程序 (SPEEDRV)
+        Norton Utilities 5.0 版和 6.1 版 (DISKREET, NCACHE)
+        PC-Cache (PC Tools 磁盘缓存程序)(必须在安装前删除)
+        PC-Kwik 磁盘缓存实用程序 (PC-Kwik.exe)
+        PC-Kwik 磁盘加速程序
+        PC-Kwik 1.59 版 (Pck.exe, Pskscrn.exe, Pckey.com)
+        PC Tools(TM) 磁盘缓存实用程序 (PC-Cache.com)
+        Secretdisk II 磁盘缓存实用程序 (Fast512.sys)(请不要与 SmartDrive一起使用)
+        Super PC-Kwik 磁盘缓存实用程序 (Superpck.sys)
+        (8)防病毒软件
+        某些防病毒软件可能会导致安装失败，所以在安装 Windows 95 前必须确保没有运行任何防病毒程序。如果程序是驻留内存的，请删除 Autoexec.bat、 Config.sys和 Win.ini 文件中所有对它的引用。
+        如果 BIOS 带内置的病毒防护模块，应该在运行安装程序之前使用 CMOS 设置程序禁用它。若机器中有防病毒卡，在安装前最好从计算机中拨出。
+        ①Central Point Anti-Virus 1.1 版 (Vsafe.com/Vsafe.sys)
+        删除 Autoexec.bat 文件中所有含 Vsafe.com 或 Vsafe.sys 的行，同时也要将Win.ini 文件中所有调用 Vsafe.com 或 Vsafe.sys 的 "RUN=" 行删除。如果您是升级到 Windows 95， 那么， 在运行安装程序前， 必须把所有 VSAFE  创建的Chklist. ms文件删除。  由于  Windows  要为内存交换使用磁盘，  所以在运行Windows 95 时应该关闭Vsafe 的写保护选项。
+        如果在安装 Windows 前没有删除 VSAFE，在启动 Windows 时您将看到有关Command. com、Win.com 和 Krnl.386 的警告信息。您可以忽略它们并选择更新选项。
+        ②F-PROT Professional
+        如果运行了 F-PROT Professional，安装程序将无法运行。请将其从Autoexec.bat 和 Config.sys 文件中删除，然后检查 Win.ini 文件中是否有下面这条语句:
+        load=wvirstop.exe
+        如果看到这一行，请删除它。完成以上操作后，请重新启动计算机，再次运行安装程序。
+        ③Norton Anti-Virus(R) (所有版本)
+        如果运行了任何版本的 Norton Anti-Virus，请在运行安装程序之前删除它。建议不要在 Windows 95 下运行 Norton Anti-Virus。
+        删除 Norton Anti-Virus 1.5 版的方法:
+        a. 在 Config.sys 文件中删除下面这一行:
+        device=c:\nav\nav_.sys
+        b. 在 Autoexec.bat 文件的 PATH 语句中删除 C:\NAV。
+        删除用于 Windows 3.0 的防病毒特性的 Norton Desktop的方法:
+        a. 在 Config.sys 文件中删除下面这一行:
+        device=c:\ndw\navtsr.exe
+        b. 在 Autoexec.bat 文件中删除下面这一行:
+        c:\ndw\image.exe
+        并且在 PATH 语句中删除 "c:\ndw"。
+        c. 在 system.ini 文件中删除下面几行:
+        shell=c:\ndw\ndw.exe (在 ［boot］ 部分)
+        device=symevent(在 ［386enh］ 部分)
+        d. 在 Win.ini 文件中删除下面这一行:
+        load=c:\ndw\navtsrw.exe
+        (9) 使用 TSR 程序和驱动程序
+        ①APPEND (MS-DOS)
+        不要使用 Windows 95 的 APPEND 实用程序。它将阻碍 Windows 和Windows下的程序为它们所用的文件创建合法的 WFP 名称。 (WFP 即文件的完整名称，包括驱动器名和从根目录开始的完整路径。)
+        ②Autocon 2.0e 版、Bootcon 1.60 版和 Boot.sys
+        启动计算机的时候，这些程序能让您选用不同的配置。 Windows 95 的安装程序只更改 Config.sys 和 Autoexec.bat 的开始部分。所以，如果您在安装完成后想使用这些程序，则必须手动更改这些文件。详细信息，请参阅该程序的文档。
+        ③NetWare(R) NetBIOS
+        NetWare (R) NetBIOS TSR 的大多数配置与 Windows 95 不兼容。多数情况下安装程序会检测到  NetWare  NetBIOS  并删除启动命令。  然而，  如果不是在Autoexec.bat中设置 NetWare NetBIOS(例如在另一个批处理文件中设置)，安装程序可能检测不到它。 此时您需要手工删除 NetWare NetBIOS。Windows 95 包含IPX/SPX 兼容协议，您可以用它代替 NetBIOS。
+        ④用于 Widnows 的 Norton Desktop (Ep.exe)
+        如果通过 Autoexec. bat 加载数据恢复程序 Erase Protect (Ep.exe)，最好在安装 Windows 前禁用它，  特别在您从早期的  Windows  版本中升级的时候。Erase Protect 将试图保存所有已删文件的副本，这可能会造成运行安装程序时磁盘空间不够。
+        建议运行 Erase Protect 时使用永久交换文件。 如果使用临时交换文件，需要在删除保护中排除带 .tmp 或 .swp 扩展名的文件。
+        ⑤Norton  Disklock 3.01 和 3.5 版
+        在 Windows 95 下 Norton Disklock 3.01 和 3.5 版无法正常运行。 或者在运行Setup 之前删除该软件，或者与 Symantec 公司的产品支持部联系，索取与Windows 95 兼容的 Disklock 版本。
+        ⑥PC Tools Deluxe(TM) 7.1 版(DATAMON)
+        如果磁盘空间不够， 而且使用了 \SENTRY+ 选项加载 PC Tools DATAMON，安装程序将无法运行。 建议加载 DATAMON 时不要使用  \SENTRY+  选项。  在加载SmartDrive后不再加载 DATAMON，否则将会死机。请参阅 PC Tools 文档以获得如何卸载DATAMON的信息。
+        ⑦PC Tools Deluxe 6.0 版 (DESKTOP)
+        如果使用 Windows 的 MS-DOS 方式启动 PC Tools，可能会导致死机或自己重启动。 通过 Windows 的 MS-DOS 方式启动其它 MS-DOS 命令也会出现同样的问题。
+        PC Tools 7.0 版可能解决了这些问题。然而，如果在启动 Windows 前已经加载了DESKTOP，请不要通过 MS-DOS 命令行加载。否则当您退出 Windows 时会死机。建议使用 Windows 95 提供的 PIF 运行 DESKTOP。  ⑧SUBST (MS-DOS)
+        在安装过程中可能会遇到 SUBST 问题， 不过您可以在 Windows 95 安装完后安全地添加 SUBST。
+        ⑨UNDELETE
+        如果使用 SENTRY 选项运行 UNDELETE， 安装程序可能会出现问题，而且也可能在安装过程中出现磁盘空间不够的情况。 建议运行安装程序之前删除  Config.sys和Autoexec.bat 文件中的 UNDELETE。
+        注意: SENTRY 选项会创建一个名叫 "Sentry" 的隐含目录。 删除文件时，该文件会被移至 Sentry 目录。 在删除 Config. sys 和 Autoexec. bat  文件中的UNDELETE之前， 请对所有驱动器使用 UNDELETE /PURGE 命令释放磁盘空间。如果您没有删除，安装程序会自动禁用该命令。
+        (六) 快速安装WINDOWS 95中文版的方法
+        从软盘上将 Windows 95 安装到内存为 4MB 或 386 计算机上时，速度可能会很慢。加快安装速度的办法:
+        - 在 Windows 3.x 或 Windows for Workgroups 下运行安装程序。避免在MS-DOS 下运行安装程序。
+        - 如果运行了磁盘压缩程序，如 DriveSpace 或 DoubleSpace，安装可能会很慢。
+        可以考虑将软盘上的文件复制到硬盘的一个临时目录下，然后再从硬盘上运行安装程序。需要用 1 号安装盘上的 EXTRACT 命令将 2 至 12 号盘上的 WIN95_xx.CAB文件复制到硬盘上，因为它们是 Microsoft 的新的分布式媒体格式(DMF) 。一般的MS-DOS 命令，诸如 COPY 和 XCOPY，都无法读取这些软盘。
+        将 .CAB 文件从软盘复制到硬盘，可以使用如下命令:
+        extract /c a:win95_xx.cab c:\<TempDir>
+        其中 EXTRACT. EXE在WINDOWS 95第一张系统盘上,<TempDir> 是硬盘上的临时目录。
+        在安装过程中，应注意以下两个问题：
+        - 安装过程中，如果注意到软驱中未插盘，而指示灯长时间闪烁且安装缓慢，请试将一张格式化好的软盘插入软驱。
+        - 如果在安装过程中遇到问题，比如安装程序异常退出或出现未知错误，
+        可以试试增加永久交换文件的大小。 通常永久交换文件的大小加上 RAM 的大小至少应该有 14MB， 这样才能顺利完成安装。请在更改交换文件大小后，再次运行安装程序。
+        注意: 如果硬盘是压缩的，在增加交换文件大小之前可能需要先增加主驱动器的大小。
+        四、启动WINDOWS  95中文版出现一些问题
+        在安装完WINDOWS  95中文版后，就是启动WINDOWS  95。
+        若在屏幕上出现“Starting Windows 95 . ..”提示信息时，按F8就先进入Microsoft  Windows  95的启动菜单，即：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃   Microsoft      Windows     95       Startup       Menu                             ┃
+        ┃   =================================               ┃
+        ┃                                                                                      ┃
+        ┃                                                                                      ┃
+        ┃   1.Normal                                                                          ┃
+        ┃   2.Logged(\BOOTLOG.TXT)                                                           ┃
+        ┃   3.Safe mode                                                                       ┃
+        ┃   4.Step-by-step Configmation                                                     ┃
+        ┃   5.Command prompt only                                                             ┃
+        ┃   6.Safe mode command prompt only                                                 ┃
+        ┃                                                                                      ┃
+        ┃                                                                                      ┃
+        ┃   Enter a choice：1                                                              ┃
+        ┃                                                                                      ┃
+        ┃                                                                                      ┃
+        ┃ F5=SafemodeShift+F5=Command Prompt Shift+F8=Step-by-step Confirmation［N］           ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        下面对以上菜单提示作一些解释，以便在启动时选择合适的菜单项。
+        1.Normal(一般)
+        按照WINDOWS  95中文版正常方式启动系统，即先调入WINDOWS  95的DBLSPACE.BIN、REGISTRY数据库、文件管理系统驱动程序IFSHLP.SYS，然后，执行MS  DOS  7.0的CONFIG.SYS和AUTOEXEC.BAT中的功能。
+        2.Logged(\BOOTLOG.TXT)
+        采用形成的BOOTLOG.TXT文件中的内容完成WINDOWS  95的启动，BOOTLOG.TXT可由下面将要介绍的菜单4来建立。
+        3.Safe  mode
+        这是WINDOWS  95启动的安全模式。选择它后，将在屏幕上显示如下信息：
+        Windows is bypassing your files.
+        即WINDOWS  95在启动时只是调入必备的文件，例如，HIMEM.SYS、DBLBUFF.SYS、IFSHLP.SYS和COMMAND.COM文件，然后，直接返回到DOS提示符下，不执行CONFIG.SYS和AUTOEXEC.BAT中配置。该配置菜单可运行WINDOWS  95中文版系统。
+        4.Step-by-step  Configmation
+        这是一种WINDOWS  95单步执行系统配置的菜单。在按SHIFT＋F8后。再选择此菜单后，将在屏幕上出现系列提示信息，即：
+        ┌──────────────────────────────────┐
+        │Windows will prompt you to confirm each starting command.         │
+        │ (WINDOWS将启动时提示您确认每一个启动命令)                        │
+        │Loading DoubleSpace driver ［Enter=Y,ESC=N］? Y                   │
+        │ (是否装载DOUBLESPACE驱动程序)                                    │
+        │Process the system registry ［Enter=Y,ESC=N］? Y                  │
+        │ (是否执行系统的登录数据库?)                                     │
+        │Create a startup log file(BOOTLOG.TXT) ［Enter=Y,ESC=N］? Y       │
+        │ (是否形成一个启动LOG文件BOOTLOG.TXT?)                          │
+        │Process your starting device drivers(CONFIG.SYS)［Enter=Y,ESC=N］?Y │
+        │ (是否执行宁的启动设备驱动程序CONFIG.SYS?)                      │
+        └──────────────────────────────────┘
+        若在此菜单中形成了一个BOOTLOG.TXT文件，则在下次启动时选择菜单2时，就可利用此文件启动相应的选择项。
+        5.Command  prompt  only
+        该菜单使WINDOWS  95直接进入MS  DOS  7.0的CONFIG.SYS和AUTOEXEC.BAT的启动状态，这同原先的MS  DOS启动方式完全一样。
+        6.Safe mode command prompt only
+        该菜单使WINDOWS  95只执行COMMAND.COM返回到DOS提示符下，其它配置均不执行。
+        ?  以上菜单选择后，可用MEM/C命令查看到究竟哪些程序或文件调入了内存，这对于了解菜单的含义是十分有好处的。
+        不过，因各种机器的环境不同，因而也带来一些启动问题。下面给出一般解决方法，供读者参考。
+        (一)如果您使用基于 PCI 的计算机并且计算机在下列情况下停止了反应：
+        - 安装 PCI 显示适配器后第一次启动
+        - 以安全模式启动
+        - 分辨率设为 640×480，16 色
+        那么需要将 \Drivers\Display\Vga\Vag. drv 复制到Windows\System 目录下去覆盖 Vga.drv 文件。
+        (二)如果在 386 计算机上，即使以安全模式也无法启动 Windows 95 ，那么需要替换 Vga.vxd 。如果您购买的是光盘，请将 \Drivers\Display\OldVga\Vga.vxd 复制到 Windows\System 目录下。 如果购买的是软盘，请与 Microsoft 产品支持服务联系，以获得已更新过的文件。
+        (三)带 Cyrix CPU 的计算机
+        Epson 866c 或 Microcenter Winbook 计算机会周期性地产生一般保护错误。修复办法如下：
+        1. 从 Windows 95 的 1 号安装盘 (或 CD) 上将 WB16off.  exe  复制到Windows 目录下。
+        2. 在 Autoexec.bat 文件中加入下行：
+        c:\windows\wb16off.exe
+        (四)Micron 计算机
+        Micron M5-PI 系列 (P-60、 P-66) 的用户在安装 Windows 95 前必须确认BIOS 读/写跳线(W22) 设置为只读位置，否则安装过程中可能会破坏 BIOS 。
+        (五)Micron P90 和 P100：
+        这些计算机的用户在安装 Windows 95 前必须确认BIOS 版本是 N15 或更新。
+        (六)ALR P90、Micron P90/100、Zeos P90/100：
+        如果在这些计算机上总是出现随机的错误，那么可能是由于系统的二级高速缓存有问题。在某些情况下会导致数据丢失。在这种情况下，建议关闭二级高速缓存。
+        (七)未定义的动态链接错误
+        如果遇到“未定义的动态链接错误”，可能是运行的一个程序使用了与当前版本冲突的早期多媒体软件 QuickTime，如2.02版本。要解决该问题，需要从程序目录中删除QuickTime 文件。请按如下步骤进行：
+        1. 重启动计算机。
+        2. 单击“开始”按钮，单击“查找”，然后单击“文件或文件夹”。
+        3. 在“命名”框中，键入：qt*.*, *.qtc
+        4. 确认“搜索”框中指定了 C 驱动器，然后单击“立即查找”。
+        5. 删除程序目录中的全部 QuickTime 文件。 确认没有删除  \Windows或  \Windows\System 目录中的任何 QuickTime 文件。
+        6. 重启动计算机。
+        (八)“公文包”中使用问题
+        如果安装了公文包并且启用了用户配置文件(为了多人共用同一台计算机)，但是公文包不能正确复制每个配置文件。要避免这个问题，请按如下处理：
+        1. 启用用户配置文件以后，从桌面上删除“我的公文包”图标。
+        2. 使用鼠标右键单击桌面，单击“新建”，然后单击“公文包”。
+        (九)磁盘扫描中的问题
+        当您使用不同的代码页创建或命名文件(文件夹)的时候，磁盘扫描可能会报告关于这些文件或文件夹的错误信息。 如果您因此受到干扰， 请打开磁盘扫描的“高级”对话框，确认没有复选“检查非法的文件名”。注意，关闭该选项可能会使磁盘扫描无法检测或修复受到严重破坏的文件夹。
+        (十)磁盘工具使用问题
+        - 如果创建公文包后压缩了包含该公文包中文件的驱动器，那么会丢失公文包到这些文件的关联。这些文件仍然存在，但需要再次与公文包关联。
+        - 如果您使用了 INTERLNK， 请不要使用磁盘扫描、DriveSpace或磁盘碎片整理程序对远程计算机的驱动器进行操作。
+        (十一)Compaq Prolinea 或 DeskPro 计算机上打印注意问题
+        如果拥有下列型号之一的 Compaq Prolinea 或 DeskPro 计算机，并且使用一台支持双向通讯的并口连接打印机 (如 HP LaserJet 系列4 和 5 打印机、 某些Lexmark 激光打印机以及其它)，那么在打印时会发生问题导致超时错误。要纠正该错误， 请从 Windows 95 光盘的\Drivers\Printers\Lpt 目录中复制新的  LPT驱动程序(Lpt.vxd)到\Windows\System 目录下。您可以从 Windows 驱动程序库中得到这个文件。如果问题依然存在，请确认计算机中的 ECP 端口已经配置给DMA通道 3 。要确认这一点，请在 Windows 帮助索引中查找“DMA 通道”。
+        ┌─────────────────────────────────┐
+        │Compaq Prolinea 450、Compaq Prolinea 466、Compaq Prolinea 4100    │
+        │Compaq Prolinea 5100、Compaq Prolinea 5120、 Compaq Prolinea 5133 │
+        │Compaq Prolinea 575、Compaq Prolinea 590、Compaq DeskPro 450      │
+        │Compaq DeskPro 466、Compaq DeskPro 4100、Compaq DeskPro 5100      │
+        │Compaq DeskPro 5120、Compaq DeskPro 5133、Compaq DeskPro 575    │
+        │Compaq DeskPro 590                                                │
+        └─────────────────────────────────┘
+        (十二)MICROSOFT 传真问题
+        使用 Microsoft 传真功能需要一个一级传真调制解调器， 这样才能充分利用高级的安全特性和交换可编辑的二进制码文件。您可以使用二级传真调制解调器发送和接受传统的 Group 3 传真。
+        在新的硬件配置下第一次启动便携式 PC 机时，  Windows 95可能会按所有打印机脱机方式启动。这包括传真打印机，您可以按下面的操作解决这个问题：
+        1. 单击“开始”菜单，然后单击“设置”。
+        2. 单击“打印机”，然后双击“ Microsoft 传真打印机”图标。
+        3. 在“打印机”菜单中，确信没有复选“脱机工作”
+        Windows 的 Workgroups 3.11 版网络传真客户端不能连接到Windows 95 的网络传真服务器，反之亦然。要想连接，必须得到Microsoft 产品支持提供的补充盘。
+        如果将计算机做为 Microsoft 网络传真服务器， 当正在发送传真或传真仍然在传真队列的时候，请不要关机或从 Microsoft Exchange及 Windows 95 中注销。
+        当传真处于自动应答方式时，禁用 TAPI 的程序将不能使用调制解调器。这包括所有 16 位的通讯程序。Microsoft 传真的默认设置是让 16 位程序使用调制解调器但不自动应答发来的传真。如果您不想用其它的 16 位通讯程序并且当传真呼叫时让 Microsoft 传真自动应答所有发来的传真，那么请执行下列操作：
+        1. 右键单击任务栏上时钟旁边的传真机图标
+        2. 单击“调制解调器属性”。
+        3. 更改应答模式为响铃 3 次后应答。
+        个人电话系统和不同的调制解调器可能会在它们应答传真呼叫时需要不同的时间量。响铃三声后应答的模式可能实际上导致了在响铃2 或 4 声后应答一个电话。如果存在这种问题，您可以调大或调小响铃的最小次数来弥补这种差异。
+        WINDOWS  95不支持 CAS 调制解调器， 比如  Intel  Satisfaxion200i、 Satisfaxion 400i和 GammaLink CAS 调制解调器。 Intel 为Satisfaxion400i 提供的硬件修订版能将该调制解调器转换为与一级兼容的调制解调器。
+        注意： 不要手工更改属性页或 Microsoft 传真打印机上的任何一个打印机后台打印设备。另外，建议仅在至少 8MB 内存的计算机上用 Microsoft 传真。当您用 Microsoft Exchange 的新消息表发送传真时，将无法在封面上获得传真消息。要想发送一个消息写在封面上的一页传真，    就必须使用发送传真向导。    在Microsoft Exchange 中单击“撰写” 菜单，再单击“新传真”菜单就可以打开传真向导了。 或是单击“开始” 按钮，指向“程序”，再指向“附件”，然后单击“传真”文件夹。如果您仅传真一则简短的便条，把它放在封面上效果是很好的。
+        在封面上包括消息时封面必须包含一个“便条”域，如果没有，该消息会出现在传真的第二页。
+        仅测试了 Microsoft 传真的网络传真服务组件，证实能在用于 Microsoft 网的 Microsoft 文件和打印共享下或用于NetWare 网的 Microsoft 文件和打印机共享下运行正常。 当正在运行 Microsoft Exchange 时更改 Microsoft 传真的设置将不起作用。注销并退出 Microsoft Exchange 后再重新启动它，所做的更改才会生效。
+        如果给一个 Windows for Workgroups 3.11 At Work Fax用户发送传真，并且在 Cc: 列表内包括了多个收件人， 那么在传真用户的消息上只有传真地址可见。不过所有消息都能正确发送。
+        一些程序中的“文件发送”命令不起作用。要想发送文档，可以将文档附加到传真上或者用“文件打印”命令。在Microsoft Works 3.0 中就存在这种问题。
+        当您使用传真配置属性页浏览封面时， 在 Windows 目录下会创建一个到该封面的链接文件(.lnk)。如果在该目录下已存在一个同名的封面文件(.cpe)，该名称将在封面列表中出现两次， 但您只能选择其中一个。建议使用 Windows 资源管理器删除其中一个文件。
+        如果给 Windows for Workgroups 3.11 At Work  传真用户发送一个可编辑的传真， 而且收件人重复或地址非法，传真收件人可能在 Cc 或 Bcc 行看不见任何名称。不过传真仍会寄给所有收件人。
+        如果使用 Microsoft 网络传真服务来发传真， 并且使用Microsoft 传真“请求一个传真”程序来接收传真，那么返回信息将被发送给网络传真服务器。于是不得不通过系统管理员手动转交。
+        (十三)MS-DOS 代码页问题
+        根据选定的国家， Windows 95 自动使用 MS-DOS 代码页 437 或850。如果需要使用别的代码页(如 861 或 865)，请使用Changecp.exe 实用程序。该程序包括在 Windows 95 Resource Kit和 CD-ROM  版的  Windows  95  中。
+        五、WINDOWS  95中文版的显示器配置有关问题
+        (一)显示适配器和监视器有关问题
+        1.利用Windows 驱动程序库(WDL)配置显示适配器
+        Windows 95 为大多数显示适配器提供了驱动程序，要得到其他的或更新的驱动，可以寻找WINDOWS的驱动程序库。然后，执行以下步骤：
+        (1)在“我的电脑”或 Widows 资源管理器中，双击要下载的文件。这将解开驱动程序。
+        (2)单击“开始”按钮，指向“设置”，然后单击“控制面板”。
+        (3)双击“增加新硬件”图标。当向导询问“是否要 windows 自动搜索新硬件?”时单击“否”。
+        (4)选择正在安装的硬件类型，然后单击“从软盘安装”。
+        (5)指明驱动文件的位置，然后按屏幕上的提示进行。
+        2.适配器类型配置有关问题
+        (1)适配器类型有关问题
+        Windows 95 的安装程序根据所用控制器的类型来配置适配器类型，例如， S3、
+        Cirrus Logic 或 ATI。 但是，在显示属性中，也许可以找到更加符合所用适配器的制造商和型号。要改变适配器类型，打开“显示属性”，单击“设置”标签，然后单击“改变显示类型”，在适配器类型域中，单击“修改”。
+        在大多数情况下，选择一种更精确的适配器类型并不会改变驱动程序或它的行为。
+        如果 Windows 95 没有包括您的确切的监视器类型，请选择一种标准显示类型，这并不会对 Windows 95 显示输出的性能或质量有不利的影响。
+        另外，在 Windows 95 的显示属性中选择监视器类型不会改变适配器所用的刷新频率。要调整刷新频率，必须在适配器设置程序中给出所用的监视器类型，这类设置程序是由显示适配器或 PC 的制造商提供的。有些程序必须包含在 Autoexec.bat 文件中，而在有些 PC 机上，监视器的类型是在 BIOS 配置程序中设置的，由适配器制造商提供的设置程序举例如下：
+        ATI                   Install.exe
+        Cirrus Logic          Montype.exe, Clmode.exe
+        Diamond Stealth       Stlmode.exe
+        Diamond Stealth 64    S64mode.exe
+        Matrox                \Mga\Setup\Setup.exe
+        Tseng Labs            Vmode.exe
+        Western Digital       Vgamode.exe
+        可以从适配器销售商那里或从 Windows  驱动程序库中得到新版的驱动程序，根据所选监视器类型来设置刷新频率。
+        (2)纠正显示中的问题
+        一般说来，许多与显示有关的问题都可以通过单击“系统”属性中“性能”标签上的“图形” 按钮来纠正。随之出现的对话框是关于使用 256 或更多颜色时所用的图形加速器的。拖动对话框中的滑块，试验不同的设置在不得不恢复640×48016 色模式之前解决问题。
+        注意： Adote 字型管理器(ATM) 与此对话框中的“无” 设置不兼容。如果Windows  由于这个原因无法启动，  请重新启动  Windows   ，   当屏幕上出现“Starting Windows 95” 时按 F8 键，按 3 以安全模式启动 Windows ，然后将图形加速改为其他设置。
+        (3)彩色光标方面的问题
+        使用彩色光标要求 Windows 95 的显示驱动程序以 256  或更多种颜色运行，ATI mach8 显示适配器不支持彩色光标。
+        如果 Windows 95 没有使用 32 位磁盘存取，则光标无法被激活，可已在“系统”属性的“性能”标签上查看此项设置。
+        (4)PCI 显示适配器方面的问题
+        当安装程序首次启动 Windows 95 时，屏幕分辨率可能会恢复到 640×480 。分辨率在随后的对话中将恢复到过去的设置。
+        如果你的 PCI 适配器被 BIOS 设为使用 IRQ 15 ，  而正在使用的第二个PCIIDE 磁盘控制器也被设为使用 IRQ 15(默认值) ，Windows 95 则将IRQ 15 赋予IDE 磁盘控制器， 这就迫使你的适配器使用 VGA 方式。要为显示适配器安装加速的 Windows 95 驱动程序，就必须消除这一资源冲突。下列方法之一将适用与您：
+        - 从硬件销售商那里获得一个升级的 BIOS
+        - 如果 BIOS 支持，请从 BIOS 和“系统”属性的“设备管理”标签中禁用第二个 PCI IDE 控制器。
+        _如果 BIOS 支持，禁用显示适配器的 IRQ 。
+        _如果 BIOS 支持，手工修改设置使显示适配器使用别的 IRQ 设置。
+        (5)S3 显示适配器方面的问题
+        S3 适配器与 COM4 端口和调制解调器冲突， 如果使用这种配置时调制解调器有问题，将调制解调器改到其他 COM 端口上。或打开“系统”属性，单击“性能”标签，单击“图形”，然后将滑块拖至“无”。
+        通过在 System.ini 文件的 ［Display］ 节中加入下列语句之一可以解决 S3的某些显示问题。System.ini 文件包含在 Windows 95 文件的文件夹中。
+        如果是线条或图形的轮廓有问题，加入：Polygon=0
+        如果是“增强色(16 位)”有问题，加入：HighColor=15
+        如果是“真彩色(32 位)”有问题，加入：TrueColor=24
+        (6)Hercules Graphite、Boca Vortek、Orchid Celsius (IIT AGX)等显示适配器方面的问题
+        Windows 95 安装程序不会为这些适配器及使用 IIT AGX 控制器的其他适配器安装驱动程序，要手工改变显示类型，打开显示属性，单击设置标签，然后单击改变显示类型。
+        这样就可以安装正确的驱动文件，并使你能够选择 256 色，16 位彩色，以及高分辨率模式。
+        (7)IBM ThinkPad笔记本的显示适配器的配置
+        要使用 640×480 以上的分辨率， 必须将 ThinkPad 正确配置，查看 IBM 提供的 ThinkPad 实用程序(一般都在“开始”菜单中)。
+        某些较早的 ThinkPad 型号要求在 Autoexec.bat 文件中加载 Ibmvesa.com驱动程序，以便 256 色模式能够使用。
+        如果用的是 ThinkPad 755cx， 请打开“显示”属性，单击“设置”标签，然后单击 “改变显示类型” 。 将显示类型从 “Western Digital”  改为  “IBMThinkPad 755cx”，这样就使得它可以显示 800×600 模式并可能会解决一些与光标有关的问题。
+        (8)Western Digital显示适配器方面的问题
+        在某些笔记本计算机采用了Western Digital显示适配器时，当从命令提示符或基于 MS-DOS 的程序中切换回来时，鼠标光标可以会变为由彩色点组成的宽条，采取下列步骤可以解决这个问题：
+        1. 单击“开始”按钮，然后指向“设置”。
+        2. 单击“控制面板”，然后双击“系统”图标。
+        3. 单击“性能”标签，然后单击“图形”。
+        4. 将滑块拖至左端线。
+        (9)Compaq Presario with Cirrus Logic显示适配器         c:\windows\vgautil\clmode.exe t640=60 t800=0 t1024=0 t1280=0
+        该行表明 800×600、 1024×768 和 1280×1024 分辨率都被禁用，因为它们的刷新频率被设为 0 。只有 640×480 60Hz 可以使用，如果监视器支持高分辨率，执行以下步骤(不要直接修改 Autoexec.bat 文件)：
+        ①单击“开始”按钮，然后单击“关闭系统”。
+        ②单击“重新启动计算机”，单击“是”。
+        ③当“ Starting Windows 95 . . .”出现时，按下并释放 F8 键。
+        ④选择“Command Prompt Only”，然后按 Enter 键。
+        ⑤在命令提示符下，键入如下命令：
+        c:\windows\vgautil\clmode
+        ⑥使用 Clmode 程序正确设置所用的监视器类型。
+        ⑦退出 Clmode 程序，然后重新启动计算机。
+        六、 在WINDOWS  95中文版使用常见打印机
+        (一)通过网络打印
+        默认情况下， Windows 95  使用网络路径作为网络打印机的端口名。  这与Windows 3.1 略有不同，因此有些程序可能会有问题。典型的网络路径(又称 UNC名)具有以下格式:\\server\printqueue。
+        然而， 网络路径往往比 Windows 3.1 中对应的名称要长，这在一些程序中会引起问题。 如果遇到了问题，可以采用 Windows 3.1 的网络资源寻址方法。
+        如果网络路径中包含空格，有些程序也会遇到麻烦，您可以按前面所述的方法来解决问题，也可以更改网络路径使之不含空格。请向网络管理员求助以更改网络路径名。
+        (二)在WINDOWS  95中使用佳能彩色 BUBBLE-JET 打印机
+        对于佳能的彩色 BUBBLE-JET 打印机，如果它在 Windows 95 中的驱动程序是由 Windows 3.1 升级而来， 您可能会发现打印情况有所不同。由于 Windows 3.1的驱动程序在 Windows 95 中无法工作，佳能的BJC-70、BJC-600、BJC-600E、BJC-800 及 BJC-4000 打印机驱动程序在安装Windows 时将自动升级为  Windows  95的驱动程序。
+        (三)在WINDOWS  95中使用对惠普 Deskjet 打印机
+        惠普 DeskJet 打印机驱动程序 6.1 版和更早的版本在 Windows  95下无法工作， 也不可能安装。 如果您在 Windows 3.1 下使用的是这些驱动程序， 它们在Windows 95 下将被升级为 6.5 版。 如果您使用的是DeskJet 630 或 800 系列，请参考下面的的内容。
+        1.惠普 DeskJet 600、660C 和 850C 打印机
+        为了更有效地使用 DeskJet 600、660C 或 850C，应该先确定该打印机是否带有与 Windows 95 兼容的驱动程序 (要确定打印机驱动程序是否与Windows 95 兼容，请参考其磁盘上的标签)。
+        情况 1: 如果有与 Windows 95 兼容的打印机驱动程序
+        如果已安装了 Windows 95，同时要安装新的 DeskJet 600 或 800系列打印机，Windows 95 将自动识别打印机类型并安装驱动程序。在提示要求 OEM 提供的磁盘时，单击“确定”，然后插入打印机自带的HP DeskJet Printer disk 1 号盘，按照屏幕上的提示操作。
+        如果 Windows 95 未检测出 HP  DeskJet  打印机，  请按照打印机自带的HPDeskJet Printer Driver disk 1 号盘标签上列出的步骤进行安装。
+        如果从 Windows 3.1 升级  Windows  95，  而且已经为  DeskJet  安装了与Windows 95 兼容的打印机驱动程序(7.0 版或更高)，就不必再采取任何措施了。
+        情况 2: 如果没有与 Windows 95 兼容的打印机驱动程序
+        (只有 Windows 3.1 专用的驱动程序)
+        要得到 DeskJet 打印机所用的与  Windows  95  兼容的驱动程序，  应与HPDeskJet 打印机用户手册中提到的惠普驱动程序发布中心联系，在得到Windows 95下的打印驱动程序之后，按下列步骤执行:
+        ①单击“开始”按钮，指向“设置”，然后单击“打印机”。
+        ②单击“增加打印机”图标，然后按屏幕指导操作。
+        ③在出现提示要求选取打印机厂商和型号时，如果是 660C 或 850C
+        打印机，则选“HP DeskJet 550C Printer”；如果是 DeskJet 600
+        则选“ HP DeskJet 540”。
+        ④单击“下一步”，按屏幕上指导进行操作。
+        (四)  在WINDOWS  95中使用惠普 LASERJET 打印机
+        如果从 Windows 3.1 升级到 Windows 95，您可以不考虑下面的内容；因为在Windows 95 安装过程中，所有经过优化的软件都已安装到计算机中。
+        如果要增加一台 LaserJet 4 打印机、彩色 LaserJet 或 LaserJet 5P/5MP，按照下面所述的步骤可以获得最佳的打印机性能。
+        1.惠普 LaserJet 4 打印机 - PCL 支持
+        推荐软件 : Windows 95 打印机驱动程序和惠普的 TrueType 屏幕字体。
+        惠普公司向 LaserJet 4 打印机的用户提供了惠普的 TrueType 屏幕字体，与您所用的内部打印机字体相匹配。
+        2.惠普 LaserJet 4Si、4L、4P、4 Plus 和 4V 打印机 - PCL 支持
+        推荐软件: Windows 95 打印机驱动程序和惠普的 True Type 屏幕字体。
+        下面就是惠普激光打印机在WINDOWS  95中配置：
+        ①将惠普 LaserJet Printing System 软盘中的 1 号盘插入到合适的软驱中。
+        ②单击“开始”按钮，然后单击“运行”。
+        ③在“运行”对话框中，键入 A:\Setup。
+        ④单击“定制”安装，然后单击合适的惠普激光打印机。
+        ⑤单击“HP TrueType 屏幕字体”。取消对打印机驱动程序、状态窗口以及执行指南的选择，单击“确定”，然后按屏幕的指导操作。
+        3.惠普 LaserJet 5P 打印机 - PCL 支持
+        推荐软件: Windows 95 打印机驱动程序和惠普的 TureType 屏幕字体注意: 需要使用惠普的 TrueType 屏幕字体与打印机内部字体相匹配，请找到惠普 LaserJet 附带的软盘，然后按下列步骤执行。
+        ①将 HP 5P LaserJet Printing System 的 1 号盘插入到合适的软驱中。
+        ②单击“开始”按钮，然后单击“运行”。
+        ③键入 A:\Setup
+        ④选“典型”安装，然后按屏幕上的指导操作。
+        4.惠普的彩色 LaserJet 打印机 - PCL 支持
+        推荐软件: 惠普的彩色 LaserJet 打印机驱动程序和惠普的 True Type 屏幕字体。
+        注意: 请找到惠普彩色激光打印机附带的软盘，然后执行下列步骤。
+        ①将惠普的彩色 LaserJet Printing System  (Windows 3.1 PCL  PrintingSystem)中的 1 号盘插入到合适的软驱。
+        ② 单击“开始”按钮，然后单击“运行”。
+        ③键入 A:\Setup
+        ④ 选“快速”安装，然后按照屏幕上的步骤操作。
+        注意: 要使用 Windows 95 中提供的图象颜色匹配功能， 需要安装  Windows95所带的惠普彩色激光打印机驱动程序。
+        5.惠普 LaserJet 4M 到 5MP 打印机 - PostScript 支持
+        推荐软件: Windows 95 PostScript 打印机驱动程序。
+        注意: 不要使用惠普打印机所提供的 PostScript 打印机驱动程序。
+        6.惠普彩色 LaserJet 打印机 - PostScript 支持
+        推荐软件: 惠普彩色激光打印机 PostScript 驱动程序。
+        注意: 找到惠普彩色 LaserJet 所带的软盘，然后按下列步骤执行。
+        ①将惠普彩色 LaserJet Printer disk 中的Windows 3.1 PostScript 2.1.1盘插入到合适的软驱中。
+        ②单击“开始”，指向“设置”，然后单击“打印机”。
+        ③单击“增加打印机” 图标，然后按照惠普彩色 LaserJet PostScript驱动程序盘的使用说明执行。
+        ④单击“从磁盘安装”按钮。
+        如果询问是否要替换或更新驱动程序，请单击“是”。
+        7.惠普 LaserJet 疑难解答
+        (1)打印机状态冲突
+        Microsoft 打印机状态报告程序和惠普状态窗口之间可能会有冲突。其现象是:打印过程中，Microsoft 状态程序提供打印状态信息，而其它时候，如果某台打印机故障或发生其它情况(如打印机缺纸、塞纸、并行电缆断开、打印机顶盖打开等等)，惠普状态窗口会向您报告相应信息。
+        如果已安装了惠普状态窗口，可使用下列步骤将其卸载:
+        ①单击“开始”，然后单击“程序”。
+        ②单击“惠普 LaserJet”文件夹。
+        ③双击“卸载惠普状态窗口”图标。
+        ④单击“是”，重新启动 Windows。
+        (2)“错误 21 _ 打印任务过重”
+        如果 LaserJet 打印机发生这种情况，而且打印机属性的“设备选项”标签下“页面保护”特征可用，请打开该特征。必须在 LaserJet 3 打印机的前端面板上直接设置此选项。如果使用的是 LaserJet 4 打印机，且没有“页面保护”选项，可以在打印机属性的图形标签中将打印驱动程序由矢量方式改为光栅方式，或者降低该页的复杂度。
+        (六)在WONDOWS  95中使用LEXMARK 打印机
+        在 Windows 95 下， 当您使用某些 Lexmark 40X9 LaserPrinter 打印机的双向打印功能时可能会遇到问题。要启用双向支持，请按下列步骤操作:
+        ①确认在 Windows\System 文件夹中有一个名为 LEX01.386 的文件。
+        ②在 Windows 文件夹中的 System.ini 文件的 ［386 Enhanced］ 部分，
+        加入以下行:
+        *deviece=lex01.385
+        WPSLPT#=1
+        这里 # = 1、2 或 3 ，分别对应于 LPT1、LPT2 或 LPT3。
+        (例如，对于 LPT2，此行应为 WPSLPT2=1)
+        ③保存修改过的文件，重新启动计算机。
+        七、在WINDOWS  95中运行MS-DOS和WINDOWS 3.1程序的一些方法及注意点
+        1.在WINDOWS  95中文版中运行的MS-DOS应用程序
+        MS-DOS实用程序在安装WINDOWS   95时将被安装在\Windows\Command目录中。 因为WINDOWS  95采用了长文件名，以前版本的磁盘修复程序不应在WINDOWS  95中使用。绝大多数在WINDOWS  3.1中工作的MS-DOS其它实用程序也可在WINDOWS  95中运行，但它们若是MS  DOS老版本的程序，则必须用SETVER.EXE程序来加载它们。
+        下面的MS  DOS实用程序在升级到WINDOWS  95时将被删除掉：
+        Defrag.hlp、Mwundel.exe、Mwundel.hlp、Networks.txt、OS2.txt
+        下面的MS  DOS实用程序在WINDOWS  95升级时也自动升级：
+        ┌────────────────────────────────┐
+        │  Ansi.sys、Attrib.exe、Chkdsk.exe、 Choice.com、 Country.sys   │
+        │  Debug.exe、Deltree.exe、Diskcopy.com、Display.sys、Doskey.com │
+        │  Edit.com、Ega.cpi、Fc.exe、Fdisk.exe、Find.exe、Format.com    │
+        │  Keyb.com、Keyboard.sys、Label.exe、Mem.exe、Mode.com、More.com│
+        │  Move.exe、Mscdex.exe、Nlsfunc.exe、Scandisk.exe、Scandisk.ini │
+        │  Share.exe、Sort.exe、Subst.exe、Sys.com、Xcopy.exe、Defrag.exe│
+        │  Drvspace.exe、Emm386.exe、Ramdrive.sys、Readme.txt、Setver.exe│
+        │  Smartdrv.exe                                                  │
+        └────────────────────────────────┘
+        2.Microsoft FORTRAN 5.1在WINDWOS  95中运行
+        若您要在WINDOWS  95中用Microsoft FORTRAN 5.1  建立QuickWin应用程序，则您必须在F1.DEF文件或是删除，或是说明下面一行：
+        APPOADER '___MSLANGLOAD'
+        在您删除了该行后，就必须用Microsoft FORTRAN 5.1重新编译QuickWin程序，以使这些程序能在WINDOWS  95中正确运行。
+        3.PCTools Versions 7 -9在WINDOWS  95中运行
+        在WINDOWS  95中安装PCTOOLS  version 7-9期间，热键将不能正确建立。为了在安装后能建立这些热键，可在WINDOWS  95中执行下面的步骤：
+        (1)点按“开始”菜单，然后选择“运行...”。
+        (2)键Cpsdos.grp文件名，再按回车键。
+        此时， PCTools将被增加到程序的文件夹这。为了使热键能工作，您必须把PCTOOLS目录增加到PATH指定的搜索路径中。
+        由于WINDOWS  95文件系统的改变，则PCTOOLS的这些磁盘实用程序可能对于长文件名不能很好地工作。您应该使用专为WINDOWS  95设计的磁盘管理程序。在WINDOWS  95中提供一些磁盘管理程序，例如SCANDISKW.EXE、DEFRAG.EXE等，它们能对长文件名进行良好地处理。
+        同样地，对于NORTON  6.0-8.0的实用程序也应按上述方法处理。
+        4.Personal Oracle 7.1 for Windows 3.1
+        由于Personal Oracle 7.1 for Windows  3.1需要一个WIN32S.DLL的32位保护模式DLL程序，因此，它不能在WINDOWS  95中进行安装。您应该使用WINDOWS  95升级版Personal Oracle 7.1 for WINDOWS  95。
+        八、WINDOWS  95中文版的CONFIG新配置介绍
+        在WINDOWS  95中文版中CONFIG.SYS中配置有了一些新的变化，我们在此为读者解释一下这些新的变化。
+        在WINDOWS    95中CONFIG.SYS文件可以出现的命令如下(打*号为新增或增强命令)：
+        ACCDATE         (*)
+        BREAK
+        BUFFERS/BUFFERSHIGH  (*)
+        COUNTRY
+        DEVICE/DEVICEHIGH
+        DOS
+        DRIVPARM
+        FCBS/FCBSHIGH        (*)
+        FILES/FILESHIGH           (*)
+        INSTALL/INSTALLHIGH       (*)
+        LASTDRIVE/LASTDRIVEHIGH   (*)
+        NUMLOCK
+        REM
+        SET
+        SHELL
+        STACKS/STACKSHIGH   (*)
+        SWITCHES
+        下面介绍一下WINDOWS  95中新增或增强的CONFIG配置命令。
+        1.ACCDATE
+        该命令为新增的CONFIG配置命令， 它配合了DIR/V命令。当您在WINDOWS  95的DOS窗口中执行DIR/V命令后，它将出现这样的信息：
+        File Name  Size  Allocated  Modified  Accessed  Attrib
+        Drvspace bin 70455  73728   07-07-95  09-09-95   A
+        .....................
+        其中ACCESSED列为记载了该文件最后存取的时间和日期，实际上，该项就是在CONFIG.SYS中ACCDATE命令配置形成的。
+        该命令的语法为：
+        ACCDATE=drive1+|- ［drive2+|-］...
+        其中：drive1, drive 2...：指定驱动器的盘符，如A，B等。
+        +|-： ＋号表示应该记录该驱动器上的文件存取的最后时间和日期，而-号与之相反。默认状态为＋号。
+        例子：ACCDATE=A＋|B＋
+        2.BUFFERS/BUFFERSHIGH
+        BUFFERSHIGH是WINDOWS  95新增加的命令，它是对BUFFERS的增强。它可将WINDOWS  95系统的缓冲区设置到UMB中，这是对MS  DOS  6.22版本的一种改进。
+        BUFFERSHIGH的语法为：
+        BUFFERSHIGH=n［,m］
+        其中的n,m含义同BUFFERS中的意义。n=1-99，缺省为30。m=0-8，缺省为0(不需要第二个缓冲区)。
+        3.FCBS, FCBSHIGH
+        FCBSHIGH是WINDOWS  95新增加的命令，它是对FCBS命令的增强。
+        FCBSHIGH的语法为：
+        FCBSHIGH=x
+        其中x的含义同FCBS=x中的含义。x=1-255，默认值为4。
+        4.FILES/FILESHIGH
+        FILSHIGH是WINDOWS  95新增加的命令，它是对FILES命令的增强。
+        FILEHIGH的语法为：
+        FILESHIGH=x
+        其中参数x的含义同FILES=X的意义。X=8-255，默认为8。
+        在WINDOWS  95中文版中，FILESHIGH最好设置为50。
+        5.INSTALL/INSTALLHIGH
+        INSTALLHIGH是WINDOWS  95新增加的命令，它是对INSTALL命令的增强。
+        INSTALLHIGH可把MS  DOS的驻留程序，例如Fastopen, Keyb,Nlsfunc, and Share放到UMBS中。
+        INSTALLHIGH的语法为：
+        INSTALLHIGH=［drive:］［path］filename ［command-parameters］
+        其中的参数同INSTALL命令。
+        6.LASTDRIVE/LASTDRIVEHIGH
+        LASTDRIVEHIGH是WINDOWS  95新增加的命令，它是对LASTDRIVE命令的增强。
+        LASTDRIVE的语法为：
+        LASTDRIVEHIGH=x
+        其中x=A-Z，意义同LASTDRIVE=x。
+        7.STACKS/STACKSHIGH
+        STACKSHIGH是WINDOWS  95新增加的命令，它是对STACKS命令的增强。
+        STACKSHIGH的语法为：
+        STACKSHIGH=n,s
+        其中的参数n、s的意义同STACKS=n，s。n=8-64，m=32-512。 在WINDOWS  95中N、S=0是非法的数值。这一点与MSDOS以前版本是不同的，应引起读者的注意。
+        九、Windows  95中文版使用技巧
+        1.MS  DOS方式窗口中的技巧
+        (1)MS  DOS方式下的可视目录显示
+        在WINDOWS  95的MS  DOS方式下，若键入“SATRT.”或“START  ..”，则可在当前桌面上看到文件夹或当前目录。
+        (2)MS  DOS方式下的拖放文件名
+        您可从桌面上文件夹图标或文件夹中拖放(DRAG  AND  DROP)一个文件名到MS  DOS方式下的提示符下，作为运行MS  DOS程序的应用程序。
+        (3)从MS  DOS方式拷贝或粘贴信息
+        在MS  DOS应用程序窗口激活工具条，将WINDOWS应用程序中的有关信息拷贝、删除到剪贴板中，然后将它们粘贴到MS  DOS应用程序中。例如，可把文件夹在屏幕的输出拷贝到剪贴板中，然后，把它粘贴到MAIL中去。
+        (4)从MS  DOS方式下启动一个WINDOWS应用程序
+        您可从MS  DOS方式下直接键入WINDOWS应用程序的名字，然后指定它所需要的参数，就可运行了。例如，为了在MS  DOS方式下运行NOTEPAD的记事本WINDOWS程序，只要在MS  DOS提示符下键入NOTEPAD，然后按回车键即可。您也可以用批处理文件的方式启动WINDOWS应用程序。
+        另外，您也可以用START命令来启动一个程序或打开一个文档，例如：
+        C：〉START  Docname.ext。
+        (5)Command.pif
+        若您为MS  DOS方式设置了不正确的属性，而使您不能打开MS  DOS方式的窗口，则可进入PIF目录，然后编辑COMMAND.PIF文件，或找COMMAND.COM文件，在这里编辑其属性即可。
+        (6)DOSKEY
+        若在AUTOEXEC.BAT或启动脚本(SCRIPT)中未加载DOSKEY
+        .COM程序，但又想在MS  DOS方式的窗口中使用它，则您可到“程序”属性中，输入DOSKEY作为启动批处理文件。若您后来决定您确实需要在启动脚本中加载DOSKEY程序，您只需将DOSKEY移到该批处理中即可。
+        (7)目录的快捷键
+        对于目录有以下的快捷键可供用户使用：
+        .	= 当前目录	
+        ..    	= 当前目录的父目录(上一级目录)	
+        ...   	= 当前目录的上二级目录(WINDOWS  95新增加)	
+        ....  	= 当前目录的上三级目录(WINDOWS  95新增加)
+        例如，若现在处于C: \Windows\System\Viewers目录中，则您在MS  DOS方式下键入cd... 命令，则将当前目录改变到C:\中。
+        (6)命令行参数
+        在MS  DOS程序增加了一个 "? " 的命令行参数，当您启动该程序时，将提示您输入参数。该参数对于了解MS  DOS的应用程序的命令行参数或快捷键是十分有用的。
+        (7)从桌面上易实现简便磁盘拷贝
+        在WINDOWS  95桌面上用命令行命令diskcopy a: a:建立一个快捷键，再利用此快捷键就可拷贝一个磁盘。若用B：代替A：，则拷贝一张B驱动器中的磁盘。
+        2.删除、 拷贝、 粘贴、 拖、 放使用技巧(Cut, Copy, Paste, Drag andDrop)
+        (1).拖和放(Drag and Drop)
+        为了移动一个对象，可用鼠标器的左键从一个文件夹拖到同一个驱动器的另一个文件夹中。使用SHIFT＋鼠标左键则执行强制移动。
+        为了拷贝一个对象，可用鼠标器的左键从一个文件夹拖到同一个驱动器的另一个文件夹中。使用SHIFT＋鼠标左键则执行强制拷贝。
+        为了建立一个可执行文件的快捷键，使用鼠标器的左键拖一个可执行文件到一个新的文件夹中即可。
+        用鼠标器的右键将一个对象从一个文件夹拖到另一个文件夹中， 然后， 选择“在这里建立快捷键”去建立此对象的一个快捷键。此时，该对象图标有以下几种含义：
+        (1)“＋”加号为拷贝。
+        (2) 箭头符号为一个快捷键。
+        (3)无任何符号为移动。
+        在拖动该对象过程中按ESC键将中止此操作。
+        为了建立文档的快捷键，可用鼠标器的右键从一个OLE文档，例如WORD95中拖一个选择文档到桌面或文件夹上，然后选择“在这里建立文档快捷键”。于是，该文档快捷键将能立刻打开原始文档，即该快捷键已经赋予了此文档。
+        (2).鼠标器的右键拖、放
+        鼠标器的右键拖、放基本上同鼠标器的左键拖、放操作，只是它在放该对象的时候，将显示出一个菜单。该菜单用于文件夹，将显示出这些命令：“在这里移动”、“在这里拷贝”、“在这里建立快捷键”。对于OLE对象来说，该菜单还包括“在这里建立SCRAPS”、“在这里移动SCRAPS”和“在这里建立文档快捷键”等命令。
+        (3).拖到任务条
+        您能将对象从一个打开的文档拖到另一个打开文档上(即一个覆盖另一个)，此时，您只要做的事情就是把改该对象拖到目标对象的任务条即可。在目标对象的窗口显示的时候，您就可将此对象拖到目标窗口上。
+        3.文件操作技巧
+        (1) 建立一个新文件
+        只要您用鼠标器的右键点一下桌面或文件夹，则就出现一个对话框，选取“新”，则建立一个新文件，然后，再从显示的文件类型清单中选择您要建立的文件类型即可。
+        (2)在保存文件同时建立一个新的文件夹
+        在使用“以...保存” 命令保存一个文件时，您还可以建立一个保存文件的新的文件夹。 您只要使用鼠标器的右键点一下此对话框， 选取“新”及点一下“文件夹”即可。双击新的文件夹，则将打开文件，然后，继续以上保存过程。
+        (3)不把文件移到回收站中中删除文件
+        首先选择要删除的文件，然后，用鼠标器的右键点一下这些选择的文件，再按住SHIFT键不放，则点一个文件就删除此文件。若您用键盘进行上面的操作，则在按SHIFT键的同时，按DEL键即可。
+        (4)拷贝和移动文件
+        使用鼠标器的右键点一下要拷贝或移动文件，然后，选取“拷贝”或“删除”。再打开目的位置，然后，用点一下鼠标器的右键，选取“粘贴”即可。
+        4.文件夹和WINDOWS  95的资源管理器的使用技巧
+        (1)选择多个文件
+        在大图标显示中中选择多个文件与列表显示的选择方法不同。为了进行全部文件选择，必须点一下第一个图标，然后，按住SHIFT键，再点一下最后一个图标即可。
+        为了取消已经选择的文件，可按住CTRL键，再选择此图标。
+        (2)键盘快捷键
+        * 在MICROSOFT自然键盘上按Win+E去启动WINDOWS   95的资源管理器。
+        * 按Backspace显示父文件夹。
+        * 为了选择文件夹中的所有文件，按CTRL+A。
+        * 按F5键更新内容列表。
+        (3)指定的文件夹
+        您可把控制面板中内容或其它指定的文件夹放到您的“开始”菜单或其它任何文件夹。通过在“文件”菜单中的点一下“新”子项，然后，点一下文件夹。此时，在下面所显示的合适名字上粘贴：
+        原名			新名字
+        Control Panel		Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}
+        Dial Up Network		Dial Up Net.{992CFFA0-F557-101A-88EC-00DD010CCC48}
+        Printers		Printers.{2227A280-3AEA-1069-A2DE-08002B30309D}
+        (4)Windows 95的资源管理器的开关
+        Windows的资源管理器开关主要用于建立在根目录的文件夹中：
+        Explorer ［/e］［,/root,<object>］［［,/select］,<sub object>］
+        其中：
+        /e参数：以双排显示方式使用资源管理器查看资源。缺省是打开显示(仅在单排显示)。
+        /root<object> ：在“NORMAL”名字空间指定一个对象，该名字空间用作资源管理器的文件夹(局部路径或UNC名字)的根(最高级)。缺省为桌面。
+        /Select：父文件夹打开，指定一个选择的对象。
+        <sub object>：指定文件夹除非/select在使用。缺省是“the root”。
+        例子：
+        1.Explorer  /e,  /root,  \\Reports
+        在\\Reports中打开一个资源窗口。
+        2.Explorer /select, C:\Windows\Calc.exe
+        在C:\Windows下打开一个文件夹或激活当前打开的一个，然后选择Calc.exe。
+        3.Explorer /e, /root, \\Source\Internal\Design\Users\David\Archive打开一个上面的Archive文件夹的资源。
+        5.键盘快捷键
+        (1)一般文件夹/ Windows资源管理器中的已选对象文件的快捷键如下：
+        键   	                    功能	
+        F2          	            换名	
+        F3             	            查找	
+        CTRL+X, C, or V  	    删除、拷贝、粘贴	
+        SHIFT+DELETE       	    不把文件放在“回收站”中立即删除	
+        ALT+ENTER           	    属性	
+        ALT+double-click    	    属性	
+        CTRL+right-click    	    把可选择的动作放到内容菜单中(用...打开)	
+        SHIFT+double-click   	    若对象有一个资源管理的命令， 则Explore命令管理该对象。
+        CTRL+拖一个文件到文件夹中   拷贝一个文件
+        CTRL+SHIFT+拖一个文件到桌面或一个文件夹		建立一个快捷键
+        CTRL+ESC,ESC,TAB,SHIFT+F10		打开任务条的属性
+        (2) 在文件夹/WINDOWS  95资源管理器的一般控制
+        F4 (Explorer)		显示一个组合框	
+        F5                    	清除	
+        F6                     	在WINDOWS资源管理器的显示窗口方式之间变化开关(单排或双排)	
+        CTRL+G(资源管理器)    	到...位置	
+        CTRL+Z                  	取消	
+        CTRL+A                  	全部选择	
+        BACKSPACE               	转到父文件夹中	
+        SHIFT+<close>           	关闭该文件夹和所有它的父文件夹
+        (3)Windows资源管理器中的键
+        Num*	在已选择下扩充详细显示	
+        Num-                    	扩充已选择项	
+        Num+ or Right arrow     	折叠已选择项	
+        Right arrow	若该选择项是折叠的，则扩充之，否则，就转到其第一个子项中。Left arrow	若该选择项是扩充的，则折叠之，否则，就转到其父项中。
+        (4)在属性窗口中的键
+        CTRL+TAB 或
+        CTRL+SHIFT+TAB           在属性按钮上来回移动
+        (5)在打开/保存一般对话框中的键
+        F4     放下选择的列表
+        F5清除显示
+        Backspace若焦点在显示窗口中，则返回到父文件夹中
+        (6)一般键盘命令
+        F1				帮助系统	
+        F10                     	返回到菜单模式下	
+        SHIFT+F10               	已选择项的内容菜单	
+        CTRL+ESC                	启动“开始”菜单	
+        CTRL+ESC, ESC           	将焦点放到“开始”按钮上	
+        SHIFT+F10               	内容菜单	
+        ALT+TAB                 	在运行程序窗口之间来回移动	
+        SHIFT (插入CD盘时)		跳过“自动运行”选择	
+        Alt+M (焦点在任务条时)		最小化左右窗口
+        (7)无障碍快捷键
+        按SHIFT 5次  StickyKeys on/off
+        Hold down Right
+        SHIFT键for 8 秒              FilterKeys on/off
+        按住NumLock键5秒ToggleKeys on/off
+        Left ALT+LEFT+SHIFT
+        +NumLock                      MouseKeys on/off
+        Left ALT+LEFT+SHIFT
+        +PrintScreen                  HighContrast on/off
+        (8)MS Natural Keyboard(MS自然键盘)
+        Win+R     		运行对话
+        Win+M                   最小化所有窗口
+        Shift-Win+M             取消所有窗口的最小化操作
+        Win+F1                  Windows的帮助系统
+        Win+E                   WINDOWS的资源管理器
+        Win+F                   查找文件或文件夹
+        CTRL+Win+F              查找计算机
+        Win+Tab                 在任务条按住上循环移动
+        Win+Break               PSS热键... (系统属性)
+        6.多媒体和音频方面的技巧
+        (1)CD盘插入时去除“自动运行”特性
+        为了在CD盘片插入时去除“自动运行” 特性，可在插入CD时按住SHIFT键不放。或者，执行下面的改变也能达到上面的目的：
+        ①打开一个文件夹，例如“我的电脑”。
+        ②在显示菜单上，选择“选项”，然后，点一下“文件类型”。
+        ③再选择“CD盘”，再点一下“编辑”。
+        ④在“动作”列列表上，选取“播放”。
+        ⑤点一下“设置缺省”以关闭“自动运行”特性。
+        注意：若“播放”命令为醒目显示的，则在CD盘插入时就能播放，否则，就不能。
+        (2)从一个AVI中打开多媒体播放器
+        当一个AVI文件在播放的时候，您可以通过双击AVI的标题条来打开多媒体的播放器。再双击多媒体的标题条就退出了。
+        (3)主卷图标的使用
+        通过下面的步骤，您可将主卷图标控制放到任务条上：
+        ①在“控制面板”上，双击“多媒体”图标。
+        ②按“音频”按钮，然后，在任务条上点一下“显示卷控制”。
+        ③点一下任务条上的“卷(扩音器)”图标去打开主卷控制。双击“卷(扩音器)”就能打开卷控制。
+        (4)CD-ROM的CACHE大小设置
+        通过“控制面板”上的“系统”图标，可设置CD-ROM驱动器的CACHE大小，下面就是设置方法。
+        ①在“控制面板”上双击“系统”图标，然后按一下“性能”按钮。
+        ②点一下“文件系统...” 显示CD-ROM的优化控制，再设置CD-ROM的CACHE的大小。
+        7.运行对话框的技巧
+        (1) 从键盘上调用对话框
+        您按CTRL+ESC+R可快速地打开运行的对话框。在Microsoft Natural Keyboard,您只要按Win+R就能打开运行的对话框。
+        (2) 在任何地方从运行的对话框中打开一个文件夹
+        为了打开一个文件夹， 可到其局部路径或UNC(统一命名约定)路径，例如：可到C: \Windows\System路径则将打开System文件夹。 到\\server\share\direct将打开一个在\\server\share上指向DIRECT的一个文件夹。
+        (3) 运行一个程序
+        您能从任何文件夹中运行一个打开文件夹中的应用程序，然后，从“开始”菜单中点一下“运行...”即可，十分方便。
+        8.“开始”菜单的使用技巧
+        (1)键盘的快捷键
+        您只要按  CTRL+ESC就能显示出  “开始”  菜单。  在Microsoft  NaturalKeyboard,也可按Win键就显示出“开始”菜单。
+        (2)向“开始”菜单中增加项目
+        将一个文件夹、快捷键、程序或文档拖到“开始”菜单上，就在“开始”菜单的最上部增加了一个项目。若该对象是一个文件夹，只要您点一下此菜单的项目，则此文件夹的内容就立刻显示出来。
+        (3)修改“开始”菜单中的项目
+        使用鼠标器的右键点一下“开始”菜单，然后，选择“打开”或“WINDOWS资源管理器”就能查看并修改它的内容。
+        (4) 快速到达“开始”菜单中的某个项目
+        您可将“开始”菜单中的项目的名字前用一个数字换名，然后，只要按数字键就能快速打开“开始”菜单中的程序。此时，若按CTRL+ESC键，且后面跟一个数字就能快速地打开那些程序。
+        (5)如何使文档菜单变为空的
+        执行下面的步骤，就可使文档菜单清除为空的。
+        ①点一下“开始”菜单，选取“设置”项，然后，点一下任务条。
+        ②点一下“开始”菜单的“程序”按钮，再按“清除”即可。
+        9.任务条使用技巧
+        (1)改变任务条
+        当任务条满时，为了打开任务条的内容菜单，可把鼠标器的指针移到任务条的边缘处，然后用鼠标器的右键点一下任务条，此时，您就可走此任务条。
+        (2)隐藏任务条
+        1. 用鼠标器的右键点一下“开始”菜单，然后，点一下“属性”。
+        2. 按一下任务条上的“选项” 按钮，再选取“自动隐藏”。当鼠标器移动到任务条区域时，任务条将会自动显示出来。
+        (3) 移动任务条
+        您可用鼠标器的左键将任务条拖到桌面的任何位置上，例如，屏幕左边的垂直位置上。
+        (4)语言和键盘的布局
+        在工作时为了改变键盘布局，可执行以下步骤：
+        ①在“控制面板”上，双击“键盘”图标。
+        ②点一下“语言” 按钮，然后，增加另外一种您所需要的语言。
+        ③应保证“启动任务条中的指示器”是打开的。
+        当以上设置完成后，一种新的语言布局图标将出现在任务条上。此时，您也能点一下此图标选择另外的语言。
+        10.窗口管理的技巧
+        (1).在一个窗口和全屏幕MS  DOS界面的转换
+        您只要按ALT+Enter键就可达到此目的。
+        (2)关闭所有的窗口
+        若您正在使用多窗口进行操作，而此时又想关闭所有的打开的窗口，则可按住Shift键不放，然后，选取标题条右上角的(X)关闭按钮即可。
+        (3)平铺、并联、最小化所有窗口
+        您只要使用鼠标器的右键点一下任务条，然后，选取相应的的选项就可。
+        11.其它技巧汇总
+        (1)配置综合打印
+        为了打印您系统所有配置项，可双击“控制面板”中的“系统”图标，然后，按一下“设备管理”的按钮，点一下“计算机”，则将打印出一份计算机的所有配置清单。
+        (2) 快速查看
+        若在您的计算机中已经安装了快速查看功能，而且它又支持一种特殊的文件格式，则您就可通过使用鼠标器右键点一下某文件，并选取“快速查看”后，就能快速地查看此文件的内容，
+        另外，您也能在SENDTO文件夹中建立与NOTEPAD.EXE的联系，然后，使用鼠标器的右键点一下您要看的文件。点“SENDTO”，再选取NOTEPAD即可。
+        (3) 将Windows 3.1程序组转换为WINDOWS  95格式
+        您可按照下面的两种方法将WINDOWS  3.1程序组转换为WINDOWS  95的格式：
+        ①双击一个 . grp文件后， WINDOWS  95将自动将它转换为一个Windows 95的文件夹。
+        ②在“开始”菜单中点一下“运行...”，然后，输入GRPCONV /m 命令，然后，就可将您已经选择的程序组进行转换。
+        实际上，这两种方法都是使用了GRPCONV.EXE的WINDOWS程序。
+        (4)屏幕分辨率
+        为了在不同应用程序中快速地改变屏幕分辨率，您可用鼠标器的右键点一下桌面，然后，按一下“设置”按钮。在桌面区域中，移动滑条到您期望的分辨率上即可。
+        (5)内容帮助
+        在每一个对话框的右上角有一个问号标志的按钮(? )，点一下此按钮，然后再点一下对话框中的一个控制或项目，则一个有关它的十分简短的叙述说明就显示出来了。
+        (6) 查找工具
+        为了查找一个文件、 邮件信息、计算机或在Microsoft Network上的文件，您可在“开始”菜单中的“查找”命令。另外，您可点一下“文件”菜单中的“保存查找”来保存查找的结果。
+        (7)位图的查看器
+        MS Paint可作为一个位图查看器。您可拖一个位图图标到MS Paint的窗口中，则就能查看到此位图。
+        (8) 文件名与文件后缀
+        在WINDOWS  95应用程序中下面是合法的文件名：
+        12345678.ABC (MS-DOS文件名)
+        12345678.ABCDEF (扩展名没有限制)
+        123456789012345678901234567890123456789.ABC (长文件名)
+        1234567890123456789012345678901234567890. ABCDEF (长文件名及长文件后缀)
+        若在长文件名中间插入一些空格表示某些意义，则这些长文件名也是合法的名字，只是它们不能超过255个字符。为了显示MS  DOS文件名与长文件名的关系，您可用鼠标器的右键点一下此文件，然后选取“属性”即可。         LETTER TO JOHN -------  LETTERTO
+        LETTER TO MIKE -------   LETTER~1
+        LETTER TO CAO  -------   LETTER~2
+        ............................
+        (9)重登录后的任务条的移去
+        在您改变了WINDOWS  95的登录后的入口数据库后，若需要重新启动任务条，则可使用CTRL+ALT+DEL键将从WINDOWS  95中移去WINDOWS资源管理器。  当关闭系统的对话框出现的时候，按“NO”。在出现下一个提示时，按End Task。此时，任务条移去，然后，重新启动。
+        (10)建立一个应急的启动盘
+        为了建立一个完全应急启动盘， 可双击 “控制面板” 上的“增加/删除程序”图标，然后，点一下“启动盘”按钮即可。
+        (11)取消一个文件移动或文件换名
+        若您忘记了刚才所作的移动文件位置或意外地将某一个文件换名，可在“编辑”菜单中选取“取消”或按ALT+Backspace键就可将上次所作的操作作废。
+        (12) 改变显示属性
+        使用鼠标器的右键点一下桌面，再点“属性”，就能改变桌面上的背景、屏幕保护器、表面或显示器的设置等。为了改变您初始的显示字体，可选择“表面”按钮改变图标的字体。
+        (13)使用任务条的时钟的技巧
+        将鼠标器的指针放到任务条的时钟上，此时就在此下面可看到当前系统的日期。若双击此时钟，则将屏幕上出现一个较大的时钟画面，里面有系统时间、日期和时区等信息，它有点类似于WINDOWS  3.1的“附件”中时钟程序。
+        为了从任务条中移去时钟，可执行以下步骤：
+        ① 使用鼠标器的右键点一下任务条，然后，选取“属性”。
+        ②按一下任务条上的“选项” 按钮，不选择“显示时钟”核实框，或按C键也可。
+        (14) 易于获取计算机的属性
+        为了查看计算机(系统)的属性，可使用鼠标器的右键点一下“我的电脑”，然后， 选取“属性” 。若您有一个Microsoft Natural Keyboard, 则只要按Win+Break就可以了。
+        为了查看Network属性， 可使用鼠标器的右键点一下Network Neighborhood图标，然后，选取“属性”即可。
+        (15)使用光标键代替一个鼠标器
+        通过打开“鼠标键”可不使用鼠标器移动光标。为此，可双击“控制面板”中的“无障碍选项”图标，按“鼠标”按钮，然后，点一下“使用鼠标键”即可。
+        (16)快速到达控制面板的简便方法
+        ①使用鼠标器右键点一下“开始”菜单，再选取“资源管理器”。
+        ②在“开始” 菜单中建立一个名字为Control Panels的新目录，或者您命名为其它名字也可。
+        ③ 打开原始的“控制面板” 的文件夹，选择所有图标，再用鼠标器的右键点把它们拖到您的刚才建立的新的文件夹中。此时，就建立为“控制面板”中的所有图标建立了快捷键。
+        ④关闭以上所有的窗口， 再点一下“开始”菜单。当您用鼠标器指向到您的新文件夹中，则您就看到了所有“控制面板”中的图标。
+        (17) 通过使用“Send To”发送对象
+        您可以把任何快捷键拖动到“SendTO”的文件夹中。这个快捷键可以是一个打印机、传真、网络驱动器或WINDOWS应用程序。为了找到SENDTO的图标，可点一下“开始”菜单，再选取“运行...”。在运行对话框中输入SENDTO命令，就启动了一个SENDTO文件夹。此时，您就可以使用鼠标器的右键点拖动某项目的图标到SENDTO窗口中，该图标的快捷键就将出现在SENDTO菜单中。使用鼠标器的右键点一下一个文档或文件夹图标，选取“SENDTO”，再选择目标项目，则就发送对象了。
+        12.WINDOWS  95中的系统工具
+        (1) 系统监视器
+        系统监视器可监视系统资源、线程、处理器使用等。
+        (2) 压缩程序
+        建立或形成压缩磁盘并管理压缩磁盘等工作。
+        (3)备份与恢复程序
+        您可使用Backup备份或用restore恢复文件到磁带、软盘等。
+        (4) 磁盘重整程序
+        该程序通过重整工作将加快硬盘的速度。
+        (5) 网络察看器
+        该程序察看在您的计算机上哪些用户在使用您的资源和增加共享文件夹等。
+        (6)磁盘扫描程序
+        该程序将检查计算机的逻辑或物理错误，并将尽量修复它们。
+        注意：以上程序可支持WINDOWS  95的长文件名。在WINDOWS95中最好不要使用以前MS  DOS版本或WINDOWS  3.1版本的磁盘诊断或扫描程序
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

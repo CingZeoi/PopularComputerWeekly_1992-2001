@@ -1,0 +1,110 @@
+用ActiveBar控件轻松制菜单
+
+孙祺龙
+1998年 第50期 15版
+
+　　ActiveBar是用于生成具有Office 97风格的菜单和工具条的ActiveX（OCX）控件，由于其功能强大，可方便地生成由自己定义的菜单及工具条，因此广受程序员们的青睐。它是一个共享软件，可以从http://www.datadynamics.com下载，最新版是1.0.3.8。安装包约1.3M，除OCX外还提供了帮助文件，用户手册和Visual Basic、Visual C＋＋及Delphi的例程。
+　　为了让更多的朋友能尽快了解和掌握该控件，我在这儿大致介绍一下它在Visual Basic中的应用。^501501a^
+　　首先，安装ActiveBar软件包。安装完毕后，就可以从“部件”对话框中添加ActiveBar控件来使用它了。在ActiveBar中的元件，例如按钮、菜单项等都被称为Tool对象，而放置按钮、菜单项的工具条、菜单条则被称为Band集合。生成工具条和菜单的过程，也就是生成相应的Tool和Band的过程，其方法共有两种：设计时生成和运行时生成。
+#1　　一、设计时生成菜单
+　　在窗体上的ActiveBar控件图标上单击鼠标右键，选择Design...菜单，进入ActiveBar Designer。ActiveBar Designer是用于交互设计Tool和Band的一个实用工具，它功能强大，能轻易地创建出符合你需要的Tool和Band。它也包含在ActiveBar软件包中。
+　　在Designer中，左边的Tools窗口用于生成相应的Tools对象和新建、管理类别。类别也是一种集合，它可以让你将所创建的Tool对象进行分门别类的管理。例如，我们通常将“打开”、“保存”、“退出”等放在“文件”类别中，而将“查找”、“替换”放在“编辑”类中。因此，我们要创建Tool对象，首先就应该规划一下，分出类别来。
+　　在左边的Tools窗口中按图标可以进入“Manage Categories”对话框。在“New Categories:”框中键入类别的名字，比如“文件”，然后单击“Add”按钮将“文件”类添加到列表中，并在Tool窗口的下拉框中选中该类别。
+　　点击“New Tool”图标 ，可以在选定的类别中新建一个Tool。其属性在“Tool Properties”属性编辑对话框中（见^501501b^）进行设置。
+　　每一个Tool的属性很多，你可以详尽地设置样式（有普通按钮、下拉式按钮、下拉框、文本框和静态按钮），风格（标准、文本、图形、文本和图形），标示位置，快捷键，开始新的一组等等。要注意，Width和Height是以像素为单位的。
+　　值得一提的是属性编辑框中的Image页面，一个图标编辑器。你不光可以自己画，还可以按图标从屏幕上截取图像。当然，你也可以通过剪贴板粘贴或者从菜单“Image/Load Picture”中调用现成的。
+　　一切满意后，按“Apply”按钮就行了。
+　　如果你以后想对该Tool的属性进行修改，可以直接双击该Tool或者右键单击它并选取“Properties”菜单重新进入属性编辑对话框。
+　　有了Tool就必须要有Band来放置。Band有三种类型，分别是Band（工具条）、MnuBand（主菜单条）和PopupBand（弹出式菜单条）。在左下的Bands窗口中按Create Toolbar图标 ，生成一个Band（当然你也可以生成MnuBand或PopupBand）。右键单击该Band，选择“Edit Properties”菜单进入Band的属性编辑对话框。在该对话框中你可以设置诸如大小、风格、可否移动、允许放置的位置等属性。然后双击该Band将其展开，并将所需要的Tool拖拽到Band上即可。你还可以在工具条上添加选项卡（Page），只需要在展开的Band上单击鼠标右键并选择“And Page”菜单即可。
+　　生成菜单要稍微麻烦一些。在ActiveBar中，所有展开的菜单都是PopupBand。因此，在创建好所有的PopupBand后，还必须将MnuBand上的所有Tool中的SubBand属性设置为相对应的PopupBand名。下拉式按钮的设置也是同理。
+　　用这种方法生成的菜单和工具条信息均保存在＊.frx文件中。另外，还可以单独运行Designer（不是在VB中调用）来设计，这样信息就不会保存在＊.frx文件中了。你可以通过“Save Layout...”菜单将设计保存为脚本文件，在程序中直接调用。调用脚本文件的格式如下：
+　　ActiveBar.Load “脚本文件名”，“Band名”
+　　如果不指定Band名则会把脚本中的所有Band都载入。如果只载入脚本中的某几个Band，则需一个一个地依次载入。例子：ActiveBar1.Load App.Path ＆ “Menu.tb” ，“”。
+　　使用这种方法的好处是，当用户通过“自定义”（运行时在工具条上按右键）菜单改变了菜单和工具条后，能使程序通过保存脚本的方式来保存当前的工具条和菜单信息。下次进入程序时再载入，使应用程序始终保持用户自定义的界面。保存脚本的格式为：
+　　ActiveBar.Save “脚本文件名”，“Band名”
+　　例子：ActiveBar1.Save App.Path ＆ “UserInfo.dat”，“FileBand”。如果没有指定Band名，则保存所有的Band。
+#1　　二、运行时生成菜单
+　　在运行时生成菜单和工具条也很简单，看看下面这个例子吧！
+　　Option Explicit
+　　Private Const DDTSStandard=0
+　　Private Sub Form_Load（）
+　　Dim Tool As New Tool
+　　With ActiveBar1
+　　′添加所有Tool到Tools集合中
+　　′添加“新建”Tool...
+　　Set Tool=.Tools.Add（101，“btnNew”）′101是ID，btnNew是名字
+　　Tool.Caption=“新建（＆N）”
+　　Tool.ToolTipText=“新建”
+　　′Index值：0.正常，1.按下时显示图标，2.鼠标在按钮上时显示图标，3.不显示图标
+　　Tool.SetPicture _
+　　Index:=0，_
+　　Picture:=LoadPicture（App.Path ＆ “\New.bmp”），_
+　　color:=＆HC0C0C0 ′将灰色设置为透明色
+　　Tool.BeginGroup=False
+　　Tool.Style=DDTSStandard   ′0，标准的按钮
+　　Tool.Description=“建立一个新的空文档”
+　　Tool.SubBand=“弹出式菜单”
+　　′添加“打开”Tool...
+　　Set Tool=.Tools.Add（102，“btnOpen”）
+　　Tool.Caption=“打开（＆O）”
+　　Tool.ToolTipText=“打开”
+　　Tool.SetPicture _
+　　Index:=0，_
+　　Picture:=LoadPicture（App.Path ＆ “\Open.bmp”），_
+　　color:=QBColor（8）
+　　Tool.BeginGroup=False
+　　Tool.Style=0
+　　Tool.Description=“打开一个已经存在的文挡”
+　　Tool.ShortcutKey=15   ′设置快捷键为Ctrl－O
+　　′添加“拷贝”Tool...
+　　Set Tool=.Tools.Add（103，“btnCopy”）
+　　Tool.Caption=“拷贝（＆S）”
+　　Tool.ToolTipText=“拷贝”
+　　Tool.SetPicture _
+　　Index:=0，_
+　　Picture:=LoadPicture（App.Path ＆ “\Copy.bmp”），_
+　　color:=QBColor（8）
+　　Tool.BeginGroup=True
+　　Tool.Style=0
+　　Tool.Description=“拷贝指定内容到剪贴板”
+　　Tool.ShortcutKey=3′设置快捷键为Ctrl－C
+　　′将工具添加到相应的类别中
+　　.Tools（“btnNew”）.Category=“文件”
+　　.Tools（“btnOpen”）.Category=“文件”
+　　.Tools（“btnCopy”）.Category=“编辑”
+　　′添加Band
+　　.Bands.Add “标准”
+　　.Bands（“标准”）.Wrappable=True ′能否执行，True为能，False为不能（缺省）
+　　.Bands（“标准”）.Type=DDBTNormal
+　　.Bands.Add “菜单”
+　　.Bands（“菜单”）.Wrappable=True
+　　.Bands（“菜单”）.Type=DDBTMenuBar
+　　.Bands.Add “弹出式菜单”
+　　.Bands（“弹出式菜单”）.Wrappable=True
+　　.Bands（“弹出式菜单”）.Type=DDBTPopup
+　　End With
+　　′将工具添加到指定的Band上
+　　With ActiveBar1.Bands（“标准”）.Tools
+　　.Insert 0，ActiveBar1.Tools（“btnNew”）
+　　.Insert 1，ActiveBar1.Tools（“btnOpen”）
+　　.Insert －1，ActiveBar1.Tools（“btnCopy”）′－1表示插入到最后一个位置
+　　End With
+　　With ActiveBar1.Bands（“菜单”）.Tools
+　　.Insert 0，ActiveBar1.Tools（“btnNew”）
+　　.Insert 1，ActiveBar1.Tools（“btnOpen”）
+　　.Insert －1，ActiveBar1.Tools（“btnCopy”）
+　　End With
+　　With ActiveBar1.Bands（“弹出式菜单”）.Tools
+　　.Insert 0，ActiveBar1.Tools（“btnNew”）
+　　.Insert 1，ActiveBar1.Tools（“btnOpen”）
+　　.Insert －1，ActiveBar1.Tools（“btnCopy”）
+　　End With
+　　′刷新
+　　ActiveBar1.RecalcLayout
+　　End Sub
+　　怎样生成Tool和Band就介绍到这儿，大家可以查看它的帮助或者用户手册，里面对所有的属性、方法和事件都有详尽的说明。希望它能为你的程序增光添彩。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,57 @@
+技嘉P4 Titan i845系列主板测试报告
+
+电脑报评测实验室   
+2001年 36期
+
+为了能够让Pentium 4处理器尽快占领中低端市场，达到与AMD抗衡的目的，支持Pentium 4处理器的Intel i845芯片组在8月27日终于正式发布了。尽管Intel还笼罩在RDRAM的阴影之下，而且目前发布的i845芯片组还只允许支持SDRAM（i845要到明年才能有支持DDR SDRAM的版本），但是这毕竟表明Intel在其内存构架方面的政策有所变化，同时也为Pentium 4处理器的大众化迈出了重要的一步。红花还需绿叶衬，各大主板厂商也都积极响应，顺势推出了自己的i845主板。作为Intel的战略关系伙伴，技嘉科技更是一马当先，针对目前市场上共存的两种不同针脚的Pentium 4处理器都发布了相应的i845主板，以求迅速掌握市场的主动权。
+　　#1●Titan系列的“老二”
+　　Titan这个名字源于古希腊神话，说的是远古时代，邪魔将天地合在一起，人们生活黑暗中。人们为了得到光明，奋起反抗邪恶力量，要将天重新顶起。终于有一天，大地母亲之子——Titan家族三兄弟向魔的邪恶力量挑战，他们脚踩大地，从大地母亲那里得到无穷的力量，打败了魔，用他们的双手将承载了全部宇宙力量的天举起，找回了光明。
+　　技嘉目前正在网站上（www．gigabyte．com．cn）举办了一个为Pentium 4 Titan系列主板巨奖征名的活动，征名时间是8月23日至9月23日，优胜者还将获得5000元的奖金呢。
+　　技嘉把这个系列的主板拟人化了，按主板使用的内存构架来划分Titan家族三兄弟：老大（RDRAM）、老二（SDRAM）和老三（DDR）。技嘉送测的这两块i845芯片组的主板都是基于SDRAM的i845主板，采用Socket478的一款产品型号为GA-8IDXH，采用Scoekt423的这款产品型号为GA-8IDX3-L，它们在Titan家族排行老二。
+　　○技嘉GA-8IDXH（Socket478）
+　　技嘉GA-8IDXH是一款标准ATX尺寸、采用四层蓝色PCB板的主板。支持最新的mPGA478 Pentium 4处理器。（^36080202a^）
+　　这块主板的做工干净整齐，工艺和用料均属上乘，主板布局十分合理，各部件的安插不会有相互的干扰，看来技嘉对Titan系列的产品是非常用心去做的，所以看上去感觉非常漂亮。
+　　技嘉GA-8IDXH在Socket 478 CPU插槽周围安装有支撑CPU风扇用的大型支架。Brookdale（MCH）芯片采用了看上去和PⅢ处理器非常相似的新的Flipchip封装形式，上面安装了一块很大的银色散热片，并用一个扣具来固定，以保证散热片与MCH核心接触紧密。它不仅集成了Pentium 4处理器控制界面和支持AGP 4×的AGP控制器，还提供了400MHz的前端总线。ICH2则还是延用82801BA芯片，支持ATA/100、4个USB以及AC’97等功能。
+　　技嘉GA-8IDXH采用了三相电源回路，以确保稳定的供电。GA-8IDXH提供了3根SDRAM的DIMM插槽，支持PC133外频的内存，最大容量为3GB内存；提供1根AGP 4×的插槽和6根PCI插槽，足以满足用户的插卡需要；出于对一些特殊用途的考虑，最边上还提供了1根CNR插槽。GA-8IDXH采用了彩色的IDE接口，以方便用户识别安装。GA-8IDXH提供了技嘉的DualBIOS技术，板载创新的CT5880音效芯片，并且提供HomePNA功能，在主板上还提供了RTL8100网络芯片，其RJ45插座和USB端口集成在一起。为此，GA-8IDXH也配套了专用的机箱尾部挡板方便用户使用。GA-8IDXH提供了系统硬件监控功能，可以随时监测机箱温度、风扇转速等系统安全指标。比较特别的是，GA-8IDXH主板上面没有集成任何DIP跳线开关，所有的设定全部在BIOS中进行，提供了8倍到16倍的CPU倍频调节，CPU外频提供100MHz到200MHz的调节。还提供了AGP电压的调节，以增强系统的稳定性。GA-8IDXH还将提供包括中文在内的多种语言版本的BIOS，并附赠有Q-Flash utility工具。
+　　○技嘉GA-8IDX3-L（Socket423）
+　　技嘉GA-8IDX3-L是GA-8IDXH的“孪生兄弟”，其基板和布局一模一样，上面的元件构成也颇为相似，而且连CMOS的设置项目也一样。它们之间的区别就只有以下几个地方：GA-8IDX3-L使用的是Socket 423插槽，主板上只有一颗BIOS，音效方面采用了较为便宜的AC’97音效芯片。（^36080202b^）
+　　基于Intel目前的处理器推行计划，采用Socket423封装的Pentium 4的生产还将延续到2002年一季度，这就是说，在明年上半年内，Socket423封装的Pentium 4还不会从市场上消失。随着mPGA478封装的Pentium 4的兴起，Socket423封装的Pentium 4只会越来越便宜。看来技嘉目前推出这款GA-8IDX3-L主板的用意还是十分明确的，要在这个Pentium 4的过渡时期内不放过任何一个潜在的客户。
+　　#1●性能测试
+　　○测试平台配置和驱动程序
+　　内存：KingMAX PC133 128MB SDRAM（CL=2）
+　　CPU：Intel Pentium 4 2GHz（478）& Intel Pentium 4 1．3GHz（423）
+　　显卡：WinFast GeForce3 64MB DDR SGRAM
+　　硬盘：Maxtor DiamondMax Plus 45 46．1GB
+　　光驱：SONY DDU-1211 12× DVD-ROM
+　　彩显：Acer 79P
+　　驱动软件：
+　　English Windows 98 SE with Direct X 8．0a
+　　nVIDIA Detonator v12．41
+　　Intel（R） Chipset Software Utility v3．10
+　　Intel（R0 Ultra ATA Storage Driver v6．1
+　　测试软件：
+　　3D Mark 2001
+　　ZD Business Winstone2001v1．0
+　　ZD Content Creation Winstone2001 v1．0
+　　ZD WinBench99 V1．1
+　　Quake3 DEMO001
+　　SiSoft Sandra2000 v7．0
+　　SysMark2000 v1．0
+　　WCPU v3．0
+　　由于这两款主板所支持的Pentium 4处理器针脚有区别，因此本次测试我们分为两个平台同时进行，一个是主频为2GHz的mPGA478封装Pentium 4处理器平台，参测主板是技嘉GA-8IDXH主板；另一个是是主频为1．33GHz的Socket423封装Pentium 4处理器平台，参测主板是技嘉GA-8IDX3-L。在测试中，我们选择了Intel最新的3．0v版的驱动程序，并且安装了Ultra ATA Storage Driver v6．版IDE驱动补丁。显卡驱动我们采用NVIDIA最新的12．41公版，同时也安装了英文版 DirectX8．0a。测试过程中，主板内存的外频设定为133MHz，CAS参数被设定为2，Windows的显示频率为1024×768×32bit色深，刷新频率为85MHz。
+　　由于两个平台所用的Pentium 4处理器无论是mPGA478封装的Pentium 4处理器，还是Socket423封装的Pentium 4处理器，它们的核心都是现行的Willamette内核，通过WCPUID3的检测结果，我们可以看到，这两种不同封装的Pentium 4处理器实际上除了主频不一样，其他都是相同的。所以在测试时引起性能差距的主要原因应该是主频的差异所造成的。由于i845芯片组的内存带宽仅为1．06GB/s，在一定程度上也限制了Pentium 4处理器的性能充分发挥。
+　　○商业办公整体性能测试
+　　从Business Winstone2001和Content Creation Winstone2001是标准的整体性能测试软件，从测试成绩我们可以看出这两个平台性能上的差距是还是比较明显的。GA-8IDXH的Business Winstone2001成绩为39．5，GA-8IDX3-L的为32．1；GA-8IDXH的Content Creation Winstone2001成绩为42．3，GA-8IDX3-L的为32．9。这个成绩的差异很明显是由于处理器的主频差异造成的，SYSMark200的测试结果也是一样，GA-8IDXH的总体性能得分要明显高于GA-8IDX3-L。看来Intel新款的2GHz Pentium 4处理器性能优势非常明显。
+　　○子系统性能测试
+　　在WinBench99的测试中，技嘉GA-8IDXH在2GHz Pentium 4处理器的强大支持下表现出色，CPU Mark99和FPU WinMark的得分取得了110和6900的高分。由于1．33GHz Pentium 4本来在性能上就要差2GHz Pentium 4一大截，所以GA-8IDX3-L的成绩自然不及GA-8IDXH，不过77和4480的成绩已经是相当高的成绩，在实际应用中已经是“急速”的概念了。在Business Graphics WinMark和High-End Graphics WinMark测试中，因为采用了相同的ICH2芯片，因此性能上差距也就没那么明显了。技嘉GA-8IDXH的磁盘子系统和图形子系统又占了处理器的便宜，成绩均优于GA-8IDX3-L。在SiSoft Sandra 2001 Perfessional的内存带宽测试中，这一点再次得到充分的体现，两款主板的测试结果非常直接的表明，采用Willamette内核的Pentium 4处理器之间，不论其封装形式如何，其效率应该是相同的。
+　　○图形子系统性能测试
+　　从理论讲，整数运算能力受处理器速度的影响比较明显，而浮点运算能力会较多受到内存带宽的影响，因此在需要大量浮点运算的3D Mark2001和Quake3的测试中，GA-8IDXH和GA-8IDX3-L成绩更加接近了，其间的差异也是主频的高低所造成的。
+　　○兼容性测试
+　　一般说来，主板的兼容性问题大多集中在内存条和电源上面。由于目前支持Pentium 4的电源基本上都严格按照Intel的电源规范进行制造，因此我们没有进行电源方面的兼容性测试。只是进行了SDRAM的兼容性测试。我们选用了多种市面上常见的SDRAM，如KingMAX、金条、Unika和现代等不同品牌的内存，将其混插在技嘉GA-8IDXH和GA-8IDX3-L上试用，结果运行稳定，并没有发现不兼容的问题。看来技嘉的主板兼容性还是不错的。
+　　#1●结论
+　　从整个测试情况来看，技嘉GA-8IDXH和GA-8IDX3-L不但保持了技嘉一贯坚持稳定第一的原则，而且测试的成绩也都不错，启动和应用运行的速度比较快，并提供有不错的超频设置。加上采用了目前市面上性价比最好的SDRAM内存构架，凭借技嘉强大的实力和良好的销售渠道，技嘉GA-8IDXH和GA-8IDX3-L将会在即将来临的i845主板大战中占据有利的形势。
+　　（^36080202c^）（^36080202d^）
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

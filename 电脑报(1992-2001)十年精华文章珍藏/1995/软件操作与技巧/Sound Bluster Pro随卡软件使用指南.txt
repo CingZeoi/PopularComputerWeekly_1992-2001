@@ -1,0 +1,149 @@
+Sound Bluster Pro随卡软件使用指南
+
+
+1995-01-06
+
+        Sound  Blaster，一般称其为声霸卡，声霸卡系列中的Sound Blaster Pro在国内声卡产品中占有较大比重。因此，我们有必要深入了解和掌握SoundBlasterPro声卡的随卡软件功能，以便有效地应用它的各种声音处理技术。
+        一、Sound Blaster Pro声卡简介(以SoundBlasterPro为纍stall程序，屏幕上出现提示信息。在主菜单下选择BeginInstallation(开始安装)，指定硬盘后将自动在指定硬盘上建立子目录\SBPRO并复制文件。然后需确认开机启动的驱动器及Windows3.1所在的地方。安装程序将自动在WIN.INI文件中加入一条命令，下次启动Windows时会自动建立声霸卡窗口。最后设置I/O基地址和中断号，一般选缺省值，如硬件有冲突可自己设置。
+        二、SoundBlasterPro声卡随卡软件的使用
+        随卡软件较多，分Windows应用程序和DOS应用程序，下面逐个介绍。
+        1.CreativeWaveStudioCreativeWaveStudio是一个易用的，功能强大的Windows应用程序。它可以记录、播放、编辑8位(磁带音质)和16位(CD音质)的声音数据。它也可以给你的声音数据加入特殊效果。
+        在声霸卡窗口下双击WaveStudio图标就打开了WaveStudio窗口。一级菜单有File、Edit、View、Special、Options、Window、Help。
+        (1)File菜单，其中有以下命令。
+        Open		装入一个已有的声音文件
+        Close		关闭一个打开的声音文件
+        CloseAll	关闭所有已打开的声音文件
+        Save		将改动后的文件存盘
+        SaveAs		改名后存盘
+        SaveAll		将所有打开的声音文件存盘
+        Exit		退出WareStudio
+        (2)Edit菜单，其中有以下命令：
+        Undo		取消本次编辑结果	
+        Cut		剪下声音数据所选部分并拷贝到内存	
+        Copy		将所选数据拷贝到内存	
+        Paste		将用Cut或Copy命令拷贝的声音数据粘贴到Edit窗口中。	
+        PasteMix	将拷贝到内存的数据与Edit窗口中已有数据混频，播放时你可同时听到两个声音。	
+        Delete		删除你选择的数据	
+        CropToSelection	除了所选部分，删除其它声音数据	
+        SelectAll	选择所有文件
+        (3)View菜单，它允许你调整WaveStudio的工作空间，其中命令有：
+        Preview		打开或关闭预视窗(PreviewWindow)	
+        Toolbar		打开或关闭工具条(Toolbar)	
+        StatusBar	打开或关闭状态条(StatusBar)	
+        FitWaveinWinodw	调整声波波形尺寸以适应EditWindow的尺寸	
+        ActualSize	在EditWinodw中重置声波显示的实际波形(1:1)	
+        CursorPosition	在声音文件中所选部分开始位置显示文件	
+        CursorEnd	在所选声音部分结束位置显示文件	
+        Zoom		改变声音文件中所选部分的尺寸
+        (4)Special，用来制造各种特殊效果，命令有：
+        Reverse		反向重放整个或所选部分的声音文件	
+        AddEcho		加入回音效果	
+        InvertWaveform	例置声音文件	
+        Rap		重播声音文件中所选部分	
+        InsertSilence	在声音文件中插入无声效果	
+        ForceToSilence	让选中部分不出声	
+        FadeIn		让声音文件音量逐渐大起来	
+        FadeOut		让音量渐弱	
+        SwapChannels	在左右声道中交换声音文件	
+        PanLefttoRight	让声像从左声道向右声道移动	
+        PanRighttoLeft	让声像从右声道至左声道移动	
+        PlaseShift	把声音文件的一个声道转到右声道，播放时造成一种延迟效果。
+        ConvertFormat	改变声音文件格式，单声道与立体声，8位与16位之间互换。
+        ModifyFroquency	调整频率	
+        AmiplifyVolume	改变声音文件音量大小
+        (5)Options，你可以建立并改变WaveStudio的一些缺省值，命令有
+        RecordingSettings	建立记录缺省值	
+        MixerSettings		打开调音台程序(Mixer)	
+        CustomizeColors		定制WaveStudio窗口的颜色	
+        DisplayinBytes		用字节显示声音选择信息	
+        DisplayinSamples	用样本显示声音选择信息	
+        DisplayinNillieconds	用毫秒显示声音选择信息	
+        AlwaysonTop		改变WaveStudio窗口的位置
+        (5)Window，用于安排窗口，你可用此种命令去组织已打开的多个声音文件。
+        (6)Help，帮助信息
+        在EditWindow中，如果你击鼠标右键将出现Context-Sensitive菜单，其中有以下命令：
+        Play	播放声音文件	
+        Record	记录声音文件，如果EditWindow中已有打开文件，打开文件的内容被记录下来的内容取代	
+        Stop	停止播放
+        还有几个命令，如New,Open,Zoom同前面叙述一致。
+        2.Creativesoundo'Le
+        Soundo'Le可以播放和记录声音数据，它支持回标连接和嵌入(OLE)，你可以把声音文件嵌入其它应用程序。
+        在声卡窗口下双击Soundo'Le图标就打开了Soundo'Le窗口有File,Edit,Options,About四个菜单。窗口中还有六个按钮，它们是Play(播放)，Pause(暂停)，Rewind(快例)，Forward(快进)，Stop(停止)，Record(记录)。每个人都用过录音机，这些按钮的标记与录音机一样，十分容易理解。
+        (1)File，其中有以下命令
+        New    	产生一个新声音文件	
+        Open	打开一个已有的声音文件	
+        Save	将文件存盘	
+        SaveAs	改名后存盘	
+        Exit	退出Soundo'Le
+        (2)Edit，其中有以下命令：
+        CopySoundasanObject   拷贝声音数据和OLE信息到剪粘板，然后这些数据可被嵌入其它应用程序。
+        (3)Options，其中命令有
+        WaveInfo		显示声音数据的信息，如取样频率，抽样大小等。	
+        MixerSettins		运行调音台程序(Mixer)。	
+        RecordingSettings	在记录时选择抽样大小(8位或16位)，取样频率单声道或立体声模式。	
+        AlwaysOnTop		改变Soundo'Le窗口的位置
+        (4)About，显示版权信息
+        3.CreativeMixer
+        CreativeMixer(调音台)是一个强大的Windows应用程序。它可以合成和控制从不同音源来的声音。你可以控制音量，音调。在运行其它程序时获得一个音源，也可以在播放和见录时选择和混频不同音源。
+        双击CreativeMixer图标就打开了它的窗口。
+        CreativeMixer窗口包括四部分：  CheckBoxes,VerticalSliders,HorizontalSliders,Control-MenuBox。下面分别介绍。
+        (1)CheckBoxes
+        它有三种类型：
+        音源(AudioSource)，有七种音源：主控、音波、音频、MIDI音频、CD音频、线路输入、麦克风、PC机扬声器。
+        记录源(RecordingSource)，有四种：MIDI输入、CD音频、线路输入(LineInput)、麦克风输入MicropluneInput)
+        LED显示    你可用它激活LED显示
+        (2)VerticalSliders(垂直推杆)   调整音量和音调
+        (3)HorizontalSliders(水平推杆)调整所选音源的各种参数。
+        (4)control-menuBox
+        打开后同一般Window主菜单。
+        在声霸卡随机软件中，还有数个软件，如Windows下的EnsembleAV，由于界面十分直观友好，如屏幕上模拟CD面板和遥控器，便于用户理解使用，在此就不作介绍了。
+        4.Text-To-Speech软件包
+        在声霸卡随卡软件中，有一个Text-To-Speech(文本到语音)软件包，它提供给用户三个非常有用的应用程序。它们是MonologueforWindows,TalkingScheduler,SBTALKER。其中Monologue for Windows是一个通用程序，它可给任何Windows应用程序加入声音。TalkingSche
+        duler是一个安排日程和计划的程序，它可以发声提醒你。SBTALKER是一个文本到语音合成器，它可以读ASCII文本，在文本中执行任务并通过扬声器发声。下面对三个程序分别介绍。
+        (1)Monologue for Windows
+        Monologue for Windows是目前唯一能给每个Windows应用程序加入语音的软件，它具有通用、灵活、易用、经济等特点。
+        目前计算机发声有两种技术，一种以表格为基础，它工作时象一部字典，每个单词都以文本和声音两种形式储存。当在文本中找到一个词时，相应的声音就发出。另一种是以发音规则为基础，它不储存单词，只有把文本转换为语音的规则，用这些规则来让单词发音。后一种技术显然先进得多。MonologueforWindows就采用后一种方式，所以它可以发出文本中所有单词的音。但英语中也有不规则情况，有些单词并不按规则发音，所以Monologue for Windows也采用前一种方法来处理这些特殊的情况。在字典管理器(DictionaryManager)中你可以输入自己的特殊情况。
+        MonologueforWindows有三种不同的操作模式。
+        ●Clipboard模式，它是程序的缺省模式。在此模式下，所有输入文本将从Windows的剪粘板中取出。用鼠标在各个应用程序中选择数据，用拷贝命令将其拷入剪粘板。发声时程序检索剪粘板的内容，将其转换为语音并读出。
+        ●Excel模式，在此模式下，所有输入数据将直接从正在运行的MicrosoftExcel下拷贝抽取。此模式与Clipboard模式相比少了拷贝数据到剪粘板的过程，显得更加方便。发声时程序从Excel中检索数据。
+        ●DDEServer模式，在此模式下，所有输入数据将从DDE信息流中抽取。这是较先进的一种能力，它允许不同的宏语言用MonologueforWindows启动一个DDE对话。对话启动后，MonologueforWindows可将任何应用程序送来的数据转换为语音并发出。
+        操作方法，打开Text-To-Speech窗口，出现MonologueforWindows图标，双击图标。在MonologueforWindows窗口下你可选择操作模式，也可以调整音量，发音速度和发音间隔。
+        选好后可以演示，效果不满意可重新调整至满意为目。然后你可在应用程序中选取数据，拷贝它们，然后在MonologueforWindows图标上击鼠标右键，发音就开始了。
+        (2)CreativeTalkingScheduler
+        这是一个多媒体程序，它使用日程安排变得非常容易。双击Scheduler图标就打开了TalkingScheduler。
+        它有三个菜单，Main,Appiontnents,Help。
+        ●Main菜单，其中命令有：
+        Setup	建立	
+        Clock	显示当前日期和时间	
+        Run	激活TalkingScheduler	
+        Quit	退出TalkingScheduler
+        ●Appointments菜单，其中命令有：
+        Review		回顾以往的日程安排	
+        Add/Modify	增加和调整已有的日程安排	
+        DeleteDays	删除某一天或几天的所有安排
+        第一次运行时，需要建立几个缺省值。在主菜单下选择Setup命令，出现程序缺省值对话框。选择项有：
+        ●AuimationsChoracters(动画人物)
+        有三个动画人物Simon，Perkins和lgor可供选择，用鼠标在名字上敲击就选中。
+        ●Speech	每个动画人物有不同的声音，你要选择发音速度和间隔。	
+        ●Firstname	要求输入你的名字，以后每个日程安排中均会用你的名字。	
+        ●Autolaunch	它让一个日程安排以何种形式出现，它有五个选择项。	
+        □Greeting	动画人物在约会时间时祝福你内容包括你的名字，约会时间以及和你约会人物的名字。	
+        □Description	它让动画人物读出约会内容	
+        □Voice	在约会时间发出提醒声音	
+        □Objects	本项决定是否所有OLE目标在约会时间时自动发出。
+        □AdvanceNotice(预先提醒)
+        它可在预定时间前提醒你。例如，约会在10:30，advancenotice设定为15分钟，在10:15，它将提醒你。
+        3.SBTALKER
+        它是一个驻留内存的文本到语音合成器，它没有词汇量限制。它可以读ASCII码文本，也可读从键盘和其它通讯入口输入的文本。
+        启动SBTALKER时，转换目录到/SBTALKER，键入sbtalk图本，程序自动装入EMS中。用扩展内存有以下好处，它可以装入更大的文本，读取数据更快，不同文本中转换间歇变小。
+        SBTALKER可为你的应用程序制造回音效果。键入SET-ECHO［dddd］回车，dddd是回音延迟时间。其值为0-400。为1000时回音间歇为0.1秒，回音效果很好，为500时可以制造一个混响效果。
+        SBTALKER的Read命令可用三种方式读文本。
+        DOS命令，键入READ［文本名］回车，也可用READ“语句”，回车后双引号中语句被读出。
+        利用文本阅读器发音，键入READ回车，然后从键盘输入文本。
+        读ASCII文本文件
+        键入READ<文本名［/W］回车  /W选择是否屏幕显示文本
+        由于SBTALKER驻留内存，当不用它时，应将其清除出内存。清除时在\SBTALKER目录下键入REMOVE回车即可。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

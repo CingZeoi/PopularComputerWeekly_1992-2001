@@ -1,0 +1,106 @@
+在NT下实现无盘启动实战
+
+鲁东福
+2000年 第15期 
+
+　　本文着重讲述了DOS及WIN95无盘站的安装过程，并提出了安装过程中的一些注意问题。
+#1　　一、网络概况
+　　由于无盘网以运行成本低、易于管理、经济实用等众多优点，在学校、电脑培训中心等地方应用较广。我院就建有一个有15台无盘站的 NT网络，操作系统为Windows NT Server4.0中文版，星型拓扑结构。
+　　服务器和工作站的配置如下：
+　　服务器：PⅡ233 CPU、 ASUS 440BX 主板、64M SDRAM、6.4G DiamondMax 硬盘、Accton1207C网卡、SAMSUNG 17英寸彩显。
+　　无盘工作站：Pentium MMX200 CPU、J－591A主板、32M SDRAM、NE2000Compatible网卡、SAMSUNG 14英寸彩显。
+#1　　二、服务器的安装
+　　由于NT 4.0 Server的安装早有介绍，这里不再赘述，需要注意的是：最好采用NTFS格式以及使用主域服务器。（我的服务器名为ZLL，域名为WHSJY）
+#1　　三、无盘工作站的安装（DOS及WIN95）
+　　（一）DOS无盘站的建立
+　　无盘站采用NE2000　Compatible网卡，网卡上必须带有一块以RPL（Remote Initial Program Load）方式启动的BOOTROM。
+　　1.在NT4.0服务器上安装远程启动服务和添加两个网络协议（NetBEUI协议、DLC协议）。
+　　 步骤如下（如^15050401a^1、^15050401b^2、^15050401c^3）：
+　　“控制面板”→“网络”→“服务”→“远程启动服务”→“添加”
+　　“控制面板”→“网络”→“协议”→“NetBEUI通信协议”→“添加”
+　　“控制面板”→“网络”→“协议”→“DLC通信协议”→“添加”
+　　2.启动远程启动服务（如^15050401d^4）。
+　　步骤：“控制面板”→“服务”→“远程启动服务”；
+　　在启动类型框中选择“自动方式”后，按“确定”按钮。
+　　3.在完成前三步设置后系统已经具有远程启动的功能，此时再运行“远程启动管理器”来获取无盘站网卡的ID号，然后为其建立轮廓文件和远程启动数据库记录，这是整个网络工作的关键步骤。
+　　下面是详细的操作规程：
+　　1.启动无盘工作站，工作站通过系统自检后处于等待状况，但其所带的BOOTROM会向服务器端发送一个FIND帧（Frame）信号。信号包含了此工作站的网卡号，远程启动服务器收到启动要求后，即检查数据库中是否有该卡号的启动数据，若有则服务器可提供远程启动服务；若无，则可手动配置，详细方法见后文。
+　　2.运行服务器上的“远程启动管理器”，选择“配置”→“检查配置”，然后确定。再选“配置”→“修复安全性”后确定。此时窗口会出现一个12位的十六进制数，此即为网卡的ID号（如^15050401e^5）。
+　　3.手动为网卡生成新的数据库。具体步骤如下：
+　　（1）从NT Server的光盘中将CLIENTS\RPL\UPDATE目录拷至硬盘下。
+　　（2）查看NE200CPT.RPL文件的属性，并去掉其“只读”属性，用“记事本”打开，然后将NE2000 Compatible网卡的ID号改为刚才获取的ID号（只取网卡的ID号的前6位），然后保存文件。
+　　注：并非所有的网卡都能利用BOOTROM启动，如3Com EtherLink Ⅲ其卡号的前6位必须是以0020AF或00608C开头，否则无法被远程启动服务器识别。
+　　将更新好的NE200CPT.RPL文件拷至C盘根目录下，然后在MS－DOS方式执行如下命令：
+　　C:\RPLCMD<NE200CPT.RPL 以生成新的网卡数据库：然后以“记事本”方式打开此文件，将其缺省的卡号改为前面获取的卡号。如前面的卡号为004033，而现在获取的卡号为00108801491A，则将004033全改为001088后保存。
+　　（3）将英文版的DOS6.22启动盘（一定是英文版，否则无盘工作站无法启动）的文件拷至％SYSTEMROOM％\RPL\RPLFILES\BINFILES\DOS622下。（也可拷贝部分文件，COMMAND.COM， IO.SYS，MSDOS.SYS，HIMEM.SYS）。其中％SYSTEMROOM％为 NT4.0 的安装目录，如我的服务器为C:\WINNT。
+　　注：请不要在BINFILES下添加任何目录。无论是任何版本的MS－DOS6.2X都必须复制到DOS622目录中。如果你使用的其它操作系统，如IBM PC－DOS，则在将PC－DOS文件复制完毕后，你必须将BINFILES\DOSXXX中的两个系统文件改名：
+　　REN IBMBIO.COM IO.SYS；
+　　REN IBMDOS.COM MSDOS.SYS；
+　　记住将IO.SYS，MSDOS.SYS这两个文件的“只读”，“系统”，“隐含”属性去掉，否则工作站登陆时可能会出现：“NON－SYSTEM DISK OR DISK ERROR REPLACE AND PRESS ANY KEY WHEN READY!”的信息，因而无法启动。
+　　打开“远程启动管理器”，选择“配置”→“修复安全性”后确定，然后选“远程启动菜单”→“新建配置文件”，在配置文件中输入配置文件名如（DOS622）后，在配置框中选择DOS6.22 Novell NE2000后按“确定”。（如^15050401f^6）
+　　打开“远程启动管理器”，选择“远程启动菜单”→“转换适配器”，输入工作站名（如WL），说明部分（可省），选择配置文件类型（共享，个人），最后在“配置文件工作站中”选择DOS6.22 Novell NE2000 即可。
+　　至此，无盘DOS工作站的整个设置过程已经完毕。重新打开无盘站用BOOTROM启动，即可以DOS.622方式登录进入NT Server，此时会以C:\>为提示。实际上C：下的DOS目录与NT Server服务器上的％SYSTEMTOOT％\RPL\RPLFILES\BINFILES\DOS622 对应。本地硬盘分区则从D：开始。（如^15050401g^7）
+　　（二）PWin95无盘站的安装
+　　在完成DOS6.22无盘站的安装后，接下来进行无盘PWin95的安装。在安装无盘PWin95之前，首先要准备好一台有盘的PWin95工作站。此外还要为Works A安装一台SBS（Server Based Setup）服务器（就是将PWin95通过Netsetup.exe 安装到某台服务器上，不是拷贝，切记。以后工作站端的PWin95安装操作，就可以利用此服务器的PWin95文件，此服务器称为SBS服务器）。SBS服务器可与NT Server服务器共用一台服务器，也可以使用不同的服务器。我的NT Server服务器即为SBS服务器。在安装无盘PWin95之前必须将一台有盘Works A工作站与NT Server服务器连接。然后开始以下的工作。
+　　首先在NT Server服务器上新建两个文件夹，pwin95.ins 和 pwin95.shr，并将其属性设置为共享。其中pwin95.ins 是通过netsetup.exe安装的目录，称为SBS目录，此目录用于保存共用文件。而pwin95.shr 为用户目录，用于保存用户的私有文件，称为机器目录。
+　　随后把PWin95光盘放入有盘的Works A的光驱中，并运行admin\nettools 目录下的netsetup.exe文件（早期的Win95光盘中有此目录和文件），在执行netsetup.exe后会出现一对话框。选择“设置路径”，输入安装到NT Server服务器的正确路径，即前面提到的SBS目录。（\\zll\pwin95.ins，其中zll为我的服务器名）后确定（如^15050401h^8）。此时“设置路径”变成“更换路径”，单击“安装”，出现“源路径”对话框（如^15050401i^9），在安装策略处单击“服务器”，同时指定PWin95的源文件路径，即工作站光盘中PWin95的路径。如：F:\win95net\win95（F:为本地光驱，即以Administrator身份入网的那台机器），确定。
+　　出现“创建默认值”对话框时，选择“不创建默认值”（如^15050401j^10）。
+　　输入PWin95产品序列号。完成安装后退出。
+　　回到NT Server服务器上，将Windows NT Server安装光盘放入服务器光驱中，将其\clients\rpl\update\win95下的win95srv.bat文件拷至硬盘根目录下。（也可不拷贝到硬盘上，直接在光盘上执行win95srv.bat文件）然后在命令窗口中执行如下命令：
+　　g:\clients\rpl\update\win95\win95srv \\zll\pwin95.ins （其中g:为我服务器的光驱，zll为我服务器名）
+　　以更新pwin95.ins 目录文件使其具有远程启动功能。
+　　在NT Server服务器上启动“远程启动管理器”，选择“检查配置”→“修复安全性”以更新系统。
+　　现在开始安装第一台无盘PWin95工作站。
+　　首先用一台无盘DOS622机器以Administrator身份登录，在工作站上执行：
+　　net use f: \\zll\pwin95.ins
+　　net use g: \\zll\pwin95.shr
+　　这两条命令是将pwin95.ins与pwin95.shr分别映射成F盘和G盘。
+　　然后为工作站安装一些专用文件，如：win.ini、system.ini 等。
+　　注：一定要关掉该工作站的所有物理盘或逻辑盘，否则无盘站无法正常启动。
+　　在无盘站上运行：
+　　f:\>setup /t:g:\client1.tmp
+　　注：此处书写命令时一定要注意在setup后加空格，且一定要带参数t，否则可能无法进行无盘站的安装。
+　　在安装过程中系统会询问你一些问题，如出现：
+　　Server－Based Setup 对话框时选，
+　　Setup Windows To Run Form A Network Server
+　　出现Setup Method 对话框时选：
+　　Setup Windows To Run From The Network （Remote Boot Server）
+　　当出现Machine Diretory 对话框时，在Machine Directory:处输入g:\client1
+　　出现Startup Opeions选Custom方式。
+　　注：此处必须选择Custom方式，否则无盘站不能正常的启动PWin95。
+　　当出现：
+　　Analyzing Your Computer
+　　选No I Want To Modify The Hard List
+　　当出现：
+　　Delect Comptonetnts
+　　清除所有选项。
+　　注：此处必须清除所有选项，否则在进行后面的工作时可能会遇到一些莫名其妙的问题。
+　　当出现：
+    Network Configuration
+　　选择 Adapter→Add（增加－网卡），在出现的厂商列表中选择Novell/Anthem，硬件列表中选择NE2000 Compatible卡并设置网卡的中断号（IRQ=3）、I/O Address Range为300－31F。添加NetBEUI、TCP\IP网络协议。
+　　出现Identification时，确认Workgroup处的SBS服务器与Machine Diretory 处的服务器在相同的Workgroup或Domain。（我的服务器的域名为wuhan，即在Workgroup处填上wuhan）
+　　回到NT Server服务器中运行“远程启动管理器”，为PWin95建立一个profiles文件（即无盘工作站启动的类型文件）。与无盘DOS工作站建立新的配置文件相同。
+　　修改配置类型，使无盘工作站使用PWin95的profiles，如图^15050401k^11、^15050401l^12。
+　　在NT Server服务器的命令窗口中执行win95clt.bat。
+　　格式为：
+　　c:\>win95clt \\zll\pwin95.shr\client1 \\zllwin95
+　　此命令属于pwin95工作站的Real－Mode启动文件。由Machine－Directory复制远程启动文件到NT Server服务器的％systemroot％\rpl\rplfiles\rplfiles\win95中。（其中％systemroot％为Windows NT的安装目录，即C:\WINNT）
+　　注：在无盘站上运行setup /t:g:\clientx.tmp的前提条件有二，其一你必须是管理员；其二此台机器必须是真正的无盘站，即设置中要挂掉所有的物理或逻辑驱动器。否则在执行wi95clt命令时会显示两个文件不能复制，而这两个文件又是无盘站启动PWin95时必不可少的autoexec.bat和config.sys文件。若没有这两个文件，而你接下去能做的唯一的事就是重新开始（无盘站安装过程中绝对不能重新启动机器）。切记一定要挂掉所有的驱动器！
+　　在执行上述命令之后，切记要修改机器目录中的machines.ini文件：
+　　修改格式为：
+　　[adapter_id]
+　　sysdatpath=g:\client_dir
+　　g=\\ntserver\machine_directory
+　　对于我的服务器而言，修改结果为：
+　　[00108801491a]
+　　sysdatpath=g:\client1
+　　g=\\zll\pwin95.shr
+　　注：此文件最好用edit编辑器打开，切记不要用“记事本”打开。还有，此文件刚打开时每一行最前面都有分号，在修改完文件存盘前一定要将分号删除，否则会导致无盘站不能正常启动PWin95。此外还应注意第一字母g的后面有冒号，而第二字母g的后面是不能有冒号的。
+　　好了，现在重新启动计算机（无盘站），这才真正进入无盘PWin95的安装界面，此后的安装就与有盘的PWin95的安装大致相同。再做一些相应的设置就可以了。
+　　安装完后再启动机器，就进入PWin95的界面了。
+　　无盘环境下的PWin95与有盘的有些不同，例如在“我的电脑”中会出现一个芯片的图标，它实际上是系统创建的一个虚拟盘，而在有盘的PWin95中则不存在。
+　　第二台无盘站的安装与第一台的方法基本相同。只是要注意如果第一台profiles若设为“个人”，则第二台机器的profiles必须与第一台机器的profiles取不同的名称。其它操作都大同小异。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

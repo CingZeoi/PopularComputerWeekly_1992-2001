@@ -1,0 +1,235 @@
+Web数据库开发入门指南
+
+王渡
+2000年 第53期 
+
+#1    一、Web数据库基础
+#1    1.什么是Web数据库
+    Web数据库伴随着Internet的发展而不断成长。随着网络逐渐溶入人们的工作、学习和生活，Web数据库也渐渐显示出它的重要性，数据库在网站的建设中已经成为必不可少的重要内容。会员（客户）资料管理、产品（服务）资料管理、销售资料管理和分析、访问流量统计分析等都离不开数据库系统的支持，可以说数据库技术已经成为网络的核心技术，网络就是数据库。所以各大软件厂商都纷纷加紧推出了自己的Web数据库解决方案，提供多种工具和技术供你选择。
+    数据存储技术伴随着计算机技术的发展而不断前进，我们把数据存储、管理和利用的技术称为数据库技术。用文本文件形式存储数据称为文本数据库；把数据按层次、网状加以存储的方式，分别叫做层次数据库和网状数据库；把数据按照它们之间的关系加以存储，就是我们常说的关系数据库，也是现在应用最为广泛的数据库技术。数据库中存储的数据可以从多种渠道加以利用。可以在单机上仅供一个人使用；可以在局域网中供小范围内的多人使用；也可以通过Intranet和Internet在非常大的范围内供广大用户使用，这就是Web数据库。
+    Web数据库是在传统数据库技术基础上发展而来的，它有它鲜明的特色。下面加以简要介绍。
+#1    2.Web数据库的优点
+    ① 使用方便。数据库应用一般是采用C/S（客户/服务器）模式，有一个客户端和一个服务器端，客户端向服务器端发出数据请求，服务器响应并处理请求，把处理的结果再回送到发出请求的客户端。传统的数据库应用需要为每一个应用开发一个客户端，然后再在每一个客户端安装，还要加以培训才能使用；而Web数据库的客户端由浏览器担任，不需要单独开发也不需要培训。
+    ② 开发统一。传统数据库应用一般用VB、VC、PowerBuilder、Delphi等开发，这些开发工具各有各的标准和方法，不适合开发Web数据库应用；Web数据库的开发使用统一标准HTML，任何人开发的Web数据库都要符合这个标准。
+    ③ 跨平台支持。传统数据库应用一般要针对每一个操作系统开发一个专用版本，甚至要为不同的硬件平台开发不同的版本；Web数据库只需要开发一个版本就可以在所有的操作系统和硬件平台上使用，前提是这个平台上具有符合HTML标准的浏览器。
+#1    3.开发语言和工具
+    Web数据库的开发不仅仅只是HTML的开发，还涉及到与数据库交互要使用的程序设计语言。从Web数据库开发的出现，现可供选择的语言主要有Perl、C、ASP/ASP+、PHP、Java等，现在常常使用的是ASP/ASP+和PHP。常用的开发工具有Microsoft Visual InterDev、IBM Web Sphere、Macromedia Dreamweaver UltraDev、Allaire HomeSite、PHP Editor等。每一种开发工具都有与它配合使用的语言，由它们配合共同完成Web数据库的开发。
+#1    4.数据库平台
+    开发Web数据库不仅要选择开发工具和语言，还要选择与之配套的数据库平台。虽然Web数据库可以在不同的平台上使用，但是开发还是在某一个具体的平台上进行的。可以用于Web数据库开发的数据库平台是很多的。从使用的操作系统来看，既有可在NT中运行的，如SQLServer、ORACLE、Sybase、Informix等；也有可在Linux中运行的，如MySQL；还有运行在其它操作系统下的数据库可供选择，如DB2。
+#1    二、Web数据库开发技术
+#1    （一）CGI
+    CGI是Common Gateway Interface（通用网关接口）的简称。CGI是一段可以在Web服务器上执行的程序代码，这段代码只有在通过浏览器发送的请求需要由它来处理时才会执行，它然后把执行的结果送回浏览器供使用者查阅。从浏览器来的请求多种多样，但最重要的是对数据库的请求。CGI程序也称为CGI脚本，CGI脚本是用脚本语言编写的，在编写脚本时可以使用的脚本语言主要有Perl、C/C++、The Bourne Shell、The C Shell、TCL、Visual Basic、AppleScript等。这些脚本语言中最常用的是Perl，它可以在大多数操作系统下建立开发、调试和运行环境，为CGI的发展立下了汗马功劳。早期CGI只能在UNIX上执行，也没有图形开发界面，现在CGI可以在Windows和Windows NT下执行，也有相应的图形开发界面。
+    CGI是最早出现的Web数据库开发技术，经过多年的发展从技术上来说已经非常成熟，应用也很广泛，现在许多网站仍在使用它。它的主要特点是通用性高、使用方便、安全性也较高、具有动态交互能力。主要缺点是编程复杂、性能效率不高、没有事务处理能力、有安全隐患等，有兴趣的读者可以参考《电脑报》99年合订本上册附录344～350页。
+#1    （二）ASP/ASP+
+    1.概述。ASP是Active Server Pages（动态服务器网页）的简称，是Microsoft为它的Web服务器开发的专用技术。它有三个含义，一是ASP使用了ActiveX技术，二是ASP在服务器上运行，三是服务器上运行的结果以标准的HTML页面的形式返回浏览器。ASP使用ADO进行Web数据库开发，但它的功能并不局限于此，可以完成各种复杂的操作，如为访问者提供个性化的网页、建立Web邮件系统、操作服务器文件、远程管理NT主机等。ASP用VB或JavaScript作为脚本语言，在服务器端以解释的方式执行，执行的是源代码。ASP+和ASP不同，它是在第一次运行时进行编译，以后使用时就不再编译了，执行的是编译代码而不是源代码；它的脚本语言有3种，除了在ASP中使用的两种外，另外一种是Microsoft最近才推出的C#（读作C Sharp）。ASP存在着源代码泄漏的危险，而ASP+则不存在这个问题。
+    2.运行环境。ASP和ASP+的运行环境是相同的。如^00100013a^是它们的运行环境：
+    上面所列的PWS在Windows 98的完整安装光盘上有，IIS 4.0在Microsoft Windows NT 4.0 Option Pack光盘上有，如果你没有这些光盘，可以到微软的中国站点上去下载，地址是http://www.microsoft.com/china，IIS 5.0是作为Windows 2000的标准组件由Windows 2000自带。一定要保证在相应的操作系统上安装对应的Web服务器，才能进行ASP/ASP+的开发、调试和运行。
+    3.开发工具。ASP和ASP+的开发工具很多，因为它们的代码是纯文本的，所以可以用记事本等纯文本编辑器来开发，当然很不方便；为了改变这种纯手工操作方式，众多软件公司开发了ASP专用编辑器，把许多功能集成在一起，摆脱了手工操作的复杂程度也减少了出错的可能性，最常用的有Microsoft Visual InterDev、Macromedia Dreamweaver UltraDev、Allaire HomeSite等。
+    4.开发过程。ASP的文件扩展名为.asp，ASP+的文件扩展名为.aspx。用浏览器直接打开这两种类型的文件是得不到预期的结果的，看到的是它们的源代码；而必须通过Web服务器执行才能得到预期的结果。这就要求文件要保存在Web服务器的主目录或其虚拟目录中，通过HTTP请求，由Web服务器根据请求执行后返回的结果才是我们所需的结果。例如在Windows 98中安装PWS后会自动建立一个名叫localhost的站点，我们可以用http://localhost对它加以访问，把编写的名为index.asp（或index.aspx）的ASP/ASP+文件存放在localhost的主目录中（如果安装PWS时采用的是默认目录，一般是C:＼Intepub＼wwwroot），然后就可以用http://localhost/index.asp（或http://localhost/index.aspx）来访问它以获得我们预期的结果。
+    要开发ASP/ASP+程序，必须具有扎实的HTML和它们支持的至少一种脚本语言知识，要进行数据库的开发，还必须熟悉SQL语言。ASP脚本可以嵌入HTML中，也可以是独立的文件，不论哪种方式，ASP脚本都是在<% %>之间，“<%”是ASP脚本的开始标志，“%>”是ASP脚本的结束标志，ASP脚本可以是由<% %>包围的一行，也可以是很多行。
+    5.实例。Web数据库的开发在ASP中是通过ADO（ActiveX Data Object）进行的。通过ADO可以完成数据库记录的增加、修改、删除、查询等操作。下面以一个简单的查询操作为例介绍操作过程。
+    例1：查询中文版Office 2000中Access 2000的示例数据库Northwind中产品表的内容。
+    第一步：建立ODBC数据源。在Windows 98的“控制面板”中双击“ODBC数据源（32位）”，打开“ODBC数据源管理器”窗口，选中“系统DSN”选项卡，然后单击“添加（D）...”按钮，出现“创建新数据源”窗口，选中“Microsoft Access Driver （*.mdb）”，单击“完成”按钮，出现“ODBC Microsoft Access安装”窗口，在“数据源名（N）”和“描述（D）”后面的文字框中填入“test”，再单击“选取（S）...”按钮出现的“选定数据库”对话框，找到“示例数据库Northwind”所在的位置并选定它，单击“确定”按钮返回到“ODBC Microsoft Access安装”窗口，再单击“确定”按钮返回到“ODBC数据源管理器”窗口，到此完成测试用数据源的建立，再单击“确定”按钮关闭“ODBC数据源管理器”窗口。
+    第二步：建立ASP源文件。把如下代码以index.asp为名保存在PWS的主目录中，然后在浏览器中浏览就行了。
+    代码如下：
+    <% @  Language=VBScript %>
+    <%
+    Set conn = Server.CreateObject（″ADODB.Connection″）
+    Conn.Open ″test″
+    Set rs = conn.Execute（″SELECT * FROM 产品″）
+    %>
+    <TABLE BORDER=1>
+    <TR>
+    <% For k=0 to rs.Fields.Count - 1 %>
+        <TD><B><% = rs（k）.Name %></B></TD>
+    <% Next %>
+    </TR>
+    <% Do While Not rs.EOF %>
+        <TR>
+        <% For k=0 to rs.Fields.Count - 1 %>
+        <TD><% = rs（k） %></TD>
+    <% Next %>
+        </TR>
+        <%
+        rs.MoveNext
+    Loop
+    %>
+    <%
+    rs.Close
+    conn.Close
+    %>
+    </TABLE>
+    下面是对代码的解释：
+    <% @  Language=VBScript %>
+    指定ASP所使用的脚本语言为VBScript，也可以是Jscript
+    <%
+    Set conn = Server.CreateObject（″ADODB.Connection″）
+    Conn.Open ″test″
+    %>
+    建立并打开与测试数据库的连接。这是用ADO操作数据库的第一步，不论要对数据库进行什么操作，这都是必须的。conn叫做数据库连接对象，由Server.CreateObject（″ADODB.Connection″）所创建。在这里是最简单的，对其它数据源可能在打开时需要用户名和密码，形式如Conn.Open ″test″，″sa″，″1234″，“sa”是用户名，“1234”是密码，用户名和密码是在创建数据源时设置的，Access数据库可以不设置，SQL数据源就一定要设置。
+    Set rs = conn.Execute（″SELECT * FROM 产品″）
+    执行查询返回数据。这是用ADO操作数据库的第二步，对不同的操作使用不同的SQL命令。这儿执行一个查询，返回的数据在存放在rs中，rs叫做记录集对象，由连接对象conn执行SQL命令创建。现在数据还没有显示出来，下面要做的工作就是显示数据。
+    <TABLE BORDER=1>
+    <TR>
+    <% For k=0 to rs.Fields.Count - 1 %>
+        <TD><B><% = rs（k）.Name %></B></TD>
+    <% Next %>
+    </TR>
+    显示产品表的字段名。注意：这里混合使用了HTML和ASP代码，从这里可以看出，ASP和HTML是严格区分开来了的，ASP代码完全在<% %>之间，而HTML代码在它们之外。代码中的rs.Fields.Count是记录集的字段数，rs（k）.Name是第k个字段的名字，以加粗的字体在表格中显示，相当于显示了一个表头。
+    <% Do While Not rs.EOF %>
+        <TR>
+        <% For k=0 to rs.Fields.Count - 1 %>
+    <TD><% = rs（k） %></TD>
+        <% Next %>
+        </TR>
+        <%
+        rs.MoveNext
+    Loop
+    %>
+    显示记录数据。每一个记录占一行，由一个Do While循环来完成所有记录的显示，For循环显示一个记录中的每个字段。
+    <%
+    rs.Close
+    conn.Close
+    %>
+    </TABLE>
+    关闭连接。显示完成后，要关闭与数据库的连接释放系统资源。要关闭rs和conn两个对象才是完整关闭连接。
+    到这里，这个简单的例子就完成了。这里仅仅完成了对数据库的查询操作，要做其它操作只需要改变conn执行的SQL命令就行了，具体方法可以参看相关书籍，也可以查看ADO联机帮助。在你熟练后，还可以对这个例子加以改进。如对产品分页显示，在产品的编号上加上超链接，单击它可以购买、查看更加详细的资料，也可以只显示指定的字段内容等。通过进一步的学习，你可以完成如概述中所述的种种功能，也可以创建在线商店。
+    ASP/ASP+技术是未来一段时间Web数据库的主流技术，尤其是Windows 2000的发布使它获得了更加坚实的基础。这里只是对它的一个简介，可以到网上去找到许多ASP的学习网站，推荐一些网址：
+    http://www.chinaasp.com
+    提供完全的ASP学习资料和ASP组件下载。
+    http://www.bmj2000.com/vb/default.asp
+    威比动感技术工作组的主页，有丰富的ASP技巧和网页制作技巧。
+    http://myhome.py.gd.cn/keven/index.asp
+    ASP资源网，提供ASP教程、技术文章和代码下载。
+    http://asp.on.net.cn/
+    ASP动感在线，提供教程、书籍、技术文章和代码下载。
+#1    （三）PHP
+    1.概述。PHP是Hypertext Preprocessor（超文本预处理器）的简称。1995年开始使用，是开放源码的结果。它是与Apache服务器紧密结合在一起的，在大多数操作系统下可以运行，并且支持几乎所有的数据库系统，它也是免费的，有很多的开发人员在不断的为它增加新的功能，这些使它在Internet上得到了广泛的应用，并且不断获得新的发展。PHP和ASP一样，都是由客户发出请求，由Web服务器处理后返回标准的HTML页面。它使用的脚本语言就叫PHP，学习和使用都是比较简单的，可以很快上手。PHP目前在使用的有PHP3和PHP4，当然建议你使用PHP4，它的功能更加强大。
+    2.运行环境。PHP可以在UNIX/Linux、Windows/Windows NT等多种操作系统平台下运行，它要与Apache服务器结合在一起才能发挥作用。一般情况是用Linux+Apache+PHP的组合，这样的组合是最经济的，几乎不花钱就能搞定。在Windows/Windows NT下也可以用。也可以用商业化的UNIX系统，如SUN、IBM、HP、DEC、SGI、NEC等，它们的Apache是经过安全性调整的，还可以支持SSL，为在线支付提供保证。Apache可以在http://www.apache.org下载，也可在它的镜像站下载，PHP可以在http://www.php.net下载，它们都是免费的，可以自由使用。
+    3.开发工具。因为PHP文件也是纯文本的，所以可以用任何一种纯文本编辑器编辑PHP文件，然后在Web服务器的目录中保存为扩展名为.php的文件，然后通过浏览器浏览就可以看结果。这样极不方便，PHP有专用的编辑器可供使用，在Windows和Linux下都有这样的工具。在Windows下使用PHP，可以用PHP Editor，它可以在http://www.soysal.com/PHPEd下载，它需要PHP Win32的支持，可和PHP Editor一并下载。PHP Editor在PHP Win32的支持下，没有Web服务器也可以看到程序的运行结果，这为我们开发PHP程序提供了极大的方便，可以在Windows下开发测试，然后发布到Web站点上去就行了。在Linux/UNIX下，可以使用Bluefish，它是X Window下的应用程序。
+    4.开发过程。在开始开发可用的PHP程序之前，必须安装并配置好Apache和PHP，具体过程这里就不介绍了，可以参考今年《电脑报》合订本附录上册《PHP简明教程》的相关文章。
+    PHP文件和ASP一样，也可以和HTML混合书写，也要保存在Web服务器目录中，只是它的文件扩展名为.php（PHP4）或.php3（PHP3）。在编写程序前，你需要HTML和SQL知识，另外就是PHP脚本语言也要熟悉。PHP脚本的开始标志是“<?php”，结束标志是“?>”。
+    在PHP中处理数据库请求不是通过ADO进行，而是针对不同的数据库系统采用不同的函数进行。比如说针对SQL Server的函数库，针对ODBC的函数库，针对ORACLE的函数库，针对MySQL的函数库，当然还有针对其它数据库系统的函数库，可以参考PHP的相关资料。同ADO操作数据库一样，要操作数据库，也要首先建立与数据库的连接，然后执行SQL命令并显示执行结果，最后断开与数据库的连接。这里以ODBC为例介绍具体过程，仍然使用在ASP中建立的数据源。
+    5.实例。
+    例2：查询中文版Office 2000中Access 2000的示例数据库Northwind中产品表的内容。
+    把如下代码以扩展名为index.php保存在Apache的主目录中，然后在浏览器中浏览就行了，结果和前面ASP中的结果是一致的。代码如下：
+    <?php
+    $conn = odb_cconnect（″test″，″″，″″）;
+    $query = ″select * from 产品″;
+    $rs_id = odbc_do（$conn，$query）;
+    $field_count = odbc_num_fields（$rs_id）;
+    echo ″<TABLE BORDER=1><TR>″;
+    $k = 1;
+    while（$k <= $field_count）{
+    $field_name = odbc_fieldname（$rs_id，$k）;
+    echo ″<TD><B>″.$field_name.″</B></TD>″;
+    $k+=1;
+    }
+    echo ″</TR>″;
+    $cur_row = 1;
+    while（odbc_fatch_row（$rs_id，$cur_row））{
+    $k=1;
+    echo ″<TR>″;
+    while（$k <= $field_count）{
+    $result = odbc_result（$rs_id，$k）;
+    echo ″<TD>″ .$result. ″</TD>″;
+    $k+=1
+    }
+    echo ″</TR>″;
+    $cur_row+=1;
+    }
+    odbc_close（$conn）;
+    echo ″</TABLE>″;
+    ?>
+    下面是对代码的解释：
+    <?php
+    宣告PHP程序开始
+    $conn = odbc_connect（″test″，″″，″″）;
+    建立与test数据源的连接，odbc_connect是连接函数，括号中的test是数据源名，后面的两个空串是数据库用户名和密码，这里为空。其它数据库系统的连接函数是不同的，如SQL Server的连接函数为mssqlconnect，你使用的数据库系统的连接函数请查PHP函数手册。
+    $query = ″select * from 产品″;
+    设置SQL命令
+    $rs_id = odbc_do（$conn，$query）;
+    执行SQL命令，odbc_do是执行命令。同连接函数一样，不同的数据库系统使用不同的执行命令。
+    $field_count = odb_cnum_fields（$rs_id）;
+    取得表的字段数，从1开始，ADO是从0开始的。odbc_numfields是取得返回字段数目。
+    echo ″<TABLE BORDER=1><TR>″;
+    $k = 1;
+    while（$k <= $field_count）{
+    $field_name = odbc_field_name（$rs_id，$k）;
+    echo ″<TD><B>″.$fieldname.″</B></TD>″;
+    $k+=1;
+    }
+    echo ″</TR>″;
+    以表格的形式显示表的内容，上面是有加粗的字体显示字段名。odbc_field_name函数指定序号字段的字段名，要取得指定序号字段的值用函数odbc_result，在下面有它的使用例子。
+    while（odbc_fatch_row（$rs_id，$currow））{
+    $k=1;
+    echo ″<TR>″;
+    while（$k <= $field_count）
+    {
+    $result = odbc_result（$rs_id，$k）;
+    echo ″<TD>″ .$result. ″</TD>″;
+    $k+=1;
+    }
+    echo ″</TR>″;
+    $cur_row+=1;
+    }
+    以普通的字体显示记录的值，一个记录占一行表格。函数odbc_fatch_row返回指定的一行记录，函数odbc_result用来取得返回记录中的指定列的值。
+    odbc_close（$conn）;
+    关闭与数据库的连接。函数odbc_close用来关闭与ODBC数据源的连接，关闭同其它数据源的连接使用它们对应的函数。
+    echo ″</TABLE>″;
+    显示结束。
+    ?>
+    PHP结束标志。
+    到这里，这个简单的例子就完成了。这里仅仅完成了对数据库的查询操作，要做其它操作只需要改变$conn执行的SQL命令就行了，具体方法可以参看相关书籍如PHP函数手册。在你熟练后，还可以对这个例子加以改进。如对产品分页显示，在产品的编号上加上超链接，单击它可以购买、查看更加详细的资料，也可以只显示指定的字段内容等。通过进一步的学习，你可以用PHP做几乎你想做的任何事，比如说英文拼写检查、公元历法、在网页中使用PDF 格式文件、图形处理、编码与解码功能、压缩文件处理、XML 解析等。
+    PHP技术是属于开放源码体系的，有大量的高手在为它增加新的功能，修正已经发现的错误，使它的功能越来越强、安全性越来越高、使用越来越方便。必将为Web数据库的发展作出巨大贡献。
+    网上PHP资源也很多，推荐如下地址：
+    http://www.newsea.net/index.php3
+    提供源代码，PHP教学，技术论坛，下载。
+    http://gophp.heha.net/test/index.php3
+    提供PHP教程、技巧、源程序。
+    http://php.personal.stuhome.net/
+    提供PHP教程、技术文档、源码、PHP聊天室、PHP留言本、PHP论坛、投票调查、PHP小游戏、PHP电子商务等供下载。
+#1    三、Web数据库开发工具
+    可用于Web数据库开发的工具很多，在这里介绍其中几种常用的开发工具。
+    1.Microsoft Visual InterDev 6.0
+    Visual InterDev是Microsoft开发的集成Web开发工具，为Web数据库的开发提供了极大的便利。它的最新版本是6.0，下面是它的一些特性：
+    提供了一个集成的开发环境，在这个环境中，可以通过拖放的方式来设计网页，也可以自己输入源码，还可以查看结果，分别由Design、Source、Quick View视图完成，对不使用服务器端脚本的网页可以用Quick View看最终结果。
+    提供Web站点创建和管理功能。Visual InterDev可以管理站点内的所有页面，还可以检查并修复链接，使站点的建立非常方便。
+    提供群体协作项目开发，为大型项目开发提供了极大的方便，开发组可以由专业程序员和非专业程序员组成，在它的项目管理功能下各自完成所负责部分的开发。
+    提供完善的数据库功能。可以在Visual InterDev提供的数据环境中完成复杂的数据库功能，查询、更新、增加、删除等可以很轻松地完成，基本上不用手工编写代码，一切都由它负责完成。在企业版中还提供了数据库创建的工具，可以用它建立SQL Server 6.5以及ORACLE 7.x数据库。
+    完善的调试功能。Visual InterDev不但支持本地调试，还支持远程调试。
+    Visual InterDev 6.0是开发大型的Web站点时的上佳选择，它以站点的创新和功能设计为工作中心，包括项目管理、源代码控制和数据库管理它都提供了辅助工具，让你从这些繁重的工作中解脱出来。
+    推荐学习网址：
+    http://helpwork.net/default.asp
+    清华大学博士网，提供HTML Dreamweaver、Frontpage、XML、动态html、CSS、Visual InterDev、CGI＆Perl、PHP3、Asp、Jsp、Web服务器软件、Winsock、Novell、网络基础、TCP/IP协议等图书资料。
+    2.Macromedia Dreamweaver UltraDev 1.0
+    Dreamweaver UltraDev 是Dreamweaver 3.0的升级版本，除了具有Dreamweaver 3.0所具有的网站和网页设计功能外，增加了对ASP、JSP、ColdFushion、数据库操作的支持，为Web站点的开发设计和维护提供了强劲的支持。它的主要特性有：
+    基于Dreamweaver的设计。Dreamweaver UltraDev1.0是Dreamweaver 3.0的下一版本，它同Macromedia的另外两款主页制作工具Fireworks和Flash能够无缝集成，协同工作。它能很好地把页面设计和程序设计结合在一起，也能轻松建立、管理和发布网站。
+    支持多种服务器平台。Dreamweaver UltraDev支持的Web服务器有Microsoft IIS、Alliare ColdFushion、IBM WebSphere、BEA WebLogic和Netscape Enterprise，在它的集成开发界面下可以用可视化的方法编写ASP、JSP、ColdFushion应用程序脚本。
+    高效的数据库支持。Dreamweaver UltraDev以两种方式提供对数据库的支持，Data Bindings（数据绑定）和Server Beahaviors（服务器行为）。能轻松与SQL Server、ORACLE、Sybase、Informix等大型数据库建立连接，也能与Access、Visual Foxpro等桌面数据库建立连接，也可以通过ODBC、JDBC与上述数据库建立连接。在建立好连接后，通过Server Behaviors可以不写一句代码创建数据库记录的查询、更新、删除、增加等脚本，你需要做的就是选择使用哪一种脚本语言，其它的就交给Dreamweaver UltraDev了。
+    集成调试环境。Dreamweaver UltraDev可以在设计页面时显示数据库中的数据，而不用上传到Web服务器中去查看数据显示效果。这样就不用为了在页面上安排图形、表格等而在UltraDev、上传到Web服务器和浏览器查看效果之间来回切换了，为页面设计带来了极大的方便。更为神奇的是，可以随时改变脚本的执行环境以查看在不同的服务器环境下的执行结果，完成这项工作不需要重启UltraDev或把页面上传到不同的Web服务器上，一切都可以在你的本地机上完成。
+    人性化的设计。Dreamweaver UltraDev的开发界面可以完全根据你的爱好自行设计，不过要高手才能完成，界面定制是采用Javascript和XML来进行的。用它编写的代码可以完全由你控制，也没有多余的和隐藏的代码。
+    开放的系统架构。Dreamweaver UltraDev提供了开放的接口，任何公司和个人都可以为它编写功能扩展组件，你也可以利用他人已经编写好的扩展组件来提高你的工作效率。
+    Dreamweaver UltraDev是一款非常优异的Web数据库开发工具，不论你是新手还是高手，用它可以显著地提高你的开发效率，降低你的开发难度。这里只是对它的一个简单介绍，更加深入的内容可以到网上去参考学习，下面推荐一些网址：
+    http://homepage.2699.com/home1/dwskill/
+    UltraDev教学古城热线镜像站，中文站点，是一个比较完全的UltraDev教学网站。
+    http://www.Macromedia.com/support/UltraDev/
+    Macromedia Dreamweaver UltraDev的官方网站，是英文的。
+    3.PHP Editor
+    这是在Windows平台下的集成PHP编辑器，可以在其中完成PHP的编辑和调试。它将代码用不同颜色加以区分，在键入函数的第一个字后会以增量提示的方式把函数名和已经定义的变量补充完整，可以避免在代码编写过程中造成错误。在编辑器中完成代码的编辑后，可以直接查看到结果而不用上传到Web服务器，这在编写数据库程序时显得尤其重要。它除了可以编写PHP程序外，也可以编辑HTML文件，SQL命令文件，文本文件等多种格式的文件。让你可以在Windows下进行PHP的开发调试，然后才上传到Web服务器上去运行，是PHP程序设计的好帮手。
+#1    四、Web数据库平台
+    开发Web数据库，选择一个好的数据库平台是非常重要的，数据库平台选择不好将限制网站功能的发展。在选择数据库平台时要从开放性、可伸缩性、并行性、安全性、性能、客户端支持及应用模式、操作性、价格等方面加以考察。
+    开放性是指数据库是否能在多种操作系统下使用，如SQL Server就只能在Windwos/NT下运行，Oracle数据库可在UNIX、Linux、Windows/NT等操作系统下运行。
+    可伸缩性是指数据库在用户和数据增长时是否会造成处理能力大幅度下降。
+    并行性是指数据库能否并行运行在多节点上。
+    安全性是指数据库是否获得了ISO安全标准证书。
+    性能是指数据库的数据处理能力。
+    客户端支持是指支持哪些类型的客户，如Windows客户、UNIX客户等。应用模式是指单层C/S还是多层C/S模式。
+    操作是指数据库在使用前是否需要复杂的培训。
+    目前有许多数据库平台可供选择使用，如Microsoft SQL Server、Oracle 8i、Sybase EP、IBM DB2、Informix i.Reach/i.Sell、MySQL等大型数据库，Microsoft Access、mSQL等桌面数据库。在Windows/NT下使用这些数据库，其中MySQL和mSQL可以免费使用，其它的嘛要一大把银子。在Linux下除了Microsoft没有相应的产品外，其它的厂商都有相应的免费版本可供使用。在UNIX下可没有免费的了。
+    从个人使用来说可以在安全性和性能要求不高的时候选用免费的数据库平台，也可以使用Access等，现在网上有许多个人主页使用它建立聊天室、留言板等。对不涉及在线交易的商业使用来说可以选用免费的MySQL，也可以用SQL Server，不过要付费，价格也不低。对涉及在线交易的商业使用来说可以选用上面所提到的大型数据库平台，它们能够提供足够的安全和性能保障。也可以根据Web数据库的规模来加以选择，Microsoft SQL Server较小规模网站使用，其它公司的产品都适合大规模网站使用。
+    综合以上所述，在建立Web数据库时可作的选择是很多的，关键是看你要实现的目标是什么，还要看你现有的技术水平和资金状况而定，然后去选择最佳性价比的方案。最省钱的方案是Linux+Apache+PHP+MySQL的组合，但需要花很多时间学习；Windows NT+IIS+ASP+SQL Server的组合很容易上手。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

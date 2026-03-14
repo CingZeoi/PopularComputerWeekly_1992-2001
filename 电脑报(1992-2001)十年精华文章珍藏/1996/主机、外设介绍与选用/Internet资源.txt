@@ -1,0 +1,211 @@
+ Internet资源
+
+山西 李永安 
+1996-10-11
+
+        简介：该网点提供了莎剧的每一个场景、整篇内容、戏剧人物表，也可以观赏到伊丽莎白时代的一些晦涩难懂的字语。
+        地址：http://the-tech.mit.edu/shake speare/works.html
+        
+        名称：美国艺术博物馆(NMAA)
+        简介：通过对NMAA的录相导游、声音剪剪辑及1000多种艺术品的访问，使你仿佛置身于博物馆中，欣赏到稀世珍品。
+        地址：http://wwww.nmaa.si.edu:80
+        
+        名称：巴黎WEB博物馆
+        简介：这是世界上最伟大的艺术品博物馆，在五大洲开设有35个网点，每周向10万以上的观众开放该Web博物馆。其中包括二十世纪的艺术、名画、大量的稀世珍藏品、巴黎的短期旅行及古典音乐欣赏厅。Web博物馆可算得上是艺术和音乐的精髓。
+        地址：http://sunsite.sut.ac.ip/wm
+        
+        名称：国际非英语国家英语教师联盟(International Association of Teachers of English as a Foreign Language，缩写为：IATEFL)。
+        简介：IATEFL是专门为把英语作为第二语言的国家英语教师而开设的网络。该网络每季度开通4天，每次都由六位“演讲之星”创设一种讨论情景，每次有300多个问题可供讨论，同时邀请网络上的英语教师参加讨论。IATEF现已开设商业英语、计算英语等14个专业英语信息通道。由于它为全世界的英语教师解决了许多课堂上的疑难问题，提高了他们的教学水平，现已发展成为拥有800多个成员的网络。
+        路径：http:∥www.man.ac.uk/IATEFL/
+        
+        目前为止，通过Internet，我们至少可以阅读到19种中文电子报子，它们的名称与地址如下：
+        1.《人民日报》http:∥www.egis.com/peoplegb.htm/
+        2.《广州日报》http:∥www.asial.com.sg/gzbao/
+        3.《解放日报》http:∥www.china-on-web.com/jiefang/
+        4.《联合早报》http:∥www.asial.com.sg/zaobao/
+        5.《星岛日报》http:∥www.singtao.com/
+        6.《星州日报》http:∥www.mol.net.my/~sinchew/
+        7.《明报》http:∥cuhk.hk/mingpao/
+        8.《世界日报》http:∥www.netchina.com/world.htm
+        9.《环球电子日报》http:∥www.infocom.net/~gedn/
+        10.《南洋商报》http:∥asia-online.com/nsp/
+        11.《中国日报》http:∥www.chinadaily.com/
+        12.《中国时报》http:∥www.chinatimes.com/tw/
+        13.《北京青年报》http:∥info.bta.net.cn:80/yound/you_main.htm
+        14.《新民晚报》http:∥www.china-on-web.com/xinmin/
+        15.中国新闻社-香港中国通讯社新闻http:∥www.chinanews.com/
+        16.新亚电子新闻网http:∥www.gus.net/newasian/
+        17.环球电子新闻网http:∥www.kaiwan.com/~yang88
+        18.华讯新闻网http:∥www.taiwan-roc.com/cna/
+        19.中国体育新闻http:∥www.owlnet.rice.edu/~dclin/csd.htm
+        Microsoft Windows 95
+        http:∥www.windows.microsoft.com/
+        这个地方存储了关于Windows 95许多有用的信息，甚至还有免费软件__使我们在Windows 95里面工作变得更容易的一些小工具。真是一个不错的去处!
+        
+        Auto-By-Tel(电话购车)
+        http:∥shopping2000.com/shopping2000/auto-by-te/index.html
+        正在琢磨一辆新车吗?试试Auto-By-Tel。你可以把个人信息填写在一张表格内，并且说明自己想购买的车型，这样便能得到详细的报价单。
+        
+        Shopping2000
+        http:∥shopping2000.com/shopping2000/
+        这是一家联机购物中心；他们销售的东西五花八门，包括鲜花、软件、保险单、书籍甚至衣物等等。产品来自一些小公司和知名商号。
+        
+        Microsoft KnowledgeBase(微软知识库)
+        http:∥www.microsoft.com/KB/
+        假如你需由微软公司提供的技术支持，但是又不想支付一些荒唐的费用，便可先检查一下他们的知识库。事实上，微软公司的技术支持人员使用的是和你一样的知识库
+        leonardo da Vinci Museum(达芬奇博物馆)
+        简介：达芬奇的绘画、素描和图样，以及简短的传记。
+        地址：http:∥cellini.leonardo.net/museum/main.html
+        
+        Internet Underground Music Archive (Internet地下音乐档案)
+        http:∥www.iuma.com/
+        介绍联机乐队和他们的音乐。
+        
+        NPR Online(国家公共电台)
+        简介：不知你有没有这种经历，国家公共电台(NPR)一个很好听的故事突然被其他事情打断了，以致于没有听到结尾?好了，现在可以进入NPR站点，下载自己感光趣的故事，然后在闲暇时间慢慢听来。也可以找到故事的正文原稿，并可进行联机订购。
+        地址：hhtp:∥www.npr.org/
+        
+        BookWire
+        简介：这个站点内包含了出版商每周(当时和以前)销量最佳的书籍清单，关于新书发售的信息以及各式各样的链接，这些链接针对书籍出版商、书籍销售商、电子正文Internet联机图书馆等等。
+        地址：http∥www.bookwire.com/
+        
+        Gigaplex
+        简介：Gigaplex的涉及电影、电视、食品、购物、高尔夫以及剧场等等，甚至还能找天关于瑜珈术的信息。这是一本“厚厚”的长达600多项的Web杂志，专门涉猎艺术和娱乐领域。附带20MB的正文和图形，另外加上80 MB的音乐和影像剪辑。
+        地址:http:∥www.gigaplex.com/wow
+        
+        名称：美国天文学学会(AAS)
+        简介：美国天文学学会是北美天文学家和天文爱好者的主要组织。AAS的服务器提供AAS的就业登记、AAS出版物信息、AAS会员信息以及其它FTP档案。
+        地址：http://aas.org/AAS-homepage.html/
+        
+        名称：电子画廊
+        简介：这是一个商业电子画廊，其中有海地及西南美洲的绘画原作的收藏品，还有私人要出售的收藏品。
+        地址：http://www.egallery.com/egallery/homepage.html
+        
+        名称：联合国信息服务(UNIS)
+        简介：此网点提供了指向联合国及其相关组织信息的Web和gopher链接。还可以了解联合国的各种活动、文献、会议、国际事务信息等有关的数据。
+        地址：http://www.undcp.org/unlinks.html
+        
+        名称：加拿大广播公司(CBCL)
+        简介：其主页包括该电台即将播出的节目时间表、特别节目的e-mail地址等。此电台有中文广播。
+        地址：http://www.cs.cmu.edu:8001/web/unofficial/Canadiana/CBC/
+        
+        The Point
+        http://www.pointcom.com/
+        这个站点对其他Web站点进行了评定。他们花费了大量时间去搜寻那些最好的站点，这样一来，很快就能找出自己感兴趣的信息。
+        
+        The Oceania Project
+        http://www.oceania.org/
+        这个站点的作者计划建立他们自己的国家。世界上大多数适宜居住的地方都已经被占据了，所以他们准备从头(在海里)建立一个自己的国家，目标是建造世界上第一个海洋殖民地。这个殖民地将由Sea Structures公司建造；如果有兴趣，可以参观一下这个站点。
+        
+        HotWired
+        http://www.hotwired.com/
+        《网络时代》杂志的联机版本。需要登记，但毋需缴纳任何费用(至少目前如此)。
+        
+        Internet世界的中文报纸
+        Internet资源
+        11.《中国日报》http:∥www.chinadaily.com/
+        12.《中国时报》http:∥www.chinatimes.com/tw/
+        13.《北京青年报》http:∥info.bta.net.cn:80/yound/you_main.htm
+        14.《新民晚报》http:∥www.china-on-web.com/xinmin/
+        15.中国新闻社-香港中国通讯社新闻http:∥www.chinanews.com/
+        16.新亚电子新闻网http:∥www.gus.net/newasian/
+        17.环球电子新闻网http:∥www.kaiwan.com/~yang88
+        18.华讯新闻网http:∥www.taiwan-roc.com/cna/
+        19.中国体育新闻http:∥www.owlnet.rice.edu/~dclin/csd.htm
+        互连网上的几家名报：
+        
+        《纽约时报》(New York Times)
+        内容：全期。
+        特色：各种活泼的专题论坛，多由名人主持。
+        收费：美国国内免费，其它地方每月35美元。
+        地址：http://www.nytimes.com.
+        
+        伦敦《泰晤士报》及《星期日泰晤士报》(London Times and Sunday Times)
+        内容：全期。
+        特色：
+        收费：免费
+        地址：http://www.the-time.co.uk
+        特色：纵横字迹迷
+        
+        《金融时报》(Financial Times)
+        内容：重点文章，市场动态和新闻综述。
+        特色：英国各上市公司每日股票行情。
+        收费：免费。
+        地址：http://www.ft.com
+        
+        《华尔街》杂志(Wall street Journal)
+        内容：主要商业、金融报道。
+        特色：各公司简历。
+        收费：目前免费。
+        地址：http://www.wsj.com
+        
+        《圣何塞信使报》(San Jose Mercury News)
+        内容：全期
+        特色：个人简历服务栏可将个人简介直接发送到该报分类广告。
+        收费：某些内容免费；现在申请的订户每月1美元。
+        地址：http://www.sjmercury.com
+        
+        《今日美国》(usa Today)
+        内容：全期
+        特色：最新体育项目积分表
+        收费：免费
+        地址：http://www.usatoday.com
+        
+        法国《世界报》(Le Monde)
+        内容：头版文章，重点文章和部分专稿。
+        收费：免费
+        特色：可以方便地发E-mail给当天结婚的新婚夫妇。
+        地址：http://www.lemonde.fr
+        
+        
+        德国《世界》(Die welt)
+        内容：标题和大量文章缩写。
+        特色：股票市场索引。
+        收费：免费
+        地址：http://www.weld.de
+        
+        
+        游戏网址集锦：
+        名称：Douwe联机密技大全(Douwe's Game Cheating Page)
+        简介：Douwe热衷于收集各种游戏资料。如果你常常为攻关而头疼的话，光顾这里是明智的。网上有部《Douwe联机密技大全》，其中包括密技、攻略、游戏提示和过关技巧，共涉及150多个游戏，而且每月都会增加!怎么样?快下载吧!
+        地址：http:∥www.edu.cs.utwente.nl/%7Eachterka/
+        
+        名称：网上游戏谈论地(Internet PC Games Charts，简称IPGC)
+        简介：这儿有游戏排行榜以及游戏软件密技的联接点，排行榜上都附有网址，以便用户找到它。
+        地址：http:∥www.xs4all.nl/-jojo/pcgames.html
+        
+        名称：毁灭战士(Mr.Doom)
+        简介：毁灭战士在排行榜上始终位居前十名说明了这个网址的重要性。这里有大量毁灭战士的资料片、网络玩家，他们会和你一起加入战斗。
+        地址：http:∥mouse.erie.net/-mr-doom/index.html
+        
+        名称：快乐动物(Happy Puppy)
+        简介：“快乐动物”中你可以找到许多好东西。可以下载最新游戏，寻找游戏密技。有各种区域和论坛供你欣赏，不管是哪一类爱好者都可以找到感兴趣的地方。
+        地址：http:∥www.happypuppy.com
+        
+        名称：庞大!(Jumbo)
+        简介：这儿收集了49946个共享和自由软件，你可以从中找到许多游戏。此外，其他的程序也值得下载，就算你对游戏不感兴趣，也会喜欢上这个网址的。
+        地址：http:∥www.jumbo.com
+        
+        名称：共享集锦(Sharewares)
+        简介：19万共享软件在这里供你下载，包括10%～20%的游戏。
+        地址：http:∥www.shareware.com
+        
+        名称：Command&Conquer
+        简介：这里有Command&Conquer的全部资料、最新信息等，相信你会爱不释手的。
+        地址：http:∥www.mclv.net/k2/index.html
+        
+        名称：NBA Live '96
+        简介：篮球96的爱好者可以在这里找到这个游戏的资料及大量信息。
+        地址：http:∥www-users.informatik.rwth
+        
+        名称：Quake
+        简介：也许，Doom的下一代会更令你叫绝!访问这儿绝对不会吃亏，当然硬件太低就无法玩喽!
+        地址：http:∥www.nuqneH.org/aftershock/
+        
+        名称：Duke Nukem 3D
+        简介：当然，除了Quake,Duke(毁灭公爵)的网址也值得访问一下，我认为这个游戏的精彩度不下于Doom!
+        
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

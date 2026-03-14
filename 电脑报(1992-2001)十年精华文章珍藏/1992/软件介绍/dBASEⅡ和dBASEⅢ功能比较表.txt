@@ -1,0 +1,220 @@
+dBASEⅡ和dBASEⅢ功能比较表
+
+
+1992-12-25
+
+        函数格式
+        dBASEⅡ	dBASEⅢ               函数类型	          功能说明
+        &	&	               C	        宏替换。
+        @(<子串>,<母串>)AT(<子串>,<母串>)C	        搜集子串。
+        RANK	ASC(C)	               N	字符串转换为ASCII编码。
+        	BOF()	               L	测试文件的开始。
+        	CDOW(D)	               C	从日期变量中得出某一天的星期名称。
+        CHR(N)	CHR(N)	               C	将ASCII码转换为相应字符。
+        	CMONTH(D)	        C	求相应的文字月份。
+        	COL( )	                N	求屏幕当前位置的列数。
+        	CTOD(C)         	D	将字符串转换成相应的日期。
+        DATE( )	DATE( )	               D	求系统的日期。
+        	DAY(D)	               N	根据日期求本月的天数。
+        	DELETE( )	       L	测试当前记录是否有删除标记。
+        	DOW(D)	               N	根据日期求是星期几。
+        	DTOC(D)	                C	将日期转换成相应的字符串。
+        EOF	EOF( )	               L	测试文件的结束。
+        	EXP(N)	               N	求指数
+        FILE(C)	FILE(C)	               L	测试文件是否存在。
+        INT(N)	INT(N)	               N	取整数值。
+        LEN(C)	LEN(C)	               N	求字符串长度。
+        	LOG(N)	               N	求自然对数。
+        	LOWER(C)	       C	将大写字母转换成小写字母。
+        	MOMTH	               N	求月份数。
+        	PCOL( )	               N	求打印机当前位置的列数。
+        	PROW( )	                N	求打印机当前位置的行数。
+        #	RECNO( )	        N	求当前记录号。
+        	ROUND(N、N)	        N	推入。
+        	ROW( )	                N	求屏幕当前位置的行数。
+        	SPACE(N)	         C	产生一个空白字符串。
+        	SQRT(N)	               N	开平方。
+        STR(N、N、N)	STR(N［,N［,N］］)C	将数值转换成字符串。
+        ＄(C,N［,N］)	SUBSTR(C,N［,N］)C	选择子串。
+        	TIME( )	               C	求系统时间。
+        TRIM(C)	TRIM(C)	               C	移去尾部空白。
+        TYPE(C)	TYPE(C)	               C	测试表达式的类型。
+        |(C)	UPPER(C)	       C	将小写字母转换成大写字母。
+        VAL(C)	VAL(C)	               N	将字符转换成数字。
+        	YEAR(D)	               N	求年份。
+        
+        (二)命令比较表
+        命令	版本Ⅱ	Ⅲ	命令格式
+        ?	        \	?<表达式表>
+        ??		Ⅲ	??<表达式表>
+        @	Ⅱ		@坐标［SAY<表达式>［USING<格式>］］［G
+        
+        ET<内存变量名>［PICTURE<格式>］］
+        	Ⅲ	        @坐标［SAY<表达式>［PICTURE<格式>］］［［GET<内存变                       量名>［PICTURE<格式>］［RANGE<表达式,表达式>］］［                        CLEAR］
+        ACCEPT	Ⅱ	Ⅲ	ACCEPT［提示符］TO<内存变量名>
+        APPEND	Ⅱ	Ⅲ	APPEND［BLANK］
+        Ⅱ	Ⅲ	APPEND FROM<文件名>［FOR<表达式>］［SDF］DELIMITE］
+        ASSIST		Ⅲ	ASSIST
+        AVERAGE		Ⅲ	AVERAGE<表达式表>［<范围>］［FOR/WHILE<表达式>］［                         TO<内存变量名表>］
+        BROWSE	Ⅱ	Ⅲ	BROWSE［FIELDS<字段名表>］
+        CANCEL	Ⅱ	Ⅲ	CANCEL
+        CHANGE	Ⅱ		CHANEG［范围］FIELD<字段名表>［FOR<表达式>］
+        	        Ⅲ	    CHANGE［范围］［FIELDS<字段名表>］［FOR/WHILE<                        表达式>］
+        CLEAR	Ⅱ	Ⅲ	CLEAR［GETS］
+        	        Ⅲ	CLEAR ALL
+        		        CLEAR MEMORY
+        CLOSE		Ⅲ	CLOSE［ALTERNATE/DATABASES/FORMAT/INDEX/PROCEDU
+        CONTINUEⅡ	Ⅲ	RE］CONTINUE
+        COPY	Ⅱ		COPY［<范围>］TO<文件名>［FIELD<字段名表>］［FOR<表                        达式>］
+        Ⅱ		COPY［<范围>］TO <文件名>［SDF/DELIMITED［WITH<分界                        符>］
+        	       Ⅲ	COPY FILE<文件名>TO<文件名>(带后缀的任意种类文件)
+        	       Ⅲ	COPY TO <文件名>［<范围>］［FILEDS<字段名表>］［                         FOR/WHILE<表达式>］［SDF/DELIMITED［WITH<分界符>］］
+        Ⅱ	Ⅲ	COPY STRUCTURE TO<文件名>［FIELDS<字段名表>］
+        COUNT	Ⅱ		COUNT［<范围>］［FOR<表达式>］［TO<内存变量名表>］
+        		COUNT［<范围>］［FOR/WHILE<表达式>］［TO<内存变量名表>］
+        CREATE	Ⅱ	Ⅲ	CREATE<.DBF文件名>
+        	        Ⅲ	CREATE LABEL<.LBL文件名>
+        	        Ⅲ	CREATE REPORT<.FRM文件名>
+        DELETE	Ⅱ		DELETE FILE<文件名>
+        Ⅱ		DELETE［<范围>］［FOR<表达式>］
+        	        Ⅲ	DELETE［<范围>］［FOR/WHILE<表达式>］
+        DIR		Ⅲ	DIR［<驱动器标识符>:］［<路径>\］［<框架>］
+        DISPLAY	Ⅱ		DISPLAY［<范围>］［FOR<表达式>］［OFF］［<字段名表                          ］
+        	        Ⅲ	DISPLAY［<范围>］［FOR/WHILE<表达式>］［OFF］［<字                       段名表>］［TO PRINT］
+        DISPLAY STRUCTURE
+        	        Ⅲ	DISPLAY STRUCTURE［TO PRINT］
+        Ⅱ		DISPLAY MEMORY
+        	        Ⅲ	DISPLAY MEMORY［TO PRINT］
+        Ⅱ	        DISPLAY FILES［ON<驱动器标识>］
+        		          DISPLAY STATUS［TO PRINT］
+        DO	Ⅱ		DO<文件名>
+        	       Ⅲ	DO<文件名>［WITH<参数表>］
+        DO CASE Ⅱ	Ⅲ  DO   CASE<条件> <命令串>［CASE<条件>］<命令串>［                          OTHERWISE］<命令串>
+        DO WHILEENDDO	Ⅱ	Ⅲ	DO WHILE<条件>，   <命令串> ENDDO
+        EDIT	Ⅱ		EDIT［数值］
+        		        EDIT［［RECORD］<数值表达式>］
+        EJECT	Ⅱ	Ⅲ	EJECT
+        ERASE	Ⅱ		ERASE
+        	Ⅲ	ERASE<文件名.后缀>
+        EXIT		Ⅲ	EXIT
+        FIND	Ⅱ	Ⅲ	FIND<字符串>
+        GO/GOTO	Ⅱ		GO［TO］TOP/BOTTOM/［RECOED］<数值>
+        	        Ⅲ	GO［TO］<数值表达式>/TOP/BOTTOM
+        HELP		Ⅲ	HELP［<命令或函数>］
+        IF	Ⅱ	Ⅲ	IF<条件>  <命令串>  ［ELSE］  <命令串>ENDIF
+        INDEX	Ⅱ	Ⅲ	INDEX ON<关键字表达式>TO<.NDX文件名>
+        INPUT	Ⅱ	Ⅲ	INPUT［提示符］TO<内存变量名>
+        INSERT	Ⅱ	Ⅲ	INSERT［BLANK］［BEFORE］
+        JOIN	Ⅱ		JOIN TO <文件名>FOR<表达式>［FIELDS<字段名表>］
+        	        Ⅲ	JOIN WITH<别名>TO<文件名>FOR<表达式>［FIELDS<字段名                         表>］
+        LABEL	        Ⅲ	LABEL FORM<LABEL文件名>［<范围>］［SAMPLE］［TO                          PRINT］［FOR/WHILE<表达式>］［TO FILE<文件名>］
+        LIST	Ⅱ		LIST［<范围>］［<字段名表>］［FOR<表达式>］［OFF］
+        	       Ⅲ	LIST［OFF］［<范围>］［表达式表］［FOR/WHILE<表 达                       式>］［TO PRINT］
+        Ⅱ		LIST STRUCTURE
+        	       Ⅲ	LIST STRUCTURE［TO PRINT］
+        	Ⅱ		LIST MEMORY
+        	      Ⅲ	LIST MEMORY［TO PRINT］
+        	Ⅱ		LIST FILES［ON<驱动器标识>］
+        	      Ⅲ	LIST STATUS［TO PRINT］
+        LOCATE	Ⅱ	Ⅲ	LOCATE［<范围>］［FOR］<表达式>］
+        LOOP	Ⅱ	Ⅲ	LOOP
+        MODIFY	Ⅱ	Ⅱ	MODIFY COMMAND
+        	Ⅱ	Ⅲ	MODIFY STRUCTURE
+        	        Ⅲ	MODIFY LABEL
+        	        Ⅲ	MODIFY REPORT
+        	        Ⅲ	MODIFY STRUCTURE<文件名>
+        NOT/*	Ⅱ	Ⅲ	NOT/*本文
+        PACK	Ⅱ	Ⅲ	PACK
+        PARAMETER	Ⅲ	PARAMETER<参数表>
+        PRIVATE		Ⅲ	PRIVATE［ALL［LIKE/EXCEPT<框架>］］［<内存变量名表>                        ］
+        PROCEDURE	Ⅲ	PROCEDURE<过程名>
+        PUBLIC			PUBLIC<内存变量名表>
+        QUIT	Ⅱ	Ⅲ	QUIT
+        READ	Ⅱ	Ⅲ	READ
+        RECALL	Ⅱ		RECALL［<范围>］［FOR<表达式>］
+        	         Ⅲ	RECALL［<范围>］［FOR/WHILE<表达式>］
+        REINDEX		Ⅲ	REINDEX
+        RELEASE	Ⅱ		RELEASE［<内存变量名表>\ALL］
+        	Ⅲ	RELEASE［<内存变量名表>］［ALL［LIKE/EXCEPT<框架>］                         ］
+        REMARK	Ⅱ		REMARK
+        RENAME	Ⅱ	Ⅲ	RENAME<旧文件名.后缀>TO<新文件名.后缀>
+        REPLACE	Ⅱ		REPLACE［<范围>］<字段名>WITH<表达式>［,<字段名                          >WITH<表达式>...］［FOR<表达式>］
+        	Ⅱ	     REPLACE［<范围>］<字段名>WITH<表达式>［<.字段名>WITH<                    表达式>...］［FOR/WHILE<表达式>］
+        REPORT	Ⅲ		REPORT［<范围>］［FORM<文件名>］［TO PRINT］［                     FOR<表达式>］
+        REPORT		Ⅲ	REPORT FORM<文件名>［<范围>］［FOR<表达式>］［PLAIN                   ］［HEADING<字符串>］［NOEIECT］［TO PRINT］［TO<文件名>                                                                    ］
+        RESTORE	Ⅱ		RESTORE FROM<文件名>
+        	Ⅲ	RESTORE FROM<文件名>［ADDITIVE］
+        RETURN	Ⅱ		RETURN
+        	Ⅲ	RETURN［TO MASTER］
+        RUN		Ⅲ	RUN<命令>
+        SAVE	Ⅱ		SAVE TO<文件名>
+        		Ⅲ	SAVE TO <文件名>［ALL LIKE/EXCEPT<框架>］
+        SEEK		Ⅲ	SEEK<表达式>
+        SELECT	Ⅱ		SELECT PRIMARY/SECONDARY
+        	Ⅲ	SELECT<工作区/别名>
+        SET		Ⅲ	SET
+        	Ⅱ	Ⅲ	SET ALTERNATE ON/OFF
+        	Ⅱ	Ⅲ	SET ALTERNATE TO <文件名>
+        	Ⅱ	Ⅲ	SET BELL ON/OFF
+        	Ⅱ	Ⅲ	SET CARRY ON/OFF
+        	Ⅱ		SET COLON ON/OFF
+        SET		Ⅲ	SET COLOR<标准>［,<增强>］［,<边缘>］
+        	Ⅱ	Ⅲ	SET CONFIRM ON/OFF
+        	Ⅱ	Ⅲ	SET CONSOLE ON/OFF
+        	Ⅱ		SET DATE TO <月月/日日/年年>
+        	Ⅱ	Ⅲ	SET DEBUG ON/OFF
+        		Ⅲ	SET DECIMALS TO <数值表达式>
+        	Ⅱ	Ⅲ	SET DEFAULT TO <驱动器>
+        	Ⅱ	Ⅲ	SET DELETED ON/OFF
+        		Ⅲ	SET DELIMITER ON/OFF
+        		Ⅲ	SET DEVICE TO SCREEN/PRINT
+        SET	Ⅱ	Ⅲ	SET ECHO ON/OFF
+        	Ⅱ		SET EIECT ON/OFF
+        	Ⅱ	Ⅲ	SET ESCAPE ON/OFF
+        	Ⅱ	Ⅲ	SET EXACT ON/OFF
+        		Ⅲ	SET FILTER TO ［<条件>］
+        		Ⅲ	SET FIXED ON/OFF
+        	Ⅱ		SET FORMAT TO SCREEN/PRINT
+        	Ⅱ	Ⅲ	SET FORMAT TO <.FMT文件名>
+        		Ⅲ	SET FUNCTION<数值表达式>TO <字符串表达式>
+        		Ⅲ	SET HEADING ON/OFF
+        	Ⅱ		SET HEADING TO<字符串>
+        		Ⅲ	SET HELP ON/OFF
+        		Ⅲ	SET INDEX TO <索引文件名表>
+        	Ⅱ	Ⅲ	SET INTENSITY ON/OFF
+        	Ⅱ	Ⅲ	SET MARGIN TO <数值表达式>
+        		Ⅲ	SET MENUS ON/OFF
+        	Ⅱ		SET LINKAGE ON/OFF
+        		Ⅲ	SET PATH TO ［<路径名表>］
+        	Ⅱ	Ⅲ	SET PRINT ON/OFF
+        		Ⅲ	SET PROCEDURE TO ［<过程文件名>］
+        	Ⅱ		SET RAW ON/OFF
+        		Ⅲ	SET RELETION［TO<关键字表达式>/<数值表达式>］INTO<                         别名>
+        		Ⅲ	SET SAFETY ON/OFF
+        	Ⅱ	Ⅲ	SET SCREEN ON/OFF
+        	Ⅱ	Ⅲ	SET STEP ON/OFF
+        	Ⅱ	Ⅲ	SET TALK ON/OFF
+        		Ⅲ	SET UNIQUE ON/OFF
+        SKIP	Ⅱ	Ⅲ	SKIP［<数值表达式>］
+        SORT	Ⅱ		SORT ON<字段名>TO<文件名>［ASCENDING］［DESCENDING］
+        		Ⅲ	SORT TO <文件名>ON<字段名>［/A］［/D］［，<字段名>                        ［/A］［/D］...］［<范围>］［FOR<条件>］
+        STORE	Ⅱ		STORE<表达式>TO <内存变量名>
+        	Ⅲ	STORE<表达式>TO<内存变量名表>	<内存变量名>=<表达式>
+        SUM	Ⅱ		SUM<字段名表>［TO<内存变量名表>］［<范围>］［FOR<表                       达式>］
+        	Ⅲ	SUM［<范围>］［<表达式表>］［TO<内存变量名表>］［FOR/WHILE<                 表达式>］
+        
+        TEXT		Ⅲ	TEXT  <文本内容>ENDTEXT
+        TOTAL	Ⅱ		TOTAL ON<关键字>TO<文件名>［FIELDS<字段名表>］［                        FOR<表达式>］
+        		Ⅲ	TOTAL ON<关键字表达式>TO<文件名>［<范围>］［FIELDS<                    字段名表>］［FOR/WHILE<表达式>］
+        TYPE		Ⅲ	［TYPE<文件名>［TO PRINT］
+        UPDATE	Ⅱ		UPDATE FROM<文件名>ON<关键字>［ADD<字段名表>］［                        REPLALE<字段名表>］
+        		Ⅲ	UPDATE ON<关键字表>FROM<别名>REPLACE<字段名>WITH<表                       达式>［<，字段名>WITH］<表达式>...］［RANDOM］
+        USE	Ⅱ		USE<数据库名>［INDEX<索引文件名>］［,<索引文件名                        >...］
+        		Ⅲ	USE<数据库名>［INDEX<索引文件名表>］［ALIAS<别名>］
+        WAIT	Ⅱ		WAIT［TO<内存文件名>］
+        		Ⅲ	WAIT［提示符］TO［<内存变量名>］
+        ZAP		Ⅲ	ZAP
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

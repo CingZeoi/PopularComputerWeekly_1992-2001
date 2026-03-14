@@ -1,0 +1,63 @@
+被遗忘的HTML元素（上下）
+
+蟋蟀
+1999年 第40期 27版
+
+
+　　众所周知，制作网页所用到的最基本的语言HTML主要是由著名的W3C组织来制定标准的。但由于IE和NetScape之间都在为击败对手不断地研究新的网页技术而竞争，就产生了不少新的HTML元素。这些新的HTML元素，有的被W3C组织所认证，发展成为所有的浏览器必须支持的HTML标准元素。但有的却仍不被别的浏览器所接受。特别是对于目前最主流的浏览器－IE和NetScape，出于各种方面的原因，总是有一些元素不能得到二者共同的支持。在实际的网页制作过程中，为了能使页面在所有的浏览器中都能正常显示，这样的元素往往得不到应用，而逐渐为人们遗忘。但我们可以相信，一个元素之所以被一种浏览器所支持，它必有它的优点和长处。下面我们就来一起来看一下这些被“遗忘”了的HTML元素。
+#1　　1.BGSOUND
+　　BGSOUND元素可在IE3.0以上的浏览器中运行，在NetScape任何版本的浏览器中都是无效的。BGSOUND用来设定页面载入时的背景音乐，它的语法格式如下：
+　　<BGSOUND SRC=″url″ LOOP=″n″>
+　　BGSOUND可以放在页面文件中的任何位置，但一般为了容易读懂页面源代码，都将其放在标签后的第一个位置上。它有SRC和LOOP两个属性，其中的SRC是用来指定音乐文件的具体url路径，音乐文件可以是WAV、AU或者MIDI格式等。LOOP用来指定背景音乐循环播放的次数，当LOOP=－1时，背景音乐将会连续播放，直到浏览器开始载入下一个页面为止。例如下例：
+　　<BGSOUND SRC=″music/bgmusic.wav″ loop=－1>
+#1　　2.IFRAME
+　　这也是一个只可在IE3.0以上的浏览器中运行的HTML元素，在NetScape浏览器中运行时不会显示出任何效果。IFRAME元素可以在页面中插入一个浮动的窗口，在这个浮动窗口中可以显示另外一个网页页面。它的基本语法格式如下：
+　　<IFRAME SRC=″url″ FRAMEBORDER=″1或0″ WIDTH=″x″ HEIGHT=″y″ SCROLLING=″yes或no″ ALIGN=″alignment″ MARGINWIDTH=″x″ MARGINHEIGHT=″y″></IFRAME>
+　　其中SRC是用来指定在页面浮动窗口中显示的网页文件的具体url地址；FRAMEBORDER用来指定页面浮动窗口是否具有边框，它的值只有1和0两个，分别表示有边框和没有边框；WIDTH和HEIGHT用来指定页面浮动窗口的宽度和高度；SCROLLING指定页面浮动窗口是否需要用滚动条，它的值有yes和no两个，当页面浮动窗口内嵌网页页面大于浮动窗口时，在默认的情况下，在浮动窗口的右边和下边会自动提供滚动条，但如果SCROLLING=″yes″，则不管在什么情况下，浮动窗口都会提供滚动条，如果SCROLLING=″no″，则不管在什么情况下，浮动窗口都不提供滚动条；ALIGN属性指定浮动窗口内的页面相对于浮动窗口的位置，它的值有left、right、top、middle、bottom，分别表示浮动窗口内的页面的位置是靠左、靠右、靠上、居中和靠下；MARGINWIDTH和MARGINHEIGHT分别用来指定浮动窗口内的页面与浮动窗口之间在水平方向和竖直方向上的填充距。请看下例：
+　　<BODY bgcolor=″＃33eebb″ text=″＃000000″>
+　　<FONT SIZE=5>利用IFRAME元素制作页面浮动窗口</FONT>
+　　<IFRAME SRC=″poem.htm″ FRAMEBORDER=″1″ WIDTH=″400″ HEIGHT=″200″ MARGINWIDTH=″10″ MARGINHEIGHT=″10″<>/IFRAME>
+　　</BODY>
+#1    3.MARQUEE
+    只可以在IE3.0以上版本的浏览器中运行的HTML元素，NetScape浏览器会忽略该元素。MARQUEE可以为我们在页面上提供一个“电子播放器”，即产生滚动字幕的页面效果。它的基本语法结构如下所示：
+    <MARQUEE ALIGN=″alignment″ BEHAVIOR=″type″ BGCOLOR=″color″ DIRECTION=″direction″ SCROLLAMOUNT=″n″ SCROLLDELAY=″n″ LOOP=″n″ WIDTH=″x″ HEIGHT=″y″ HSPACE=″x″ VSPACE=″y″>滚动字幕内容</MARQUEE>
+    其中ALIGN用来指定滚动字幕与左右文字的对齐方式，它的值可以有top、middle、bottom等；BEHAVIOR用来指定滚动字幕的滚动方式，它的属性值有scroll、slide和alternate三个，scroll表示滚动字幕内容向同一方向重复滚动，slide表示滚动字幕内容从一端向另一端滚动并在另一端停止，alternate表示滚动字幕内容在两端之间来回往复滚动；DIRECTION指定滚动字幕的滚动方向，它的属性值有left和right两个，分别表示滚动字幕由右向左和由左向右滚动；SCROLLAMOUNT用来设置多次滚动之间的间隔距离，其单位是pixels（像素）；SCROLLING用来指定滚动字幕滚动一次所需要的时间，单位是ms（千分之一秒），其值的大小将直接影响滚动字幕的滚动速度；LOOP属性是用来指定滚动字幕的滚动次数的，当它的值为“－1”时，滚动字幕将连续滚动直到浏览器载入下一个页面；HSPACE和VSPACE则分别用来指定滚动字幕与其上一级页面在水平方向和竖直方向上的距离。
+#1    4.MULTICOL
+    MULTICOL元素是只能在NetScape3.0以上版本的浏览器中运行的HTML元素，尽管在IE中也不会造成太大的麻烦，用来在网页上实现分栏效果。它的基本语法结构如下所示：
+    <MULTICOL COLS=″n″ GUTTER=″x″ WIDTH=″x″></MULTICOL>
+    其中的COLS属性定义分栏栏数，GUTTER表示各栏之间的距离，而WIDTH表示的是每栏宽度，而不是整个分栏区域的宽度。还需要注意的是，MULTICOL在处理分栏时，并不能自动为文字换行，所以还需要在每行的最后加上强制换行标签<BR>。请看下例：
+    <BODY>
+    <MULTICOL COLS=″3″ GRTTER=″10″ WIDTH=″450″>
+    这首诗是周恩来同志……《敬业》第五期。
+    </MULTICOL>
+    </BODY>
+    需要注意的是，由于NetScape在处理中文换行问题上的不足，要使分栏效果能够正常显示，还必须在页面文件开头的META标签内加上″charset=gb2312″代码。
+#1    5.SPACER
+    SPACER也是一个只能在NetScape3.0以上版本的浏览器中运行的HTML元素，通过运用SPACER元素，可以在页面上产生一些具有一定尺寸和位置的空格，从而实现一些特殊的效果。它的语法结构如下所示：
+    <SPACER TYPE=″block″ ALIGN=″alignment″ WIDTH=″x″ HEIGHT=″y″>
+    或者是
+    <SPACER TYPE=″horizontal/vertical″ ALIGN=″alignment″ SIZE=″n″>
+    这两种语法结构基本相同，只不过TYPE属性值为″block″时，只能通过WIDTH和HEIGHT来定义它的尺寸，而不能用SIZE属性；而当TYPE属性值为″horizontal″或″vertical″时，只能用SIZE属性来控制尺寸。TYPE属性值为″block″时，WIDTH表示空格的宽度，HEIGHT表示空格的高度，多出所在行行高的部分将会延伸到下一行；当TYPE的属性值为″horizontal″时，表示在该行插入一个水平方向上的空格，其宽度为SIZE属性所指定的数值；TYPE属性值为″vertical″时，表示在该处插入一个竖直方向上的空格，SIZE值表示的是该行与上一行之间的行距。下面请看一个用到了以上三种TYPE属性的例子：
+    <body>
+    <spacer  type=″block″ align=″left″ width=″32px″ height=″100px″>
+    <spacer type=″horizontal″ size=″32px″>由于现在的软件越做越大，4G以下的硬盘已被淘<spacer type=″vertical″ size=″8px″>汰出了主流市场……
+    </body>
+#1    6.LAYER
+    LAYER是在NetScape Communicator 4.0中才出现的HTML元素，它可以让网页中的不同元素位于不同的层上，这类似于PhotoShop中层的概念。通过使用LAYER元素，可以在页面中实现图文定位、元素重叠等效果，如果再与适当的Script语言结合，还可以实现改变重叠顺序、控制元素的显示或隐藏，甚至还可以实现动画效果。LAYER的基本语法结构如下：
+    <LAYER NAME=″name″ LEFT=″x″ TOP=″y″ Z－INDEX=″n″ VISIBILITY=″visibility″>……</LAYER>
+    其中NAME用来给层命名，通过这个名字Script可以对该层进行操作。LEFT和TOP用来控制层在页面中的位置，分别表示层的左上角距浏览器窗口左边框和上边框的距离。Z－INDEX属性中用来控制不同的层在页面中的层叠顺序，数字小的层位于数字大的下面。VISIBILITY属性定义该层的显示属性，它的值有show、hide、inherit，其中show和hide分别表示该层为可见和不可见，而inherit则表示该层的显示属性与其上一级层的显示属性相同。请看下面的这个实例：
+    <BODY BGCOLOR=″＃ffffdd″>
+    <layer name=″layer1″ left=″10″ top=″10″ z－index=0>
+    <img src=″girl.jpg″ WIDTH=″240″ HEIGHT=″240″>
+    </layer>
+    <layer name=″layer2″ left=″190″ top=″70″ z－index=1>
+    <FONT COLOR=″0000ff″ SIZE=″5″ FACE=″楷体_gb2312″><B>Hi！你好，小女子网名毛毛，希望能与你成为好朋友</B></FONT>
+    </layer>
+    </BODY>
+    以上我们所提到的元素只是比较重要的几个，这些元素在使用的时候，虽然仅被一种浏览器所支持，但在别的浏览器上一般也不会产生错误的信息。而有些元素，如IFRAME，在不支持的浏览器中运行后不能够正常地表达页面的意图，用与不用，就要看你的智慧了。
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

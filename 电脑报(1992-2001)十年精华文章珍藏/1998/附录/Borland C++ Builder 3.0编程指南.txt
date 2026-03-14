@@ -1,0 +1,230 @@
+Borland C++ Builder 3.0编程指南
+
+李明柱
+1998年 第51期 09版
+
+    Borland C++ Builder（以下简称C++ Builder）是由Borland公司 继Delphi之后又推出的一款高性能可视化集成开发工具。C++ Builder具有快速的可视化开发环境：只要简单地把控件（Component）拖到窗体（Form）上，定义一下它的属性，设置一下它的外观，就可以快速地建立应用程序界面；C++ Builder内置了100多个完全封装了Win95公用特性且具有完全可扩展性（包括全面支持ActiveX控件）的可重用控件；C++ Builder具有一个专业C++开发环境所能提供的全部功能：快速、高效、灵活的编译器优化，逐步连接，CPU透视，命令行工具等。它实现了可视化的编程环境和功能强大的编程语言（C++）的完美结合。特别是Borland公司新发布的C++ Builder 3.0，不但在可视化编程工具上提供了比Delphi 3.0更强大、易用的编程工具 ，还在C++语言上提供了增强功能。 
+#1    一、功能简介
+    1.充分利用C++的强大功能
+    C++ Builder优化的32位原码（Native Code）编译器建立在Borland公司久经考验的编译技术基础之上，提供了高度安全性、可靠性、快速性的编译优化方法，完全编译出原始机器码而非中间码，软件执行速度大大提高。在编译和连接过程中，C++ Builder自动忽略未被修改的原代码和没有使用的函数，从而大大提高了编译和连接速度。C++ Builder的CPU透视工具包括五个独立的小面板，可以对正在运行的程序从内部进行深层次的了解。另外C++ Builder还提供了一个专业开发环境所必需的命令行工具，以帮助建立C++程序或者准备编译和连接的程序进行更精细的控制。
+    C++ Builder可以编译所有符合ANSI/ISO标准的原代码，支持最新ANSI C++/C语言特征：模板（Templates）、例外（Exceptions）、运行类型信息（Runtime Type Information）、Namespaces等，另外它还可以使用标准C++库且支持标准模板库（STL），以前的所有C++/C原代码可以不经过修改，直接移植到C++ Builder环境下来。C++ Builder完全支持32位长文件名、多线程程序设计，且允许程序员直接调用任何Win95和NT API函数。
+    2.高效可视化开发环境
+    C++ Builder的集成开发环境（IDE）提供了可视化窗体设计器、对象观察器、控件板、工程管理器、集成编辑器和调试器等一系列可视化快速应用程序开发（RAD）工具，让程序员可以很轻松地建立和管理自己的程序和资源。
+    3.可重用控件
+    在面向对象语言（如Smalltalk、Java等）中，一个类包含特定对象感兴趣的数据和定义对象行为的方法，而子类是对父类的继承，又增加了一些新的方法。在C++ Builder中所使用的可视化控件库（VCL）也具有同样的概念 ，每一对象中包括数据成员和方法，程序员利用方法管理该对象。VCL建立在类库结构之上，充分利用了控件的属性和事件概念，每个控件不仅包含允许程序员管理其外观的公共数据部分，还包括通过属性和事件访问的函数部分。 
+    4. 数据库开发工具和客户机/服务器（C/S）连接
+    C++ Builder同Delphi一样，提供了一整套数据库开发工具，可以开发出功能强大、界面美观、便利的数据库应用程序。C++ Builder提供了一个最新的数据库引擎BDE，所有的数据库连接使用的指令，均会通过BDE进行处理。对于单机使用的数据库而言，C++ Builder可以直接通过BDE来控制数据库数据的读取；而对于远端的数据库系统，BDE尚需通过SQL Links或ODBC才能读取数据库的内容。
+    C++ Builder的C/S版本可以通过32位SQL Links驱动器直接连接Oracle、Sybase、MS SQL Server、DB2、Informix和InterBase数据库，建立起企业级客户机/服务器应用程序。另外C++ Builder提供了与数据库相关的对象和强大的报表产生工具：ReportSmith，增加了程序编写的便利性。
+    C++ Builder中提供了几个使用数据库的工具，让用户可以直接修改数据库中的数据，或是执行一些指令。主要有SQL Explorer，SQL Monitor，Database Desktop，Form Expert等，大大增强了C++ Builder的数据库开发功能，具体用法可参阅有关书籍。
+    5.Internet解决方案
+    C++ Builder支持Microsoft、Sun、Netscape等公司关于Internet的关键技术，其中包括象ActiveX、CGI、ISAPI、WinInet、NSAPI等Internet标准。通过Borland公司的Internet解决方案包（Internet Solutions Pack），程序员使用C++ Builder的RAD工具（把一个Internet控件拖到窗体上，然后设置其属性和事件）就可以很方便地建立起C++ Builder的Internet应用程序。利用ActiveX控件，可以实现自己的Web浏览器、管理Internet电子邮件、进行文件传输等一系列Internet功能。
+#1    二、集成开发环境（IDE） 
+    1.集成开发环境（IDE）
+    双击C++ Builder图标或在Win95/NT的“开始”菜单中选择“C++ Builder 3”选项，就可以启动C++ Builder 3.0，进入C++ Builder的集成开发环境。在正常启动情况下，C++ Builder的界面有五部分组成，如^510cb01^所示。
+    Main Menu：主菜单。它位于窗口的最上面，提供了C++ Builder的全部操作功能。
+    Toolbar：工具栏。它位于集成开发环境的左上侧，是一些常用的菜单命令，如打开、保存文件、运行应用程序等的快捷方式。使用工具栏比使用菜单更加方便。
+    Component palette：控件板。它是C++ Builder的可视化控件库（VCL），是程序设计的主要工作区。C++ Builder 3.0共有13个标签页（客户机/服务器版），分别是Standard、Additional、Win32、System、Internet、Data Access、Data Controls、Decision Cube、QReport、Dialogs、Win 3.1、Samples、ActiveX。其中在每一标签页上都有不同的控件对象供使用，它们是进行可视化程序设计的主要工具。
+    Object Inspector：对象观察器。利用它可以设定和查看所有对象的属性。对象观察器共有两个标签页：属性页（Properties）和事件页（Events）。其中的属性页用于设定控件对象的各种属性，如控件的标题名、大小、位置、字体、颜色等等；事件页用于设定与该控件相关的消息处理事件响应。如可以设定Button按钮的OnClick（按钮单击）消息响应函数为“ButtonClick”等，然后就可以在消息响应函数中加入自己的程序代码了。启动C++ Builder后，用鼠标点击对象观察器的属性页（Properties），对象观察器里包含的就是“Form1”窗体的各项属性。对象观察器的标题栏下面一行显示为“Form1：TForm1”，它表示下面的内容为窗体“Form1”的属性。如果要改变属性页里的内容，例如把“Caption”栏的“Form1”改为“C++Builder3.0速成”，则会发现窗体的标题已变成“C++Builder3.0速成”。同样，也可以改变其他的属性。用户不用编写代码和执行程序，就可以知道程序的运行结果是什么了。在窗体Form1中放置其它控件和设置其属性的方法与此类似（窗体也是一个控件）。
+    Unit1.cpp和Form1：窗体“Form1”和装有“Unit1.cpp”文件的代码编辑器。其实它们都不是编辑环境的组成部分，而是系统在启动开发环境的同时自动装入的默认工程文件（Project1）所包括的部分。其中，装有Unit1.cpp代码的编辑框叫代码编辑器，是程序员设计代码的地方。Form1为窗体，是C++ Builder的可视化界面设计部分。
+    2.工程文件管理器
+    在C++ Builder3.0中，开始一个新的应用程序就称为开始一个工程，系统会自动生成许多各种文件。如果要用户自己来管理这些文件的话，随着应用程序复杂性的增加，工程会越来越大，文件也会越来越多，管理起来就显的越来越麻烦。C++ Builder提供了工程文件管理器来管理一个工程，大大减轻了用户的负担，好多文件交由工程文件管理器来管理，用户只需关心其中的一些文件即可。
+    例如，以系统在启动C++ Builder时自动装入的默认工程文件“Project1”为例，它一般包括以下几个文件：
+    Project1.bpr（C++ Builder 1.0为Project1.mak）：工程文件。该文件是一个文本文件，记录了各种资源信息，通过工程文件，系统就知道如何把各种文件连接起来，最终生成用户的可执行文件。
+    Project1.cpp：该文件是工程文件生成的可执行文件的入口点，有点象WinMain函数。通过该文件，系统知道如何去调用窗体或者实现其它功能，一般情况下用户不用对此文件进行改动。
+    Project1.res：系统资源文件。包括各种图标资源、光标资源等，系统以二进制文件的方式存放，这个文件由系统自动生成。
+    Unit1.cpp和Unit1.h：两个都是对应于窗体“Form1”的文件，“Unit1.h”是头文件，“Unit1.cpp”是关于窗体消息的代码文件。用户进行代码编辑时，就是对“Unit1.cpp”文件进行编辑。
+    Unit1.dfm：它是和窗体“Form1”对应的文件。用户创建的窗体被系统转换为二进制文件存放，扩展名为.dfm。此文件是系统自动生成的，用户不用对它进行管理。
+    系统通过工程文件管理器来对一个工程进行管理，在主菜单“View”下选择“Project Manager“选项命令，就进入如^510cb02^所示的工程文件管理器。
+     利用工程文件管理器，就可以对上述各种文件进行有效管理（删除、增加、新建等）。
+    3.菜单编辑器
+    在C++ Builder中设计菜单也是一个可视化过程，下面介绍在C++ Builder中利用菜单编辑器设计菜单的具体过程。
+    启动C++ Builder，产生默认工程文件“Project1”，然后从控件板的“Standard”标签页中拖动“MainMenu”控件到窗体“Form1”上，如^510cb03^所示。
+    用鼠标左键双击窗体“Form1”中的“MainMenu”控件或者用鼠标右键单击“MainMenu”控件，在弹出的菜单中选择“Menu Designer”命令，进入如^510cb04^所示的菜单编辑器。
+    用鼠标单击上图所示的蓝色小方块，这时对象观察器里出现该菜单的属性，在“Caption”属性中填入“&File（在一个菜单命令的符号前面加&，则菜单中该符号下有一下划线，且该菜单命令的快捷键为Alt+该符号）”，则出现相应的菜单命令，并且小方块右移，再填上“&Edit”，对应的菜单命令就出现在前一命令的右方，如^510cb05^。同时，“Form1”里也会自动出现主菜单。
+    最后可以用鼠标单击主菜单项，系统自动弹出下拉菜单框，用户只需填上相应的命令就可以设计好自己的下拉式菜单了。
+    菜单设计好后，相应的事件响应函数可以由用户自己设定或系统自动生成。例如，设计“Open”菜单命令为打开一个文件。用鼠标单击菜单编辑器里“File”菜单中的“Open”选项，对象观察器中出现的是该对象的属性，选择“Events”标签页，用户就可以填写相应的消息处理函数和响应代码了，如^510cb06^所示。
+    在“OnClick”项里填写“OpenFile”，也就是说，当“File”菜单里的“Open”命令被选中或单击时，就会调用OpenFile（）函数。如果想要插入代码，只需双击“OpenFile”，系统即自动切换到代码编辑器里，而且系统已经生成了一个函数“TForm1::OpenFile（）”，如上图所示，只需在该函数体内加入代码即可。其他菜单命令发送的消息和事件响应也同样按上述方法设定。用户再也不用考虑应用程序的消息是如何发送的，消息是怎样封装的等等一大堆麻烦事了！
+    4.程序调试器
+    C++ Builder提供了程序调试器，用户只需进行简单的设置就可以实现强大的调试功能。为了使一个工程文件产生用于调试的调试信息，则须做如下设置：
+    在主菜单里选择“Project|Option”选项，则出现如^510cb07^所示的对话框。
+    选择“Compiler”页，在“Speed Settings”设置栏里，选择“Full debug”，则产生程序调试信息， 选择“Release”则生成的可执行文件中不包含调试信息。
+    选择“Linker”标签页，在“Linking”框里，确认“Include debug information”被选中。
+    在应用程序调试通过，一切正常后，为使可执行代码文件最小，应该把调试信息关闭，重新对原代码进行编译，生成的执行代码会更小。即在上述对话框“Compiler”页的“Speed settings”栏里，选中“Release”。
+    C++ Builder提供的集成调试器可以对应用程序很简单地实现单步执行、设置断点和观察点、鼠标热点指示（在调试状态下，当移动鼠标到某一变量上时，该变量的值就立刻显示出来）等各种调试功能，为应用程序的顺利执行提供了强大保证。
+    5.模板对象的使用
+    很多情况下，用户可能需要开发一系列类型和功能都差别很小的应用程序，如果每次都从头开始的话，就会给增加很多不必要的负担。因此，C++ Builder提供了模板功能供用户使用，大大便利了程序的设计和开发。选择“File|New”菜单，出现了如^510cb08^所示的对话框。
+    把这个对话框叫做对象陈列框（Object Repository）。
+    这里面包括了各种各样的程序模板供程序员选择，如DLL程序、多线程程序、MDI应用程序等等。利用这些模板，只需点击几下鼠标就可以设计出一个具备基本功能的Windows应用程序框架，然后再在上面做一些修改就可以轻松设计出符合自己要求的应用程序了。
+    除上述介绍的以外，C++ Builder的集成开发环境（IDE）中的其他内容，读者可以参考C++ Builder提供的帮助文件或其他书籍，这里不再详述 。下面通过编写一个简单的程序来说明程序设计步骤。
+    （1） 启动C++ Builder3.0，采用系统默认工程文件（或者选择“File|New Application”菜单，重新产生一个工程文件 ），其窗体为“Form1”，默认主程序为“Unit1.cpp”。
+    （2） 从控件板（Component Palette）的“Standard”页拖动一个静态文本框（TLable）控件到“Form1”上，用鼠标把它放到适当的位置。在对象观察器（Object Inspector）中设置该静态文本框的“Caption”属性为“欢迎使用C++ Builder”，最后再利用“Font”属性设置其合适的字体。
+    （3） 从控件板的“Standard”页拖动一个“TButton”标准按钮控件到“Form1”上，利用对象观察器设置其“Caption”属性为“退出”，“Name”属性为“ExitButton”；然后用鼠标选择对象观察器的“Events”事件页，在位于最上一栏的“OnClick”中键入“ExitButtonClick”，表示用窗体的“ExitButtonClick（）”成员函数来响应鼠标单击按钮这一事件。从这里也可以看出C++ Builder面向对象的程序设计方法。
+    （4）用鼠标双击对象观察器的“OnClick”栏后会自动跳转到代码编辑器“ExitButtonClick（）”函数体内。输入程序行“Close（）；”，运行该程序（按F9或选择菜单“Run|Run”），如^510cb09^所示。
+    该程序的功能就是显示一个字符串“欢迎使用C++ Builder”，用鼠标单击“退出”按钮就可以退出该应用程序。
+    从以上的实例中，可以总结出用C++ Builder设计一般应用程序的步骤：
+    （1） 从控件板上的控件页（如Standard、Win32等）拖动所需控件（如MainMenu、Button、StatusBar等）到窗体上，排列好其顺序并设置其属性，这样就设计好了应用程序的界面。
+    （2） 用对象观察器设置好菜单、按钮或其它控件的事件响应函数。如上例中的ExitButtonClick（）。
+    （3） 最后加入事件响应函数代码，如上例中的Close（）。编译运行该程序，便大功告成了！
+    从以上的叙述中，可以看出在C++ Builder的程序设计中，掌握常用控件（如按钮Button等）的使用方法对可视化程序设计至关重要，下面 结合实例详细介绍常用控件的属性和使用方法。
+#1    三、常用控件的使用与编程
+    1. 静态文本控件TLabel  ^510cb10^
+    静态文本是用户无法直接改变（不可编辑）的文本，程序可以在运行时刻来改变它，通常起标注和提示作用，它位于控件板的“Standard”页，其主要属性有：
+    Align：指该控件在窗口中的位置或对齐方式（AlBottom：位于底部；AlClient：充满客户区；AlLeft：位于左方；AlNone：用户自定义；AlRight：位于右方；AlTop：位于顶部）。
+    Alignment：显示文字在本控件中的位置（taCenter：居中；taLeftJustify：居左；taRightJustify：居右）。
+    AutoSize：是否自动缩放（当设为true时，则控件的尺寸随控件里面文字的大小而改变）。
+    Caption：控件中要显示的文字，即标题。
+    Color：控件的颜色。
+    Cursor：鼠标移入控件后的形状。
+    Enabled：设置该控件是否有效。
+    Font：设置该控件内文字的字体，单击该属性弹出字体设置对话框，可以设置字体风格、字体尺寸、字体颜色等。
+    Name：控件名称。
+    2.标准控件按钮TButton ^510cb11^
+    标准按钮主要用于响应用户鼠标或键盘按下的操作，它位于控件板的Standard页，其主要属性有：
+    Cancel：当设为true时，此按钮相当于放弃按钮，即当用户按下Esc键时相当于用鼠标单击此按钮。
+    Default：设置该按钮是否为缺省按钮。 
+    ModalResult：模式结果。（可选值有mrNone、mrOk、mrCancel、mrAbort、mrRetry、mrIgnore、mrYes、mrNo等）当设为非mrNone时，主要用于按下该按钮时关闭该按钮所属模式窗口。
+    标准按钮控件可以响应的主要事件有：
+    OnClick：鼠标单击或按下热键时的响应事件。
+    OnEnter：当按钮获得输入焦点时的响应事件。
+    OnExit：当按钮失去输入焦点时的响应事件。
+    OnKeyDown：当键盘任意键按下时的响应事件。
+    OnKeyPress：当键盘上字符键按下时的响应事件。
+    OnKeyUp：放开键盘按键时的响应事件。
+    OnMouseDown：鼠标键按下时的响应事件。
+    OnMouseUp：鼠标键弹起时的响应事件。
+    OnMouseMove：鼠标移动时的响应事件。
+    3.单行编辑框TEdit ^510cb12^
+    单行编辑框控件用来接收来自用户的单行可编辑输入，它位于控件板的Standard页，其主要属性有：
+    AutoSelect：自动选择。用来设置当该控件获得输入焦点时编辑框里的文本内容是否被自动选择。若用户想要在每次选中该编辑框时就要替换掉原有的内容，而不是在原有的内容后添加新的内容，可把该属性设为true。
+    CharCase：控制编辑框内字符的大小写。（可选值有ecLowerCase：全为小写；ecNormal：正常方式，大小写均可；ecUpperCase：全为大写。）
+    MaxLength：设置输入文本的最大长度。当为0时表示不受限制。
+    ReadOnly：当该属性设为true时，用户不能改变编辑框里面的文本。
+    Text：当程序运行时显示在编辑框里面的文本内容。
+    4.状态条控件TStatusBar ^510cb13^
+    状态条控件一般放在应用程序界面底部，用于快速提示当前状态或提供简单帮助等功能，它位于控件板的Win32页上，其主要属性有：
+    Panel：面板属性，用来设置状态条的风格。用鼠标单击该属性，将弹出状态条面板编辑器，如^510cb14^所示（状态条被分成三个小面板）。利用该编辑器和对象观察器就可以把状态条编辑成合适的样子。
+    SimplePanel：简单面板。用来决定是显示一个简单面板还是多个面板，设为true时，只显示一个简单面板。
+    SimpleText：当SimplePanel设为true时，显示在简单面板里的文本。
+    下面以一实例介绍控件的用法。该程序可以实时地在状态条中显示当前鼠标位置，也可以在编辑框中直接输入鼠标的坐标值，用来改变鼠标在屏幕中的位置。
+    （1） 从控件板的“Standard”页拖动两个静态文本控件“Label1”和“Label2”、两个单行编辑框“Edit1”和“Edit2”、一个按钮控件“Button1”到窗体“Form1”上，设置“Label1”和“Label2”的“Caption”属性值分别为“鼠标X坐标值：”和“鼠标Y坐标值：”；设置“Edit1”和“Edit2”的“Text”属性都为“0”；设置“Button1”的“Caption”属性为“退出”。根据自己的喜好安排好各控件在窗体中的布局。选择菜单“File|Save As”，另存程序文件“Unit1.cpp”为“xyp.cpp”；选择“File|Save Project As”，另存工程文件为“xy.bpr”。
+    （2） 从控件板的“Win32”页拖动一个状态条控件“StatusBar1”到窗体“Form1”的底部（自动），点击其“Panels”属性，设置好如^510cb15^所示的三个小面板，其中一个放提示信息，另外两个分别存放鼠标的X和Y坐标值。
+    （3） 利用对象观察器设置“Form1”的“OnMouseMove”（鼠标在窗体上移动时触发该消息）消息响应函数为“MouseMove（）”，单行编辑框“Edit1”和“Edit2”的“OnChange”消息响应函数同为“EditChange（）”，标准按钮“Button1”的“OnClick”消息响应函数为“ExitButton（）”。
+    （4） 转入代码编辑器，在“xyp.cpp”中键入如下程序代码：
+    void __fastcall TForm1::MouseMove（TObject *Sender， TShiftState Shift，int X， int Y）
+    {
+    //该程序段用于在状态条中的第二个小面板（Item［1］）中显示鼠标的X坐标值，第三个小
+    //面板（Item［2］）中显示鼠标的Y坐标值。IntToStr（）函数用于把整型坐标值转换为字符型。
+    StatusBar1->Panels->Items［1］->Text = IntToStr（X）;
+    StatusBar1->Panels->Items［2］->Text = IntToStr（Y）;
+    void __fastcall TForm1::ExitButton（TObject *Sender）
+    {Close（）;//关闭应用程序}
+    void __fastcall TForm1::EditChange（TObject *Sender）
+    {
+    //调用API函数SetCursorPos（）（C++ Builder中可以直接调用）设置鼠标位置，ToInt（）//用于把字符型的值转换为整型值。读者要留意这种C++ Builder中所特有的转换方法。
+    SetCursorPos（Edit1->Text.ToInt（），Edit2->Text.ToInt（））; 
+    }
+    编译运行该程序如^510cb16^所示。
+    位图按钮控件位于Additional页，它提供了同标准按钮一样的功能，但它能在按钮上贴上一幅位图，其主要属性有：
+    Glyph：浮雕，单击该属性会弹出一个“Picture Editor”对话框，用于装入贴在按钮上的位图文件，如^510cb17^所示。
+    Hint：当鼠标停留在该控件上一段时间后所弹出的一小段提示信息。
+    Layout：用于决定位图贴在按钮的哪个位置。（blGlyphBottom：位于按钮标题的下方；blGlyphLeft：位于按钮标题的左方；blGlyphRight：位于按钮标题的右方；blGlyphTop：位于按钮标题的上方。）
+    5.快速按钮（或快捷按钮）TSpeedButton ^510cb18^
+    快速按钮（SpeedButton）是一种新型的按钮控件，它具有一般按钮的属性和方法，另外除了可以在按钮上添加文字标题外，还可以在按钮表面设定不同图像（这点有别于位图按钮，它只能设定一幅图像），用于代表不同的按钮状态（如选中、无效等）。一般把若干个快速按钮都集中在一个工具条（ToolBar）或面板（Panel）上，使用户可以快速地执行一些常用命令。其主要属性有：
+    AllowAllUp：全部弹起。当该属性设为true时，属于同一组（通过设置GroupIndex属性为相同值）的快捷按钮可以同时处于弹起状态，即所有按钮均未被选中。
+    Down：按钮是否处于按下状态。
+    Glyph：点击该属性弹出“Picture Editor”对话框，用于装入一幅位图，然后把该位图分成四幅小位图，每幅小位图代表不同的按钮状态。这就要求“Glyph”属性设定的位图必须包含四幅相同大小尺寸的小位图，并且这些小位图必须紧密相连且在同一水平线上。
+    NumGlyphs：设定每个按钮对应的小位图的个数。
+    Flat：设定快速按钮的平面效果。设定该属性为true，当鼠标不在按钮上时，该按钮呈现平面状态；当鼠标移到按钮之上时，按钮马上突了出来。当Flat为false时，则没有这种效果。
+    6.工具条按钮TToolBar  ^510cb19^
+    工具条按钮（ToolBar）（简称工具条）通常作为工具按钮（tool buttons）或其它按钮的一个容器，以便对其进行统一管理。 一般情况下可以在工具条上产生工具按钮（在工具条控件上单击鼠标右键，选择弹出式菜单中的“New Button”或“New Separator”，则可以产生一系列的工具按钮或分割线）或放置快速按钮，以便对应用程序进行更加直接的控制（它一般是一些菜单的快捷方式），其主要属性有：
+    Flat：工具条上的工具按钮或其它控件是否具有平面特性。
+    Images：工具条上的工具按钮所对应的图像系列。它一般对应一个ImageList控件。    Wrapable：工具条上的按钮是否可以自动换行，产生一个对齐的新列。
+    如^510cb20^为用工具条产生的一个应用程序界面，它共有四个工具按钮，对应一个“ImageList”控件。
+    7.分割条控件TSplitter ^510cb21^
+    C++ Builder3.0提供了一个Splitter控件来实现对用户窗口的分割，只需拖动该控件到窗体上，就可以实现窗口的任意分割。把面板控件（Panel）拖动到窗体上，设置其对齐方式，然后把Splitter控件拖动到面板控件的边缘，设置其对齐方式与面板控件的对齐方式相同即可。以如^510cb22^的分割方式为例来介绍其具体操作过程：
+    （1） 放置一个面板“Panel1”到窗体“Form1”上，并设置其“Align”属性为“alLeft”，然后在“Panel1”的右边界处放置一个“Splitter”控件，其“Align”属性为“alLeft”。应当使“Splitter”控件的“Left”属性值大于或等于“Panel1”的“Left”值加上其“Width”的值。再设定“Splitter”控件的“Width”属性值为3。
+   （2）放置另外一个面板“Panel2”到窗体“Form1”上，并设置其“Align”属性为“alClient”。最后在各面板控件上放置其它所需控件，从而实现了窗口的分割。
+    8.图像控件TImage ^510cb23^
+    图像控件“TImage”位于“Additional”页，主要用于在某一位置来显示一幅图片。该控件的主要属性有：
+    Center：图片是否在控件的居中位置。
+    Picture：用于装入图片。
+    Stretch：用于图片是否自动伸缩到控件大小。
+    下面以实例介绍上述几个控件的用法。
+    假如设计一个图像放大、缩小的演示程序，可以选择任意一幅位图进行演示。
+    （1） 拖动一个面板（Panel）控件到窗体“Form1”上，设置其“Align”属性为“alTop”，让其充当工具条控件。然后拖动四个快速按钮控件到面板上，设置其“Caption”属性分别为“打开”、“放大”、“缩小”和“退出”，设置其“Flat”属性为“true”，“Layout”属性为“blGlyphBottom”。最后用“Glyph”属性为各个快速按钮设置图像。
+    （2） 然后拖动一个图像控件和一个“OpenDialog”（打开文件对话框）控件到窗体之上；设置“Form1”的“Caption”属性为“控件使用方法演示程序二”；最后设计好的程序界面如^510cb24^所示。
+    （3） 另存程序文件“Unit1.cpp”为“imageio.cpp”，另存工程文件为“image.bpr”。转入代码编辑器，在程序“imageio.cpp”中键入如下代码：
+    void __fastcall TForm1::SpeedExitClick（TObject *Sender）
+    {Close（）;//关闭应用程序}
+    void __fastcall TForm1::SpeedOpenClick（TObject *Sender）
+    {//利用打开文件对话框为图像控件装入位图。
+    Image1->Stretch = true;//图像大小随图像框的大小而改变
+    OpenDialog1->Filter = “Bmp files （*.bmp）|*.bmp”;//文件过滤器中只装入位图文件
+    if（OpenDialog1->Execute（））
+    Image1->Picture->LoadFromFile（OpenDialog1->FileName）;
+    }
+    void __fastcall TForm1::SpeedInClick（TObject *Sender）
+    {//图像的长和宽分别增加10各象素
+    Image1->Height=Image1->Height+10;
+    Image1->Width=Image1->Width+10;
+    }
+    void __fastcall TForm1::SpeedOutClick（TObject *Sender）
+    {//图像的长和宽分别减少10各象素
+    Image1->Height=Image1->Height-10;
+    Image1->Width=Image1->Width-10;
+    }
+    编译运行该程序如^510cb25^所示，用“打开”按钮选择一幅位图，用“放大”或“缩小”按钮对改位图进行任意大小的缩放操作。
+    最后设计一个类似Win95“开始”菜单中的“运行”功能基本相同的应用程序来结束C++ Builder3.0的学习。其设计界面如^510cb26^所示。
+    该应用程序是进程应用程序。进程是装入内存并准备执行的程序，它是资源分配的独立单位。进程有代码、数据，该进程中的线程可用的其他系统资源，如文件、管道和同步对象组成。通过为外部可执行程序创建进程，从而可以在自己的应用程序中调用外部可执行程序。创建进程应使用Windows的API函数“CreateProcess（）”，其具体用法和内部所涉及到的数据结构，读者可以参考其他书籍。
+    在“Open”标签所对应的编辑框内输入可执行文件的名称（包括路径），单击“Run”按钮，就可运行该外部可执行文件。也可以单击“Browse”按钮，利用打开文件对话框选择外部可执行文件并运行它。
+    拖动如下所示的控件到窗体上，并设置其属性：
+    控件名称   属性     设定值
+    From1（窗体）Caption   Process Programming Demo
+    Label1 （标签）    Caption   Open:
+    Edit1（编辑框）    Text
+    OpenDialog1（打开文件对话框）
+    Button1（按钮）    Caption    Run
+    Button2（按钮）    Caption    Exit
+    Button3（按钮）    Caption    Browse
+    然后在程序中键入代码。
+    在事件Button1Click中添加如下代码（按“Run”按钮时的响应函数）：
+    void __fastcall TForm1::Button1Click（TObject *Sender）
+    {
+    STARTUPINFO StartInfo;
+    PROCESS_INFORMATION ProcessInformation;
+    StartInfo.cb=sizeof（STARTUPINFO）;
+    StartInfo.lpDesktop=NULL;
+    StartInfo.lpReserved=NULL;
+    StartInfo.lpTitle=NULL;
+    StartInfo.dwFlags=STARTF_USESHOWWINDOW;
+    StartInfo.cbReserved2=0;
+    StartInfo.lpReserved2=NULL;
+    StartInfo.wShowWindow=SW_SHOWNORMAL;
+    //为外部可执行程序创建进程，其中的可执行文件名由Edit1编辑框提供。
+    BOOL bReturn=CreateProcess（NULL，Edit1->Text.c_str（），NULL，NULL，
+    FALSE，NULL，NULL，NULL，&StartInfo，
+    &ProcessInformation）;
+    if（!bReturn）
+    {
+    //当输入可执行文件名无效时，弹出信息框，然后控制焦点停留在编辑框上。
+    Application->MessageBox（“你没有指定可执行文件”，
+    “C++ Builder MessageBox”，
+    MB_OKCANCEL +MB_DEFBUTTON1）;
+    Edit1->SetFocus（）;
+    }
+    }
+    在事件Button2Click中添加如下代码：
+    void __fastcall TForm1::Button2Click（TObject *Sender）
+    {Close（）;}//按“Exit”按钮时，程序退出。
+    在事件Button3Click中添加如下代码：
+    void __fastcall TForm1::Button3Click（TObject *Sender）
+    {
+    OpenDialog1->Execute（）;//执行打开文件对话框
+    Edit1->Text=OpenDialog1->FileName;//把选中的可执行文件名返回给编辑框。
+    }
+    运行该程序，然后利用该程序调用Windows的计算器外部程序。^510cb27^
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

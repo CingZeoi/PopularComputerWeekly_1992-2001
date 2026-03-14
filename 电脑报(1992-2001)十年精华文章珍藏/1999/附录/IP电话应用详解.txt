@@ -1,0 +1,221 @@
+IP电话应用详解
+
+谢勇
+1999年 第53期 01版
+
+
+
+    本文推荐了几款流行的网络电话软件：Netmeeting、IPhone、Voxphone、Net2phone。并讲解其安装设置过程和使用方法，同时提供一些建议，供读者参考。
+#1一、Netmeeting 2.1 
+    ·类型：免费，微软公司在IE中附带免费赠送。
+    ·下载地址：http://www2.nease.net/files/Nm21.exe。
+    ·作者意见：对于不熟悉英文的使用者来说，全部中文提示的中文Netmeeting是他们的最好选择。
+    1.Netmeeting的安装
+    Netmeeting中文版的安装过程中有中文提示，安装非常方便；双击nm21.exe运行它，首先弹出一个窗口提示你即将安装Netmeeting 2.1，点击“是（Y）”按钮继续。当出现版权声明窗口，点击“Yes”按钮继续。此时安装文件自动开始解开文件，并提示你即将要安装的软件目录（默认是＼Program Files＼Netmeeting），一般点击“OK”按钮接受即可，否则点击“Browse”按钮进行改变。此时安装文件自动拷贝文件到你的硬盘上。文件复制完毕后，会自动更新快捷方式，并最后弹出窗口，显示安装成功。
+    2.Netmeeting的配置
+    第一次运行Netmeeting，会自动进入配置过程；当出现选择登陆的服务器窗口时，你可以点击黑色小三角进行选择，或者可以直接点击“下一步（X）”按钮继续（此时系统默认的是登陆uls.microsoft.com）。在个人信息窗口中：FirstName（名），LastName（姓），EmailAddress（电子邮件地址），City/State（所在城市），Country（所在国家），Comments（对自己的注释），输入完毕后，点击“下一步（X）”按钮继续；此刻出现的窗口要你输入你的Netmeeting的主要用途：Personal Use（个人使用）、Business Use（商业使用）或Adults-only Use（仅仅限成人使用），你可选一种后点击“下一步（X）”按钮继续；下面的窗口是选择连接类型，按你的实际情况进行选择（14400 Modem、28800 Modem、ISDN、LAN），选好后，点击“下一步（X）”按钮继续；此时开始进入声音设置部分，让你选择具体的录音和放音的设备、调整放音音量、调整录音音量等。然后系统提示设置已完成，你可以正常使用了。
+    3.Netmeeting的使用
+    要和哪个朋友交流，只要直接双击代表他的图标即可。连通后会显示“XXX加入会议”，然后你就可以说话或者打字了。请大家注意，显示在线用户的时候，最左边显示是他的E-mail地址，然后是姓名等资料；对某个人感兴趣，可以用鼠标右键点击他的图标，然后选择“Properties”查看。点击“Speedial”是在你的Netmeeting中添加对他的快速拨号方式。
+    连通后，会出现一个新的窗口，在菜单下会出现新的按钮。一般我们会用到的有：Hang Up（挂断对方的通话），Switch（在声音、视频设备中进行切换），Share（共享），Chat（笔谈，大家输入文字进行交流），White Board（白板，相当于大家通过画画进行交流）。由于操作过程比较简单，又有中文提示，在此不再多说。
+#1二、IPhone 5.0（Internet Phone 5.0）
+    ·类型：ShareWare，不付费可以正常试用15天，到期后会提示注册，如果不注册将无法继续正常使用。
+    ·下载地址：http://www2.nease.net/files/iphone50.exe（国内站点），http://www.vocaltec.com（国外站点，IPhone的老窝）
+    ·作者意见：综合了PC到PC通话（同时支持视频），以及PC到普通电话通话功能的软件；IPhone也是Internet上最负盛名的网络电话软件。
+    1.IPhone 5.0的安装
+    双击IPhone50.exe运行它，开始安装。当出现版权和限制说明时，只有遵守协议方可继续安装。当提示系统安装的路径时，可以点击“Browse”改变安装目录。请按提示输入你的个人信息，这与Netmeeting安装时提示相似，可参照上文输入。然后系统提示你要否连入Internet完成其他的Setup工作？选择“No”结束它。
+    2.IPhone 5.0的配置
+    双击IPhone 5.0的图标运行它，首先是版权提示和你剩余的试用日期。点击“OK”，然后出现圆形的Vocaltec公司图案。点击“Audio Mixer...”则会出现调节声音音量的窗口。“Voice Activation Mode”则设定了环境效果（Automatic Quiet...自动以安静环境为背景），（Automatic Noisy...自动以嘈杂环境为背景），（Manual人工设置背景声音大小）。可按下“Start Test”按钮进行测试，并可以用“Audio Mixer”进行调节。点击“OK”继续，此时出现选择窗口：最上面的圆圈里面人头图案图标表示进行IPhone通讯。中间电话图标是利用Vocaltec公司的服务器拨打普通电话（需要注册并开设帐号），最下面则是可以直接输入对方的IP进行通话的选项。
+    首先从拨号网络中连入Internet，然后我们选择第一个按钮（进行IPhone通话）。此时IPhone会自动打开一个Vocaltec Community Browser（Vocaltec通讯浏览器），如果你没有连接入Internet则系统会显示出错；点击菜单“Options”，选择“Preference”，然后点击“Community Browser”，寻找Servers”，在“Try Another Server（尝试另一台服务器）”后空白中填入60，这是为了照顾国内较慢的网络速度，而修改系统默认的超时时间。否则很可能一个服务器你也连不上，因为IPhone会认为是网络服务器连接超时。现在连入网路后，通讯浏览器开始自动下载资料，这个时间可能较长，请耐心等待。当Browser的数据下载完毕后，我们可以看到窗口，上面的诸如“Public”相当于各种组织，下面的“General”等就是聊天室了，点击“Join”参加进去。然后看谁顺眼，直接双击他的名字就可以开始通话了。也可以在Call的后面输入对方的IP地址或者对方的名字而开始通话。
+    3.IPhone操作界面详解（1）运行面板菜单选解：
+    Install License（安装授权许可）:输入给你的授权码。
+    Customer Services（用户服务）：访问客户服务网页。
+    Telephony Services（电话服务）：访问电话服务网页。
+    Addressing Services（地址服务）：访问地址服务网页。
+    Order a License（要求一份授权）：向Vocaltec申请一份授权。
+    Register（注册）：向Vocaltec公司进行网上注册。
+    Software Updates（软件更新）：软件更新。
+    Technical Support（技术支持）：寻求Vocaltec公司技术支持。
+    Support Wizard：支持精灵。
+    About Internet Phone：显示关于网络电话的提示。
+      Phone（电话）
+    Dialer：拨号器。
+    Voice Mail：发送声音邮件。
+    White Board：使用白板。
+    Text Chat：进行文字交谈。
+    File Transfer：传送文件。
+    User：用户。
+    Do not Disturb：不接听任何来电。
+    Auto Answer：自动接听来电。
+    Exit：退出系统。
+      Options（选项）。
+        Audio：声频。
+          Mute Mircrophone：让麦克风静音（消声）。
+          Mute Speaker：让喇叭静音（消声）。
+          Full Duplex：启动全双工。
+          Test：测试。
+          Audio Mixer：声音混合调节。
+          Perefences：声频选项。
+          Video：视频。
+          Send：发送视频。
+          Receive：接受视频。
+          Original Size：让视频画面恢复原始大小。
+          Perefences：视频选项。
+      GO（去）。
+        Community Browser：通讯浏览器。
+        Personal Directory：个人目录…。
+        Outgoing History；呼叫别人的记录。
+        Incoming History：来电的记录。
+    （2）Preferences设置选项详解：
+      General（普通）
+        Open Community Browser on Start：打开时进入通讯浏览器。
+        Show Icon When Minisized；最小化后显示图标。
+        Attach Community Browser：附上通讯浏览器。
+        Detach Remote View：分离远程视频。
+        Detach Dialer：分离拨号器。
+        Animated Assistant：中央的动画图形选择。
+        Restore Orginal Background：恢复原始的背景。
+        Windows Appearance： 窗口的外表。
+        Select New Background：选择新的背景。
+      Sessions （对话）
+        Auto Receive Video：自动接受远程的视频。
+        Send Video On Session Start：对话开始时发送视频。
+        Bring to Top on Ca：把窗口放到最上面。
+        Maximum Number of Simultaneous：同时最多的对话个数。
+      History（历史记录）
+        Incoming：来电记录。
+          Save 300 Users：保存300个用户记录。
+          Clear Incoming Folder：清除来电记录。
+        Outgoing：呼叫记录。
+          Save 300 Users：保存300个用户记录。
+          Clear Outgoing Folder：清除呼叫记录。
+          Network（网络）
+            Internet Connection：Internet连接速度选择。
+            Use H.323 Protocol：是否使用H.323协议。
+    ［注］：使用H.323协议需要额外的系统资源，所以仅在你使用局域网并且需要和其他种类的互连网电话软件通话的时候，才选中使用此协议。
+      Devices：设备。
+        Record Device：录音设备。
+        Playback Device：回放设备。
+        Use Full Duplex： 使用全双工。
+        Use Speaker Phone Mode：使用话务员耳机模式。
+        Use Standard Sampling Rate：使用标准的采样速率。
+        Use 8 bits：使用8位编码。
+      Web content：Web内容。
+        Move Folder移动Web的文件夹。
+        Clear Cache：清除Cache内容。
+        Http Proxy Settings：HTTP的代理服务器设置。
+      Use proxy：使用代理的地址。
+        Web Browser：Web浏览器。
+          Internal：使用内置的浏览器。
+          Internet Explorer：使用Internet Explorer作为浏览器。
+      Video：视频。
+        Video Source：视频源…。
+        Video Format：视频格式…。
+        Video Display：视频显示。
+      Signature：签名。
+        Reply-to Address:回复用的你的E-mail地址。
+        Type in your：签名内容。
+        Always Sign Your Message：每次邮件都附上签名。
+      Mail Server：邮件服务器。
+        Smtp Server：邮件服务器地址。
+        Smtp Server: 30 Seconds：邮件服务器超时设置。
+      Services：服务器。
+        View services by：选择服务器排列的方式。
+        Set as default：将某个服务器设置为默认的服务器。
+        Remove：删除某个服务器。
+        Propties：服务器的属性。
+        Install New Services：安装新服务器。
+        Default Services：默认的服务器为。
+    （3）通讯浏览器的菜单详解：
+      Chat Room：聊天室。
+        Join：参加聊天室。
+        Leave：离开聊天室。
+        Refresh：刷新聊天室资料。
+        Joined List：已经参加的聊天室。
+        Add to Favorites：添加到自己的私人专用记录中。
+        Remove From Favorites：从私人专用记录中去掉。
+        Auto join：自动加入。
+        View：查看。
+        Close Community Browser：关闭通讯浏览器。
+      General Chat：普通聊天。
+        Main：主要的。
+        Configration：设置。
+        Getting Started：开始。
+        Trouble Shooting：排除困难。
+        Parental Control：上级控制。
+      Rooms：房间。
+        Atrium Conference：中心会议。
+        Veterans：老手。
+      Categories：聊天室分类（就是我们说的“组”）。
+        General：普通。
+        Hobbies：嗜好。
+        Leisure：休闲。
+        International：国际。
+        Romance：传奇。
+      Index：聊天室索引。
+        Public：公用的。
+        Member：组织所用的。
+        Favorites：私人专用的。
+        Find：寻找自己要找的聊天室。
+    4.IPhone 5.0的常用操作
+    （1）应答来电：当有人呼叫的时候，操作面板上的“Answer”会闪亮，同时会听到如普通电话一般的振铃声。点击“Answer”即可接听电话。如果中途不想继续通话或者遇到恶意骚扰，点击左边的“Hang Up”即可挂断电话。
+    （2）文字交谈和白板：当网络速度极慢的时候，或者需要互相留下联系地址比如E-mail等，需要使用文字进行交流。要使用文字交流功能很简单，只要和对方联系上后，直接点击面板上的“T”字图标即可。类似的功能是“白板（White Board）”。只是使用白板的时候，不是使用文字交流，而是使用画笔交流。
+    （3）呼叫别人：进入聊天室后，想和别人交谈，只需要用鼠标双击对方的名字即可。系统会自动联系对方，面板中间会出现一个动画表示正在连接。如果和对方联系上后，你会听到类似普通电话的振铃声。
+#1三、Net2phone 
+    ·类型：属免费软件，但使用时需付费。
+    ·下载地址：http://www2.nease.net/files3/n2p867.exe    
+    ·作者意见：非常适合有亲友在国外，而对方又不上网的用户使用。可以以非常低廉的价格，和亲友进行联系。
+    1.安装
+    Net2phone的安装较为容易，下载后运行n2p867.exe，首先它会把文件解压缩到某个目录中去成为安装文件Setup.exe。运行该文件，在出现软件授权协议窗口时，点击“Yes”按钮表示接受。接下来程序自动完成全部安装。
+    2.设置
+    第一次双击Net2phone图标运行时，程序将对声卡、音箱、麦克风进行测试。点击“Test”按钮开始测试，点击“Adjust”可调整设置。测试完成后，需要你注册。在弹出的窗口中输入你的详细资料，填好后，点击“Register”按钮注册。做了这些，Net2phone就正式安装完毕了。
+    3.菜单介绍
+    File:（文件）
+            Minimize（最小化）最小化窗口。
+            Setup Wizard（设置精灵）重复我们进行过的设置过程。
+            Exit（退出）。
+    Edit:（编辑）
+            Erase PIN（将PIN从硬盘上删去，保证PIN不被盗用）。
+            Audio Settings（关于声音的设置部分）。
+            VOX Settings（调节麦克风，喇叭的音量和延迟时间）。
+            Paste Phone Number（粘贴电话号码）。
+    View:（查看）
+            Account Number（查看自己的具体账号号码）。
+            Account Banlance（查看自己的账号平衡情况）。
+    Phone:（电话）
+            Call（呼叫） 输入号码后，点击“Call”开始拨打电话。
+            Hangup（挂断） 挂断电话。
+            Mute（静音） 不发出声音。
+            VOX （打开Vox功能）。
+            Purchse Time（联机购买通话时间）。
+            Full Duplex（使用全双工功能，要声卡支持）。
+            Use Other Account （使用另外一个账号）。
+    4.Net2phone使用
+    双击Net2phone图标运行它，出现主画面，它看起来很像一部电话。如同我们平时打电话一样，使用方法很简单。拨号码完毕后，点击拨号盘右边的“拨号”按钮。由于使用Net2phone，必须用自己的信用卡购买使用时间，所以现在我们可拨打美国的800免费电话过过瘾。
+    要想拨打到真正的电话上，必须首先购买通话时间。你可以联机到如下地址：http://www.net2phone.com进行购买，只需要输入你的信用卡的相关信息就可以了。
+    顺便要指出的是，目前中国也有了Net2phone的代理公司，如果你需要用，不妨访问如下地址：http://www.net2phone.com.cn，有相当详尽的中文技术支持网页，可以解决你的一切疑惑或者烦恼，并针对国内不同的用户有不同的解决方案。
+#1四、Voxphone 
+    ·类型：ShareWare，不付费可以正常试用15天，到期后会提示注册，如果不注册将关闭一些高级功能，但是最有用的通话功能等将继续保留。
+    ·下载地址：http://www.voxware.com
+    ·作者意见：Voxphone实现真正的多人交谈，且可与遵循了H.232标准的所有Internet Phone通话。
+    1.Voxphone的安装
+    运行下载得到的voxphone.exe开始安装，在版权提示窗口中，点击“Next”按钮继续；选择安装路径（可默认），点击“Next”按钮开始拷贝文件。文件拷贝结束后，点击“Finish”按钮即可完成安装。    
+    2.Voxphone的设置
+    使用拨号网络等连入Internet互连网络（必须先上网然后才可以使用Voxphone），运行Voxphone，会自动进入设置状态：点击“Next”按钮开始设置过程。首先需要输入个人信息，带“*”号的部分是必须填写的。完成后点击“下一步”提示你是否把你的信息公布到Four11网上去，如果你愿意就选中下面的方框；此时系统提示你选择并调节录音和播放设备，选择和调节好后，提示进行录音音量的调节。在对环境噪音的设置时，一般选择“My calling environment is quiet，set activation low”然后点击“下一步”按钮即可。在选择连接速度时，选择符合你连接速度的选项，比如：“28800bps Modem（Recommend For Conferencing）”。
+    3.Voxphone的使用
+    在Voxphone的主画面上，最上面的是状态栏，显示系统是否处于自动应答状态（Autoanswer），是否使用双工系统，以及正和谁通话？中间显示你目前总共接通了多少个通话（Session），通话的状态（Status）以及时间（Time）等。下面是常用的按钮以及系统录音（话筒标志）和放音（喇叭标志）的音量显示。你可以拖动相应的滑块调节背景声音的大小。
+    （1）通话：点击“Call”按钮，Voxphone一共提供4种呼叫方式，在线（Online User List），地址簿（Local Address Book），网上目录（Web Directory），和直接联接（Direct Call）。
+    ①Online方式：一般默认的都是这种方式，这是和IPhone类似的一种方式，就是显示出当前联接到Voxphone主机上的用户的资料（姓名，国别，注释等）；要呼叫什么人，只要直接在显示的窗口中双击要呼叫的人的名字即可（此窗口中显示的在线用户名单可以按名字，国家，注释内容等顺序进行排序，方便你寻找你的朋友）你也可以直接在“Search for”窗口中输入你要找的人的名字进行搜寻。通过用鼠标左键单击具体的人名，右边的三个按钮就都有效了。
+    这三个按钮是：Add to local（添加到自己的地址簿）、Details（详细情况）、Refresh（重新刷新在线用户的资料）。一般我们点击了某个用户后，首先会用“Details”按钮查看此人的详细情况，尤其是你找人的时候，可千万别找错了。如果有必要，就可以点击“AddtoLocal”按钮将其地址加入自己的“地址簿”以备日后使用。如果要和此人通话，只要点击“Dial”按钮即可。此刻Voxphone会寻找对方的地址，并向对方的Voxphone发出连接消息，对方的Voxphone就会听到振铃，如果对方愿意接听，那么一会你们就可以开始通话了。如果不巧对方正和他人通话，你也会听到“忙音”，提示你过一会再打。当在服务器上停留很久后，也许你需要点击“Refresh”按钮，更新在线用户的资料。
+    ②地址簿方式：选中此项后，Voxphone会到你的地址簿出来。你可以添加（Add），删除（Delete）或者编辑（Edit）地址簿上的用户名单资料。添加用户的时候，需要你填入用户的具体资料，（其中姓名，E-mail地址为必须填上的）如果你要拨打某个朋友，只要在保存的地址中双击他的地址即可；如果他此时不在线将会显示“查无此人”（User not find）。
+    ③网络目录（Web Directory）：利用浏览器，去相应的主页，寻找你需要寻找的人进行通话。它提供了三种搜索方式：    Four11＇s Voxphone Users Directory（Four11上的Voxphone用户目录），Four1＇s Global（H.323）NetPhone Users Directory（Four11上的全球使用支持H.323协议的网络电话用户的目录，或者其他目录（Other directory）。选择好后，点击“Goto Web”进入相应主页。进入后，你可以输入姓名，E-mail地址，国家等消息进行查找，找到后即可通话。
+    ④直接呼叫（Direct Call）：直接输入通话对方的IP地址，点击“Dial”即可开始通话。
+    （2）特效：在通话中，为了使通话效果更具趣味性，Voxphone提供了多种变音效果（VoiceFonts）。
+    （3）文字交谈：一些用语言表述不清或者一时网络阻塞导致通话断续严重时，可以进行文字交谈（Text Chat），只要点击“Text Chat”按钮，然后输入你交谈的具体文字，点击“Send”按钮即可将你输入的文字传送给对方。    
+    点击“Clear”按钮则将清掉窗口中的旧内容，而当不想再用Text Chat的时候，点击“Close”按钮即可。
+    （4）文件传输：交谈的时候也许你需要给对方发送图片，文字或者某个小程序等文件，那么就需要此功能。点击“File Transfer”按钮，然后点击“Browse”按钮选择文件，选好后点击“Send”按钮发送即可。
+    （5）会谈：这是最令人激动的功能。首先你先呼叫一个朋友，联通后，继续使用Call功能呼叫其他朋友，都呼叫联通后，然后点击菜单“File”的“Confrence”，选中“Creat New”建立新的多人会谈。此时左下方的窗口中显示的是你目前已经连通的朋友名单，你要一一选取，然后点击“Add”按钮将它们加入你的会谈之中，从而开始建立会谈。如果你不小心把其他人选了进来，记得用“Remove”按钮将他的名字去掉。选择完成后，点击“OK”按钮，系统会显示会谈建立成功，此时会谈正式开始。任何一个人说的话，大家都会听到（此时的Text Chat也将是多人共用，所有的文字都将被所有的人看到）。
+    （6）挂断（HangUp）：和朋友通话结束后，用此按钮挂断和对方的通话。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

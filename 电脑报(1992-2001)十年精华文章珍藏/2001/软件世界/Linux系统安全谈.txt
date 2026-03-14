@@ -1,0 +1,91 @@
+Linux系统安全谈
+
+许忠英  李红 
+2001年 25期
+
+现在网络越来越发达，架设了一个服务器之后，就好像是开一个窗口欢迎客人进来。程序或系统要做到完全没有漏洞是不可能的，只能尽量减少漏洞。网络上常常有些居心不良的人绞尽脑汁利用程序的漏洞或管理人员的疏忽，非法入侵，取走重要的资料或破坏系统。因此，作为一个系统管理员，除了要会架设各种服务器外，还要有能力能防堵各种黑客的入侵。对于一个有志于成为系统管理员的人来说，下面一些基本防范技艺是必须要掌握的。此外，黑客们的入侵手法越来越高明，身为一个系统管理员要通过不断的学习和积累经验才能增强自身防黑的能力。
+　　#1    一、密码安全
+　　一般而言，我们为系统设置的密码层数越多，系统被非法入侵的可能性就越小。
+　　#2设置BIOS密码
+　　在还没启动Linux之前，主板的BIOS程序就提供了最基本的密码进入功能。我们最好在BIOS设置中取消用软盘引导功能，避免有人将黑客程序放入硬盘。然后，我们再对BIOS设置进入密码。这样，系统有了第一层保护屏障。
+　　#2设置root账户密码
+　　选择密码时，不应该用常用字组成的字符串、未包含数字或特殊字符的串。安全的密码一般采用字典上没有的字词（比如短句中每个词的第一个字母），然后加入特殊字符组成或数字组成。例如短句“我出生在65年”，取每个字的拼音第一个字母然后加入特殊字符“！”，组成密码wcsz65n！。这个密码因为在字典中没有，所以就比你的姓名/生日要安全多了。
+　　密码的选取最好能遵循下列原则：至少要6个字符以上，最好能同时包含数字、英文字母和符号；密码最好每隔一段时间换一次。系统在几次密码输入错误之后就强迫断线，可避免有人使用软件程序猜密码。
+　　#2修改有关密码设定的文件
+　　为了要求每一位使用者的密码不可少于6个字，可以修改/etc/login．def文件，找到PASS＿MIN＿LEN那一行，若没有则自己加上。将这一行改为PASS＿MIN＿LEN 6。另外，还有其它3个设定参数可以使用：
+　　PASS＿MAX＿DAYS：密码最大使用时间设定，超过这个时间密码就停止使用。
+　　PASS＿MIN＿DAYS：改过密码之后几天内不得修改密码。
+　　PASS＿WARN＿AGE：设定在密码到期日的前几天警告使用者密码快到期了。
+　　#1    二、LILO的设定
+　　一般安装完Linux之后，在开机出现LILO时，并不会问你密码，这时若有人想要取走计算机中的资料，可能会采取免密码进入Linux的方法。
+　　应对办法：
+　　在LILO后输入 linux init=/bin/sh，假设lilo．conf内容如下：
+　　boot=/dev/hda
+　　map=/boot/map
+　　install=/boot/boot．b
+　　prompt
+　　timeout=10
+　　lba32
+　　default=linux
+　　restricted password=＜xxxxx＞
+　　image=/boot/vmlinuz-2．2．14-6．0lp
+　　label=linux
+　　read-only
+　　root=/dev/hda1
+　　other=/dev/hda2
+　　label=dos
+　　我们修改的重点是timeout、passwrod和restricted这三个选项。
+　　timeout用于设定LILO提示符号等待的时间，单位为10分之1秒，所以此例等待时间为1秒，你还可以再设小一点，让人根本来不及输入任何参数；
+　　password后面显示的是在LILO处需要输入的密码。但由于此处密码是明文显示，所以修改完之后必须修改lilo．conf权限，让其他人不可读取，执行#chmod 640 /etc/lilo．conf restricted则告诉LILO，即使是使用单人模式，也必须要输入密码。
+　　以上修改完毕后，执行#lilo -v将设定重新执行，重新开机进入，就会看到以下内容：
+　　LILO boot:
+　　Password:
+　　#1    三、设定自动logout（退出登录）的时间
+　　有些使用者漫不经心，离开时忘了logout，系统管理员可以在/etc/profile文件里加入一行TMOUT=120，时间单位为秒，故此表示使用者若2分钟没有动作，就自动帮他logout。
+　　#1    四、避免远程执行控制台程序
+　　避免有人从远程执行shutdown或halt的指令，可至/etc/security/console．apps下，执行下列指令：
+　　#rm -f halt
+　　#rm -f poweroff
+　　#rm -f reboot
+　　#rm -f shutdown
+　　这样即可避免有人远程telnet进来去执行这些只能由控制台执行的指令将系统关闭。
+　　#1    五、不显示操作系统信息
+　　为了不让远程telnet进来的人知道你采用什么操作系统，可在/etc/inetd．conf内进行如下修改
+　　telnet stream tcp nowait root /usr/sbin/tcpd in．telnetd -h
+　　在最后面加个 -h 选项，让 telnet 进来的人只看到 “login:”这一显示，而无法判断是何操作系统。
+　　#1    六、停止不需要的服务
+　　许多Linux安装后，将HTTP、FTP、SMB、Sendmail和其他一些服务作为缺省服务，这些服务就有可能被黑客利用，造成系统安全漏洞。建议你键入
+　　ps aux ｜ grep发现正在运行的进程或服务，在启动脚本中注释掉那些不用的服务和程序，这样系统启动后，就不会启动这些服务，留下安全隐患。
+　　有些服务例如web server也许你就不需要，该服务既消耗系统资源，又是一个潜在的安全漏洞，可以键入:kill -9来终止它。
+　　再如系统服务anonymous FTP，如果配置错误也会产生漏洞。因为如果系统中/ftp目录可写的话，利用该服务可以偷取密码文件。
+　　要堵住以上漏洞，采取的对策是：
+　　永远不让目录/ftp对用户anonymous 有可写的权限；另外建立anonymous FTP server时，还要注意以下规则：
+　　只允许/incoming目录可写，只允许用户root和ftp有写的权限；Anonymous FTP用户对/pub和/incoming目录只有执行和读的权限；FTP用户不能具有/ftp目录写的权限，如果设置了写的权限，那么就可能发生上述的入侵行为。
+　　最后要注意避免使用“．rhosts”文件，该文件包含了所有用户的ID。当用户Telnet到主机时，主机会检查“．rhosts”文件中是否有当前用户的ID，如果存在，将让他进入系统，而不再检查用户密码。
+　　#1    七、调整kernel上的模块
+　　以下皆是修改/etc/sysctl．conf文件中关于kernel模块的设定：
+　　（1）忽略ping的响应以避免有人利用ping来攻击。加入或修改这一行：
+　　net．ipv4．icmp＿echo＿ignore＿all = 1
+　　（2）忽略广播响应，有人会利用这种方法来使用Denial of Service攻击。加入或修改这一行：
+　　net．ipv4．icmp＿echo＿ignore＿broadcast = 1
+　　（3）关闭IP source routing，避免有人传送 source routed 封包到你的网络来，欺骗你的服务器使它以为是跟一台信任的主机沟通。加入或修改这一行：
+　　net．ipv4．conf．all．accept＿source＿route = 0
+　　（4）激活 TCP SYN cookie 防护。加入或修改这一行：
+　　net．ipv4．tcp＿syncookies = 1
+　　（5）取消 ICMP Redirect Acceptance 避免封包流入你不想去的地方。加入或修改这一行：net．ipv4．tcp＿syncookies = 0
+　　（6）打开 always-defrag 防护，假如你的 Linux 服务器是当作IP masquerade的通讯闸的话，加入或修改这一行 ：
+　　net．ipv4．ip＿always＿defrag = 0
+　　（7）在打开网络出现错误的警告中，加入或修改这一行：
+　　net．ipv4．icmp＿ignore＿bogus＿error＿resp
+　　onses = 1
+　　（8）打开伪装的IP防护。黑客进行攻击时，通常都会隐藏自己的IP，即造一个假的IP。你可以启用防止造假的IP联机，加入或修改这一行：
+　　net．ipv4．conf．all．rp＿fillter = 1
+　　（9）记录 spoofed 封包、source routed 封包、redirect 封包。这样会把这些封包记录在系统记录文件内。加入或修改这一行：
+　　net．ipv4．conf．all．log＿martians = 1
+　　当你修改了你想要的模块之后，只需重新启动主机的网络即可，执行：
+　　#/etc/rc．d/init．d/network restart
+　　#1    八、注意系统记录
+　　如果你没有看记录文件的习惯的话，可能黑客正在利用你的计算机做坏事你都没有觉察。系统记录的设定文件大部分都是放在/var/log下，这些系统的记录主要是由一个叫syslogd的程序执行，而syslogd执行的参考设定是/etc/syslog．conf文件。系统管理员要确定系统记录是否正常运行，首先执行#ps-aux｜grep syslogd ，执行完后应确定能看到syslogd，否则表示可能有重大危机发生。接下来执行less /etc/syslog．conf检查此文件是否有被修改过的痕迹，最后你才能继续检查你所有的记录文件。黑客修改系统记录大概就是利用这一步骤。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

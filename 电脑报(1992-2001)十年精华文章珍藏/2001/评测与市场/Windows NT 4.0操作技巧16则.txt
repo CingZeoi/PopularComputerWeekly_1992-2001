@@ -1,0 +1,126 @@
+Windows NT 4.0操作技巧16则
+
+飞浪 
+2001年 7期
+
+随着局域网的不断发展，Windows NT 4.0操作系统被使用得也越来越广泛。笔者在工作中也经常使用它，现把在工作中积累和总结出来的一些这方面的心得体会写出来，希望能给更多的用户在实践操作中带来方便。
+　　1.改变远程访问服务的缺省端口传输速度
+　　Windows NT远程访问服务为每个RAS串行端口设置两种BPS速度：载波BPS与联接BPS速度，前者是指两个Modem通过电话线传输数据的速度，后者则指Modem与主机串口间的数据传输速度。我们改变相应的Serial.INI文件，即可改变串口传输速度，具体操作方法如下：
+　　A.将Serial.INI文件用编辑器打开。
+　　B.将InitialBPS参数改为自己所希望的数值。
+　　C.将上述改动保存成一个文件，文件名仍为Serial.INI。
+　　D.打开“开始”菜单，并单击“运行”命令，在运行栏中输入RasAdmin命令。
+　　E.从服务器菜单中选择“Stop Remote Access Service”，再选择“Start Remote Access Service”，上述设置就会生效。
+　　2.禁止拨入访问
+　　如果用户的计算机上面有重要的信息，有可能不允许其他人随便访问。那么如何禁止其他人拨入访问你的计算机，减少安全隐患呢？具体步骤为：
+　　A.进入[Hkey_Local_Machine\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Network]。
+　　B.在编辑器右边的列表中用鼠标选择“NoDialIn”键值，如果没有该键值，必须新建一个Dword值。
+　　C.用鼠标双击“NoDialIn”键值，在对话框中输入数值“1”（其中0代表禁止拨入访问功能，1代表允许拨入访问功能）。
+　　D.退出后重新登录网络，上述设置就会起作用。
+　　3.自动登录网络
+　　通常情况下，用户在进入WINNT网络之前必须输入自己的用户名称以及口令。但是WINNT也提供了启动时自动以某一个组的用户名称和口令进行自动登录。配置如下：
+　　A.进入[Hkey_Local_Machine\Software\Microsoft\WindowsNT\CurrentVersion
+　　\WinLogon]。
+　　B.用鼠标单击右边的“AutoAdnimLogon”键值名称，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“1”。
+　　C.接着再用鼠标选择右边的“DefaultDomainName”键值名称，并在随后弹出的文本栏中输入要登录的域名或所要访问的计算机名称，例如输入“DOMAIN”域或“COM”计算机名称，然后单击“确定”按钮。
+　　D.按照同样的操作方法，选择右面的“DefaultUserName”键值名称，并在“字符串”文本框中输入登录网络的用户，例如输入管理员名称“Administrator”，并单击“确定”按钮。
+　　E.最后在注册表编辑器中，用鼠标单击“编辑”菜单并在下拉菜单中选择“新建键值”命令，然后在注册表右边的列表中，输入键值名称为“DefaultPassword”，键值类型为“Reg_Sz”，接着单击“确定”按钮。
+　　F.用鼠标双击“DefaultPassword”键值，在弹出的对话框中输入用户的密码，在这里我们输入系统管理员的口令作为登录网络的密码，输入完成后单击“确定”按钮结束设置工作。
+　　G.让计算机重新启动，缺省设置的用户将会自动登录到指定的网络中去。
+　　如果用户日后不再需要自动登录功能时，只需要把“AutoAdminLogon”的键值改为数值“0”即可。
+　　4.改变打印机的缺省假脱机打印目录
+　　如果我们需要改变所有打印机的缺省假脱机打印目录，可以按照如下操作步骤来进行：
+　　A.进入[Hkey_Local_Machine\System\ CurrentControlSet\Control\Print\Printers]。
+　　B.在该键值下，请选择DefaultSpoolDirectory键值名称，如果未发现此键值，请利用“编辑”菜单的“添加数值”命令进行添加，其数据类型为Reg_Sz。
+　　C.接着用鼠标双击该键值，在随后弹出的“字符串编辑器”对话框中输入新目录的全路径即可。
+　　D.退出注册表编辑器窗口，重新启动计算机就可以实现上述指定的要求了。
+　　5.修复镜像组
+　　A.当镜像磁盘组中的驱动器发生故障时，系统自动向其余的驱动器发出发送数据请求，留下工作驱动器单独运行。此时，用户需要进入“Disk Administor”，选择镜像组，再选择“FaultTolerance/Break Mirror”，将镜像组分为两个独立部分。
+　　B.工作的驱动器得到磁盘组所用的驱动器盘符，故障驱动器得到系统的下一个有效盘符。关闭NT Server，更换一个相同型号的硬盘驱动器。
+　　C.重新启动NT Server，运行“Disk Administor”，在新驱动器上选择分区和未用空间，选择“Fault Tolerance/Establish Mirror”即可对新驱动器作镜像。
+　　6.取消系统检测串口，提高NT系统启动速度
+　　计算机每次启动都会对计算机的硬件重新检测一遍，这需要花费一定的时间，也因此减慢了计算机的启动速度。在这里笔者向大家介绍一下通过一些设置来取消系统检测串口，从而达到提高NT系统启动速度的目的，具体步骤如下：
+　　A.在开始菜单中，用查找的方法将Boot.INI文件找出来，然后将该文件的“只读”属性屏蔽掉，以便于我们在其中进行一些相关改动。
+　　B.接着用一个文本编辑器将Boot.INI文件打开，并修改[operating system]段的内容，将其中每一行后加上NoSerialMice参数，如下所示：
+　　修改Boot.INI文件，
+　　……
+　　[operating system]
+　　multi（0） disk（0） rdisk（0）
+　　partition（1）\WINNT4.0=“Windows NT
+　　Workstation Version4.0”/NoSerialMice
+　　……
+　　C.把上述修改的内容保存起来，文件名仍为Boot.INI。
+　　D.退出Windows NT，重新启动计算机后上述配置就会生效。
+　　7.增加NTFS性能
+　　如果用户想增加NTFS的性能，也可以通过修改注册表的方法来达到目的，具体实现步骤如下：
+　　A.进入[Hkey_Local_ Machine\System\ CurrentControlSet\Control\FileSystem]。
+　　B.在注册表编辑器中用鼠标单击“编辑”菜单，并在下拉菜单中选择“新建”菜单项，在其弹出的子菜单中单击“Dword值”。
+　　C.在编辑器右边的列表中输入Dword值的名称为“NTFSDisableLastAccessUpdate”。
+　　D.接着用鼠标双击“NTFSDisableLastAccessUpdate”键值，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“1”（其中0代表取消该项功能，1代表启用该项功能）。
+　　E.设置好后，重新启动计算机就会使上述功能有效。
+　　8.禁止光盘的自动运行功能
+　　大家都很清楚每当光盘放到计算机中时，WINNT就会执行自动运行功能，光盘中的应用程序就会被自动运行，而我们在实际工作中有时不需要这项功能，那么如何屏蔽该功能呢？此时，我们同样可以修改注册表使此功能失效，具体做法如下：
+　　A.进入[Hkey_Local_ Machine\System\ CurrentControlSet\Services\Cdrom]。
+　　B.在编辑器右边的列表中用鼠标选择“AutoRun”键值。
+　　C.接着用鼠标双击“AutoRun”键值，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“0”（其中0代表禁用光盘的自动运行功能，1代表启用光盘的自动运行功能）。
+　　D.设置好后，重新启动计算机就会使上述功能有效。
+　　9.为一些非SCSI接口CD-ROM进行安装配置
+　　当我们在Windows NT 3.5操作系统中安装新的CD-ROM时，由于Windows NT 3.5不能自动识别非SCSI接口CD-ROM，所以必须通过手工安装的方式进行安装。
+　　A.将相应的非SCSI接口的CD-ROM驱动程序从安装盘拷贝到“Winnt\System 32\ Drivers”目录下。
+　　B.在Windows NT主群组中运行Setup程序。
+　　C.从Option菜单中选择“Add/Remove SCSI Adapters”。
+　　D.选择Add按钮，为你的非SCSI接口CD-ROM选择相应的驱动程序。
+　　E.按Install按钮进行配置。
+　　F.重新启动计算机后就可以使用SCSI接口的CD-ROM了。
+　　10.增加“关闭系统”按钮
+　　在NT计算机中，“关闭系统”按钮作为缺省值在登录对话框中提供，这个任务按钮允许用户不必先登录即可关闭系统。在NT Server中虽然没有这个功能，但可以通过修改注册表，使系统在登录对话框中增加一个“关闭系统”的按钮，具体操作方法如下：
+　　A.进入[Hkey_Local_Machine\Software\Microsoft\WindowsNT\CurrentVersion
+　　\WinLogon]。
+　　B.在编辑器右边的列表中用鼠标选择“ShutdownWithoutLogon”键值。
+　　C.接着用鼠标双击“ShutdownWithoutLogon”键值，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“1”（其中0代表取消“关闭系统”按钮，1代表增加“关闭系统”按钮）。
+　　D.退出后重新登录，在登录的界面中会增加一个“关闭系统”的按钮。
+　　11.登录局域网超时自动断开
+　　在登录Windows NT网络时，有可能用户不小心输错了登录参数或其他原因，导致了登录网络可能需要花费好长时间，这种情况是我们不想看到的。为了解决这种问题，我们可以通过修改注册表，来配置为闲置超时断开，以分钟为单位，具体步骤为：
+　　A.进入[Hkey_Local_Machine\System\CurrentControlSet\Services\LanmanServer
+　　\Parameters]。
+　　B.在编辑器右边的列表中用鼠标选择“AutoDisconnect”键值。
+　　C.接着用鼠标双击“AutoDisconnect”键值，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“1”（其中0代表取消自动断开功能，1代表使用自动断开功能）。
+　　D.退出后重新登录网络，上述功能就会生效。
+　　12.自动检测慢网登录
+　　上面我们曾经说过，在登录NT网络时有可能很慢。同样地，如果Windows NT检测速度有困难，可以取消。具体实现步骤为：
+　　A.进入[Hkey_Local_Machine\Software\ Microsoft\Windows NT\CurrentVersion\ WinLogon]。
+　　B.在编辑器右边的列表中用鼠标选择“SlowLinkDetectEnabled”键值，如果没有该键值，必须新建一个Dword值，名称设置为“SlowLinkDetectEnabled”。
+　　C.接着用鼠标双击“SlowLinkDetectEnabled”键值，编辑器就会弹出一个名为“字符串编辑器”的对话框，在该对话框的文本栏中输入数值“1”（其中0代表取消自动检测慢网登录功能，1代表使用自动检测慢网登录功能）。
+　　D.退出后重新登录网络，上述设置就会起作用。
+　　13.在NT下创建一个镜像集
+　　A.先用Disk Administerator创建镜像集的第一个分区表，选中该分区，在另一个磁盘驱动器内的磁盘空间的未用区域上进行“Ctrl+鼠标单击”操作，以把未用的磁盘区域和第一个分区均选上。
+　　B.从Disk Administor的“Fault Tolerlance（容错）”菜单中选中“Establish Mirror（建立镜像）”，Disk Administor将在其他盘中创建一个磁盘分区。该分区与原有分区一样大，并包含原分区表上所有数据的备份。
+　　C.如果要取消镜像集（并非删除镜像集），即仅仅停止两个分区之间的数据复制，只需从Disk Administor中选择“Fault Tolerance/Break Mirror”。
+　　14.通过图标激活一个屏幕保护程序
+　　屏幕保护程序相信大家在平时操作时用得肯定不少，但每次使用该功能，必须要进行几个步骤才能到达目标，有没有一种快捷的方法来使用屏幕保护程序呢？下面，笔者要告诉大家的就是通过双击图标，就能轻松激活一个屏幕保护程序的方法：
+　　A.进入[Hkey_Current_User\Software\Microsoft\WindowsNT\CurrentVersion
+　　\Windows]。
+　　B.在该键值下，用鼠标双击“Programs”，在“字符串编辑器”中的“字符串”文本框中添加一项“scr”。
+　　C.接着保存并从Windows NT中注销，重新登录到Windows NT。
+　　D.最后在资源管理器中选择想要激活的屏幕保护程序，创建一个快捷方式，例如“\Winnt\System32\Test.scr /S”，其中“/S”参数表示立即运行此屏幕保护程序。
+　　15.限制使用系统的某些特性
+　　在网吧或公共场所中，有时为了保证系统的属性不被其他普通用户随意更改，我们就必须要限制使用系统的某些特性。要实现这个目的，我们可以利用修改注册表编辑器的方法来达到。
+　　A.进入[Hkey_Current_User\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\System]键值。
+　　B.如果不存在该键值，就新建一个。
+　　C.将该键值下方的“DisableTaskManager”的值设为“1”，表示将阻止用户运行任务管理器。
+　　D.接着将“NoDispAppearancePage”设为“1”，表示将不允许用户在控制面板中改变显示模式。
+　　E.下面再将“NoDispBackgroundPage”设为“1”，表示将不允许用户改变桌面背景和墙纸。
+　　16.在“网上邻居”中隐藏一个服务器
+　　通过网上邻居可以看到当前局域网中的哪些计算机正在工作，从而可以共享这些计算机上的资源。但在实践操作中，我们有时为了保证安全，特别是要保证局域网中服务器的安全，这时我们就希望在“网上邻居”中隐藏指定的服务器计算机名称。那么我们该如何在“网上邻居”中隐藏一个服务器呢？请看下面的具体步骤：
+　　A.进入[Hkey_Local_Machine\System\CurrentControlSet\Services\LanmanServer
+　　\Parameters]键值。
+　　B.用鼠标单击该键值下面的“Hidden”数值名称，如果未发现此名称，那么添加一个，其数据类型为Reg_Dword。
+　　C.接着用鼠标双击此项，在弹出的“Dword编辑器”对话框中输入“1”即可。
+　　D.最后单击“确定”按钮，并退出注册表编辑窗口，重新启动计算机就可以在“网上邻居”中隐藏一个服务器了。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

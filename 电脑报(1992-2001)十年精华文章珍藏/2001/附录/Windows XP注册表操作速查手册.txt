@@ -1,0 +1,147 @@
+Windows XP注册表操作速查手册
+
+张雁 
+2001年 60期
+
+    Windows XP是Windows 2000的后续版本，以Windows 2000核心代码为基础，它不仅继承了前者的可靠性和其他的优良性能，而且还加强了Windows Me操作系统的系统回复、媒体播放器、图像获取等新功能，给用户提供了更稳定的运行环境和方便快捷的操作。
+　　    在注册表方面，Windows XP与Windows 2000相比，并没有发生太大的改变，注册表仍然是Windows XP的核心部件。本文在深入剖析Windows XP注册表的同时，也给出了大量的Windows XP独有的注册表修改实例供读者速查。
+　　#1    一、体验Windows XP注册表新特性
+　　    1.Active Directory（活动目录）
+　　    对网络用户来说，Windows XP最重要的特征之一就是Active Directory（简称AD，即活动目录），AD含有从用户和组、程序和打印机涉及的所有网络资源的详细情况。那么AD是怎样与注册表联系在一起的呢？即使AD在一个独立的数据库（与注册表不同，它是一个真正的具有工业强度的、可扩展的数据库）中存储了自身的信息，注册表仍有不少与AD联系的设置。此外，AD还能把注册表设置与目录对象联系起来。例如，当你使用组策略工具对用户、组和域网络的域实施限制性注册表设置时，情况就是如此。
+　　    2.安全性
+　　    Windows XP注册表添加了安全设置，以便增加Windows XP可以实施的访问限制。它还添加了一项可设置多台Windows XP 电脑都使用同一组限制的巧妙机制：即策略文件，可以用新的组策略工具（用于Windows XP网络范围内）或系统策略工具（用于Windows NT客户机网络上）创建可选择的注册表文件。
+　　    3.硬件与软件
+　　    许多新的注册表条目是专为Windows XP的新程序、新特性及硬件支持设计的。事实上，甚至你没安装任何应用程序时，Windows XP（Professional版）注册表的初始规模大约有15M字节（其他版本会更大）——这是Windows 98注册表典型初始规模的8倍多！
+　　    4.注册表结构体系
+　　    源于对安全性、运行性能的要求和对多用户管理系统的支持，Windows XP注册表物理结构上也发生了很大变化，再也不是像Windows 9x/Me那样，使用简单的二、三个文件就能保存整个注册表了！取而代之的是一系列的注册表配置文件和相关文件。不同的系统软件、硬件支持以及对安全和效能的支持，同样也使得注册表的逻辑结构发生了一些新的变化。
+　　    5.功能强大的注册表编辑器
+　　    在早期的Windows NT/2000中，注册表编辑器程序通常有两个：Regedit和Regedt32。在Windows XP中将两个编辑器合并在一起，使得它们之间的强大功能和特性得以完美的结合。下面就让我们来看一看结合后的注册表编辑器都有那些新特性：
+　　    （1）使用较新的Windows 9x/Me用户界面，而不是使用较早的Windows 3.x用户界面，与Windows NT 3.5/4.0的注册表编辑器——Regedt32也完全不一样。支持访问权限控制安全特性。
+　　    （2）注册表编辑器能在一个完整的窗口中显示注册表的全部内容，而不是像Regedt32那样对每一根键显示各自的窗口。可以以二进制位数据方式显示、编辑键值，大大提高了方便性。同时，可搜索子键、键值项、键值的名称和内容，而不是Regedt32那样只能搜索子键。
+　　    （3）可以导出、引入文本格式的.reg文件，而不像Regedt32那样可以导出但不能引入文本格式的文件，且和.reg文件格式完全不一样。
+　　    （4）具有收藏夹功能，方便访问、管理最常用的注册表编辑项目。
+　　#1    二、精解Windows XP注册表
+　　    1．Windows XP注册表的结构
+　　    Windows XP的注册表同样是以树形结构组织的。它由两个注册表子目录树组成：HKEYLOCALMACHINE和HKEYUSERS。但是为了使注册表中的信息更易于查找，Windows XP预定义了五个子目录树。
+　　    （^60090103b^）
+　　    Windows XP注册表的每一个值项包括三部分：值的名称、值的数据类型和值本身。下表列出系统定义和使用的值项的数据类型。
+　　    （^60090103c^）
+　　    2．Windows XP注册表编器
+　　    注册表编辑器实际上就是我们查看和修改注册表文件的图形界面。启动Windows XP注册表编辑器的方法是：单击“开始→运行”，在对话框中输入“regedit”，然后点击“确定”按钮，注册表编辑器就会被运行起来。它的界面和Windows 2000中的注册表编辑器很相似。如（^60090103a^）。
+　　    和以前的Windows相比，注册表表编辑器有了一些改变。在“编辑”菜单下，增加了“权限”菜单项，通过它，可以设置各个注册表项对于不同用户的权限。当然，你必须是管理员才可以执行此操作。同时，在“查看”菜单中，也增加了“显示二进位数据”。通过它，可以方便的查看二进制数据的内容。
+　　    至于通过注册表编辑器对注册表的操作，如注册表的导入、导出，注册表值项的查找与修改，以及注册表文件的备份与恢复等。其操作与Windows 9x/Me/NT/2000类似，读者可以参看《电脑报1999年合订本》、《电脑报2000年合订本》相关文章。这里限于篇幅我们不作讨论。
+　　#1    三、最新Windows XP注册表实用配置技巧
+　　    1.屏蔽当鼠标移动到标准控制按钮的提示信息
+　　    当你将鼠标移动到一个标准窗口上的三个控制按钮（最小化、最大化、关闭）上时，它将显示每一项的文本提示。通过注册表可以屏蔽这个功能。打开注册表子键：HKEY_CURRENT_USER＼Control panel＼Desktop＼，创建一个新的键值项或者修改已经存在的键值项“MinMaxclose”（字符串型），并设置其值：0表示屏蔽此功能；1表示激活此功能。
+　　    2.通过注册表查看系统BIOS信息
+　　    在注册表里储存着关于系统主板BIOS的有关信息，包括最终日期、版本号和视频BIOS日期等信息。打开注册表子键：HKEY_LOCAL_MACHINE＼Hardware＼Description＼System，其下面的键值项：Systembiosdate、Systembiosversion、Videobiosdate分别记录着这些BIOS信息。
+　　    3.启动自动最优化磁盘功能
+　　    在Windows XP系统中，需要时可以自动初始优化磁盘系统的新功能。在注册表中可以控制此功能是否有效。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Dfry＼Bootoptimizefunction，新建字符串型键值项“Enable”，并设置其值：“Y”为此功能有效，“N”反之。
+　　    4.限制自动登录的数量
+　　    这个设置可以限制自动登录的次数，一旦限制已经到了额定次数，自动登录功能就会拒绝登录系统。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows Nt＼CurrentVersion＼Winlogon，创建一个新的字符串型或者修改现有的“autologoncount”键值项，并且根据需要设置其值的大小。
+　　    注意：每次系统重新启动，autologoncount的值将被消耗一个，直到为零。当值为零时，将没有账户可以自动登录，autologoncount和默认密码键值将从注册表中删除且autoadminlogon将被设置为零。
+　　    5.使用Windows NT/2000的登录界面登录Windows XP
+　　    Windows XP采用了一个全新的登录界面，全新的登录方法和显示用户的图片信息，让整个过程更加舒心、个性化。然而在某些场合，可能还会用到Windows NT/2000登录界面，可以通过一些组合键来实现此功能：
+　　    （1）同时按下Ctrl+Alt键。
+　　    （2）连续按下Del键两次。
+　　    登录界面将变成Windows NT/2000式的界面，此时，你可以通过点击“取消”按钮来切换到Windows XP界面。
+　　    6.定义Windows XP时钟服务器
+　　    Windows XP有一个新的特色，它可以将系统的时钟与Internet上的时钟服务器进行同步校正，用以下方法你可以修改或添加默认的时钟服务器。打开注册表子键HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼DateTime＼Servers，设置此子键的默认值为服务器的IP地址或者域名即可。
+　　    7.锁定／解除任务栏在桌面上的位置
+　　    打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼Advanced，新建或者修改双字节值项“TaskbarSizeMove”，并设置其键值：0为锁定；1则为解开锁定。修改完成后，注消或重新启动使其生效。
+　　    8.改进核心存取系统性能
+　　    在具有大量RAM存储量的系统中，这个技巧可以强迫Windows核心进程被驻留在存储器里而不是在程序和磁盘交换文件之间来回切换，从而大大提高系统运行效率。打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼Session Manager＼Memory Management，在其下新建一个双字节值项：Disablepagingexecutive，并设置其值：1使此功能被激活并且阻止核心进程进行磁盘页面交换；0则设其为默认值。重新启动计算机使设置生效。
+　　    9.优化I/O缓冲大小的默认设置
+　　    此功能可用于改变Windows XP对于I/O缓冲大小的默认设置。打开注册表子键HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼Session Manager＼Memory Management，新建或者编辑双字节值项“IoPageLockLimit”，并设置其值，其值有二进制和十六进制，单位为Beyte。在设置缓冲大小时，请逐渐增大数值，在增大的过程中观察设置的性能，因为盲目的增大也会浪费系统资源。
+　　    10.屏蔽/打开“分组相似任务栏按钮”功能
+　　    此功能用于是否将相似的窗口条目集合在一起或作为单个按钮显示在任务栏上。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼Advanced，新建或者编辑双字节值项“TaskbarGlomming”，并设置其值：0为屏蔽此功能；1为运行此功能。
+　　    11.自定义激活“分组相似任务栏按钮”的窗口数量
+　　    在注册表里，可以设置当某个窗口达到一定数量后，才激活“分组相似任务栏按钮”的功能，打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼Advanced，新建或者编辑双字节值项“TaskbarGroupSize”，并设置其值为欲设的窗口数量，一般可为2～10左右。
+　　    12.设置当IE 6.0发生错误时是否允许错误报告
+　　    设置是否允许错误报告，主要用于报告IE 6.0出现错误时将错误信息收集并通过Internet发送到微软技术部门，通过下面的方法可以屏蔽此功能。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Internet Explorer＼Main，新建或者编辑双字节值项“IEWatsonDisabled”，并设置其值为：0表示允许出现错误时报告；1表示不报告。
+　　    13.让IE使用多线程下载网页
+　　    现在很流行Netants、FlashGet等多线程下载工具，其实IE也可以使用多线程下载网页，这样在设置适当的情况下，可以加快网页下载速度。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Internet Settings，新建双字节值项“MaxConnectionsPerServer”，此项的作用是决定最大同步下载的连线数目，一般5～8个连线数目比较好。另外，对于HTTP 1.0服务器，可以加入名为“MaxConnectionsPer1_0Server”的双字节值项，其值也是设置最大同步下载的数目。
+　　    14.设置Windows XP的DOS文件名风格
+　　    此设置用于控制是否允许在NTFS分区上使用DOS的8.3式的文件，禁止这项功能，将使NTFS分区的性能更高。打开注册表子键：HKEY_LOCAL_MACHINE＼SYSTEM＼CurrentControlSet＼Control＼FileSystem，新建或者编辑双字节值项“NtfsDisable8dot3NameCreation”，并设置其值：0表示不允许；1表示允许。
+　　    注意：对于一些十六位的安装程序将会自动使这项功能打开。
+　　    15.屏蔽/打开菜单阴影效果
+　　    Windows XP的阴影菜单效果确实更加个性化、绚丽，但对于系统性能较低的机器，此功能将消耗系统资源，通过注册表可以屏蔽/打开此功能。打开注册表子键：HKEY_CURRENT_USER＼Control Panel＼Desktop，新建或者编辑已有二进制类型键值项“UserPreferencesMask”，设置其值为：将第二个二位改为“28”表示滚动效果表示屏蔽；改为“3E”打开阴影效果。重新启动计算机后可看到效果。
+　　    16.打开无须登陆系统功能
+　　    此功能用于控制对于便携电脑的用户即便在没有登录时，也有可以使用电脑。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼System，新建或者编辑已有双字节值项“UndockWithoutLogon”，并设置其值为：0表示不允许有此功能；1表示允许此功能。
+　　    17.设置“尚未阅读信息”的最大期限
+　　    Windows XP新功能包括在登录时显示几天内尚未阅读的新信息，我们可以注册表里设置此最大期限。打开注册表子键，如果仅仅应用于当前用户，则打开“HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼UnreadMail”子键，如果应用于所有用户则打开“HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼UnreadMail”子键，新建或者编辑已有双字节值项“MessageExpiryDays”，并设置其值为具体的天数。
+　　    18.隐藏/显示桌面图标
+　　    新的Windows XP外观更加个性化，桌面似乎也变得更加简洁，刚刚安装的系统桌面上，仅仅只有一个“回收站”图标，多少有点不方便，其实默认情况下其他常用的图标（如我的电脑、网上邻居等）都被设置为隐藏，我们可以通过注册表可以设置他们是否隐藏/显示。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼HideDesktopIcons＼NewStartPanel，新建下面所列对应的任何一个双字节值项：
+　　    IE图标：{20D04FE0-3AEA-1069-A2D8-08002B30309D}
+　　    回收站图标：{871C5380-42A0-1069-A2EA-08002B30309D}
+　　    网上邻居图标：{208D2C60-3AEA-1069-A2D7-08002B30309D}
+　　    我的文档图标：{450D8FBA-AD25-11D0-98A8-0800361B1103}
+　　    我的电脑图标：{645FF040-5081-101B-9F08-00AA002F954E}
+　　    并设置其值为：1为隐藏相应图标；0为显示相应图标。
+　　    19.显示/隐藏公共对话框中的“后退”按钮
+　　    Windows XP中可以调用功能更加强大、界面更加友好的新的公共对话框函数（comdlg32.dll），新的对话框中包含了“后退”这一方便的功能按钮，但如果想隐藏它，也可以通过注册表来设置。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼comdlg32，新建或者编辑已有双字节值项“ NoBackButton”，并设置其值为：1为隐藏；0为显示。
+　　    20.显示/隐藏公共对话框中的“查找范围快速定位区”
+　　    如上面说到的一样，Windows XP公共对话框中的“查找范围”快速定位区也是可以隐藏/显示的。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼comdlg32，新建或者编辑已有双字节值项“ NoPlacesBar”，并设置其值为：1为隐藏；0为显示。
+　　    21.防止应用程序窗口失去焦点
+　　    如果当前的窗口被另一个自动运行的程序窗口覆盖，即失去焦点，在以往的Windows操作系统中，特别是Windows 2000中，常常因为窗口失去焦点，致使窗口无法正常被控制。Windows XP中增加了对窗口焦点的操作功能，具体可在注册表中设置。打开注册表子键：HKEY_CURRENT_USER＼Control Panel＼Desktop，新建或者编辑已有双字节值项“ForegroundLockTimeout”，并设置其值：如果是0，则屏蔽锁定当前窗口焦点功能；如果是具体的数字（单位为毫秒），则在等待设定的时间后自动释放被锁定的焦点。
+　　    然后在上面的子键下新建或者编辑已有双字节值项“ForegroundFlashCount”，并设置其值：如果是0，则闪烁任务栏中的窗口直到单击后才停；如果是具体的数字，则当闪烁指定的次数后自动释放被锁定的焦点。
+　　    22.激活磁盘DMA66模式
+　　    激活磁盘系统DMA功能可以节省更多的CPU资源对磁盘进行操作，通过注册表可以控制系统是否打开此功能。打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼Class＼{4D36E96A-E325-11CE-BFC1-08002BE10318}＼0000，新建或者编辑已有双字节值项“EnableUDMA66”，并设置其值：0表示取消此功能；1表示激活此功能。
+　　    23.锁定IE的下载功能
+　　    打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼ Internet Settings＼Zones＼3，新建或者编辑已有双字节值项“1803”，并设置其值：3表示锁定；0表示不锁定。
+　　    24.禁止使用“LAST KNOW GOOD”（最后一次成功引导）
+　　    “LAST KNOW GOOD”（最后一次成功引导）可以在系统瘫痪时恢复到上一次运行正常时的状态，如果出于需要而屏蔽此功能，可以使用注册表来设置。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT，新建或编辑已有子键“ReportBootOk”，并设置其值：1为启用此功能；0为屏蔽此功能。
+　　    25.控制发生错误时是否弹出警告窗口
+　　    默认情况下，当应用程序发生严重错误被关闭时会弹出警告窗口，并可以看到一些程序错误信息，如果不想看到此警告弹出窗口，可以在注册表里设置。打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼Windows，新建或者编辑已有双字节值项“ErrorMode”，并可设置键值为：0，所有错误都弹出显示“默认”；1，系统错误不显示，应用程序错误显示；2，系统和应用程序同时发生错误则弹出显示。
+　　    26.控制当系统崩溃时是否记录日制
+　　    打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Control＼CrashControl，新建或者编辑已有双字节值项“LogEvent”，并设置其值为：0为不记录；1为记录。
+　　    27.定制Regedit的收藏夹
+　　    Windows XP新版的Regedit增加了“收藏”功能，但却没有管理收藏功能，你只能创建、删除收藏，而不能修改以及备份这些内容。
+　　    Regedit的“收藏”信息保存在HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Applets＼Regedit＼Favorites子键下，键值项的名称就是显示在Regedit“收藏夹”里的条目，而键值则是该条目指向的注册表子键路径（比如“我的电脑＼HKEY_CURRENT_USER＼Software＼Microsoft＼Windows”）。可根据自己的需求添加、删除、编辑修改这些项目。
+　　    28.启用“自动完成”功能
+　　    自动完成是Internet Explorer的一个体贴功能。此功能的妙处在于，当你输入以前曾经输入过的地址时，它会自动完成输入，省去了反复输入的麻烦，而特别是在地址很长的时候，更能体现它的体贴入微。
+　　    Windows XP的一些命令输入窗口提供了类似的提示功能，就是在你输入以前曾经输入的内容时，它将其列出以备你选择使用，但并不自动填充完成输入。很明显这一功能比“自动完成”还差那么一点人性化的体贴。打开HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼AutoComplete子键，如果该子键下没有“Append Completion”键值项，那么新建此键值项（字符串型），并赋值为“YES”，自动完成功能便启用了。
+　　    29.自定义磁盘图标和卷标
+　　    通过在磁盘根目录下创建并设置Autorun.inf，可以更改此磁盘的图标，其实，通过注册表的设置，同样可以达到效果，并且还可以自定义磁盘的卷标。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼DriveIcons（如果没有DriveIcons子键，请新建），在该子键下新建一个与欲修改磁盘盘符相同名称的子键（比如欲修改C盘，那么新建一个以C为名的子键），然后在其下新建一个用来设置磁盘图标的“DefaultIcon”子键，并设置其默然值为图标文件的路径，比如C:＼Windows＼Welcome.exe或者其他图标文件。
+　　    用上面一样的方法，再新建一个用来设置卷标的“DefaultLable”（即…C＼DefaultLable），子键，并设置其默然值为欲设的卷标文字，比如My Drive或其他文字。
+　　    以上操作完成后，重新启动或者打开资源管理器并按F5刷新，使修改生效。
+　　    30.寻找丢失的“按Web方式显示时隐藏桌面”选项功能
+　　    Windows XP控制面板中的“显示→效果”中没有“按Web方式显示时隐藏桌面”选项，其实这些设置全部被隐藏在注册表中，要设置也只能通过注册表来完成。打开注册表子键：HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼Advanced，新建或者编辑已有的双字节值项HideIcons，并可以设置其值为：0，不隐藏桌面图标；1，为隐藏桌面图标。设置完成后重新登录Windows XP，使所做的修改生效。
+　　    HKEY_CURRENT_USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Explorer＼Advanced子键下还有很多特殊的修改选项，下面列表具体说明：
+　　    （^60090103d^）
+　　    31.为CD-ROM和磁盘驱动器建立高级安全机制
+　　    为CD-ROM和磁盘驱动器及其可移动介质建立高级安全机制，可以只被当前登录的用户访问。具体可以按照如下步骤进行修改。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼WindowsNT＼CurrentVersion＼Winlogon，新建或者编辑已有字符串类型键值项AllocateCDRoms，并设置其值为：1，可以使CD-ROM达到此功能；0，屏蔽此功能。
+　　    另外在该子键下还有键值项AllocateFloppies，可以使磁盘驱动器达到此效果，具体设置值与上面一样。
+　　    32.确定上次登录时用户使用的域
+　　    要控制用来确定成功登录到当前系统上一个用户所用域名的注册表项，可以按照如下步骤进行操作。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼WindowsNT＼CurrentVersion＼Winlogon，新建或修改已有字符串类型键值项“DefaultDomainName”，其键值包含上一次成功登录时用户所用的域名。
+　　    33.Windows XP登录口令过期警告
+　　    要设置用来确定当用户登录且用户的口令已过期时是否显示警告对话框的注册表项，可以打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼WindowsNT＼CurrentVersion＼Winlogon，新建或者修改已有字符串值项“PasswordExpiryWarning”，设置其值为在用户使用即将过期的口令进行登录时显示警告对话框所需的值。
+　　    34.防止用户配置文件选择对话框超时
+　　    要设置在连接远程服务器有一段延迟的情况下，决定用户可以有多少时间确定使用本地配置文件还是服务器配置文件的注册表项，可以打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT＼CurrentVersion＼Winlogon，新建或者编辑已有字符串值项“ProfileDlgTimeOut”，并设置其值为当连接远程服务器遇到延迟时，允许用户在决定使用本地配置文件还是服务器配置文件时花费的时间（毫秒）。
+　　    35.使用定制的Shell（外壳程序）
+　　    要设置用来指定作为Windows XP缺省Shell执行的程序的名称和路径的注册表项，可以打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT＼CurrentVersion＼Winlogon，新建或者编辑已有字符串型键值项“Shell”，并设置其值改为想要使用的定制的Shell程序路径和程序文件名。
+　　    36.修改Windows XP性能库的缺省事件日志功能设置
+　　    除了使用系统性能监视器之外，还可以通过事件查看器跟踪系统问题。你可以通过修改注册表来控制性能库（系统性能监视器的主要代码）向事件查看器所使用的事件日志发送事件的方式。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT＼CurrentVersion＼Perflib，在该主键下有EventLogLevel这一键值项（如果EventLogLevel键值不存在，请创建），该键值项对应的键值的功能如下：
+　　    （^60090103e^）
+　　    37.通过Windows XP性能库使用可扩充计数器来降低缓冲区测试级别
+　　    可扩充计数器是性能库用来真正从非系统应用程序获取信息的机制。可扩充计数器包含一个内存缓冲区，因为操作系统并不分配这个缓冲区，所以Windows XP在接纳这个缓冲区之前通常会充分地测试它。实际上，只有完整性方面还有疑问的新应用程序才需要这样做。缓冲区已经显得很可靠之后，测试就是一种无谓的负担了。对注册表的修改可以使可扩充计数器的缓冲区测试的负担减少。打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT＼CurrentVersion＼Perflib，在该子键下找到键值项ExitCounterTestLevel，如果没有则新建一个。该键值项对应的键值的功能如下：
+　　    （^60090103f^）
+　　    38.通过性能库防止可扩充计数器超时
+　　    你可能会遇到一个关于系统性能监视器的常见问题是图形或图表没有显示数据，而你知道一个进程正在执行。这是由于几个原因造成，但是最常见的原因是用来跟踪信息的可扩充计数器超时，导致进程启动延迟。你可以通过如下所示的方法修改注册表来更正这个问题，打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows＼CurrentVersion＼Perflib，新建或编辑已有双字节值项“OpenProcedureWaitTime”，并设置其值：缺省值是5000ms（毫秒），即5秒，将这个数值增加到一个合理的数值，并再次试用系统性能监视器直到获取有效数据为止。
+　　    39.更改命令提示符Shell的缺省选项
+　　    命令提示符Shell有多得令人吃惊的可配置选项能够通过注册表访问。打开：HKEY_CURRENT_USER＼Console子键。在该子键下有以下键值项，并分别对应着各自的效果：
+　　    （^60090103g^）
+　　    40.当资源管理器崩溃时强迫计算机重新启动
+　　    如果操作系统发生故障，Windows XP就会自动重新启动。但是如果资源管理器崩溃（桌面无法显示图标或任务栏），那么你可能就必须使用键盘快捷键来注销，并重新启动资源管理器。要避免出现这种情况，可以打开注册表子键：HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Windows NT＼CurrentVersion＼Winlogon，新建或编辑已有双字节值项“AutoRestartShell”，并设置其值为：1为允许在资源管理器崩溃时自动重启；0为强迫手工注销并重启。然后重新启动计算机，下次资源管理器崩溃时，计算机就会自动重启动，而不必先注销再登录。
+　　    41.禁用Windows XP的文件高速缓存
+　　    一个与服务相关的注册表操作是增加信箱的可用缓存以防止丢失信件，认识到这样做可能会对性能造成影响是很重要的，只有当一个很明显的涉及信件丢失的问题无法用其他方法解决时才能这样做，要做到这一点，可以打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼LanmanWorkstation＼Parameters，新建或者编辑已有双字节值项“UtilizeNtCaching”，并设置其值为：1为启用缓存；0，则禁止缓存。
+　　    42.设置系统临界线程的总数
+　　    打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼LanmanWorkstation＼Parameters，新建或者编辑已有双字节值项“CriticalThreads”，并设置其值为一个自己欲修改的值，增加系统可用的临界线程数。
+　　    43.启用非页面式内存配额
+　　    打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼LanmanWorkstation＼Parameters，新建或者编辑已有双字节值项“MaxNonpageMemoryUsage”，其值可设置为从1到非页面式内存池的兆字节数的数目。
+　　    44.更改服务器线程的优先级
+　　    打开注册表子键：HKEY_LOCAL_MACHINE＼System＼CurrentControlSet＼Services＼LanmanWorkstation＼Parameters，新建或者编辑已有双字节值项“ThreadPriority”，其键值与其对应的功能分别为：
+　　    （^60090103h^） 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

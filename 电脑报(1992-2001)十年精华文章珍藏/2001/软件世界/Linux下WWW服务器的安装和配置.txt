@@ -1,0 +1,225 @@
+Linux下WWW服务器的安装和配置
+
+高山 
+2001年 1期
+
+    前言：Linux作为一种Unix系统的变种，与Windows系统相比，具有安全、稳定、代码开放等优点。但是，不足之处是软件的安装与配置不如Windows下方便与直观。相信喜好Internet的朋友都有在Windows NT下安装配置Internet服务器（如IIS4的WWW服务、FTP服务、SMTP服务和NNTP服务）的经验。本文主要针对如何在Linux系统下建立万维网（WWW）服务器进行几方面的讨论。
+　　    Linux下常见的免费万维网服务器有CERN httpd、NCSA httpd和Apache。下面，以Apache HTTP服务器为例，介绍万维网服务器的安装和配置。
+　　#1    1.WWW服务器的安装
+　　    Apache的安装有两种方法。一种是在安装linux系统的时候（如 RedHat linux、Turbo linux、蓝点linux、红旗linux等），选择安装WWW Daemon，然后安装程序就会自动的为你安装好Apache服务器；另一种方法是在系统安装完成之后，用Apache的源程序包，自己编译并安装Apache服务器。
+　　    笔者强烈推荐初学者使用前者，对于高级用户或者Linux发烧友，可自己试着使用后者，但在这里就不详细叙述了，有关资料可以在http://www.apache.org上找到。在安装完成之后，为了验证一下到底自己的Apache服务器有没有在工作，可以使用以下命令：
+　　    [root@redhatlinux /]# httpd -v
+　　    Server version: Apache/1.3.3 （Unix） （Red Hat/Linux）
+　　    Server built:Oct 13 1998 03:06:39
+　　    这就说明了系统中正确地安装了版本是1.3.3的Apache服务器。
+　　    关于httpd命令的详细参数说明请使用“httpd --help”查看。
+　　#1    2.手工配置
+　　    Apache服务器的行为完全取决于httpd.conf、srm.conf、access.conf三个配置文件的设置，因此，我们所说的配置也完全是针对它们进行手工配置。在RedHat linux下，这三个文件存放在/etc/httpd/conf目录下。如果你使用的是其它的linux系统，它们的存放目录有可能不同，这时，你可以使用如下命令查找：
+　　    [root@redhatlinux /]# find/ -name httpd.conf
+　　    /etc/httpd/conf/httpd.conf
+　　    Apache的所有在线手册存放在/home/httpd/html/manual目录下，可以用类似http://localhost/manual/index.html的URL来查看。
+　　#2    1. httpd.conf
+　　    下面是一个典型的httpd.conf文件的内容，在#后面给出了语法说明和简要的解释。
+　　    LoadModule env_module  modules/mod_env.so
+　　    LoadModule config_log_module  modules/mod_log_config.so
+　　    ... ...
+　　    ClearModuleList
+　　    AddModule mod_env.c
+　　    AddModule mod_log_config.c
+　　    ... ...
+　　    # 载入服务器所必须的模块文件。这里为节省空间，用省略号代替了许多列出的模块文件。
+　　    ServerType standalone
+　　    #   语法：ServerType type
+　　    设置系统将以什么方式运行httpd。type可以为：
+　　    inetd：从系统进程inetd运行httpd，启动httpd的命令加入/etc/inetd.conf
+　　    standalone：httpd以独立的守护进程远行，启动httpd的命令加入系统启动脚本文件（/etc/rc.d/rc.local）。
+　　    区别：inetd方法对每个http连接，inetd将启动一个新的httpd，连接完成之后，httpd进程退出。用这种方法启动httpd比较慢，但交安全，且占系统资源较少。standalone方法相#对较快，对于一个繁忙的站点，应使用这种方法。
+　　    Port 80
+　　    # 语法：Port number
+　　    httpd占用的端口号。number可以从0到65535，缺省使用80号端口。
+　　    HostnameLookups off
+　　    # 语法：HostnameLookups off/on
+　　    设置系统记录客户端名称或他们的IP。
+　　    User nobody
+　　    Group nobody
+　　    # 语法：User linux-userid；Group linux-group
+　　    User指令后的用户名（或UID）和Group指令后的组（或GID）定义httpd作为什么用户和什么组运行。为使用这条指令，standalone服务器必须最初以root启动。为了安全的目的，应该以nobody和nogroup来运行httpd。
+　　    ServerAdmin root@localhost
+　　    # 语法：ServerAdmin email-address
+　　    当服务器出现问题时系统将通知的用户的email地址。
+　　    ServerRoot /etc/httpd
+　　    # 语法：ServerRoot path
+　　    设置服务器存放的目录，其他配置文件的相对目录就是相对于此目录的。
+　　    ErrorLog logs/error_log
+　　    # 语法：Errorlog filename
+　　    设置错误信息输出文件，如果filename不是以“/”开头，则是相对于ServerRoot。
+　　    LogLevel warn
+　　    # 语法： LogLevel level
+　　    控制被记录入error_log文件的信息数量。
+　　    level有如下几种选择：debug、info、notice、warn、error、crit、alert、emerg。
+　　    LogFormat “%h %l %u %t \”%r\“ %>s %b \”%{Referer}i\“ \”%{User-Agent}i\“” combined
+　　    LogFormat “%h %l %u %t \”%r\“ %>s %b” common
+　　    LogFormat “%{Referer}i → %U” referer
+　　    LogFormat “%{User-agent}i” agent
+　　    # 语法：LogFormat format
+　　    以上几行是定义记录文件的记录格式的。
+　　    CustomLog logs/access_log common
+　　    # 语法：Customlog filename
+　　    设置访问记录的文件（使用Common Logfile Format）。同样，如果filename不是以“/”开头，则是相对于ServerRoot。
+　　    ScoreBoardFile /var/run/httpd.scoreboard
+　　    # 语法：ScoreBoardFile: filename
+　　    设置被用来存放服务器内部过程信息的文件，这并不是所有的系统都需要的。
+　　    ServerName www.mysite.mycom
+　　    # 语法：ServerName fully-qualified domain name
+　　    定义服务器的节点名，必须为服务器的合法DNS名字。
+　　    UseCanonicalName on
+　　    # 语法：UseCanonicalName on/off
+　　    这是1.3里新加入的指令。当设置为on时，当Apache服务器响应其它的请求并返回自己的URL时，使用ServerName和Port构建这个URL。当设置为off时，Apache服务器会使用hostname:port作为返回值。
+　　    Timeout 300
+　　    # 语法：Timeout number（秒）
+　　    设置一个连接的超时时间。
+　　    KeepAlive On
+　　    # 语法：KeepAlive on/off
+　　    设置服务器是否允许“持久的连接”（每个连接有多于一个的请求）。
+　　    MaxKeepAliveRequests 100
+　　    # 语法：MaxKeepAliveRequests number
+　　    每一个“持久的连接”中允许的最大请求数。当这个值设为0时将不限制请求数目。
+　　    KeepAliveTimeout 15
+　　    # 语法：KeepAliveTimeout number
+　　    设置“持久的连接”中两个请求之间的超时时间。
+　　    MinSpareServers 8
+　　    MaxSpareServers 20
+　　    # 语法：MinSpareServers number；MaxSpareServers number
+　　    设置最少和最多的空闲子服务进程数。如果当前空闲子服务进程数大于MaxSpareServers时，父进程会杀死一些子服务进程；如果当前空闲子服务进程数小于MinSpareServers时，父进程会产生一些子服务进程。
+　　    StartServers 10
+　　    # 语法：StartServers number
+　　    设置httpd启动时的子服务进程数。
+　　    MaxClients 150
+　　    # 语法：MaxClients number
+　　    设置服务器的最大同时连接数。
+　　    MaxRequestsPerChild 100
+　　    # MaxRequestsPerChild number
+　　    # 设置每个子服务进程在它被杀死之前被允许处理的最大请求数。这是为了防止由于子服务进程工作时间太长而有可能带来的服务器漏洞。在大多数的系统中，这个指令是不需要的，但在少数系统（如Solaris）中，确实有值得注意的漏洞。
+　　    Listen 3000
+　　    # 语法：Listen port / address:port
+　　    设置服务器除了缺省外，在多个IP地址或端口处等候请求。
+　　    <VirtualHost host.some_domain.com>
+　　    ServerAdmin webmaster@host.some_domain.com
+　　    DocumentRoot /www/docs/host.some_domain.com
+　　    ServerName host.some_domain.com
+　　    ErrorLog logs/host.some_domain.com-error_log
+　　    TransferLog logs/host.some_domain.com-access_log
+　　    </VirtualHost>
+　　    # 语法：<VirtualHost addr[:port] ...> ... </VirtualHost>
+　　    <VirtualHost>和</VirtualHost>用于包含一系列只适用于某个特定的虚拟节点的指令。当服务器接收到对某个虚拟节点的请求时，它使用<VirtualHost>和</VirtualHost>之间的配置指令。addr可以是虚拟节点的IP地址或对应其IP地址的完整节点名。每个<VirtualHost>必须对应服务器的一个不同的IP地址或不同的节点名。可以使用“ifconfig alias”命令将机器配置成多个IP地址以接受请求。
+　　#2    2.配置srm.conf
+　　    下面是一个典型的srm.conf文件的内容，在#后面，给出了语法说明和简要的解释。
+　　    DocumentRoot /home/httpd/html
+　　    # 语法：DocumentRoot path
+　　    设置httpd发布文件的缺省根目录。除了符合别名的以外，服务器把从URL中取出的所有路径前加上DocumentRoot以得到真实本地路径。例如访问http://localhost/index.html，将对应本地文件 /home/httpd/html/index.html。
+　　    UserDir public_html
+　　    # 语法：UserDir path/filename
+　　    设置用户主目录下的一个目录，对某个用户的文件的请求都相对于这个目录。例如：访问 http://localhost/~mike/joy/index.html 将被服务器翻译为：
+　　    UserDir public_html → ~mike/public_html/joy/index.html
+　　    UserDir /usr/web→ /usr/web/mike/joy/index.html
+　　    UserDir /home/*/www → /home/mike/www/joy/index.html
+　　    DirectoryIndex index.html index.shtml index.cgi
+　　    # 语法：DirectoryIndex filename1 filename2 ...
+　　    当用户请求是一个目录时，服务器将返回此目录下的这个文件。如果有多个，将返回排在较前的一个。但如果服务器一个也没有找到，则给出此目录的文件列表。例如：请求 http://localhost/manual/将被服务器翻译成http://localhost/manual/index.html
+　　    AddIcon /icons/binary.gif .bin .exe
+　　    ... ...
+　　    DefaultIcon /icons/unknown.gif
+　　    # 语法：AddIcon filename filetype1 filetype2 ...
+　　    将文件类型和与其对应的图表文件相关联。其它所有未关联的文件将显示DefaultIcon。
+　　    IndexIgnore .??* *~ *# HEADER* README* RCS
+　　    # 语法：IndexIgnore filename1 filename2 ...
+　　    设置一些目录索引应该忽略的文件名。
+　　    AccessFileName .htaccess
+　　    # 语法：AccessFileName filetpye
+　　    为每个目录设置一个用于存放访问控制信息的文件。
+　　    TypesConfig /etc/mime.types
+　　    # 语法：TypesConfig filename
+　　    设置MIME（Multipurpose Internet Mail Extension protocol）类型定义文件。
+　　    DefaultType text/plain
+　　    # 语法：DefaultType mimetype
+　　    为服务器不能通过后缀确定类型的文档设置缺省的MIME类型
+　　    Alias /icons/ /home/httpd/icons/
+　　    # 语法：Alias fakepath realpath
+　　    为你的服务器添加别名路径。请求的路径部分如果以fakepath开头，服务器将把它映射到以realpath开头的本地文件。请注意，如果别名的结尾有/号，如上面的例子，服务器将只对 /icons/ 使用别名，而不对/icons 使用。
+　　    ScriptAlias /cgi-bin/ /home/httpd/cgi-bin/
+　　    # 语法：ScriptAlias fakepath realpath
+　　    类似Alias，但它表示的目录包含CGI程序。这使此目录下的文件有被执行的权限。
+　　    AddType text/html .shtml
+　　    # 语法：AddType type/subtype ext
+　　    AddType指令可以使你在不改动mime.types文件的前提下添加MIME类型。例如，PHP3模块（并不是Apache的一部分）将用到：
+　　    AddType application/x-httpd-php3 .php3
+　　    AddType application/x-httpd-php3-source .phps
+　　    AddHandler cgi-script .cgi
+　　    # 语法：AddHandler action-name ext
+　　    AddHandler指令允许你映射特定的文件到一个“handlers”（处理过程）。
+　　    如果需要使用CGI脚本的话，就要加上如上的指令。
+　　#2    3.配置access.conf
+　　    顾名思义，access.conf是用于设置Apache服务器的目录访问属性的，下面是一个典型的access.conf文件的内容：
+　　    <Directory />
+　　    Options None
+　　    AllowOverride None
+　　    </Directory>
+　　    <Directory /home/httpd/html>
+　　    Options Indexes Includes FollowSymLinks
+　　    AllowOverride None
+　　    order allow，deny
+　　    allow from all
+　　    </Directory>
+　　    <Directory /home/httpd/cgi-bin>
+　　    AllowOverride None
+　　    Options ExecCGI
+　　    </Directory>
+　　    大家可以看出，access.conf是由<Directory></Directory>命令对和其中的指令语句组成的。它们的含义如下：
+　　    3.1 <Directory>...</Directory>
+　　    语法：<Directory path>...</Directory>
+　　    <Directory>和</Directory>包含一组只对指定目录及其子目录有效的指令。path可以是某个目录的全名，也可以是包含通配符的路径。
+　　    3.2 Options
+　　    语法：Options option1 option2 ...
+　　    设置对此目录哪些服务器特性有效。option可以为：
+　　    None：不允许任何特性。
+　　    All：允许一切特性。
+　　    Indexes：如果此目录中没有DirectoryIndex定义的文件，允许返回文件列表。
+　　    ExecCGI：允许执行CGI文件。
+　　    FollowSymLinks：服务器将遵循此目录中的符号连接。
+　　    3.3 AllowOverride
+　　    语法：AllowOverride option1 option2 ...
+　　    当服务器发现.htaccess文件，它必须知道文件中的哪些指令可以覆盖以前的限制信息。
+　　    option可以为：
+　　    None：服务器将不读.htaccess文件。
+　　    All：允许所有指令。
+　　    AuthConfig：允许使用注册指令。
+　　    FileInfo：允许使用文件类型控制指令。
+　　    Indexes：允许使用目录索引指令。
+　　    Limit：允许使用节点限制指令。
+　　    Options：允许使用指定目录特性指令。
+　　    详细的说明请查看Apache的在线手册。
+　　    3.4 Allow
+　　    语法：Allow from host host ...
+　　    设置哪些节点可以访问此目录。host可以为：
+　　    All：允许所有节点访问。
+　　    （部分）域名：允许以此字符串结尾的节点访问。
+　　    完整的IP地址：允许此IP地址访问。
+　　    部分的IP地址：允许以此IP开头的子网节点访问。
+　　    3.5 Deny
+　　    语法：Deny from host host ...
+　　    设置哪些节点不可以访问此目录。用法同Allow。
+　　    3.6 Order
+　　    语法：Order deny，allow / allow，deny / mutual-failure
+　　    设置deny和allow被鉴定的顺序。
+　　    deny，allow：deny指令在先。（初始状态为allow all）
+　　    allow，deny：allow指令在先。（初始状态为deny all）
+　　    mutual-failure：只有在allow中被允许而没有被deny的节点可以访问。
+　　    例如：
+　　    Order deny，allow
+　　    deny from all
+　　    allow from.cpcw.com
+　　    允许cpcw.com域的节点访问，禁止其它一切节点访问。
+　　    上面从解读三个文件出发，分析了配置Apache服务器的方法。这只是玩转Linux下WWW服务器的第一步，更多的工作是需要大家在实践中去慢慢摸索，细细体会。只要有兴趣和耐心，相信大家一定能够成为Linux高手的。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

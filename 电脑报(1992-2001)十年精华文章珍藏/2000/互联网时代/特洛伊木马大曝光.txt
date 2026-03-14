@@ -1,0 +1,287 @@
+特洛伊木马大曝光
+
+奇奇   cn77@126.com   http://cn77.126.com
+2000年 第6期 
+
+#1    一、木马BirdSPY2（鸟人）
+　　控制器端软件： BSPY_Client.exe 355865字节
+　　服务器端软件： BirdSPY2.exe 27648字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+　　键值名：Wldap32.dll
+　　键值：c:\windows\system\WinApp32.exe
+　　键值名：WinSpool.VxD
+　　键值：c:\windows\system\WinSock.exe
+　　字符特征串：“5）7C\”“KERNiLNV”“3，f＋rn”  
+　　共有字符特征串：“％tSVP”“b@ltsozi”  
+　　主要功能：类似冰河1.2。
+　　运行方式：当运行BirdSPY2.exe以后，生成木马，打开的端口是47878。
+　　请注意！只要你使用了控制器BSPY_Client.exe，你就会中该木马。
+　　删除木马：在内存中终止WinApp32.exe或者WinSock.exe的运行，在注册表启动组中删除键值，在硬盘上删除相关文件。
+　　LockDown4.0.1.6不能删除该木马。
+#1    二、木马 Bo 1.20
+　　控制器端软件： Bogui.exe 284160字节
+　　服务器端软件： Boserve.exe 124928字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\RunServices
+　　键值名：（默认）
+　　键值： .exe
+　　字符特征串：“1.20”“Content－length: ％d”“<FORM ENCTYPE=″multipart/form－data″ ACTION=″/upload.cgi％s″ METHOD=″POST″><P><INPUT TYPE=″SUBMIT″ VALUE=″Upload file:″> <INPUT TYPE=″file″ NAME=″filename″></FORM></PRE></BODY></HTML>  <P>％d bytes in ％d files and ％d dirs<P><HR>  <A HREF=″％s％s″>％－30s</A> ％－30s  ％d<P>”“windll.dll” 
+　　主要功能：可以这样说，该有的全有了。
+　　运行方式：运行Bogui.exe以后，删除自己，生成文件c:\windows\system\ .exe，加载到注册表，以后自动运行，打开端口31337，可以改变端口，并可以对端口加密。
+　　删除木马：最简单的是用杀毒软件或者LockDown去删除。如果是手动的话，就删除注册表中的键值，终止 .EXE在内存中的运行，删除木马。
+　　该木马能被LockDown 4.0.1.6发现并删除。LockDown提示c:\windows\system\windll.dll也是木马，将其删除即可。
+#1    三、木马Deep Throat 1.0
+　　控制器端软件：RemoteControl.exe 271959字节
+　　服务器端软件：Systempatch.exe 260971字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：SystemDLL32
+　　键值：文件被启动的位置（包括文件路径），比如，你是在d:\remote中运行了systempatch.exe，那么键值就是d:\remote\systempatch.exe。
+　　字符特征串：“Copyright （c） 1998 NeoWorx Inc”“Portions Copyright （c） 1997，1998 Lee Hasiuk”
+　　运行方式：将systempatch.exe加载到注册表启动组中，以便重新启动时运行。
+　　主要功能：查看屏幕、将目标电脑设置成FTP服务器、打开光驱、关掉屏幕、注销用户、隐藏任务栏、启动程序、送消息给目标电脑等。
+　　删除木马：请注意，这个木马的文件名是可以被改掉的，如果你改成了player.exe，然后运行，那么在注册表中SystemDLL32的键值就是路径\player.exe，请到注册表启动组中删除SystemDLL32的键值名，请务必记下木马的位置和文件名！终止木马在内存中的运行，删除盘上的木马。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    四、木马Deep Throat 3.0
+　　控制器端软件： DTv3 Client.exe 483840字节
+　　服务器端软件： Systempatch.exe 266752字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：Systemtray
+　　键值：c:\windows\systray.exe
+　　字符特征串： “PI32.DL?\”“（v3.0）”“AwTBcG=＊OH”“4＃5???r9810?Num[?S”
+　　主要功能：上传下载文件、运行程序、查看屏幕、将目标电脑变成FTP服务器、找密码等，功能强大。
+　　运行方式：目标电脑运行Systempatch.exe以后，复制文件为c:\windows\systray.exe，加载到注册表启动组，进入内存，打开端口。
+　　删除木马：终止systray.exe在内存中的运行，删除键值，删除文件。请注意，删除c:\windows\systray.exe，而不是删除c:\windows\system\systray.exe，看清楚文件的图标。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    五、木马FTP
+　　控制器端软件：各种类型的FTP上传工具
+　　服务器端软件： FTP.exe 402944字节
+　　字符特征串：“TFtpSrvValidateXferEvent”“http://www.rtfm.be/fpiette”“－rwxrwxrwx   1 ftp   ftp  0 Apr 30 19:00 TEST”“drwxrwxrwx   1 ftp  ftp  0 Apr 30 19:00 SOME DIR”“Apr 30 19:00 FORBIDEN”
+　　主要功能：仅可上传下载文件，可将其他木马上传到你的电脑中，更换你的注册表或者启动文件等。
+　　运行方式：当它运行后进入内存，开放21端口，可上传下载文件，不加载到启动组中。
+　　删除木马：最简单的方法是按“Ctrl＋Alt＋Del”就可以终止FTP.EXE的运行。最好使用ATM软件终止它的运行，在ATM上可显示这个文件的位置。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    六、木马GirlFriend （1.3）   
+　　控制器端软件： Gf.exe 425984字节。
+　　服务器端软件： Windll.exe 360448字节。
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run  
+　　键值名：Windll.exe
+　　键值：C:\windows\Windll.exe
+　　字符特征串：“GirlFriend”“Server 1.3”
+　　运行方式：当运行了Windll.exe以后，Windll.exe将自己复制到c:\windows下，然后再将原位置的Windll.exe删除，并加载注册表，以便电脑重新启动时可以被运行。
+　　主要功能：偷取密码。
+　　删除木马： 先用ATM程序终止木马在内存中的运行，然后在注册表中删除键值，再到硬盘中删除文件Windll.exe。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    七、木马Glacier（冰河）1.2
+　　控制器端软件： G_Client.exe 627200字节
+　　服务器端软件： G_server.exe 448000字节
+　　注册表位置：
+　　1）HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：（默认）
+　　键值：c:\windows\system\Kernel32.exe
+　　2）HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+　　键值名：（默认）
+　　键值：c:\windows\system\Kernel32.exe
+　　3）HKEY_CLASSES_ROOT\txtfile\shell\open\command
+　　键值名：（默认）
+　　键值：c:\windows\system\Sysexplr.exe ％1
+　　字符特征串：真的很奇怪，发现文件中居然有许美静“铁窗”的歌词：“ 我以为你给了我一线希望，我伸出手却只是冰冷铁窗……”
+　　运行方式：当目标电脑在任何位置运行G_server.exe以后，G_server.exe进入内存，G_server.exe自动删除该文件，在c:\windows\system生成文件Kernel32.exe和Sysexplr.exe，实际就是G_server.exe，只是文件名改变了。
+　　在内存中运行的程序名字是Kernel32.exe，Kernel32.exe打开7626端口，供黑客进入。
+　　当你在注册表中删除和修改以前键值并重新启动时，Kernel32.exe自动检查注册表，自动加载。当你只删除注册表位置1）和2），并删除了位于c:\windows\system中的文件Kernel32.exe时，系统重新启动以后就正常，但是如果你运行某个文本文件，那么就会启动注册表位置3），Sysexplr.exe被启动，系统又恢复到被原来加载的样子。
+　　主要功能：运行文件、查看屏幕、修改注册表、更新冰河服务器软件。
+　　删除木马:先将内存中正在运行的Kernel32.exe终止，然后进入注册表，在位置1）和位置2）删除键值，将位置3）的键值修改为C:\WINDOWS\NOTEPAD.EXE ％1，到硬盘C:\windows\system中将文件Kernel32.exe和Sysexplr.exe删除。
+　　该木马不能被LockDown 4.0.1.6发现。
+#1    八、木马InCommand 1.0
+　　控制器端软件： Client.exe 304128字节
+　　服务器端软件： Server.exe 172032字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：AdvancedSettings
+　　键值：第一次运行服务器的目录\SERVER.EXE
+　　字符特征串：“NRV 0.61 Copyright （C） 1996－1999 Markus F.X.J. Oberhumer ”“License: NRV for UPX is distributed under special license”
+　　主要功能：上传下载文件、运行文件、查看屏幕、重新启动目标电脑。
+　　运行方式：将文件上传到目标电脑，例如c:\windows\command\hehe.exe，运行，木马加载到注册表启动组，键值为c:\windows\command\hehe.exe，开放默认端口9400，黑你的人可以将端口号更改，并加密。
+　　删除木马：在注册表中找到键值名为AdvancedSettings的键值，记下文件位置和文件名，删除键值，终止该文件在内存中的运行，在硬盘上删除该文件。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    九、木马Millenium 1.0
+　　控制器端软件： Client.exe 164352字节
+　　服务器端软件： MIL.exe 48128字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：Millenium
+　　键值：c:\windows\system\reg66.exe
+　　字符特征串：“=＄=（=，=0=4=8=<=@=D=H=P=d=l=p=t=”“00080@0G0O0_0d0j0o0”“1＄1（1，1014181<1@1D1H1L1P1T1X1\1｀1d1h1l1p1t1x1|1”“5＄5＊50565<5B5H5N5T5Z5｀5f5l5r5x5～5”
+　　运行方式：MIL.exe运行以后，生成文件c:\windows\system\reg66.exe，并加载注册表和加载到win.ini中，以便重新启动时自动加载，打开端口20000和20001。
+　　删除木马：终止木马运行，删除注册表键值，删除文件。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十、NetBus 1.53
+　　控制器端软件： NetBus.exe 494592字节
+　　服务器端软件： SysEdit.exe 473088字节
+　　字符特征串：“NetBus” “1.53”
+　　主要功能：上传下载文件、启动程序、查看目标电脑屏幕。
+　　运行方式：当你运行过SysEdit.exe以后，端口12345就打开。下次启动电脑时，SysEdit.exe不会自己运行。正是因为有这种特性，1.53版本是最难删除的木马。黑客可以捆绑在其他程序中，当你运行该程序的时候，木马就发作了。
+　　查找及删除：关键是查找到SysEdit.exe文件，因为它不会单独存在（单独存在是不会启动的），你可以在下网的时候，看看自己已打开的端口有没有12345，如果有的话，就查看硬盘位置c:\windows\temp中存在的可执行文件，一般是SysEdit.exe，也可能是其他的文件名，但是位置一定是在c:\windows\temp，请务必保留样本！然后使用ATM终止这个程序的运行，然后再看看端口12345是否还打开？如果没有了，那么这个就是NetBus 1.53版本的木马SysEdit.exe。另外，已知SysEdit.exe中包含的字符特征串有“NetBus”和“1.53”的字样，如果查找硬盘上包含上述字符的可执行文件，找到以后，先保存样本，然后再运行，检查c:\windows\temp中有没有生成新的SysEdit.exe或者其他程序？端口12345打开没有？如果有的话，它就是NetBus1.53木马。
+　　注意，无论是学习木马，还是删除木马，保存木马样本是个好习惯，一来，误删文件可以恢复，二来对删除木马有帮助。保存木马样本很简单，可以打包压缩，也可以将文件的后缀名改掉。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十一、NetBus 1.60
+　　NetBus 1.60版本，只有服务器软件，没有控制端软件。不过用NetBus 1.53版本的控制端也可以使用的。
+　　服务器端软件： Mring.exe 472576字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：MRING
+　　键值：c:\windows\mring.exe /nomsg
+　　字符特征串：“NetBus” “1.60”
+　　运行方式：运行Mring.exe以后，加载注册表启动组，在c:\windows生成Mring.exe，原启动的Mring.exe并不删除。
+　　删除木马：终止内存中运行的Mring.exe，删除注册表中的键值，删除硬盘上的Mring.exe。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十二、NetBus 1.70版本
+　　控制器端软件： NetBus.exe 599552字节
+　　服务器端软件： Patch.exe 494592字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：Patch
+　　键值：c:\windows\patch.exe /nomsg
+　　字符特征串：“NetBus”“1.70”
+　　运行方式：运行Patch.exe以后，在c:\windows生成文件Patch.exe，并加载到注册表启动组，原启动文件并不被删除。
+　　删除木马：终止内存中的Patch.exe，删除注册表键值Patch，在硬盘上删除该文件。
+　　注意：端口号是可变的，发现其他可疑端口时，可怀疑是此木马造成。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十三、Netspy 1.0
+　　控制器端软件： NetMonitor.exe 188928字节
+　　服务器端软件： Netspy.exe 88576字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\windows\CurrentVersion\Run
+　　键值名：Netspy
+　　键值：c:\windows\system\netspy.exe
+　　字符特征串：“Netspy Version 1.0 OK!”“202.103.106.189”
+　　主要功能：上传下载文件、运行程序，如果附加插件的话，功能可以扩展到查看目标电脑屏幕、目标电脑（开机）上网自动通知。
+　　运行方式：运行netspy.exe以后，在c:\windows\system生成文件netspy.exe，并加载到注册表启动组中，原文件不删除。
+　　删除木马：终止netspy.exe在内存中的运行，删除注册表键值，删除硬盘上的文件netspy.exe。
+　　这个木马可是国人自己编的！
+　　在LockDown 4.0.1.6的木马列表中有它，但是居然不能发现并删除该木马。
+#1    十四、Phase 1.0版本：
+　　控制器端软件：Client.exe 334848字节
+　　服务器端软件：Phase.exe 301568字节  	  Setup.exe 228864字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+　　键值名：MsgServ
+　　键值：msgsvr32.exe
+　　特征字符串：“[061] Connection refused.”“Connected”“phAse zero server v1.0 by njord of kr0me corp”“access granted，at your commands”
+　　主要功能：上传下载文件、运行文件等。
+　　运行方式：
+　　1.phase.exe运行方式同NetBus 1.53的基本sysedit.exe；
+　　2.setup.exe：当目标电脑运行过phase.exe后，端口555被开放，则可运行setup.exe，它可对目标电脑进行操作，安装的文件名和端口号可在安装时修改，默认的注册表位置和端口号如上。
+　　发现和删除：phase.exe木马一般会以捆绑形式出现，根据它的字符特征串，对照NetBus 1.53版本的木马SysEdit.exe删除。
+　　setup.exe生成的木马可能有很大变化，但是文件一定出现在c:\windows\system，图标是透明的，字符特征串也不会改变，注册表的位置一定在启动组中。根据这些性质，就可以查找到木马。
+　　默认生成的木马是msgsvr32.exe（请小心！弄错了会导致你的电脑崩溃！）。在c:\windows\system中还有一个同名文件msgsvr32.exe，文件大小15099字节左右，这是系统必需的文件，而木马msgsvr32.exe的图标是透明的，在删除文件时不要弄错了！你使用内存管理程序终止木马程序的时候，请小心，木马是16位的，而系统文件msgsvr32.exe是32位的。木马在注册表的键值名是MsgServ，键值是msgsvr32.exe。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十五、木马Prosiak 0.47
+　　控制器端软件： Pro_cli.exe 211456字节
+　　服务器端软件： Prosiak.exe 238592字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+　　键值名：Microsoft DLL Loader
+　　键值：windll32.exe
+　　字符特征串：“－=?PE－PACK v0.99 －? （C） Copyright 1998 by ANAKiN ?－ ”“（C）IN98”“PE－PACK: MEMORY ALERT” “PE－PACK: IMPORT LDR ERROR”
+　　主要功能：上传下载文件、运行程序、查看屏幕、终止进程。
+　　运行方式：运行Prosiak.exe后，生成文件c:\windows\system\windll32.exe，并加入注册表启动组，以便重新启动后进入内存，开放22222和33333端口。
+　　删除木马：终止程序运行，删除注册表键值，删除文件。请用字符特征串在硬盘上仔细查查，可能木马的名字会改变，特别是在c:\widows\system中查找大小为238592字节的文件。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十六、木马Remote－Anything
+　　控制器安装程序： i_Master.exe 313350字节
+　　控制器端软件： Master.exe 207872字节
+　　服务器安装程序： i_Slave.exe 237522字节
+　　服务器端软件： Slave.exe 76800字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+　　键值名：RA Server
+　　键值：c:\windows\slave.exe
+　　字符特征串：“Note: The REGISTERED version of Remote－Anything does not partially hide passwords with ＇＊＇.”
+　　运行方式：木马Remote－Anything包含两个程序：i_Master.exe和i_Slave.exe。运行i_Slave.exe进行服务器程序安装，其安装过程是可见的，要使用鼠标操作。安装以后，在c:\windows生成文件Slave.exe，并在注册表启动组加载，以便重新启动电脑时自动加载。i_Master.exe是安装控制器，在桌面生成文件Master.exe。
+　　删除木马：到注册表启动组看看有没有RA Server键值名的键值，有的话就删除，记住木马位置，在内存中终止木马运行，再到硬盘上删除木马。
+　　该木马不会被LockDown 4.0.1.6发现。
+#1    十七、木马School
+　　控制器端软件： Client.exe 452096字节
+　　服务器端软件： Setup.exe 414720字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+　　键值名：Emt Indicator
+　　键值：c:\windows\system\Grcframe.exe
+　　字符特征串：“Grcframe.exe”“Emt Indicator”
+　　主要功能：上传下载文件、运行程序等。
+　　运行方式：当服务器程序Setup.exe被运行后，会出现一个错误信息框，表明木马被装进了你的电脑。生成文件c:\windows\system\Grcframe.exe，并加载到注册表。
+　　删除木马：终止木马在内存中的运行，删除硬盘上的文件，删除键值。
+　　该木马不会被LockDown 4.0.1.6发现。
+#1    十八、木马Schoolbus 1.60
+　　控制器端软件： Client.exe 609792字节
+　　服务器端软件： Setup.exe 407040字节
+　　主要功能：上传下载文件、运行程序等。
+　　字符特征串：“\Grcframe.exe” “\runonce.exe”
+　　运行方式和删除木马：同schoolbus 2.0版本。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    十九、木马Schoolbus 2.0
+　　控制器端软件： Client.exe 785408字节
+　　服务器端软件： Server.exe 328110字节
+　　字符特征串：“\Grcframe.exe” “\runonce.exe”“IVersion”
+　　主要功能：除了修改注册表，可方便地改变端口号并加密。
+　　运行方式：将server.exe上传到目标电脑，执行，server.exe生成文件c:\windows\system\grcframe.exe，并修改c:\windows\system\runonce.exe。当目标电脑重新启动时，Windows装入c:\windows\system\runonce.exe，runonce.exe命令，运行c:\windows\system\grcframe.exe，木马被装入。
+　　删除木马：在内存中看看有没有grcframe.exe存在，有的话，就中了木马了，终止程序运行，删除硬盘上该文件，在Windows安装光盘上提取文件runonce.exe覆盖到c:\windows\system中。
+　　c:\windows\system\grcframe.exe有可能是隐含、只读的，注意，你要修改“我的电脑”或者“资源管理器”的选项才能看到。
+　　LockDown 4.0.1.6不能发现该木马。
+#1    二十、木马SubSeven 1.0
+　　控制器端软件： SubSeven.exe 308224字节
+　　服务器端软件： Server.exe 250368字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+　　键值名：SystemTrayIcon
+　　键值：c:\windows\systrayicon.exe
+　　字符特征串：“％?，?":D;4?”“?BXW％Pr??％L0D”“WHOLEljs5kbrc3h”
+　　主要功能：运行程序，在控制器上可以看到有上传下载文件。
+　　运行方式：运行server.exe以后，自动生成c:\windows\SysTrayIcon.Exe，加载到注册表启动组，打开端口
+　　删除木马：进入注册表启动组删除键值，终止木马运行，删除文件。
+　　另外，当你打开控制器的时候，端口6712会打开，关闭控制器，端口6712关闭。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    二十一、木马Subseven 1.9
+　　控制器端软件： Sub7.exe 519680字节
+　　服务器端软件： Server.exe 335799字节
+　　木马制作工具： EditServer.exe 221184字节
+　　字符特征串：“MJ（?’RE4?\g!”“[RDV－（t\K”“05rP＋!m”
+　　主要功能：上传下载文件、运行程序、查看目标电脑屏幕、直接修改注册表、将目标电脑变成FTP服务器等。
+　　运行方式：这个木马比较复杂，先讲讲默认安装下的运行方式，运行server.exe以后，将自己复制到c:\windows\mtmtask.dl中，并修改c:\windows\system.ini，使启动电脑时可以加载。打开端口1243供进入。
+　　这个木马提供了制作工具，你可以在原来的基础上作修改，具体包括：增加文件字节、修改图标、改变端口号、设置密码、捆绑到某个文件上、启动位置（注册表启动还是INI配置文件启动）、设置注册表键值名和键值、首次运行木马的反映（如错误信息警告信息等）、目标电脑上网自动通过ICQ、EMAIL、IRC通知。
+　　删除木马：如果是默认安装的话，比较简单，修改c:\windows\system.ini，终止木马运行，删除木马文件。
+　　如果只是中了配置过的木马，那么启动方式、木马位置、端口号都会改变，你可以使用字符特征串在硬盘上找该文件，找到以后你对它分析一下就知道了。
+　　当木马在内存中运行的话，就简单多了，使用ATM看看内存，多少程序在运行，请用笔记下程序名称和该文件的位置，排除几个Windows的程序以后，一个一个终止他们的运行，每终止一个程序的运行，看看端口是不是还开着，如果关了，那么这个程序就是木马，先保存好木马样本。
+　　找到木马以后，在注册表和win.ini、system.ini中找找看，如果有包含木马文件名的字符串，就改为原来Windows的样子。一般地，注册表启动组出现的键值可以直接删除。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    二十二、木马SubSeven 1.90 ver2  
+　　这是Sub7 1.9的增强版本，只有服务器软件。特性和1.9一样。
+　　服务器端软件： c:\windows\mtmtask.dl 362935字节
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    二十三、木马SubSeven 2.0
+　　控制器端软件： SubSeven.exe 428469字节
+　　服务器端软件： Server.exe 336867字节
+　　字符特征串：“NRV 0.61 Copyright （C） 1996－1999 Markus F.X.J. Oberhumer”“License: NRV for UPX is distributed under special license”“Ζ＋?＋＆＋＇＋（＋?＋＆＋”“/?!@＃4M?＄％^＆＊}ASD4M?FGHJK”
+　　主要功能：和SubSeven 1.9类似。
+　　运行方式：默认运作方式下，运行server.exe，查找有无文件c:\windows\kerne1.exe存在，如果不存在或者存在但是文件不一样的话，则生成文件c:\windows\kerne1.exe（即server.exe），修改system.ini，此时kerne1.exe并未进入内存，当你重新启动电脑的时候，system.ini自动加载kerne1.exe到内存，由此黑客可以进入你的电脑了。kerne1.exe打开的端口号是1243和6776。
+　　我做了这样一个试验，可以帮助了解木马的启动。Windows的记事本程序是notepad.exe，也在该目录下，复制一个改成文件名kerne1.exe，注意，请将该文件的属性修改成“只读”！并将system.ini中的shell改成shell=Explorer.exe kerne1.exe，那么，每次你的电脑启动，都将启动记事本程序了。现在运行木马的服务器程序server.exe，server.exe首先检查windows木马下是否存在kerne1.exe，发现存在，但是和自己不一样，（呵呵，是记事本程序呀，笨木马），于是想删除并将自己变成kerne1.exe，但是记事本程序是“只读”的，没有办法，进行下一项，加载到system.ini中，我也帮它完成了，然后server.exe就启动c:\windows\kerne1.exe，当然被启动的是记事本程序，你从以上的过程想必已经可以推测出它的安装过程了吧。
+　　删除木马：在默认安装方式下，删除木马是很容易的事情，修改system.ini，终止kerne1.exe在内存中的运行，删除c:\windows\kerne1.exe。
+　　非默认安装模式下，启动方式会多变，但是只要掌握了木马的特性，也是很容易的。这个木马有两个特性不会变，第一是木马的服务器一定在c:\windows目录下，第二，即使启动方式如何多变，一定会加载到system.ini中。首先看看system.ini是否有木马的痕迹，有，就删除c:\windows目录中的该文件，然后再到注册表的启动组中删除该键值。木马可能出现的后缀名有exe、com、dl。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+#1    二十四、木马SubSeven 2.1
+　　控制器端软件： SubSeven.exe 623104字节
+　　服务器端软件： Server.exe 380835字节
+　　服务器配置工具： EditServer.exe 404992字节
+　　字符特征串：“This file is packed with the UPX executable packer” “UPX 0.84 Copyright （C） 1996－1999 Laszlo Molnar ＆ Markus Oberhumer”“NRV 0.61 Copyright （C） 1996－1999 Markus F.X.J. Oberhumer”“License: NRV for UPX is distributed under special license”
+　　主要功能：上传下载文件、运行程序、将目标电脑做成FTP服务器、端口可选、可加密、可在硬盘上找文件、对内存进程操作、看网络线程、注册表直接操作、在线修改文件、偷看密码、看电脑屏幕。
+　　运行方式：默认的运行方式是，运行server.exe以后，自动复制到c:\windows\msrexe.exe，打开端口27374，并不加载到任何启动组中。
+　　删除木马：默认安装不自动启动，如果不在内存中运行，可直接删除文件。如果你不小心运行了它，则请先终止msrexe.exe运行，再删除。
+　　木马的配置工具可以对木马的许多特性进行修改，改变端口、改变木马图标、改变木马启动方式、可捆绑文件。
+　　如果不进行文件的捆绑的话，木马是比较好找的，配置工具疏忽了一点，就是文件名不会改变，如果你发现有文件c:\windows\msrexe.exe，那么，这就是木马。然后到注册表的启动组和win.ini中去找。
+　　如果进行了文件捆绑的话，就比较麻烦了，你可以查c:\windows\msrexe.exe存不存在，如果存在，先保存样本，然后在样本中提取字符特征串，在硬盘上找，找到以后就进行分析，执行后是不是新开了端口？终止运行以后端口是不是关闭了等。
+　　LockDown 4.0.1.6不能发现该木马。
+#1    二十五、木马WinCrash 1.03
+　　控制器端软件： WinCrash.exe 309248字节
+　　服务器端软件：Server.exe 296448字节
+　　注册表位置：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+　　键值名：MsManager
+　　键值：SERVER.EXE
+　　字符特征串：“WinCrash”“Copyright 1991 Robert Salesas ”
+　　主要功能：上传下载文件、运行程序等。
+　　运行方式：server.exe运行以后，复制到c:\windows\system下，加载到注册表启动组，打开5742端口。控制器端软件可打开目标电脑的21端口，使之成为FTP服务器，可上传下载文件，控制器可远程运行目标电脑上的程序。
+　　删除木马：删除注册表启动组中的键值，终止木马在内存中的运行，删除木马。
+　　该木马能被LockDown 4.0.1.6发现并删除。
+　　编注：各种木马的端口、启动方式和木马位置请见本报第4期第44版的表格介绍。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

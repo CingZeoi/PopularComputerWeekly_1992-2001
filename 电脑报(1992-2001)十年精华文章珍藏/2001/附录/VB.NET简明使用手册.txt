@@ -1,0 +1,337 @@
+VB.NET简明使用手册
+
+刘红军 
+2001年 60期
+
+    Visual Basic.NET（VB.NET）是下一代的Visual Basic，VB.NET将会提供一流的、面向对象的编程语言，同时带来了许多新的功能，比如继承的实现，重载和参数化构造函数。 另外，随着语言结构的调整，如结构化的异常处理，代码更易于维护，这使得开发人员将可以使用简洁明了的自由线程来编写高扩展性的代码。VB将会提供开发人员所需要的所有语言特点，来使他们能建立稳定、可扩展的分布式Web应用程序。同时，作为世界最流行的开发软件，保持了容易上手的特点。
+　　    无论你是一名新手，还是一个老牌的VB程序员，VB.NET将使你为明天的因特网编制出前沿的软件。
+　　#1    一、VB.NET新特性
+　　    （一）与面向对象编程有关的新功能
+　　    （1）继承性：程序员通过继承来重用代码和数据。重用经过测试的代码会大大减少程序Bug产生的可能。
+　　    （2）重载：通过使用不同的参数类型，可以让程序员使用名称相同而功能不同的子过程或者函数。
+　　    （3）参数化构造函数：在建立一个新的实例的同时，把参数传递给它，简化了客户端代码。    （二）其他新功能
+　　    （1）自由线程：自由线程提供了非同步处理机制，程序员可以在不影响其他应用程序的前提下，新建一个线程来进行一些长时间的任务、复杂的查询请求或者多块同步计算。
+　　    （2）结构化的异常处理：运用“Try…Catch…Finally”语句，程序员可以把异常处理直接嵌入程序，而不使用“On Error Goto”语句。
+　　    （3）检测：VB.NET针对任何有可能产生运行时错误的类型转换产生编译错误，以改善类型转换的安全性。
+　　    （4）共享成员：是指那些可以被类的所有实例共享的数据和函数成员。
+　　    （5）初始化功能：VB.NET支持在变量定义行直接初始化。
+　　    同时，VB.NET还具有垃圾收集功能；创建编译的服务器端代码；Web服务策略；通过ADO.NET彻底支持XML格式的数据集等新功能。
+　　#1    二、VB.NET的集成开发环境（IDE）
+　　    Visual Studio.NET语言都使用相同的IDE，IDE内提供的新工具非常全面和强大。下面逐个介绍：
+　　    （一）Visual Studio主窗口
+　　    这是启动VB.NET时显示的第一个界面。主窗口中显示了最近修改的工程，并提供了打开现有工程、创建新工程的选项。所有选项都以超级链接形式显示。
+　　    （二）新建工程（New Project）对话框
+　　    提供用任意一种语言创建工程的选项。分左右两栏：左边的树形列表中列出几种编程语言，列表中的VB节点处于打开状态；右边图标显示创建新工程的几个选项。注意这里出现了一些新的选项，如Web Service、Web Control Library和Class Library。最后一个选项显示出：在VB.NET中，多个相关的类可以合并放入单个模块文件中。
+　　    （三）新建或打开工程时，IDE中显示的内容
+　　    1．可隐藏的工具框
+　　    工具框默认都是隐藏的，单击其标题可以把它“拉出来”。对于VB程序员来说，这里最大的变化在于：工具框中的控件现在改为垂直排列，每个图标都加上了文字说明，而不象VB 6那样只有一个图标。
+　　    2．卡式子窗口（Tabbed Child Window）
+　　    Visual Studio.NET利用屏幕上方的卡式子窗口布局，取代了原来的MDI子窗口布局。卡式子窗口包括：Home Page、窗体布局窗口、代码窗口和帮助屏幕。
+　　    3．任务列表（Task List）
+　　    任务列表是一个重要的改进，它帮助开发者跟踪所有待完成的任务。代码生成器、编译器会在任务列表中自动加上一些内容。下面来让我们手工添加任务项目：
+　　    找到代码中需要修改的地方，插入一行以“TODO:”开头的注释，该任务就会自动出现在任务列表中。点击“Task List”中的某个任务，代码编辑器中就会出现完成该任务的位置。这种快速定义任务、返回任务的机制将极大地提高开发效率。
+　　    4．方案资源管理器（Solution Explore）
+　　    它取代了原来的工程资源管理器（Project Explorer）。方案资源管理器显示了工程所要用到的各种资源，包括用其他语言编写的代码模块和各种非代码的资源等。其中“References”是方案资源管理器中一种全新的资源形式，“References”管理着VB.NET的命名空间，类似于VB 6中的组件引用。
+　　    5．属性窗口（Properties）
+　　    属性窗口与VB 6相似，但它支持更多的布局方式（显示方式）。下面示例控件的“Anchor”属性和“Dock”属性的使用：
+　　    大多数VB.NET控件都包含着“Anchor”和“Dock”属性。“Anchor”属性可以强制控件的一个或多个边沿与表单的边沿保持固定的距离。下面创建一个应用程序，在表单底部添加一个文本框，能够随着表单大小而伸缩。步骤如下：
+　　    （1）向表单中增加一个文本框。
+　　    （2）点击“TextBox1”控件，查看它的“Anchor”属性。默认状态下，“Anchors”都是在左上角，即它与表单的上面和左边边沿保持一个固定的距离。
+　　    （3）修改“Anchor”属性：不选择“Top”（顶部），而选择“Left”（左）、“Right”（右）和“Bottom”（底部）。属性文本修改为“BottomLeftRight”。这就是说控件将在底部、左侧和右侧与表单保持固定距离。
+　　    （4）按F5运行程序，并调整表单大小，享受一下你的成果。
+　　    “Dock”属性也相当重要，它与VB 6中某些控件的“Align”属性相似。它强制特定控件固定在表单的一侧，或者是用“Fill”选项来覆盖整个表单。
+　　    6．窗体布局工具条（Form Layout）
+　　    在VB 6中，在窗体上排列控件的任务通过一个名为“Form Editor”的工具条完成。VB.NET的新工具条提供更多的功能，而且在WinForms类型的工程中默认打开。
+　　    7．代码编辑器
+　　    在该窗口中，单击代码行左边的“+”号或“-”号，可以扩展或折叠代码块，用于隐藏与当前任务无关的代码。
+　　    8．VB.NET的窗体引擎
+　　    VB.NET采用了所有基于CLR的语言都使用的Windows Forms引擎。它有着许多突出的优点。如：Windows Forms支持创建自动改变组件大小的窗体，允许把控件锚定到窗体的特定位置，创建透明窗体等。下面示例创建一个Windows Forms（表单），步骤如下：
+　　    （1）启动VB.NET。在开始页面上点击“New Project”。
+　　    （2）在“Visual Basic Projects”下，选择“Windows Application”。
+　　    （3）如果需要，修改名称的文字和位置。点击“OK”按钮，你会看到一个Windows 窗体。
+　　    所有的VB代码，不管是窗体还是类模块，都存储为.vb文件。文件内的代码描述了它是什么以及它做什么。
+　　    点击Form1，浏览一下属性窗口：这里与VB 6相比有一些变化，标题属性现在叫做文本（Text），字体属性被分成名称和字号等，还有一个“IsMDIContainer”属性用于建立MDI应用程序。注意：“.Caption”属性在VB.NET中消失了，它们都被标准化为“.Text”，并且“.Tag”属性也消失了。
+　　    9．工具箱中的常用控件
+　　    VB.NET捆绑了常用的控件：Button（按钮）（对应以前的CommandButton）、 RadioButton（复选按钮）（对应以前的OptionButton） 、GroupBox （对应以前的Frame）。当然还有 TextBox（文本框）、CheckBox（单选框）、PictureBox（图形框）、ListBox（列表框）和ComboBox（组合框）。
+　　    注意：在VB.NET中Shape控件没有了，向表单中增加图形的，将使用“System.Drawing.Graphics”名称空间，也就是“用代码画图”。
+　　    10．新控件
+　　    VB.NET提供了一些从没见过的控件。我们看一下其中最重要的几个。
+　　    （1）MainMenu（主菜单）控件：这就是以前的Menu Builder（菜单生成器）。下面示例如何利用“MainMenu”创建新菜单：
+　　    ①向表单中增加 MainMenu控件。
+　　    ②在表单中，点击显示以下内容：Type Here（在这里键入）；键入：&File（文件）。
+　　    ③现在向新的文件菜单中增加一些子项；在“Type Here”框中点击，将其扩大到“File”右侧，增加一些菜单。
+　　    ④按F5，运行应用程序，测试新菜单。然后可以与VB 6一样，向这些菜单项中增加代码。
+　　    注意：向菜单中增加一个间隔时，可以键入一个单破折号。
+　　    （2）LinkLabel控件：实现超级链接。向表单中增加一个“LinkLabel”控件，按 F5 运行并测试新的“LinkLabel”。
+　　    运行结果看起来象是一个Web页面的超级链接。默认状态下它是带有下划线的兰色，当鼠标经过它时会变成手的形状，且当它被点击后会改变颜色。但在默认状态下它并不是被链接到一个站点，当点击它时，Click事件的代码就会运行。
+　　    注意：通过“LinkBehavior”属性设置选项可以获得“LinkLabel”的更多效果。
+　　    （3）ErrorProvider控件：如果发生了一个确认错误，它会自动用一个图标来突出控件。
+　　    （4）其他新增控件：VB.NET中还增加了ToolTip（工具提示）控件，Windows 打开和保存的对话框现在将作为“内置”控件使用。TrayIcon控件使得向系统托盘增加自定义图标和菜单简单化。HelpProvider控件使你很容易地进行帮助文件的访问。
+　　#1    三、VB.NET基本语法
+　　    （一）变量和常量
+　　    VB.NET使用变量来存储值，变量有名称和数据类型。数组用来存储建立了索引的相关变量集。
+　　    1．变量的数据类型（如下表所示）
+　　    （^60090202g^）
+　　    为了让VB的数据类型和其他.NET语言的数据类型相匹配，Microsoft修改了整数类数据类型的表示方法，并加入了一个新的数据类型。这些改动对于进行外部调用的方法尤其重要（比如API调用）。例如，如果被调用函数需要一个32位的整数参数，则在VB 6中它应该声明为Long，在VB.NET中应该声明为Integer。如下表所示。
+　　    （^60090202h^）
+　　    2．变量的命名
+　　    变量的命名规则：
+　　    必须以字母开头；不能包含嵌入的语句或嵌入的类型声明字符；不得超过255个字符；在同一范围内必须是唯一的。
+　　    3．变量的声明
+　　    VB.NET较VB 6声明方式发生了变化，一般格式为：
+　　    Dim variablename as type
+　　    如：Dim strS1 as String
+　　        Dim intX as Integer
+　　    新的声明方法如下表所示。
+　　    （^60090202f^）
+　　    4．关键字在变量定义中的作用（如下表所示）
+　　    （^60090202i^）
+　　    （二）常量
+　　    常量是在程序运行中不变的量，常量有两类：一类是用户声明的常量；另一类是系统提供的常量。
+　　    1．用户声明常量
+　　    格式：Const  常量名 ［As 类型］=表达式，如：
+　　    Const PI=301415926    ＇声明常量PI，代表3.14159，单精度型
+　　    2．系统提供的常量
+　　    系统提供的常量位于对象库中。使用常量，可使程序变得容易阅读和编写，也可使程序在不同版本中保持兼容性。
+　　    （三）运算符
+　　    VB.NET中的运算符可分为算术运算符、字符串运算符、关系运算符和逻辑运算符四类。
+　　    1．算术运算符
+　　    VB.NET包括^（乘方）、-（负号）、*（乘）、/（除）、＼（整除）、Mod（取模）、+（加）、-（减）等算述运算符。
+　　    新的操作符：VB.NET带来了一些新的数学操作符，从而缩减了代码。如VB.NET中的“X += 4”与VB 6中的“X = X + 4”是作用相同。其他的如：“X-= 10， X *= 2”、“X /= 13”、“X ＼=13”、“X ^= 3”、“X &= ″OK″”都是合法的。
+　　    2．字符串运算符
+　　    字符串运算符有两个：“&”和“+”，它们都是将两个字符串拼接起来。注意区别：
+　　    “&”：连接符两旁的操作数不管是字符型还是数值型，进行连接操作前，系统先将操作数转换成字符型，然后再连接。
+　　    “+”：连接符两旁的操作数均为字符型，若为数值型则进行算术加运算，若一个为字符型，另一个为数值型则出错。
+　　    例如：
+　　    ″abcdef″+″gh″		＇ 结果为“abcdefgh”
+　　    ″abcdef″ + 12345		＇ 结果为“abcdef12345”
+　　    3．关系运算符
+　　    关系运算符是双目运算符，作用是将两个操作数进行大小比较，若关系成立，则返回True，否则返回False。在VB.NET中，True用1表示，False用0表示。操作数可以是数值型、字符型。VB.NET包括=（等于）、>（大于）、>=（大于或等于）、<（小于）、<=（小于或等于）、<>（不等于）、Like（字符串匹配）、Is（对象引用比较等关系运算符）。
+　　    比较时注意以下规则：
+　　    如果两个操作数是数值型，则按其大小比较；如果两个操作数是字符型，则按字符的ASCII码值从左到右依次比较；关系运算符的优先级相同。
+　　    4．逻辑运算符
+　　    逻辑运算符除了Not是单目运算符外，其余都是双目运算符。作用是将操作数进行逻辑运算，结果是逻辑值True或False。如下表所示：
+　　    （^60090202b^）
+　　    逻辑运算符对数值进行运算时有如下作用：
+　　    And运算常用于屏蔽某些位；Or运算常用于把某些位置1；对一个数连续两次进行Xor运算，可恢复原值。
+　　    （四）表达式
+　　    1．表达式的组成
+　　    由变量、常量、运算符和圆括号按一定的规则组成，表达式通过运算后有一个结果，运算结果的类型由数据和运算符共同决定。
+　　    2．表达式的书写规则
+　　    乘号不能省略；括号必须成对出现，均使用圆括号；表达式从左到右在同一基准上书写，无高低、大小；
+　　    3．优先级
+　　    算术运算符、逻辑运算符都有不同的优先级，关系运算符的优先级相同。不同类型的运算符优先级如下：
+　　    算术运算符>关系运算符>逻辑运算符
+　　    注意：对于多种运算符并存的表达式，可增加圆括号，改变优先级或使表达式更清晰。
+　　    （五）VB.NET新语法
+　　    VB.NET语言在语法上有不少的改动之处。除了上面列出的，还有如下这些。表格并没有完全列出所有改动之处，但列出了最重要的一些改动。
+　　    1．语法对比
+　　    下表对比了VB 6中一些熟悉的语法形式及其在VB.NET中类似功能最接近的语法形式。
+　　    （^60090202c^）
+　　    2.被替换的关键词
+　　    在VB.NET中，Microsoft减少了许多原先用于VB 6的关键词，代之以“框架类”。之所以要进行这种替换，是因为框架类中的功能对所有的.NET语言都有效。下表列出了部分受影响的关键词。
+　　    （^60090202d^）
+　　    3．新的声明方法
+　　    在VB.NET中，变量、数组和UDT（用户自定义类型）的声明和初始化方法都有所变化，下表概要地列出了VB.NET在这方面的变化。
+　　    （^60090202e^）
+　　    （1）VB.NET中的数组是基于0的：即它们总是从0开始，类似于“Dim MyArray（10） As Integer”这样的代码带来的结果是一个有11个元素的Integer数组：从0到10。
+　　    （2）UDT（用户自定义类型）的改变：自定义类型非常有用。但是将来声明自定义类型时，需要使用类似于API关键字结构，而不能使用Type。下面是如何声明一个UDT的举例:
+　　    Structure MyStructure
+　　      Public Name As String
+　　      Public Age As Byte
+　　    End Structure
+　　    4．VB.NET的新关键词
+　　    大量新关键词实现了VB.NET中的新功能。下表是一些最重要的关键词及其用途、用法简例。
+　　    （^60090202a^）
+　　    5．属性声明
+　　    VB.NET的属性声明与VB 6不一样了，不再使用单独的“Lets”和“Gets”。下面是一个新的属性程序的例子，请注意“Value”现在是一个关键字，总是包含着传递给这个属性的值：
+　　    Public Property MachinePart（） As String
+　　      Set
+　　        mstrName = Value
+　　      End Set
+　　      Get
+　　        MachinePart = mstrName
+　　      End Get
+　　    End Property
+　　    6．特别注意事项
+　　    （1）向过程参数传递数据的默认方式的变化：由原来的传递引用（ByRef）变成了传递值（ByVal），这是一个很重要的改动。通过引用传递参数比通过值传递参数面临着更多的危险：被调用过程可能无意地改变参数的值。VB.NET仍旧允许以引用方式传递参数，但默认参数传递方式的改变意味着程序必须作相应的调整。
+　　    （2）VB.NET中不再有Set语句：在VB.NET中，把对象引用赋给变量只需一个等号就可以了，对象可以象任何其他值一样对待。虽然省略Set简化了代码，但也有一个附带的影响：默认属性不再有效。例如，下面这种属性值引用方法不再合法：
+　　    Text1 = ″这是对象的默认属性值。″
+　　    相反，属性值必须按照如下方式显式引用：
+　　    Text1.Text = ″这是对象的默认属性值。″
+　　    VB.NET作这种要求对于摆脱默认属性来说却是必要的。例如，假设有一个名字为“objFoo”的对象变量，由于没有了Set语句，假若属性值仍旧可以象原来一样引用，下面这个语句到底是什么意思就很难确定了：
+　　    objFoo = Text1
+　　    这个语句是设置一个对“Text1”的引用，还是把“Text1”的“Text”属性值赋给了“objFoo”？我们无法作出判断，编译器也同样不能判断。因此，抛弃Set语句也就意味着必须放弃默认属性值。
+　　    （3）VB.NET引入了Option Strict关键词：“Option Strict”关键词用于替代“Option Explicit”。原来的VB允许把一个数字值赋给字符串变量，或者进行其他类似的不正常赋值操作，“Option Strict”结束了这种情况。声明“Option Strict”告诉VB.NET不要进行任何强制的类型转换。使用“Option Strict”能够帮助开发者减少许多错误，包括许多难以调试的错误。
+　　    （4）短循环：VB.NET存在短循环“If…Then”声明。如果你的“If…Then”有两部分，而第一部分返回了“False”，VB.NET就不再理会第二部分了。
+　　    （5）Return关键字：在一个函数内部，你不向返回值或对象设置函数，而是简单地声明“Return MyData”，这样就允许你不修改实际代码就可以改变函数名。
+　　    （6）注意：大部分VB 6的功能在VB.NET中是可以使用的。只是通过“Microsoft.VisualBasic.Compatibility.VB6”名称空间引用就可以了。建议你用最新的。
+　　#1    四、编程实例
+　　　　例1：创建一个窗体并添加了两个控件：button控件和textbox控件，并创建两个事件处理过程：Button1_Click 和 Button1_GotFocus。
+　　    （1）说明：Visual Studio.net基类提供了大量控件，button控件的层次结构就如下：
+　　Object
+　　　MarshalByRefObject
+　　　　Component
+　　　　　Control
+　　　　　　ButtonBase
+　　　　　　　Button
+　　    所有的控件都来源于Control类。
+　　    （2）将一个控件添加进表单需要三个步骤：
+　　    宣布控件变量；实例化控件；将控件加入表单。
+　　　　（3）代码如下：
+　　Imports System.Windows.Forms
+　　Public Class Form1
+　　　Inherits Form
+　　　＇ 对button1控件在宣布变量时使用关键字WithEvents
+　　　Private WithEvents Button1 As Button
+　　　Private TextBox1 As TextBox
+　　
+　　　Public Sub New（）
+　　　　InitializeComponent（）
+　　　End Sub
+　　　Private Sub InitializeComponent（）
+　　　　Me.Text = "Developer Form"
+　　　　Me.Width = 400
+　　　　Me.Height = 300
+　　　　Button1 = New Button（）
+　　　　TextBox1 = New TextBox（）
+　　　　Button1.Left = 200
+　　　　Button1.Top = 200
+　　　　Button1.Width = 100
+　　　　Button1.Height = 40
+　　　　Button1.TabIndex = 0
+　　　　Button1.Text = "Click Me"
+　　　　TextBox1.Left = 200
+　　　　TextBox1.Top = 30
+　　　　TextBox1.Width = 150
+　　　　TextBox1.Height = 40
+　　　　＇将控件增加入表单。
+　　　　Me.Controls.Add（Button1）
+　　　　Me.Controls.Add（TextBox1）
+　　　End Sub
+　　
+　　　Private Sub Button1_Click（ByVal sender As Object， _
+　　　　　ByVal e As System.EventArgs） Handles Button1.Click
+　　　　TextBox1.Text = "你单击了Button1。"
+　　　End Sub
+　　
+　　　Private Sub Button1_GotFocus（ByVal sender As Object， _
+　　　　　　　ByVal e As System.EventArgs） Handles Button1.GotFocus
+　　　　TextBox1.Text = " Button1获得了焦点。"
+　　　End Sub
+　　End Class
+　　　　例2：创建一个公司的Employee表单，Employee表单中有两个标签，两个文本框，两个按钮。然后为公司的承包人创建一个表单，承包人有First Name，Last Name，另外还有一个外公司域。创建Employee表单的扩展表单Contractor。注意添加了两个控件并且改变ok按钮的位置。
+　　　　（1）说明：当创建一个新表单时，就扩展了System.WinForms.Form 类，VB.net支持继承，当需要创建一个和以前的表单相似的表单时，可以通过扩展以前的表单来实现，这样可以节约大量时间。如下所示：表单类NewForm继承WindowsApplication1.ExistingForm类。
+　　Public Class NewForm
+　　　Inherits WindowsApplication1.ExistingForm
+　　    （2）Employee表单运行结果如下图所示：（^60090202j^）
+　　　　（3）Employee表单的代码：
+　　Imports System.Drawing
+　　Imports System.Windows.Forms
+　　Imports System.ComponentModel
+　　
+　　Public Class Form2
+　　　Inherits Form
+　　　Public Sub New（）
+　　　　MyBase.New（）
+　　　　＇初始化组件
+　　　　InitializeComponent（）
+　　　End Sub
+　　
+　　　#Region " Windows Form Designer generated code "
+　　　＇声明
+　　　Private components As System.ComponentModel.Container
+　　　Protected cancel As System.Windows.Forms.Button
+　　　Private LastName As System.Windows.Forms.TextBox
+　　　Private FirstName As System.Windows.Forms.TextBox
+　　　Private Label2 As System.Windows.Forms.Label
+　　　Private Label1 As System.Windows.Forms.Label
+　　　Protected ok As System.Windows.Forms.Button
+　　
+　　　Dim Form2 As System.Windows.Forms.Form
+　　　Private Sub InitializeComponent（）
+　　　　Me.Label1 = New System.Windows.Forms.Label（）
+　　　　Me.FirstName = New System.Windows.Forms.TextBox（）
+　　　　Me.ok = New System.Windows.Forms.Button（）
+　　　　Me.Label2 = New System.Windows.Forms.Label（）
+　　　　Me.LastName = New System.Windows.Forms.TextBox（）
+　　　　Me.cancel = New System.Windows.Forms.Button（）
+　　　　Me.SuspendLayout（）
+　　　　＇设置标签Label1的属性
+　　　　Me.Label1.Location = New System.Drawing.Point（8， 24）
+　　　　Me.Label1.Name = "Label1"
+　　　　Me.Label1.TabIndex = 1
+　　　　Me.Label1.Text = "First Name"
+　　　　＇文本框FirstName
+　　　　Me.FirstName.Location = New System.Drawing.Point（120， 16）
+　　　　Me.FirstName.Name = "FirstName"
+　　　　Me.FirstName.Size = New System.Drawing.Size（136， 20）
+　　　　Me.FirstName.TabIndex = 3
+　　　　Me.FirstName.Text = ""
+　　　　＇OK按钮
+　　　　Me.ok.Location = New System.Drawing.Point（8， 128）
+　　　　Me.ok.Name = "ok"
+　　　　Me.ok.Size = New System.Drawing.Size（112， 32）
+　　　　Me.ok.TabIndex = 0
+　　　　Me.ok.Text = "OK"
+　　　　＇标签Label2
+　　　　Me.Label2.Location = New System.Drawing.Point（8， 48）
+　　　　Me.Label2.Name = "Label2"
+　　　　Me.Label2.Size = New System.Drawing.Size（88， 16）
+　　　　Me.Label2.TabIndex = 2
+　　　　Me.Label2.Text = "Last Name"
+　　　　＇文本框LastName
+　　　　Me.LastName.Location = New System.Drawing.Point（120， 40）
+　　　　Me.LastName.Name = "LastName"
+　　　　Me.LastName.Size = New System.Drawing.Size（136， 20）
+　　　　Me.LastName.TabIndex = 4
+　　　　Me.LastName.Text = ""
+　　　　＇cancel按钮
+　　　　Me.cancel.Location = New System.Drawing.Point（144， 128）
+　　　　Me.cancel.Name = "cancel"
+　　　　Me.cancel.Size = New System.Drawing.Size（112， 32）
+　　　　Me.cancel.TabIndex = 5
+　　　　Me.cancel.Text = "Cancel"
+　　　　＇表单Form2
+　　　　Me.AutoScaleBaseSize = New System.Drawing.Size（5， 13）
+　　　　Me.ClientSize = New System.Drawing.Size（272， 181）
+　　　　Me.Controls.AddRange（New System.Windows.Forms.Control（
+　　　　　{Me.cancel， Me.LastName， Me.FirstName， Me.Label2， Me.Label1， 
+　　　　　 Me.ok}）
+　　　　Me.Name = "Form2"
+　　　　Me.Text = "Employee Form"
+　　　　Me.ResumeLayout（False）
+　　　End Sub
+　　#End Region
+　　End Class
+　　　　注意：除ok和cancel按钮外，其他所有控件都被宣布为私有变量，ok和cancel控件被宣布为protect类型，由继承得来的类可以访问protect类型的控件。
+　　    （4）Contractor表单的代码如下：
+　　    它继承了Employee表单，并作了修改：添加了两个控件并且改变ok按钮的位置。
+　　Imports System.Windows.Forms
+　　Public Class Form1
+　　　Inherits WindowsApplication1.Form2
+　　　Private Label3 As Label
+　　　Private ExternalCompany As TextBox
+　　　Public Sub New（）
+　　　　InitializeComponent（）
+　　　End Sub
+　　　Private Sub InitializeComponent（）
+　　　　＇添加两个新控件Label3和文本框ExternalCompany
+　　　　Label3 = New Label（）
+　　　　ExternalCompany = New TextBox（）
+　　　　Label3.Location = New System.Drawing.Point（8， 72）
+　　　　Label3.Size = New System.Drawing.Size（88， 16）
+　　　　Label3.Text = "Ext Company"
+　　　　ExternalCompany.Location = New System.Drawing.Point（120， 62）
+　　　　ExternalCompany.Size = New System.Drawing.Size（136， 20）
+　　　　＇ 改变ok按钮的位置
+　　　　ok.Location = New System.Drawing.Point（8， 140）
+　　　　Me.Text = "Contractor Form"
+　　　　Me.Controls.Add（Label3）
+　　　　Me.Controls.Add（ExternalCompany）
+　　　End Sub
+　　End Class
+　　　　（5）Contractor表单的运行结果如图所示：（^60090202k^） 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

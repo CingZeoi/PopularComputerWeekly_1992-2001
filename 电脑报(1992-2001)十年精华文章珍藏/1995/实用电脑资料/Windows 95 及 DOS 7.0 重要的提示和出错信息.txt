@@ -1,0 +1,277 @@
+Windows 95 及 DOS 7.0 重要的提示和出错信息
+
+刘 鹏 张 真
+1995-01-06
+
+        Adds the selected item to the list of events that will be recorded.  把选中的项目加在了事件表中，并将被记录下来。
+        Adjusts the speed at which a character repeats when you hold down a key.  调整当你按住一个键时字符的重复速率。
+        Breaks the connection between the two computers.  中断两台计算机之间的连接。
+        Cannot copy the selected text or topic to the Clipboard.  不能把选中的文本或主题拷贝至剪贴板。
+        Cannot edit font/Your edit changes could not be written to file.  不能编辑字体/你在编辑中所作的修改不能写入文件。
+        Cannot find any icons in this file.  不能在该文件中找到任何图标。
+        Cannot find or load required file KRNL386.EXE.  不能找到或装入需要的文件 KRNL386.EXE。
+        Cannot load the driver for your printer.  不能为你的打印机装入驱动程序。
+        Cannot open Help for the System Configuration Editor.  不能为该系统配置编辑器打开帮助。
+        Cannot read files needed to start Windows in 386 enhanced mode.  不能读取需要启动 Windows工作于386 增强模式的文件。
+        Centers a wallpaper image on your screen.  把一个墙纸图像显示在屏幕中。
+        Change the date or time by clicking the calendar or clock.  单击日历或时钟以改变日期或时间。Changes the font, size, and color of your message text.  改变你的消息文本的字体、大小和颜色。Check Password Protected, and then click Set Password.  检查口令保护，然后单击“设置口令”按钮。
+        Windows 95 is not compatible with your version of 386Max memory manager.  Windows 95 不与你的 386MAX 内存管理器兼容。
+        Clear the Autostart Chat When Called check box.  在调用核对框时，清除自启动对话。
+        Click adapter card or protocol for which you want to specify settings.  为你想指定的设置单击适配卡或协议。
+        Click Add to associate a new instrument with the MIDI device.  单击“增加”按钮以把一个新的乐器与 MIDI 设备建立连接。
+        Click anywhere inside the folder in which you want to create a new folder.  在文件夹的任何你想创建新文件夹的部位单击鼠标。
+        Click Configure, and then click Make Bootable.  单击“配置”按钮，接着单击“使之可启动”钮。Click LeftHanded Configuration or RightHanded Configuration.  单击惯用左手配置或惯用右手配置。
+        Click OK to restart your computer and run Windows.  单击 OK 来重新启动你的计算机和运行Windows。
+        Click on the item used by your system, then click OK.  单击你的系统所使用的项，接着单击 OK。Click Setup, and then specify the settings you want.  单击“安装”按钮，接着指定你需要的设置。
+        Click the connector icon whose settings you want to change.  单击你想改变设置的连接器图标。
+        Click the Detail tab, and then change the port in the Print To box.  单击“细节”标笺，接着在“打印至”盒中改变端口。
+        Click the file or folder you want to rename.  单击你想改名的文件或文件夹。
+        Click the Folder menu, and then move your cursor over Back To.  单击文件夹菜单，然后在“备份至”按钮上移动光标。
+        Click the folder you no longer want to share.  单击你不再想共享的文件夹。
+        Click the network that the computer is on.  单击该计算机所在的网络。
+        Click the option you want and then click OK.  单击你想选择的选项，接着单击 OK。  Click the protocol that you want to use.  单击你想使用的协议。
+        Click the Sharing tab, and then specify the sharing options you want.  单击共享标笺，接着指定你希望的共享选项。
+        Click the tab that represents the disk you want to check for damage.  单击表示你想检查损坏情况的磁盘标笺。
+        Click the type of network adapter that is in your computer.  单击你计算机中的网络适配器类型。ClipBook Viewer cannot complete this procedure.  ClipBook  观察器不能完成该过程。
+        Close one or more applications to increase available memory, and try again.  关闭一个或更多应用程序，以增加可用内存，接着重试。
+        Closing...Too many directory windows are open.  关闭...打开了太多的目录窗口。
+        Copy and paste smaller portions of the line.  拷贝或粘贴该行较小的部分。
+        Could not find previously attached file.  不能打开以前附加的文件。
+        Could not initialize the interrupt controller.  不能初始化中断控制器。
+        Couldn't find ［Boot Classes］INF section.  不能找到［引导类型］INF扇区。
+        Creating Archived Bug Report for CompuServe...  为 CompuServe 创建归档故障报告。  Delete one or more files from this drive, or save to a different disk.  删除驱动器的一个或多个文件，或存入不同的磁盘。
+        Deleting a Key removes all subkeys and their values.  删除一个键定义，移去所有的子键定义和其值。
+        Describes the highlighted printer in the Available Printers box.  在“可用的打印机”盒中描述增强显示的打印机。
+        Describes the type of printer and where you can find its icon in File Cabinet.  描述能够在文件框中找到图标的打印机类型。
+        Device conflict. Quit all applications and then restart Windows.  设备冲突。退出所有的应用程序，重新启动 Windows。
+        DISKCOPY cannot copy memory card (CMCDD) devices.  DISKCOPY 不能打开内存卡(CMCDD)设备。
+        Display the Context menu by tapping the button that is floating on your screen. 敲击在屏幕上游离的按钮，以显示上下文菜单。
+        Display-driver ring transition initialization failed.  显示驱动器环形过渡初始化失败。
+        Displays a dialog box that enables you to start or configure the backup process.  显示对话盒，以保证你能启动或配置备份过程。
+        Displays information about any bad sectors that Windows finds on your disk.  显示 Windows 在磁盘上查到的坏扇区信息。
+        Displays information about the device you selected.  显示你选中的设备信息。
+        Displays options that enable you to configure the search for bad sectors.  显示选项，以使你能够配置对坏扇区的搜索。
+        Displays the caption and control bar when you play audio, video, or animation.  在你演奏声音、图像或视频时，显示标题和控制条。
+        Displays the folders and files available in the location you selected.  显示在你选择的位置中可用的文件夹和文件。
+        Displays the Help topic(s) you selected.  显示你选中的帮助主题。
+        Displays the name and version number of the operating system on your computer.  显示你的计算机的操作系统名和版本号。
+        Displays the percentage of your disk that has been checked for bad sectors.  显示检查坏扇区时已检查的百分比。
+        Displays the selected basic or custom color in color.  以彩色方式显示选中的基本或定制颜色。
+        Displays the size of the object that the link is pointing to.  显示链接所指向的对象的大小。
+        Displays the workgroups and computers available on the network.  显示网络中可用的工作组和计算机。
+        Displays your message in different places on the screen.  在屏幕的不同地方显示信息。
+        Do not use load high utilities to start Windows.  不要使用装入高端实用软件来启动 Windows。
+        Double-buffering driver cannot be loaded into a UMB.  双缓冲驱动程序不能装入 UMB。
+        Double-click the icon for the application.  双击应用程序的图标。
+        Drag the Delay Before First Repeat slider.  拖动“在第一次重复前的时延”滑动杆。Drag the slider to the beginning of the selection you want.  把滑动杆拖至你所希望的选中区的始端。
+        Draw a letter X on the text that you want to delete, and then tap the pen.  在你想删除的文本中画一个X，然后轻击一下笔。
+        Enables or disables an installed MIDI device.  打开或关闭一个安装了的 MIDI 设备。
+        Enables you to add a name to the list of environment variables.  允许你往环境变量表中加一个名字。
+        Enables you to assign a new password or change an existing password.  允许你指定一个新的口令或改变一个已存在的口令。
+        Enables you to browse for the directory where you want to store temporary files.  允许你浏览目录，以找到保存临时文件的地方。
+        Enables you to browse the network for a printer, or add a new port.  允许你浏览网络，寻找一台打印机，或增加一个新的端口。
+        Enables you to change the format the date is displayed in.  允许你改变日期显示的格式。
+        Enables you to format a disk in the drive specified by the title bar.  允许你格式化在标题条中指定的驱动器中的磁盘。
+        Enables you to install a driver for a different type of display adapter.  允许你安装不同类型的显示适配器的驱动程序。
+        Enables you to remove a name from the list of environment variables.  允许你从环境变量表中删去一个名字。
+        Enables you to set up and configure a network adapter card and network protocol.  允许你设置和配置一个网络适配卡和网络协议。
+        Enables you to specify when files in the Wastebasket are deleted.  允许你设定在什么时候删除废纸框中的文件。
+        Enables you to update your printer driver.  允许你更新打印机驱动程序。
+        Enables you to use the arrow keys on your keyboard to move the mouse pointer.  允许你在键盘上使用方向键来移动鼠标指针。
+        Enter a smaller number to decrease the margins.  输入一个较小的数字来减小边界。Enter the Identifier (not the Name) for the action to add.  输入增加操作的标识符(不是名字)。Enter the name of the workgroup you want your computer to belong to.  输入你想使你的计算机所处于的工作组的名称。
+        ERROR: Applications are already using expanded memory.  错误：应用程序已使用了扩充内存。
+        ERROR: Cannot disable the installed 386 expanded-memory driver.  错误：不能使已安装的 386 扩充内存驱动程序无效。
+        ERROR: Cannot install the 386 enhanced mode expanded-memory driver.  错误：不能安装 386 增强模式扩充内存驱动程序。
+        Exclude this address space by using the syntax of your memory manager.  使用内存管理器的语法排除该地址空间。
+        Fastforwards to the end or the next selection mark.  快速向前到达了结束处或到了下一个选择标志处。
+        Fill in the requested information and type your message.  填充需要的信息，并输入你的信息。
+        FIND: Searches for a text string in a file or files.  FIND：在一个或多个文件中查找字符串。
+        Font too large. Recompile with larger DF_MAPSIZE.  字体太大。用更大的 DF_MAPSIZE 重新编译。
+        From the File menu, choose Merge Registration File.  在“文件”菜单上，选择“合并登记文件”项。
+        Help has not been written yet for this topic.  有关当前主题的帮助内容还没有写。
+        Hold down the pen and drag it to make your selection. 按下光笔，并拖动它以作选择。
+        If an Open dialog box appears, choose the media file you want.  如果一个“打开”对话盒出现了，选择你需要的媒体文件。
+        If Windows fails to start, run SETUP again.  如果 Windows 未能启动，重新运行 SETUP。
+        If you choose Close, your application will terminate.  如果你选中了“关闭”，将终止你的应用程序。
+        If you choose Ignore, you should save your work in a new file.  如果你选中了“忽略”，你应该在一个新文件中保存已做的工作。
+        If you do not want to load Network DDE at startup, choose Cancel.  如果你不想在启动时装入网络 DDE，选择 Cancel。
+        In a folder window, click the Tools menu, and then click Associate.  在一个文件夹窗口中，单击“工具”菜单，然后单击“关联”。
+        In the Briefcase, click the file or folder whose status you want to check.  在“公事包”，单击你想核对状态的文件或文件夹。
+        In the Briefcase, click the file you want to split.  在“公事包”，单击你想分裂的文件。
+        In the ClipBook window, click the view you want on the View menu.  在“剪贴书”窗口，在“察看”菜单上单击你所想看的东西。
+        In the Command Line box, type the command that starts your application.  在命令行对话盒，输入命令启动你的应用程序。
+        In the Default Logon Name box, type your logon name. 在“缺省登录名”对话盒，键入你的登录名。In the Drive box, click the drive from which you want to disconnect.  在“驱动器”对话盒，单击你想断连的驱动器。
+        In the Pointer Trail area, drag the Length slider. 在“指针尾部”区，拖动“长度”滑杆。
+        In the Screen Saver list, click the screen saver you want to use.  在“屏幕保护器”清单中，单击你想使用的屏幕保护器。
+        In the Startup folder, click Link WinPopup Here on the Edit menu.  在“启动”文件夹中，在编辑菜单中单击“在此链接 WinPopup”。
+        In the Use Cursor Keys to Move Pointer area, check On.  在“使用用户光标键移动指针”区，设为 ON (打开)状态。
+        Incorrect MS-DOS version.  MS-DOS 7.0 or greater required.  不正确的 MS-DOS 版本，需要 MS-DOS 7.0 或更高版本。
+        Indicates the date when the information in this file or folder was last changed.  指明该文件或文件夹的信息最后更改的日期。
+        Inserts a thin border around the window of an animation or video.  在动画或视频窗口的周围插入一个细边界。
+        Insufficient memory to run this application.  运行该应用程序的内存不够。
+        Invalid ID value! The ID must be greater than zero.  无效的标识符值！该标识符值必须大于零。
+        It is recommended that you have only one Briefcase.  我们建议你最好只有一个公事包。
+        It may be needed to run Windows in 386 enhanced mode.  可能需要在 386 增强模式下运行 Windows。
+        It worked! I want to close the Troubleshooter.  它工作了！我想关闭“故障发现者”。
+        Lists network events that will not be recorded in the AUDIT.LOG file.  列出将不记入 AUDIT.LOG 的网络事件。
+        Lists the types of files you can use with this application.  列出该应用程序使用的文件类型。
+        Lists which network or networks your computer is set up to use.  列出你的计算机使用的一种或多种网络名称。
+        Loader cannot get all the Conventional memory.  装入器不能获得所有的常规内存。
+        Make any necessary changes, and then click Start.  作一些必要的更改，然后单击“开始”。
+        Make sure the printer is online and selected, and then resume the print queue.  确认打印机是在线的且被选中，然后恢复打印队列。
+        Maximum number of keyword tables exceeded.  超过了关键字表的最大数目。
+        MicroChannel bus timeout error detected.  发现了微通道总线超时错误。
+        Microsoft NetBEUI version 2.2 is already loaded.  Microsoft NetBEUI 版本 2.2 已被装入。
+        Microsoft NetBEUI: Chaining Multiple LAN Drivers.   Microsoft NetBEUI：链接多路局域网驱动器。Microsoft Network Diagnostics will use a NetBIOS provider.  Microsoft 网络诊断适配器将使用一个 NetBIOS  提供者。
+        Microsoft Network Diagnostics will use IPX.  Microsoft 网络诊断适配器将使用IPX协议。
+        More than one topic was found. 未找到一个以上的主题。
+        Move the pointer over the vertical bar to the right of the Folder List.  把指针移过条形杆，移至文件夹清单之右。
+        MS-DOS with EMM386.EXE or similar utilities loaded on this machine.  装入了具有 EMM386.EXE 或具有同样功能实用程序的 MS-DOS。
+        Needed changes will be saved in CONFIG.WIN.  所需的变动将被保存在 CONFIG.WIN 中。
+        Net Watcher automatically updates the window every 20 seconds.  网络“监视员”每隔 20 秒自动地更新窗口。
+        Netbeui load failure: Not executed with loader.  NetBEUI 装入错误：未被装入器执行。
+        NetBEUI module not found in PROTOCOL.INI.  未在 PROTOCOL.INI 中找到 NetBEUI 模块。
+        No diagnostic servers were detected on the network.  网络上未找到诊断服务器。
+        No help topic is associated with this control.  没有与该控制相关的帮助主题。
+        No printers are installed, or there is not enough memory available.  没有安装打印机，或没有足够的内存可用。
+        Not enough memory for Write to complete this operation.    书写器没有足够的内存来完成该操作。   Not enough memory to determine the link update setting.  没有足够的内存来确定链接更新设置。
+        Not enough memory to increase the contents of the Clipboard.  没有足够的内存来增加剪贴板的内容。
+        Not enough memory to read card.  没有足够的内存读入卡片。
+        Now copying files needed for Windows 95 Setup...  现在拷贝 Windows 95 安装所需要的文件...
+        Older NETWKSTA program no longer supported.  不再支持旧的 NETWKSTA 程序。
+        On the Administer menu, click Share Properties.  在“管理员”菜单上，单击“共享属性”。
+        On the File menu, click the appropriate option for the deleted file(s).  在“文件”菜单上，为已删除的文件单击适当的选项。
+        Only Text is available on the Clipboard.  剪贴板上只允许文本。
+        Only the person who initiates the call can add a person to the call.  只有初始化呼叫的人，才能增加一个人进行呼叫。
+        Open the audio, animation, or video piece you want to play.  打开你想演奏的声音、动画或视频。Open the Remote.sys folder, and then double-click the New Connection icon.  打开 REMOTE.SYS 文件夹，接着双击“新连接”图标。
+        Opens the folder that contains the object that the link is pointing to.  打开一个包含链接所指向的对象的文件夹。
+        Parameter settings exceed available memory.  参数设置超出了可用的内存。
+        Pasting from MSP files is not supported.  不支持从 MSP 文件粘贴。
+        Please enter a name and press enter.  (Limit 15 characters).  请输入名字并敲回车。(限定为 15 个字符)。
+        Please verify that a valid file name is given.  请检查是否使用了有效的文件名。
+        Please verify that margin values are valid positive numbers.  请检查边界值是否是一个有效的正数。
+        Please verify that the diskette with the file is in the correct drive.  请检查包含该文件的磁盘是否在正确的驱动器上。
+        Please wait while Setup personalizes your Windows files...  请等待，安装程序正使你的 Windows 文件个性化...
+        Pop-up for Workgroup Connection loaded into memory.  工作组连接弹出菜单被装入内存。
+        Press any key and then re-type the first character.  敲任意键，然后重新输入第一个字符。
+        Press ENTER to try copying the file again.  敲回车，以尝试再次拷贝文件。
+        Prevents Windows from repairing any cross-linked files that it detects.  防止Windows 修补它发现的交错链接文件。
+        Protocol Manager rejected function code.  “协议管理员”拒绝的功能代码。
+        Protocol Manager would not accept a request.  “协议管理员”将不接受请求。
+        Protocol Manager would not accept module registration.  “协议管理员”将不接受模块登记。
+        Provides a place for you to type your new password for the domain.  提供一个你可以为该域输入新口令的地方。
+        Provides access to advanced disk-checking options.  提供对高级磁盘检查选项的访问。
+        Provides information about the current connection.  提供当前连接的有关信息。
+        Quit Help, delete the file WINHELP.BMK, and then recreate your bookmarks.  退出Help，删除文件 WINHELP.BMK，然后重建你的书笺。
+        Quit the protected-mode software and try again.  退出保护模式的软件，然后重试。
+        Remove the duplicate entry from the SYSTEM.INI file.  从 SYSTEM.INI 文件中删除所有重复的条目。
+        Removes the selected item from the list of events that will be recorded.  从将被记录的事件表中删除选中的条目。
+        Repeats small wallpaper images until the entire screen is covered.  重复小的墙纸图像，直到它覆盖了整幅屏幕。
+        Rest the pen above the insertion point until a double-headed arrow appears.  把笔停在插入点上，直到一个双箭头出现。
+        Rewinds to the beginning or the previous selection mark.  倒回起始位置或前面一个标志处。
+        Rub the pen tip across the strokes you want to erase.  在你想删除的字符处划动笔尖。
+        Run Control Panel to install and set up a printer, and then try again.  运行“控制面板”来安装或设置打印机，接着重试。
+        Save your document to increase available memory.  保存你的文档，以增加可用内存。Searches your computer for hardware and updates the hardware list.  查找你的计算机硬件，并更新硬件清单。
+        Select an application from the Associate With box, and then click OK.  在“与...关联”对话盒中选择一个应用程序，然后单击 OK。
+        Select the part of your sketch that you want to copy.  选择你想拷贝的图画部分。Setup can now run a short tutorial on how to use Windows 95 and the mouse.  安装程序现在可以运行一个简短的教学程序，以说明怎样使用 Windows 95 和鼠标。
+        Setup cannot continue until you type your Name.  必须输入你的名字，否则安装程序将不继续下去。Setup cannot copy the new OEMSETUP.INF file.  安装程序不能拷贝新的 OEMSETUP.INF 文件。
+        Setup has more than one way it can configure the application below.  安装程序有一种以上办法来配置下面的应用程序。
+        Setup must restart. Press OK to restart.  安装程序必须重新启动。敲 OK 来重新启动。
+        Setup will make the changes to your CONFIG.SYS file for you.  安装程序将在你的 CONFIG.SYS 作相应的修改。
+        Shows how your mouse buttons will function, based on the current configuration.  显示你的鼠标按钮怎样根据当前的配置起作用。
+        Shows the total free space (in kilobytes) on the selected drive.  显示选中的驱动器的全部可用空间(以千字节数计)。
+        Shows the type of file selected or whether the item selected is a folder.  显示选中的文件的类型，或该条目是否是文件夹。
+        Smartdrv double buffering manager not installed.  未安装 SMARTDRV 双缓冲管理程序。
+        Some linked documents were unavailable and could not be updated.  一些链接的文档是无效的，不能够被更新。
+        Some MS-DOS applications cannot run in a window.  一些 MS-DOS 应用程序不能够在窗口中运行。
+        Specified Hands-off installation file does not exist.  指定的搁置安装文件不存在。
+        Specifies additional setup options for individual printers.  为个人打印机指定追加的安装选项。Specifies how much data a disk can hold.  指定磁盘能够装入多少数据。
+        Specifies that you will be able to read the file but cannot make changes to it.  指定你可以读但不能更改的文件。
+        Specifies the caption of audio, video, or animation.  指定音频、视频或动画的标题。
+        Specifies the hue for the selected custom color.  为选中的定制颜色指定色调。
+        Specifies the keystroke you want to use to be able to quickly run the link.  指定击键组合，以使你能够迅速运行该连接。
+        Specifies the luminosity of the selected custom color.  为选中的定制颜色指定明亮度。
+        Specifies the number of copies you want printed.  指定你想打印的份数。
+        Specifies the sound file associated with an event.  指定与事件关联的声音文件。
+        Specifies where in your document to search.  指定到哪里去搜寻你的文档。
+        Specifies whether video sequences play in a window or full-screen.  指定是在一个窗口中显示视频图像，还是全屏幕显示。
+        Specifies your current password for this domain.  指定你为该域设置的当前口令。
+        Specifies, if selected, that you do not use a network.  如果选中的话，则确认你不使用网络。
+        Specify the settings you want to use, and then save them to a new file.  指定你想使用的设置，并将它们保存在一个新文件中。
+        Tap to place the insertion point where you want it.  在你所希望的地方轻击，以置入插入点。
+        Tapping the pen twice is equivalent to double-clicking a mouse.  轻击两下笔，这相当于双击了鼠标。
+        The application or one of its components is compressed.  该应用程序或其中一个成份已被压缩。
+        The Clipboard line is too long to paste.  剪贴板行太长，以致于不能粘贴。
+        The contents appear in the right side of the window.  在窗口右边所显示的内容。
+        The current default printer will be selected.  将选中当前的缺省打印机。
+        The default extension for a Clipboard file is .CLP.  剪贴板文件的缺省扩展名是 .CLP。
+        The diagnostic server has been located on the network.  已在网络上找到诊断服务器。
+        The diagnostic server received inaccurate information.  诊断服务器接收到了不正确的信息。
+        The diagnostic server's reply is correct.  诊断服务器的应答信息是正确的。
+        The file may be in use by another application.  该文件也许正被另外的应用程序使用。
+        The gesture deletes the area that it covers.  该手势删除了它覆盖的区域。
+        The printer on this port is offline or not selected.  该端口的打印机脱机或未被选中。
+        The program scatter-loaded successfully.  你的程序被成功地分散装入。
+        The property sheet appears where the two lines meet.  在两行交会的地方出现属性单。
+        The settings you specify will be used each time you start the application.  该设置将在每次你启动该应用程序时起作用。
+        The SETVER file in the specified path is not a compatible version.  指定路径下的服务器文件不是一个兼容的版本。
+        The space is added where you draw the short line.  在你画短线的地方加上了空格。The version change will take effect the next time you restart your system.  该版本更改将在下次你启动计算机时起作用。
+        There was a problem running the macro.  在运行宏时发生了一个问题。
+        There was an error defining the application shortcut key for this application.  在定义该应用程序的快捷键时发生了一个错误。
+        This document contains open embedded objects that may need updating.  该文档包含需要更新的打开嵌入对象。
+        This drive contains the Windows system files and cannot be disconnected.  该驱动器包含Windows 的系统文件，不能被断连。
+        This file contains links to other documents.  该文件包含与其它文档的链接。
+        This file is not in the correct format for use with Paintbrush.  该文件不是Paintbrush (画笔)使用的格式。
+        This gesture deletes part of your sketch.  该手势删除了你的草图的一部分。
+        This gesture enables you to change or correct objects.  该手势允许你改变或纠正对象。
+        This indicates that network information is being sent and received properly.  这表明网络信息正被正确发送或接收。
+        This is useful if you need to free memory to run an application.  当你想释放内存以运行应用程序时，这是有用的。
+        This machine will now begin acting as a diagnostic server.  该机器将用作诊断服务器。
+        This path does not match the DOS format for filenames.  该路径不与 DOS 的文件名格式匹配。
+        This program or one of its components is compressed.  该程序或其一个成份是被压缩的。
+        This screen will contain information about the advanced usage of gestures.  该屏幕包含使用手势的高级操作。
+        This selection contains open embedded objects that will be closed.  该选择将关闭已包含打开的嵌入对象。
+        This version of Windows will be set up in the following directory.  该版本的 Windows 将在下列目录中设置。
+        To continue, you must use interactive Setup.  如要继续，你必须使用交互式安装。
+        To copy system files to your Windows directory, choose Cancel.  如要拷贝系统文件到 Windows 目录，选择“取消”。
+        To copy the entire topic to the Clipboard, Press CTRL+INS while viewing it.  如要拷贝整个主题到剪贴板，在看它时按 CTRL+INS。
+        To delete an area of your sketch, make the X-tap gesture on that area.  如要删除你的草图，在该区作一个划叉手势。
+        To install a component, check its check box.  如要安装一个元件，检查它的核对框。  To install files, select files on the left, then choose Add.  如果要安装文件，在左边选择文件，然后选择“增加”钮。
+        To learn what a gesture does, tap a marked item on this screen.  如要学习手势可以做什么，在屏幕上击一下作了标记的项目。
+        To perform the selected tasks, choose Continue or press ENTER.  要完成选中的任务，选择“继续”或按回车。
+        To quit driver installation, choose Cancel.  要想退出驱动程序的安装，选择“取消”。
+        To search for bad sectors, click Look for Bad Sectors.  要想搜寻坏扇区，单击“查找坏扇区”。To see more ports, use the UP and DOWN Arrow keys.  要想看更多的端口，使用向上或向下光标键。To start the specified application, double-click a file with this extension.  如要启动某个应用程序，双击具有该扩展名的文件。
+        Too many bindings requested in PROTOCOL.INI file.  在 PROTOCOL.INI 文件中有太多的联结。
+        Too many MAC drivers bound to the driver, unloading.  属于该驱动器的 MAC 驱动程序太多，卸除。Troubleshooting in your Windows 95 documentation.  在你的 Windows 95 文档中找故障。
+        Try sending or receiving the file again.  尝试再次发送或接收文件。
+        Type a name for the page you are saving the information on.  输入你保存信息的所在页的名字。
+        Type the name of the computer whose ClipBook you want to connect to.  输入你想连接 ClipBook 的计算机的名字。
+        Unable to communicate with network adapter.  不能够与网络适配器进行通信。
+        Unable to copy screen contents into clipboard.  不能够把屏幕内容拷贝至剪贴板。
+        Unable to install ‘Dr. Watson'，Can't register windows class. 不能够安装“Dr.Watson”，不能登记窗口类。
+        Undefined variable.  未定义的变量。
+        Unrecognized font name in Forcefont option.    在 Forcefont 选项中有不认识的字体名。
+        Upgrade MS-DOS to a version that is at least 7.0.  把 MS-DOS 至少升级为 7.0 版。Use a new filename or close the file in use by another application.  使用一个新的文件名，或关闭正被其它应用程序使用的该文件。
+        Use Control Panel to make sure that the printer is installed correctly.  使用“控制面板”来确认打印机是正确地安装了的。
+        Use the Edit, Link command to update links.  使用“编辑”，“链接”命令来更新链接。
+        When you reach the application you want, release ALT and TAB.  当你到达你想使用的应用程序，释放 ALT 和 TAB 键。
+        Windowmemsize entry in the SYSTEM.INI file is too large.  SYSTEM.INI 文件的 WINDOWMEMSIZE 项设置的值太大。
+        Windows could not upgrade one or more system files before starting.  Windows 不能在启动之前使一个或更多系统文件升级。
+        WININIT.EXE cannot be run from within Windows.  WININIT.EXE 不能在 Windows 内部启动。
+        You are inserting over a selection that contains open embedded objects.  你正在一个包含打开的嵌入对象的选择区上插入。         You can associate a sound with the event you choose.  你可以为你选中的事件关联一个声音。
+        You can retrieve the file or folder until you empty the Wastebasket.  你可以检索You can safely attach a serial mouse now.  现在你可以安全地连接串行鼠标器了。
+        You can test the character repeat rate in the box below the slider.  你可以在滑杆之下的盒子里测试字符的重复速率。
+        You can test the delay in the box below the slider.  你可以在滑杆之下的盒子里测试延迟。
+        You can type your message in the Chat window before calling someone.  你在呼叫别人之前可以在“对话”窗口中输入一些信息。
+        You do not have the required access to perform this task.  你不具备完成该任务的权限。
+        You have created the maximum number of groups possible in Program Manager.  在程序管理器中，你可以最大可能地创建程序组。
+        You may ‘Switch to' the object's application and try to correct the problem.  你可以“切换”至该对象的应用程序，并纠正该问题。
+        You may specify the same drive for drive1 and drive2.  你可以把同一驱动器指派为两个名字。
+        You will also be able to run the tutorial after Windows 95 has been set up.  你也可以在 Windows 95 安装好之后运行教学程序。
+        Your CONFIG.SYS file contains references to block device drivers.  你的 CONFIG.SYS 文件使用了块式设备驱动程序。
+        Your new password cannot be the same as your old password.  你的新口令不能与老口令一样。
+        Your system startup drive has been modified by a disk-compression utility.  你的系统启动驱动器已被磁盘压缩实用程序修改。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

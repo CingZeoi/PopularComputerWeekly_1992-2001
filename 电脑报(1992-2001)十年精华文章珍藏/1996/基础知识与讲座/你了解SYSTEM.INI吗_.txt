@@ -1,0 +1,46 @@
+你了解SYSTEM.INI吗?
+
+贾建平
+1996-10-04
+
+        Windows利用扩展名为.INI的文件保存Windows及其应用程序的初始化信息。Windows及其应用程序每次启动时，都会从相应的INI文件中读取初始化设置信息，并据此进行配置。Windows的两个最重要的INI文件是WIN.INI和SYSTEM.INI，WIN.INI控制Windows用户窗口环境的概貌(如窗口边界宽度、系统字体等)，而SYSTEM.INI包含整个系统的信息(如显示卡驱动程序等)，是存放Windows启动时所需要的重要配置信息的文件，相当于DOS中的CONFIG.SYS。SYSTEM.INI能识别上百个不同命令，其中的一些语句的意义不言自明，并且可能通过SETUP程序或主群组的控制面板来设置，而另一些就比较懂且只能由人工改变。因此，为了高效的执行程序，Windows的用户就需了解SYSTEM.INI的内部结构和其中的关键语句的意义，才能维护好系统。
+        SYSTEM.INI由许多小节组成，每个小节有一个方括号括起来的小节名标名，如[boot]，每个小节包含一些格式为“关键字名=值”的设置。该文件格式为文本文件，可以用任何文字处理器如DOS中的Edit观察或修改。下面，我们将讨论SYSTEM.INI的重要小节及其中的关键语句。
+        [boot]小节
+        该小节通常是SYSTEM.INI的每一小节，所指明的文件包含对Windows至关重要的代码与数据。一般来说，该小节中的语句宜手工改动，Windows安装或设置程序会通过用户的选择确定适当的设置。
+        display.drv指明显示卡的驱动程序，为Windows提供屏幕输出
+        keyboard.drv指明键盘的驱动程序
+        mouse.drv指明鼠标的驱动程序
+        386grabber指明显示捕捉器，在386增强模式下Windows利用它进行DOS应用程序的输出显示及从DOS屏幕拷贝数据到剪贴板。
+        以.FON结尾的关键字指明字模文件，如fonts.fon指明包含Windows的比例空间系统字模的文件，比例字模用于按钮、菜单、窗口标题等。
+        shell指明用作用户与Windows之间的主要联系纽带的程序，缺省值是shell=progman.exe，这样Windows每次启动时都会自动加载程序管理器。如果用户更喜欢其它的Windows程序作Windows的外壳，可把progam.exe改变为相应带扩展名的程序名，例如，Shell=winfile.exe将使得Windows每次启动时都自动加载文件管理器而不是程序管理器。
+        [boot.description]小节
+        该小节包含[boot]小节中加载的的驱动程序的简明文字描述，例如，display.drv=VGA，它们由Windows安装程序及设置程序设置，Windows向用户报告配置信息时也需要使用这些描述。一般来说，该小节中的设置也不应手工改变。
+        [keyboard]小节
+        该小节只有四个语句。
+        keyboard.dll指明定义键盘布局的DLL。对大多数键盘而言该项不需要，因此常常是空白的。
+        type指明键盘类型，1代表83键盘，2代表OLIVETTI(好利获得)的102键盘，3代表84键或86键AT键盘，4代表101键或102键增强键盘。
+        subtype指明特定的键盘品牌和种类。
+        oemansi.bin指明包含非美国键盘所用的字符翻译表的文件。
+        [mci]小节
+        该小节列举出了为各种多媒体设备提供MCI(媒体控制接口，它是Windows内部的一组功能调用的名称，用于生成程序和媒体设备之间的接口)支持的驱动程序，例如AVIVideo指明AVI视频驱动程序。依赖于MCI，Windows应用程序只需发出简单的MCI命令就可以控制媒体设备，而且，相同的播放命令可以适用于各种设备。该小节的语句是在安装多媒体设备和驱动程序时写入或修改的，不能手工修改。
+        [NonWindowsApp]小节
+        该小节为Windows存放DOS应用程序的通用设置。其中比较有意义的是以下三个设置。
+        CommandEnvSize为DOS应用程序设置环境大小。例如，在Windows下运行一个批处理文件时，如出现环境空间不足的错误信息，可以通过在SYSTEM.INI中增加CommandEnvSize语句如CommandEnvSize=512以增大环境空间。
+        LocalTSRs指有要特殊处理的TSRs(内存驻留程序)。缺省状态下，Windows启动之前加载的TSRs被所有活动的虚拟机所共享，这时有时会造成问题甚至会导致系统崩溃。如果在LocalTSRs列表中加入TSRs的文件名(无需扩展名)，Windows将把该驻留程序的一个单独拷贝加载到每一个虚拟机中，避免造成上述问题。
+        ScreenLines指明文本模式的DOS应用程序的屏幕显示行数。缺省情况下，Windows在DOS窗口中显示25行，在SYSTEM.INI中增加一条ScreenLines=50语句，就可以变为50行。多数DOS应用程序自动适应增加的行数，有些则需要特殊配置，还有一些早期的应用程序只能工作在25行方式下。
+        对该小节的Windows不提供修改手段，修改必须手工进行。
+        [standard]小节
+        该小节保存只对标准模式有效的设置。386及更高档的机器上一般不再使用标准模式，所以不再讨论相应语句。
+        [386Enh]小节
+        该小节保存只对386增强模式有效的设置，它是SYSTEM.INI中最复杂的小节，可以支持许多语句，有些是有用的，而有些对普通用户来说却没有必要了解。下面，我们列举出一些较为有用的语句。
+        VirtualHDlrq可取值为off或on，以指明是否禁止Windows处理硬盘中断，置为ON时，可为Windows提供较好的性能，但它可以与某些硬盘及软件不兼容。
+        DebugLocaReboot缺省设置为off，设置为on时允许用户按Ctrl+Alt+Del来关闭一个应用程序。
+        MessageBackColor和MessageTextColor改变Windows切换到全屏幕显示信息时所使用和背景和前景颜色(颜色值由0到F，与标准VGA显示方式的16色调色板相同)。
+        device语句的等号右边带有星号的字符串指明众多的被Windows虚拟管理器(VMM)加载的VxDs(运行于Windows最高操作特权级的32位虚拟设备驱动程序)，它们是操作系统自身的一部分，例如device=*v86mmgr是指加载虚拟86模式内存管理器，而device=*pageswap加载虚拟页交换设备。另一些device语句如device=vtdapi.386加载第三方厂商的VxDs。VxDs是Windows的核心，所以SYSTEM.INI要加载诸多VxDs。
+        FileSysChange指明是否禁止Windows在运行的DOS应用程序每次创建、删除或重命名一个文件时都告知文件管理器。其缺省设置是on。你可并列地打开文件管理器和一个DOS窗口，用DEL命令在DOS窗口中删除文件管理器显示的一个文件，就可以看到这种效果。FileSysChange=on，被删除的文件将会立即从文件管理器窗口中消失；FileSysChage=off，该文件直到文件管理器重新显示时才会消失。FileSysChange=off在某种程序上可以加快Windows的运行速度。
+        PerVMFiles指明Windows为每个虚拟机分配的文件句柄数+CONFIG.SYS中的FILES的值，也就是Windows为每个虚拟机分配的文件句柄数是PerVMFiles与FILES相加之和，其缺省值为10，即可找于10+FILES个文件。可以修改PerVMFiles的值，但由于Windows是基于DOS文件系统之上的，因此不能超过同时打开255个文件的限制。
+        对SYSTEM.INI各语句有所了解，用户就可以通过修改其中的某些语句的值为所需值来适合自己的需要或解决部分故障。例旭安装Windows时，鼠标器未接上，安装完成后，启动Windows没有鼠标。这时可退回到DOS系统，通过文件编辑器浏览SYSTEM.INI，发现[boot]小节中的mouse.drv=nomouse.drv，从其它安装了Windows的机器中Windows目录的子目录SYSTEM下拷贝鼠标驱动程序MOUSE.DRV到故障机器的Windows目录的子目录SYSTEM中，并修改SYSTEM.INI的[boot]小节中的muse.drv的值为mouse.drv，再次启动SYSTEM.INI，鼠标恢复正常。像这样的因为SYSTEM.INI语句值引起的故障是Windows启动常见故障。因此，了解SYSTEM.INI的语句对于成功的Windows用户就是必须的。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

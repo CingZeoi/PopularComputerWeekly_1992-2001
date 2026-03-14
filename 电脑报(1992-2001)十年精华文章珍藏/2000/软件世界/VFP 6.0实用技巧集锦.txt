@@ -1,0 +1,108 @@
+VFP 6.0实用技巧集锦
+
+朱运喜
+2000年 第26期 
+
+#1　　一、选择网络打印机
+　　如果单位里的局域网上安装有多台网络打印机，在使用VFP 6.0编制的程序进行打印操作时，可以选择其中的任意一台空闲的网络打印机进行打印，只须在执行命令：Report From … To Printer 之前，先执行：Set Printer To Name Getprinter（），就可以调用操作系统的“打印设定”对话框，用户利用该窗口即可达到灵活选择空闲打印机进行打印输出的功能。（注：可供选择的打印机名是用户计算机上已安装好的打印机名。）
+#1　　二、找回丢失了的FPT文件
+　　由于误操作，将自由表的备注文件删除，致使自由表无法打开。遇到这种情况我们可采用下述两种方法解决:
+　　1.创建一个新的自由表，且该自由表只含一个字段，其类型为备注型。关闭该自由表，将其扩展名为FPT的备注文件复制给误删除的自由表的备注文件，或将该备注文件改名为误删除的自由表的备注文件即可。
+　　运行下面的程序同样也可以找回丢失了的FPT文件：
+　　accept ′请输入丢失了.FPT文件的自由表名称（不带扩展名）：′ to namef
+　　namef=trim（namef）＋′.bbb′
+　　crea dbf ＆namef （aa m）
+　　use
+　　dele file ＆namef
+　　2.用VFP低级文件函数创建一个空的FPT文件，原自由表即可打开。程序清单如下：
+　　accept ′请输入丢失了.FPT文件的自由表名称（不带扩展名）：′ to namef
+　　namef=trim（namef）＋′.FPT′
+　　hand=fcreate（namef）
+　　abc=repl（chr（0），3）＋chr（8）＋repl（chr（0），3）＋′@′＋repl（chr（0），504）
+　　=fwrite（hand，abc）
+　　=fclose（hand）
+　　return
+　　上述方法只是为丢失了FPT文件的自由表建立了一个新的FPT文件，原FPT文件中的内容已经丢失，无法恢复。在实际操作中若遇到这种情况，最好是恢复原来的FPT文件，若原FPT文件无法恢复时再采用上述方法。
+#1　　三、脱离VFP运行程序
+　　利用VFP 6.0创建的应用程序，被编译成可执行程序后，若要使其脱离VFP环境独立运行，除了我们所知道的在应用程序目录中需包含一个名为“CONFIG.FPW”的配置文件外，经笔者试验发现还必须包含“VFP6R.DLL”、“VFP6RCHS.DLL”、“VFP6RENU.DLL”这三个动态链接库文件。这三个文件在“Windows\System”目录下，用户可直接将其复制到自己的应用程序目录中。最后再经过编译形成可执行程序，运行安装向导创建发布磁盘，我们开发的小应用程序就可以堂堂正正地在Win98下安装运行了。
+#1　　四、简易设置TextBox对象的输入长度
+　　在以前的XBASE语法中，我们可以通过Picture参数定义某变量或文本栏的输入长度格式，而在VFP中的TextBox对象中则支持Format和InputMask属性来定义输入的格式。我们可以使用比较原始的方法来进行设定，比如当要求输入有20个栏位的文本框对象时，我们可以在此对象的InputMask属性中定义为InputMask=“XXXXXXXXXXXXXXXXXXXX”。
+　　但是这样的设定方法非常麻烦，尤其是当面对更长的字符串输入时更是不方便。其实我们完全可以利用Replicate（）函数设定输入长度来简化这样的需求设计过程。
+　　这里我们同样利用了对象的InputMask属性来定义输入格式和输入长度，但是当对象的输入长度比较长时，则可以借助算术表达式的方式来对其进行设定。通过属性窗口中的InputMask属性建立表达式对话框，我们可以利用Replicate（）函数设定重复的“X”的个数即可（本例为20）。完成后回到属性设置窗口，我们可以看到在InputMask属性栏中出现了“=Replicate（20）”位值的表达式，这样，我们就轻松地完成了长字符输入的长度控制。由此我们也可以体会到善于使用表达式给我们带来的方便。
+#1　　五、中文文本框的设计方法
+　　在程序开发过程中，我们经常要设计一些文本框，而且这些文本框要求只能输入中文。在这种情况下，通常需要手工启动某一种中文输入法。如果软件能够自动启动缺省的中文输入法，那么将会给编程人员带来很大的方便。下面的类便能实现这一功能，具体的设计步骤如下: 
+　　1.创建一个新类，其基类是“TextBox”，类名为“中文TextBox”，存储于“myclass”类库中。
+　　2.进入类设计器后，设置“中文TextBox”的各项属性，如字体、颜色等。
+　　3.设计GotFocus事件，代码为:
+　　=IMESTATUS（1）
+　　表示当光标移到此框后，自动启动中文输入法。
+　　4.设计LostFocus事件，代码为:
+　　=IMESTATUS（0）
+　　表示当光标移开此框后，自动关闭中文输入法。设计好后，保存到文件即可。
+#1　　六、在程序中播放动画
+　　我们知道，VFP只支持静止的图片，无法直接播放GIF动画。但网上许多有趣而华丽的GIF动画的确令人心动，如何将这些动画插入到你的VFP程序中，让你的程序更吸引人呢？
+　　其实很简单，将GIF动画分解成各单独的静止的GIF或BMP图片，然后在VFP使用计时器让这些静止的图片轮流出现，就产生动画效果了。将GIF动画分解为静止图片的软件有很多，在网上很容易找到，如Animagic GIF 等。分解出来的图片我们分别以a0.bmp、a1.bmp……这样的形式保存。在表单中添加计时器TIMER1，TIMER1的Interval属性设为100，Enabled属性设为.T.，再添加Image1控件，其Backstyle属性设为0（透明），Stretch也设为0（裁剪）。
+　　在FORM的LOAD过程中写代码：
+　　Public I，N 
+　　I=0
+　　N=5（静止图片的总共数目）
+　　在TIMER1的TIMER过程中写代码：
+　　Local j 
+　　i=mod （i＋1，n） 
+　　j=alltrim（str（i）） 
+　　thisform.image1.picture=″a″－j－″.bmp″ 
+　　运行表单，我们就可以看到熟悉的GIF动画了。
+#1　　七、粘贴VFP顶层表单
+　　当你将表单设置为顶层表单并独立运行于Windows下时，会发现表单中复制粘贴功能失效，这给实际工作造成极大的不便，从而使编制的软件达不到专业水准。
+　　笔者认为，造成这一问题的原因是微软设计VFP时，只考虑了位于系统选单下的表单的复制和粘贴情况，即位于系统选单下的表单可使用复制及粘贴热键，而处于Windows下的表单完全脱离了系统选单的控制，因此复制及粘贴热键失效。解决的办法是可在表单的控件（本文举例为文本框）中，为KeyPress Event编写如下事件处理程序，该事件处理程序首先将选择内容复制到Windows剪贴板上，然后再将剪贴板上的内容添加到控件中。
+　　KeyPress Event
+　　LPARAMETERS nKeyCode，nShiftAltCtrl
+　　if nkeycode=3
+　　＆＆ CTRL＋C 复制
+　　－cliptext=this.seltext
+　　endif
+　　if nkeycode=22
+　　＆＆ “CTRL＋V” 粘贴
+　　do case
+　　case this.selstart=0
+　　this.value=－cliptext＋this.value
+　　case this.selstart〉=1 and this.selstart〈=len（this.value）
+　　this.value=subs（this.value，1，this.selstart）＋
+　　－cliptext＋subs（this.value，this.selstart＋1）
+　　endcase
+　　endif
+　　thisform.grid1.column1.setfocus（）
+　　sele recetem
+　　if not eof（）
+　　skip
+　　endif
+　　thisform.refresh
+#1　　八、为VFP添加循环微调控件类
+　　在VFP编程中，微调控件是最常用的控件之一。按照微调控件提供的基本功能，通过单击向上或向下箭头，而达到微调控件的最大或最小值时，如继续单击向上或向下箭头，将保持最大或最小值不变。笔者通过对Spinner控件属性和事件的分析，用编程的方法实现了循环微调控件功能。
+　　循环微调控件（CycleSpinner）所实现的功能是：当单击向上箭头而达到最大值时，再单击向上箭头，能自动跳到最小值；当单击向下箭头而达到最小值时，能自动跳到最大值；其余功能均继承Spinner基类的功能。具体实现方法如下：
+　　利用表单控件，在表单中设计一个微调按钮，并设置如下属性：
+　　SpinnerHighValue=Max
+　　＆＆Max应小于Spinner基类所
+　　＆＆提供的最大默认值
+　　SpinnerLowValue=Min
+　　＆＆Min应大于Spinner基类所
+　　＆＆提供的最小默认值
+　　Value=1
+　　Name=′CycleSpinner′
+　　在Init事件中写入如下代码：
+　　This.SpinnerHighValue=This.SpinnerHighValue＋This.Increment
+　　This.SpinnerLowValue=This.SpinnerLowValue－This.Increment
+　　在InteractiveChange事件中写入如下代码：
+　　If This.Value=This.SpinnerHighValue
+　　This.Value=Int（This.SpinnerLowValue＋This.Increment）
+　　Endif
+　　If This.Value=This.SpinnerLowhValue
+　　This.Value=Int（This.SpinnerHighValue－This.Increment）
+　　Endif
+　　Thisform.Refresh
+　　再将其作为类保存起来，添加到你的类库中。
+　　若你在编程中，需用此功能，就可直接用此循环微调控件类了。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

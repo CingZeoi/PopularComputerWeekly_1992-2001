@@ -1,0 +1,112 @@
+Linux不要钱的操作系统
+
+安富国
+1998年 第36期 15版
+
+#1Linux安装手记
+#1　　一、Linux简介
+　　Linux是一个优秀的完全免费的操作系统。如果你对 UNIX 十分熟悉，你会发现它和UNIX很像。
+　　Slackware Linux 在安装时， 需要两片磁盘， 它们是启动盘（bootdisk）和文件系统盘（rootdisk）。启动盘的映像文件放在／linux／bootdsks.144／中：
+　　我选择了bare.i作为启动盘映像文件。我找了一张1.44M空白软盘，先格式化，然后在C>提示符下转到\Linux\bootdsks.144，输入rawrite bare.i a:
+　　转到存有文件系统软盘映像文件的子目录\Linux\rootdsks，我选择了color144.gz，  rawrite color.i a:就做成了一张rootdisk。
+#1　　二、分区
+　　因为我正好有一只新的2.5G硬盘，所以不必为分区耗费精力。值得说明的是，Linux是一个独立的操作系统，它需要一个单独的分区。如果您的硬盘已经被全部使用了的话，那么很不幸，您最好把它重新分区，为Linux腾出空间来。而且Linux所用的root区（根文件系统区）的起始部分的柱面号不应大于1024，也就是说，Linux启动分区的开始部分应位于硬盘504M之前的位置。
+　　用做好的 bootdisk 启动机器。很快，就会出现欢迎画面，大体意思是请你输入一些必要的参数。一般情况下，可以不去管它，直接按回车，等待十几秒后，屏幕上出现了许多信息。（我注意到我的硬盘的设备名是／dev／hda，IDE光驱是／dev／hdb，这表示Linux已经检测到安装在第一IDE口上的做为主驱动器的硬盘和作为从驱动器的光驱。）最后停在下面这一行上：
+　　VFS: Insert root floppy disk to be loaded into ramdisk and press ENTER
+　　插入rootdisk，按回车键。稍事等待，又出现一屏欢迎信息，最后几行是
+　　You may now login as “root”.
+　　slackware login:
+　　输入‘root’，回车。再输入命令＇fdisk＇，出现下面简单至极的画面：
+　　＃ fdisk
+　　Command （m for help）:
+　　这和我们用惯了的Dos下的FDISK很不一样。实际上，它和Dos的FDISK功能差不多。输入m，看一下帮助。
+　　以下是我的操作步骤
+　　Command （m for help）: n← n 设立新的分区
+　　Command action
+　　e   extended
+　　p   primary partition （1－4）
+　　p  ← p 指定 primary 分区
+　　Partition number （1－4）: 1  ← 1 指定第一个
+　　First cylinder （1－4970）: 1 ← 指定第一分区位置 从1－915 cylinder
+　　Last cylinder or ＋size or ＋sizeM or ＋sizeK （1－4970）: 915
+　　Command （m for help）: n← n 设立新的分区
+　　Command （m for help）:
+　　   e   extended
+　　   p   primary partition （1－4）
+　　p  ← p 指定 primary 分区
+　　Partition number （1－4）: 2  ← 2 指定第二分区位置 从 916 － 946 cylinder
+　　First cylinder （916－4970）: 916 ← 填入 916
+　　Last cylinder or ＋size or ＋sizeM or ＋sizeK （916－4970）: 946  ← 填入 946
+　　Command （m for help）: t← 修改分区类型
+　　Partition number （1－4）: 2  ← 指定修改第二个分区
+　　Hex code （type L to list codes）: 82← 82 代表 Linux Swap Partition
+　　Changed system type of partition 2 to 82 （Linux swap）
+　　Command （m for help）: p←  p 查看分区设定结果
+　　Command （m for help）: w← w: 储存改动内容并退出
+　　完成后，取出rootdisk，换上bootdisk，按CTRL－ALT－DEL重新开机。仍然按前面的步骤适时换上rootdisk盘，并最终用root用户注册。
+　　三、运行setup
+　　现在，在＇＃＇提示符下运行setup，映入眼帘的是一个赏心悦目的彩色设置菜单：
+　　该画面的中文翻译说明如下：
+　　HELP   阅读在线安装说明
+　　KEYMAP 更改键盘排列
+　　MAKE TAGS  改变软件内建安装选项
+　　ADDSWAP启动 swap partition（交换区）， 使之即刻生效
+　　TARGET 指定目的硬盘分区
+　　SOURCE 指定安装源（source media）
+　　DISK SETS  选择安装软件包
+　　INSTALL开始安装
+　　CONFIGURE  系统设定
+　　PKGTOOL使用PKGTOOL安装或删除包
+　　EXIT   结束
+　　1.增加交换区
+　　通过选择ADDSWAP菜单建立和配置交换分区。
+　　一直选<Yes>或<OK>直到出现：
+　　... ... Would you like to continue the installation and setup your TARGET drive（s）?
+　　2.选择目标分区
+　　在上面的提问中选<Yes>，进入选择目标分区画面。由于现在只建立了一个Linux分区，所以可直接选择<OK>，进入下面，选择第一项：
+　　Format  Quick format with no bad block checking
+　　文件系统就做好了。选<Yes>进入下一步。
+　　3.选择安装源
+　　选择5，从CD－ROM上安装。在下面的选择CD－ROM类型画面中，我选了
+　　  1 － Works with most ATAPI／IDE CD drives （／dev／hd＊）
+　　下面出现一长串CD－ROM可能的设备名列表。如果你弄不明白该用哪个，那么请选第一个选项＇Scan＇，它能飞快地扫描到你的CD－ROM的设备名称。
+　　下一步是指定Linux在光盘上的存放路径。
+　　选‘Custom’，再输入
+　　linux／slackware
+　　选<Yes>进入下一步。
+　　4.选择安装包
+　　屏幕上出现了所有可安装包的列表。
+　　用箭头键上下移动，空格键选中或不选。完成后，按回车键。
+　　以下连按几下回车后，出现一个“SELECT PROMPTING MODE”对话框。按回车键选 Normal 模式并开始安装。
+　　安装完成之后，将会出现一个“INSTALL Linux KERNEL”菜单，有四个选择项。显然当前的bootdisk引导的Linux能够正常工作，所以Linux推荐用选项1，从当前使用的bootdisk拷贝Kernel到硬盘中。按回车确认之前，不要忘了把bootdisk放进驱动器。
+　　然后出现一个标题为“CONFIGURE YOUR SYSTEM?”的画面，选<Yes>，又有一个“MAKE BOOT DISK?”的画面。Linux强烈建议您制作一张启动软盘，这样，万一出现意外，仍然可以利用这张启动软盘救急。
+　　接着Linux询问是否配置你的调制解调器和鼠标，我都选了<No>。
+　　5.安装LILO
+　　安装到此，将要进行非常重要的、LILO的设定。LILO是一个相当优秀的系统工具。安装了它，你可以选择从你的硬盘上启动LINUX、WINDOWS 95等多种操作系统。
+　　按照提示，选择你想默认启动的操作系统，选择INSTALL大功告成。
+#1Linux八年大事记
+　　Linux是一种操作系统，最初是由芬兰赫尔辛基大学的学生Linus Torvalds出于兴趣而开发的。
+　　1991年10月5日Linus Torvalds在新闻组comp.os.minix发表了Linux的正式版V0.02。
+　　1992年1月，全世界大约有100个左右的人在使用Linux，他们所提供的所有初期的上载代码和评论并为了解决Linux的错误而编写的许多插入代码段。
+　　1993年，Linux的第一个“产品”版Linux1.0问世，它是按完全自由扩散版权进行扩散的。它要求所有的源码必须公开，而且任何人均不得从Linux交易中获利。
+　　1994年Linux决定转向GPL版权，这一版权除了规定有自由软件的各项许可权之外，还允许用户出售自己的程序拷贝。
+　　1997年，Linux支持者群体在众多的软件公司中一举胜出，荣获了美国《InfoWorld》杂志的最佳技术支持奖，而这一奖项原本只是为商业公司而设立的。
+　　1997年夏天，制作电影《泰坦尼克号》所用的160台Alpha图形工作站中，有105台采用了——Linux操作系统。
+　　1998年，Linux赢得大型数据库软件公司Oracle，Informix，Ingres的支持。
+　　1998年Linux在全球范围内的装机台数最低的估计为300万。
+#1Linux资源
+　　http://freesoft.cei.gov.cn
+　　自由软件库：中国最权威的LINUX资源站点，上面有最新的的各种LINUX软件可供下载，有世界几大LINUX站点的镜像，你可以下载各种不同版本的LINUX全套系统。
+    news://news.freesoft.cei.gov.cn
+　　自由软件库所设立的讨论组，有什么问题，去那儿，也许你会有意外的收获。
+　　http://csun01.ihep.ac.cn/
+　　中文Linux计划，包含一些很有用的中文应用软件。
+　　http://www.redhat.com
+　　最易安装的Linux版本:redhat。
+　　http://www.cdrom.com
+　　最适合自学的Linux版本:slackware.因为很多教材时以它为蓝本写的。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

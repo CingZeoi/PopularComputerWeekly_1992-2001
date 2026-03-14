@@ -1,0 +1,662 @@
+QAPLUS诊断测试软件
+
+
+1994-01-07
+
+        §1 QAPLUS软件概述
+        一、QAPLUS的主要功能
+        AQPLUS诊断软件主要包括以下功能：
+        (1)设置或修改计算机系统的硬件配置参数；
+        (2)测试硬磁盘系统，并提供对硬盘进行低级格式化、分区和高级格式化等磁盘管理功能；
+        (3)对内存进行映象、定位和检错；
+        (4)对计算机系统的硬件进行全面的性能测试，并给出测试报告，该报告可以几种方式输出；
+        (5)对计算机系统的各部分进行诊断，测得各部分发生的故障，同时还可以对检测出的错误以几种方式输出。
+        4.52版的QAPLUS增添了一些新功能，下面是“HELP”菜单提供的改进信息：
+        ━━━━━━━━━━━━━━━━━━━━
+        QAPlus 4.52 Improvements
+        ────────────────────
+        1.80486 CPU test improvements
+        2.EISA bus detection and test
+        3.EMS Memory test
+        4.IntruderAlert(tm) Virus detection
+        5.Enhanced serial port testing
+        6.Enhanced memory testing
+        7.Video memory testing
+        8.CYRIX NPU detection
+        9.User definable diagnostics
+        10.Enhanced Interrupt Information
+        11.Network Adapter IRQ identification
+        12.New SysInfo-DOS Memory Map
+        ━━━━━━━━━━━━━━━━━━━━
+        其中文意思是：QAPLUS软件4.52版本的改进有如下几点：
+        1：80486 CPU测试方面的改进；
+        2：EISA总线的检测和测试；
+        3：扩展内存的测试；
+        4：病毒入侵的报警和检测；
+        5：扩展串口测试；
+        6：扩展内存的测试；
+        7：视频显示内存的测试；
+        8：数学协处理器的测试；
+        9：用户可定义的诊断；
+        10：增加了中断信息；
+        11：网络适配器中断请求的确认；
+        12：新的系统信息-DOS内存的映象。
+        总之，QAPLUS可以完成多种功能测试，并对测试内容给出详细的输出报告，如测试总结报告，错误记录报告等。
+        二、QAPLUS的程序文件
+        通常QAPLUS的全部程序放在一张1.2M的5.25英寸软盘，或一张720K的3.5英寸软盘，或者两张360K的5.25英寸软盘上。
+        QAPLUS诊断软件作为一整套程序同其它功能的程序配合起来一起工作，这些程序主要包括下列文件：
+        QAPLUS.EXE,QARAM.EXE,QA-SDBUG.EXE,QAHERO.SYS,CONFIG.SYS,POSTTEST.EPS,README.BAT,RELEASE.NOT,INTERACT.HLP,KEYBOAD.HLP,REPORTS.HLP,SETUP.HLP,SYSINFO.HLP,TESTING.HLP,UTILITY.HLP,HELPSHOW.EXE
+        从上面的文件名可以看出，QAPLUS软件包括许多HELP(帮助)文件和README(说明)文件，给用户提供了详尽的使用帮助资料。其中QAPLUS.EXE是主程序文件；RELEASE.NOT和README.BAT文件提供有关QAPLUS的最新变化信息；如果已经做了测试，并且利用一个文件做了记录，则在盘上可以找到名为QA-LOG.TXT的报告文件。
+        操作者可使用三种方法来了解RELEASE.NOT文件的内容。
+        1)在DOS提示符下输入TYPE RELEASE.NOT。即：
+        A〉TYPE RELEASE.NOT 〈ENTER〉
+        2)直接运用这个文件。这可以通过运行QAPLUS，使用QAPLUS主菜单中的HELP功能项菜单，然后移动光标到“Release Notes”项上，并按〈ENTER〉键。
+        3)在DOS提示符下运行README.BAT文件。
+        另外也可以使用字处理软件打印“README”说明文件，得到详细的说明信息。
+        §2 安装和运行QAPLUS软件
+        一、在硬盘上安装QAPLUS软件
+        在硬磁盘上安装QAPLUS软件可以按以下步骤进行：
+        1)在提示符C〉下建立QAPLUS子目录：
+        C〉MD QAPLUS 〈ENTER〉
+        2)插入QAPLUS磁盘在驱动器A中。
+        3)在C提示符下，安装QAPLUS系统文件到硬盘的子目录上：
+        C〉COPY A：*.* C：\QAPLUS 〈ENTER〉
+        如果用户是两张双面的360K的5.25英寸的软盘版本，那么当用户更换磁盘后，必须再作一次这样的操作。
+        4)如果在系统引导磁盘的根目录中没有CONFIG.SYS文件，应该在C提示符下拷贝这些文件到根目录中：
+        C>COPY C:\QAPLUS\CONFIG.SYS C:\<ENTER>
+        C>COPY C:\QAPLUS\QAHERC.SYS C:\<ENTER>
+        如果磁盘上已有一个CONFIG.SYS文件，包括着“FILE=20”和“BUFFERS=24”，并且用户没有一个兼容的单色监示器图形卡，则不需要进一步的说明。
+        如果CONFIG.SYS文件中不包含这些行，可使用文字编辑软件，或者参考DOS手册产生一个CONFIG.SYS文件，并且增加下列的行：
+        FILES=20
+        BUFFERS=24
+        如果正在使用一个单色的兼容图形卡，则需要增加下列的行：
+        DEVICE=QAHERC.SYS
+        放在CONFIG.SYS文件中，然后从QAPLUS子目录中拷贝QAHERC.SYS文件到根目录下，命令的形式是：
+        C〉COPY C：\QAPLUS\QAHERC.SYS C:\
+        如果用户的QAPLUS工作磁盘受到破坏，可以重复步骤1)到3)，重新进行安装。
+        二、运行QAPLUS软件
+        1.在一张软盘上运行QAPLUS软件
+        在启动计算机之前，请将自举工作磁盘放在驱动器A中。启动后可以在A提示符下打入QAPLUS命令：
+        A〉QAPLUS 〈ENTER〉于是进入QAPLUS主菜单。
+        2.在硬盘上运行QAPLUS软件
+        首先引导DOS系统，然后进入QAPLUS子目录。最后在DOS提示符C〉下输入QAPLUS：C>CD\QAPLUS <ENTER>
+        C>QAPLUS <ENTER>
+        则进入QAPLUS系统环境提示菜单。
+        §3 QAPLUS软件运行时的菜单
+        本节将详细介绍QAPLUS诊断软件的菜单，并说明每个菜单选项的作用。
+        一、系统配置检测菜单
+        当键入QAPLUS后，系统将自动进行防止病毒入侵警报检测，屏幕显示如下：
+        QAPLUS System configuration V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ┌──────────────────────┐
+        │   Instructer Alert check,please waite...   │
+        │   Block # 20::::::::::::::::::::::     │
+        │ ───────────────────── │
+        │   Esc to abort                       │
+        │ ───────────────────── │
+        └──────────────────────┘
+        上面文字的中文意思是：入侵警报检测，请稍候。检测完后如无故障则将显示：
+        ─────────────────────
+          QAPLUS System Configuration V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ┌─────────────────────┐
+        │InstructerAlert check was successful    │
+        │  Press any key                     │
+        └─────────────────────┘
+        上面显示表明：检测成功。按任意键后QAPLUS将自动地检测计算机系统的硬件配置，并将系统结构的全部配置情况显示在屏幕上：
+        QAPLUS System Configuraction V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ─────────────────────
+        System Configuraction
+        Processor Type:		80386SX OLIVETTI BUS:ISA	
+        Numeric Coprocessor:	None	
+        Base Memory Size:	639K,237K avail. * ext. BIOS at 639K	
+        EXPANDed Memory Size:	none	
+        Extended Memory Size:	1280K available	
+        Video Adapter［2nd］:	VGA Analog Mono	
+        Video mode,SW,BIOS:	Modo=03h,EGA sw1-4=1001	
+        Video Ram Base,Size:	a000h,256K	
+        Hard Drive(s):		C:41M(DOS Partition)	
+        Floppy Drive(s) :	A:1.2M［5.25"］B:360K［5.25"］	
+        Clock/Calendar:	 	AT&T Clock	
+        Parallel port(s):	LPT1=378h	
+        Serial port(s):		COM1=3f8h	
+        Game port(s):		None	
+        Mouse:			None	
+        EMM Driver:		None
+        ─────────────────────
+        Press any key to continue
+        ─────────────────────
+        上面各显示项的含义是：
+        Processor Type		:计算机主处理器的类型，它们可以是(8088，8086，80286，80386SX，80386DX，80486)等。	
+        Numeric Coprocessor	:数学协处理器是否安装以及协处理器的型号。它们可以是8087，80287，80387等。	
+        Base Memory size	:系统的基本内存数目以及有效的内存数目。	
+        Expanded Memory Size	:计算机的扩充内存数目。	
+        Extended Memory Size	:计算机的扩展内存数目。	
+        Video mode,SW,BIOS	:显示卡的视频模式，跳线开关以及ROM BIOS程序开发的时间和日期。	
+        Video Adapter,［2nd］	:显示卡的类型(可以是MDA，CGA，EGA，VGA，color400)等。	
+        Video Ram Base,Size	:显示卡的RAM地址以及容量。	
+        Hard Drive(s)	        :硬盘驱动器以及容量。	
+        Floppy Drive(s)	        :软盘驱动器以及容量。
+        Clock/Calendar	        :时钟类型或记时器。	
+        Parallel Port［s］	:并行打印机以及端口地址。	
+        Serial Port［s］	:串行端口以及端口地址。	
+        Game Port［s］	        :游戏口以及地址。	
+        Mouse                   :是否带有鼠标。	
+        EMM Driver	        :是否安装EMM扩展内存卡。
+        二、系统主菜单
+        在上面屏幕显示中，按任意键可进入主菜单，其屏幕显示如下：
+        QAPLUS System Configuraction V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        ├────────┬───────────────────┘
+        │Help            │
+        │Reports         │
+        │SysInfo         │
+        │Interact        │
+        │Testing         │
+        │Setup           │
+        │Utility         │
+        │Release Notes   │
+        └────────┘
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        在上面这个菜单中，横列各选择项功能分别为：
+        Help菜单：用于显示系统的帮助信息。
+        Reports菜单：产生当前系统的系统信息报告，这个报告输出的内容是由“SysInfo”菜单所产生的有关系统配置的所有信息。
+        SysInfo菜单：显示计算机系统的系统信息，包括软、硬中断信息，硬件结构信息，设备驱动程序信息，环境报告信息，磁盘性能信息，系统性能信息等。
+        Interact菜单：这个选项菜单可用来进行鼠标测试，游戏棒测试，内存状况测试，扬声器测试，键盘测试，串行口跟踪测试等。
+        Testing菜单：测试菜单用来选择外围设备端口，测试时的停止控制，测试次数的控制，错误记录和运行系统部分的测试等。
+        Setup菜单：设置系统日期/时间，软盘和硬盘驱动器类型，系统配置的内存和显示器类型，以及选择声音、颜色和显示变化等。
+        Utility菜单：该实用功能菜单用来运行硬盘处理的实用程序，包括硬盘的初始化程序，硬盘磁头归位程序，以及用户定义的实用程序1和2。
+        Exit菜单：退出QAPLUS并且返回到DOS提示符。
+        对主菜单的操作方法是：进入这个菜单后，按屏幕提示使用左、右箭头键进行功能项选择；使用上、下箭头键进行同一功能项中的某一菜单项的选择。然后按〈ENTER〉键对选择进行确认；随时按下〈Esc〉键都将退出所作的选择。
+        三、系统帮助(Help)菜单
+        在上面显示菜单中，Help选项列包括八项帮助信息，各项的含义是：
+        Help：           QAPLUS的帮助信息
+        Reports：        Reports的帮助信息
+        SysInfo：        SysInfo的帮助信息
+        Interact：       Interact的帮助信息
+        Testing：        Testing的帮助信息
+        Setup：          Setup的帮助信息
+        Utility：        Utility的帮助信息
+        Release Notes：  QAPLUS的最新变化信息
+        选择了某一项以后，将以英文显示该项的解释内容(帮助信息)
+        当按下〈Esc〉键后又返回到主菜单。
+        四、系统报告(Reports)菜单
+        这个菜单将检测的系统信息作为报告输出，它将报告由SysInfo选项所检测的所有系统信息。
+        这个报告的输出方向是当前选择的错误记录输出设备，如果没有定义错误记录输出设备，一个下拉式的菜单将提供选择一种设备作为输出设备：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └─┬─────────┬───┬────────────┘
+        │Systems lnfo Print│File  │
+        └─────────┤COM 1 │
+        │LPT 1 │
+        │None  │
+        └───┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        这时使用者可以移动光标键来进行选择。例如可以指定打印机或文件作为输出设备。当指定打印机作为输出设备时，它将把系统信息(SysInfo)菜单中，各选择项的测试情况报告全部打印出来；当指定文件作为输出设备时，这个文件将写在当前默认的驱动器上，文件名为QA-SYS.TXT。
+        五、系统信息(SysInfo)菜单
+        在主菜单上右移箭头键，选择到SysInfo(系统信息菜单)项后，将出现如下菜单：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └────┬─────────┬─────────────┘
+        │DOS Memory Map    │
+        │Interrupt Info    │
+        │Hardware Info     │
+        │Device Driver Info│
+        │Environment Into  │
+        │Disk Performance  │
+        │System Performance│
+        └─────────┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        (1)选择DOS Memory Map菜单项，并按〈ENTER〉键，将显示：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        DOS	       TSR MAP	(last DOS occurence)
+        MCB#	Address 	Size	Type	       Owner
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        #001	D1B		3376	program	DOS
+        #002	DEF		48	environment	QAPLUS.EXE
+        #003	DF3		160	environment	DOS
+        #004	DFE		321440	program	QAPLUS.EXE
+        #005	5C79		24576	date	       QAPLUS.EXE
+        #006	627A		250976	free	       free
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        DOS Memory Map(DOS内存映象)菜单项的作用是：给出内存中驻留程序的情况，包括驻留程序的大小、地址、类型、所有者等。
+        (2)选择Interrupt Info菜单项，并按〈ENTER〉键，将显示：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━
+        SYSTEM SOFTWARE	INTERRUPT	ASSIGNMENT
+        SROM BIOS：OLIVETTE	IRQ	0	SYSTEM TIMER
+        BIOS DATE：02/14/90	IRQ	1	KEYBOARD
+        DOS VERSION：3.30	IRQ	2	［Cascade］
+        			IRQ	3	Available*
+        DMA Channel Usager	IRQ	4	COM1
+        			IRQ	5	Available*
+        DMA 0 Available*	IRQ	6	Floppy Disk
+        DMA 1 Available*	IRQ	7	Available*
+        DMA 2 Floppy Disk	IRQ	8	Clock/Calendar
+        DMA 3 Available*	IRQ	9	Available*
+        DMA 4 ［Cascade］	IRQ	10	Available*
+        DMA 5 Available*	IRQ	11	Available*
+        DMA 6 Available*	IRQ	12	Available*
+        DMA 7 Available*	IRQ	13	Reserved
+        			IRQ	14	Hard Disk
+        *Not used by any 	IRQ	15	Available*
+        standard device	no	IQR:	LPT1
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        Interrupt(中断源信息)菜单的作用是：避免任何IRQ冲突。在不检查每块板是如何配置的情况下，将能正确地配置任何板。如上所示，这个中断源的屏幕显示以下三组区域的信息：
+        SYSTEM SOFTWARE显示ROM BIOS日期和正在使用的DOS版本的信息。
+        DMA Channel(DMA通道)显示直接内存访问通道是如何配置的。
+        Interrupt Assignments(中断资源)指出中断请求(IRQ)是如何配置的。当然QAPLUS不能确定某些引起不标准的扩展板的中断源。
+        (3)选择Hardware Info菜单项，并按〈ENTER〉键将显示：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━
+        SYSTEM HARDWARE CONFIGURATION
+        Processor Type:		80386SX OLIVETTI BUS:ISA
+        Numeric Coprocessor:		None
+        Base Memory Size:		639K,237K avail.* ext. BIOS at 639K
+        Expanded Memory Size:	none
+        Extended Memory Size:	1280K,1280K available
+        Video Adapter［2nd］:	VGA Analog Mono
+        Video Ram Base,Size:		a000h,256K
+        Hard Drive(s):		C:41M(DOS Partition
+        Floppy Drive(s):		A:1.2M［5.25"］B:360K［5.25"］
+        Clock/Calendar:		AT&T Clock
+        Parallel port(s):		LPT1=378h
+        Serial port(s):		COM1=3f8h
+        Game port(s):			None
+        Mouse:				None
+        EMM Driver:			None
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        在Hardware Info(硬件信息)屏幕显示中可以看出，这些硬件配置正是该系统的标准硬件配置。它主要包括以下信息：CPU和数学协处理器的类型(如果有)，内存的类型及容量，扩充内存和扩展内存情况，显示器的配置情况，硬盘驱动器配置，软盘驱动器配置，时钟/计数器，并行打印口和串行端口，游戏口和鼠标器情况等都将被显示出来。
+        (4)选择Device Driver Info菜单项，并按〈ENTER〉键将显示：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90 (C)
+        1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━
+        Device Driver Infomation
+        Seg:off		Att	Use	Driver Name	Characteri
+        stics027a:0048	8004	NUL	Char.dev.
+        09c3:0000		8013	CONChar.dev.,int 29h
+        			    STDIN,STDOUT
+        0070:0l6e		8013	DOS	CON		CHar.dev.
+        0070:0180		8000	DOS	AUX		CHar.dev.
+        0070:0192		a040	DOS	PRN		CHar.dev.
+        0070:01a4		8008	DOS	CLOCK$		CHar.dev.
+        					Current Clock
+        0070:01ca		8000	DOS	COM1		CHar.dev.
+        0070:01dc		a040	DOS	LPT1		CHar.dev.
+        0070:01ee		a040	DOS	LPT2		CHar.dev.
+        0070:0200		a040	DOS	LPT3		CHar.dev.
+        0070:0212		8000	DOS	COM2		CHar.dev.
+        0070:0224		8000	DOS	COM3		CHar.dev.
+        0070:0236		8000	DOS	COM4		CHar.dev.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        以上显示信息提供的是DOS系统中使用的各种设备驱动器程序的信息，包括每一设备所使用的物理内存地址，以及它的名称等。
+        (5)当选择Environmemt Info菜单项后，显示如下：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━
+        Environment Information
+        Environment addr:odf3:0000 Total Length:160 Used:39
+        PATH=
+        COMSPEC=C:\COMMAND.COM
+        QA=keyborad
+        Press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━
+        上面这组环境显示是DOS使用的信息和由其它程序所定义的环境信息。环境变量COMSPEC告诉DOS在哪里找到command.com，Path告诉DOS在哪里找到程序。
+        (6)当选择Disk performance(磁盘性能)菜单后，按〈ENTER〉键将显示。
+        在上面磁盘性能显示中，分为三组显示信息。道与道之间的平均查找时间是通过BIOS的低级调用来定义的。较低的数字表示较高的性能。DOS文件传输速度确定DOS写一个文件所需要的时间。文件体积也显示在所记录的文件传输窗口中，较高的数字表示较高的性能。一个磁盘的高速缓冲程序实际上将加速DOS的文件传输性能。注意，在这种情况下，这种速度并不真正代表磁盘子系统的真正的文件传输速度。更进一步说，它只是DOS文件传输的一种特征。
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C) 1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        Disk Performance Pand
+        Drive CSpeed                DOS  File Transfer Speed
+        trk-trk seek 5.66ms             (C) Xfer rate 29.4K/sec
+        average seek 63.1ms
+        100ms┌─────┐      50K┌─────┐
+        90ms│          │      45K│          │
+        80ms│          │      40K│          │
+        70ms│    DD    │      35K│    DD    │
+        60ms│    DD    │      30K│    DD    │
+        50ms│    DD    │      25K│    DD    │
+        40ms│    DD    │      20K│    DD    │
+        30ms│    DD    │      15K│    DD    │
+        20ms│    DD    │      10K│    DD    │
+        10ms│    DD    │       5K│    DD    │
+        0  └─────┘       0 └─────┘
+        615 cyl type 2                    16384 Byte 128Byte recs
+        Press any key to continue
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        (7)选择System Performance(系统性能)菜单项，并按〈ENTER〉键将显示：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C) 1987-1990 Diagsoft,Inc.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        SYSTEM Performance Panel
+        CPU Speed        Vide Speed        Math Speed
+        1897 Dhrystones        1724 CPS      39.5K Whetstones
+        2.0K┌───────┐50K┌─────┐50K┌─────┐
+        1.8K│  Model 60  DD│45K│    DDD   │45K│          │
+        1.6K│AT 8 MHz    DD│40K│    DDD   │40K│    DD    │
+        1.4K│            DD│ 5K│    DDD   │35K│    DD    │
+        1.2K│AT 6 MHz    DD│30K│    DDD   │30K│    DD    │
+        1.0K│            DD│25K│    DDD   │25K│    DD    │
+        0.8K│  Model 30  DD│20K│    DDD   │20K│    DD    │
+        0.6K│            DD│15K│    DDD   │15K│    DD    │
+        0.4K│  TURBO 8   DD│10K│    DDD   │10K│    DD    │
+        0.2K│ PC/PC-XT   DD│ 5K│    DDD   │ 5K│    DD    │
+        │            DD│ 0 └─────┘ 0 └─────┘
+        0 └───────┘
+        80286  CPU     No Numeric Processor    Test # Complete
+        10.00MHz                            Pass #1
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        从上面显示中可以看出，系统测试通过一组不同的测试来测量CPU的性能，视屏显示情况和数字协处理器的速度。一方面标识出不同类型的CPU；另一方面将该CPU的速度以MHz为单位进行显示。如果有一个数字协处理器存在，它将指出是8087，80287还是80387。屏幕上有一个带光带的亮条，它显示的是正在进行比较的CPU的速度情况。
+        六、交互设置(Interact)菜单
+        在系统主菜单中移动光标，选择到Interact菜单项后，屏幕显示如下：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └──────────┬─────────┬───────┘
+        │Mouse Test        │
+        │Joystick          │
+        │Locate Bad Chips  │
+        │Speaker Test      │
+        │Key board Test    │
+        │COM Debug         │
+        └─────────┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        在上面这个子菜单中，各功能项的作用是：
+        Mouse Test(鼠标测试)：提供用户检查鼠标按纽的功能(确信屏幕显示“press”)。当合适的按纽被按并且当需要解除时被解除，鼠标将在屏幕处于字符或图形方式下测试定位能力(对于彩色图形显示卡)，确信有两种制式并且在每种显示模式下进行全屏幕测试。
+        如果用户计算机没有鼠标，将给出如下显示：
+        ──────────────────────
+        Mouse Button Test
+        
+        
+        
+        SORRY! you need a mouse!
+        Press any key to continue
+        ──────────────────────
+        按任意键后，返回上一级菜单。
+        Joystick(游戏棒测试)：将显示游戏棒开关和开关位置。当移动按纽并且按下游戏棒时，屏幕上显示的这些动作将起作用 。同样如果计算机上没有游戏棒，将给出类似于上图的信息。
+        Locate bad Chips(定位坏的内存片)：当选择了该功能项后，除了给出功能说明信息外，还将给出内存片子的定位图示；并给出如下的功能选择：
+        F1-help F2-board F3-chip address F4-reset Esc-quit
+        这些选择提供了随时的有关帮助信息；定义了计算机主板上的内存片，以及安装在计算机上的附加板的内存数；还可以移动和编辑变化了的内存数。从内存测试中显示和产生的信息组来说，可以直接在计算机上定义失效的内存组等功能。
+        Speaker Test(扬声器测试)：它发出一个声音，并奏出一段曲子，以校验扬声器操作的正确性。
+        Keyboard Test(键盘测试)：它提供键盘上每个操作键的正确性，以及键盘重复功能和Caps Lock,Num Lock,Scroll Lock键的指示。首先要回答所用的键盘的类型，选择后给出的下拉菜单如下：
+        ┌───────────────┐
+        │122 key (3270)   keyboard     │
+        │101 key (AT ENHANCE) keyboard │
+        │84 key (AT)      keyboard     │
+        │83 key (PC,PC/XT) keyboard  │
+        └───────────────┘
+        选择了某一项后，就开始该项测试。注意，在一些非标准的键盘上，也许显示的键盘位置图的某些键与实际的位置不一样。
+        COM Debug(COM跟踪)：COM(通讯)跟踪提供测试串行口或调制解调器。允许用户输入相关的数据值，通过送一些指令到调制解调器作为通讯程序的试验。
+        七、测试(Testing)菜单
+        在主菜单中选择Testing菜单项后，将出现如下所示的子菜单：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └───────────┬─────────┬──────┘
+        │Select Peripherals│
+        │RAM Test Control  │
+        │Pause Control     │
+        │Pass Control      │
+        │Error Logging     │
+        │Run Tests         │
+        └─────────┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        上面子菜单中，各功能项的作用是：
+        (1)Select Peripherals(选择外围端口)。选择该项后，显示：
+        Peripherals Selecrtion
+        COM4	 n/a	
+        COM3	 n/a	
+        COM2	 n/a	
+        COM1	 H/P Laster 2400 Baud No Parity 8 Date Bites 1 Stop Bit	
+        LPT3	 n/a	
+        LPT2	 n/a	
+        LPT1	 Postscript
+        Esc to Continue
+        这个选择允许配置串行口和并行口。并行口也许连接着下列设备：没有打印机，一台打印机，或者其它类型的输出设备。如果一台打印机连接在并行口，也许要指定这台打印机是否与Epson(点阵打印机)，HL LaserJet(HP激光打印机)，或者PostScript打印机兼容。串行口必须连接着串行设备：没有设备，调制解调器，鼠标，打印机，或其它的串行设备；还要指定波特率(从110到19200的每秒传送速度)，Parity位(空格标志或者没有)，数据位5，6，7(或8)，或者停止位(1或2)。这些初始设置对某些设备来说是正确的。如果在使用时发生问题，首先检查变换速率，其次是分隔符。使用COM Debug将能帮助正确地设置端口。
+        (2)RAM Test Control(RAM测试控制)。选择后的显示如下：
+        ───────────────────────
+        BASE MEMORY PARAMETERS
+        ───────────────────────
+        ：=============<-Base System Memory->：
+        ：0K         640K     1M：
+        Total Memory:640KB
+        (40Blocks of 16KB each)
+        
+        Quit Test (y/n):y
+        Test Blocks:From 0 to 39 (Each 16KB)
+        ────────────────────────────
+        #ENTER to change # Esc to quit # + or - key to next #
+        ────────────────────────────
+        这个测试将对内存的RAM进行，并给出基本内存的有关参数。如整个内存的大小(640K)，测试的BLOCKS数(40)，是否进行快速测试等信息。
+        (3)Pause Control(暂停控制)。这个控制用于设置在每个测试之后是否暂停，当错误发生时是否暂停或不暂停。如果在逻辑开关开着时运行测试，也许要设置暂停到OFF以便于测试能继续进行下去。
+        (4)Pass Control(次数控制)。选择该项后显示：
+        1000 passes
+        100 passes
+        10 passes
+        Continues
+        Single Pass
+        这里是要设置测试程序运行的次数，这个值的取值范围是1到1000次。
+        (5)Error Logging(错误记录)。选择该项后，显示如下：
+        File
+        COM1
+        LPT1
+        None
+        这时，错误记录要将错误信息设置到打印机，串行口或一个文件(QA-LOG.TXT)，或者设置错误记录为OFF，除非知道磁盘有问题，在大多数情况下，将错误记录开关设置到一个文件，打印机或显示器是非常方便的。
+        (6)Run Tests(运行测试)。运行这项测试功能将下拉出一个对话菜单；并显示已经安装在计算机系统上的所有硬件的有效的测试(见下面显示)：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └────────────────────────────┘
+        Select Peripherals
+        Pause Control
+        Pass Control
+        Error Logging
+        ──────────────────────────────
+        Main Components>>CPU >>INT  >>TMER  >>DMA  >>CCLK
+        Video Adapters  >>CGA >>EGA >>VGA
+        Floppy Drives  >>A:  >>B:
+        Hard Drives  >>C:
+        COM Ports   >>COM1
+        Parallel Ports  >>LPT1
+        Printers
+        RAM Tests >>BASE >>EXT
+        ** Run Select Tests **
+        ──────────────────────────────
+        #SPACE BAR selects/deselects # RETURN runs test(s) #Esc aborts #
+        ──────────────────────────────
+        这些测试被编为测试组来进行。测试组为(Main Components,Video Adapters,Floppy Drives,Hard Drives,COM Ports,Parallel Ports,Printers,RAM Tests)所有的测试在通常状态下都可以选择。如果希望进行某个特定的测试，可以使用光标键移到所希望的测试组，当横条光带覆盖到那个测试项目，按下〈ENTER〉键开始测试。如果在测试过程中希望中断测试，那么可以按Esc键，将得到一个选择，这个选择是：
+        Quit Batch
+        Quit test
+        Help menu
+        Continue.
+        其中，Quit Batch(退出批过程)将中止所有测试；Quit test(退出测试)将中止测试组的选择；Help Menu(帮助菜单)将进入到帮助说明状态；Continue(继续)继续进行原测试。         CPU-Contral Processing Unit
+        NPU-Numeric Coprocessor Unit
+        INT-Interrupts
+        TMER-Timer
+        DMA-Direct Memory Access
+        CCLK-CMOS clock
+        上面各项的中文含义是：
+        CPU：	中央处理器单元。
+        NPU：	数学协处理器单元。
+        INT：	中断资源。
+        TMER：	时钟。
+        DMA：	直接内存访问。
+        CCLK：	CMOS时钟。
+        视屏适配器：
+        MDA-Monochrone display adapter	单色显示器卡。
+        CGA-Color graphics adapter		彩色显示器卡。
+        EGA-Extended graphics adapter	扩展的图形增强显示卡。
+        VGA-Video graphics array		视屏图形卡。
+        除了上面测试外还有：
+        1)软盘驱动器A和B测试：这些测试是非破坏性的。用户必须在驱动器中插入一张空的已格式化过的软盘。这张磁盘必须与驱动器的容量相同(例如不要在1.2M驱动器中插入360K的软盘)。
+        2)硬盘驱动器C和D测试：这些测试也是非破坏性的，并且测试仅使用在随机分区上的校验读数据方式。
+        3)COM端口(COM1-COM4)测试：这些测试仅仅利用串行端口测试通讯功能。在大多数情况下的测试是使用一组脉冲发送到那个串行口，这个串行口在Select peripherals中设置。COM3以及COM4在MS-DOS3.3以及以后的版本中使用。
+        4)并行端口(LPT1-LPT3)测试：这些测试利用并行端口进行通讯测试，利用外围接口选择要测试的并行接口，并且送一组数据进行测试。
+        5)打印机测试：如果在串行端口或并行端口连接一台打印机，一组测试数据将要直接送到打印机。
+        6)RAM测试：这些测试通过使用一组校验模式对RAM进行读和写来进行测试；并且要检查内存总线的信号灵敏度。如果计算机系统具有扩展内存或扩充内存，那么也测试它们。完整地测试RAM通常要一段时间，时间的长短取决于计算机系统的速度，所以没要求测试的内容也显示在测试过程中。如果没有足够大的内存来运行测试，计算机将给出提示信息。如果出现这种情况，需要暂时把自举目录中的config.sys文件更名，并且重新启动计算机系统。
+        八、系统设置菜单(Setup)
+        在主菜单中选择Setup设置菜单后，将出现如下所示的子菜单：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └──────────────┬───────┬─────┘
+        │Date/Time     │
+        │CMOS Edit     │
+        │sound Change  │
+        │Color Change  │
+        │Monitor Change│
+        └───────┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        注意：这个菜单必须在AT类的具有CMOS的计算机上才有效。
+        上面各子菜单的作用是：
+        (1)Date/Time(设置日期和时间)。从这个菜单中，可以通过使用CMOS的时钟/计数器来设置日期和时间。按〈F2〉选择时间，〈F3〉选择日期。用户可以通过左，右光标键的使用来选择时期或日期值，也可以在日期和时间域中输入新的值再按〈ENTER〉键来确认。如果希望保存原有的值，可以按〈Esc〉键退出，当改变了日期/时间的值并且确认后，按〈Esc〉键返回主菜单。
+        (2)CMOS Edit(CMOS编辑)。 CMOS编辑提供改变存储在CMOS中有关计算机配置的信息。当选择这个功能后，有一组菜单提供编辑选择，见下面显示：
+        ───────────────────────────────────────────
+        Drive	Type	Syls	Heads	Secs	Precomp	landing	Rate	Ctrl	Tot Bytes
+        C	40	762	8	39	0		761		0	0	121724928
+        	CMOS Checksum=0232
+        
+        							Date/Time
+        							Hard Disk C
+        							Hard Disk D
+        	Floppy Drive A	1.20MB			Floppy Disk A
+        	Floppy Drive B	360KB			Floppy Disk B
+        	Base Memory Size	640KB			Base Memory
+        	Extended Memory Size 5408 KB		Extended Memory
+        	Video Type:EGA/VGA				Video selection
+        	Halt Type:Halt on all errors		Error Halt
+        							Done,Exit&Re-boot
+        ──────────────────────────────────────────
+        # Use ARROWS to point #RETURN selects # Esc aborts #
+        ──────────────────────────────────────────
+        其中各项的作用是：
+        1)Date/Time(日期/时间)：这个选择同设置菜单中的日期/时间选择作用一样。
+        2)Hard Disk C,Hard Disk D(硬盘驱动器C和D)：这里有两个选择允许指定连接到计算机上的硬盘驱动器C，用户可以参见硬盘驱动器用户指南来决定硬盘驱动器的类型。如果正在使用有关硬盘设置驱动程序，例如DM的设备驱动程序，那么可以在系统自举时决定实际的硬盘驱动器配置。
+        3)Floppy Disk A,Floppy Disk B(软盘驱动器A和B)：这组选择要求指定连接到计算机上的软盘驱动器的类型。这组选择对5.25英寸软盘驱动器来说是360K或1.2M，对3.5英寸软盘驱动器来说是720K或1.44M。
+        4)Base memory(基本内存)：在选择这个项目之后，键入计算机系统所拥有的基本内存数(最大到640K)。如果用的是80286或80386类型的计算机，请指定剩余的内存为扩展内存。如果有刚好1M的内存(1024K)请指定640K作为基本内存，384K作为扩展内存。
+        5)Extended Memory(扩展内存)：如果计算机的类型是80286或80386，应指定超过640K的内存作为扩展内存，请参见上面基本内存中的例子。
+        6)Video Selection(视屏选择)：这将决定计算机启动时的默认工作方式。作为可选择的范围，用户可选择Monochrome(MDA或MGA适配器)Color80(CGA或EGA)，或EGA/VGA。
+        7)Error Halt(错误停止)：这将决定计算机自举时遇到错误所采取的动作。通常的选择是在所有的错误时停止(Halt on ALL Errors)，也就是说计算机在自举期间如果检测到了任何错误，将在屏幕上显示一条信息并且要求键入一个动作(通常按F1键继续)。
+        8)Done, Exit & Re-boot(做，退出或自举)。当完成编辑CMOS信息之后(设置CMOS)，选择这个菜单并且要求给出一种选择：Quit或Update。选择Quit将退出；选择Update时，计算机将重新启动，并且存入CMOS的信息将有效。
+        (3)Sound Change(声音变化)。选择声音处于ON或OFF。
+        (4)Color Change(颜色变化)。置颜色为ON或OFF(单色)。
+        (5)Monitor Change(显示变化)。如果计算机有多于一个的监视器，在这个菜单中可以选择它们中的某一个。如果仅有一个监视器，则必须输入一个有效参数值。
+        九、实用功能(Utility)菜单
+        在主菜单中选择Utility(实用功能)菜单后，将出现如下所示的子菜单：
+        QAPLUS Advanced Diagnostics V4.52 9/21/90(C)
+        1987-1990 Diagsoft,Inc.
+        ┌────────────────────────────┐
+        │Help Reports SysInfo Interact Testing Setup Utility Exit│
+        └──────────────────┬─────────┤
+        │QAClean           │
+        │Hard Disk Prep    │
+        │Hard Disk Park    │
+        │User Program 1    │
+        │User Program 2    │
+        └─────────┘
+        
+        ────────────────────────────
+        # Ues ARROWS to point # RETURN selects # Esc Aborts #
+        ────────────────────────────
+        其中各项的作用是：
+        (1)选择QAClean(清除)菜单后，将提示：
+        Clean Drive A:
+        Clean Drive B:
+        选择Clean Drive B项，并回车后，将显示：
+        Insert QAclean Diskette for drive B
+        and press any key when ready ...
+        这时要求用户在驱动器B插入需清除的盘，并按任意键。则系统完成清除功能，并给出提示信息。然后返回上一级菜单。
+        (2)选择Hard Disk Prep(硬盘初始化)菜单后，将显示：
+        ──────────────────
+        	HARD DISK PREP
+        DOES A LOW LEVEL
+        !!!!!!FORMAT!!!!!!
+        of your FIXED DISK
+        ALL DATA WILL be LOST
+        IS THIS WHAT YOU WANT?
+        
+        No/Yes
+        ──────────────────
+        这个选择提供对硬盘驱动器进行初始化。若计算机是80286或80386且采用MFM编码的硬盘驱动器，那么这个选择允许用户对硬盘驱动器进行低级格式化。但是对8088或8086类型的计算机，或者计算机采用RLL，SCSI或EDSI类型的接口，则将不能对该硬盘驱动器进行初始化。此时，屏幕上给出警告，这将毁坏硬盘驱动器上的所有数据，当做完初始化后，硬盘驱动器上的数据将不能恢复。因此，在进行硬盘初始化之前，要事先对硬盘中的数据进行备份。
+        当选择进行初始化的应答，并按〈ENTER〉键后，将显示如下所示的子菜单：
+        ───────────────────────────
+        Hard Disk Low Level formatting program
+        For MFM Drive
+        	     HELP MENU
+        Logical drive:	D	 Drive Choice
+        Drive type(1-47):	0	Drive Type
+        heads(1-15):		0	Heads
+        Cylinders(1-1024):	0	Cylinders
+        Sectors(17):		0	Sectors
+        Interleave(1-16)	3	Interleave
+        				FIND Marked Bad Tracks
+        				BAD Tracks Table Clear
+        				BAD Tracks Table Edit
+        				BAD Tracks File Load
+        				BAD Tracks File Save
+        				** FORMAT DRIVE **
+        				Quit and Do NOTHING
+        ───────────────────────────
+        子菜单各项的作用是：
+        1)帮助菜单(HELP MENU)：进行硬盘驱动器初始化的帮助菜单和进行硬盘初始配置之前的说明。
+        2)硬盘驱动器选择(Drive Choice)：选择要进行初始化的硬盘驱动器，这里是指物理上的硬盘驱动器，通常用C代表第一个物理上的硬盘驱动器，D代表第二个。
+        3)硬盘驱动器类型(Drive Type)：为硬盘驱动器选择合适的物理类型，这个类型一般由计算机的CMOS的类型信息决定(选择合适的一种)。
+        4)硬盘驱动器的磁头数(Heads)：硬盘驱动器的磁头数，可以输入正确的值(1-15)。
+        5)硬盘驱动器的柱面数(Cylinders)：硬盘驱动器的柱面数，取值范围是1-1024。6)硬盘驱动器的每磁道扇区数(Sectors)：硬盘驱动器的每磁道的扇区数要求标准格式，每磁道17个扇区。
+        7)硬盘驱动器的交叉因子(Interleave)：设定要初始化的硬盘驱动器的交叉因子值，选择正确的交叉因子值，可以加快硬盘驱动器的存取速度，这个值范围是1-16。
+        8)查找标记坏的磁道表(FIND Marked Bad Tracks)：扫描硬盘驱动器，查找并标记坏的磁道。
+        9)清除坏的磁道表__缺陷链表(BAD Tracks Table Clear)：将缺陷链表置为空。  10)编辑坏的磁道表__缺陷链表(BAD Tracks Table Edit)：对硬盘驱动器的缺陷链表进行编辑。可以增加缺陷项也可以删除缺陷项。
+        11)引导坏的磁道表__缺陷链表(BAD Tracks Table Load)：加载硬盘驱动器的缺陷链表，以便于编辑。
+        12)将坏的磁道表存盘(BAD Tracks File Save)：将编辑修改的缺陷链表存盘，以便于屏蔽那些坏磁道。
+        13)格式化硬盘驱动器(FORMAT DRIVE)：将设置了正确类型并且扫描了缺陷链表的硬盘驱动器进行格式化(初始化开始后，将逐柱面地对硬盘驱动器进行初始化，并且需要一段时间)。
+        14)退回并且不做任何事情(Quit and Do NOTHING)：当不想进行硬盘初始化，那么可选择这个功能返回到上一级菜单。
+        (3)锁硬盘磁头(Hard Disk Park)：如果想让磁头移到“安全区域”，就应该选择这个选项；或者如果想移动计算机系统，那么在移动之前最好运行这个程序。例如可以移动光标到“Hard Disk Park”，按〈ENTER〉键后显示：
+        Hard Disk Park
+        Hard Drive C:Parked at cylinder 804
+        Turn power OFF ...then power ON to continue
+        (4)用户实用程序1和2(User programs 1 and 2)：为了使QAPLUS执行其它的程序，可以将要执行的程序拷贝到QAPLUS子目录下，并更名为user1.exe user2.exe，这样通过选择实用程序1和2就能够直接执行那个程序，操作非常方便。
+        十、EXIT命令项
+        当移动光标到右侧EXIT处时，显示“EXIT TO DOS”。此时按〈ENTER〉键，则结束运行QAPLUS程序，返回到DOS提示符。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

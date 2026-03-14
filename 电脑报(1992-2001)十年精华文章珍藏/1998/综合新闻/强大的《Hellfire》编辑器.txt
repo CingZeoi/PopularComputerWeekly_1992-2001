@@ -1,0 +1,124 @@
+强大的《Hellfire》编辑器
+
+陈洪波
+1998年 第03期 28版
+
+　　Blizzard公司在制作《Diablo》之后，马上授权Sierra公司在《Diablo》源代码基础上开发资料片《Hellfire》。在《Hellfire》中加入了23种全新的邪恶生物，以及为玩家们准备的新的英雄——僧侣（Monk）。此外，在《Diablo》世界广为称道的魔法也有很大的加强，共新增了以下九种新魔法：
+    Light wall  闪电墙
+    Immolation  环形大火球
+    Reflect     反射
+    Warp        到最近的门口
+    Berserk     狂乱（使敌人自伤残杀）
+    Search      搜索
+    Nova        环形闪电
+    Apocalypse  基督启示
+    Ring of fire 环形火墙
+^032801a^
+　　在《Diablo》和《HellFire》的世界中，去完成任务和提升等级并不是玩家们最热爱做的事情，玩家们最感兴趣的应该是那些传说中各式各样的武器、盔甲、护身符、戒指、魔法书和卷轴。通常在可以复制金钱的情况下，只能从铁匠铺和女巫师处买到价格不超过14万金币的武器和护甲，护身符和戒指是绝对没有人会出售的。武器的特殊属性是由随机数决定的，通常需要 200次才重复出现一次，而且同一种名称的武器都有多种不同的造型。因此，要想找到一件自己理想中的武器，更是难上加难。笔者有一次为了要想买到一把战士用的宝剑（名为King＇s Sword Of Blood，加攻击力、加攻击准度、吸取被攻击敌人5％的生命值），共用去8小时时间开启新游戏，笔者机器是奔腾MMX233，每次开启新游戏需要约90秒，在开启了 300多次后终于了却了心愿。现在回想起真是一件浪费时间的事。还有，当游戏者的等级超过34级后，每升高一级需要一千多万的经验值，而且下一级的所需经验值还会以140％的速度递增，真是漫长的地下城之路！
+　　如今，《Diablo》和《Hellfire》都有了自己的游戏人物属性编辑器，而且《Hellfire》的编辑器——《Hellfire God》（^032801b^）功能十分强大，不但可以像《Diablo》的编辑器一样可以编辑人物的各种属性，还可以编辑各种武器。《Hellfire God》一共包括两个文件，其中 MFC42.DLL是动态连接库文件，需要拷贝到Windows 95的System目录下， HFGOD.EXE是工具本身的可执行文件，执行该文件后，将会弹出一个很大的对话窗口，如果另一窗口正在运行《Hellfire》，你就可以在对话窗口上按照以下的步骤修改你的游戏人物了。
+　　首先选择 “Get Hellfire ID”选项，修改工具将返回游戏是否被监测到的信息，如果监测成功，将在“Name”处出现“SUCCESS2”；然后选择“Get Your Character DAT”选项，修改工具将获取游戏中人物的各项属性分别填入对应的表格中。然后你就可以修改人物的各项属性了，最后用 “Modify Your Character”选项储存数据。修改的表格类似游戏中的属性菜单，就不再做过多介绍了。修改游戏中的物品比修改人物属性要复杂，方法如下：先选择“Activate Item Edit”选项打开物品编辑功能，然后使用“Previous Item”选项和“Next Item”选项找到你想编辑的物品（在“Item Unidentified Name then”窗口中第一行将显示物品的基本名称，第二行显示有前缀和后缀的物品名称，你可以通过它们来判断）。下面的十个下拉式菜单中包括了物品的各种属性，分别是
+　　ItemPlacemn：物品类型，可选择头盔、甲胄、单手武器、双手武器；
+　　MagSpecial： 魔法特性，可选代表光明的闪电和代表黑暗的吸血鬼；
+　　Profix：     前缀功能，可选增加一定百分比的攻击、准度和魔法防御等；
+　　Combat：     后缀名称，可选吸血、快速攻击等；
+　　Magic：      魔法类型，可选护身符、戒指、魔法书和卷轴等；
+　　Classificat：基本功能，可选防具或武器；
+　　Item：       物品外观，自己看着办吧；
+　　Suffix：     后缀功能，可选增加各项属性、磨损度等；
+　　Add Damage： 护甲破坏，可选各种程度破坏敌人防具的能力；
+　　Spel：       魔法属性，可选自带魔法，如基督启示、闪电墙等。
+　　显然，一种物品不可能有太多的属性，但是，在经过修改后，能附带五种属性以上的物品还是会产生的。在修改了这十个值以后，还要在其左方的数值栏进行具体数值的修改，用来确定实际的数值，最后请选择Write Item Changes选项储存数据。右上角是修改魔法能力的窗口，选择你需要修改的魔法并输入想要达到的等级就可以了，十分方便。以下是我们整理出的部分物品表，读者可以按照自己的喜好编辑出自己需要的物品。
+#1　　          防 具 列 表
+　　防具名称         耐用度    需求
+#1头盔类
+　　Cap         15      没有
+　　Skull Cap   15      没有
+　　Crown       30      没有
+　　Helm        30      25点力量
+　　Full Helm   35      35点力量
+　　Great Helm  60      50点力量
+#1盾类
+　　Buckler       16      没有
+　　Small Shield  20    18点力量
+　　Large Shield  30    25点力量
+　　Kite Shield   40    35点力量
+　　Tower Shield  50    60点力量
+　　Gothic Shield 80    60点力量
+#1护甲类
+　　Rags           6       没有
+　　Cape           12      没有
+　　Cloak          18      没有
+　　Robe           24      没有
+　　Quilted Armor  30      没有
+　　Leather Armor  30      没有
+　　Hard Leather Armor   40     没有
+　　Studded Leather Armor 45    20点力量
+　　Ring Mail      50      25点力量
+　　Chain Mail     55      30点力量
+　　Scale Mail     60      35点力量
+　　Splint Mail    65      40点力量
+　　Plate Mail     75      60点力量
+　　Breast Plate   80      40点力量
+　　Field Plate    80      65点力量
+　　Full Plate     90      90点力量
+　　Gothic Plate   100     80点力量
+#1　　             武 器 列 表
+　　武器名称   耐用度  需求   攻击力
+#1剑类
+    Dagger       15    没有    1－4
+　　Short Sword  24  18点力量  2－6
+　　Sabre        25  17点力量  1－6
+　　Scimitar     20  23点力量  3－7
+　　Falchion     15  25点力量  4－8
+　　Blade        30  25点力量  3－8
+　　              30点敏捷度
+　　Long Sword   40  30点力量  2－10
+　　Claymore     36  35点力量  1－12
+　　Broad Sword  50  30点力量  4－12
+　　Bastard Sword  60  50点力量  6－15
+#1双手剑类
+　　Sword        75  60点力量  8－16
+　　Great Sword  100 75点力量  10－20
+#1斧类
+　　Small Axe    24    没有    2－10
+　　Axe          25  20点力量  4－12
+　　Large Axe    30  25点力量  6－16
+　　Broad Axe    50  35点力量  8－20
+　　Battle Axe   60  65点力量  10－25
+　　Great Axe    75  80点力量  12－30
+#1棒槌类
+　　Club         20    没有    1－6
+　　Spiked Club  25  20点力量  4－6
+　　Mace         32  16点力量  1－8
+　　Morning Star 35  23点力量  1－10
+　　Flail        36  30点力量  2－12
+　　War Hammer   50  40点力量  5－9
+　　Maul         50  55点力量  6－20
+#1法杖类
+　　Short Staff  25    没有    2－4
+　　Long Staff   35    没有    4－8
+　　Quarterstaff 35    没有    4－8
+　　Composite Staff  45    没有  5－10
+　　War Staff    75  30点力量  8－16
+#1弓类
+　　Short Bow    20  20点力量  1－4
+　　            20点敏捷度
+　　Long Bow     35  25点力量  1－6
+　　            30点敏捷度
+　　Composite Bow   50   30点力量  3－7
+　　            35点敏捷度
+　　Bow          40  25点力量  2－5
+　　            40点敏捷度
+　　Hunter＇s Bow 40  20点力量  2－5
+　              53点敏捷度
+　　Short Battle Bow    45   20点力量   3－7
+　　            50点敏捷度
+　　Long Battle Bow  45  40点力量   1－12
+                45点敏捷度
+　　Long War Bow  45  45点力量 1－16
+　　            60点敏捷度
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,412 @@
+Flash 5 ActionScript交互动画简明教程（下）
+
+莫治雄 
+2001年 60期
+
+    7.载入变量动作：Load Variables
+　　    loadVariables动作的作用是载入外部文件并设置变量值。其语法格式如下：
+　　        loadVariables （url ，location ［， variables］）;
+　　    动作中的参数url是载入外部文件的绝对或相对URL。URL中指向的主机必须与下载的Flash动画处在同一子域；location是一个可选的参数，用于指定接收变量的层级或目标。loadVariables动作可以从外部文件，如文本文件或CGI脚本、ASP、PHP生成的文本中载入变量，并在动画或电影剪辑中设置这些变量的值。loadVariables动作还可以用于更新当前正在播放的动画中的变量的值。
+　　    例如，一个文本文件data.txt中有下面的内容，定义了4个变量：
+　　      company=Macromedia&address=600+Townsend&city=San+Francisco&zip=94103
+　　    可以用loadVariables动作把这个文本文件载入动画中：
+　　        on（release） {
+　　              loadVariables（″data.txt″， 0）;
+　　        }
+　　    载入这个文本文件后，在动画中将设置company、address、city和zip四个变量及其取值。
+　　    8.定义函数动作：function
+　　    在动作脚本语言中，Flash提供了一些函数（如int函数、random函数等），这些函数我们称为预定义函数。然而，Flash提供的函数毕竟有限，往往满足不了编程的要求。因此，Flash允许用户自定义函数。
+　　    定义函数的动作是function。它的语法格式如下：
+　　        function functionname （［argument0， argument1，…argumentN］）{
+　　            statement（s）
+　　        }
+　　    具体说，函数定义由以下几部分组成：
+　　    function：是函数定义的关键字，表明函数定义的开始。
+　　    Functionname：是该函数的名称，调用函数必须通过函数名进行。函数名的命名遵循变量命名规则，一般选用能够代表函数功能的单词或单词组合了命名。
+　　    Argument0， argument1，…argumentN是参数列表，用来给函数传递参数。参数可以是0到多个。如果没有参数，圆括号也不能省略。如果有多个参数，参数与参数之间用逗号分隔。
+　　    （4）statement（s）是决定该函数功能的ActionScript语句。Statement（s）放在大括号之间，可以是0到多个语句。
+　　    下面是定义一个名为Circle的函数，有一个参数radius（半径）：
+　　        function Circle（radius） {
+　　              this.radius = radius;
+　　              this.area = Math.PI * radius * radius;
+　　        }
+　　    注：用在函数体内的关键字this是对函数所属电影剪辑的引用。
+　　    9.设定电影剪辑属性动作：setProperty
+　　    setProperty动作用于设置电影剪辑实例的属性。在播放动画时执行此动作，就会根据设置改变电影剪辑的属性。使用setProperty动作可以设置电影剪辑实例的位置、缩放比例、透明度、可见性、旋转角度等属性。
+　　    setProperty动作语法格式如下：
+　　        setProperty（target， property， expression）;
+　　    动作中的参数说明如下：
+　　      * target参数指定要改变属性的电影剪辑实例的路径。
+　　      * property参数指定要设置的电影剪辑属性。
+　　      * expression参数指定要设置属性的值。
+　　    在下面的脚本中，当按下按钮时，电影剪辑实例fish在x和y方向均放大一倍：
+　　          on （press） {
+　　                 setProperty （″fish″， _xscale， ″200″）;
+　　                 setProperty （″fish″， _yscale， ″200″）;
+　　           }
+　　    10.复制电影剪辑：duplicateMovieClip
+　　    duplicateMoviClip动作可以在动画播放时复制出另一个电影剪辑实例，该动作的语法格式如下：
+　　             duplicateMovieClip（target， newname， depth）;
+　　    动作中的target参数指定要复制的电影剪辑的目标路径；newname是复件电影剪辑实例名；depth是放置复件电影剪辑实例的层级号。这个参数确定电影剪辑实例的堆叠顺序，当多个电影剪辑实例或对象互相重叠时，堆叠在上面的电影剪辑会遮挡下面的电影剪辑。使用duplicateMovieClip动作复制电影剪辑时要注意，如果前后复制的两个电影剪辑的depth参数都一样，或者说都放在同一个层级，后面复制的电影剪辑将会取代前一个电影剪辑。
+　　    11.电影剪辑事件管理动作：onClipEvent
+　　    onClipEvent动作用于处理电影剪辑事件。该动作的语法格式如下：
+　　        onClipEvent（movieEvent）;{
+　　             …
+　　        }
+　　    动作中的movieEvent参数指定电影剪辑事件。本动作只能指派给电影剪辑实例。当指定的剪辑事件发生时，执行该动作内的语句。电影剪辑事件包括：
+　　    load ：电影剪辑实例在时间轴中出现时发生。
+　　    Unload ：电影剪辑实例在时间轴中卸载后的第一帧发生。与unload剪辑事件关联的动作在此帧中其他任何动作之前处理。
+　　    enterFrame ：在播放电影剪辑实例中任一帧时发生。与enterFrame剪辑事件关联的动作在此帧中其他任何动作之后被处理。
+　　    mouseMove ：每当移动鼠标时发生。使用_xmouse和_ymouse属性可以确定当前鼠标的坐标。
+　　    mouseDown ：鼠标左键按下时发生。
+　　    mouseUp ：释放鼠标左键时发生。
+　　    keyDown ：当某一键被按下时发生。使用Key.getCode方法可以获得最近一次按键的信息。
+　　    keyUp ：释放某一按键时发生。
+　　    Data ：当接收到loadVariables或loadMovie动作载入的数据时发生。对于loadVariables动作，data事件只在载入最后一个变量时发生一次；对于loadMovie动作，每读入一段数据data事件就发生一次。
+　　    （二）使用动作面板编写脚本
+　　    1.打开动作面板
+　　    选择“Window→Actions”（菜单命令），可以打开动作面板。在时间轴中选择某帧并右击，或在编辑区中选择一个电影剪辑实例或按钮并右击，然后从弹出的快捷菜单上选择“Actions”选项，也可以打开动作面板。
+　　    这里提醒读者注意，在编辑区选择按钮或电影剪辑的一个实例，会使动作面板处于激活状态。如果按钮或电影剪辑被选择，动作面板标题会改变为“Object Actions”（对象动作）；如果帧被选择，动作面板标题会变为Frame Actions（帧动作）。
+　　    动作面板有两种编辑模式：正常模式（Normal Mode）和专家模式（Expert Mode）。你可以使用任一种模式编辑动作脚本。选择动作面板的编辑模式的方法是：在动作面板显示出来的情况下，单击该面板右上角的箭头，从弹出菜单上选择“Normal Mode”或“Expert Mode”。
+　　    2.在正常模式中编辑脚本
+　　    在正常模式中编辑脚本，你可以通过从面板左边的动作工具箱列表中选择动作来创建动作脚本。工具箱列表包含基本动作（Basic Actions）、动作（Actions）、操作符（Operators）、函数（Functions）、属性（Properties）和对象（Objects）等动作类型。它们就像文件夹一样，单击可以展开或折叠。基本动作类型中包括最简单的Flash动作，且只有在正常模式中才可用。
+　　    下面介绍在正常编辑模式中编写动作脚本的操作方法。
+　　    （1）选择动作
+　　    单击工具箱列表中的动作类型，显示出该类型包含的动作。然后双击一个动作，该动作就被自动添加到右边的动作脚本窗口中；或使用拖放的方法，把选定的动作直接拖到脚本窗口中。
+　　    你可以添加、删除或改变动作语句的顺序，也可以在面板底部的参数面板（或称参数区）中给动作输入参数。
+　　    在正常模式中，可以使用动作面板中的控件删除动作列表中的语句或改变语句的顺序。这些控件在管理由多个语句组成的帧动作或按钮动作方面特别有用。
+　　    （2）给动作设置参数
+　　    Flash 5的动作很多，有些不需要任何参数（如stop（）），有些则必须指定参数。动作面板下部有一个参数区，提示你正确设置参数。例如，我们在脚本窗口中添加了if动作，需要给该动作指定条件，可以按下面的操作步骤设置参数：
+　　    ①如果动作面板的参数区没有显示，单击面板右下角的小三角按钮，可以显示参数区。
+　　    ②在脚本窗口的动作列表中选择一种动作（本例为if），然后在参数区中输入参数（本例输入I<=10）。
+　　    有些动作的参数设置稍为复杂一些。例如，要给gotoAndPlay（）动作指定参数，在脚本窗口选择该动作后参数区显示。
+　　    在参数区，有3个参数：Scene（场景）、Type（类型）和Frame（帧）。3个参数均有下拉菜单，你可以弹出相应的下拉菜单，从中选择需要的参数。Scene参数主要用于设定要跳转到哪个场景播放，对于多场景动画才有用；Type参数用于设定帧编号（Frame Number）或帧标签（Frame Label）等选项。
+　　    给有些动作设置参数时，在一些参数框右边有一个表达式（Expression）复选框。对于这种参数，应该根据你输入的参数的类型决定是否要勾选此复选框。例如，我们使用set variable动作，给变量x赋值。如果你给x提供的参数是一个字符串常数，就不要勾选此复选框，否则就要勾选该复选框。
+　　    总之，随着选定的动作的不同，参数区的显示也不同，参数的设置方法也有差别。但是，只要你深入了解每个动作的参数要求，设计的方法也就不难掌握。对于某个具体动作的参数要求，我们将在后面的章节介绍。
+　　    （3）编辑脚本窗口中的动作
+　　    如果要调整动作列表中动作的排列顺序，先在动作列表中选择一个动作，然后单击动作面板的上箭头或下箭头按钮，即可上下移动动作。你也可以用鼠标上下拖动动作来调整动作的排列顺序。
+　　    如果要删除脚本窗口中的动作，先在动作列表中选择一个动作，然后单击删除（-）按钮。
+　　    如果要改变动作的参数，在动作列表中选择一个动作，然后在参数框中输入新值即可。
+　　    （4）改变工具箱列表和脚本窗口的大小
+　　    拖动工具箱与动作列表之间的垂直拆分条，可以调整工具箱列表和脚本窗口的相对大小。双击拆分条，隐藏工具箱列表；再次双击拆分条，重显工具箱列表。单击拆分条上的左箭头按钮或右箭头按钮，显示或隐藏工具箱列表。当工具箱列表被隐藏时，你仍然可以用动作面板左上角的添加（+）按钮访问它的选项。
+　　    如果要调整动作面板的大小，也可以像Windows的窗口样通过拖曳面板的边框来改变面板的大小。
+　　    3.在专家模式中编辑动作脚本
+　　    专家模式是Flash 5提供给高级用户编写动作脚本的一种编辑模式。如果你对动作脚本语言的各种动作的语法和应用比较了解，使用专家模式编写脚本效率更高。在专家模式，你可以在该面板右边的脚本窗口中输入动作脚本，也可以从工具箱列表中选择动作来创建动作。你可以像在文本编辑器中编写脚本一样编辑动作，给动作输入参数，也可以在文本框中直接删除动作，就像编写JavaScript或VBScript一样。专家模式的动作面板。
+　　    专家模式在以下几个方面与正常模式不同：
+　　    ①使用添加（+）按钮可以弹出动作菜单，从中选择一项，或从工具箱列表中选择一项并双击，将把选定项插入脚本编辑窗口的动作列表中。但是，不会像在正常模式那样自动添加必需的事件管理动作。
+　　    例如，在对象动作面板专家模式中，双击电影剪辑对象的getURL动作，在动作编辑窗口添加下列动作：
+　　        .getURL（ url， window， method ）;
+　　    而在正常模式，则会自动添加必需的事件管理动作：
+　　        onClipEvent （load） {
+　　            .getURL（ url， window， method ）;
+　　        }
+　　    ②没有参数区显示，但可在脚本编辑窗口中直接输入参数。
+　　    ③在按钮面板，仅有添加（+）按钮起作用，删除按钮（-）不可用，但可以像编辑一般文本一样选择、删除动作。
+　　    ④上、下箭头按钮不可用。因此，不能像在正常模式那样，通过上下移动来改变动作的排列顺序。但是，可以通过拷贝、剪切和粘贴操作来实现这种功能。
+　　    在一个稍微复杂的动画中，可能有若干个动作脚本，每个脚本都保持着它自己的编辑模式。例如，我们可以在正常模式中给一个按钮实例编写脚本，而在专家模式下给另一个按钮实例编写脚本。切换选择这两个按钮时，动作面板的编辑模式也会跟着切换。
+　　    4.不同编辑模式间的切换
+　　    从动作面板右上角的弹出菜单上选择“Normal Mode”或“Expert Mode”，可以来回切换编辑模式，选项旁边的对勾符号指示被选择的模式。在编写脚本时你可以在两种编辑模式之间切换，但改变编辑模式会改变脚本的格式。因此，每个脚本最好使用一种编辑模式。
+　　#1    三、Flash 5 ActionScript编程实用技术
+　　    这里介绍Flash 5 ActionScript编程实用技术，包括建立自定义光标、获取鼠标位置、捕获按键、建立滚动文本框、设置颜色值、建立声音控制和检测碰撞等。在这些实例中，综合应用了前面介绍到的一些函数、属性、对象和动作，请读者自行参考前面的章节。
+　　    （一）创建自定义光标 
+　　    使用自定义光标之前要隐藏标准光标（即鼠标指针在屏幕上的表现形式），使用Flash 5的预定义鼠标对象的hide方法可以隐藏标准光标。 如果你想把电影剪辑用作自定义光标，可以使用startDrag动作。 
+　　   下面是创建自定义光标的基本操作步骤： 
+　　   1.创建一个用作自定义光标的电影剪辑。  
+　　   2.在编辑区中选择该电影剪辑实例。  
+　　   3.选择Window>Actions，打开Object Actions面板。  
+　　   4.在工具箱列表中，选择Objects，然后选择Mouse，把hide拖到脚本窗口。得到的代码如下：  
+　　
+　　       onClipEvent（load）{
+　　          Mouse.hide（）;
+　　       }
+　　
+　　   5.在工具箱列表中，选择 Actions，然后把startDrag拖到脚本窗口。  
+　　   6.选择Lock Mouse to Center（锁定鼠标在中间位置）复选框。得到的代码如下：  
+　　
+　　       onClipEvent（load）{
+　　	  Mouse.hide（）
+　　	  startDrag（""， true）;
+　　       }
+　　 
+　　   7.选择Control>Test Movie，试用自定义光标。  
+　　   当你使用自定义光标时，按钮仍然有效。最好把自定义光标放在时间轴顶层，以便在动画中移动鼠标时，它能够在按钮和其它对象之上移动。 
+　　    （二）读取鼠标位置
+　　    Flash 5提供了_xmouse和_ymouse两个属性，使用这两个属性可以获取动画中鼠标指针的位置。每个时间轴都有自己的_xmouse和_ymouse属性，能够返回鼠标在相应坐标系中的位置。 
+　　    在_level0动画的任何时间轴脚本中插入下列语句，可以返回主时间轴中_xmouse位置（x坐标）和_ymouse位置（y坐标）: 
+　　        x_pos = _root._xmouse;
+　　        y_pos = _root._ymouse;
+　　    语句中的_root代表主时间轴。要确定电影剪辑中鼠标的位置，可以使用电影剪辑实例名。例如，下列语句可以放在_level0动画的任何时间轴的动作脚本中，用以返回myMovieClip实例中_xmouse位置和_ymouse位置: 
+　　        x_mcpos = _root.myMovieClip._xmouse;
+　　        y_mcpos = _root.myMovieClip._ymouse;
+　　    也可以在剪辑动作中使用_xmouse和_ymouse属性来确定电影剪辑中鼠标的位置： 
+　　        onClipEvent（enterFrame）{
+　　	   xmousePosition = _xmouse;
+　　	   ymousePosition = _ymouse;
+　　        }
+　　    变量x_pos和y_pos用来存储鼠标位置值。可以在动画的任何脚本中使用这些变量。在下例中，每当用户移动鼠标时x_pos和y_pos的值都被更新。
+　　        onClipEvent（mouseMove）{
+　　	   x_pos = _root._xmouse;
+　　	   y_pos = _root._ymouse;
+　　        }
+　　
+　　    （三）捕捉用户按键
+　　    用户观看交互动画时，不仅使用鼠标，而且也会用键盘操作。因此，要设计复杂的交互动画，除了能够准确“感知”用户的鼠标位置外，还要能够捕获用户的按键。也就是说，除了掌握鼠标定位技术外，我们还必须掌握按键捕获技术。使用Flash 5预定义的Key（键）对象的方法可以方便地检测用户的最后按键。Key对象不需要构造函数，要使用它的方法，直接调用该对象即可，如下所示： 
+　　        Key.getCode（）;
+　　        Key.getAscii（）;
+　　    使用Key对象，可以获得按键的虚拟键码或ASCII码值。使用Key对象的getCode方法，可以读取按键的虚拟键码；使用Key对象的getAscii方法，可以读取按键的ASCII码值。
+　　    键盘上每一个物理键都有一个虚拟键码（如左箭头键的虚拟键码是37）。使用虚拟键码，可以确保动画的控制在每一种键盘上都是相同的。
+　　    ASCII（美国信息交换用标准代码）码值被分配给每个字符集的前127个字符。ASCII 码值提供的是屏幕上每一种字符的信息。例如，字母“A”和字母“a”拥有不同的ASCII码值。 
+　　    Key.getCode方法常用在onClipEvent事件处理程序中。把keyDown作为参数传递给事件处理程序，该事件处理程序即指令动作脚本，仅当真正按下了某个键时才检查最后按键的值。下面这个动画使用Key.getCode创建太空船的导航控制。
+　　    为动画设置键盘控制的步骤如下： 
+　　    1.查看键盘键与虚拟键码对照表（请参考Flash 5的帮助），决定使用哪些键。
+　　    2.在编辑区中选择电影剪辑。  
+　　    3.选择Window>Actions。  
+　　    4.在工具箱Actions类型中双击onClipEvent动作 。 
+　　    5.在参数区中选择Key down事件。
+　　    6.在工具箱Actions类型中双击if动作。  
+　　    7.在Condition（条件）参数框中单击，在工具箱列表中选择Objects，然后选择Key，双击getCode。
+　　    8.在工具箱Operators（操作符）类型中双击相等操作符（==） 。 
+　　    9.在相等操作符右边输入虚拟键码（本例输入32）。得到的代码如下：  
+　　
+　　        onClipEvent（keyDown） {
+　　	   if （Key.getCode（） == 32） {
+　　	   }
+　　        }
+　　
+　　    10.为设置的按键选择一个要执行的动作。例如，设置当空格键（32）被按下时执行跳转到下一帧动作。得到的代码如下所示：  
+　　
+　　        onClipEvent（keyDown） {
+　　	   if （Key.getCode（） == 32） {
+　　		nextFrame（）;
+　　	   }
+　　        }
+　　
+　　    11.选择Control>Test Movie，测试键盘按键。  
+　　    （四）创建声音控制 
+　　    使用Flash 5的预定义Sound（声音）对象，可以控制动画中的声音。要调用Sound对象的方法，必须先创建一个新的Sound对象。然后，可使用attachSound方法在播放动画时把库中的声音插入动画中，使用setVolume方法控制音量，使用setPan方法调整左右声道平衡。 
+　　    要创建声音控制，必需先把声音附加给时间轴，操作步骤如下： 
+　　    1.选择File>Import（文件>导入）导入声音。  
+　　    2.选择图符库中的声音，并从选项菜单中选择Linkage（连接）。
+　　    3.选择Export This Symbol（导出这个图符），并赋予它标识符mySound。
+　　    4.在主时间轴选择第一帧，然后选择 Window>Actions。  
+　　    5.从工具箱中把set variable动作拖到脚本窗口。  
+　　    6.在Variable文本框中输入s 。  
+　　    7.在工具箱列表中，选择Objects，再选择Sound，然后把new Sound拖到Value（值）框中，并勾选右边的Expression复选框。代码如下：
+　　       s = new Sound（）;
+　　    8.在工具箱中双击Action类型下的evaluate动作。  
+　　    9.在Expression框中输入s。
+　　    10.在工具箱列表的Objects类型中选择Sound，然后把attachSound拖到Expression框中。  
+　　    11.给attachSound的ID参数输入 "mySound"。
+　　    12.在工具箱中双击evaluate动作。  
+　　    13.在Expression框中输入 s。  
+　　    14.在Objects类型中选择Sound，然后把start拖到Expression框中。代码如下：  
+　　        s = new Sound（）; 
+　　        s.attachSound（"mySound"）;
+　　        s.start（）;
+　　    15.选择Control>Test Movie，即可试听声音。  
+　　    创建可滑动的音量控制，可按下面的步骤操作：
+　　    1.事先制作好一个按钮，然后把该按钮拖到编辑区。  
+　　    2.选择该按钮，然后选Insert>Convert to Symbol（插入>转换为图符），在弹出的对话框中选择电影剪辑行为。本步操作在按钮的第一帧创建一个电影剪辑。  
+　　    3.选择该电影剪辑，然后选择Edit>Edit Symbol（编辑>编辑图符），或在该电影剪辑上右击，从快捷菜单上选择Edit（编辑） ，进入图符编辑状态。
+　　    4.选择该按钮，然后选择Window>Actions。  
+　　    5.在动作面板的工具箱列表中选择动作，在脚本窗口中输入下列动作：  
+　　
+　　         on （press） {
+　　	    startDrag （""， false， left， top， right， bottom）;
+　　	    dragging = true;
+　　         }
+　　         on （release， releaseOutside） {
+　　	    stopDrag （）;
+　　	    dragging = false;
+　　         }
+　　 
+　　    6.选择Edit > Edit Movie（编辑>编辑动画）或单击位于层窗口上面的Scene 1按钮，返回主时间轴。  
+　　    7.选择编辑区中的电影剪辑，然后选择 Window > Actions。  
+　　    8.在动作面板的工具箱列表中选择动作，在脚本窗口中输入下列动作：  
+　　
+　　         onClipEvent （load） {
+　　	    top=_y;
+　　	    left=_x;
+　　	    right=_x;
+　　	    bottom=_y+100;
+　　         }
+　　
+　　         onClipEvent（enterFrame）{
+　　	    if （dragging==true）{
+　　               _root.s.setVolume（100-（_y-top））;
+　　	    }
+　　         } 
+　　
+　　    9.把事先制作好的滑杆拖到编辑区，调整滑杆与按钮（滑块）的位置。
+　　    10.选择Control>Test Movie，上下拖动滑块，即可调节音量。  
+　　    （五）检测碰撞 
+　　    碰撞检测技术在游戏设计中有着广泛的应用。例如，子弹击中目标，就是一种电影剪辑与电影剪辑之间的碰撞。通过检测，即可知道子弹是否击中了目标。
+　　    在Flash 5中，可以用MovieClip（电影剪辑）对象的hitTest方法检测动画中的碰撞。hitTest方法检查一个对象是否已经与电影剪辑碰撞，并返回逻辑值真或假（true 或 false）。使用hitTest方法的参数可以指定编辑区中碰撞区域的x和y坐标，或使用另一个电影剪辑的目标路径作为碰撞区。
+　　    使用hitTest方法可以测试电影剪辑与点之间的碰撞，也可以测试两个电影剪辑之间的碰撞。下面就给大家介绍检测两个电影剪辑之间的碰撞的实现方法：
+　　    1.在编辑区创建一个动态文本框，在Text Options面板的Variable框中输入status。 
+　　    2.拖两个电影剪辑到编辑区，分别给它们赋予实例名mcHitArea和mcDrag。
+　　    3.选择mcHitArea，然后选择 Window>Actions。  
+　　    4.双击工具箱中的evaluate。 
+　　    5.在Expression框中输入下列代码： 
+　　    _root.status=this.hitTest（_root.mcDrag）;
+　　    6.在脚本窗口选择onClipEvent动作，然后选择enterFrame事件。 
+　　    7.选择mcDrag，然后选择Window>Actions。  
+　　    8.在工具箱中双击startDrag。  
+　　    9.选择Lock Mouse to Center（锁定鼠标在中间）复选框。
+　　    10.在脚本窗口选择onClipEvent动作，然后选择Mouse down事件。
+　　    11.在工具箱中双击stopDrag。  
+　　    12.在脚本窗口选择onClipEvent动作，然后选择Mouse up事件。
+　　    13.选择Control>Test Movie，拖动电影剪辑即可测试电影剪辑之间的碰撞，测试结果返回文本框中。 
+　　#1    四、综合应用实例
+　　    本节向大家介绍一个制作实例—“打小虫”游戏，它们综合应用了ActionScript的一些函数、属性、动作和对象，希望读者能够通过这些实例的剖析举一反三，熟练掌握ActionScript的编程技巧。播放该动画时，画面中有一些小虫飞出，你可以移动画面中的瞄准器击打小虫。击中一个就记一分。
+　　    （^60090406a^）  打小虫游戏
+　　    在这里，我并不打算详细讲解制作过程，只是对其中的脚本作一些必要的说明。
+　　    1.自定义函数
+　　    在这个动画中，要在画面中随机出现几个小虫，这是通过定义下面的函数，把图符库中的insect电影剪辑附加到时间轴中来实现的。生成小虫的个数由调用这个函数时传递的参数决定。代码如下：
+　　
+　　      function createInsects （count） {
+　　          var I;
+　　          for （I=1; I<=count; I++） {
+　　              _root.attachMovie（"insect"， "insect"+I， I）;
+　　          }
+　　      }
+　　
+　　    动画中使用的瞄准器是一个自定义光标，通过下面的函数定义来实现：
+　　
+　　      function changeCursor （movieclip） {
+　　          Mouse.hide（）;
+　　          _root.attachMovie（movieclip， "customCursor"， 9999）;
+　　          _root.customCursor.startDrag（true）;
+　　      }
+　　
+　　    在上述代码中，首先隐藏标准光标，然后把图符库中的瞄准器附加到时间轴中，然后允许拖动。attachMovie方法中的深度参数使用9999，是为了避免与小虫的深度发生冲突。
+　　    用数学对象定义一个产生随机数的函数，是用来计算小虫随机出现的位置（坐标）。
+　　
+　　      Function calculateRandom （min， max） {
+　　          return Math.floor（Math.random（）*（max+1-min））+min;
+　　      }
+　　
+　　    下面的函数是根据小虫X坐标设置声音平衡，产生立体声效果。播放那个声音文件由调用函数时确定。
+　　
+　　      Function playSound （max， x， soundID） {
+　　          var soundobject;
+　　          soundobject = new Sound（）;
+　　          soundobject.attachSound（soundID）;
+　　          if （x<0） {
+　　              x = 0;
+　　          } else if （x>max） {
+　　              x = max;
+　　          }
+　　          soundobject.setPan（（x-（max/2））*100/（max/2））;
+　　          soundobject.start（）;
+　　      }
+　　
+　　    2.初始化
+　　    在动画播放开始时用下面的代码对播放器和变量初始化。
+　　
+　　      Fscommand （"fullscreen"， flase）;
+　　      fscommand （"allowscale"， true）;
+　　      fscommand （"showmenu"， false）;
+　　      num=0;
+　　      hit=0;
+　　      score=0;
+　　      changeCursor（"aimer"）;
+　　
+　　    在上述代码中，前三个语句用来初始化独立版播放器，它们的作用分别是：禁止全屏显示、允许缩放动画、关闭播放器的菜单显示。接下来的3句是初始化变量，num是飞出画面的小虫数，hit是打死的小虫数，score是游戏得分（每打死一个小虫得1分）。最后一句是调用自定义光标函数，启用自定义光标aimer（标准器）。注意，这里的“aimer”是图符连接属性中的标识名，不是图符库中的图符名。
+　　    3.确定画面中飞出的小虫数
+　　
+　　      if （hit == num） {
+　　            if （num<8） {
+　　                  num++;
+　　            }
+　　            hit = 0;
+　　            createInsects（num）;
+　　      }
+　　      prevFrame （）;
+　　      play （）;
+　　
+　　    第一个条件hit==num判断打死的小虫是否与画面中飞出的小虫相等。如果相等，说明画面上的小虫已被全部打死，需要调用生成小虫函数createInsects生成小虫，飞出小虫的个数由传递给该函数的num确定。
+　　    第二个条件判断小虫数是否小于8。如果小于8，则小虫数递增1，起到限制画面中最多只能有8个小虫飞行的作用。
+　　    语句hit=0的作用是在每次画面上的小虫被全部打死后，在新的一批小虫飞出来时重新计算打死的小虫数。
+　　    prevFrame（）和play（）语句的作用是使动画跳转前一帧播放。
+　　    4.小虫剪辑动作
+　　    小虫电影剪辑实例的动作脚本主要解决测试小虫是否被打中（即剪辑与剪辑之间的碰撞）、小虫出现的位置（x和y坐标）、小虫的缩放比例，以及音效的配合。
+　　    下面这个剪辑事件的动作用来测试小虫是否被打中。这里使用电影剪辑的目标路径（_root.customCursor.hitarea）作为碰撞区域。如果发生了碰撞（即瞄准器击中了小虫）就停止蜂鸣声的播放，然后播放小虫被打死的声音splatter，累加分数，然后转到“hit”帧（小虫被打死状态）播放。
+　　
+　　      onClipEvent （mouseDown） {
+　　            if （this.hitTest（_root.customCursor.hitarea）） {
+　　                  soundobject.stop（）;
+　　                  _root.playSound（550， _parent._x， "splatter"）;
+　　                  _root.score++;
+　　                  _parent.gotoAndPlay（"hit"）;
+　　            }
+　　      }
+　　
+　　      通过调用calculateRandom函数随机产生小虫出现的初始位置，并把x坐标限制在-1500与-50之间，y坐标限制在80与200之间。接着设定小虫的初始缩放比例（_xscale和_yscale）和小虫飞行的步进增量（xStep和yStep），播放小虫飞行的配音（蜂鸣声buzz）。
+　　
+　　      onClipEvent （load） {
+　　            _parent._x = _root.calculateRandom（-1500， -50）;
+　　            _parent._y = _root.calculateRandom（80， 200）;
+　　            scale = 10;
+　　            _parent._xscale = scale;
+　　            _parent._yscale = scale;
+　　            xStep = 12;
+　　            yStep = 8;
+　　            soundobject = new Sound（this）;
+　　            soundobject.attachSound（"buzz"）;
+　　            soundobject.setPan（-100）;
+　　            soundobject.start（0， 999）;
+　　      }
+　　
+　　    要让小虫在画面中飞行，就要改变小虫的坐标。下面的脚本就是产生小虫动画的。
+　　
+　　      onClipEvent （enterFrame） {
+　　            _parent._x = _parent._x+xstep;
+　　            _parent._y = _parent._y+（Math.sin（_parent._x/100）*ystep）;
+　　            // 把小虫放大和调转飞行方向
+　　            if （_parent._x<-30 and xstep<0） {
+　　                  xstep = -（xstep-（xstep/16））;
+　　                  ystep = -（ystep-（ystep/16））;
+　　                  scale = _parent._yscale+4;
+　　                  _parent._xscale = scale;
+　　                  _parent._yscale = scale;
+　　            } else if （_parent._x>580 and xstep>0） {
+　　                  xstep = -（xstep-（xstep/16））;
+　　                  ystep = -（ystep-（ystep/16））;
+　　                  scale = _parent._yscale+4;
+　　                  _parent._xscale = -scale;
+　　                  _parent._yscale = scale;
+　　            }
+　　            //  根据小虫的x坐标设置立体蜂鸣声
+　　            if （_parent._x<0） {
+　　                  x = 0;
+　　            } else if （_parent._x>550） {
+　　                  x = 550;
+　　            } else {
+　　                  x=_parent._x;
+　　            }
+　　            soundobject.setPan（（x-（550/2））*100/（550/2））;
+　　      }
+　　
+　　    5.瞄准器剪辑动作
+　　    瞄准器剪辑动作的作用是，当按下鼠标按键时播放相应的配音（zish），改变鼠标光标（瞄准器）的显示状态。释放鼠标按键时恢复鼠标光标的正常显示状态。 
+　　
+　　      onClipEvent （mouseDown） {
+　　            _root.playSound（640，  _parent._x， "zish"）;
+　　            gotoAndPlay （2）;
+　　      }
+　　      onClipEvent （mouseUp） {
+　　            gotoAndPlay （3）;
+　　      }
+　　      onClipEvent （mouseMove） {
+　　            updateAfterEvent（）;
+　　      }
+　　
+　　    6.删除死去小虫的电影剪辑
+　　    在小虫电影剪辑的最后一帧，我们加入了下面的脚本，其作用是删除死去小虫的电影剪辑，防止动画中载入剪辑积累过多。每删除一个剪辑，击中次数递增1。
+　　
+　　      removeMovieClip （""）;
+　　      _root.hit++; 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

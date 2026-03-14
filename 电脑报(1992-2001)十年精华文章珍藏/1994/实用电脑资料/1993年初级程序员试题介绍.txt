@@ -1,0 +1,192 @@
+1993年初级程序员试题介绍
+
+
+1994-01-14
+
+        1993年的计算机软件水平(资格)考试已顺利结束。对考试的总体情况，我们将有文章专门介绍，近期我们要做的是将初级程序员、程序员及高级程序员的部分试题刊登给读者，然后是名师点评，对试题给出正确答案并作有关技巧、方法的评讲，帮助大家掌握要点，无论你是否参加水平考试，都会是一个提高。
+        在我们公布试题时，希望读者朋友动手做一做，然后对照正确答案，对自己有一个估计。
+        初级程序试题:
+        
+        试题一
+        阅读下列说明和流程图，把应填入其中①-⑤处的字句，写在答卷的对应栏内。
+        ［说明］
+        斐波那契数列｛Tk｝的定义如下：
+        T0=0
+        T1=1
+        Tk＋1=Tk＋Tk-1(k=1，2，3，…)
+        本流程图描述了计算斐汉那契数列前N(N≥2)项之和(S=T0＋T1＋…＋TN-1)的算法。
+        流程图］
+        
+        试题二
+        阅读下列说明和流程图，把应填入其中①-⑤处的字句，写在答卷的对应栏内。
+        [说明]
+        本流程图用来分页打印顺序文件A的内容。现约定顺序文件的最后一个记录是文件结束记录。打印要求如下：每66行为一页，每页打印50个记录，每个记录占一行。每页头上空行6行，每打印十个记录后，每打印一个空行，每页的剩余部分也打印空行。规定任何一页都必须完整地打完一页(最后一页的最后一个记录之后全部打印空行)，但不允许输出空页。
+        试分别指出流程图中的①、②、③应与中的哪一点相连，并指出④、⑤应填写什么内容。
+        试题二
+        \[110141]
+        阅读下列说明和流程图，把应填入其中1-5处的字句，写在答卷的对应栏内。
+        [说明]
+        本流程图用来分页打印顺序文件A的内容。现约定顺序文件的最后一个记录是文件结束记录。打印要求如下：每66行为一页，每页打印50个记录，每个记录占一行。每页头上空6行，每打印10个记录后，打印一个空行，每页的剩余部分也打印空行。规定任何一页(最后一页的最后一个记录之后全部打印空行)，但不允许输出空页。
+        试分别指出流程图中的①、②、③应与a-g中的哪一点相连，并指出④、⑤应填写什么内容。
+        
+        试题三
+        阅读下列BASIC程序，回答问题，将正确答案填入对应栏中
+        ［程序1］
+        10 DIM P(10)
+        20 READ M
+        30 IF M<0 THEN 60
+        40 P(M)=P(M)+1
+        50 GOTO 20
+        60 FOR K=1 TO 10
+        70 IF P(K)=3 THEN PRINT K;
+        80 NEXT K
+        90 DATA 1,5,8,2,9,3,4,9,2,6
+        100 DATA 3,5,8,7,5,9,3,8,2,10,6,-1
+        110 END
+        输出结果(1)
+        ［程序2］
+        10 DIM G$(10)
+        20 FOR J=0 TO 10
+        30 READ G$(J)
+        40 NEXT J
+        50 INPUT X
+        60 PRINT
+        70 IF X<0 OR X>99 THEN PRINT "SHU RU COD WU !":END
+        80 IF X<>INT(X) THEN PRINT "SHU RU ZHENG SHU!":GOTO 50
+        90 IF X=0 THEN PRINT G$(X):GOTO 50
+        100 IF X=10 THEN PRINT G$(X):GOTO 50
+        110 M=INT(X/10):IF M=0 THEN 140
+        120 IF M<>1 THEN PRINT G$(M);
+        130 PRINT G$(10);
+        140 Y=X-M*10:IF Y=0 THEN PRINT:GOTO 50
+        150 PRINT G$(Y):GOTO 50
+        160 DATA"LING","YI","ER","SAN","SI","WU"
+        170 DATA "LIU","QI","BA","JIU","SHI"
+        180 END
+        若输入一个数85,其结果为(2)
+        若输入一个数16,其结果为(3)
+        ［程序3］
+        10 READ A,B
+        20 IF A=0 AND B=0 THEN END
+        30 IF A>2 THEN GOSUB 60
+        40 IF B=3 THEN GOSUB 70
+        50 GOTO 10
+        60 A=A+B:B=B+1:IF A<10 THEN GOSUB 60
+        70 A=A+1:B=B+A
+        80 IF A=12 OR A=16 THEN PRINT "B=";B,ELSE PRINT "A=";A,
+        90 RETURN
+        100 DATA 3,3,2,4,4,2,0,0
+        程序3的输出结果为(4
+        
+        试题 四
+        阅读以下C程序，将程序的全部输出逐行写出，并将函数chen()的功能叙述在后。
+        ［程序］
+        chen(int n)
+        {
+        int i，j;
+        if (n%2 || n==2)
+        {
+        printf("Error:%d is an odd number or equals to 2 !\n"，n);
+        return;
+        }
+        for(i=n-2;i>=n/2;i--)
+        {
+        for(j = 2;i%j;j++)
+        if(j != i) continue;
+        for(j =2;(n-i)%j;j++)
+        if (j != n-i) continue;
+        printf("%3d=%3d + %3d\n"，n，i，n-1);
+        }
+        }
+        int test_data［］ = {6，8，10};
+        main()
+        {
+        int i;
+        for(i=0;i<3;i++)
+        chen(test_data［i］);
+        }
+        
+        试题五
+        阅读下列程序说明和BASIC程序，把应该填入其中   处的字句，写在答卷的对应栏内。
+        ［说明］
+        本程序将十进制非负整数M(0<-M<-32767)转换为R进制数(R为正整数，且2<-R<-16)，并输出。
+        算法如下:
+        用M除以R取余数，对于商再除以R取余数，……直到商为0，将依次所得的余数按逆序连接起来，即为所求的R进制数，最后加上R进制标识。当10<R<-16时，余数可能出现10，11，12…，15，此时需将它们转换为A，B，C，…，F输出。
+        例如:M=19 R=3 输出结果为201(3)
+        M=47 R=16 输出结果为2F(16)
+        程序中，数组K和M$依次存放各次运算所得的余数及转换后的字符。
+        05 DIM K(15)，M$(15)
+        10 FOR L=1 TO 6
+        20 READ Q$(L)
+        30 NEXT L
+        40 DATA "A"，"B"，"C"，"D"，"E"，"F"
+        50 INPUT "M="，M
+        60 INPUT "R="，R
+        70 IF R>16 THEN PRINT "ERROR!": END
+        80 IF M<0 OR M>32767 THEN PRINT "ERROR!":END
+        90 N=M
+        100 I=0]
+        110 K(I)=(1)
+        120 IF K(I)<10 THEN 150
+        130 M$(I)=(2)
+        140 GOTO 170
+        150 M$(I)=(3)
+        160 M$(I)=RIGHT$(M$(I)，1)
+        170 N=INT(N/R)
+        180 IF N=0 THEN 210
+        190 I=I+1
+        200 (4)
+        210 A$=M$(I)
+        220 FOR J=(5)
+        230 A$=A$+M$(J)
+        240 NEXT J
+        250 A$=A$+(6)
+        260 PRINT A$:GOTO 50
+        270 END
+        
+        试题六 阅读下列程序说明和C程序,把应填入其中处的字句,写在答卷的对应栏内。
+        [程序1说明]函数maxword()从给定的两个由英文单字组成的字符串s和t中,找出其中都包含的最长的相同单字(同一字母的大小写视作不同字符)。约定单字全由英文字母组成,单字之间由一个或多个空白符分隔。
+        程序采用以下算法思想:自左至右顺序扫视字符串s,逐个找出单字(单字开始位置和单字长度),当该单字的长度比已找到的单字更长时,就从头至尾扫视字符串t,在从t中找出与该单字长度相等、字符相同的单字后,登录该单字的开始位置和长度,并回到s,在其中找下一个更长的单字,上述寻找过程直至字符串s扫视结束,最后输出找到的单字。
+        [程序1]
+        #include <stdio.h>
+        #include <string.h>
+        maxword(char *s,char *t)
+        {
+        char *res,*temp,chs,cht;int i,j,found,maxlen=0;
+        while (*s !='\0')  {
+        while (*s==' ') s++;
+        for (i=0;(1);i++)
+        if (i>maxlen)  {
+        chs =s[i];(2)
+        temp=t;found=0;
+        while (*temp !='\0' && !found) {
+        while (*temp==' ') temp++;
+        for (j=0;(3);j++)
+        if (j==i)  {
+        cht =temp[j]; (4);
+        if (strcmp(s,temp)= =0) {
+        (5)=i;
+        res =s; found =1;
+        }
+        temp[j]=cht;
+        }
+        temp=&temp[j];
+        }
+        s[i]=chs;
+        }
+        s=&s[i];
+        }
+        if (maxlen==0) printf("There is no same word.\n");
+        else {
+        chs=res[maxlen];
+        res[maxlen]='\0';
+        printf("%s\n",res);
+        res[maxlen]=chs;
+        }
+        }
+        char s[]="This is C programming test",t[]="This is a test for C   programming";
+        main(){maxword(s,t);}
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

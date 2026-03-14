@@ -1,0 +1,221 @@
+96热门新版软件简介
+
+曹国钧
+1996-06-28
+
+        SEA 1.4版是1996年5月由H.De Laat & B.Wakkee.和R.Gortzen.编写的图象浏览软件。系统要求至少386SX CPU、2MB内存和一个符合VESA标准的带512KB显示内存的VGA显示卡。最好是486DX2/33、4MB内存，有鼠标器和一个符合VESA标准的带1MB显示内存垫的VGA图形卡。
+        EA启动时，必须由DOS4GW.EXE程序支持，因此，在SEA.EXE当前目前下必须有DOS4GW.EXE文件。另外，若显示器的行频不标准，则可能在执行SEA后，屏幕显示条纹状。
+        (一)SEA图象转换的使用
+        在菜单界面中选择一个或一组文件后，按下F2键进入文件格式转化菜单，接下来选择需要转换成的文件格式，包括颜色数和抖动方式；还可以选择文件转换后的存盘目录( 如不选，则默认为当前目录)；然后选择OK，则开始转换。
+        可以生成如下格式的文件：
+        BMP   BMP RLE压缩
+        LBM      LBM压缩
+        TIFF     TIFF Huffman(RLE)
+        TIFF     Packbits
+        TARGA    TARGA压缩
+        JPG      PCX
+        PNM      PNM ASCII
+        可选的颜色为：2、4、16、256、32K/64K、16MB 24-bits、16MB 32-Bits。
+        抖动方式：无、Floyd/Steinberg、Ordered。
+        PNG格式可选压缩比例：1-100，方式1为最快，但压缩比例小、生成文件大。方式100则相反。默认方式为80。
+        JPEG格式可选质量：1-100，选100时质量最好，数字越小文件越小。默认质量为75。
+        (二)SEA菜单界面中的操作键
+        F1：  显示帮助信息      F2  文件格式转换
+        F3：  设置选项                          F4： 创建目录索引
+        F5：  设定图片大小比例                  F6：  设定灰度比例
+        F7：  设定自动选择分辨率                F8：  设定预览
+        F9：  连续显示                          F10： 退出
+        Enter：  显示选中的图象文件           ＋/-：更高/更低的分辨率
+        *：选择分辨率                        Alt+A-Z：选择驱动器
+        BackSpace：回到上一级目录             Delete：删除选定的文件
+        Insert：拷贝选定的文件                Alt+F10：显示系统信息
+        空格：选定/取消选定的文件             其它键：快速搜索文件
+        二、Windows 95下的查毒软件MCAfee Scan95
+        MCAfee公司在1995年推出了Scan95 for Windows 95，它是在Scan for DOS 版本的基础上针对Windows 95开发的查毒软件。
+        (一)Scan95的安装
+        Scan95只提供了一个文件S95.EXE，从Windows 95开始菜单中选择运行命令， 然后在运行对话框中输入S95.exe按确定按钮，则开始安装Scan95。其它按屏幕提示进行。
+        在安装结束后，安装程序将在Windows 95中创建了名为McAffe Antvirus程序组窗口，该窗口内包括License Agreement(使用许可说明)、Scan95(Scan95主程序)、Readme(说明文档)。同时，安装在开始菜单中的“程序”菜单项下面增加了“McAfee Antivirus ”选项。另外，安装程序还将“Scan for Virus”增加到Windows 95的右键菜单中。
+        (二)Scan95的主要特点与查毒
+        Scan 95目前可检查大约4000多种病毒。它大概有如下主要特点：
+        1.应用McAfee的代码追踪扫描和代码矩阵扫描两项专利技术。
+        2.扫描病毒类型包括：引导型、文件型、隐蔽型、变异型、交互型等等。
+        3.允许在Windows  95内植Scan95在启动时自动扫描的功能。可将Scan 95程序放在启动组中执行。
+        4.查到的病毒可自动清除。
+        5.可实时扫描预防已知和未知病毒。
+        6.可预先设定扫毒模式，加快扫描速度。
+        7.可方便设定长期和定时的防毒功能。
+        8.有文件完整性检测功能，对防止文件的被改动增加了更大的完全性。
+        9.有检测记录，可指定记录文件名和容量。
+        10.可规定扫描病毒时的信息显示和音响。
+        在Scan95的主画面中包括了三个选项卡：Where & What( 指定检查病毒的目录路径与文件)、Action(发现病毒后的动作)和Reports(检测后的记录)。它们的使用方法如下：
+        Where & What选项卡
+        该选项卡要求用户指定扫描病毒的目录路径、 是否要包括子目录  (  Include Subfolders)以及扫描文件类型：All Files(所有文件)、Program files only(只对程序文件)、Compressed file(压缩文件)。当选择Program files only 复选框时， 可选择“Program files...”按钮进一步地选择程序文件的后缀。
+        Action选项卡
+        该选项卡指定发现病毒后的动作：Continue  scaning( 继续扫描 ) 、 Prompt  for action(给用户进行提示以确定下步动作)、Clean infected files(清除感染病毒的文件)、Delete Infected files(删除感染病毒的文件)。
+        Reports选项卡
+        该选项卡指定在扫描病毒后检测报告形式：Log to( 输出到指定文件中 ) 、 Limit size of long file to(对长文件进行长度限制)等。另外， 也可配置在检测时是否进行声音警告(Sound alert)。
+        在进行了上面的配置后，按“Scan Now”或“new Scan”按钮就可开始扫描病毒。
+        三、压缩经典WinZIP for Windows 6.1
+        目前常用的压缩软件都在DOS状态下进行操作，且均须较为复杂的开关参数， 不熟练者极不易掌握，如果用Winzip 6.1作为压缩软件的操作平台，操作就会变得简单、直观且方便。
+        (一)WinZip 6.1特点
+        WinzZip 6.1有两个版本，一个支持Windows 3.x的普通版本，一个支持Windows  95(32位)的扩展版本。  WinZip 6.1具有如下特点：
+        1. 内嵌的ZIP和UnZip
+        Winzip  6.1不再需其它软件(如UnZip等)即可单独执行压缩和解压缩任务。
+        2. 支持Tar、gzip等压缩格式
+        WinZip 6.1通过外挂程序可支持TAR、gzip和Unix等压缩格式， 这意味着用它几乎可将所有来自Internet的压缩文件进行装载。
+        3. 可选的ARJ、ARC、LZH等格式
+        WinZip 6.1可外接常用的压缩软件如ARJ、LHA、PKZIP/PKUNZIP等。
+        4. 支持许多病毒扫描功能
+        通过配置，可使WinZip 6.1运行多种流行的查病毒工具软件。
+        5. 具有方便的安装和反安装功能
+        (二)WinZip 6.1的安装与反安装
+        
+        
+        WinZip 6.1的系统要求硬盘上至少有2MB的自由空间、Windows 3.X。
+        WinZip 6.1的安装：先进入Windows的程序管理器，选择文件菜单中的运行命令， 出现运行对话框。在该对话框的命令行文本框中输入：A:\Setup.exe。按OK按钮，按屏幕提示安装。
+        WinZip 6.1的反安装：在安装后的WinZip程序组中有一个名为“UnInstall WinZip”程序项。选择该程序项图标，然后双击此图标，则出现WinZip对话框，按屏幕提示操作。
+        (三)WinZip的启动与设置
+        1.WinZip的启动
+        在Windows的程序管理器中打开WinZip程序组。选择WinZip程序项图标， 在该图标上按两下鼠标左键，选择“I Agree”按钮，则启动WinZip。
+        2.WinZip的设置
+        (1) Configuration
+        该选项启动Configuration对话框。该对话框可配置的主要选项如下：
+        Prompt框：该框为WinZip操作过程中需要给出的一些提示，如文件被拖放到WinZip，从WinZip中拖文件、View按钮被弹出、Extract按钮被弹出等。
+        Default Archive Format列表框：该列表框确定了缺省的文档格式，有：None( 无，只在必要时给出提示)、Zip(PKZIP.EXE/PKUNZIP.EXE)、LZH(LHA.EXE)、ARJ(ARJ.EXE)等。
+        PKZIP 2.0 Options框：该选项框确定PKZIP 2.0选项配置，如：使用DPMI、EMS、XMS、慢的内存拷贝(Slow MemCopy)等。
+        Logging框：该选项框确定登记信息及其存放到驱动器名字。
+        (2) Directories
+        该配置界面用于WInZIp的缺省目录设置，如Start-up  Directories( 启动目录 ) 、Default Extract Directories(缺省解压缩目录)、Default Add Directoires( 缺省增加目录)、Working Directories(工作目录)、Temp Directories(临时目录 ) 、 Checkout base directories(检验和基目录)等。
+        (3) Font
+        该配置界面用于配置WInZip显示字体。
+        (4) Password
+        用于配置压缩文档的口令字。
+        (5) Program Locations
+        在安装时已经作了介绍。
+        (6) Sort
+        将压缩文档或文档中的文件按照名字、扩展名等排序。
+        (7) Reuse WinZip Windows
+        再利用WinZip窗口的开关选项。
+        (8) Save Settings on Exit
+        在退出WinZip时将保存配置选项。
+        (9) Save Settings Now
+        在配置好后，就保存所作的选项。
+        (10) Set Installation Deafaults
+        使用安装时缺省选项配置替换现在的选项。
+        (11) View Last Output
+        显示上次输出窗口。
+        (四)创建新的压缩文档
+        
+        此处以将C盘WPS子目录中的所有文件用备份于A盘为例。
+        在WinZip主界面上，按下New按钮或在File 中选定 New  Archive ， 则出现“ New Archive”的对话框。在该对话框输入要建立的新文档名(如A:\WPS.ARJ)，在对话框中选定新压缩文档将要存放的路径(驱动器及子目录，A:\)，在List Files of Type 列表框中选择压缩文档格式(ARJ)。按下OK按钮，则出现Add对话框。
+        在Add File栏中选择要压缩文件的类型(*.*)，在Add from Drectory/Driver 栏中选择路径(F:\WPSNT)，在Action栏中选择Add(也可根据需要选Move、Freshen、Updata)，在Compression栏中确定作快速压缩方式Speed或最大压缩率方式Size，在Drectory Tree 栏中选定含子目录或/和含其它目录信息，按下右上方的Add按钮即开始工作。
+        在压缩过程中按下ESC键，则在WinZip窗口上弹出一个“中止工作”对话框。 可选择“View Command Output”按钮查看执行压缩过程中的情况。若选择ARJ将文件压缩至软盘上，当一张盘满后将提示插入下一张。
+        (五)释放压缩文档
+        此处以将刚才压缩的WPS.ARJ释放到D盘上为例说明如何打开一个压缩文档，且释放的方法。
+        首先激活WinZip，按下Open按钮或在下拉式菜单中选定File中的Open Archive，则出现Open Archive对话框。
+        在驱动器及路径列表框中确定须解压文件的位置，选定要解压的文档(WPS.ARJ)， 按下OK按钮，这时压缩文档中的文件被列于WinZip的界面中。
+        选用Action中的Extract或按Extract按钮，则将压缩文档解压释放至所需位置，即在对话框中选定路径D:\，按下OK按钮即可。
+        四、ARJ压缩工具WinARJ 2.20
+        WinARJ 2.20是目前DOS下最流行的压缩软件ARJ.EXE 2.41版的Windows外壳(Windows Shell)，它支持如下压缩文件格式：ARC、GZ、LHA、LZ?、PAK、PIT、SIT、TAR、Z、ZIP、ZOO、??_(Microsoft压缩文件格式)。
+        安装WinARJ十分简单，只要在Windows下执行Install.exe安装程序，然后选择安装路径(缺省为C:\WinARJ)，就可将WinARJ安装到指定路径下。
+        卸载WinARJ 2.20也很容易，只要在安装目录下删除如下文件：
+        WinARJ.EXE  ARJ.PIF WinARJ.TXT ARJ.EXE
+        Register.TXT WinARDLL.DLL ThreeD.VBXS53D2.VBX
+        另外，在Windows目录下的WinARj.INI文件也应删除。
+        在使用WinARJ 2.20之前，必须进行注册(Register)，否则某些功能将限制使用。 在某些光盘(如“JAVA编程大全”光盘)中提供了注册序列号文件serial.no， 打开此文件就可看到注册号码。
+        在运行WinARJ时，将出现一个提示画面，要求用户注册 ( Register) 或者同意协议(Agree，但是非注册版本)。
+        选择“Register”按钮，则出现一个注册画面。
+        必须同时输入注册用户名与注册序列号，将serial.no 文件中对应用户名与注册序列号输入。输入正确后，则进入了WinARJ 2.20主画面。
+        下面以C:\NORTON中所有文件(*.*)为例介绍如何使用WinARJ压缩到该目录中，压缩后的文件为NORTON45.EXE。
+        1.在Source Drive and Files列表框中选择C:\Norton目录，并在其下面的文件名输入框中输入*.*。
+        2.在Destination Drive列表框中选择C:，在Install Archive to：文本框中输入C:\norton。
+        3.在Include Dir(包括目录)、Include Path(包括全路径)、Recurse Subs(包括子目录)、Sel.Extensions(选择的后缀名)、Selected files(选择的文件) 复选框中选择合适的选项。
+        4.在Archive Name文本框中输入norton45.arj。
+        5.在Extract files框中选择合适的选项，指定ARJ.EXE的动作：List  arhcive(显示压缩文档，相当于ARJ.EXE的l参数)、Extract files(释放文件)、Extract archive(释放文档，相当于ARJ.EXE的e或x参数)、Archive files(增加文件到压缩文档中，相当于ARJ.EXE的a参数)。本例应选“Archive files”选项。
+        6.在Multi Volumes(多卷)框中选择多卷方式(相当于ARJ.EXE的-v 参数 ) ， 若选择archive选项，则压缩后的文档是普通压缩文件，后缀名为.arj或其他后缀名字，如. 001等。而选择SelfExt Archive选项， 则将选定文件压缩为自我解包文档， 其文件后缀为.exe。
+        7.按Continue按钮则开始压缩操作。
+        另外，在选择了.arj压缩文档，按Self Ext.按钮可将其转换为自我解包压缩文档。
+        五、Windows下的可执行文件压缩器PKLITE 2.01
+        PKLITE 2.01是Pkware公司于1996年3月最新推出的压缩软件。它分为标准版与专业版。它可压缩DOS与Windows的可执行文件(.exe、.com)、驱动程序(.drv、.sys)、动态链接库(.dll)等。经它压缩的文件能不解压即可直接运行，因它是将被压的文件释放至内存中运行的。既可压缩，也可解压执行文件，还可加密(专业版才有此功能)，加密后的被压缩文件就不能压解了。PKLITE 2.01可将文件压缩为原来的45%左右，这大大地节省硬盘的空间。
+        PKLITE的使用格式为:
+        PKLITE ［参数］ ［盘符］ ［路径］被压缩文件名 ［［盘符］ ［路径］压缩后文件名］］   可选的参数有：
+        -A 压缩含内部覆盖文件并优化文件重定位入口;
+        -B 将原文件以.BAK进行备份;
+        -C DOS.EXE文件增加装载映象的校验;
+        -D 在压缩时，跳过开发者定义的资源;
+        -E 专业版使用参数：用超级压缩方法对文件进行加密压缩;
+        -E 释放没有PSP标志DOS的.EXE文件;
+        -F 即使文件增长也要进行压缩;
+        -G 在可执行文件中保留非压缩的数据(仅适用于DOS环境);
+        -K 仅压缩Windows资源;
+        -L 显示PKLITE使用信息;
+        -N 不压缩含内部覆盖原文件;
+        -O 内部覆盖原文件(缺省参数);
+        -P 在压缩之前，不解包被EXEPACK压缩的文件(仅用于DOS环境);
+        -R 除去.EXE文件中的额外数据;
+        -U 将文件更新为当前时间和日期;
+        -W 仅压缩Windows 3.0文件;
+        -X 解压已压缩文件(可与-B、-O、-U合用，仅用于DOS环境);
+        -S 文件名：使用指定的文件作为最新压缩文件的STUB或文件头(仅适用于Windows环境)。
+        六、Windows环境下的超级加密软件Lock95W
+        (一)Lock95W的特点
+        Lock95W吸收了目前各种优秀加密软件的优点，是用户所需要的、 目前最好的硬盘加密工具，Lock95W具有如下特点：
+        1. 高兼容性：适用各种软盘、硬盘、机型、各版本 DOS操作系统、Windows操作系统、Novell网络系统。
+        2. 高可靠性：近百层反跟踪外壳、变形算法均用软件自动生成， 令自始至终跟踪者陷入绝境。
+        3. 功能丰富：读软盘指纹、硬盘安装、设定安装次数(包括无限次)、网络安装， 可加密 Foxpro 2.5/2.6 for Windows所有方式编译出来的 EXE文件。
+        4. 面向用户：硬盘安装母盘， 方便软件制作， 菜单界面， 方便初次使用者，还可用命令行方式， 采用批处理(BAT)大量制作成品软件。
+        5. Lock95W可以生成带硬盘安装的加密子盘提高了使用效率防止了病毒感染。
+        6. Lock95W可以生成的任意两张加密子盘上的指纹都是不同的， 彼此不可以通用。
+        7. Lock95W  生成的一张加密子盘上的指纹可以加密任意多个.EXE 文件，这些. EXE文件可以先存放在硬盘上(当文件大到软盘装不下时)，再备份(Backup)到软盘中。
+        8. Lock95W  生成的一张加密子盘上可以存有多个 .EXE 文件， 加密多个.EXE 文件到同一张软盘是可以的， 只要该软盘能存放下. 而且，一张加密子盘上的多个.EXE 文件中允许有多个有硬盘安装功能(包括多个有限次硬盘安装，多个无限次硬盘安装)，不会引起混乱。
+        (二)Lock95W的安装与使用
+        安装 Lock95W，只需将安装盘插入与其规格对应的驱动器中，并转换当前驱动器到安装盘所在的驱动器，然后执行INSTALL.EXE文件，再按屏幕提示操作。
+        Lock95W 的使用：先用 Format 或 PCtools格式化出空白软盘，再在Lock95W 子目录下， 执行 Lock95W。
+        主界面菜单使用说明：
+        1. Source file
+        输入未加密的源文件名(.COM或.EXE)， 按 ALT 加热键字母可选对应功能， 按跳格键Tab 可在各按钮文件名之间切换
+        2. Destination file
+        输入加密后的目标文件名(.EXE)。
+        3. Protect
+        对源文件进行加密， 然后用目标文件名存盘。
+        4.  Dos Shell
+        可临时去 DOS 环境下， 执行 DOS 命令， 按 Exit 返回。
+        5.  Select key Drive
+        选择驱动器(A: 或 B:)存放加密指纹， 缺省为 A:。
+        6. Installation Option
+        硬盘安装功能选择，如下所示：
+        ［ ］Overwrite old finger
+        -- 覆盖旧指纹
+        ［ ］Forces FoxPro compiled file
+        -- 强制认定为FoxPro文件
+        ［X］Can be Installed to harddisk or network
+        -- 允许安装到硬盘及网络
+        ［ ］Installation limited
+        -- 硬盘网络安装次数限定
+        方扩号内打上 X标志， 表示选中对应功能， 没有表示对应功能无效， 按空格SPACE键， 可在选中未选中之间切换。
+        设置硬盘安装次数的范围为 1-255， 当选择 255 时， 表示无限次安装，其它1-254为有限次硬盘安装， 安装次数不可回收。
+        7.   About
+        Lock95W 版权信息。
+        (三)Lock95W命令行说明
+        Lock95W 的命令格式如下：
+        Lock95W ［drive:］［path］sourcefile ［drive:］［path］targetfile
+        ［/driver］ ［/N］ ［/H［nnn］］ ［/F］ ［/?］
+        其中：/driver __  指纹存放的软盘符， 可为 A:盘 或 B:盘
+        /N        __  生成新指纹， 覆盖旧指纹
+        /H        __  生成的子盘有硬盘无限次安装功能
+        /H［nnn］   __  生成的子盘有硬盘1-254次安装功能
+        /F        __  强制指定加密 FoxPro 编译出的 EXE 文件
+        /?        __  显示本帮助屏
+        如: 命令 C:\Lock95W>Lock95W  D:pct.exe  B:pct.exe /B
+        将加密 D:盘上的可执行文件 pct.exe 到 B:盘，只读软盘指纹，没有硬盘安装(使用时永远不需要打开写保护)
+        命令 C:\Lock95W>Lock95W  \dos\edit.com  B:edit.exe /H  /B
+        将加密 C:盘上的可执行文件 edit.com 到 B:盘，除可读软盘指纹外，允许无限多次硬盘安装(使用时永远不需要打开写保护)
+        命令  C:\Lock95W>Lock95W  D:pct.exe  B:pct.exe /H5 /B
+        将加密 D:盘上的可执行文件 pct.exe 到 B:盘，除可读软盘指纹外，允许 5 次硬盘安装(使用时需要打开写保护标签)，安装后不可回收。
+        命令 C:\Lock95W>Lock95W  C:\MM\M.exe  D:M.exe /H
+        将加密 C:盘上的可执行文件 M.exe 到 D:盘，指纹按缺省放在A:盘， 允许无限多次硬盘安装，当 M.EXE文件字节数很大(大于 1.5M)，一片软盘放不下时， 可用此方法先加密在硬盘上，然后在备份(BACKUP)到软盘上; 使用时可用恢复命令(RESTORE) 恢复到硬盘上执行，执行时指纹盘可在软盘上， 使用 HDinst 进行硬盘安装， 格式为:
+        A:\>hdinst  D:M.exe  C:\MM\M.exe 
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

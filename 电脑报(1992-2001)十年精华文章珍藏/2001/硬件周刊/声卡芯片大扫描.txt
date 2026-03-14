@@ -1,0 +1,102 @@
+声卡芯片大扫描
+
+王寒晖 
+2001年 17期
+
+声卡的数字信号处理芯片（Digital Signal Processor）是声卡的核心部件。它的功能主要是声音信号的回放、采样、录制等等，有些DSP芯片还具有混响、合声、音场调整等功能。因此，数字信号处理芯片基本上决定了声卡的性能、档次与价格。在这块主芯片上一般都标示有商标、芯片型号、生产日期、编号、生产厂商等重要信息。目前主要的声卡芯片厂商有：创新（Creative）、傲锐（Aureal Semiconductor）、雅马哈（YAMAHA）、ESS、Cirrus Logic/Crystal Semiconductor、Trident、骅讯（C-Media）、S3、Avance Logic、ForteMedia等。下面笔者就列出几款市场上比较常见的声卡芯片。
+　　#1    一、创新（Creative）公司
+　　声名显赫的新加坡创新公司可以说是声卡领域的霸主，目前全球超过70%的PC音频系统都是基于创新的SoundBlaster技术开发的。但是创新公司原先并不生产音效芯片，自从并购了Ensoniq和E-MU公司以后，集众家之所长，也开始研发自己的音效芯片了。创新公司的声卡芯片产品有：Creative自行研发的CT系列声卡芯片、Ensoniq公司的ES137X系列芯片和E-MU公司的EMU10K1芯片。
+　　1.创新CT-2518芯片
+　　CT-2518芯片主要面向低端市场，是一款32位音频处理器。它具有8点插值运算和128复音的波表合成功能，支持DLS音色库，最高8MB的波表容量，支持EAX环境音效扩展。但是它没有提供立体声输出。
+　　2.创新CT-5507芯片（^17030902a^）
+　　CT-5507芯片的性能和ES137X系列非常相似，只是CT-5507已能真正支持4声道环绕输出，而ES1371则是通过软件模拟来产生4声道输出效果的。
+　　3.创新CT-5880芯片
+　　CT-5880芯片定位在中档市场，与CT-5507芯片相比，增加了对数字音频的支持，而且支持4声道输出。
+　　4.Ensoniq ES1370/创新ES1370芯片
+　　Ensoniq ES1370/创新ES1370芯片只有32个硬件复音，通过相应的软波表扩充到64复音，提供2MB~8MB音色库。在三维音效方面，硬件支持Direct Sound、Direct Sound 3D，以及软件模拟A3D 1.0和EAX，不过只是兼容了EAX的3D环绕部分。虽然Ensoniq ES1370/创新 ES1370芯片不支持4声道输出，但是它可以模拟支持4音箱输出（必须搭配使用AK4531 Codec芯片，且后部输出与LINE IN口共用）。
+　　5.Ensoniq ES1371/创新 ES1371芯片
+　　Ensoniq ES1371/创新 ES1371芯片只有32个硬件复音，通过相应的软波表扩充到128复音，提供8MB音色库，支持4声道输出。在三维音效方面，硬件支持Direct Sound、Direct Sound 3D，以及软件模拟A3D 1.0和EAX，不过只是兼容了EAX的3D环绕部分。
+　　6.创新ES1373芯片
+　　创新ES1373芯片的性能与Ensoniq ES1371/创新ES1371芯片相同，主要用在主板集成。
+　　7.E-MU EMU10K1/创新 EMU10K1芯片
+　　EMU10K1芯片是当今世界上功能最强大的音效芯片之一，现已改用0.25微米技术制造，集成了200多万个晶体管，拥有高达1000MIPS的数据运算能力，可以提供强大的音效处理能力。率先采用8点内插运算功能，在三维音效处理方面，EMU10K1提供了7.1通道环境音效，32位的数字处理，64复音的硬件波表合成器，配合相应的软波表可以达到最多512复音，128个独立的音频通道，支持创新CMSS多音箱环绕系统。在混音或定位音效处理时，最大拥有131个硬件DMA通道，音效处理时对CPU的占用率较低。此外它还支持48个MIDI通道并内建128个GM/GS音响模型。通过类似于下载样本（DLS：Down Loadable Sample）的音乐库（SoundFont）技术，可共享32MB的系统内存。EMU10K1芯片还具有可编程特性，通过外界程序升级软件来改变芯片逻辑结构从而达到硬件升级的效果。芯片的信噪比高达192dB，这也是其他声卡芯片所不能比拟的。
+　　#1    二、傲锐（Aureal Semiconductor）公司
+　　傲锐（Aureal Semiconductor）公司也是知名的3D音效芯片生产厂家，其研发的A3D 3D音效技术赫赫有名。目前在市场上的主流产品包括Vortex-1 AU8820和Vortex-2 AU8830两个芯片系列，音质和兼容性表现都比较好，但是在处理音效时CPU占用率要高于同类产品。
+　　1.Vortex AU8820芯片
+　　Vortex AU8820音频处理芯片通常也叫做Vortex-1，数据处理能力达到每秒300MIPS。在MIDI方面，具有64个硬件复音并支持DLS，最多可使用4MB的GM、GS音色库和两种特殊合成效果。双声道模式下可获得较好的虚拟场景的三维效果，进行定位音效处理时拥有48个DMA通道。完全支持A3D 1.0和DirectSound3D，内部采用了新的Sound Blaster/Pro模拟技术，能较好地支持DOS环境和MPU-401。芯片信噪比高于90dB，如果配合相应软件，它还可支持Dolby Digital（AC-3）解码。
+　　2.Vortex-2 AU8830芯片
+　　Vortex-2 AU8830芯片，数据处理能力高达每秒600MIPS。在MIDI方面，具有320个复音能力（其中64个为硬波表，256个软波表）并支持DLS，最多可使用4MB的GM、GS音色库和两种特殊合成效果。支持Dolby硬件解码，播音室质量的回声效果；专业的576种声音合成器；支持反射和其他效果（合唱、延迟、扭曲等）。完全支持A3D1.0、A3D 2.0、A3D 3.0、DirectSound、DirectSoun
+　　d3D，兼容EAX和Sound Blaster Pro。芯片信噪比达到96dB，同时提供了一个硬件处理的10波段EQ均衡器。Vortex-2可最多外接4个Codec和一个Modem Codec，并且可通过子卡升级来支持Dolby Digital（AC-3）解码。
+　　#1    三、雅马哈（YAMAHA）公司
+　　雅马哈（YAMAHA）公司所生产的电子合成器设备在全球享有盛誉。YAMAHA生产的OPL系列合成音效芯片被大多数中低端声卡采用。（^17030902b^）
+　　1.YMF724系列芯片
+　　YMF724系列芯片采用144针LQFP封装。在MIDI方面兼容FM发音模式，采用独特的Advanced Soundius-XG Wavetable Synthesis物理模型合成技术。YMF724系列支持2MB~6MB音色库和192复音（其中64个由硬件波表生成，另外128个由软波表生成）的合成器。并且采用Sensaura 3D技术实现三维音效，支持DS、DS3D、DSM和A3D1.0、EAX 1.0，与SB-Link功能，但是YMF724系列不支持四声道。芯片信噪比在85db左右，在I/O方面，支持SPDIF OUT功能。YMF724系列主要有724B-V、724C-V、724E-V、724F-V四种芯片。YMF 724B-V、YMF 724C-V版在设计上有缺陷，使DDMA功能和BX主板兼容性不大好，而YMF 724E-V、YMF 724F-V版则修正了这些Bug。
+　　2.YMF740芯片
+　　YMF740芯片是在YMF724-E的基础上改进而成。可以表现42组特殊音效，21种鼓声共676种乐器音效，同时还支持硬件DirectSound与DirectMusic，以及SB-Link。
+　　3.YMF744系列芯片
+　　YMF-744系列芯片采用128针LQFP封装，支持PCI2.2和PC99规范。在MIDI方面兼容FM发音模式，采用独特的Advanced Soundius-XG Wavetable Synthesis物理模型合成技术。YMF724系列最大支持8MB音色库和64复音的硬件波表（与软件音源器搭配可额外获得128复音）。完全支持EAX环境音效、Direct Sound/Direct Sound 3D，并可通过软件运行获得A3D效果，并支持四声道输出，可提供环绕立体声效果。在I/O方面，支持SPDIF OUT与S/PDIF IN功能。目前最新的版本是YMF744B-V。
+　　#1    四、ESS公司
+　　ESS公司生产的音效芯片，一直以来它都是以物美价廉、兼容性好而受到大家的欢迎。当然这些都是陈年旧事了，现在，ESS公司也陆续推出了ES19x8系列音效芯片，性能和音质上都有较大的提高。
+　　1.SOLO-I（ES1938/ES1946）芯片
+　　SOLO-I（ES1938/ES1946）芯片兼容以前芯片的ESS和ESFM功能，并支持SB-Link接口和Distributed DMA和Transparent DMA技术，对DOS的兼容性比较好。同时它仍然使用Spatializer 3D音效处理器，并加入了对ACAPI的支持。芯片信噪比大于80dB。其中，ES1938芯片适用台式电脑，通常是集成在主板上，而ES1946芯片适用笔记本电脑。
+　　2.Maestro-1（ES1948F）芯片
+　　Maestro-1（ES1948F）芯片采用32位线程处理技术，大大降低了处理音效时的CPU占用率。在MIDI方面，采用DLS音色库技术，提供64复音的波表合成器和4MB音色库。在三维音效上，仍然使用Spatializer 3D音效处理器，可支持硬件Direct Sound和Direct Sound 3D，软件支持A3D 1.0。
+　　3.Maestro-2（ES1968S）系列芯片
+　　Maestro-2（ES1968S）芯片采用32位线程处理技术，大大降低了处理音效时的CPU占用率。其次它还采用了数据缓存技术（WaveCache），充分发挥了PCI总线大容量数据传输的优点。在MIDI方面，采用DLS音色库技术，提供64复音的波表合成器和4MB音色库。在三维音效上，采用Spatializar 3D技术，可支持硬件Direct Sound和Direct Sound 3D，和软件支持A3D 1.0。支持两路立体声音频输出（一路SPK OUT、另一路LINE OUT）。Maestro-2的音质非常出色，芯片信噪比达到85dB。Maestro-2 ES1968S系列芯片主要有Maestro-2、Maestro-2E、Maestro-2EM三款，其中，Maestro-2E支持SPDIF OUT，而Maestro-2EM还支持SPDIF OUT与MODEM。
+　　4.Canyon3D ES1978芯片
+　　Canyon3D ES1978芯片是一块波表合成的3D音效芯片，其数据处理能力达500MIPS，可并行处理32个3D音效流。可以真正支持四声道，并单独提供了可独立控制的低音炮输出接口（与LINE IN共用），支持5.1多音箱系统。采用Sensaura MultiDrive技术处理三维音效，支持硬件Direct Sound 3D，软件兼容A3D 1.0和EAX等API。
+　　5.Maestro-3 ES1980芯片
+　　Maestro-3 ES1980芯片是一个AC＇97 codec。主要用在MC’97 modem，可支持V.90/V.92 HSP modem。
+　　6.Allegro（ES1988/ES1988）芯片
+　　Allegro（ES1988/ES1988）芯片是一个AC＇97 codec。主要用在MC’97 Modem，可支持V.90/V.92 HSP Modem。其中ES1989芯片适用于台式电脑，ES1989芯片适用笔记本电脑。
+　　7.Canyon3D-2 ES1992芯片
+　　Canyon3D-2 ES1992芯片真正支持四声道，支持6音箱系统，并支持SPDIF输出。采用Sensaura MultiDrive技术处理三维音效，支持硬件DirectX 8下的Direct Sound 3D，软件兼容A3D 1.0、EAX 1.0、 EAX 2.0、DirectSound等API。
+　　#1    五、Cirrus Logic/Crystal Semiconductor公司
+　　Cirrus Logic/Crystal Semiconductor公司是由Cirrus Logic 与Crystal Semiconductor公司合并而成。Cirrus Logic公司擅长逻辑电路、显示芯片和接口控制芯片等方面的设计，而Crystal Semiconductor公司则在音效芯片上有着雄厚的研发实力，因此合并后如虎添翼，陆续推出单片波表合成芯片和PCI声卡芯片。
+　　1.CS4280芯片
+　　CS4280芯片搭配同厂CS4297 Codec芯片。CS4280具有64个复音，支持最多2MB样本存储空间。此外它还内置了SRS环绕效果器，支持MPU-401、FM合成、通过硬件调整音量以及APM能源管理。
+　　2.CS4281系列芯片
+　　CS4281芯片搭配同厂CS4297A Codec芯片。CS4281芯片支持PCI V2.1总线，符合PC99规范，此外它还支持MPU-401、FM合成功能，能很好地兼容DOS环境。CS4281系列芯片主要有100-Pin MQFP封装的CS4281-CM芯片和采用100-Pin TQFP封装的CS4281-CQ芯片。
+　　3.CS4614-CM芯片
+　　CS4614-CM芯片是采用100-Pin MQFP封装，搭配同厂CS4297A Codec芯片。CS4614A-CM内建255MIPS的SLIMD DSP构架，支持64个复音并可最多使用4MB的波表样本容量。硬件支持NetMeeting AEC，软件支持A3D，以及支持ACPI 1.0与APM V1.2能源管理，能很好地兼容DOS环境。由于采用了Bus Mastering技术，所以CPU占用率较少，芯片信噪比大于90dB。
+　　4.CS4622芯片
+　　CS4622芯片使用Fab Labs技术的波表合成和普通的3D定位系统，以及完整的Dolby Digital（AC-3）解码功能。
+　　5.CS4630-CM芯片
+　　CS4630-CM芯片是采用128-Pin MQFP封装，符合PC99规范。支持硬件NetMeeting AEC，采用Sensaura 3D技术，支持DirectSound、DirectSound3D、EAX 1.0，以及支持ACPI 1.0与APM V1.2能源管理，能很好地兼容DOS环境。支持SPDIF输入输出接口，具有完整的Dolby Digital（AC-3）解码功能。芯片信噪比大于90dB。
+　　#1    六、Trident公司
+　　大家可能对Trident 9685等显卡还记忆犹新吧，其实Trident公司大约在1998年也开始研发音效芯片。
+　　1.4D Wave-DX芯片
+　　4D Wave-DX芯片在MIDI方面，具有64个硬件复音，最高支持6MB波表样本容量。采用的HRTF算法是Q3D，可支持Direct Sound、Direct Sound 3D，并可用软件模拟A3D。信噪比达到90dB以上。但是此芯片不支持四声道输出。
+　　2.4D Wave-NX芯片
+　　4D Wave-NX芯片采用Qsound公司特有的3D定位技术，是在DX基础上改进而来，完全支持4音箱输出和S/PDIF输出。在MIDI方面，具有64个硬件复音，最高支持6MB波表样本容量。CPU占用率不到10%，支持DirectSound、DirectSound3D和EAX。在MIDI方面，具有64个硬件复音，最高支持6MB波表样本容量。信噪比达到90dB以上。
+　　#1    七、骅讯（C-Media）公司
+　　台湾骅讯（C-Media）生产的CMI-8338/CMI-8738音效芯片，一些低端的四声道声卡大部分是采用该芯片，另外在一些集成声卡的主板上也可以看到其踪影。
+　　1.CMI-8338芯片
+　　CMI-8338芯片支持4声道环绕声输出，支持DLS音色库技术，支持A3D 1.0和DS3D，可兼容EAX音效，通过升级驱动程序就可以用软件来模拟EAX。同时支持SPDIF OUT和SPDIF IN，还可通过子卡支持光纤输入和输出。芯片信噪比达到120dB，但是其硬波表合成器效果比较差。
+　　2.CMI-8738芯片
+　　CMI-8738芯片是CMI-8338的改进版本，增加软猫功能。支持4声道环绕声输出，支持DLS音色库技术，支持A3D 1.0和DS3D，可兼容DirectSound 3D和EAX音效。同时支持24位SPDIF OUT和SPDIF IN，还可通过子卡支持光纤输入和输出。芯片信噪比达到120dB，但是其硬波表合成器效果比较差。
+　　#1    八、S3公司
+　　S3公司是著名的显卡芯片设计制造厂家，但大家不要忽略，它也生产声卡芯片。
+　　●S3 Sonic Vibes芯片
+　　Sonic Vibes芯片可以算是最早的PCI音效芯片。在MIDI方面，采用DSL技术，支持32复音，音色库最大为4MB。Sonic Vibes自带SRS 3D环绕音效器，支持Direct Sound加速，可模拟虚拟声场效果。
+　　#1    九、Avance Logic公司
+　　台湾Avance Logic公司生产一系列声卡芯片，主打低端市场。
+　　1.ALU100芯片
+　　ALU100芯片是采用48-Pin QFP和28-Pin DIP/SOP封装，适用USB V1.1声卡，支持AC’97 v1.0/2.0/2.1规范。在3D音效方面，支持QSound Q3D，支持8/16位立体声ADC/DAC。芯片信噪比大于95dB。
+　　2.ALC100/ALC100P系列芯片
+　　ALC100/ALC100P芯片是采用48-Pin QFP封装，符合AC’97 V2.1和PC 99规范，芯片信噪比大于95dB。其中ALC100芯片使用软件音频控制器，ALC100P芯片使用硬件音频控制器。ALC100芯片适用于Intel 810、815、820芯片组主板，而ALC100P芯片适用于VIA、SIS、ALI芯片组主板。
+　　3.ALC200芯片
+　　ALC200芯片是采用48-Pin QFP封装，符合AC’97 V2.1和PC 99规范，芯片信噪比大于95dB。ALC200适用于Intel 810、815、820芯片组主板的AMR/CNR卡上。
+　　4.ALS300+芯片
+　　ALS300+芯片采用128-Pin PQFP封装，支持PCI 2.2与PC 99规范。支持64复音的硬波表。支持QSound Q3D、QEM、EAX、DirectSound 3D；以及支持ACPI V1.1能源管理，支持MPU-401，能兼容DOS环境。芯片信噪比为90dB，还可支持SPDIF输入输出接口，另外还支持软Modem。
+　　5.ALS4000芯片
+　　ALS4000芯片采用100-Pin PQFP封装，支持PCI 2.2与PC99规范。支持64复音的硬波表。在3D音效方面，集成 ALSFM 合成器，支持DirectSound和DirectSound 3D；支持16位立体声ADC/DAC，以及支持MPU-401、DMA、PCI Power Management（PPMI），能兼容DOS环境。
+　　#1    十、ForteMedia公司
+　　ForteMedia公司在声卡领域里，是一家不很出名的厂商，它目前主要的PCI音效芯片是FM801。
+　　●FM801芯片
+　　FM801芯片支持PCI V2.2、Bus Master控制功能以及高质量的音乐合成。支持64复音和最大5MB的波表样本容量，支持S/PDIF输出，并集成QSound 3D环绕效果器，对DOS环境能较好地支持。芯片信噪比高于85dB。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

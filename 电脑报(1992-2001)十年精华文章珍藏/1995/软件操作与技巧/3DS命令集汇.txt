@@ -1,0 +1,448 @@
+3DS命令集汇
+
+冯 翎
+1995-01-06
+
+        一、二维造型模块
+        (一)Create(制作)
+        Line(线段)
+        Freehand(手画)
+        Draw(拖，拉)*Setting(设置)
+        Arc(弧)
+        Quad(四边形)
+        Circle(圆)
+        Ellipse(椭圆)
+        N-Gon(N边形)
+        Flat(平面化)
+        Circular(圆化)
+        #Sides(边数)
+        Text(文本)
+        Font(字体)
+        Enter(输入)
+        Place(区域)
+        Copy(复制)
+        Open(打开)
+        Close(关闭)
+        Connect(连接)
+        Polyconnect(多边形间顶点连接)
+        Outline(画出轮廓)
+        Boolean(布尔运算)
+        (二)Select(选择)
+        Vertex(顶点)
+        Single(单选)
+        Quad(四边形选)
+        Fence(多边形选)
+        Circle(圆选)
+        Polygon(多边形)
+        Single(单选)
+        Quad(四边形选)
+        Circle(圆选)
+        Windows(窗口区域)
+        Crossing(区域交叉)
+        All(全选)
+        None(全部取消)
+        Invert(转换选择)
+        (三)Modify(修改)
+        Vertex(顶点)
+        Move(移动)Rotate(旋转)Scale(定比例)
+        Skew(扭动)Adjust(调整)Linear(直线化)
+        Curve(弯曲)Weld(接合)Delete(删除)
+        Segment(线段)
+        Adjust(调整)Linear(直线化)Curve(弯曲)
+        Break(分断)Refine(改进)Delete(删除)
+        Polygon(多边形)
+        Move(移动)Rotate(旋转)Scale(定比例)
+        Skew(扭动)Mirror(镜反射)Adjust(调整)
+        Linear(直线化)Curve(弯曲)Delete(删除)
+        Axis(轴)
+        Place(放置)Center(中心)Show(显示)
+        Hide(隐形)Home(回复)
+        (四)Shape(图形)
+        Assign(定义)
+        All(全部定义)
+        None(全部取消)
+        Hook(钩点)
+        Place(定位) Center(中心) Show(显示)
+        Hide(隐形) Home(回复)
+        Check(检查)
+        Steps(步幅)
+        (五)Display(显示)
+        First(第一顶点)
+        Choose(选择)On(显示)Off(不显示)
+        Tape(卷尺)
+        Move(移动)Find(寻找)Show(显示)
+        Hide(隐闭)Toggle Vsnap(打开节点捕捉)
+        3D-Display(三维显示)
+        Choose(选择)On(开)Off(闭)
+        Freeze(冻结)
+        Polygon(多边形)All(全部)None(全不)
+        二、三维放样模块
+        (一)Shapes(图形)
+        Get(获取)
+        Shaper(从二维模块)Disk(从磁盘)
+        Level(外一层次)
+        Put(放置)
+        同上
+        Pick(选择)
+        Move(移动)
+        Rotate(旋转)
+        Scale(定比例)
+        Compare(比较)
+        Center(中心)
+        Align(对准)
+        Left(左)Right(右)
+        Delete(删除)
+        Steps(步幅)
+        (二)Path(路径)
+        Get(获取)
+        Shaper(从二维模块)Disk(从磁盘)
+        Put(放置)
+        Move Vertex(移动顶点)
+        Move Path(移动路径)
+        Insert Vertex(插入顶点)
+        2D Scale(二维缩放)
+        3D Scale(三维缩放)
+        Skew(扭动)
+        Mirror(镜象)
+        Refine(改进)
+        Surfrev(旋转表面)
+        Helix(螺旋形)
+        Rotate(旋转)
+        Default(系统设定角度)
+        Straighten(拉直)
+        Default Path(系统设定路径)
+        Open(开放)
+        Delete Vertex(删除顶点)
+        Steps(步幅)
+        (三)Deform(变形)
+        Scale(确定比例)
+        Move(移动)Insert(插入)Refine(改进)
+        Delete(删除)Limits(界限)Reset(重新设定)
+        Swap(交换)
+        On(打开)Off(关闭)
+        Twist(扭转)
+        Move(移动)Insert(插入)Refine(改进)
+        Delete(删除)Limits(界限)Reset(重新设定)
+        Teeter(跷跷板式转动)
+        Move(移动)Insert(插入)Refine(改进)
+        Delete(删除)Limits(界限)Reset(重新设定)
+        Swap(交换)Symmetry(对称)
+        Bevel(斜切)
+        Move(移动)Insert(插入)Refine(改进)
+        Delete(删除)Limits(界限)Reset(重新设定)
+        Fit(适配)
+        Get(获取)
+        Shaper(从二维模块)Disk(从磁盘)
+        Put(放置)Refine(改进)Reset(重新设定)
+        Swap(交换)Symmetry(对称)
+        On(打开)Off(关闭)
+        Preview(预观)
+        (四)3D Display(三维显示)
+        Choose(选择)
+        On(接通)
+        Off(关闭)
+        Const(结构)
+        Place(放置)Show(显示)
+        Hide(隐闭)Home(复位)
+        Tape(卷尺)
+        Move(移动)Find(找到)Show(显示)
+        Hide(隐闭)Toggle Vsnap(顶点捕捉)
+        Speed
+        Fastdraw(快速绘制)Fulldraw(全绘制)
+        Set-fast(设定快速绘制)
+        (五)Object(物体)
+        Make(制作)
+        Preview(预观)
+        三、三维编辑模块
+        (一)Create(制作)
+        Box(立方体)
+        Lsphere(经纬球体)
+        Faceted(有小面的)Smoothed(平滑的)
+        Values(重设)
+        Gsphere(三维球体)
+        同上
+        Hemisph(半球体)
+        同上
+        Cylinder(柱体)
+        同上
+        Tube(圆管)
+        同上
+        Torus(圆环)
+        同上
+        Cone(圆锥)
+        同上
+        Vertex(节点)
+        Face(面)
+        Build(建造)Copy(复制)Extrude(拉伸)
+        Detach(分离)Tessellate(重新划分)
+        Element(元素)
+        Copy(复制)Detach(分离)
+        Tessellate(重新划分)Explode(分解)
+        Object(物体)
+        Copy(复制)Attach(合并)
+        Tessellate(重新划分)
+        Get Shape(获得造形)Boolean(布尔运算)
+        Array(阵列拷贝)
+        Linear(线形)Redial(环形)
+        Move(移动)Rotate(旋转)
+        (二)Select(选择)
+        Vertex(顶点)
+        Single(单选)Quad(四方选)
+        Fence(多边形选)Circle(圆选)
+        Face(面)
+        Single(单选)Quad(四方选)
+        Fence(多边形选)Circle(圆选)
+        Window(窗口选)Crossing(栏选)
+        Elemment(元素)
+        Object(物体)
+        Single(单选)Quad(四方选)
+        Fence(多边形选)Circle(圆选)
+        Window(窗口选)By name(据名称)
+        By color(据颜色)
+        All(全选)
+        None(全放弃)
+        Invert(反转)
+        (三)Modify(修改)
+        Vertex(顶点)
+        Move(移动)Rotate(旋转)
+        2d scale(二维缩放)3d scale(三维缩放)
+        Skew(扭曲)Mirror(镜像)Bend(弯曲)
+        Taper(斜切)Weld(焊接)
+        Align(对齐)Delete(删除)
+        Edge(边缘)
+        Divide(等分)Turn(转动)
+        Visible(可见的)Invisible(不可见的)
+        Auto Edge(自选设边)Delete(删除)
+        Face(面)
+        Move(移动)Rotate(旋转)
+        2d scale(二维缩放)3d scale(三维缩放)
+        Skew(扭曲)
+        Mirror(镜像)Bend(弯曲)
+        Taper(斜切)Collapse(塌陷)
+        Align(对齐)Delete(删除)
+        Element(元素)
+        除Collapse外同上
+        Object(物体)
+        Move(移动)Rotate(旋转)
+        2d scale(二维缩放)3d scale(三维缩放)
+        Skew(扭曲)Mirror(镜像)
+        Bend(弯曲)Taper(斜切)
+        Align(对齐)Attributes(属性)
+        Reset(复位)Delete(删除)
+        Change Color(改变颜色)
+        Get Color(获得颜色)
+        Axis(轴)
+        Place(放置)Align(对齐)Show(显示)
+        Hide(隐藏)Home(恢复)
+        (四)Surface(表面)
+        Material(材料)
+        Choose(选择)Acquire(获取)
+        Show(显示)Rename(更名)
+        Get library(装入材质库)
+        Make library(制作材质库)
+        Assign(赋值)
+        Face(面)Element(元素)
+        Object(物体)By name(据名称)
+        By color(据颜色)Update(替代)
+        Assign(赋值)
+        Clear group(清除组)
+        Box(立方体)
+        Assign(赋值)Modify(修改)
+        Acquire(获取)
+        Smoothing(平滑)
+        Group(组)Acquire(获取)
+        Show(显示)Face(面)
+        Element(元素)
+        Assign(赋值)
+        Clear group(清除组)
+        Clear all(全部消除)
+        Auto smooth(自动平滑)
+        Object(物体)
+        同上
+        Normals(法线)
+        Face flip(法线面翻转)
+        Element flip(元素翻转)
+        Object flip(物体翻转)
+        Object unify(物体一致)
+        Mapping(贴图)
+        Type(类型)
+        Planar(平面形)
+        Cylindrical(圆柱形)
+        Spherical(球形)
+        Adjust(调整)
+        Find(寻找)Move(移动)
+        Rotate(旋转)Scale(定比例)
+        Regon fit(区域匹配)
+        Bitmap fit(位图匹配)
+        View align(图标旋转)
+        Face align(面旋转)Center(置中心)
+        Tille(取得图标)
+        Reset(重置)
+        Apply obj(赋于物体)Apply elem(赋于元素)
+        Reset(重置)
+        (五)Lights(灯光)
+        Ambient(环境光)
+        Omni(泛光)
+        Create(制作)Move(移动)
+        Place hilite(高光放置)Hotspot(射点)
+        Falloff(落点)Roll(旋转)
+        Dolly(推拉)Adjust(调整)
+        Aspect(长宽比)Bitmap fit(位图匹配)
+        Ranges(范围)Delete(删除)
+        (六)Cameras(照像机)
+        Create(制作)-Move(移动)-Roll(旋转)
+        FOV(视野)-Dolly(推拉)-Perspective(透视)
+        Adjust(调整)-Ranges(范围)-Delete(删除)
+        (七)Render(着色)
+        RenderView(着色视图)-RenderRegion(区域着色)
+        Blowup(剪裁放大)-Object(物体)
+        Last(重复着色)
+        Setup(设置)
+        Atmosphere(大气环境)Background(背景)
+        Configure(配置)Options(选项)
+        Shadows(阴影)
+        Make CUB(生成立方体反射贴图)
+        View(观看)
+        Image(图像)Filc(Filc动画)
+        Last(最后图像)Save last(存最后图像)
+        (八)Display(显示)
+        User View(用户显示)
+        Align(对准)Choose(选择)Place(放置)
+        Show(显示)Hide(隐闭)
+        Hide(隐闭)
+        Face(面)Element(元素)Object(物体)
+        All by name(全部据名称)
+        By color(据颜色)
+        Light(灯光)Cameras(照像机)
+        Unhide(恢复隐闭)
+        同上
+        
+        Geometry(几何形)
+        See Thru(显示边)Backface(背面)
+        All lines(所有线)Edges only(只显边缘)
+        Vert Dots(节点点标)Vert ticks(显示顶点)
+        Full detail(全部细节)Box(立方体方式)
+        Const(结构)
+        Place(放置)Show(显示)
+        Hide(隐闭)Home(恢复)
+        Tape(卷尺)
+        Move(移动)Find(寻找)Show(显示)
+        Hide(隐闭)Toggle-Vsnap(顶点捕捉)
+        Speed(速度)
+        Fastdraw(快绘)Fulldraw(细绘)
+        Setfast(快绘设定)By name(据名称)
+        By color(据颜色)Object(物体)
+        Freeze(冻结)
+        By name(据名称)By color(据颜色)
+        Object(物体)
+        四、关键帧模块
+        (一)Hierarchy(分层)
+        Link(连接)-Unlink(打开连接)
+        Link info(连接信息)-Place pivot(放置中枢)
+        Object pivot(物体中枢)-Center pivot(中心中枢)
+        Create(制作)-Dummy(虚拟)-Dup Links(复制连接)
+        Dup Branches(复制分支)
+        Inherit links(继承连接)-Show Tree(显示树)
+        Loop track(循环轨迹)-Copy track(复制轨迹)
+        (二)Object(物体)
+        Move(移动)-Rotate(旋转)
+        Rotate Abs(定旋转轴)-Scale(定比例)
+        Squash(压挤)
+        Morph(变形)
+        Assign(定义)Options(选项)
+        Show path(显示路径)
+        Snapshot(生成新物体)
+        Delete(删除)
+        Tracks(轨迹)
+        Loop(循环)Copy(拷贝)
+        Reverse(反转)
+        File Insert(文件插入)
+        Attributes(属性)
+        Motion Blur(动态模糊)
+        (三)Lights(灯亮)
+        Ambient(环境光)
+        Omni(泛光灯)
+        Create(制作)Move(移动)
+        Place Hilite(高光放置)Adjust(调整)
+        Show Path(显示路径)Delete(删除)
+        Spot(聚光)
+        Create(制作)Move(移动)
+        Place Hilite(高光放置)Hotspot(射点)
+        Falloff(落点)Roll(转动)
+        Dolly(沿轴调整)Adjust(调整)
+        Show Path(显示路径)Delete(删除)
+        Tracks(轨迹)
+        Loop(循环演示)Copy(复制)
+        Reverse(颠倒)File Insert(文件插入)
+        (四)Cameras(照像机)
+        Create(制作)-Move(移动)-Roll(旋转)
+        FOV(视野)-Dolly(移摄)-Perspective(透视)
+        Adjust(调整)-Show-path(显示路径)-Delete(删除)
+        Tracks(轨迹)
+        Loop(循环显示)Copy(复制)
+        Reverse(反转)File Insert(文件插入0)
+        (五)Path(路径)
+        Get(获取)
+        Shaper(从二维模块)Lofter(从放样模块)
+        Disk(从磁盘)
+        Show-Hide(显示隐闭)
+        Hide all(隐闭全部)
+        Follow(跟随)
+        Move key(移动键)
+        Add key(添加键)
+        Delete key(删除键)
+        Adjust TCB(调整TCB)
+        Tension(张力)Continuity(连续性)
+        Bios(位移)
+        Adjust(调整)
+        Key Time(键时间)Ease To(进入)
+        Ease from(离开)
+        (六)Preview(预视)
+        Make(制作)-Play(播放)
+        View File(播放文件)
+        Set-speed(设定速度)-Save(存放)
+        (七)Renderver(着色)
+        Render view(视图)-Render Region(区域)
+        Render Blowup(放大)-Render object(物体)
+        Render last(最末幅)-Video post(视频通道对话)
+        Setup(设定)
+        Atmosphere(环境)Background(背景)
+        Configure(配置)Options(选项)
+        Shadows(阴影)
+        Make CUB(做CUB文件)Make VUE(做VUE文件)
+        View(观看)
+        Image(Image文件)Flie(File文件)
+        Last(最后一幅)Save last(存最后一幅)
+        VTR control(录象机控制)
+        VTR setup(录象机设置)
+        Set inpoint(设定入点)
+        Control(控制)Record(记录)
+        Disk-to-VTR(磁盘到录象机)
+        (八)Display(显示)
+        Hide(隐藏)
+        Object(物体)All(全部)
+        By name(据名字)By color(据颜色)
+        Lights(灯光)Cameras(照像机)
+        Unhide(恢复隐藏)
+        同上
+        Geometry(几何图形)
+        See thru(边界线)Backface(面)
+        Full detail(线框)Box(边框)
+        Constr(结构平面)
+        Place(放置)Show(显示)
+        Hide(隐藏)Home(恢复设定)
+        Tape(卷尺)
+        Move(移动)Find(寻找)Show(显示)
+        Hide(隐藏)Toggle Vsnap(顶点捕捉)
+        Freeze(冻结)
+        By name(据名称)By color(据颜色)
+        Object(物体)
+        (九)Time(时间)
+        Go to frame(改变帧)
+        Total frame(画帧总数)
+        Define segment(确定片段)
+        Scale segment(设定片段比例)
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

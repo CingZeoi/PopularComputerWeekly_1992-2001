@@ -1,0 +1,225 @@
+AUTOCAD R12.0安装后的子目录及其文件一览表
+
+曹国钧
+1995-01-06
+
+        一、AUTOCAD R12.0安装后的子目录结构
+        安装程序INSTALL.EXE在安装期间自动建立了它所需要的一系列子目录结构,其具体结构如下:
+        二、AUTOCAD R12.0安装后文件分组及其含义
+        下面根据安装后的子目录,将其中的文件列出并解释其含义。
+        表1 ACAD12根目录中的文件组
+        文件		含义
+        ACAD.EXE    	AUTOCAD R12.0的可执行文件
+        ACAD1.MID    	鉴定信息文件
+        ACAD2.MID    	鉴定信息文件
+        SUPPORT1. MID   鉴定信息文件
+        README.DOC   	文档
+        PHARLAP.386    	AUTOCAD在WINDOWS 3.1运行的设备驱动程序
+        ACAD.PIF    	AUTOCAD在WINDOWS 3.1中运行的PIF文件
+        ACAD.ADS    	指定自动加载ADS应用程序
+        SUPPORT2.MID    鉴定信息文件
+        ACADL.EXP    	AUTOLISP的可执行文件
+        ACAD.XMX  	外部消息文件
+        ACADADS.XMX	外部消息文件
+        ACADPS.EXP    	Postscrip可执行文件
+        TELLME.EXE	计算机系统诊断程序
+        GEOMCAL.EXP	几何计算器ADS应用程序
+        CFIG386.EXE	DOS Extender扩展器
+        SUPPORT3.MID	鉴定信息文件
+        DRIVER1.MID	鉴定信息文件
+        ACADAPP.EXP	AUTOCAD应用程序定义文件
+        CFIGPHAR.DOC	文档
+        README.DRV	文档
+        DRIVER2.MID	鉴定信息文件
+        RENDER1.MID	鉴定信息文件
+        AVERENDR.EXP	Render可执行文件
+        AVERENDR.XMX	外部消息文件
+        README.AVE	文档
+        REGION1.MID	鉴定信息文件
+        SAMPLE1.MID    	鉴定信息文件
+        REGION.EXP    	Region造型可执行文件
+        REGION.TXT    	文档
+        ADS1.MID   	鉴定信息文件
+        README.ADS    	文档
+        ASE1.MID   	鉴定信息文件
+        README.ASE   	文档
+        ASE.EXP    	ASE可执行文件
+        ASEMMNG.EXP    	ASE可执行文件
+        AME1.MID   	鉴定信息文件
+        ASIDB3PH.EXP   	ASE可执行文件
+        ASIDB4PH.EXP    ASE可执行文件
+        ASIPDXPM.EXE    ASE可执行文件
+        README.AME    	文档
+        AME2.MID	鉴定信息文件
+        AME.EXP		AME的命令集
+        AME3.MID	鉴定信息文件
+        AME2.TXT	AME的提示信息和错误信息
+        REG.COM    	AUTOCAD R12.0的登录文件
+        ACAD.PWD  	ACAD R12.0的口令文件
+        APPLOAD.DFS    	AUTOCAD应用程序的DFS文件
+        AVE.CFG    	配置文件
+        ACAD.CFG	配置文件
+        表2 子目录\ACAD12\ADS中文件组
+        文件		含义
+        *.ASM		ADS源代码ASM例子
+        *.BAT		构造ADS程序的批处理文件
+        *.C		ADS源代码的C例子
+        *.EXP		ADS可执行文件例子
+        *.H		ADS所使用的头文件(INCLUDE)
+        *.LIB		ADS的库文件
+        表4 子目录\ACAD12\API的文件分组
+        文件		含义
+        *.TXT		API的库文档
+        *.H		AME API所使用的头文件(INCLUDE)
+        *.LIB		API的库文件
+        APCONST.LSP	AME AUTOLISP所支持的一些常数
+        表3 子目录\ACAD12\ADS\DOCS的文件分组
+        文件		含义
+        *.TXT		各种ADS构造环境的文档
+        表5 子目录\ACAD12\API\SAMPLE的文件分组
+        文件		含义
+        *.C		API的应用例子
+        *.EXP		API可执行文件的例子
+        表6 子目录\ACAD12\ASE的文件分组
+        文件		含义
+        *.H		ASE所使用的头文件(INCLUDE)
+        *.LIB		ASE的库文件
+        表7 子目录\ACAD12\DRV的文件分组
+        文件		含义
+        SVADI.CFG	VGA显示器配置文件
+        DGCAL.EXP	用于CalCOMP 2500和900系列数字化仪的ADI保护模式数字化仪驱动程序
+        DGGTCO.EXP	用于GTCO DigiPad 5数字化仪的ADI保护模式数字化仪驱动程序
+        DGKUR1.EXP	用于Kurta Series I数字化仪的ADI保护模式数字化仪驱动程序
+        DGKUR23.EXP	用于Kurta Series II和III的ADI保护模式数字化仪驱动程序
+        DGLG.EXP	用于Logitech Logimouse数字化仪驱动程序
+        DGNUMON.EXP	用于Numonics 2200数字化仪驱动程序
+        DGPHIT.EXP 	用于Hitachi数字化仪驱动程序
+        DGPMS.EXP  	用于Microsoft Mouse的驱动程序
+        DGPSGRD.EXP	用于Summagraphics MicroGrid数字化仪驱动程序
+        DGPSUMI.EXP	用于Summagraphics MM数字化仪驱动程序
+        RCPSVADI.EXP	用于SVADI显示器的ADI视频显示器驱动程序
+        RCPTARGP.EXP	Targa+真实感图形显示驱动程序的ADI视频显示器驱动程序
+        RCPVESA2.EXP	与VEAS兼容显示器的ADI保护模式的视频显示器驱动程序
+        RDPTARGA.EXP	Targa真实感图形显示驱动程序的ADI保护模式的视频显示器驱动程序
+        RHPPJ.EXP	用于Paintjet文件格式的ADI保护模式绘图机驱动程序
+        PLEP.EXP	Epson LQ 2550打印机的ADI保护模式绘图机驱动程序
+        PLEXPORT.EXP	光栅文件输出的ADI保护模式绘图机驱动程序
+        PLPADI.EXP	用于某4.2版本以前的ADI绘图机或打印机的绘图机驱动程序
+        PLPCAN.EXP 	用于Canon激光打印机的ADI保护模式绘图机驱动程序
+        PLPCC.EXP 	用于CalCOMP906/907/PCI Plotter ControlleS的ADI保护模式绘图机驱动程序
+        PLPFILE.EXP	AutoCAD文件格式的ADI保护模式绘图机驱动程
+        PLPHIP.EXP	用于Houston Instrument DMP Series绘图机的ADI保护模式绘图机驱动程序
+        PLPHPGL2.EXP	HP-GL/2绘图机的ADI保护模式绘图机驱动程序
+        PLPHPLJ.EXP	HP Laser Jet的ADI保护模式绘图机驱动程序
+        PLPHPLP.EXP	HP-GL绘图机的ADI保护模式绘图机驱动程序
+        PLPHPPJ.EXP	HP Paint Jet的ADI保护模式绘图机驱动程序
+        PLPJDL.EXP	JDL 750和750E绘图机的ADI保护模式绘图机驱动程序
+        PLPNEC.EXP	IBM Proprinter的ADI保护模式绘图机驱动程序
+        PLPPOST.EXP	Postscrip Laser Printers的ADI保护模式绘图机驱动程序
+        PLPPRO.EXP	IBM Proprinter的ADI保护模式绘图机驱动程序
+        RC85XGA.EXP	用于XGA和8514/A显示器的ADI视频显示器驱动程序
+        RC85XGA.HLP	用于XGA和8514/A显示器的ADI视频显示器驱动程序的帮助文件
+        RHEXPORT.EXP 	用于Raser文件格式的ADI保护模式绘图机驱动
+        *.BDF		视频显示器字体文件
+        *.FNT		视频显示器字体文件
+        表8 子目录\ACAD12\FONTS文件分组
+        文件		含义
+        *.DWG		AUTOCAD图形文件
+        *.PLB		Postscrip字体文件
+        *.PFM		编译后的Postscrip字体文件
+        *.SHX		编译后的文本字体文件
+        表9 子目录\ACAD12\IGESFONT文件分组
+        文件		含义
+        IGES0.SHP	形文件(与IGES字体的源文件*.SHX对应)
+        IGES0.SHX	IGES字体的源文件
+        IGES1001.SHP	形文件(与IGES字体的源文件*.SHX对应)
+        IGES1001.SHX	IGES字体的源文件
+        IGES1002.SHP	形文件(与IGES字体的源文件*.SHX对应)
+        IGES1002.SHX	IGES字体的源文件
+        IGES1003.SHP	形文件(与IGES字体的源文件*.SHX对应)
+        IGES1003.SHX	IGES字体的源文件
+        IGESYMBS.DWG	IGES符号的AUTOCAD图形文件
+        表10 子目录\ACAD12\R11SUPP文件分组
+        文件		含义
+        R11SUPP.EXE	采用ARJ压缩的文件, 为AUTOCAD R11.0的支持文件
+        表11 子目录\ACAD12\SAMPLE文件分组
+        文件		含义
+        ACAD.MND 	MC.EXE所实用的菜单
+        AMELINK.EXP	AME连接可执行文件
+        COLORWH.SLD	ColorWheel彩色幻灯
+        MC.EXE		AUTOCAD的菜单编译程序
+        SOLVIEW.EXP	SOLVIEW命令的可执行文件
+        SHROOM.COM	为SHELL命令增加内存管理程序
+        SHROOM.DOC	SHROOM.COM的文档
+        *.DCL		样本对话框控制文件
+        *.DWG		AUTOCAD与AME图形例子
+        *.LSP		AUTOLISP的例子
+        表12 子目录\ACAD12\SOURCE的文件分组
+        文件		含义
+        *.SHP		AUTOCAD字体源形文件
+        表13 子目录\ACAD12\SUPPORT的文件分组
+        文件		含义
+        ACAD.DCL	AUTOCAD对话框文件
+        ACAD.DWG	AUTOCAD图形文件的原型
+        ACAD.MNU	AUTOCAD的标准菜单文件
+        ACAD.MNX   	编译后的标准菜单文件
+        ACAD.MNL   	标准菜单使用的AUTOLISP文件
+        ACADR12.LSP	AUTOCAD R12.0自动调入的AUTOLISP文件
+        ACAD.HLP    	AUTOCAD的帮助文件
+        ACAD.LIN	AUTOCAD的标准线型文件
+        ACAD.MSG    	AUTOCAD的ABOUT显示出的信息
+        ACAD.PAT    	AUTOCAD标准的剖面线图案
+        ACAD.PSF    	AUTOCAD的Postscrip文件
+        ACA.SLB    	SLIDE的库文件
+        ACAD.UNT    	单位转换文件
+        COPYING.GS     	与复制GhostScrip文件有关的信息
+        SLIDELIB.EXE   	幻灯片库的编译程序
+        DXFIX.*     	用于更新DXF文件的文件
+        NULLSURF.*	AVE NULL曲面文件
+        READRND.EX
+        ACAD.PGP	AUTOCAD程序参数文件
+        ACAD.MAT	AME材料文件
+        ACAD.ASE	ASE支持文件
+        ACADAME.PGP	AME支持文件
+        COMPLEX.SHX	形文件
+        *.LSP		AUTOLISP文件
+        *.DCC		对话框的颜色文件
+        *.DCL		对话框的控制文件
+        *.DWG		图形文件
+        *.EXP		DDS可执行文件
+        *.PS		AUTOCAD的Postscrip控制文件
+        表14 子目录\ACAD12\TUTORIAL的文件分组
+        文件		含义
+        ASETUT.TXT	ASE教学文本文件
+        TUTOR.MNU	示教菜单文件
+        TUTOR.MNX	编译后的示教文件
+        *.DWG		图形文件
+        *.SLB		AUTOCAD的SLIDE文件
+        表15 子目录\ACAD12\TUTORIAL\DBF的文件分组
+        文件		含义
+        COMPUTER.DBF	ASE教学数据库文件(计算机数据)
+        EMPLOYEE.DBF	ASE教学数据库文件(雇员数据)
+        INVENTRY.DBF	ASE教学数据库文件(库存数据)
+        表16 AUTOCAD R12.0的Render文件列表
+        目录		文件			含义
+        		AVERENDR.EXP		Render可执行文件
+        		AVE.EXP			Render配置文件
+        ACAD12		AVE.DEL			Render对话框定义
+        		README.AVE		Render文档
+        		ASCOMMON.LSP		AUTOSHADE 2.0的新AUTOLISP程序
+        		CAMERA.LSP		AUTOSHADE 2.0的CAMERA块
+        		DIRECT.DWG		DISTANT LIGHT块
+        		NULLSURF.SP3		FINISH定义文件
+        ACAD12		OVERHEAD.DWG		POINT LIGHT块
+        \SUPPORT	RMSDB.DWG		FINISH曲面特性块
+        		RMMENU.SLB		RENDER菜单的幻灯片库
+        		READRND.EXE		阅读.RND的程序
+        		SHSPOT.DWG		SPORLIGHT块
+        ACAD12\		KITCHEN2.DWG		图形例子
+        TUTORIAL	PINS2.DWG		图形例子
+        ACAD12		SEXTANT.DWG		样本图形文件
+        \SAMPLE
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,656 @@
+Visual Basic常用语句、函数和方法速查手册
+
+陈富军
+1996-06-28
+
+        一、数组和变量
+        1.声明及定义常量和变量(或数组变量)
+        (1)Const语句
+        功能：声明常量。
+        格式：［Global］const constantname=expression［,constantname=expression］...
+        说明：Global  在模块中声明常量时，把它放在Const前，所的常量对表单和模块内的全部过程起作用。
+          constantname 常量名。
+        expression 指派给常量名的表达式，可以是字母、其它常量、除乘方(^)外的算术或逻辑运算符，也可以是字符串。但不能使用连字符、变量、用户定义函数或Visual Basic内部函数。
+        你可在常量名后加一个类型声明符，以指明常量的数据类型。
+        (2)Dim 语句
+        功能：声明变量并分配存贮空间。当在表单或模块中使用时，用Dim声明的变量对表单或模块内的所有过程有效。当在过程内使用时，声明的变量仅在该过程有效。
+        格式：Dim varname［(［subscripts)］［As［New］type］［,varname［(［subscripts］)［As［New type］］..
+        说明：varname 变量名
+        subscripts 数组变量的维数。可声明多维，其语法为：
+        ［lower To］upper［,［lower To］upper］...
+        To用来指明数组变量维数的上、下界。下面几个语句是等效的：
+        Dim A(8,3)
+        Dim A(0 To 8,0 to 3)
+        Dim A(8,0 To 3)
+        数组的维数可以是负数。用于指定维数的subscripts范围是-32768～32767。例：
+        Dim A(-4 To 10)
+        Dim B(-99 To -5,-3 To 0)
+        在Dim中，允许数组最大维数是60。
+        As type 用来声明变量的数据类型。类型可以是Integer,Long,Single,Double,Currency,String(变长字符串)，String *length(定长字符串)，Variant(变型)，用户定义类型或对象类型。定义每一个变量必须用As type项来分隔。
+        New  建立特有对象类型的新例，例如Formal。New不能用于基本数据类型的新变量，也不能用于建立普通对象类型(如MDI表单，表单)或特有控制类型(CommandButton,TextBox等)的变量。
+        (3)Global语句
+        功能：在模块部分声明全局变量并分配存贮空间。用Global声明的变量对表单和模块内的所有过程均有效。
+        格式：Global varname［(［subscripts］)］［As［New］type］［,Varnme［(［subscripts］)］［As［New］type］］...
+        参数说明见Dim语句。
+        (4)Static语句
+        功能：在过程中声明变量并分配存贮空间。用Static声明的变量在程序运行中，其值始终保留。
+        格式：Static varname［(［subscripts］)］［As［New］type］［,varname［(［subscripts］)］［As［NEW］type］］...
+        参数说明见Dim语句。
+        变量初始化时，数字变量被初始化为0,Variant变量被初始化为Empty,变长字符串变量被初始化为0长度串(“”)，定长字符串变量用0填充，用户定义类型变量按照各个变量域初始化。
+        2.重新定义数组变量
+        (1)ReDim语句
+        功能：在过程中声明动态数组变量并分配或重新分配存贮空间。
+        格式：ReDim［Preserve］varname(subscripts)［As type］［,varname(subscripts)［As type］］...
+        说明：
+        Preserve当改变数组最后一维的大小时，保留数组中已有的数据。其它参数说明见Dim语句。
+        能使用ReDim反复改变一个数组的元素数目，然而，不能改变一个数组的维数，例如：若声明的数组由两组组成(如：ReDim A(10，10))，不能把它变成一三维(如A(12，12，12))。同样，不能把一个整数类型的数组变成其它数据类型。若使用Preserve关键字，仅能改变数组最后一维的大小，并仍保留数组的内容。
+        (2)Erase语句
+        功能：重新初始化固定数组的元素，或释放动态数组的存贮空间。
+        格式：Erase arrayname［,arrayname］...
+        说明：arrayname要删除的数组名。
+        对于固定数组：
+        数组类型      	删除效果
+        数字数组      	设置每个元素为0
+        变长字符串数组	设置每个元素为0长度串(“”)
+        定长字符串数组	设置每个元素为0
+        Variant数组   	设置每个元素为Empty
+        用户定义类型数组	分别设置各个变量中元素
+        对象数组      	设置每个元素为Nothing
+        对于动态数组，ERASE清除数组使用的内存。在使用它以前，必须用Redim或Dim重新声明数组的维数。
+        3.寻找数组上下边界
+        (1)LBound函数
+        功能：返回数组某一维的最小有效下标。
+        格式：LBound(array［,dimension］)
+        说明：array 数组变量名。
+        dimension 指明返回某一维下界的整数。1为第一维，2为第二维。若省略，默认1。
+        LBound和UBound一起用可确定数组的大小。
+        (2)UBound函数
+        功能：返回数组某一维的最大有效下标。
+        格式：UBound(array［,dimension］)
+        4.改变数组低端缺省值，设备缺省变量类型
+        Option Base语句
+        功能：为数组下标声明缺省下界。
+        格式：Option Base number
+        说明：Option Base语句不是必需的。若使用，仅能在表单或模块中出现一次，且仅出现在声明区。必须在声明一个数组的维数之前先使用它。number的值必须是0或1，缺省为0。Option Base不影响用户定义类型里的数组。
+        5.取得Variant变量的相关消息
+        (1)IsDate函数
+        功能：返回一个值，用来指定一个Variant变量能否转换为日期。
+        格式：IsDate(variant)
+        说明：variant是一个VarType 7(日期)或VarType 8(字符串)的Variant表达式。
+        Variant若能合法地转为日期，IsDate返回True，否则返回False。有效日期范围是公元100年1月1日至9999年12月31日。
+        (2)IsEmpty函数
+        功能：返回一个值，用来指明一个Variant变量是否被初始化。
+        格式：IsEmpty(variant)
+        说明：variant 指任何一个Variant表达式。
+        若 Variant包含一个Empty(空)值，IsEmpty返回True，否则返回False。当variant
+        
+        表达式包含多于一个Variant变量时，IsEmpty总是返回False。Empty值是指Variant没有被初始化，它不同于Null，Null表示Variant不含数据。
+        (3)IsNumeric函数
+        功能：返回一个值，用来指定Variant变量是否给转换为数字类型。
+        格式：IsNumeric(variant)
+        说明：variant任何Variant表达式。
+        若表达式能合法地转换为数字类型，IsNumeric返回True，否则返回false。能合法地转换为数字类型的表达式包括：VarType 0(Empty),VarType 2～6，VarType 7(日期)和VarType 8(字符串)的Variant变量。
+        (4)IsNull函数
+        功能：返回一个值，用来指定Variant是否包含Null值。
+        格式：IsNull(variant)：
+        说明：variant 指任何Variant表达式。
+        若表达式包含Null值，IsNull返回True，否则返回False。Null意指Variant不含数据。
+        注意：使用IsNull函数是Visual Basic内确定Variant表达式是否为Null值的唯一方式。
+        (5)VarType函数
+        功能：返回一个值，用来指定Variant的类型。
+        格式：VarType(variant)
+        说明：Variant为任何Variant变量
+        VarType返回的值，提供了Variant存贮的数据类型的信息。其返回值意义如下：
+        符号常量	值	说明	符号常量	值	说明
+        VEMPTY		0	Empty	VDOUBLE		5	Double
+        VNULL		1	Null	VCURRENCY	6	Currency
+        VINTEGER	2	Integer	VDATE		7	Date
+        VLONG		3	Long	VSTRING		8	String
+        VSINGLE		4	Single
+        注意：符号常量在Visual Basic文件CONSTANT.TXT中，当把它放入任何一个工程模块，可以在表单或模块中使用符号常量名。
+        6.需要明确声明变量
+        Option Explicit语句
+        功能：强制所有的变量必须明确声明。
+        格式：Option Explicit
+        说明：该语句用在表单或程序模块部分，强制所有的变量在使用前必须明确声明，否则出错，若不用该语句，所有未声明的变量被当作Variant变量(除非缺省类型为Deftype语句重新指定)。
+        7.指定数值
+        Let语句
+        功能：把一个表达式的值指派给一个变量。
+        格式：［Let］variable=valueexpression
+        说明：
+        variable	变量名。
+        =		分配符。
+        valueexpression分配给变量的值。
+        说明：Let是一个选项，不使用Let也能把一个字符串或数字表达式指派给一个变量。表达式的值仅能被指派给合适类型的变量。Variant变量既可被指定为字符串，也可被指定为数字，反之则不然。除Null外，任何Variant量可被指派给一个字符串变量。能被解释为唯一数字的Variant表达式可被指派给一个数字变量。使用IsNumeric函数能确定Variant是否能转换为数字。
+        二、转换
+        1.ASCII值转换为字符串
+        Chr,Chr$函数
+        功能：返回一个ANSI码所对应的字符。
+        格式：Chr［$］(charcode)
+        说明：charcode 0～255之间的整数。
+        Chr返回一个Variant值；Chr$返回一个字符串。
+        Microsoft Widows应用程序使用ANSI字符集，0～31之间的字符码是标准的非打印ASCII码，如Chr(10)是一个换行符。
+        2.字符串转换为ASCII值
+        Asc函数
+        功能：返回字符串表达式首字符的ASCII码值。
+        格式：Asc(stringexpression)
+        说明：stringexpression字符串表达式。若它是零长度字符串或是一个Null(VarType 1的Variant量)，则运行出错。
+        3.数字转换为字符串
+        Str,Str$函数
+        功能：返回一个数字值所代表的字符串
+        格式：Str［$］(number)
+        说明：Str返回一个Variant值；Str$返回一个字符串。
+        使用Str［$］可把简单的数字转换成字符串，使用Fromat［$］函数可把数字值转换成想要的格式(如：日期，时间，货币或其它用户定义的格式)。
+        数字被转换成文本时，总是为数字符号位保留一个前置空格。若是正数，转换后正号省略。Fromat［$］不含前置空格。Val函数是Str［$］反运算。
+        4.字符串转换为数字
+        Val函数
+        功能：返回一个字符串的数值。
+        格式：Val(stringexpression)
+        说明：stringexpression 能被转换成数字值的字符序列。
+        Val函数在第一个字符不能作为数字部分识别时，则停止读字符串。
+        Val跳过空行、Tab、换行符等变量串，例如：
+        Val("   1615198th Street N.E.")  返回161615198
+        有些符号常被认为是数字值的一部分，例如：$符和逗号，Val不能识别它们。Val函数能识别数进制的基数前缀&O(八进制)和&H(十六进制)。
+        5.数字类型转换为另一类型
+        (1)CDbl函数
+        功能：把一个数字表达式转换成双精度。
+        格式：Cdbl(numericexpression)
+        说明：numericexpression数字表达式。
+        (2)CSng函数
+        功能：把一个数字表达式转换为单精度。
+        格式：Csng(numericexpression)
+        说明：numericexpression  数字表达式。
+        (3)CInt函数
+        功能：把一数字表达式转换为整数
+        格式：Cint(numericexpression)
+        说明：numericexpression  数字表达式。
+        (4)Clng函数
+        功能：把一个数字表达式转换为长整型为(4字节)。
+        格式：Clng(numericexpression)
+        说明：numericexpression  数字表达式。
+        (5)CVDate函数
+        功能：把一个表达式转换为Variant类型7的值(即日期)
+        格式：VCDate(expression)
+        说明：expression 能被转换成日期的字符串或数字表达式，范围为：公元100年1月1日(-657434至9999年12月31日(2958465)。
+        (6)Fix函数，Int函数
+        功能：返回一个数的整数部分。
+        格式：Int(number)，Fix(number)
+        说明：number任何数字表达式
+        6.把十进制转换为16进制或8进制
+        (1)Hex,Hex$函数
+        功能：返回一个十六进制数字或数字字符串。
+        格式：Hex［$］(expression)
+        说明：expression 数值表达式。在求值之前需要四舍五八成整数或长整数。
+        (2)Oct,Oct$函数
+        功能：返回一个八进制数字或数字字符串。
+        格式：Oct［$］(expression)
+        说明：expression数值表达式。在求值之前需要四舍五入成整数或长整数。
+        7.日期转换为串行数字
+        (1)DateSerial函数
+        功能：返回一个指定年，月，日的日期串。
+        格式：DateSerial(year,month,day)
+        说明：year 在100～9999之间的数字或数值表达式。
+        month 在1～12之间的数字或数值表达式。
+        day 在1～31之间的数字或数值表达式。
+        DateSerial返回以内部双精度数字存贮的包含一个日期的Variant的VarType 7(日期)量，代表从January 1,100至December 31,9999。负数代表December 30,1899之间的日期。
+        (2)DateValue函数
+        功能：返回一个由字符串变量代表的日期数值。
+        格式：DateValue(stringexpression)
+        说明：stringexpression表示从January 1,100到December 31,9999的日期的字符串。它仅包含有效日期分隔符的分隔数字。
+        8.串行数字转换为日期
+        (1)Day函数
+        功能：返回1～31之间的整数，代表日期变量中某月的某日。
+        格式：Day(dateexpression)
+        说明：dateexpression任何一个能代表日期和时间的数字或字符串表达式，范围在January 1,100至December 31,9999。
+        (2)Month函数
+        功能：返回一个1～12之间的整数，代表日期变量某年的某月。
+        格式：Month(dateexpression)
+        说明：Dateexpression 同上
+        (3)Weekday函数
+        功能：返回一个1～7之间的整数，代表日期变量的一周中的某一天。
+        格式：Weekday(dateexpression)
+        说明：Dateexpression 同上
+        (4)Year函数
+        功能：返回一个100～9999之间的整数，代表日期变量中的年。
+        格式：Year(dateexpression)
+        说明：Dateexpression 同上
+        9.时间转换为串行数字
+        (1)TimeSerial函数
+        功能：返回一个指定的时、分、秒的时间串。
+        格式：TimeSerial(hour,minute,second)
+        说明：hour 在0(12：00 A.M.)至23(11：00 P.M.)之间的数值表达式。
+        minute 在0～59之间的数值表达式。
+        second 。
+        可以使用下列形式：TimeSerial(12-6,0-15,0),表示5：45：00 A.M.
+        (2)TimeValue函数
+        功能：返回一个字符串所代表的时间值。
+        格式：TimeValue(stringexpression)
+        说明：stringexpression 表示时间 00：00：00(12：00：00 A.M.)至23：59：59(11：59：59 P.M.)的字符串。可以用12时制或24时制。若stringexpression包含日期信息，Time Value不能返回它。
+        TimeSerial返回VarType 7(日期)的Variant量，它所对应的时间是以内部双精度形式存贮的0至0.9999之间的小数。这个数代表00：00：00至23：59：59。
+        10.串行数字转换为时间
+        (1)Hour函数
+        功能：返回一个0～23之间的整数，代表日期变量中某天的某时。
+        格式：Hour(dateexpression)
+        (2)Minute函数
+        功能：返回一个0～59之间的整数，代表日期变量中某时的某分钟。
+        格式：Minute(dateexpression)
+        (3)Second 函数
+        功能：返回一个0～59之间的整数，代表时间变量中某分钟中的某秒。
+        格式：Second(dateexpression)
+        三、使用剪贴板
+        (1)Clear语句
+        功能：关闭所有文件、释放文件缓冲区、清除公共变量、设置数字和数组变量为0、串变量为NULL、初始化堆栈。Clear也改变任选项堆栈的大小。
+        格式：Clear［,,stack&］
+        说明：stack&为程序设置堆栈空间的大小。
+        (2)GetData方法
+        功能：从操作环境剪贴板对象中返回一个图片。
+        格式：Clipboard.GetData(［format］)
+        说明：format选项如下：
+        符号常量	值		剪贴板格式
+        CFBITMAP	2		位图(.BMP files)
+        CFMETAFILE	3		Metafile(.WMF files)
+        CFDIB		8		独立设备位图
+        CFPALETTE	9		调色板
+        		0(或省略)	自动使用适当的格式
+        注意：定义的符号常量在CONSTANT.TXT文件中，当把它放入工程文件中任何一个模块，能在任何代码模块使用符号常量。
+        (3)GetFromat方法
+        功能：返回一个整数，指示在操作环境剪贴板中是否有和指定格式相符的项。
+        格式：Clipboard.GetFromat(format)
+        说明：format选项如下：
+        符号常量	值	剪贴板格式
+        CFLINK		&HBF00	DDE交换信息
+        CFTEXT		1	文本
+        CFBITMAP	2	位图(.BMP files)
+        CFMETAFILE	3	Metafile(.WMF files)
+        CFDIB		8	独立设备位图
+        CFPALETTE	9	调色板
+        若相符合，此方法返回True，其它则返回False。
+        注意：定义的符号常量在CONSTANT.TXT文件中，当把它放入工程文件中任何一个模块，可在任何代码模块使用符号常量。
+        (4)GetText方法
+        功能：从操作环境剪贴板中返回一个文本串。
+        格式：Clipboard.GetText(［format］)
+        说明：format如下：
+        符号常量	值	剪贴板格式
+        CFLINK		&HBF00	DDE交换信息
+        CFTEXT		1	文本
+        若format省略，则假定为CFTEXT。若剪贴板中没有和期望格式相匹配的文本串，返回一个0长度串(“”)。
+        (5)SetText方法
+        功能：在操作环境剪贴板中使用指定格式设置一个文本串。
+        格式：Clipboard.SetText data［,format］
+        说明：data 在剪贴板中被放的字符串数据。
+        format 下列格式之一，若省略，则为CF_TEXT。
+        符号常量	值	剪贴板格式
+        CFLINK		&HBF00	DDE交换信息
+        CFTEXT		1	文本
+        (6)SetData方法
+        功能：在操作环境剪贴板上使用指定格式放置一个图片。
+        格式：Clipboard.SetData data,［format］
+        说明：data 放在剪贴板上图片(图象或图片特性)。
+        format 能由Visual Basic识别的下列剪贴板格式之一，若为0或省略，SetData自动确定格式为CFBITMAP，任何相关的调色板将随同位图一起被拷贝至剪贴板：
+        符号常量	值	剪贴板格式
+        CFBITMAP	2	位图(.BMP files)
+        CFMETAFILE	3	Metafile(.WMF files)
+        CFDIB		8	独立设备位图
+        CFPALETTE	9	调色板
+        四、日期/时间
+        1.取得当前时间及日期
+        (1)Date,Date$函数
+        功能：返回当前系统日期
+        格式：Date［$］
+        说明：Date返回一个Variant型的双精度值，Date$返回一个形式为mm-dd-yyyy的10个字母字符串。这里mm是月份(01～12)，dd是日(01～31)，yyyy是年(100～9999)。
+        设置系统日期使用Date［$］语句。
+        (2)Time,Time$
+        功能：返回当前系统时间。
+        格式：Time［$］［()］
+        说明：Time返回一个Variant型双精度值。Time$返回形式为hh:mm:ss的8个字符的串值。这里hh为时(00～23)，mm为分钟(00～59)，ss为秒(00～59)，24小时时制。
+        设置系统时间使用Time$语句。
+        (3)Now函数
+        功能：返回一个日期，按照计算机系统的日期和时间表示当前的日期和时间。
+        格式：Now
+        说明：Now返回以内部双精度数字存贮VarType 7(日期)的Variant量，代表从January 1,100至December 31,9999日期，其中January 1,1900是2。负数代表DEcember 30,1899之间的日期。小数点左边的数字表示日期，小数点右边的数字表示时间。
+        注意：当直接显示时，Now函数返回一个作为显示用的短时期和时间格式的字符串。
+        2.设置时间及日期
+        Date,Date$语句
+        功能：设置当前系统日期。
+        格式：Date［$］=expression
+        五、捕获错误
+        1.取得错误状态
+        (1)Err，Erl函数
+        功能：返回错误状态。
+        格式：Err，Erl
+        说明：错误发生后，Err函数返回一个识别运行错误的整数。Erl函数返回发生错误所在行的行号。
+        (2)Err 语句
+        功能：将Err设置成指定值。
+        格式：Err=n
+        说明：n是1～32767之间的任一个整数，用来指定一个运行错误码，0意指没有错误发生。
+        2.取得错误消息
+        Error,Error$函数
+        功能：返回与所给错误相应的错误消息。
+        格式：Error［$］［(errorcode)］
+        说明：errorcode 1～32767之间的整数。若省略，则返回最近运行错误码所对应的消息；若错误码在Visual Basic中未被定义，则返回用户定义错误消息。
+        Error返回一个Variant量；Error$返回一个串。
+        3.模拟运行时期错误
+        Error语句
+        功能：模拟一个错误发生，可被用于产生用户定义错误。
+        格式：Error errorcode
+        说明：errorcode 1～32767之间的整数。若errorcode是由Visual Basic定义的错误码，Error语句模拟错误的发生，即：设置Err值给errorcode。要定义自己的错误码，使用的值要比任何由标准Visual Basic错误码使用的值大。
+        六、文件I/O
+        1.存取或创建文件
+        Open语句
+        功能：使输入/输出文件有效。
+        格式：Open file［For mode］［Access access］［lock］As［#］filenumber［Len=reclen］
+        说明：mode 指定文件模式，其保留字有：Append,Binary,Input,Output,Random。
+        access 在打开的文件中指定允许的操作，其保留字有：Read,Write,Read,Write。
+        lock 在打开的文件中指定允许由其它过程进行的操作，其保留字有：Shared,Lock Read,Lock Write,Lock Read Write。
+        filenumber  1～255之间的整数表达式。当Open语句执行时，filenumbe只和打开的文件相关，其它I/O语句能使用该文件号涉及此文件。
+        reclen 当以随机方式打开文件时，该参数表示记录长度；当以顺序方式打开文件时，该参数表示缓冲字符数。该参数是一个不大于32767的正整数。
+        2.关闭文件
+        (1)Close语句
+        格式：结束一个文件的I/O
+        格式：Close［［#］filenumber］［,［#］filenumber］...
+        说明：filenumber 用Open语句打开文件的文件号。它可以是任何一个求打开文件的文件号的数字表达式。省略时，则关闭所有打开的文件。
+        (2)Reset语句
+        功能：关闭所有磁盘文件
+        格式：Reset
+        3.写文件
+        (1)Print #语句
+        功能：把数据写入顺序文件
+        格式：Print # filenumber,［［｛Spc(n)|Tab(n)｝］［expressionlist］［｛；|,｝］］
+        
+        说明：filenumber 文件号。它可以是任何一个求打开文件号的数字表达式。
+        Spc(n) 把N个空格插入到输出中。允许多次使用。
+        Tab(n) 输出前，在第N列使用Tab符。允许多次使用。
+        若expressionlist省略，Print#语句在文件中输出一个空行，但必须包含一个逗号。
+        (2)Put语句
+        功能：把变量值写入磁盘。
+        格式：Put［#］filenumber,［recordnumber］,variablename
+        说明：filenumber 文件号。它可以是任何一个求打开文件的文件号的数字表达式。
+        recordnumber 记录数。最大可能的记录数是231-1。对于随机模式，该参数是被写进文件的记录数。对于二进制模式，该参数是文件要写的位置字节，第一个字节是位置1，第二个字节是位置2。若省略，下一个记录或字节被写入，且仍要包含限定符逗号。例如：Put#4,,FileBuffervariablename要写往文件的变量名。除对象变量和数组变量名外，任何变量均可被使用。然而，可使用描述数组一个元素的变量。
+        4.控制输出格式
+        (1)Spc函数
+        功能：在Print#语句或Print方法里跳过指定的空格数。
+        格式：Spc(number)
+        说明：number 0～32767之间的整数，它决定输出的空格数。注意Spc函数多用于移动新的输出位置。
+        (2)Tab函数
+        功能：使用Print#语句和Print方法时，将下一个字符移到要输出的位置。
+        格式：Tab(column)
+        说明：column整数值。它决定新显示位置的列数。输出行的最左位置总是1。
+        当使用Print#语句写文件时，最右输出位置是输出文件的当前行宽，再使用Width#语句设置。若当前行的当前输出位置大于column,Tab在下一个行跳过column列数，若column小于1，Tab移动1列输出位置。
+        (3)Width#语句
+        功能：给文件分配一个输出行宽。
+        格式：Width#filenumber,width
+        说明：filenumber文件号。
+        width 0～255之间的数字表达式，用来指明在新行中出现多少个字符。若宽度是0，没有限制一行的长度，缺少行宽是0。Width#语句允许在已打开文件里改变输出行宽。
+        5.读文件
+        (1)Get语句
+        功能：从磁盘文件读数据到变量中。
+        格式：Get［#］filenumber,［recordnumber］,variablename
+        说明：filenumber 文件号。
+        recordnumber 允许的最大记录数。对于随机模式，recordnumber是将被读的记录数；对二进制文件，recordnumber是开始读的字节位。
+        variablename 用于接收从文件中输出数据的变量名。除对象和数组变量外，可以使用任何类型变量，然而，使用描述数组一个成份的变量名。
+        (2)Input#语句
+        功能：从顺序文件中读数据给变量。
+        格式：Input#filenumber,variablelist
+        说明：filenumber文件号。
+        variablelist 逗号界定的变量表，它们由从文件读的值进行分配。在variablelist中，变量不能是数组变量，但可以是描述数组某个成份的变量。变量不能是用户定义类型，但可以是它的一个成份。除对象外，变量可以是其它各种类型。文件中数据项出现顺序必须和variablelist中出现的变量一致且类型相同；数字对应数字变量或Variant变量；日期和Null数据对应Variant变量。
+        (3)Input,Input$函数
+        功能：返回从顺序文件读的字符。
+        格式:Input［$］(n,［#］filenumber)
+        说明：n 从文件中读的字符(字节)数，必须小65535。
+        filenumber文件号。
+        Input返回一个Variant量；Input$返回一个串。
+        Input［$］函数仅能用于用Input或Binary模式打开的文件。和Input#语句不一样，Input［$］返回读取所有字符，包括逗号，回车，换行，引号和空格等。
+        (4)Line Input#语句
+        功能：从顺序文件读一行并送给字符串变量或Variant变量。
+        格式：Line Input#filenumber,variablename
+        说明：filenumber 文件名。
+        variablename 用于接收文件中文本行的变量名。
+        Line Input #语句读顺序文件中所有字符，直到回车符为止，然后跳过回车/换行符。
+        6.取得文件消息
+        (1)EOF函数
+        功能：返回是否到达文件结尾的值。
+        格式：EOF(filenumber)
+        说明：如果到达文件尾，EOF函数返回True，否则返回False。
+        (2)FileAttr函数
+        功能：返回文件模式或操作系统中有关打开文件的信息。
+        格式：FileAttr(filenumber,attribute)
+        说明：filenumber 文件号。
+        attribute 指明返回有关文件信息类型的数。使用2返回操作系统的文件号；使用1返回下列用于指定文件模式的值之一：
+        返回值	1	2	4	8	32
+        模式	Input	Output	Random	Append	Binary
+        (3)FreeFile函数
+        功能：返回下一个有效的未用文件号。
+        格式：FreeFile［()］
+        说明：当需要提供一个文件号并想确定它未被使用时，使用FreeFile函数。
+        (4)FileDateTime函数
+        功能：返回一个串，用来指明一个文件被建立或最后被修改的日期和时间。
+        格式：FileDateTime(filename)
+        说明：filenumber文件号
+        (5)FileLen函数
+        功能：返回一个长整数，用来指明文件的长度(字节)。
+        格式：FileLen(filename)
+        说明：filenumber文件号。
+        (6)Loc函数
+        功能：返回打开文件内部的当前位置。
+        格式：Loc(filenumber)
+        说明：filenumber文件号。
+        对于Random文件，Loc函数返回的数代表最近读写文件的位置；对于顺序文件，Loc返回的代表文件中当前位置字节数除以128；对于Binary模式文件，Loc返回数表示最近读写字节的位置。
+        (7)LOF函数
+        功能：返回打开文件的大小。
+        格式：LOF(filenumber)
+        说明：filenumber文件号。
+        LOF仅用于磁盘文件。要得到一个未打开文件的长度请用FileLen函数。
+        (8)Seek函数
+        功能：返回当前文件读写位置。
+        格式：Seek(filenumber)
+        说明：filenumber文件号。
+        Seek返回一个1至231-1之间的值。对于Random模式，Seek返回下一个读写记录位置；对于Binary、Output、Append或Input模式，Seek返回下一个操作发生的位置。
+        七、操作对象
+        1.隐藏或显示表单
+        (1)Show方法
+        功能：显示表单
+        格式：［form.］Show［style］
+        说明：form 要显示的表单或MDI表单。若未指定，和当前表单模块相联系的表单被显示。
+        style 决定表单是排父性还是非排父性的整数值。若style是0，则表单是非排父性；若style是1，则表单是排父性。
+        若Show被执行时指定表单未装入，Visual Basic自动装入它。当显示一个排父表单时，在它被隐藏或删除前，其它表单上没有用户输入(键盘或鼠标)能发生。MDI表单不能以排父性被显示。
+        注意：表单被显示后，Controls不是立即被画出，若遇到这种问题，使用DoEvents语句或Refresh方法，它们允许Paint事件完成加工。
+        (2)Hide方法
+        功能：隐藏一个表单但不删除它。
+        格式：［form.］Hide
+        说明：
+        form 要隐藏的表单或MDI表单。
+        当一个表单是隐含时，它从屏幕上消失且它的Visible属性被设置成False。隐含表单对用户来说是不可存取的，但对运行的Visual Basic程序是有效的。使用Hide方法时，若表单未装入则装入但不显示；当使用Hide隐含一个MDI表单时，不能隐含MDI表单的子表单。
+        2.装入或删除对象
+        (1)Load语句
+        功能：把表单或控制装入内存。
+        格式：Load object
+        说明：object 要装入内存的表单或控制数组元素。
+        除非想装一个不显示的表单，否则不必使用Load语句。任何涉及到的表单都将被自动装入内存(除Set或If...TypeOf语句外)。一旦表单被装入，它的属性和控制都能由程序改变，而不管表单实际上是不是可见的。
+        (2)Unload语句
+        功能：把表单和控制从内存中删除。
+        格式：Unload object
+        说明：同Load。
+        3.移动及改变控制大小
+        Move方法
+        功能：移动一个表单或控制
+        格式：［object.］Move left［,top［，width［,height］］］
+        说明：object 要移动的表单或控制(除时间或菜单外)。
+        left 指明对象左边界水平坐标的单精度值。
+        top 指明对象上边界垂直坐标的单精度值。
+        width 指明对象新宽度的单精度值。
+        height 指明对象新高度的单精度值。
+        仅变量left是需要的，然而，指定任何其它变量，必须指定格式中以前出现的所有变量。例如：不能指定width而不指定left和top。未指定的变量仍不改变。
+        在表单和帧里的控制，坐标系统总是以twips为单位，移动屏幕里的表单或帧里的控制总是和左上角坐标(0，0)相关。坐标系统使用ScaleHeight、ScaleWidth、ScaleLeft和ScaleRig
+        
+        ht属性设置。
+        4.拖曳后放下
+        Drag方法
+        功能：开始、结束或取消拖曳的控制。
+        格式：［control.］Drag［action］
+        说明：control 被拖曳的控制，除Line、Menu、Shape或Timer外，其它控制均可被拖曳。
+        action 0～2之间的整数值，用来指定要执行的动作。若action省略，开始拖曳控制。各值意义如下：
+        0 取消拖曳操作
+        1 开始拖曳操作
+        2 结束拖曳即放下
+        说明：当属性DragMode被设置为0(手控)时，才要求使用Drag方法对控制进行拖曳和落下。然而，属性DragMode是1(自动)时，仍可以在控制上使用Drag。当控制被拖曳时，若想要鼠标指针变化，或者使用DragIcon属性，或者使用MousePointer属性定义指针。
+          注意：不指定DragIcon属性时才能使用MousePointer属性。
+        5.安排表单或控制
+        Attange方法
+        功能：在MDI表单里安排窗口或图标。
+        格式：mdiform.Arrange arrangement
+        说明：mdiform MDI表单。它的子窗口或图标要被安排。
+        arrangement 指定如何在一个MDI表单安排窗口或图标，其值如下：
+        符号常量		值	说明
+        CASCADE			0	瀑布式所有非最小化MDI子表单
+        TILEHORIZONTAL		1	水平贴面式所有非最小化MDI子表单
+        LTILEVERTICA		2	垂直贴面式所有非最小化MDI子表单
+        ARRANGEICONS		3	安排最小化的MDI子表单
+        注意：arrangement符号常量在Visual Basic文件CONSTANT.TXT
+        6.设置输入控制权
+        SetFocus方法
+        功能：设置表单或控制的控制权(焦点)。
+        格式：object.SetFocus
+        说明：object一个能获得控制权的表单、MDI表单或控制。
+        说明：除Frame、Image、Line、Menu、shape和Timer外SetFocus可以用于任何控制。SetFocus被执行后，任何用户输入直接转到指定的表单或控制。用户仅能设置可见表单或控制的控制权，不能对Enabled属性为假的表单或控制进行设置。
+        7.打印表单
+        PrintForm方法
+        功能：把一个非MDI表单的位图送打印机。
+        格式：［form.］PrintForm
+        说明：form 要打印的非MDI表单。若省略，则打印当前表单。
+        PrintForm打印表单上所有可见的控制或位图，也打印加到表单上的图形或在运行期间加到控制上的图片，此时AutoRedraw必须为True。由PrintForm使用的打印机由Microsoft Windows 控制面板确定。
+        8.列表框与组合框相关动作
+        (1)AddItem 方法
+        功能：增加一个新项到列表框或组合框，或在运行期间增加一个新行到网格控制上。
+        格式：control.addItem item［,index］
+        说明：control 列表框，组合模式，或网格控制。
+        item 加到控制上的字符串表达式。对网格控制，使用tab字符(码09)分隔想插入一个新加行的每一列的多个字符串。         (2)RemoveItem方法
+        功能：从列表框或组合框中删除一个项目，或在运行时从网格控制中删除一行。
+        格式：control.RemoveItem Index
+        说明：control 列表框，组合框，或网格控制。
+        index 整数表达式，指出要删除的项目或行所在控制的位置。在列表框，组合框中第一个项目或在网格控制中第一行，index=0。
+        9.显示对话框
+        (1)InputBox,InputBox$函数
+        功能：在对话框中显示一个提示，等待用户输入文本或选择按钮，返回文本框的要意。
+        格式：InputBox［$］(prompt［,［title］［,［default］［,xps,ypos］］］)
+        说明：prompt在对话框中作为提示消息显示的字符串表达式。根据使用的字符宽度，其最大长度约是255个字母，若提示由多于一行组成，一定要在每行之间包含回符(13H)或换行符(10H)。
+        title 显示对话框标题棒的字符串表达式。若省略，标题条里没有东西。
+        default 在文本框中作为缺省回答的字符串表达式。如果省略，文本框为空。
+        xpos 以twips为单位，指定对话框左边界离屏幕左边界水平距离的数字表达式。若省略，必须同时省略ypos；若xpos和ypos均省略，对话框在水平中心，垂直位置约1/3屏幕以下显示。如果省略xpos和ypos以前的若干项或全部，而不省略该两项，必须包含逗号，以分隔各变量。
+        ypos 以twips为单位，指定对话框上边界离屏幕顶的距离的数字表达式。
+        InputBox返回一个Variant的Vartype 8(String)量；InputBox$返回一个字符串。
+        若用户选择OK或按Enter,InputBox［$］函数在文本框里返回任意内容；若选择Cancel键，该函数返回一个0长度串(“”)。
+        (2)MsgBox函数，MsgBox语句
+        功能：在对话框显示一个消息并且等待用户选择一个按钮。MsgBox函数返回一个值用以指定用户选择的按钮；MsgBox语句不是这样。
+        函数格式：MsgBox(msg［,［type］［,title］］)
+        语名格式：MsgBox msg［,［type］［,title］］
+        说明：msg在对话框里作为提示消息显示的字符串表达式。
+        type 指定显示按钮、图标风格、笔八、打印
+        (1)EndDoc方法
+        功能：中止一个文档送打印机，释放打印装置或队列。
+        格式：Printer.EndDoc
+        说明：若NewPage后立即请求EndDoc，没有附加一个空页被打印。
+        (2)NewPage方法
+        功能：结束一页且推进到下一页。
+        格式：Printer.Newpage
+        说明：NewPage推进到下一个打印页，并重新设置新页左上角的打印位置。
+        九、字符串
+        1.格式化字符串
+        Format,Format $函数
+        2.建立重复字节的字符串
+        (1)Space,Space$函数
+        功能：返回一个由指定空格数组成的字符串。
+        格式：Space［$］(number)
+        说明：number 0～65535之间的长整数，用来指定字符串里的空格数。
+        说明：Space返回Variant量；Space$返回一个字符串。
+        (2)String,String$函数
+        功能：返回一个字符串，它的所有字符是一个给定的ANSI码或是一个字符串第一个字符。
+        格式1：String［$］(number,charcode)
+        格式2：String［$］(number,string)
+        说明：number 指定返回字符串长度的数字表达式，其值在0～65535。
+        charcode 用来建立返回字符串的字母的ANSI码，它是值在0～255之间的数字表达式。
+        string 字符串表达式，它的第一个字母用来建立返回的字符串。
+        String返回一个Variant量；String$返回一个串。使用String［$］建立由一个字符重复组成的字符串。
+        若第二参数是一个Variant量，其潜在数据类型决定如何使用这个通用数。若是Variant的VarType 8(String),String［$］使用第一个字母建立返回串；若是Variant的VarType 2-7(任何数学类型)，String［$］使用ANSI码建立返回串。大于255的值，被除以(Mod)256后再使用。
+        3.处理字符串
+        (1)InStr函数
+        功能：返回一个串第一次出现在另一个串里的位置。
+        格式1：InStr(［start,］strexpr1,strexpr2)
+        格式2：InStr(start,strexpr1,strexpr2［,compare］)
+        说明：start 设置开始搜索位置的数字表达式，其值必须在1-65535之间，若start省略，从strexpr1第一个字母开始搜索。若指定compare参数，则必须有start参数。
+        strexpr1 被检索串表达式。
+        strexpr2 检索串表达式。
+        compare 指定串比较方法。其值是0或1，或是对象的CollatingOrder属性值。若省略，使用缺省方法，除非使用OptionCompare Tex改变缺省比较方法，否则缺省是Option
+        Compare Binary。若compare是0，字符串比较是敏感的，如“M”和“m”不匹配；若compare是1，字符串比较是不敏感的，如“M”和“m”相匹配。
+        若strexpr2在strexpr1里被发现，InStr返回相匹配的位置；若strexpr2是零长度，返回值是start。若start值大于strexpr2,strexpr1是零长度，或strexpr2不能被发现，InStr返回0。若两个串任一个串是Null，函数返回Null。
+        (2)Left,Left$函数
+        功能：返回字符串变量最左的n个字符。
+        格式：Left［$］(strexpr,n)
+        说明：strexpr 任何字符串表达式，函数将从其返回最左的N个字符。
+        n 指定返回多少个字符的长整数表达式，其值在0-65535，若是0，返回零长度串，若n大于或等于strexpr里的字符数，则返回完整的字符串。要找到strexpr里的字符数，使用Len(strexpr)。
+        Left返回一个Variant；Left$返回一个字符串。
+        (3)LTrim,LTrim$,RTrim,RTrim$,Trim,Trim$函数
+        功能：返回移去字符串头部(最左边)，尾部(最右边)，或头部和尾部空格后的拷贝。
+        格式：［L|R］Trim［$］(stringexpr)
+        说明：stringexpr任何字符串表达式。只有LTrim,RTrim,和Trim能接受Variant的VarType 1(Null)，这种情况下，返回Null。
+        LTrim［$］移去字符串头部空格；RTrim［$］移去尾部空格；Trim［$］移去头部和尾部空格。LTrim、RTrim和Trim返回一个Variant量；LTrim$、RTrim$和Trim$返回一个字符串。
+        (4)Mid,MId$函数
+        功能：返回另一个字符串的部分字符串。
+        格式：Mid［$］(stringexpr,start［,length］)
+        说明：stringexpr建立另一个字符串的字符串表达式，它可以是任何字符串表达式，然而，仅Mid能接受一个Variant的VarType 1(Null)，在这种情况下，返回Null。
+        start 在stringexpr中指定开始字符位置的长整数表达式。
+        length指定返回字符数的长整数表达式。
+        Mid 返回一个Variant量；Mid$返回一个字符串。
+        start和length值在1～65535之间。若length省略，或文本里字符数小于length指定值，Mid［$］返回从start位置开始到字符串结束的所有字符。若start值大于stringexpr中的字符数，Mid［$］返回零长度串。使用Len函数可以找出stringexpr中的字符数。
+        (5)Right,Righ$函数
+        功能：返回字符串变量里最右的n个字符。
+        格式：Right［$］(stringexpr,n)
+        说明：strexpr 任何字符串表达式，函数将从其返回最左的N个字符。
+        n 指定返回多少个字符的长整数表达式，其值在0～65535，若是0，返回零长度串，若n大于或等于strexpr里的字符数，则返回完整的字符串。要找出strexpr里的字符数，使用Len(strexpr)。
+        Right返回一个Variant量；Right$返回一个字符串。
+        4.大小写转换
+        (1)LCase,LCase$函数
+        功能：返回一个所有字母均转换为小写的字符串。
+        格式：LCase［$］(strexpr)
+        说明：strexpr 任何字符串表达式。然而，仅LCase能接受一个Variant的VarType 1(Null)，在这种情况下，返回Null。
+        LCase返回一个Variant量；LCase$返回一个字符串。
+        (2)UCase,UCase$函数
+        功能：返回一个所有字母均转换为大写的字符串。
+        格式：UCase［$］(strexpr)
+        说明：strexpr 任何字符串表达式。然而，仅UCase能接受一个Variant的VarType 1(Null)，在这种情况下，返回Null。
+        UCase返回一个Variant量；UCase$返回一个字符串。
+        5.调整字符串
+        (1)LSet LSet语句
+        功能：在一个空字符串变量里左排列一个字符串，或拷贝一个用户定义类型变量到另一个用户定义类型变量里。
+        格式1：LSet stringvar=stringexpr
+        格式2：LSet variable1=variable2
+        说明：stringvar 字符串变量名。
+        stringexpr 要在串变量中左排列的字符串表达式。
+        variable1 接收拷贝的用户定义类型变量。
+        variable2 从中拷贝的用户定义类型变量。
+        若stringexpr短于stringvar,LSet在stringvar里左排列stringexpr,stringvar里剩余字符用空格替换；若stringexpr长于stringvar,LSet仅把stringexpr里最左边的字符放置stringvar里，超出stringvar的长度部分被截去。使用格式2把一个用户定义类型变量分配给另一个变量。
+        (2)RSet语句
+        功能：在一个空串变量里右排列一个字符串。
+        格式：RSet stringvar=stringexpr
+        说明：stringvar 字符串变量名。
+        stringexpr 在stringvar里右排列的字符串表达式。
+        若stringexpr短于stringvar,RSet在stringvar里右排列stringexpr,stringvar里剩余空间用空格替换，直至它的开头；若stringexpr长于stringvar,RSet仅放stringexpr中最左的字符，直至放满stringvar，超出stringvar长度右部分被截去。不能使用RSet把一个用户定义类型分配给另一个。
+        6.设置字行对比规则
+        Option Compare语句
+        功能：当比较数据时，声明缺省使用的比较模式。
+        格式：Option Compare{Binary|Text}
+        说明：binary 二进制比较是敏感的，如：“M”和“m”不匹配，当确定一个字符是否小于、等于、或大于另一个字符时，程序使用ANSI字符集的次序，使用该模式较合适。
+        Text 文本比较是不敏感的，如：“M”和“m”匹配。另外，字符的相互次序和Binary不同，对于TextI比较，字符的相互次序由WIN.INI文件里国际区的国家编集决定。
+        Option Compare 用在表单或模块的声明区，用来指定表单或模块的字符串比较方法串比较可以是二进制或文
+        当表单或模块不用Option Compare语句时，缺省比较模式是Binary。
+        7.取得字符串长度
+        Len函数
+        功能：返回一个字符串表达式的字符数，或存贮变量的字节数。
+        格式1：Len(strexpr)
+        格式2：Len(variablename)
+        说明：strexpr 字符串表达式。
+        variablename 变量名。
+        若使用第一种格式，Len返回变量strexpr里的字符数；若使用第二种格式，Len返回存贮变量给定类型所需的字符数；若variablename是一个Variant，Len总是返回Variant存贮字符串时的字节数，而不管它的VarType。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

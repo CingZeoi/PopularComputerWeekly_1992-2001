@@ -1,0 +1,186 @@
+实战Client/Server编程
+
+柯建勋
+2000年 第11期 
+
+　　在Browse/Server体系结构如日中天、为人所津津乐道的今天，Client/Server模式在企业应用中依然占据着很大的市场，对Client/Server的开发技术仍然有很大的需求。而作为 Client/Server模式应用和基于Internet 模式应用的主要开发工具、数据库编程排头兵之一的PowerBuilder，又在这个领域中有着举足轻重的地位，全世界有很多的开发人员仍然使用PowerBuilder从事着企业应用的开发。
+　　PowerBuilder支持各种常见的数据库，它与数据库的连接建立在驱动程序之上。对于Sybase、Oracle、MS SQL Server、Informix这样的大型数据库管理系统，PowerBuilder提供了旨在提高数据库访问效率的专用数据库接口；而对小型数据库如Xbase、Access、Excel，Power Builder提供了ODBC接口。
+　　PowerBuilder6.5自带了一个小型关系数据库Sybase SQL Anywhere 5.0，它体积虽小但功能强大，支持多种平台，几乎拥有其它大型关系型数据库的所有功能，如触发器、存储过程等。我们学习PowerBuilder数据库编程一般是从它入手，一般人认为它是一个本地数据库，其实Sybase SQL Anywhere 5.0同样支持网络编程，可用于Client/Server架构。
+　　下面我们以一个简单的小程序为例，看看PowerBuilder 6.5 ＋ Sybase SQL Anywhere 5.0 是如何实现Client/Server式编程的。
+#1　　一、数据库安装配置
+　　（一）服务器端
+　　1．安装Sybase SQL Anywhere 5。
+　　Sybase SQL Anywhere 5 安装类型有三种：Network Client、Network Server、Standalone Engine，选第二种Network Server开始安装。
+　　2．创建数据库。
+　　在PowerBuilder中打开“Database”画板，出现Select Table对话框，选择“Cancel”，再点击“File”菜单，选择“Create Database”选项，出现创建数据库对话框，为数据库取一个名字database_server，用户和密码用默认值dba、sql，选择相应的目录（C:\database）保存。在资源管理器中我们可以看到C:\database目录下生成数据库文件database_server.db。
+　　为数据库建立一个表personnel，表中有如下字段：（^11020401a^）
+　　表结构建好后，以Id字段建立索引和关键字。还可以再输入测试数据。
+　　3．将数据库文件所在目录C:\database共享（只读共享即可）。
+　　（二）客户端
+　　1．安装Sybase SQL Anywhere 5。
+　　选Network Client模式安装。
+　　2．配置ODBC。
+　　可在控制面板的ODBC Data Source Administrtaor或PowerBuilder中的Configure ODBC中进行配置。选Sybase SQL Anywhere 5.0作为驱动，在配置的对话框中，Data Source Name 项输入database_server；User ID项输入dba；Password项输入sql；Database File选Network方式，并通过浏览按钮确认数据库文件。
+#1　　二、启动、连接及关闭数据库
+　　（一）服务器端启动数据库
+　　1．运行MS_DOS模式。
+　　2．进入Sybase SQL Anywhere5.0\win32目录。
+　　3．运行如下命令启动数据库：
+　　dbsrv50  c:\database\database_server.db
+　　数据库服务器端将启动数据库，并打开监控画面。
+　　（二）客户端连接数据库
+　　1．启动PowerBuilder。
+　　2．点击DB Profile 图标，选择“ODBC/Database Server”，点击“connect”按钮连接。
+　　当然我们也可以像服务器端启动数据库一样，进入DOS模式，用declient.exe命令来连接数据库。
+　　（三）查看数据库连接情况
+　　在数据库服务器端启动的监控画面，记载了Client端用户的连接情况，如User ID、连入时间等。对于某一个连接，我们可以用鼠标右键单击，系统将弹出菜单，选择“Disconnect”可以强行断开此连接，选择“Detail”可查看此连接的详细情况，如用户ID、连入时间、通讯协议、连入机器IP地址等。
+　　（四）关闭数据库
+　　关闭数据库之前最好确认所有用户均已断开连接。
+　　关闭数据库有两种办法：
+　　1．在数据库监控画面中，进入“File”菜单，点击“Exit”菜单项。
+　　2．定时关闭：进入“File”菜单，点击“Configure”菜单项，在对话框中输入退出数据库的时间（Quitting time），即可实现数据库定时关闭功能。
+#1　　三、编写程序
+　　（一）在PowerBuilder中新建一个应用（Application），名字为personnel，保存在personnel.pbl中。
+　　（二）创建一数据窗口对象d_grid_personnel，其中所选Table为personnel，Grid风格。
+　　（三）新建一Window，取名为w_main_ personnel，内有如下控件：（^11020401b^）
+　　（四）编写personnel.ini文件
+　　内容如下：
+　　[Database]
+　　DBMS=ODBC
+　　Database=database_server
+　　UserId=dba
+　　DatabasePassword=
+　　LogPassword=
+　　ServerName=
+　　LogId=
+　　Lock=DbParm=Connectstring=′DSN=database_server′Prompt=0
+　　（五）编写连接数据库脚本
+　　在Application的Open事件中加入脚本：
+　　string ls_startupfile//holds name of start－up file
+　　ls_startupfile = ″personnel.ini″
+　　// Populate sqlca from current preference－file settings
+　　sqlca.DBMS=ProfileString （ls_startupfile， ″database″， ″dbms″，       ″″）
+　　sqlca.database   = ProfileString （ls_startupfile， ″database″， ″database″，   ″″）
+　　sqlca.userid     = ProfileString （ls_startupfile， ″database″， ″userid″，     ″″）
+　　sqlca.dbpass     = ProfileString （ls_startupfile， ″database″， ″dbpass″，     ″″）
+　　sqlca.logid      = ProfileString （ls_startupfile， ″database″， ″logid″，      ″″）
+　　sqlca.logpass    = ProfileString （ls_startupfile， ″database″， ″LogPassWord″， ″″）
+　　sqlca.servername = ProfileString （ls_startupfile， ″database″， ″servername″， ″″）
+　　sqlca.dbparm     = ProfileString （ls_startupfile， ″database″， ″dbparm″，     ″″）
+　　connect;
+　　if sqlca.sqlcode <> 0 then
+　　     MessageBox （″Cannot Connect to Database″， sqlca.sqlerrtext）
+　　     return
+　　end if
+　　// Open Main window
+　　Open （w_main_ personnel）
+　　（六）编写窗口w_main_ personnel的脚本
+　　1．dw_personnel的constructor事件：
+　　this.SetTransObject（sqlca）
+　　this.Retrieve（）
+　　2．cb_add的clicked事件：
+　　long ll_row
+　　ll_row = dw_personnel.insertrow（0）
+　　dw_personnel.SetRow（ll_row）
+　　dw_personnel.SetFocus（）
+　　3．cb_del的clicked事件：
+　　long ll_row
+　　ll_row = dw_personnel.GetRow（）
+　　IF ll_row <= 0 THEN return
+　　dw_personnel.DeleteRow（ll_row）
+　　4．cb_save的clicked事件：
+　　long ll_return
+　　dw_personnel.AcceptText（）
+　　ll_return = dw_personnel.Update（）
+　　if ll_return = 1 then
+　　      commit;
+　　      messagebox（″提示信息″，″保存成功!″）
+　　else
+　　      rollback;
+　　      messagebox（″提示信息″，″保存失败!″）
+　　end if
+　　5．cb_refresh的clicked事件：
+　　dw_personnel.Retrieve（）
+　　6．cb_print的clicked事件：
+　　if messagebox（″提示信息″，″确认打印吗？″，question!，Yesno!，1） = 1 then
+　　      if PrintSetup（）=－1 then
+　　            messagebox（″出错信息″，″打印机设置出错！″，Exclamation!）
+　　            return
+　　      else
+　　            dw_personnel.Print（）
+　　      end if
+　　end if
+　　7．cb_exit的clicked事件：
+　　close（parent）
+　　（七）运行
+　　编写脚本完毕后，我们就可以在PB环境下运行该程序了，看看客户端应用程序是如何对服务器端数据库操作的。
+　　（八）编译成可执行文件
+　　限于篇幅，省略。
+#1    四、关于并发控制
+　　（一） 引言
+　　对于Client/Server方式下的编程，不可避免地有并发操作的问题。举一个例子：如果有两个用户A和B都试图访问同一员工记录并同时要求修改该员工工资（salary字段）时，会有什么情况发生呢？假设该员工的工资为1000元，两台机器修改记录之前读出用户工资均正确，为1000元。A用户为此员工加本月奖金200元，变为1200；而此时B用户在不同的机器上扣除此员工的水电费50元，将salary字段置为950，显然这种修改是不能接受的，此员工的薪水正确操作结果应是1150元。
+    （二）背景知识
+　　DataWindow是PowerBuilder中一个独特的对象，是Sybase的专利技术，功能强大，它可以方便而快速地处理数据。通过数据窗口，我们无需编写复杂的SQL语句，就可以实现对数据库的读写操作。
+　　实际上DataWindow 在更新数据时，会根据用户对 DataWindow 中数据进行的各种操作自动地转换成 SQL 语句，然后再执行。例如：用户新增了一条记录，也就是脚本执行了InsertRow（） 函数，输入数据后保存（调用 Update（） 函数），此时 PB会将其自动转换成 SQL 语句，发送到数据库服务器。对于转换后的SQL语句，我们可以在DataWindow的sqlpreview事件中，加入脚本：
+　　MessageBox（′SQL语句′，sqlsyntax）来查看。
+　　这里需要注意：如果数据库连接的binding参数设定为enable，则sqlsyntax返回将不完整，插入一条记录时sqlsyntax呈如下形式：
+　　INSERT INTO ″personnel″ （ ″id″， ″name″， ″birthday″， ″technical_post″， ″salary″， ″notes″ ） VALUES （ ?， ?， ?， ?， ?， ? ）
+　　为了正确返回sqlsyntax，须将binding参数设为disabled， 设置方法是在dbprofile对话框中，将transaction标签页的“Disable Bind”选项勾上，或者把在personnel.ini文件中的DbParm改为：
+　　DbParm=Connectstring=′DSN=database_server′，DisableBind=1
+　　则sqlsyntax的完整返回如下：
+　　INSERT INTO ″personnel″ （ ″id″， ″name″， ″birthday″， ″technical_post″， ″salary″， ″notes″ ） VALUES （ 100， ′令狐冲′， ′1975－05－01′， ′工程师′， 1000， ′软件开发′）
+　　（三）PowerBuilder中的并发控制
+　　PowerBuilder中可以通过数据窗口的更新属性（Update Properties）来实现并发控制。打开 DataWindow 画笔板，点击 “Rows/Update Properties”菜单，进入Specify Updatae Properties对话框，其中“Where Clause for Update/Delete”组合框中的三个选项就是三种处理并发控制问题的策略。
+　　1．选项“Key Columns”
+　　这种情况是比较更新前后Table的关键字是否发生了变化，即将数据表中当前关键字的实际值和最初查询的值做比较，如果没有改变，则可以更新，反之不能更新。
+　　如用户A将员工号为100的职员的salary字段值改为1200并保存后，B用户也将员工号为100的职员的salary字段值改为950并点击“存盘”按钮，我们可以看到数据窗口sqlpreview事件中的sqlsyntax返回如：
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100
+　　因为关键字id=100没有发生变化，Where条件成立，更新成功，B用户将A用户的修改覆盖，salary值变为950元，员工损失了200元。显然这样没有达到并发控制的目的，未能保证数据的完整性。
+　　2．选项“Key and Updateable Column”
+　　这种情况是比较更新前后数据表的关键字和可修改（更新）的列值是否发生了变化，如果没有一项发生改变，更新成功；反之，若数据库中当前值中若任一项与数据窗口最初检索出的值不一致，则更新失败。对于此例，因所有字段都是可修改（更新）的，即检测是否有任一字段变化。
+　　同上，当用户A更新完后，B用户点击“存盘”按钮，我们可以看到sqlsyntax返回如：
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″name″ = ′令狐冲′ AND ″birthday″ = ′1975－05－01′ AND ″technical_post″ = ′工程师′ AND ″salary″ = 1000 AND ″notes″ = ′软件开发′
+　　显然，id字段没有改变，而可修改（更新）列之一salary的值经A用户修改存盘后，已由1000变为了当前的1200，where条件不成立，因此更新失败，并弹出出错信息如下：
+　　Row changed between retrieve and update.
+　　No changes made to database.
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″name″ = ′令狐冲′ AND ″birthday″ = ′1975－05－01′ AND ″technical_post″ = ′工程师′ AND ″salary″ = 1000 AND ″notes″ = ′软件开发′
+　　此时点击“刷新”按钮，我们可以看到，salary的值已为1200，达到了并发控制的目的，保证数据的完整性。
+　　3．选项“Key and Modified Columns”
+　　这种情况是比较更新前后Table的关键字和要修改（更新）的列值是否发生了变化，如果没有改变，更新成功，反之更新失败。对于本例，即判断关键字id和将要修改字段salary是否发生变化。
+　　同上，当用户A更新完后，B用户点击“存盘”按钮，我们可以看到sqlsyntax返回如：
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″salary″ = 1000
+　　这里id字段没有改变，而此次将要修改的列salary值已由1000变为了1200，where条件不成立，因此更新失败，并弹出出错信息如下：
+　　Row changed between retrieve and update.
+　　No changes made to database.
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″salary″ = 1000
+　　此时我们点击“刷新”按钮，我们可以看到，salary的值仍为1200，也达到了并发控制的目的。
+　　再举一个例子：
+　　如果A用户更新的是备注notes字段，而B用户更新的是薪水salary字段，按照业务，这种操作是允许的，而在PowerBuilder中会如何处理呢？
+　　1．对于选项“Key Columns”
+    因为关键字没有改变，更新成功。
+　　2．对于选项“Key and Updateable Column”
+　　当用户A更新完后，B用户点击“存盘”按钮，我们可以看到sqlsyntax返回如下：
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″name″ = ′令狐冲′ AND ″birthday″ = ′1975－05－01′ AND ″technical_post″ = ′工程师′ AND ″salary″ = 1000 AND ″notes″ = ′软件开发′
+　　这里，id字段没有改变，salary字段也没有改变，但可修改（更新）列之一notes的值经A用户的修改，已由“软件开发”变为了“硬件维护”，where条件不成立，因此更新失败，系统将报出错信息。
+　　此时点击“刷新”按钮，可以看到，salary的值仍为1200，notes的值为“硬件维护”。
+　　3．对于选项“Key and Modified Columns”
+　　当用户A更新完后，B用户点击“存盘”按钮，我们可以看到sqlsyntax返回如下：
+　　UPDATE ″personnel″ SET ″salary″ = 950 WHERE ″id″ = 100 AND ″salary″ = 1000
+　　这里，id字段没有改变，而将要修改的列salary值也没有改变（A用户只是修改了notes字段），where条件成立，因此更新成功。
+　　此时点击“刷新”按钮，可以看到，salary的值为950，notes的值为“硬件维护”。注意这里B用户只是修改salary字段，并不修改notes字段，因此notes保留了A用户修改后的值。
+　　从上面例子中我们可以得出如下结论：
+　　1．“Key Columns”选项在控制数据完整性方面最弱，它所允许的并发操作是最多的，所禁止的并发操作发生的可能性非常小，只有当主键被更改后才起并发控制作用，当一条记录的关键字改变了才进行控制，这显然没有多大意义。实际上这种方法一般只在单机版的应用程序中使用，而在Client/Server模式中是很少使用的。
+　　2．“Key and Updateable Columns”的是PB的默认选项，控制最为严格，可以实现最安全的并发控制，充分保证数据的完整性，但它也会禁止我们做一些本当允许的并发修改（如上面所说的第二例），是并发能力最差的方法。
+　　3．“Key and Modified Columns”选项可以说是前两选项的折衷，在控制数据完整性和严格性方面比第一项强，比第二项弱，在允许的并发操作数量方面比第一项少，比第二项多。
+　　至于在程序中选取哪一种控制比较合适，我们应该根据应用的具体情况来选择。
+　　对于并发控制，我们还需要在程序中捕获 DBMS 的出错号，再显示相应的错误信息，否则PowerBuilder给出的那些出错信息，一般用户是看不懂的。这项功能可在数据窗口的dberror事件中编写代码实现。
+#1    五、结束语
+　　以上程序的运行环境如下：
+　　开发工具：PowerBuilder6.5
+　　数据库：Sybase SQL Anywhere 5.0
+　　操作系统：Windows98
+　　网络：Windows98 局域网
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

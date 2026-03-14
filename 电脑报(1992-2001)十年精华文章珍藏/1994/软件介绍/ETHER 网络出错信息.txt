@@ -1,0 +1,215 @@
+ETHER 网络出错信息
+
+
+1994-01-07
+
+        999 is the max message number信件已达到最多数量(最大的信件量是999)
+        A user with the name xxx exists on xxx用户名不正确
+        A vatue must be supplied 此处必须提供参数
+        A value must be supplied遗漏了参数值
+        Address must be 12 hex digits以太网地址必须为12位16进制数
+        Appears to be an invalid messageES内部错误(呈现的是一个无效信件)
+        Application program and server interrupt vector conflict
+        所运行的程序与服务器软件不兼容
+        At beginning光标已在信箱的第一个输入位置
+        At end 光标已在信箱的最后一个输入位置
+        Bad/HOLD option选定的参数不正确
+        Bab character参数中有非法字符
+        Bad character名字中的字符不正确
+        Bad key输入的键不正确
+        Bad printer number;value mast be 1 or 2打印机号不正确；其值 必须是1或2
+        Bad server, user name format服务器与用户名的格式不正确
+        Bad user, volume name format用户名与卷名的格式不正确
+        Can't close file 关闭文件时出错(不能关闭文件)
+        Can't close the attachment关闭附加文件时出错(不能关闭附加文件)
+        Can't colse the message关闭消息文件时出错(不能关闭消息文件)
+        Can't copy within marked area不能把标记区作为复制目标
+        Can't create a message file信箱已满(不能生成信件)
+        Can't create an attachment file信箱已满(不能生成附加文件)
+        Can't create file不能生成指定的文件
+        Can't create the directory file设备故障或空间不足(不能生成目录文件)
+        Can't delete that file内部错误(不能删除指定的文件)
+        Can't exceed 999 as the max message number on drive x:
+        信件编号不能超过999
+        Can't find user USER找不到此用户
+        Can't forward an attachment不能转发附加文件
+        Can't forward an in progress message不能转发“正处理”的信件
+        Can't have more than 200 recipients收信人太多(收信人不能超过200人)
+        Can't have more than 26 attachment files
+        附加信件太多(附加信件不能超过26封)
+        Can't link to an assigned drive不能连接用DOS ASSIGN定义过的设备
+        Can't locate网络服务器中找不到指定的名字
+        Can't open attachment file FILE
+        找不到指定的附加文件(不能打开指定的附加文件)
+        Can't open the  file软盘故障或服务器忙(不能打开文件)
+        Can't open ZZMAIL.COM
+        在指定设备和目录上找不到ZZWAIL.COM(不能打开ZZWAIL.COM文件)
+        Can't read that file软盘故障或服务器忙(不能读指定的文件)
+        Can't read the attechment软盘故障或服务器忙(不能读指定的附加文件)
+        Can't read the attachment from the server
+        服务器忙或ES和EM未运行(不能从服务器中读附加文件)
+        Can't read the current message 不能读当前信件
+        Can't read the directory不能读MAIL.DIR目录
+        Can't read the message from the server
+        网络忙或ES和EM未运行(不能从服务器中读信件)
+        Can't reply to an in progress message不能对“正处理”信件回信
+        Can't write the attachment软盘故障或服务器忙(不能写指定的附加文件)
+        Can't write the directory软盘故障，服务器忙或盘卷已满(不能写指定的目录
+        Can't write the message软盘故障，服务器忙或盘卷已满(不能写指定的信件)
+        Can't write to the server邮件未发到服务器(邮件不能写入服务器)
+        Cannot use a printer name
+        在要求服务器名或用户名的地方使用了打印机名(此处不能用打印机名)
+        Caution at least one server did not respond, so a duplicate user name may result, add user any way(Y/N)?
+        确认用户名的提示
+        Caution:overlaying default drive x:提示把卷连接到缺省设备上
+        Close-error reading dir sector磁盘错误(读目录区出错)
+        Cross server access failed访问未注册的服务器失败
+        Directory full, max of 110 messages信箱已满，最大量是110
+        Drive id and /or file name required
+        附带文件未指定驱动器或文件名(要求指定驱动器或文件名)
+        Drive not ready 软盘故障或ES服务器忙(驱动器未就绪)
+        Drive write protected软盘写保护
+        Drive X: does not contain a mall directory, create one (Y/N)?
+        是否建新信箱的提示
+        Drive X: in use ... ok to UNLINK (Y/N)?提问是否终止连接
+        Drive X: not ready驱动器故障或ES服务器忙(驱动器或ES服务器未就绪)
+        Drive X: write protected驱动器写保护
+        Duplicate header多次使用信件的标题域(复制标题)
+        Enter /1 or /2, 64kb-32000kb or 1mb-32mb文卷长度的提示
+        Enter /p for pause列目录时可用/P暂停
+        Enter /pub, /priv or /shar提示输入存取类型的参数
+        Enter /w for wide listing提示输入/W可用来显示宽目录
+        Enter only one value输入的数值数超限(输入一个数值)
+        Enter only one value命令中的参数太多
+        Error setting up the forwarded message
+        软盘故障或ES服务器忙(建立转递信件出错)
+        Error setting up the new message软盘故障或ES服务器忙(建立新信件出错)
+        Error setting up the reply软盘故障或ES服务器忙(生成回信出错)
+        Error writing to FILE设备已满或文件太多(写入文件出错)
+        Error in setting initial directory磁盘错误(建立目录出错)
+        Error xxH occurred on read in lookup, sector xxH, count xxH, drive x.
+        磁盘故障(读lookup发生错误XXH，在XXH扇区，XXH列，X驱动器)
+        Error xxH occurred on write in flushit, sector xxH, drive x
+        磁盘故障(写flushit发生错误XXH，在XXH扇区，X驱动器)
+        Error xxH occurred on write in writs, section xxH, drive x
+        磁盘故障(写writs发生错误XXH，在XXH扇区，X驱动器)
+        Ethernet drive not loaded使用EP命令前未用ES引导
+        Ethernet driver not loaded运行EM前未用ES/DOS盘重新引导
+        Ethernet driver not loaded应当用ES/DOS盘重新引导
+        Ethershare servicing other usersES正处理其它用户，稍候
+        Failure formatting volume格式化失败
+        Fatal internal error-recursion occurred
+        ES的一致性检查失败(严重的内部错误__重复发生)
+        FILE already exists指定的文件已存在
+        Folder drive x:not formatted新信箱未格式化
+        Folder drive x:not ready软盘故障或ES服务器忙(未就绪)
+        Folder drive x:write protected信箱写保护
+        From name is not you信标题的域不是ES使用的名
+        Hexadecimal value required以太网地址使用了非16进制值，要求用16进制值
+        Incorrect attachment field信件标题的Attach附加域中文件名格式不对
+        Incorrect character in a name用户名的字符数大于8或有非法字符
+        Incorrect data field内部错误(数据域不正确)
+        Incorrect from: fieldFrom域中的用户名不正确
+        Incorrect password, permission denied口令不正确，拒绝使用
+        Incorrect to or cc list收信人的用户名格式不正确
+        Initialize time failed
+        CONFIG.SYS文件中没有DEVICE=DD.SYS和DEVICE=TD.SYS(初始时间失败)
+        Invalid driver or path name xxx for distribution list
+        驱动器或路径名格式不正确
+        Invalid drive or path name xxx for folder驱动器或路径名无效
+        Link unexpectedly broken未连接打印机却使用EP UNLINK命令
+        Lru empty when trying to remove element内部错误
+        Max of 2 characters驱动器标识符太长(最长2个字符)
+        Max of 4 characters打印机名太长(最长4个字符)
+        Max of 8 characters用户名或服务器名太长(最长8个字符)
+        Maximum users using etherprint
+        共享打印机的用户太多(共享打印机的用户已达最大)
+        Maximum users logged in 不能再注册新用户(注册用户已达最大)
+        Memory allocation error, cannot load command, system halted
+        内存配置出错，不能装载指令
+        Message sent, EXCEPT to:发信后，服务器没响应
+        Must supply a data field内部错误(必须有数据域)
+        Must supply a from: fieldFrom域中必须只能有一个用户名
+        Must supply a to: fieldTO域中必须有收信人地址或分发表名
+        Must supply server name when not logged in to ethershare
+        未注册就使用了EPLINK命令，须提供服务器名
+        Name too big名字多于8个字符
+        No enough memory内存不足
+        No match 找不到匹配的名
+        No new mall to get ES中没有新邮件
+        No next message 信箱无信件
+        No parameters for this command输入了多余的参数(该指令无参数)
+        No volumes linked 没有连接的卷
+        Not enough buffers to cache FAT应增加ES缓存区数量(无足够的缓存区)
+        Not enough disk space, numkb remain 盘空间不足
+        Nothing to delete信箱中无信件(没有要删除的信件)
+        Nothing to file 信箱中无信件
+        Nothing to forward 信箱中无信件
+        Nothing to modifiedESMODIFY中没有要修改的参数
+        Nothing to print信箱中无信件(没有需打印的信件)
+        Nothing to reply to信箱中无信件(没有需回复的信件)
+        Nothing to show信箱中无信件(没有需显示的信件)
+        Out of paper假脱机文件错、共享盘满或连接后重安装打印机(缺纸)
+        Password incorrect 口令不正确
+        Password must be enclosed in parens口令需用括号括起
+        Please log in first 请先用ES注册
+        Please login first使用EM前必须用ESLOGIN或LOGIN注册
+        Printer access failed假脱机文件不能在ES卷上生成
+        Printer access failed打印机未连接或未就绪
+        Printer not available打印机故障
+        Printer not linked 打印机未连接
+        Printer not support
+        试图连接只有一台打印机服务器的另一台打印机(打印机不支持)
+        Read----unexpected EOF用CHKDSK检查盘(遇到了不期望的EOF)
+        Rename----error reading dir sector用CHKDSK检查盘(更名__读目录区出错)
+        RMDIR----error reading dir sector用CHKDSK检查盘(读目录区出错)
+        Selection must be 1-14选择的范围必须是1-14之间
+        Selection must be 1-n选择的范围必须是在1-n选项之间
+        Semicolon(;) must be followed by a space分号后需有一个空格
+        Server not ready服务器忙或未就绪
+        Server not ready … are you logged in?
+        服务器忙或未就绪 …你注册过吗?(使用EM前必须用ESLOGIN或LOGIN注册)
+        Server not ready … correct login name用户名不对，服务器忙或未就绪
+        Server SERVER not ready服务器未就绪
+        Server(s) busy:服务器忙或未运行
+        Skipping file FILE … not a valid message跳过文件…，不是一个有效信件
+        The name xxx is not unique该服务器名不是唯一的
+        The server is busy …,please try again服务器忙…，请再试
+        The server is not responding:the server listed were either too busy to respond or were not operating
+        服务器不响应：服务器太忙或ES、EM状态不对，以致不响应或不运行
+        This diskette has already been installed on another PC
+        此服务器软盘已在另一台PC上安装
+        This diskette has already been registered该以太共享器已经注册
+        Too many parameters …,ignored after xxx指定的参数太多，XXX之后的忽略
+        Unknown command不可识别的EP命令
+        Unknown command不可识别的ES命令
+        Unlink-error reading dir sector用CHKDSK检查盘(不连接__读目录区出错)
+        Unlinked anyway服务器故障(不能连接)
+        Unrecoverable flexible diskette read error服务器软盘片有问题，读出错
+        Use /L or a volume name, not both不能同时共享卷和已连接的共享卷列表
+        USER unknown找不到指定的用户名
+        USER already exists on server SERVER用户已经存在
+        Value ignored from xxx忽略给出参数之后的参数
+        Value ignored from xxx参数太多
+        Value must be /1 or /2打印机号不正确(必须是1或2)
+        Value must be PRN or, LPT1, LPT2 or LPT3
+        打印机名必须是PRN或LPT1、LPT2或LPT3
+        Value must be supply此处必须提供值
+        Value must be x:through x:值的范围必须是X到X
+        VOLUME already exists卷名已经存在
+        VOLUME has no assigned passwored
+        越权访问其它用户的卷(不能访问未分配的用户卷)
+        VOLUME is a private volume and already in use指定了私有卷并已在使用
+        VOLUME is linked试图删除或修改已连接的卷(该卷已连接)
+        VOLUME is linked to x: … ok to unlink (Y/N)?终止卷连接的提问
+        VOLUME not linked指定的卷未连接
+        VOLUME space is full盘已满(卷区已满)
+        VOLUME unknown不可识别的卷名
+        Write protect error writing drive c, abort, retry, ignore?
+        由于写保护标准方式的用户直接写服务器磁盘出错，异常结束，再试，不顾错误状态?
+        Write to network failed网络故障(写网络失败)
+        
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

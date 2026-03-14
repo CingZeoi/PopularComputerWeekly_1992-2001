@@ -1,0 +1,332 @@
+深入Delphi 5.0编程
+
+左轻侯
+2000年 第53期 
+
+    刚刚接触Delphi的读者，可能最感兴趣的就是它丰富、强大的VCL（可视化构件库）。但是，VCL只是Delphi的一小部分。必须超越VCL，才能够接触到Delphi的核心。
+    本文将讨论两个比较高级的Delphi主题：OOP和数据库编程，从而将Delphi编程引向深入。
+#1    一、面向对象编程（OOP）
+    OOP的英文全称是Object  Oriented  Programming—面向对象编程。大家知道，Delphi的语言基础是Object Pascal，是由Borland公司在传统的Pascal语言中增加了面向对象的特性后发展而成。Delphi构建在Object Pascal的基础之上，而Object Pascal构建在面向对象技术之上。
+    OOP是一种非常重要的编程思想。事实上，OOP也是C++、Java等其他许多现代编程语言的基础。熟练地掌握OOP技术，是深入掌握Delphi的必要条件。理解了OOP技术之后，很多以前令你困惑的东西会迎刃而解。
+    OOP有三个主要的特征：数据封装、继承与派生、多态性。
+#1    （一） 数据封装
+    1.类（class）
+    让我们先看一段代码：
+    type
+    TDate = class
+    Month，day，Year:Integer;
+    procedure SetValue（m，d，y:Integer）;
+    function LeapYear:Boolean;
+    end;
+    我们首先会看到class关键字，它的中文译名为“类”。类是一个非常重要的概念。根据权威的定义，类是一种用户定义的数据类型，它具有自己的说明和一些操作。一个类中含有一些内部数据和一些过程或函数形式的对象方法，通常用来描述一些非常相似的对象所具有的共同特征和行为。你可以把类想象为一种特殊的Record类型，其中不但可能包含数据，而且可能包含函数和过程（在OOP中称之为方法）。这些数据和方法被统称为类的成员。
+    上面这个类很显然是一个日期类型，它包括Month，Day，Year这三个数据成员，和SetValue、LeapYear这两个方法。在Delphi中，习惯以字母T作为每个类的前缀，就象Viusal C++中习惯以字母C作为每个类的前缀一样。
+    Month，Day，Year这三个数据成员指定了该日期的年、月、日。SetValue方法为这三个数据成员赋值，而LeapYear检查当前日期所在的那一年是否为闰年。下面我们给出这两个方法的实现部分：
+    procedure TDate.SetValue（m，d，y）:Integer;
+    begin
+    Month := m;
+    Day := d;
+    Year := y;
+    end;
+    function TDate.LeapYear:Boolean;
+    begin
+    if （Year mod 4 <> 0） then
+    LeapYear := False
+    else if （Year mod 100 <> 0）
+    LeapYear := True
+    else if （Year mod 400 <> 0）
+    LeapYear := False
+    else
+    LeapYear := True;
+    end;
+    实现了这些定义之后，就可以这样调用它们：
+    var
+    ADay: TDate;
+    begin
+    ADay := TDate.create;//建立一个对象
+    ADay.SetValue（1，1，2000）;//使用之
+    if ADay.LeapYear then
+    ShowMessage（＇闰年：＇ + Inttostr（ADay.year））;
+    ADay.free;//释放对象
+    end;
+    其中，var后面那一行声明了一个TDate类的变量。声明了变量之后，我们怎么使用它呢？使用TDate类的Create方法可以建立一个该类的对象，并将其赋予ADay变量。
+    2.对象（object）
+    对象是类的实例，或者说，是类定义的数据类型的变量。当建立一个类的对象时，系统为它分配一块内存。例如我们定义一个变量A为Integer类型，那么，Integer是一个数据类型，A就是一个实例。类与对象的关系就类似于这两者之间的关系。
+    细心的读者可能注意到，在TDate类的定义中，并没有Create这个方法。那么这个Create方法是从哪里来的呢？Create方法是每一个Class都具有的隐含方法，它的作用是建立这个类的实例。请注意：类和其他的数据类型是不同的。其他的数据类型都是声明了变量之后就可以直接使用，而类类型必须在使用Create方法创建它的实例（对象）之后才能使用。
+    事实上，在C++和其他大多数的OOP语言中，声明一个类的变量就能够同时建立起这个类的对象。而Delphi在这方面与众不同，必须要调用Create方法才能真正建立对象。同时，在这个对象不再需要时，必须要手工调用free方法释放这个对象（当然，free方法也是每个类隐含的）。这和Delphi独特的“对象引用模型”有关，有兴趣的朋友可以查阅有关资料。顺便告诉大家一个诀窍，当编译器出现“Read of Address: ffffffff”这样的错误时，多半是因为在使用对象之前忘了Create，可以从这方面入手检查代码。另外，也千万不要忘记在不需要它时使用free释放掉，否则可能造成内存泄漏。
+    在建立和释放对象的代码的中间，是使用对象的代码。访问对象的数据成员非常简单，和Record类型没有什么区别。可以用点号表达式来访问它们：
+    ADay.Year := 2000;
+    ADay.Month := 1;
+    ADay.Day := 1;
+    同样，也可以使用点号表达式来调用对象的方法。如果你阅读了方法实现部分的代码，你可以很容易发现，ADay.SetValue（1，1，2000）这一句分别为三个数据成员赋了值，而ADay.LeapYear调用则返回当前日期所在年是否为闰年。至此，整段代码的意义也就清楚了。
+    上面这个例子是一个非常简单的类，可以直接访问它的任何成员（数据和方法）。但某些类的成员是不能被随便访问的。Delphi中用三个关键字区分这些成员的访问权限：
+    Private：该类型的成员只能在声明类中被访问；
+    Public：该类型的成员可以被程序中的任何地方的代码访问；
+    Protected：该类型的成员只能在声明类以及声明类的派生类中被访问。
+    3.数据的封装
+    让我们看一个新的例子：
+    type
+    TDate = class
+    private
+    Month，day，Year:Integer;
+    Public
+    procedure SetValue（m，d，y:Integer）;
+    function LeapYear:Boolean;
+    function GetText:String;
+    end;
+    在这个类中，Month，Day，Year这三个成员被声明为Private成员，因此它们在类以外的其它地方是不可访问的。也就是说，如果你使用
+    ADay.Year := 2000;
+    这样的代码，那么编译器将会报错。但是，我们可以照样通过SetValue方法为它们赋值：
+    ADay.SetValue（1，1，2000）;
+    这行代码是合法的，因为SetValue本身是TDate类的成员，而且它又是一个Public成员。而使用GetText方法则可以得到当前日期值（这也是得到当期日期值的唯一办法）。
+    这样的设置使得类的一些成员被隐含起来，用户只能用一些专门的方法来使用它们。那些可以被外部代码访问的成员称之为类的接口。这样做带来的好处是：首先，这让类的作者可以检测被赋值的内容。比如，用户可能给一个对象赋予13月40日这样的无效日期。而在隐含了一些成员之后，类的作者可以在方法的代码中检测这些值是否有效，从而大大地减少了产生错误的机会。其次，使用规范的类，作者可以随时修改类内部的代码，而使用该类的代码却无需任何修改！这样使得代码的维护成了一件轻松的事情，特别是对于多人协作的大型软件而言。
+    这就叫做数据的封装（encapsulation）。这是OOP的第一个特征。一个优秀的OOP程序员，应该在设计类的时候，就确定将哪些重要的数据封装起来，并给出一个高效率的接口。
+#1    （二） 继承与派生
+    1.派生类与基类
+    先看以下代码：
+    type
+    TNewDate = class（TDate）
+    Public
+    function GetTextNew:String;
+    end;
+    function GetText:String;
+    begin
+    return := inttostr（Month） + ＇:＇ + inttostr（Day） + ＇:＇ + inttostr（Year）;
+    end;
+    可以看到，在class后面出现一个包含在括号中的类名。这种语法表示新的类继承了一个旧的类。继承了原有类的类称之为派生类，也叫子类，被继承的类称之为基类，也叫父类。
+    2.继承与派生
+    当派生类继承自一个基类时，它自动具有基类的所有数据、方法以及其他数据类型，无须在派生类中再做说明。例如，可以象下面这段代码这样使用TNewDate类：
+    var
+    ADay: TNewDate;
+    begin
+    ADay := TNewDate.create;
+    ADay.SetValue（1，1，2000）;
+    if ADay.LeapYear then
+    ShowMessage（＇闰年：＇ + Inttostr（ADay.year））;
+    ADay.free;
+    end;
+    而且，派生类还可以在基类的基础上加入自己的数据和方法。可以看到在TnewDate类中增加了一个新的方法GetTextNew。下面给出这个方法的实现部分：
+    function GetTextNew:String;
+    begin
+    return := GetText;
+    end;
+    然后调用它：
+    ADay.GetTextNew;
+    这个新的方法工作得很好。
+    为什么GetTextNew方法必须调用基类中的GetText方法，而不能直接使用GetText方法中的那些代码呢？原因是，Month，Day，Year这三个成员被声明为Private成员，因此它们即使在派生类中也是不能被访问的，所以必须调用基类中的GetText方法，间接地使用它们。如果要直接使用它们的话，可以将这三个成员的属性从Private改为Protected。在前面的表格中可以看到，Protected属性的成员可以在声明类以及声明类的派生类中被访问，然而仍然不能被这两种情况以外的其他代码所访问。现在我们终于可以理解了，这个特殊的属性实际上提供了极大的方便：它使得类的成员被封装，避免了混乱，同时又能够让派生类方便地使用它们。
+    通过这种继承的机制，类不再仅仅是数据和方法的封装，它提供了开放性。你可以方便地继承一个功能强大的类，然后添加进自己需要的特性，同时，你又不需要对基类进行任何的修改。相反，原作者对基类的任何改动，都可以在你的新类中立即反映出来。这非常符合代码重用的要求。
+    OOP这种对现实世界的模拟不仅极大地简化了代码的维护，而且使得整个编程思想产生了革命性的变化，较之模块化编程有了飞跃的进步。
+    实际上，整个VCL都是建立在这种强大的封装-继承机制之上的。Delphi的VCL层次结构图，就象是一个庞大的家谱，各种VCL构件通过层层继承而产生。
+    在Delphi中，所有的类都默认继承自一个最基础的类TOject，甚至在你并未指定继承的类名也是如此。Create方法是TObject类具有的方法，因此理所当然，所有的类都自动获得了Create方法，不管你是否实现过它。
+    你可能注意到了Create方法是一个特殊的方法。不错，Create方法的确非常特殊，甚至于它的“头衔”不再是function或procedure，而是Constructor（构造器）。你可以在VCL的源码中见到这样一些例子：
+    Constructor Create;
+    构造器不仅是一个Delphi关键字，而且是一个OOP方法学的名词。与之相对应的，还有Destructor（毁坏器）。前者负责完成创建一个对象的工作，为它分配内存，后者负责释放这个对象，回收它的内存。要注意的一点是，Constructor的名字一般是Create，但Destructor的名字却不是Free，而是Destroy。例如：
+    Destructor Destroy;
+    那么，在以前的代码，为什么又使用Free来释放对象呢？二者的区别是，Destroy会直接释放对象，而Free会事实检查该对象是否存在，如果对象存在，或者对象不为nil，它才会调用Destroy。因此，程序中应该尽量使用free来释放对象，这样更加安全一些。（但要注意：free也不会自动将对象置为nil，所以在调用free之后，最好是再手动将对象置为nil。）
+    象对待一般的函数或过程那样，也可以向构造器传递参数：
+    type
+    TDate = class
+    private
+    Month，day，Year:Integer;
+    Public
+    function LeapYear:Boolean;
+    function GetText:String;
+    Constructor Create（m，d，y:Integer）;
+    end;
+    procedure TDate.Create（m，d，y）:Integer;
+    begin
+    Month := m;
+    Day := d;
+    Year := y;
+    end;
+    调用它：
+    ADay: TDate;
+    begin
+    ADay := TDate.create（1，1，2000）;
+    if ADay.LeapYear then
+    ShowMessage（＇闰年：＇ + Inttostr（ADay.year））;
+    ADay.free;
+    end;
+    这样，在Create方法里就完成了对数据的初始化，而无须再调用SetValue方法了。
+    3.方法的虚拟与重载
+    接下来，我们将要涉及到另一个重要的、也是很有趣的问题：方法的虚拟与重载。先看一个新的例子：
+    type
+    TMyClass = class
+    procedure One;virtual;
+    end;
+    type
+    TNewClass = class（TMyClass）
+    procedure One;override;
+    end;
+    procedure TMyclass.One;virtual;
+    begin
+    ShowMessage（＇调用了TMyclass的方法！＇）;
+    end;
+    procedure TNewClass.One; override;
+    begin
+    Inherited;
+    ShowMessage（＇调用了TNewClass的方法！＇）;
+    end;
+    可以看到，从TMyClass派生了一个新类TNewClass。这两个类都声明了一个名字相同的方法One。所不同的是，在TMyClass中，One方法后面多了一个Virtual关键字，表示这个方法是一个虚拟方法（Virtual Method）。而在TNewClass中，One方法后面多了一个Override关键字，表示该方法进行了重载（Override）。重载技术能够实现许多特殊的功能。
+    让我们来仔细分析它们的实现部分。在TMyclass.One方法的实现部分，调用ShowMessage过程弹出一个对话框，说明该方法已被调用；这里没有任何特别的地方。在TNewClass.One方法中，出现了一条以前从未出现过的语句：
+    Inherited;
+    这个词的中文意思是“继承”。我们暂时不要去涉及到太过复杂的OOP概念，只要知道这条语句的功能就是了。它的功能是调用基类中相当的虚拟方法中的代码。例如，你如果使用以下代码：
+    var
+    AObject: TNewClass;
+    begin
+    AObject := TNewClass.create;
+    AObject.One;
+    AObject.free;
+    end;
+    那么程序将弹出两次对话框，第一次是调用TMyclass类中的One方法，第二次才是TNewClass.One方法中的代码。
+    重载技术使得我们不但可以在派生类中添加基类没有的数据和方法，而且可以非常方便地继承基类中原有方法的代码，只需要简单地加入Inherited就可以了。如果你不加入Inherited语句，那么基类的相应方法将被新的方法覆盖掉。但是必须注意：重载只有在基类的方法被标志为Virtual时才能进行，而且重载的方法必须具有和虚拟方法完全相同的参数类型。
+    虚拟方法还有一种特例，即抽象方法：
+    procedure One;override;abstract;
+    在One方法后面，不但有override关键字，还多了一个abstract关键字（意为抽象）。这种方法称为抽象方法（在C++中称为纯虚拟函数）。含有抽象方法的类称为抽象类。抽象方法的独特之处在于，它只有声明，而根本没有实现部分，如果你企图调用一个对象的抽象方法，你将得到一个异常。只有当这个类的派生类重载并实现了该方法之后，它才能够被调用。（在C++中，甚至根本就不能建立一个抽象类的实例。）
+    既然如此，那么这种抽象方法又有什么用呢？这个问题我们将在接下来的“多态”部分进行讨论。
+#1    （三） 多态性
+    多态相对来说比较复杂一点。不过不要担心，它的内容比较少，而且如果以前的知识掌握得比较稳固的话，多态的概念是水到渠成的。
+    先来讨论一下类型的兼容性问题。下面是一个例子：
+    type
+    TAnimal = Class
+    Procedure Voice;virtual;
+    ...
+    end;
+    TDog = Class（TAnimal）
+    Procedure Voice;Override;
+    ...
+    end;
+    implementation
+    Procedure TAnimal.Voice;virtual;
+    Begin
+    PlaySound（＇Anim.wav＇，0，snd_Async）;
+    End;
+    Procedure TDog.Voice;virtual;
+    Begin
+    PlaySound（＇Dog.wav＇，0，snd_Async）;
+    End;
+    TDog类继承了TAnimal类，并重载了其中的Voice方法。PlaySound是一个WIN API函数，可以播放指定的wav文件。（这个函数的定义在MMSystem.pas文件中可以找到。）
+    先看这段代码：
+    var
+    MyAnimal1， MyAnimal2: TAnimal;
+    Begin
+    MyAnimal1 := TAnimal.Create;
+    MyAnimal2 := TDog.Create;
+    ...
+    在实现部分的第一行中，建立了一个TAnimal类型的对象，并将其赋予TAnimal类型的变量MyAnimal1。这是很正常的事。但在第二行中，建立了一个TDog类型的对象，并将其赋予了TAnimal类型的变量MyAnimal2。这看上去令人吃惊，但这些代码是完全合法的。
+    众所周知，Pascal以及Object Pascal是一种类型定义严格的语言，你不能将某个类型的值赋予不同类型的变量，例如将一个整型值赋予布尔型变量，将会导致出错。但是，这个规则在涉及到OOP领域时，出现了一个重要的例外，那就是：可以将一个子类的值赋予一个父类类型的变量。但倒过来却是不行的，一个父类的值决不能赋予一个子类类型的变量。
+    那么，这种兼容规则在编程中究竟有什么用处呢？
+    请注意下面这段代码：
+    var
+    MyAnimal1， MyAnimal2: TAnimal;
+    Begin
+    MyAnimal1 := TAnimal.Create;
+    MyAnimal2 := TDog.Create;
+    MyAnimal1.Sound;
+    MyAnimal2.Sound;
+    ...
+    MyAnimal1和MyAnimal2都是TAnimal的变量，而且都调用了Sound方法。但是，执行的结果是完全不同的：前者执行的是TAnimal.Voice的代码，而后者执行的是TDog.Voice的代码！其原因很简单，因为MyAnimal1被赋予了TAnimal类型的对象，而MyAnimal2被赋予了TDog类型的对象。也就是说，一个TAnimal类型的变量，当它调用Sound方法时，所执行的代码是不确定的：可能执行TAnimal.Voice的代码，也可能执行的是TDog.Voice的代码，取决于它当时引用的是一个什么样的对象。再看：
+    MyAnimal1 := TAnimal.Create;
+    MyAnimal1.Sound;
+    MyAnimal1.free;
+    MyAnimal1 := TDog.Create;
+    MyAnimal1.Sound;
+    ...
+    同一个变量MyAnimal1，在第一次调用Sound方法时，执行的是TAnimal.Voice的代码，在第二次时执行的是TDog.Voice的代码。MyAnimal1.Sound这行代码不需要变化，程序可以根据不同的情况赋予该变量不同的对象，从而使它执行不同的代码。这就是多态的定义。
+    这个非常重要的特点大大地增加了代码的可复用性。如前所述，只需要简单地写下一行代码，就可以让程序执行不同的功能，因为这个虚拟方法同TAnimal的任何派生类都是兼容的，甚至连那些还没有编写出来的类也是一样。而程序员并不需要了解这些派生类的细节。利用多态性写出来代码，还具有简洁和维护性好的特点。
+    现在我们可以回到继承与派生结尾处的问题了。抽象方法本身不能够做任何事情，必须在子类中被重载并实现，才能够完成有意义的工作。但抽象方法的存在，相当于为父类留下了一个接口，当程序将一个子类的对象赋予父类的变量时，父类的变量就可以调用这个方法，当然此时它运行的是相应的子类中重载该方法的代码。如果没有这个抽象方法，父类的变量就不能调用它，因为它不能调用一个只在子类中存在、而在父类中不存在的方法！
+#1    二、Delphi的数据库编程
+    数据库编程是Delphi最强大的优势之一，Delphi独特的Data-Aware构件，让很多初识Delphi的人为之目瞪口呆。不需要写任何代码，在几分钟之内就可以做出一个相当精巧的数据库程序，而且在开发期就可以看到运行期的结果，这真是不可思议啊！但是，Delphi强大无比的数据库开发能力，决不仅仅限于用几个构件操纵一下DBF或是Access数据库而已。
+    数据库虽然家族庞大，但一般来说可以分为两种：文件型数据库和C/S型数据库。下面分别讨论。
+#1    （一） 文件型数据库
+    1.数据库接口
+    所谓文件型数据库，顾名思义，是基于文件的（file-based），数据被按照一定格式储存在磁盘里，使用时由应用程序通过相应的驱动程序甚至直接对数据文件进行读取。也就是说，这种数据库的访问方式是被动式的，只要了解其文件格式，任何程序都可以直接读取，这样就使得它的安全性相当糟糕。同时，在蓬勃兴起的网络应用，文件型数据库更是难有用武之地：效率低下，不支持很多SQL命令，不支持视图、触发器、存储过程等高级功能等等。这些特点决定了它不适合大型的工程。
+    最为大家所熟悉的文件型数据库可能就是DBF（DBase/Foxbase/Foxpro）数据库，除此之外，还有著名的Access数据库。Delphi中附带的Paradox也是一种文件型数据库。
+    上文说到可以对文件型数据库直接读取，但实际编程中很少有人这么做。因为再简单的数据库其实也是相当复杂的，一步步分析它的格式，从底层实现所有的数据库应用，如果都要程序员去写的话，可能会把人累死。所以数据库的开发商将这些访问代码封装起来，向程序员开放，程序员只需要调用相应的接口就可以了。
+    以DBF为例，使用DBase/Foxbase/Foxpro系列开发工具，可以用它自己的语法开发出应用程序。其中对DBF文件的具体操作被封装了。对于Access数据库，微软公布了一个DAO（Database Access Object），由一系列的DLL文件组成，封装了对.mdb文件的访问。使用VB的读者可能对DAO比较熟悉，只要在VB中嵌入DAO对象，就可以非常方便地访问Access数据库了。ODBC（Open DataBase Connection，开放数据库互连）也是一种封装，用意在于向开发人员提供一个统一的接口，通过这个接口可以访问任何支持ODBC的数据库，只要该数据库提供了相应的ODBC驱动。从这一点上来说，ODBC是一种更加高级的封装。目前几乎所有的主流的数据库都能被ODBC所支持。打开你的Windows的控制面板，就可以看到ODBC的图标。用Delphi写数据库程序的人免不了要同BDE打交道。BDE（Borland Dasebase Engine，Borland数据库引擎）是一个和ODBC类似的东西。
+    2.Borland数据库引擎
+    用BDE开发数据库程序相当容易。许多Delphi教科书在写到数据库开发这一章时，总是告诉你先在BDE中为某个DBF或Paradox数据库设置一个别名，然后往窗体上放一个TTable构件，然后将其DatabaseName指向相应的别名……然后，这个数据库中某个表的内容就在相应的Data-Aware构件中显示出来了。但是它们具体是怎么工作的呢？
+    Delphi对数据库进行访问时，事实上通过了很多层次的连接。如下所示：
+    DataAware构件→DataSource构件→DataSet构件→BDE→数据库
+    从以上连接可以看出，BDE负责与具体的数据库打交道，而Dataset构件与BDE相连，DataSource构件与Dataset构件相连，最后才连接到显示具体数据的Data-Aware构件。在Delphi的构件面板上，Data Access页面中的构件一般属于DataSet构件，例如TTable、TQuery，只要指定它们的DatabaseName属性，就可以将它们与某个数据库建立连接。在Data Control页面中的构件一般是Data-Aware构件，例如TDBGrid，TDBEdit，TDBImage。它们的作用看上去与一般的Delphi构件相似，不同之处在于，可以通过一个DataSource构件作为中介，与DataSet构件相连，并自动显示相应的数据。
+    用Delphi的数据库构件建立一个应用程序是如此之方便，但是如果深入下去，会发现事情并不简单。你可以尝试自己编写代码，访问数据库中字段，而不是通过Data-Aware构件由用户来编辑。如何做到这一点呢？秘密在于Field构件。
+    可以说，Field构件是Delphi数据库应用程序的基础。当打开一个DataSet构件时，相应的数据会被读取，并储存在TTable或TQuery构件的Fields属性中。这个属性被定义为Field数组。通过直接访问数组，可以使用它们，例如：
+    Table1.Fields［0］.AsInteger;
+    这段代码访问了Table1中当前记录的第一个字段，该字段的类型为Integer。
+    也可以通过使用FieldbyName属性来使用它们：
+    Table1.FieldbyName（＇Last Name＇）.AsString;
+    这段代码访问了Table1中当前记录的名为Last Name的字段，该字段的类型为String。
+    事实上，Data-Aware构件就是通过访问DataSet构件的Fields属性来使用数据的。弄明白了这一点之后，你自己也可以尝试改写一个常规的显示构件，使之具有Data-Aware的性质。其实，大多数使用Delphi的数据库高手并不喜欢使用Data-Aware构件，因为Data-Aware构件远不如常规的构件来得灵活。DataSet构件除了Fields属性之外，还具有数目众多的特殊属性、方法和事件，足以应付从小型文本数据库到大型网络数据库的所有应用。
+    请将注意力再次集中到BDE连接过程。在BDE连接过程的最后一环，可以看到BDE连接到了具体的数据库。其实，在这一环中，也是有几个层次的。理论上来说，BDE可以连接任何类型的数据库。对于一些比较简单的数据库，例如ASCII（纯文本型的数据库）、dBase以及Delphi自己的Paradox，BDE可以直接访问。另外它也可以通过一些相应的驱动，访问特定的数据库，例如通过DAO访问Access数据库。对于不能直接支持的数据库，BDE还可以连接到ODBC，通过ODBC进行访问，虽然这样效率比较低。
+#1    （二） C/S型数据库
+    1.多层数据模型
+    C/S（Client/Server，客户机/服务器）型数据库是当前数据库应用的主流。
+    与文件型数据库不同的是，C/S型数据库应用程序由两个部分组成：服务器和客户机。服务器指数据库管理系统（Database Manage System，DBMS），用于描述、管理和维护数据库的程序系统，是数据库系统核心组成部分，对数据库进行统一的管理和控制。客户机则将用户的需求送交到服务器，再从服务器返回数据给用户。
+    C/S型数据库非常适合于网络应用，可以同时被多个用户所访问，并赋予不同的用户以不同的安全权限。C/S型数据库支持的数据量一般比文件型数据库大得多，还支持分布式的数据库（即同一数据库的数据位于多台服务器上）。同时，C/S型数据库一般都能完善地支持SQL语言（所以也被称作SQL数据库）。这些特性决定了C/S型数据库适合于高端应用。
+    常见的C/S型数据库有著名的Oracle， Sybase， Informix， 微软的Microsoft SQL server， IBM的DB2，以及Delphi自带的InterBase，等等。
+    上面说到，C/S型数据库程序由服务器和客户机两个部分组成，因此被称为双层（Two-Tiered）模型。随着技术的不断更新，C/S型的结构也开始逐渐被多层（Multi-Tiered）数据库模型所取代。如三层模型：应用程序中的数据模块部分被分离出来，转移到一个单独的服务器上，成为独立的一层。
+    三层模型由以下三个层次组成：
+    客户机-应用程序服务器-数据库服务器
+    用户的请求首先通过客户机向应用程序服务器发出，应用程序服务器再向数据库服务器发出具体的数据访问命令（一般是SQL），数据库服务器返回的数据被应用程序服务器重新组织之后返回给客户机。
+    2.Web数据库
+    也许你已经听说过B/S这个名词，它是Brower/Server（浏览器/服务器）的缩写。B/S模型无疑是当前最为流行的多层数据库模型之一。Brower是指IE/Netscape这样的浏览器，Server包括数据库服务器和应用程序服务器。用户通过浏览器发出某个请求，通过应用程序服务器-数据库服务器之间一系列复杂的操作之后，返回相应的Html页面给浏览器。其实这就是大家再熟悉不过的Internet上的WEB数据库，当然它也可以用于局域网。它实际上可以说是一种最常见的多层模型。
+    在对数据库的发展进行回顾之后，我们终于赶上了最流行的步伐。WEB数据库编程，结果是Perl、ASP、PHP、JAVA这些语言的天下。难道我们一直忠实追随的Delphi，在面对当代最流行的Web数据库的时候，竟然面临淘汰的命运？
+    其实Delphi对Web数据库的开发提供了非常良好的支持，特别是依据强大的数据库支持和可视化编程的特点，它有着其他语言不可比拟的优势。
+    3.用Delphi开发Web数据库
+    让我们先建立一个程序。这个程序和以往的Delphi不同，要求删除所有的窗体和多余的代码，最后只剩下这么一段：
+    program CgiDate;
+    {$APPTYPE CONSOLE}//这行编译器指令表示这是一个控制台程序，不需要窗体，在终端窗口中输出
+    uses
+    sysutils;
+    begin
+    writeln（＇HTTP/1.0 200 OK＇）;
+    writeln（＇CONTENT-TYPE: TEXT/HTML＇）;
+    writeln;
+    writeln（＇<html> <head>＇）;
+    writeln（＇ <title>Time</title>＇）;
+    writeln（＇</head><body>＇）;
+    writeln（＇<h1>Time at this site</h1>＇）;
+    writeln（＇<hr>＇）;
+    writeln（＇<h3>＇）;
+    writeln（formatdatatime（＇"Today is " dddd，mmmm d，yyyy，＇ + ＇"<br> and the time is "hh:mm:ss AM/PM＇，now））;
+    writeln（＇<h3>＇）;
+    writeln（＇<hr>＇）;
+    writeln（＇</body></html>＇）;
+    end;
+    编译后，将该程序置于Web服务器下的有scripts权限的子目录中，并用浏览器访问它，就可以得到一个关于当前时间和日期的页面。
+    分析一下这段代码。格式很简单，都是用writeln生成标准输出。首先的两行生成html的描述，中间空一行，接下来的代码生成了一个完整的html文件。这个文件被返回给浏览器并显示出来。与静态页面不同是，有一行html文本是通过formatdatatime函数动态生成的，因此根据当前时间的不同会有不同的显示。
+    这其实就是一个很简单的CGI程序，在这个基础之上，可以方便地实现对数据库的访问，并生成相应的html。
+    下面是一个例子：
+    var:
+    Table1:TTable;
+    Begin
+    Showheader;// Showheader过程生成html文件的头部，代码与上例相似
+    Table1 := TTable.create（nil）;
+    Try
+    Table1.Databasename := ＇DBDEMOS＇;
+    Table1.tablename := ＇Employee.db＇;
+    Table1.indexname := ＇Byname＇;
+    Table1.open;
+    ShowTabindex;//显示表中的列
+    Finally
+    Table1.close;
+    Table1.free;
+    End;
+    Writeln（＇</body></html>＇）;
+    End;
+    这段代码动态建立了一个Table对象，并将它与DBDEMOS数据库中的表Employee.db相连（当然这些必须先在BDE中设置）。ShowTabindex过程显示了该表中的两个列：
+    procedure ShowTabindex;
+    begin
+    table1.frist;    writeln（＇<ul>＇）;
+    while not table1.eof do
+    begin
+    writeln（format（＇<li>s%s%＇，［table1.fieldbyname（＇FirstName＇）.AsString， table1.fieldbyname（＇LastName＇）.AsString］）;
+    Table1.Next;
+    End;
+    Writeln（＇</ul>＇）;
+    End;
+    ShowTabindex函数遍历了整个表，并将所有的FirstName和LastName字段打印出来。
+    在此基础之上，可以产生复杂的动态页面，实现对数据库的各种操作。当然，实践中的问题决不仅仅这么简单，例如，读取有关的环境变量，要使用特殊的GetEnvironmentVariable变量，生成相应的URL，需要相应的http知识，产生供用户提交请求的页面，需要了解html表单的格式……但是，本文的目的不在于探讨技术细节，而是着重于基本概念和原理的了解，因此不再详述，请读者自己深入学习。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

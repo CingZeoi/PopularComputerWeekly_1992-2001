@@ -1,0 +1,91 @@
+看编号识硬盘
+
+王寒晖 
+2001年 2期
+
+    现在市面上的硬盘种类繁多，每个厂商都为各自的产品进行了编号。一般说来，硬盘的编号决定着该硬盘的技术参数，如品牌及产品系列、外形尺寸、转速、容量、支持的接口类型等。下面我们就来看看市场上主流硬盘型号的排列规则。
+　　#1    一、 希捷硬盘型号
+　　    希捷硬盘主要有早期的金牌系列、U系列和酷鱼（Barracuda）系列等产品。
+　　#2    1.希捷1999年1月1日以后生产的ATA系列硬盘型号
+　　    第一字段：由ST组成，代表希捷的标识符。（^02030904g^）
+　　    第二字段：由1个字符组成，它代表硬盘的外形尺寸。3代表3.5英寸宽度，1英寸高度。
+　　    第三字段：由5个字符组成，它代表硬盘的标准容量（这里表示17.24GB容量）。
+　　    第四字段：由1个字符组成，它代表硬盘的转速。0代表7200rpm的硬盘；其它数字结尾（包括1、2）代表5400rpm的硬盘。（^02030904a^）
+　　    第五字段：由1个英文字符组成，它代表硬盘支持的接口类型。A代表ATA/Ultra ATA/Ultra ATA/66（IDE/EIDE）接口；AG代表笔记本电脑专用的ATA接口；W代表Ultra Wide SCSI接口，其数据传输率为40MB/s；N代表Ultra Narrow SCSI接口，其数据传输率为20MB/s；W/FC代表光纤通道，可提供高达100MB/s的数据传输率，并且支持热插拔。
+　　#2    2.希捷1999年1月1日以后生产的SCSI系列硬盘型号
+　　    第一字段：由2个英文字符组成，代表希捷的标识符。（^02030904h^）
+　　    第二字段：由1个字符组成，代表硬盘的外型尺寸。1代表3.5英寸宽度；1.6英寸高度；3代表3.5英寸宽度；1英寸高度。
+　　    第三字段：由5个字符组成，它代表硬盘的标准容量（这里表示18.2GB容量）。
+　　    第四字段：由1-3个英文字符组成，它代表硬盘支持的接口类型及采用的技术。DC代表Differentia/80-pin SCA接口；FC代表Fibre Channel/40-pin SCA接口；FCV类似FC，但增加了缓存的大小；LC代表低电压的Differential/80-pin SCA；LCV类似LC，但增加了缓存大小；LW代表低电压的Differential/68-pin Wide SCSI接口；LWV类似LW，但增加了缓存大小；N代表SCSI/50-pin Narrow SCSI接口；ND代表Differential/50-pin Narrow SCSI接口；W代表SCSI/68-pin Wide SCSI接口；WC代表SCSI/80-pin SCA；WD代表Differential/68-pin Wide SCSI接口。
+　　#2    3.希捷1999年1月1日以前生产的硬盘型号
+　　    第一字段：由ST组成，代表希捷的标识符。（^02030904i^）
+　　    第二字段：由1个字符组成，代表硬盘的外形尺寸。1代表3.5英寸宽，1.6英寸高；2代表5.25英寸宽，1.6英寸高；3代表3.5英寸宽1英寸高；4代表5.25英寸宽，标准的高度；5代表3.5英寸宽，0.75英寸高；6代表9英寸宽；7代表1.8英寸宽；8代表8英寸宽；9代表2.5英寸宽，0.75英寸高。
+　　    第三字段：由2-5个字符组成，它代表硬盘的标准容量（这里表示9.1GB容量）。
+　　    第四字段：由一两个英文字符组成，它代表硬盘支持的接口类型。A代表ATA/Ultra ATA（IDE/EIDE）接口；AG代表ATA w/SafeWrite保护的接口；DC代表Differential/80-pin SCA接口；E代表ESDI接口；FC代表Fibre Channel/40-pin SCA接口；J代表SMD/SME-E接口；K代表IPI-2接口；LC代表低电压的Differential/80-pin SCA接口；LW代表低电压的Differential/68-pin Wide SCSI接口；N代表SCSI/50-pin Narrow SCSI接口；ND代表Differential/50-pin Narrow SCSI接口；NM代表SCSI/50-pin Narrow SCSI/Macintosh Comaptible接口；NV代表SCSI/50-pin Narrow SCSI接口；P代表PCMCIA（PC Card）接口；R代表ST412/RLL接口；S代表Syncronized Spindle或Synchonous SCSI；W代表SCSI/68-pin Wide SCSI接口；WC代表SCSI/80-pin SCA接口；WD代表Differential/68-pin Wide SCSI接口；X代表XT Bus（IDE）接口；Unspecified代表ST412/MFM接口。
+　　    第五字段：由2个英文字符组成，PR表示随硬盘附送安装软件和硬盘控制器。
+　　    第六字段：由1个字符组成，它代表硬盘的存取时间。0代表标准；1代表快速。
+　　#1    二、迈拓硬盘型号
+　　    迈拓硬盘的型号比较多，且比较乱。主要钻石、星钻（钻石十代以后的产品）、金钻三个系列，型号有91360D8、88400D8、7120AT、MXL-171、XT-8760S、LXT-213SY、MXT-540AL等。为了方便记忆，特将它们划分为三个字段：（^02030904j^）
+　　    第一字段：由1-5个字符组成，它代表迈拓硬盘产品系列的标识符。9xxxx代表新款Diamond Max（星钻）和Diamond Max Plus（金钻）系列UDMA/33硬盘；8xxxx代表CrystalMax和旧款Diamond Max系列EIDE/UDMA/33硬盘；7xxxx代表大于1GB的IDE硬盘；7xxx代表小于1GB的IDE/SCSI硬盘；25xxx代表2.5英寸IDE硬盘；MXT代表IDE/SCSI硬盘；MXL代表PCMCIA硬盘；Flash代表采用PCMCIA Flash 内存卡；LXT代表IDE/SCSI硬盘；MX代表3.5英寸SCSIⅡ硬盘；Px代表Panther SCSI硬盘；RXT代表MaxOptix SCSI硬盘；XT代表MFM、RLL系列SCSI和ESDI硬盘。（^02030904b^）
+　　    第二字段：由三四个字符组成，它代表硬盘的标准容量（这里表示13.6GB容量）。
+　　    第三字段：由1-3个字符或空缺组成，它代表硬盘支持的接口类型.Dx代表支持Ultra DMA33接口的EIDE；Ux代表持Ultra DMA66接口的EIDE；Ax代表IDE或 EIDE接口；Ex代表ESDI接口；Sx代表SCSI。
+　　    另外还有一些型号加前缀，如：K016420A和ST019100D，其中K代表硬盘的转速5400rpm；ST代表硬盘的转速7200rpm。（^02030904k^）
+　　#1    三、昆腾硬盘型号
+　　    第一字段：由QM组成，它代表昆腾标识符。
+　　    二字段：由1个字符组成，它代表硬盘的外型尺寸或采用的技术。2代表2.5英寸宽度；3代表3.5英寸宽度；5代表5.25英寸宽度；P代表Performance；L代表采用低费用技术。
+　　    第三字段：由3-5个字符组成，它代表硬盘的标准容量（这里代表18.2GB容量）。
+　　    第四字段：由1个字符组成或空缺，它代表昆腾硬盘销售地域。R代表产品销往北美地区；B代表产品销往全球。（^02030904c^）
+　　    第五字段：由2个字符组成，它代表昆腾硬盘产品系列的标识符。AL代表AtlasⅡ系列；AT代表Atlas系列；BF代表Bigfoot系列；CP代表Capella系列；CR代表Fireball CR系列；CX代表Fireball CX系列；CY代表Bigfoot CY系列；DA代表Daytona系列；EL代表Fireball EL系列；EM代表Empire系列；EN代表ProDrive LPS系列；EP代表ProDrive LPS系列；EU代表Europa系列；EX代表Fireball EX系列；FB代表Fireball系列；GM代表ProDrive LPS系列；GP代表Grand Prix系列；HN代表AtlasⅡ系列；KA代表Fireball Plus KA系列；KN代表Atlas IV系列；KX代表Fireball Plus KX系列；LB代表Fireball lct系列；LT代表Lightning系列；MU代表ProDrive系列；MV代表Maverick系列；PI代表ProDrive ELS系列；PX代表VikingⅡ系列；RR代表LPS系列；SA代表Saturn系列；SE代表Fireball SE系列；SG代表Pioneer SG系列；SR代表Sirocco系列；ST代表Fireball ST系列；TB代表LPS系列；TD代表Atlas Ⅲ系列；TM代表Fireball TM系列；TN代表Atlas 10K系列；TR代表Trailblazer系列；TS代表Bigfoot TS系列；TX代表Bigfoot TX系列；TY代表Atlas 10KⅡ系列；VK代表Viking系列；XC代表Atlas V系列。
+　　    第六字段：由1-3个英文字符组成，它代表硬盘支持的接口类型。S代表SCSI接口；A代表ATA/IDE接口；SW代表SCSI WIDE接口；SWD代表SCSI WIDE DIFF接口；SCA代表SCA SCSI接口；LW代表SCSI LVD接口；FC代表Fiber Channel接口。（^02030904l^）
+　　    ★昆腾硬盘ID号码
+　　    昆腾硬盘上还有ID号码，通过它也可以了解硬盘的技术参数。
+　　    第一字段：由2个字符组成，它代表昆腾硬盘产品系列的标识符（见昆腾硬盘型号中的第五字段）。
+　　    第二字段：由2个字符组成，它代表硬盘的标准容量（这里代表15GB容量）。
+　　    第三字段：由1个字符组成，它代表硬盘支持的接口类型。A代表ATA（IDE）接口；S代表SCSI/50-pin接口；W代表SCSI Wide/68-pin接口；D代表SCSI Wide/68-pin Differential接口；L代表SCSI Wide/低电压Differential接口；J代表SCSI SCA/80-pin接口。
+　　    第四字段：由3个字符组成，代表的意义不详。
+　　    第五字段：代表产品的版本号。
+　　    注：由于昆腾桌面硬盘部门已被迈拓收购，所以上述硬盘编号规则仅限于该公司独立生产的产品。
+　　#1    四、西部数据硬盘型号
+　　    西部数据对不同系列的硬盘有不同的命名规则。（^02030904m^）
+　　#2    1.Caviar（鱼子酱）和Expert系列命名规则
+　　    第一字段：由2个英文字符组成，WD代表西部数据（Western Digital）的标识符。
+　　    第二字段：由两三个字符组成，它代表硬盘的标准容量，如上例表示10.2GB容量。
+　　    第三字段：由1个字符组成，它代表硬盘的转速。A代表5400RPM；B代表7200RPM。
+　　    第四字段：由1个字符组成，它代表硬盘支持的接口类型。A代表ATA接口。另外，为了区分Retail系列则在末尾加上RTL。如WD102BARTL。
+　　#2    2.Vantage系列命名规则
+　　    第一字段：由2个英文字符组成，WD代表西部数据（Western Digital）的标识符。（^02030904n^）
+　　    第二字段：由两三个字符组成，它代表硬盘的标准容量（这里表示18.3GB容量）。（^02030904d^）
+　　    第三字段：由1个字符组成，F代表Vantage产品系列。
+　　第四字段：由1个字符组成，它代表硬盘支持的接口类型。N代表Ultra SCSI/Ultra2 SCSI 50-pin接口；G代表Ultra SCSI/Ultra2 SCSI 68-pin接口；H代表Ultra SCSI/Ultra2 SCSI 80-pin接口。
+　　    第五字段：由4个字符组成，它代表硬盘的模式类型。00AS代表增强模式。
+　　#2    3.Enterprise系列命名规则
+　　    第一字段：由2个英文字符组成，WD代表西部数据（Western Digital）的标识符。
+　　    第二字段：由1个字符组成，E代表Enterprise产品系列。
+　　    第三字段：由四五个字符组成，它代表硬盘的标准容量（这里表示18.31GB容量）。
+　　    第四字段：由2个字符组成或空缺，它代表硬盘的模式类型。空缺代表标准模式；AV代表增强模式。（^02030904o^）
+　　    第五字段：由4个字符组成，它代表硬盘支持的接口类型。注意：同种接口类型的硬盘可能会因容量不同而有不同的编号。
+　　#1    五、三星硬盘型号
+　　#2    1.新款三星硬盘型号（^02030904p^）
+　　    第一字段：由1个英文字符组成，S代表三星Spin Point系列硬盘。
+　　    第二字段：由1个英文字符组成，它代表三星Spin Point硬盘的各系列。V代表V系列硬盘（转速5400rpm）；W代表W系列硬盘（转速5400rpm）；P代表P系列硬盘（转速7200rpm）。（^02030904e^）
+　　    第三字段：由3个字符组成，它代表硬盘的标准容量，这里表示8.4GB容量。
+　　    第四字段：由3个字符组成，它代表容量相同硬盘的排列顺序。
+　　    第五字段：由1个英文字符组成，它代表硬盘支持的接口类型。A代表E-IDE/ATA接口；S代表SCSI 2接口；U代表Ultra SCSI接口；D代表Ultra ATA-66接口。
+　　#2    2.旧款三星硬盘型号（^02030904q^）
+　　    第一字段：由2个英文字符组成，代表三星硬盘产品系列的标识符。VG代表三星Spin Point V系列硬盘；WN代表三星Spin Point W系列硬盘；VA/WA代表三星先进的V/W系列硬盘；WU代表三星U-DMA W系列硬盘。
+　　    第二字段：由1个字符组成，3代表硬盘的外形尺寸为3.5英寸宽度。
+　　    第三字段：由3个字符组成，它代表硬盘的标准容量（这里表示6.48GB容量）。
+　　    第四字段：由1个字符组成，它代表project generation.W2代表1.27G/P；W5代表1.6G/P；V3代表2.1G/P；V4代表2.7G/P。
+　　第五字段：由1个英文字符组成，它代表硬盘支持的接口类型。A代表E-IDE/ATA接口；S代表SCSI 2接口；U代表Ultra SCSI接口。
+　　#1    六、IBM硬盘型号
+　　    第一字段：由1个英文字符组成，D代表IBM的的标识符。（^02030904r^）
+　　    第二字段：由2个英文字符组成，它代表硬盘的产品系列。JA代表Deskstar系列；AL/SA代表Deskstar/Deskstar（SCSI-2 FAST）系列；AQ代表Deskstar 3系列；CA代表Deskstar 4系列；HE代表Deskstar 5系列；HE代表Deskstar 8系列；PE代表Deskstar XP/Deskstar XP（SCSI-2 FAST）系列；TT代表Deskstar 16GP/Deskstar 14GXP系列；JN代表Deskstar 25GP/Deskstar 22GXP系列；PT代表Deskstar 37GP/Deskstar 34GXP系列；TL代表Deskstar 75GXP/Deskstar 40GV系列；RV代表Ultrastar 9LZX/Ultrastar 18ZX系列；NE代表Ultrastar 18ES系列；MV代表Ultrastar 18LZX/Ultrastar 36ZX系列；PS代表Ultrastar 36LP系列；DH/DY代表Ultrastar 36LZX系列；RH代表Ultrastar 36XP系列；KL代表Travelstar 4GN系列；BC代表Travelstar 6GN系列；YL代表Travelstar 8GS系列；CX代表Travelstar 10GT系列；CY代表Travelstar 14GS系列；AR代表Travelstar 25GS/Travelstar 18GT/Travelstar 12GN系列；MD代表Microdrive系列。（^02030904f^）
+　　    第三字段：由1个英文字符组成，它代表硬盘支持的接口类型。A代表ATA接口；S和U代表Ultra SCSI/Ultra SCSI Wide/Ultra SCSI SCA/增强型SCSI/增强扩展型SCSI（SCA）接口；C代表Serial Storage Architecture 连续存储体系SCSI；L代表光纤通道SCSI接口。
+　　    第四字段：由1个字符组成，代表硬盘的外形尺寸。3代表3.5英寸；2代表2.5英寸；1代表1英寸。
+　　    第五字段：由1个字符组成，代表硬盘的转速。5代表5400转；7代表7200转，1代表10000转。但早期的硬盘省去了此字段。
+　　    第六字段：由4个字符组成，它代表硬盘的标准容量（这里表示13.5GB容量）。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

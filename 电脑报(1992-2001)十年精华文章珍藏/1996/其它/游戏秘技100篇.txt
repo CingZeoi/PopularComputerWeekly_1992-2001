@@ -1,0 +1,759 @@
+游戏秘技100篇
+
+梁怿炜
+1996-06-28
+
+        在游戏画面下，按下回车后，输入以下密码可开启秘技：
+        HATCHET			加快砍树速度	
+        NOGLUES 			关闭所有陷阱	
+        MAKE IT SO 			提高建设、生产、训练的速度	
+        GLITTERING PRIZES		加油、加树	
+        SPYCOB (VALDEZ) 		加5000单位的油	
+        THECAN BE ONLY ONE	        直接观看结局	
+        SHOWPATH			地图全景，但是探索的地方仍有阴影	
+        ON SCREEN			地图全景，没探索过的地方也不会有阴影存在	
+        IT IS A GOOD DAY TO DIE	除非遭受魔法攻击，否则无敌	
+        DECK ME OUT	 		增加训练士兵和制造武器的速度	
+        EVERY LITTLE THING SHE DOES	学会所有法术、获得无限神力	
+        UNITE THE CLANS		胜利之门	
+        YOU PITIFUL WORM		失败之门	
+        NOGLUES 			关掉RUNES
+        2.  波斯王子二代 (PRINCE II)
+        启动游戏时键入PRINCE MAKINIT2进入游戏后，可使用以下秘技：
+        ＋      	增加时间	
+        -     	减少时间	
+        K     	把屏幕上敌人全部消灭	
+        R     	王子复活术，但王子身体必须在屏幕内。	
+        F1     	显示王子的位置，但速度减慢，按多一次恢复正常	
+        F3     	玩家ON/OFF	
+        F6     	显示位置尺	
+        SHIFT T   	增加能量，最多12格	
+        SHIFT K   	减少能量	
+        SHIFT R   	显示ROOM NUMER，并且如果王子正站在右边缘，那么他会跳下，但不会死去或受到任何损伤
+        SHIFT W   	效果如上，但相对左边缘时有效	
+        SHIFT I   	荧屏上下颠倒，再按一次恢复正常	
+        SHIFT B   	只显示王子，再按一次恢复正常	
+        ALT  N   	瞬间过关	
+        ALT  D   	会制作档案
+        3.  龙霸三合会 (RISE OF THE TRIAO)
+        在游戏中按DIPSTICK开启秘技模式(某些版本不能用)，然后可输入以下密技：
+        CHOJIN     	不减能源和无限子弹	
+        GOTO    	跳关	
+        REEN    	重玩现在的关卡      	
+        VANILLA   	转火箭炮	
+        GOOBERS   	重玩游戏            	
+        HOTTIMES   	转热能追踪炮	
+        GOARCH   	跳往下一关         	
+        BOOZE    	转另一追踪炮	
+        GOGATES   	立刻回到DOS         	
+        FIREBOMB   	转炸弹	
+        SIXTOYS   	所有卡匙和增加装甲  	
+        BONES    	转地狱火炮	
+        PANIC    	增加能源至全满      	
+        SEEYA    	转无敌神手	
+        HUNTPACK   	所有卡匙和增加装甲  	
+        RIDE    	追踪弹角度观看模式	
+        LUNGDUNG   	氧气罩              	
+        HERE    	方位模式	
+        BURNME   	石棉衣              	
+        RECORD   	进入录制示范	
+        SHOOTME   	加避弹衣            	
+        STOR    	停止录制示范	
+        TOOSAP   	无敌神手            	
+        PLAY    	观看示范	
+        FLYBOY   	跳跃(按空白键)      	
+        WHACK    	伤害自己	
+        BADTRIP   	骑西部牛仔          	
+        SPEED    	加速	
+        BOING    	弹弹珠              	
+        86ME    	杀死自己	
+        HOHNWOO   	转双重的手枪        	
+        PLUGEM   	转MP40枪
+        4.  TFX
+        在TFX这款飞行游戏中，在执行任务时可按下无敌密码PLOP， 然后就可纵横长空、天下无敌。
+        5.  机甲争霸战II (MECHWARRIOR II)
+        
+        在游戏中同时按下CTRL、ALT、SHIFT键不放，可输入下列秘技：
+        BLORD     	开启/关闭无敌模式	
+        CIA      	弹药无限	
+        GANKEM    	瞬间摧毁敌人	
+        ENOLAGAY   	使用核子弹	
+        ICANTHACKIT  	瞬间完成任务	
+        IDKFA     	同上，但任务失败	
+        HANGAROUND  	更改任务终止时间	
+        XRAY     	X光线视野模式，可直接看透墙壁、山脉按W关闭X光线视野模式
+        MEEPMEEP   	时间压缩功能开启	
+        UNMEEPMEEP  	时间压缩功能关闭	
+        ZMAK     	时间延长功能开启	
+        MIGHTYMOUSE  	补充JUMPJET	
+        FLYGIRL    	增加JUMPJET	
+        COLDMISER   	关闭追热功能	
+        DORCS     	观看DORCS型机器人	
+        TLOFRONT   	将视角转为前视角	
+        LAIRDO    	警告功能	
+        MICHELIN   	显示残骸中的得分球	
+        TINKERBELL  	自由移动的外部摄影视野，按C键可关闭
+        6.  丛林风暴 (JUNGLE STRIKE)
+        在任务中按下ESC键呼唤菜单，然后依次输入CHICKEN这七个字母后回车，就可不必担心敌人的炮火或者弹药、油料等问题。
+        7.  地狱战机 (INFERNO)
+        当任务进行时，在座舱内按住键盘右边的SHIFT键不放，再输入LOLIFE 这几个键，在仪表板下方出现“CHEAT ENABLE”的讯息，这时你的战机已是无敌状态，另外找到战斗舱时，使用ALT＋P暂停，并输入1到7任一数字键，便可得到相应的武器。
+        8. 《铁血十字军》 (CRUSADER:NO REMORSE)
+        在游戏中你可键入jsssica16(注意后面两个是数字16)，然后按下回车键， 则游戏中可使用下列秘技：
+        CTRL ＋ F10 可启动无敌密技
+        F10         可补充各种装备及武器
+        H           可使HACKER MOVE打开
+        CTRL ＋ V   可显示游戏版本
+        CTRL ＋ L   可显示坐标
+        另外游戏在DOS下启动时也可使用下列参数:
+        -debug   DEBUG MODE
+        -skill x    设定技能为x
+        -warp x     直接玩第x关
+        9. 终级速度 (TERMINAL VELOCITY)
+        游戏中可输入以下秘技：
+        TRIGODS	无敌			TRFRAME		换页速度
+        TRISHLD	修复护盾		3DREALM		满全枪
+        TRINEXT	跳关			TKIFIR0		30秒无敌
+        TRIHOVR	射击时停止飞行		TRIFIR1		加PAC弹
+        MANLACS	加后燃器		TRIFIR2		加ION弹
+        TRICOPS	加示波器		TRIFIR3		加RTL弹
+        TRIBURN	加强后燃器		TRIFIR4		加MAM弹
+        TRIFIR5	加SAD弹			TRIFIR6		加SWT弹
+        TRIFIR7	加DAM弹			TRIFIR9		30秒无敌
+        10. 天旋地转II (DESCENT II)
+        在游戏中可使用下列密技：
+        ALMIGHTY    	无敌模式
+        FREESPACE   	可跳24关
+        GOWINGNUT   	让引导球拥有攻击的能力
+        LPNLIZARD   	所有武器都具有导向功能
+        BITTERSWEET 	画面有鱼眼的效果
+        PIGFARMER   	视窗缩小
+        ALIFALAFEL  	补充装备(后燃器、头灯、弹药箱)
+        SPANIARD    	第一次使用，消灭所有的敌人
+        	第二次使用，消灭敌人BOSS(或者引导球)
+        	第三次使用，消灭敌人引导球
+        GABBAGABBAHEY	GUIDE BOT会变成攻击机器人帮助你攻击敌人
+        11. 毁灭大赛车
+        游戏中进入“WRECKIN' RACING CHAMPIONSHIP ”模式时只要将玩家的名字输入为“!DAMAGE!”，就可以真正地享受毁灭赛车的乐趣了。
+        12. CYRIL CYBERPUNK
+        在游戏中可输入以下秘技：
+        RSGOD	不死之身
+        RSDOC       补满血
+        RSGRAV      无重力状态
+        RSGOODIES   加满装备
+        RSNUKE      必杀
+        RSKEYS      取得所有钥匙
+        RSFUEL      加满喷气装置油料
+        RSEND       跳到下一关
+        13. BATMAN FOREVER
+        在游戏开始时，键入LULLABY，如果成功则在游戏开始时就可以选关， 而且在游戏中按F10键就可将敌人一击毙命。
+        14. 毁灭公爵(DUKE3D)正式版
+        在游戏中，可以输入以下密码：
+        DNCORNHOLIO		无敌
+        DNSTUFF		完全补给武器、弹药、钥匙卡、装备
+        DNSDOTTYxy		跳关，x表示大关，y表示小关
+        DNDOORDS		表示坐标
+        DNVELOCK		将打开的门关上(或者将关上的门打开)
+        DNCASHMAN		按空白键扔美金
+        DNITEMS		得到钥匙卡、物品
+        DNSKILLx		改变等级，x表示等级
+        DNHYPER		加类固醇、夜视镜
+        DNRATE		祯数检查
+        DNMONSTERS		让敌人消失
+        DNSHOWMAT		打开地图
+        DNCLIT		穿墙(穿不能穿的墙会一命呜呼)
+        DNWEATONS		得到武器
+        DNINVENTORY		得到物品
+        DNKEYS		得到钥匙卡
+        15. 格杀勿论(SEEK AND DESTORY)
+        
+        在主菜单出现时输入GIMME可以启动作弊菜单。
+        然后在游戏中购买武器时键入CAPO可免费购买所有武器。
+        选择任务时快速按下左手键盘的Alt、Shift、Ctrl键可进入特殊关卡。
+        在游戏进行时同时按下下列组合键可获得相应功能：
+        AMO		补充所有弹药	LIFE	无敌
+        MEGA	更换最佳装备	DETH	敌人一击毙命
+        16. NBA LIVE'96
+        在游戏结束时可以看到游戏制作者的名字，用纸笔将他们的名字记录下来，然后在以后进行游戏时可以用这些名字来创造一些新球员，而这些新球员可都是最超强的。
+        17. 终结者(FUTURE SHOCK)
+        在游戏中键入ALT＋会出现提示符，然后可键入：
+        TURBO	快速模式
+        SUPERUZI	超级乌兹冲锋枪
+        FIREPOWER	加满所有武器
+        BANDAID	加满生命与子弹
+        NEXTMISSION	跳到下一个任务
+        18. 镭射超人
+        在游戏中可键入下列秘技：
+        RAYLIVES	玩家生命数为99
+        RAYPOINT    将血液提升到满
+        GOLDFIST    拥有攻击力超强的黄金拳
+        WIN MAP     直接破关
+        19. After Burner
+        在进行游戏时，键入TOGETHER INELECTRIC DREAMS后，可使用以下秘技：
+        <	进入下一关	>	进入上一关
+        G	增加火箭	T	减少火箭
+        20. Archipelagos (群岛)
+        结束第一个两个群岛并按下回车键去选择另外的岛屿，并键入8421和两次回车键，现在你就可移动到任何地方。
+        21. Arkanoid (超级挡板)
+        按空格键暂停游戏，然后键入DSIMAGIC，再按空格键继续游戏，接着可按以下秘技b
+        C	球停住	D	球变成三个	E	挡板变长
+        L	激光	P	额外的生命	S	将球变慢
+        22. Arkanoid II (超级挡板二代)
+        在高分显示屏幕时，键入DEBBIES将可拥有无限的生命，当主角死后， 在标题画面出现时，快速按下CAPSLOCK键，然后输入DALEY88，主角便可在死去的地方复活， 在标题画面时，键入ROBOCOPPETER后即可进入继续模式，当主角死后，在标题画面出现时，快速按下CAPSLOCK键，然后键入MAGENTA再开始游戏，可在游戏过程中按下S键跳关。
+        23. Alone In The Dark (鬼屋魔影)
+        
+          在游戏中，只要主角在悬崖边向着凌空的地方放下一件物品，再踏上去是不会掉下去的，这样便可以去一些不可到达的地方，但千万不要将这件物品捡起来。
+        24. Atomino (原子)
+        过关密码：
+        10	SIGMA	20	LIBELLE		30	HEROLD
+        40	HARALD	50	URAL		60	BOJE
+        70	TRIUMPH80 GOETHE		90	HUSTEN
+        100	DIESES
+        25. Fighter Bomber(战斗轰炸机)
+        输入玩家姓名后再输入BUCKAROO，则可以尝试全部16个任务。
+        26. BBS Jane Scymour
+        过关密码
+        1 BBS	2  JANE		3 SEYMOUR	4 BY
+        5 DOCTOR	6  DINOSAUR	7 AND    	8 GREMLIN
+        9 GRAEME	10 ROB
+        27. Barbarian (野蛮人)
+        进入游戏时，键入04-08-59，屏幕将转成灰色，玩家可获得无数条生命。
+        要杀死最后的巫师，你必须有一个防护盾，当巫师向你开火时，使用防卫圣像即可获得胜利。
+        28. Bombuzal
+        过关密码
+        ROSS	BATT	LISA		SINK
+        DAVE	BIKE	IRONBIRD	LEAD
+        TAPE	WEED	VASE		RING
+        RILL	OIRL	SPOT		GOLD
+        PALM	OPAL	LOCK		SONG
+        SAFE	FIRE	WORM		LAMP
+        TREE	SINK
+        29. BlackThorne
+        跳关密码
+        	第l关	STRT	第2关	SJ5Z	第3关	DBOT	
+        	第4关  	FBWC  	第5关  	QP7R	第6关  	WJTV	
+        
+        	第7关  	RRYB  	第8关  	ZS9P	第9关  	XJSN	
+        
+        	第10关 	CGDM  	第ll关 	TJlF	第12关 	GSG3	
+        
+        	第13关 	BMHS  	第14关 	Y4DJ	第15关 	HCKD	
+        
+        	第16关 	NRLF  	第l7关 	J6BZ	第18关 	MJXG	
+        
+        	第19关 	K3CH  	第20关 	L8VJ	第21关 	PBKT	
+        
+        	第22关 	TNLQ  	第23关 	FMWY	第24关 	L2RP
+        以上密码中，1至19是十九关的密码，而20、21、22都是分别玩到第七、十一、十五关时，有过关画面可看，23是爆机画面，24是看CONTINUE画面。
+        30. Battle Isle(狂岛浴血)
+        过关密码
+        一人程式(ONE PlAYER)
+        FIRST	GHOST	GAMMA	MARSS
+        EAGlE	METAN	FOTON	POIAR
+        TIGER	SNAKE	ZENIT	DONNN
+        VESTA	OXXID	DEMON	GlANT
+        EUROP
+        双人程式(TWO PLAYERS)
+        CONR	APHAS	EEXOTY	MOUNT
+        FIGHT	RUSTY	FIFTH	VESUV
+        MAGIC	SPACE	VALEY	TESTY
+        TERRA	SLAVE	MEVER	BIVER
+        STORM
+        31. Break Stone II
+        游戏进行时，键入POWERBALL可进入DEBUG模式，也可键入BSTONE powerball进入游戏。
+        BACKSPACE+A		增加自动绘图功能
+        BACKSPACE+B		边框色彩
+        BACKSPACE+C		统计功能
+        BACKSPACE+D		看不见东西
+        BACKSPACE+E		跳关
+        BACKSPACE+F		显示坐标
+        BACKSPACE+G		无敌模式开关
+        BACHSPACE+H		杀伤自己
+        BACKSPACE+I		施放items
+        BACKSPACE+M		显示内存情况
+        BACKSPACE+O		显示所有隐含的墙
+        BACHSPACE+Q		退回 DOS
+        BACXSPACE+S		慢动作开关
+        BACKSPACE+T		显示墙壁，敌人和声音波表
+        BACKSAPCE+U		开启所有楼层
+        BACKSPACE+V		增加额外的东西 (0_8)
+        32. Catacomb Abvss (地狱之墓)
+        按下F10键后，可继续按以下键：
+        Z 冻结怪物  I 额外顶目
+        G 无敌模式  E 跳过当前关
+        O 向上观看  M 内存使用信息
+        33. Chase HQ
+        在游戏过程中，可按住鼠标左键，然后键入GROWLER。此时按下T键可将时间加满，而目在每一阶段开始时，按下空格键可得到一个自由的NITRO，为使你操作更加简单， 可使用Z键和X键。
+        34. Creepers (毛虫历险记)
+        跳关密码
+        l 	PLKNDZRTVK  	2 	TYNZXPRFSJ	3 	KWFRTFTCSP	
+        4	PYLNVXZSZH	5	HJHDSLWCBD	6	MGKNDEPBCX	
+        7	PLMKNJJPMT	8	PSFWLKCNMW	9	SNCCGHWPGX	
+        10	YYRQQMNVZK	ll	PYRTHZDMSL	12	FMNRXTKSLH	
+        13	FEBLGHPWRT	14	EBSTPHGPEZ	15	FDNDBSLZEX	
+        16	LLLVLSTKEM	17	LRSYZQPYDN	18	CLCKNNMTTV	
+        19	PCNSPZMDNM	20	NIGGBDNMGN	21	NNBCTCRGDY	
+        22	CTBTCDPSMY	23	SSFORNCXZZ	24	NGMNDBGGLN	
+        25	CSTGRSWLSF	26	MCDNSMBXRV	27	SRTDSCHPRG	
+        28	QSWDRFTGYH	29	YBYCYQRKNS	30	BSGTPWHWXW
+        35. Civilization(文明)
+        当出现版本信息时，按住SHIFT键，并键入1234567890QWERTYUlOPASDFGHJKI，即可看到全部地图，并且破环所有敌人设施。
+        36. Cvbernoid
+        当出现标题画面时,键入RAISTLIN，然后按空格键，将会得到无限的飞船。然后按N键可跳关，而且也可尝试键人YXES四个键获得无限飞船。
+        37. Data Storm(资料风暴)
+        在读?8. Doctor Who：Dalek Attack
+        在游戏过程中键入：JAMES BOND AND OLIVER REED WERE NEVER GOOD SINGERS即可进入秘技模式。
+        39. Dogs Of War
+        游戏过程中键入TIMBO，然后按下F5键可让敌人无法发现自己。
+        40. Dragon Space
+        按下TAB键，然后按2键可跳过当前关。
+        41. Dragon Spirit
+        按F9暂停游戏，然后键入DRAGON HEAD，然后再按F10键可跳关。
+        42. Dvna Blaster (爆破人)
+        过关密码：
+        1.1  	INIZIO      	1.2  	UBFLQVV    	1.3  	UBFLOJVO
+        1.4		MXHWOLYK	1.5  	MXFWOGYK    	1.6  	UOFLHMEU
+        1.7  	UXYWHNVH	2.1  	MOZLEETN    	2.2  	UKRLWGVK
+        2.3  	MCYLBBTP	2.4 	MXVEEOYH	2.5  	MXVEEIAH
+        2.6  	UAGKVEEN   	2.7  	MXCEEOEK    	2.8  	UUNKWWEP
+        3.1  	MUVEOSTP    	3.2  	UAGKOPEN   	3.3  	MXCEOEEK
+        3.4  	UOCZHBEN	3.5  	UCZZOORU    	3.6  	UWVKOOSK
+        3.7  	MKNAOIEK    	3.8  	MKHAOSYL	4.1  	UBCZVQLG
+        4.2  	UBHZVOUT   	4.3  	MUCEENKC    	4.4  	UWNKVSLV	
+        4.5  	MXEEELNY    	4.6  	MCOAGPET   	4.7  	UAEKVGTA
+        4.8  	UXYVNOHH	5.1  	MKZNTNLH    	5.2  	MCONSOEP
+        5.3  	MUCCTNYN    	5.4  	MXHNTGVH	5.5  	MUVCTGEP
+        5.6  	MBANSPCY   	5.7  	UUVVMPTA    	5.8  	UXKVMEAL
+        6.1  	MUECMEYC    	6.2  	UCHHVTTN   	6.3  	UCHHVMTU
+        6.4  	UCLHVLGN	6.5  	MBLNGHNA    	6.6  	UKHHWOUV
+        6.7  	MUBCPORC    	6.8  	MWECGBPU	7.1  	MBANWTNA
+        7.2  	UUVKMlKN   	7.3  	UWVKITNG    	7.4  	UOZZMQKN
+        7.5  	UCZZIIKU    	7.6  	UBHZILNK   	7.7  	UUGKMJKA
+        7.8  	UUKKMSKZ	8.1  	UCZOQBHA    	8.2  	MAOEIIVC
+        8.3  	UWVFOBPV    	8.4  	UXOFNLGP	8.5  	UBBOQIGS
+        8.6  	UWYFQSGP   	8.7  	MBEAQEXE    	8.8  	UOAONMLH
+        8.8  	UXYFNNGU    	8.8  	UKBONNGU   	8.8  	MCCAQINX
+        在标题画面时，键入HUSONSOFT，可获得无数的物品。
+        43. 星世纪战将
+        游戏中可使用下列秘技：
+        CTRL＋TAB＋F7	 无敌模式
+        CTRL＋TAB＋F8    将依谢露儿的座机引爆
+        CTRL＋TAB＋F9    体能全满
+        CTRL＋TAB＋F10    跳关
+        F3＋DEL       跳到目前关的下半段
+        44. 魔法门之英雄无敌
+        在游戏中输入一下数字
+        695100	强迫胜利	
+        784510    	强迫失败	
+        876102    	给目前正在运动的英雄所有法术	
+        200978    	提升目前正在运动的英雄经验值	
+        528921    	给目前正在动运动的英雄10只雄鹫	
+        903376    	给城堡1000黄金和若干其它资源	
+        101495    	显示所有地图
+        45. 黎明之砧
+        在游戏安装完成后，在安装目录下(假设硬盘为C盘，光驱为D盘)键入：
+        D:\ANVIL\DATA\C_ANVIL (注意：C_表示安装至硬盘后的逻辑盘符，如果安装路径是逻辑硬盘D，而光驱是E，那么命令相应改成E:\ANVIL\DATA\D_ANVIL。)
+        
+          然后屏幕会显示讯息并要求输入密码和选择回答两个问题：
+        ENTER PASSWORD: 密码是(小写)huangchihkai6951007436338。
+        Use this password for all encrypted files (Y/N)? 回答Y。
+        Anvil.exe already exists.Overwrite:Yes/No/All/QUIT? 回答Y。
+        然后在游戏执行时，你就是无敌的英雄了，并可获得这些功能键秘技。
+        K		立即杀死敌人		W		增加魔法	
+        F    	更换人物            	f    		人物状态切换	
+        m    	人物表情切换        	e    		显示武器经验点数	
+        E    	显示魔法经验点数    	n    		武器经验点数＋100	
+        N    	魔法经验点数＋500   	q    		法术＋1000、生命＋500	
+        F12  	穿墙术［开/关］     	Alt＋F7 	写满笔记本
+        46. 玛莉赛车 (WACKY WHEELS)
+        
+        启动时可加入以下参数
+        \2    	加快游戏速度(双倍)。	
+        \3    	加快游戏速度(三倍)。	
+        TURBO    	游戏时，将“BREAK”和“FIRE”一起按，便会加速。	
+        JUMP    	游戏时，将“BREAK”和油门一起按，可以飞起。	
+        HOG     	99只箭猪。	
+        ICE    	99个冰块。	
+        FIRE    	99个火球。
+        例如：WW.EXE FIRE \3 这即是游戏速度加快三倍和有99个火球！
+        47. 银色弹球台 (EPIC PINBALL/SILVERBALL)
+        在游戏中可按Esc键，程式会问你是否退出游戏， 这时按下列键可获得特殊秘技，然后继续游戏。
+        Esc＋b＋n   让你可以用方向键控制球的方向。
+        Esc＋F10  将目前的画面存成SCREEN.PCX图形档。
+        48. 杀人月 (UNDER A KILLING MOON)
+        杀人月中有好几次拼碎纸的谜题，这里有一快速解决难题的方法，用鼠标左键按住一小片碎纸不放，然后用键盘输入LAMACHEATER这几个键， 然后就会发现破碎的碎纸已粘合完毕。
+        49. 乒乓弹珠台 (PINBALL)
+        在游戏展示画面时分别键入EARTHQUAKE和EXTRA BALLS(包括空格)， 那么开始游戏后，你将会多得到七颗弹珠，而且不会再有讨厌的停电干扰了。
+        50. 银河飞将III:虎之心 (WING COMMANDER III:HEART OF THE TIGER)
+        用WC3 -mitchelll来启动游戏，如果成功的话，可在游戏中用CTRL+W让敌机自爆。此外在片头动画播放时，按下SHIFT＋DELETE＋F10后，再按顺序按下大写字母的LORD BRITISH，此时可多一个菜单，可以观看四张CD中的所有动画。
+        51. TFX
+        在游戏开始输入外号(CALL SIGN)时，输入后用CTRL 键加回车来替代正常的回车键，便可直接跳过学习课程而成为军官。
+        52. 叛变克朗多 (BETRAYAL AT KRONDOR)
+        在游戏的每一章都可选择“俯视地图”这功能，然后按下ALT、右边SHIFT、～三个键，然后等十秒钟后会发现有个神秘箱子，如果输入每一章节的密码的话，可得到每一关过关的所有物品和医疗服务，密码如下:
+        第一章  6478  第二章  9216  第三章  7702
+        53. 极速天龙 (FULL THROTTLE)
+        一如今年卢卡斯的几款大型游戏一般，游戏的难度极大，但也一样有着必胜的暗门，在冒险的战斗中按下键盘左边的SHIFT和V键就可无往不胜，祝大家一路顺风。
+        在游戏过程中，如果不按任何键和鼠标数分钟，就会有游戏提供的屏幕保护功能出现，你将有机会欣赏游戏中所有的机车种类，这可是非常酷的。
+        54. 巫城 (WICTHAVEN) 测试版
+        游戏中输入RSVP，可将武器、护甲、魔法全部补满。
+        55. 特效战士 (FX FIGHTER)
+        这款95年的VR快打游戏先锋以游戏的视角变化给人真实和耳目一新的感觉，游戏也提供了调整视角的功能，按下“HOME”就可自己选择游戏角度了。
+        56. 立体狂飙 (SLIPSTREAM 5000)
+        在游戏主画面时，键入REFINERY可选择任意的轨道进行比赛，而且会有非常可观的金钱增加。
+        57. 荒蛮战士 (SAVAGE WARRIOR)
+        在主菜单时键入CHEAT，然后会多出SECRET WAY这个选单， 进入会发现一片空白，但只有键入下面键，可得到意外功能。
+        REPLAY      	使用3D重播模式	
+        ELEVENTH     	双打时可选择大魔王	
+        GARDENER     	双打时可选择TOM TECK	
+        DUNK       	双打时可选择SCOTTIE PIPPEN	
+        NUMBERONE     双打时可选择CAPTAIN WARRIOR	
+        PAM        	双打时可选择PAMELAN	
+        CIRCUS      	可自由选择格斗战场	
+        NOPAIN      	不使用武器来个格斗	
+        TYSON       	使绝招失效	
+        NOGAIN      	格斗中武器不会脱手	
+        FINALFIVE     七战五胜制	
+        SNOWWHITE     角色造型变小	
+        EVILDEATH     GORE模式	
+        FORGA       	开发工具	
+        EASYSPECIALMOVES	使绝招更容易施展
+        58. 幽浮II (X-COM II)
+        在第一场战斗结束后，如果战绩不错，然后在再次进入战斗时按下CTRL和C键，那么战争马上结束，并且可获得与上一战役同样的战绩，如此重复多次，你就会获得大量的装备的鼎盛的阵容。
+        59. 远离地球 (OUTPOST)
+        游戏中提供如下秘技：
+        CTRL＋F8   	获得人民热烈的喝彩和无限的支持	
+        CTRL＋F9   	使质量加速器意外不断	
+        CTRL＋F10   	召唤各种类型的灾难	
+        CTRL＋F11   	获得无限的资源	
+        CTRL＋F12   	提供或降低殖民地人民的士气、教育水平和犯罪率
+        60. 浩劫残阳II (DARKSUN II)
+        在载入游戏时，加入神秘参数以DSUN-K911来执行程序， 进入游戏后能使用下列的密招:
+        T      	队伍成员的等级瞬间提升	
+        M      	瞬间记忆所有的法术	
+        ALT＋F2   	提升队伍成员的属性	
+        ALT＋F4   	学习所有的法术
+        61. 超级街头霸王II (SUPER STREET FIGHT II TURBO)
+        十六人的街头霸王中有一个隐藏的对手就是豪鬼，呼唤他的方法为在选择游戏速度后按下列步骤移动人物选择框，RYU、T.HAWK、GUILE、CAMMY、RYU，每个人物都要停留三秒钟左右的时间，然后再按下所有的手攻击键(三个)，如果成功就可看到RYU的肖像变成了全黑的豪鬼，他就是幕后一切阴谋和罪恶的根源。
+        62. 宇宙冒险家 (DAEDALUS ENCOUNTER)
+        在游戏的主菜单(MAIN MENU)选择场景时，按ALT和F5键，然后选择JUMP TO 的设定，在画面上所显示的各场景的小幅缩影中挑选任何一场景即可进入该区域。
+        63. 鬼屋魔影III (ALONE IN THE DARK III)
+        游戏刚开始还未过桥时可发现右方的墙上有一灰色的空罐，如果这时你拿起手枪在三枪内击中目标的话，那么你的生命力会增加十点，而子弹数目也会恢复至原来的六发。
+        64. 真人快打III (MORTAL COMBAT III)
+        游戏启动时，可加入下列参数启动秘技：
+        MK3 1000000	对打时可使用魔王级角色	
+        MK3 0666  	呼出隐藏角色SMOKE，难度增加	
+        MK3 666   	呼出隐藏角色SMOKE，难度没有增加	
+        MK3 1995  	隐形人	
+        MK3 8000  	快速模式	
+        MK3 9966  	两人会背对背	
+        MK3 1111  	小人模式，在空中对打	
+        MK3 8888  	人物变宽	
+        MK3 12345  	人物变高	
+        MK3 54321  	小人物模式，但不在半空中对打
+        65. 征服者 (TEKWAR)
+        游戏中可键入以下秘技：
+        PAUSE键    	隐形	
+        NOGUARD    	让警察消失	
+        NOENEMIES   	让所有敌人和敌人装备全部消失	
+        NOSTALK    	让STALKING敌人不出现	
+        NOCHASE    	让BAD GUY不出现，但将无法完成游戏	
+        NOSTROLL    	让平民PUBLIC不出现	
+        BRIEF     	展示片头画面
+        66. 洛克人X
+        游戏中有一些不为人知的隐藏装备，大家可以找找看。
+        在老鹰那关中有个高塔，从左边爬上后再从右边滑下，用大跳跃跳过，会发现有几个类似氧气筒的东西，打破后进入可发现博士给的头盔，作用是可用来撞破小方块石头和保护头部。
+        在大象那关中，游戏中段有火柱喷出的地方，站立在第一格，然后用滑行大跳跃法和头盔撞破小石块后向上可获得手套，功能为集气至最高时可发出特殊招式。
+        在蜥蜴那关，游戏中会有落石掉落区域，进入前先滑行大跳跃攀登石壁向上，进入后打败一机器人可获得铠甲，功能为降低敌人50％的攻击力。
+        67. 怪兽大战 (BATTLE BEAST)
+        在游戏中可输入下列密码键：
+        YOYOYO    超强模式
+        ITIHFO  延长成三局
+        ERHNE   加分门全部打开
+        OFOVH   加分门变二倍
+        ERHYHRLY 让对手变弱
+        OAOAEIOA 自动飞行(在实验室中)
+        EATEE   取消变形
+        EHRTRR  自动飞行(在加分时)
+        68. 地狱 (HELL-A CYBERPUNK THRILLER)
+        在游戏中按住鼠标左键和ALT＋CTRL＋C，然后输入NATAS LIVE，在OPTION中会多出许多对你有帮助的选项目。
+        69. 高辛烷 (HI-OCTANE)
+        游戏中可以输入下列秘技：
+        ALT＋F1    自爆     	ALT＋F2 	其他对手爆炸
+        ALT＋F3    加满油   	ALT＋F4    	加满子弹
+        ALT＋F5    装甲值恢复	ALT＋F6		加一个LAP
+        ALT＋Y     交由电脑控制
+        70. TYRIAN
+        在游戏进行时使用一下密码，可以选择战机。
+        密码        战机名称
+        TECH        P.Q.Z
+        UNKNOWN     TX SILVERCLOUD
+        STORMWIND   STROMWIND
+        ENEMY       CAPTURED U-FIGHTER
+        WEIRD       FOODSSHIP NINE
+        STEALTH     NINJA STAR
+        此外在游戏中同时按下以下键，可获得另外秘技：
+        F2、F3、F6  不会被击中
+        F2、F6、F7  跳关
+        71. 机甲猎人
+        在基地中，可以输入以下密码：
+        SOFTPOWERMONEY    		增加200,0000元钱
+        SOFTPOWERINFORMATION	可查看敌我双方机器人的资料
+        在战斗中，可以输入以下密码：
+        SOFTPOWERHP   补充生命力
+        SOFTPOWERGP   补充手榴弹
+        SOFTPOWERMP   补充飞弹
+        SOFTPOWERSP   补充装甲
+        72. 激战三次元(FURY3)
+        在游戏中可以输入以下密码：
+        TRYMEON    隐形
+        GIVITIUP   获得所有武器
+        URTUSTD    进入加速
+        JUMPNIT    跳到下一关
+        WORMIT?    跳到第?关
+        73. 银河飞将IV:自由的代价 (WING COMMANDER IV: THE PRICE OF FREEDOM)
+        启动游戏时用参数-CHICKEN，然后在游戏中键入：
+        CTRL＋W        可消灭锁定的敌人
+        CTRL＋W＋ALT   可消灭所有的敌人
+        74. PITFALL
+        在游戏中可键入：
+        MEOWMEOWLIKEMEOWMAN 可加命至9条
+        EATMOREBRAN            加至9次接关机会
+        FRAMERATE              自检功能
+        PUMPYOUUP              每种武器的弹药量加至99
+        75. 双子星传奇 (LBA)
+        在游戏中同时键入BIG，可获得生命的补充和喷气背包及能量。
+        在游戏中同时键入ALT＋右SHIFT＋CTRL＋F12，屏幕会显示主角当前坐标。
+        76. 魔眼杀机III：血战札诺尔
+        在DOS键入SET AESO_DIAG=1的命令，然后在游戏中按A键可以杀死敌人，按G键可以进行传送。
+        77. 命运之战 (ONE MUST FALL 2097)
+        在游戏的开始菜单，按住2、0、9、7四个键不放，然后进入功能菜单，里面会多出个特殊的选项菜单，你可以在里面调节游戏的难度。
+        78. 极品飞车 (THE NEED FOR SPEED)
+        在获得两场胜利后，可输入下面相应的姓名：
+        EAC POWER 多台加分车
+        EAC WARP  游戏加速
+        EAC RALY  将RUSTY SPRING变成EGYPTIANDIRE
+        79. 死亡赛车 (FATAL RACING)
+        在游戏主菜单中键入CODE，可开启秘技功能：
+        LOVEBUN  秘密跑车    MAYFE    秘密跑车
+        TINKLE  秘密跑车  SUICYCO 秘密跑车
+        ZX4B523P 秘密跑车  CUP WON 看游戏结尾
+        I WON  看胜利场面
+        ROLLEM  谈访制作小组成员
+        DUEL   将对手迅速做掉
+        FORMULA1 CINEMA 宽屏幕模式
+        SUPERMAM 破坏模式
+        REMOVE  清除已经输入的所以秘技
+        DR DEATH 无敌
+        MREPRISE 奖励分
+        80. 镭射超人 (RAYMAN)
+        当游戏接关次数只剩下一次时，可尝试键入右、左、右、左、上、下、上、下两次，然后可以发现接关次数已增加到10次。
+        在游戏中键入KOM0OGDK可加满生命值。
+        键入86e40g91可加10个水珠。
+        81. 毁灭公爵(DUKE3D)
+        我们可以在游戏目录内找出USER.CON档案，然后再用编辑软体修改以下参数，可获得相应的功能或者打开相应的开关：
+        define CAMERASDESTRUCTABLE      	NO  	摄影机可否破坏    (YES)	
+        define FREEZERHURTOWNER         	YES 	冷冻光是否伤自己  (NO)	
+        define MAXPLAYERHEALTH       	100 	生命值上限(不用客气，随便改)	
+        define YELLHURTSOUNDSTRENGTH    	50  	泉水所给生命极大值	
+        define YELLHURTSOUNDSTRENGTH    	40  	有关叫声与失血问题	
+        define YELLHURTSOUNDSTRENGTHMP  	50  	同上	
+        define MAXPLAYERATOMICHEALTH    	200 	原子健康剂所给生命上限	
+        define STARTARMORHEALTH         	0   	起始装甲值	
+        define RETRIEVEDISTANCE         	844 	取物距离	
+        define SQUISHABLEDISTANCE       	1024//FOR ACTORS ONLY!	踩人距离	
+        define DEFAULTVIWSIBILITY       	512 	能见度...	
+        以下为设定武器的距离半径			
+        define RPGBLASTRADIUS           	1780	RPG	
+        define PIPEBOMBRADIUS           	2500 	PIPE BOMB	
+        define SHRINKERBLASTRADIUS      	650  	缩小光	
+        武器威力			
+        define KNEE WEAPON STRENGTH     	10   	脚的力量	
+        define PISTOL WEAPON STRENGTH   	6 //ADDS RAND()5％  	(0 to 5)	
+        define HANDBOMB WEAPON STRENGTH 	140		
+        define RPG WEAPON STRENGTH      	140		
+        
+        82. 终极动员令(COMMAND & CONQUER)
+        使用重回杀戮战场的资料片，在执行游戏时键入C&C FUNPARK，然后选择NOD方开始新游戏，这便是重回杀戮战场的新场景__猎杀恐龙。
+        83. E-Motion
+        当显示《爱因斯坦》影片时，键入MOONUNIT，即可在游戏中使用以下秘技：
+        Fl 加1级水平  F2 减1级水平
+        F2 加10级水平 F4 减10级水平
+        84. Elf (精灵王)
+        首先按P键暂停游戏，然后键入HIGHLANDER，再键P键继续游戏，可在游戏中使用以下秘技：
+        J 生命无限  E 获得机器
+        M 获得怪物  S 进入下一关
+        85. EPIC
+        过关密码
+        MISSIONl AURIGA    MISSION2  CEPHEUS
+        MlSSION3 APUS      MlSSION4  MUSCA
+        MISSION5 PYXIS     MISSION6  CETUS
+        MISSION7 FORNAX    MISSION8  CAELUM
+        MISSION9 CORVUS
+        86. F-29 Retaliator (以牙还牙)
+        登记玩家名字时，键入THE DIDYMAN，点一下上校肖像， 然后按回车键或者使用CIARAN等级，这时你的名字被改OCEAN OK，在游戏中你能获得全部火力。
+        87. Falcon III (猎鹰三代)
+        先按P键，然后按住TAB键后再按P键即可进入调整程式：
+        PgUp        增加高度  PgDn      降低高度
+        F3          右旋      F4        左旋
+        Shift＋F3   上旋      Shift+F4  下旋
+        88. Fantasy world Dizzv (趣怪拼图)
+        在HlGH SCORE屏幕时，键入IMMORTAL，可获得无限生命。
+        89. FlashBack (闪电回归)
+        跳关密码：
+        	EASY	NORMAL	EXPERT	
+        1	JAGUAR	BANTHA	TOHOLD	
+        2	COMBEL	SHIVA	PICOLO	
+        3	ANTIC	KASTTK	FUGU	
+        4	NOLAN	SARLAC	CAPSUL	
+        5	ARTHUR	MAENOC	ZZZAP	
+        6	SHIRYU	SULUST	MANIAC	
+        7	RENDER	NEPTUN	NO WAY	
+        8	BELUGA	BELUGA	BELUGA
+        90. Gobliins (顽皮小精灵)
+        选关密码
+        l   	NO PASSWORD  	2   	VQVQFDE	
+        3   	JCIGCAA      	4   	ECPQPCC	
+        5   	FTWKFEN      	6   	HOWFTFW	
+        7   	DWNDGBW      	8   	JCJCHM	
+        9   	ICVGOGT      	10  	LQPCUJV	
+        ll  	HNWVGKB      	12  	FTQKVLE	
+        13  	DCPLQMH      	14  	EWDGPNL	
+        15  	TCNGTOV      	16  	TCVQRPM	         19  	NGOGKSP      	2O  	NNGWTTO	
+        21  	LGWFGUS      	22  	TQNGFVC
+        91. Gods (上帝传奇)
+        过关密码：
+        l  NO PASSWORD
+        2   OLT
+        3   UME
+        4   KDY
+        999 KILLUSPAL
+        92. Golden Axe (战斧)
+        在选择人物时，按下任何一个数字(1-8)，可进入相应的关数。
+        93. Highway Hunter
+        启动游戏的命令行参数：
+        BEER 无限能量
+        FREE 无限武器
+        SKIP 跳过片头
+        94. Incredible Machine (奇妙大百科)
+        跳关密码
+        1  	SIERRA       	2  	DYNAMIX      	3  	MACHINE	
+        4  	DISK         	5  	SHUTTLE      	6  	SATURN	
+        7  	KING         	8  	DRAGON       	9  	ANTS	
+        10 	BASEBALL     	11 	BEAR         	12 	FISH	
+        13 	DAE          	14 	CHESTERTON   	15 	SIZE	
+        16 	JRELAND      	17 	WORD         	18 	BRIEF	
+        19 	HOT DOG      	20 	COUNTDOWN    	21 	PSALMS	
+        22 	TANK         	23 	NIGHT        	24 	GAMES	
+        25 	WESTERN      	26 	LOG HOME     	27 	GRAPHICS	
+        28 	KNUTH        	29 	DONALD       	30 	COMPACTDISK	
+        31 	SHAVERLAKE   	32 	RHEUMATISM   	33 	HARPSICHORD	
+        34 	MARKET       	35 	DESK         	36 	MYRTLE	
+        37 	QUATERNIOX   	38 	AQUARIUN     	39 	SHOE	
+        40 	FLOWER       	41 	STORE        	42 	CLARE	
+        43 	KERRY        	44 	FLANGE       	45 	SEASON	
+        46 	TRIBOLOGY    	47 	ABRASIVE     	48 	ABRASIVE	
+        49 	ADHESION     	50 	SPECTRA      	51 	INDUCTION	
+        52 	POLARIZATION 	53 	OVERJOY      	54 	DISCURSIVE	
+        55 	CROSS        	56 	CHOCOLATE    	57 	PLATO	
+        58 	WELLSPRING   	59 	HYDROPLANE   	60 	PALM	
+        61 	SOMBRERO     	62 	JOIST        	63 	ASTRONAUT	
+        64 	MARIONETTE   	65 	OSMIUM       	66 	ASSURANCE	
+        67 	CALULATOR    	68 	SUPERIOR     	69 	PHILARMONIC	
+        70 	ANGULAR      	71 	ZIPPER       	72 	UMPIRE	
+        73 	RECOVER      	74 	SHADOW       	75 	IONIZE	
+        76 	QUAKE        	77 	OCTOBER      	78 	BILATERAL	
+        79 	LYRIC        	80 	NEEDLE       	81 	THEORY	
+        82 	LOBSTER      	83 	SAMURAI      	84 	SPLICE
+        
+        95. 超时空英雄传说
+        在《超时空英雄传说》这款游戏中内建了调试模式(DEBUG)，利用DEBUG我们可以获得很多秘技，具体执行步骤如下：
+        1. 在战斗中按ESC键呼唤主菜单。
+        2. 同时按CTRL、ALT、Q、W四个键，出现输入密码的菜单。
+        3. 输入密码UNICORN然后按回车键。
+        然后可以使用某些键的组合或者功能键来呼史DEBUG菜单：
+        1. 键入F10键，可呼唤一般菜单，共有9个选项，其中第三个选项可打开地图坐标，第六个选项可增加属性，(注意不要修改第十项到第十一项。)
+        3. 输入密码UNICORN然后按回车键。
+        然后可以使用某些键的组合或者功能键来呼唤DEBUG菜单：
+        1. 键入F10键，可呼唤一般菜单，共有9个选项， 其中第三个选项可打开地图坐标，第六个选项可增加金钱，第八个选项可储存宝物位置。
+        2. 同时键入ALT、V键并同时用鼠标点到游戏中的战士身上， 可以方便地修改战士的各项属性，(注意不要修改第十项到第十二项)。
+        3. 同时键入ALT、R键可以让动过的战士再动。
+        4. 键入DELETE键可将鼠标所指的人物杀死。
+        5. 同时键入ALT、E键可控制敌人部队。
+        6. 同时键入CTRL、A键可让鼠标所指的人物获得所有魔法，再按INSERT键可进入人物NPC初始设定选单。
+        此外在执行游戏时可键入SUPER UNICORN XX选关，XX为关数编号。
+        96. 绝地大反攻II (STAR WAR REBEL ASSAULT II)
+        游戏的过关密码分别如下：
+        REBEL ASSAULT II	BEGINNER	NOVICE		STANDARD	EXPERT		CUSTOM
+        THE COREILLA STAR	JABBA		EWOKS		BANTHA		ANAKIN		WOOKIEE	
+        MINING TUNNELS		ENDOR		CHEWIE		KATANA		KENOBI		DROID
+        THE ASTEROLD FIELD	LACHTON		DANKIN		DENGAR		FORTUNA		RODIAN
+        INTERCEPTOR ATTACK	BORSK		NOGHRI		PELLAEON	MODON		BPFASSH	
+        THE MINING FACILITY	KROYIES		CHAMMA		THULL		OMMIN		KSHYY
+        TIE TRAINING		AURIL		BOGGA		STENNESS	REKKON		TORVE
+        FLIGHT TO LMDAAR	KAMPL		NOOM		MYRKR		SHAZEEN		SLUISSI	
+        THE MINE FIELD		FERRIER		KOTHLIS		CHURBA		KIIRIUM		PALANHI	
+        SPEEDER BILES		GALIA		KRATH		ARTOO		GUNDARK		DROKKO
+        ABOARD THE TERROR	DENARII		SIOSK		SATAL		DIANOGA		NATTH
+        THE SEWER		SADOW		ADEGAN		LOBUE		ATUARRE		SABACC
+        ESCAPING THE STAR DEST	ONDERON		AMANOA		DENEBA		ESSADA		ANDUR
+        TIE ATTACK		ALEEMA		AMBRIA		STURM		PAPLOO		ARKANIA
+        IMDAAR ALPHA		CATHAR		SYLVAR		CRADO		NASHTAH		DIATH
+        FINALE THE RETURN HOME	DOMINIS		MIRALUKA	CARRACK		PESTAGE		DREEBO
+        97. The Humans (人类竞赛)
+        过关密码：
+        1  	DARWIN           	2  	ANDIE PANDY      	3  	GET A LIFE
+        4  	CARLOS           	5  	HOWIE            	6  	MOOBLE	
+        7  	CSL              	8  	THE HUMBLE ONE   	9  	PlXIE	
+        10 	MILESTONE        	11 	WAR WAR WAR      	12 	J MCKINNON
+        13 	UNLUCKY          	14 	BLUE MONKEY      	15 	RED DWARF	
+        16 	BAD TAS          	17 	THE KITCHEN      	18 	CJ	
+        19 	SORT IT OUT      	20 	SMART            	21 	VlLLA3BORO2
+        22 	EARLY MORNING    	23 	BOBO4LEEDS1      	24 	EASY LIFE	
+        25 	JIMS TIES        	26 	PARKVlEW         	27 	NICENEASY	
+        28 	GREEN CARD       	29 	COORIE           	30 	MALCY MALC
+        31 	RAVING BUBK      	32 	YOU GOT IT       	33 	SGNIMMEL	
+        34 	MINISTRY         	35 	MAD FREDDY       	36 	BIZABRE	
+        37 	FREE SCOTLAND    	38 	APPLE JUICE      	39 	PAYDAY	
+        40 	BANANNA MOON     	41 	BONUS            	42 	BOUNCING	
+        43 	NO MONEY         	44 	A S F            	45 	VlSlON	
+        46 	SISTERS          	47 	FAST FASHION     	48 	CARGO	
+        49 	RAB C NESBITT    	50 	RANGERS          	51 	RAlNBOW	
+        52 	DOODY            	53 	MIGHTY BAZ       	54 	TIRED	
+        55 	CONSOLEDATED     	56 	STAYHAPPY        	57 	AMERICA	
+        58 	ANOTHER DAY
+        98.时空战警(TIME COMMANDO)
+        TIME  COMMANDO是款全新的3D动作游戏，这里提供游戏的过关密码，虽然游戏分四个等级，但用密码进入游戏关数时，游戏难度有一定的随机性。
+        		场景名称		密码	
+        第一关  	ROMAN EMPIRE      	UDELWYHA	SYMBDABU	KCNTOZHZ	QJSLVABL
+        第二关  	JAPANESE MIDDLE AGE   	OUJAHCHU  	ETSIZCHS  	MPSQNDAM	KAYAGEAF
+        第三关  	EUREPEAN MIDDLE AGE   	QTRRQOKS  	OOAIXPDM  	QTRRQOKS	MZFSPQDD
+        第四关  	CONQUISTADORS         	EPYIGENJ  	UNHRYENH  	CKHZMFGC	AVMJFGGU
+        第五关  	WILD WEST             	IPNRWRJK  	EVBSVTCV  	GKWHDTCE	YNWZOSJI
+        第六关  	MODERN WARS           	CGTGHVIE  	SECPZVIC  	ABCXNWBX	YLHHGXBO	
+        第七关  	FUTURE                	EFBYQHME  	EFBYQHME  	ALPYPJFD	UDKGJIMD
+        第八关  	BEYOND TIME           	CWFLWYHC  	AROBDABX  	YBULVABN	OOCPLMEH
+        99.蓝波王子 (BLACKTHORNE)
+        游戏的过关密码分别如下：
+        第一关	STRT		第九关		XJSN		第十七关	J6BZ
+        第二关	SJ5Z		第十关		CGDM		第十八关	MJXG
+        第三关	DBQT		第十一关	TJ1F		第十九关	K3CH
+        第四关	FBWC		第十二关	GSG3		第二十关	L8VJ
+        第五关	QP7R		第十三关	BMHS		第二十一关	PBKT
+        第六关	WJTV		第十四关	Y4DJ		第二十二关	Y4DJ
+        第七关	RRYB		第十五关	HCKD		第二十三关	FMWY
+        第九关	ZS9P		第十六关	NRLF		第二十四关	L2RP
+        
+        100.街头篮球 (JAMMIT)
+        游戏的过关密码分别如下：
+        CHILL 	     ROXY 	      SALDE
+        TZMYNYN 	    DKRBNSN	     MRKYMCY
+        THMSLNS 	    STPKRNR	     HNSFJLD
+        DNWYGLL 	    SSNHYDN	     DWGTSTN
+        DLMRVNN 	    JNFRBCN	     DMDWYDZ
+        MRNLYNG 	    LRNCHLS	     TRYBRNM
+        MKGLSCK 	    PLWRHDS	     BRNMCMN
+        THMSCSY 	    STWSPKN	     JSPHKSC
+        JRBRGHT 	    BBSKNNR	     PHLSRGR
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

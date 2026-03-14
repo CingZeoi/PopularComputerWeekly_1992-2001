@@ -1,0 +1,134 @@
+常用硬盘接口类型
+
+
+1994-01-07
+
+        1.ST506/412接口
+        ST506/412接口，其中ST是Seagate Technologies(Seagate技术)的缩写。该接口是由Seagate公司开发并首先用于ST506型硬盘机。它最多可支持四个硬盘驱动器，最大硬盘空间为150MB。该接口目前用途十分广泛，在PC/XT中使用的都是这种接口(例如5101控制卡)，在PC/AT使用的5280卡也是这种接口。它的缺点是容量很难做大，由于该接口输出数据是未经分离的MFM制编码脉冲，需送到硬盘控制器进行数据分离。因此会造成数据不太可靠和传输速率低等问题。它的传输速率每秒为5MB。该接口由34条命令线和20根数据线两部分组成。(1)ST506/412硬盘接口信号(控制命令部分)分配如表1所示。
+        表1 ST506/412硬盘接口信号(控制命令部分)分配
+        
+        信号名称             I/O    信号引脚     地线引脚
+        -Hend Selec 2^3     磁头选择2^3    I        2           1
+        -Hend Selec 2^2     磁头选择2^2    I        4           3
+        -Write Gate         写选通         I        6           5
+        -Seek Complete      寻道完成       O        8           7
+        -Track 00           -0-磁道        O        10          9
+        -Write Fault        写故障         O        12          11
+        -Head Selec 2^0     磁头选择2^0    I        14          13
+        Reserved           保留                    16          15
+        -Head Selec 2^1     磁头选择2^1    I        18          17
+        -Index/-Sector      索引/-扇区     O        20          19
+        -Ready              准备好         O        22          21
+        -Step               步进           I        24          23
+        -Drive Select 1     驱动器选择1    I        26          25
+        -Drive Select 2     驱动器选择2    I        28          27
+        -Drive Se;ect 3     驱动器选择3    I        30          29
+        -Drive Select 4     驱动器选择4    I        32          31
+        -Direction In       方向选择       I        34          33
+        数据传送接口连接器是一个20引脚的PCB边缘连接器(J3/J2)。与硬盘驱动器往返交换的读写数据通过此接口。接口电缆应不长于20英尺。此接口还有一个来自驱动器的状态信号，来表示驱动器“已被选择”。
+        (2)硬盘驱动器与硬盘控制器板之间数据接口信号的连接方法如表2所示。
+        表2 ST506/412硬盘接口信号(数据部分)分配
+        	    信号名称    	I/O	信号引脚
+        -Drive Seleced	-驱动器已被选择	I	1
+        +MFM Write Data	+MFM写数据	O	13
+        -MFM Write Data	-MFM写数据	O	14
+        +MFM Read Data	+MFM读数据	I	17
+        -MFM Read Data	-MFM读数据	I	18
+        GND	 	 	地		2,4,6,8,10,11,12,15,16,19,20
+        Reserved	 	保留		3,5,7,9
+        2.AT BUS接口
+        AT BUS接口，又称为IDE接口，这里的IDE是integrated drive electronics的缩写，该接口是当前新型硬盘驱动器普遍采用的一种新接口。此接口适合于单用户，可最大管理330MB的硬盘。它的传输速率比ST506/412高，可达每秒7.5MB以上。该接口不需写补偿“减少写电流”，DOS版本不能低于3.3。该接口采用单一的插头，由40根命令线和数据线混合在一起组成。
+        3.ESDI接口
+        ESDI(Enhanced Small Device Interface)接口，可译为增强型小设备接口，是由美国的Maxtor,Shugart,CDC和XEBEC等公司联合设计开发的。ESDI接口，它的数据传输速度为每秒10MB，是ST506/412接口的两倍。EDSI是设备级的接口，它直接接到硬盘驱动器上，并控制基本的操作，如寻道和磁头选择等。它最多可支持四个硬盘驱动器，硬盘空间最多可支持40-300MB，最大能达到600MB。该接口支持高速数据传输和需要硬盘驱动器具有某些智能(最高传输率可达15MB/S)。同ST506/412接口一样，也是由34根命令线和20根数据线组成，大部分命令号线与ST506/412接口都是一致的，只是增加了一些信号。数据线的信号改变较多，读，写都改为不归零制(NRZ)编码数据，另外还有ESDI接口特有的信号。
+        表3 EDSI硬盘接口信号(控制命令部分)分配
+        		信号名称		       I/O    信号引脚	地线引脚
+        -Head Selec 2^3	磁头选择2^3		I	2	1
+        -Head Selec 2^2	-磁头选择2^2		I	4	3
+        -Write Gate		-写选通			I	6	5
+        -Seek Complete	-寻道完成/状态信号	O	8	7
+        -Track 00		-0磁道/传送确认		O	10	9
+        -Write Fault		-写故障			O	12	11
+        -Head Selec 2^0	-磁头选择2^0		I	14	13
+        Sector/Byte Clock	扇区/字节时钟		I	16	15
+        /Addres Mark Found   /地址标记发现
+        -Head Selec 21	-磁头选择2^1		I	18	17
+        -Index/-Sector	-索引/-扇区		O	20	19
+        -Ready		-准备好			O	22	21
+        -Step			-步进/请求传送		I	24	23
+        -Drive Select 1	-驱动器选择1		I	26	25
+        -Drive Select 2	-驱动器选择2		I	28	27
+        -Drive Select 3	-驱动器选择3		I	30	29
+        -Direction In		-步进方向/命令数据	I	32	31
+        -Read Gate		-读选通			I	34	33
+        
+        表4 EDSI硬盘接口信号(数据部分)分配
+        	    	 信号名称    			I/O	信号引脚
+        -Drive Seleced	-驱动器已被选择		I	1
+        Sector/Byte Clock	扇区/字节时钟
+        /Addres Mark Found	/地址标记发现		I	2
+        -Seek Complete	-寻道完成/命令执行完	I	3
+        -Address Mark Enable	-地址标记允许		O	4
+        -Write Protected	-写保护			I	5
+        -Write Clock		-写时钟			O	7
+        +Write Clock		+写时钟			O	8
+        -Cartridge Change	-更换盘片		I	9
+        +Read/Refrence Clock	+读/参考时钟		I	10
+        -Read/Refrence Clock	-读/参考时钟		I	11
+        +MFM Write Data	+MFM写数据		O	13
+        -MFM Write Data	-MFM写数据		O	14
+        +MFM Read Data	+MFM读数据		I	17
+        -MFM Read Data	-MFM读数据		I	18
+        -Index		-索引			O	20
+        GND	 		地			6,12,15,16,19
+        4.SCSI接口
+        SCSI(Small Computer System Interface)接口，中文的意思是小计算机系统接口，是诺 尔(    Novell)公司生产的高速硬盘接口，又称为硬盘协处理板(Disk Coprocessor Board)，SCSI是一种系统级的接口，可以同时接到不同设备的任何一种(如硬盘驱动器，光盘驱动器，磁带驱动器、扫描仪和打印机等)上，并通过高级命令与它们进行通讯。它的传输速率达到每秒10MB，最多可支持32个硬盘，硬盘空间可达1G。SCSI接口也支持高速数据传输和需要硬盘驱动器具有某些智能，它需要 硬盘驱动器的智能比ESDI接口的智能要多一些。该接口要求硬盘驱动器具有智能的SCSI电子线路和设备级的连接，以控制硬盘。因此它的成本比ESDI接口要高。这也是目前ESDI接口在PC机市场中比SCSI接口得到更广泛地应用的主要原因。但是SCSI仍具有ESDI所无法比拟的优越性。一台SCSI驱动器能接受命令，在批处理命令时可以同总线断开，然后重新与主控制器相连。用此方法，多台SCSI驱动器能同时处理命令或传输数据。这一特点非常适用于网络服务器和多用户系统。Novell网络服务器就是采用了SCSI方式。该接口由50根命令线和数据线组成。
+        	
+        	表5 SCSI接口信号(按差分形式传送)接线表
+        
+        信  号		插头脚号	信  号		插头脚号
+        SHIELD DROUND		1		TERMPWR		26
+        GROUND		2		GROUND		27
+        +DB(0)		3		GROUND		28
+        -DB(0)		4		+ATN		29
+        +DB(1)		5		-ATN		30
+        -DB(1)		6		GROUND		31
+        +DB(2)		7		GROUND		32
+        -DB(2)		8		+BSY		33
+        +DB(3)		9		-BSY		34
+        -DB(3)		10		+ACK		35
+        +DB(4)		11		-ACK		36
+        -DB(4)		12		+RST		37
+        +DB(5)		13		-RST		38
+        -DB(5)		14		+MSG		39
+        +DB(6)		15		-MSG		40
+        -DB(6)		16		+SEL		41
+        +DB(7)		17		-SEL		42
+        -DB(7)		18		+C/D		43
+        +DB(Parity)		19		-C/D		44
+        -DB(Parity)		20		+REQ		45
+        DIFFSENS		21		-REQ		46
+        GROUND		22		+I/O		47
+        GROUND		23		-I/O		48
+        GROUND		24		GROUND		49
+        TERMPWR		25		GROUND		50
+        	
+        	  表6 SCSI接口信号(按单端方式传送)接线表
+        
+        信  号	插头脚号	信  号		插头脚号
+        -DB(0)	2	        GROUND		28
+        -DB(1)	4		GROUND		30
+        -DB(2)	6		-ATN		32
+        -DB(3)	8		GROUND		34
+        -DB(4)	10		-BSY		36
+        -DB(5)	12		-ACK		38
+        -DB(6)	14		-RST		40
+        -DB(7)	16		-MSG		42
+        -DB(Parity)	18		-SEL		44
+        GROUND	20		-C/D		46
+        GROUND	22		-REQ		48
+        GROUND	24		-I/O		50
+        TERMPWR	26		GROUND		1，3，…，49
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

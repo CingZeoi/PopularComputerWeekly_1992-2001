@@ -1,0 +1,113 @@
+在Linux中实现RAID
+
+甘露 
+2001年 27期
+
+RAID（Redundant Array of Independent Disks）是把相同的数据存储在多硬盘上的一种技术，I/O操作交替在不同的硬盘上进行，因此，整个系统失效的时间将大大延长。因此，RAID也是我们对高要求系统常采取的一种系统维护方案。下面，我们就来看看如何在Linux下实现这一功能。
+　　#1一、准备工作
+　　准备RAID之前，提醒你将硬盘上的重要数据备份到软盘或光盘或磁带上，以免发生意外造成不必要的损失。当然你需要至少两块硬盘，最好保证硬盘的接口类型（IDE或SCSI）、参数（柱面数/磁头数/扇区数/转速/缓存/DMA）等是一致的。
+　　#1二、实现步骤
+　　第一步：关机，将第二块硬盘接到第一个IDE控制器的Slave接口上。
+　　注：假设你跟我一样把第一块硬盘挂在第一个IDE控制器的Master接口上，而CD-ROM接在第二个IDE控制器的Master上。
+　　第二步：启动系统，以Root身份登录，运行以下命令对硬盘进行分区：
+　　# fdisk /dev/hdb
+　　注：将第二块硬盘划分成一个主分区，建立一个/dev/hdb1分区
+　　当然，为了提高访问速度，你可以将硬盘进行比较细致的划分，尽可能将分区合理分布在不同的硬盘上。然后，再用Mdcreate将它们组合成一个mdx（x:1，2，3）。如果没有在以前对硬盘进行分区，确保你的/dev目录中已经设定了RAID硬盘，请参照下例：
+　　# mknod /dev/md0 b 9 0
+　　# mknod /dev/md1 b 9 1
+　　# chmod 0600 /dev/md﹖
+　　第三步：（1）如果你还在使用2.0.x的内核版本，可能需要连上Internet去找到与你的内核版本一致的补丁，因为它只支持RAID0，至于RAID-1、RAID-4和RAID-5，则需要补丁程序，然后才能支持。绝大多数的补丁都可以在RAID tools directory（ftp://ftp.kernel.org/pub/linux/daemons/raid/）里面找到，另外也可以在Ingo Molnar’s RAID patcher directory中找找，大多数的2.2内核版本都可以找到补丁。注意要使用与你的内核版本一致的补丁，假如不一致，可能导致无法使用，或者结果更糟。使用补丁时，首先进入内核源代码目录（/usr/src），然后使用patch命令，如下例：
+　　# cd /usr/src/linux
+　　# patch -p1 <~/raid-2.2.17-A0
+　　加入补丁完毕以后，使用以下选项来重新编译内核。
+　　注：如果你正在使用的核心是2.0.X，并且不是自己编译过的话，大多数情况下是支持软RAID的。如果不能确定，则应自己编译核心。在配置时，应选择对md（Multi-Device多设备）的支持。
+　　.CONFIG_BLK_DEV_MD=yes
+　　.CONFIG_MD_STRIPED=yes
+　　.CONFIG_MD_MIRRORING=yes
+　　.CONFIG_MD_RAID5=yes
+　　.CONFIG_MD_BOOT=yes
+　　.CONFIG_AUTODETECT_RAID=yes
+　　接着安装RAID tools（ftp://ftp.kernel.org/pub/linux/daemons/raid/raidtools-0.41.tar.gz）工具，这是一个只有48k的小程序。下载后，进行编译：
+　　# gunzip -d raidtools-0.9.tar.gz
+　　# tar -xvf raidtools-0.9.tar
+　　# cd  raidtools-0.9
+　　# ./configure
+　　# make
+　　# make install　
+　　make install在/dev下产生md0-md3共4个设备。
+　　单击OK按钮，完成安装。
+　　# mdcreate raid0 -c8k /dev/md0 /dev/hda1 /dev/hdb1
+　　将它Mount到根目录下的某个目录上，就可以正式使用了。安装方法如下：
+　　# mount 　/dev/md0 　/raid
+　　注：/raid为笔者在根分区建的一个Mount点
+　　使用mkraid命令创建你新定义的RAID硬盘，
+　　# mkraid /dev/md1 这样就可以生成一个新的设备：/dev/md1。
+　　同时，也需要在你新建的RAID硬盘上创建文件系统，
+　　# mke2fs -v /dev/md1
+　　注：在新的存储设备上建立Ext2文件系统
+　　启动新建立的RAID盘：
+　　# /sbin/mdadd -ar
+　　查看/proc/mdstats文件的内容，以检查RAID0的状态。
+　　# cat /proc/mdstats
+　　如果系统显示的跟下例相似：
+　　Personalities:[raid0]
+　　read—ahead 1024 sectors
+　　md0: active raid0 hda1[1]hdb1[0]2202416 blocks 8k chunks
+　　md1: inactive
+　　md2: inactive
+　　md3: inactive
+　　这说明RAID0已经正确执行了。然后将以下两个命令加入到Init.sysinit文件中，在文件系统初始化中加载RAID0，这样，只要系统一启动，首先就执行RAID，用户就不必再手工安装了。
+　　/sbin/mdrun -ar
+　　mount /dev/md0 /raid
+　　当然，如果你不觉得麻烦，也可以手工运行以上命令，以手动方式启动软RAID盘。
+　　（2）如果你使用的是最新的2.4内核版本，恭喜你，你可以省略到处找补丁和下载安装Raid tools的麻烦了，因为新发布的2.4内核已经在几个方面作了极大改进（新的版本中，本身就已经提供了Raidtools在/sbin目录中，有Raidtools的一系列工具，其中有Mkraid、Raid0run、Raidstop、Raidstart等一组工具。），包括更统一的配置，以及在/etc/raidtab目录中关于RAID更详细的说明文档，另外的好处是你可以不再写传统的脚本文档（scripts），Linux就可以自动识别和运行RAID卷了。
+　　如果不是你自己编译过的话，大多数Linux的发行版在一般情况下是支持软RAID的。如果不能确定，则应自己编译核心，编译方法同上。在配置时，应选择对md的支持。同时使用2.4内核版本的devfs功能。
+　　接着建立文件/etc/raidtab。一个简单的/etc/raidtab文件如下：
+　　raiddev /dev/md0（注：指明RAID设备）
+　　raid-level 0（注：指明将在RAID硬盘上建立何种RAID）
+　　nr-raid-disks 3（注：说明RAID硬盘上分区的个数）
+　　persistent-superblock 0（注：一般设定为1，但是如果使用的是已经有的老式的mdtools RAID硬盘，就必须设定为0）
+　　chunk-size 8k（注：说明RAID硬盘stripe的块大小，可以是从4k到128k，当然，应该是2的倍数。一般来说4k和8k是最常见的设定值，你可以试一下，哪个值最适合于你的系统）
+　　device      /dev/hda1
+　　raid-disk    0
+　　device      /dev/hdb1
+　　raid-disk    1
+　　device       /dev/hdc1
+　　raid-disk     2
+　　raiddev /dev/md1
+　　raid-level     5
+　　nr-raid-disks   4
+　　nr-spare-disks  1（注：如果使用RAID 5阵列，在此处说明spare的数量。注意只有两块硬盘是无法使用RAID 5的）
+　　persistent-superblock   1
+　　parity-algorithm  left-symmetric（注：说明将要使用的语法，通常使用“left-symmetric”能够增加性能）
+　　chunk-size  8k
+　　device     /dev/sda1
+　　raid-disk   0
+　　device     /dev/sdb1
+　　raid-disk   1
+　　device     /dev/sdc1
+　　raid-disk   2
+　　device     /dev/sdd1
+　　raid-disk   3
+　　device     /dev/sde1
+　　spare-disk  0
+　　一旦在/etc/raidtab定义好RAID硬盘以后，同样使用mkraid命令创建新定义的RAID硬盘。
+　　# mkraid /dev/md1 这样就可以生成一个新的RAID设备：/dev/md1。
+　　同时，也需要在你新建的RAID硬盘上创建文件系统。
+　　# mke2fs -v /dev/md1（注：在新的存储设备上建立Ext2文件系统）
+　　经过大约两三分钟，新的文件系统即可正确生成。做完这些必须的工作以后，加挂新的RAID硬盘，再试试是否正常工作了。
+　　# mount 　/dev/md0 　/raid（注：/raid为笔者在根分区建的一个Mount点）
+　　# raidstart -a（注：启动软RAID）
+　　# cat mdstat
+　　如果系统显示的跟下例相似：
+　　Personalities: [raid0]
+　　read—ahead 1024 sectors
+　　md0:active raid0 hda1[1] hdb1[0]2202416 blocks 8k chunks
+　　unused devices:
+　　恭喜你，这表明一切顺利，你的RAID0已正常运行了。
+　　#1三、注意事项
+　　值得注意的是LILO和Loadlin都需要一个没有stripped/mirrored的分区来读取内核的image映像文件，因此，如果你打算把根分区（/）也RAID，可能你将无法启动，这种情况下，你或者使用最初的ramdisk支持（使用mkinitrd命令建立你的ramdisk映像），或者注意下载网上的一些补丁。
+　　另外也建议你把RAID分区标志为0xfd类型，同时在配置文件中把CONFIG_AUTODETECT_RAID设为yes，这样你就不需要在一个初始化脚本文件中定义raidstart了，因为最新的内核版本会自动进入/etc/fstab目录，简单地对你的RAID硬盘与其他硬盘一视同仁，即便它被用作root device。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

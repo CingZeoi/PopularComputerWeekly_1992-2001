@@ -1,0 +1,224 @@
+WPS Office快捷键功能一览
+
+胡锦承 
+2001年 60期
+
+    WPS Office是在WPS 2000的基础上进行全面的改造和扩展的文字办公集成软件。它增加了全新的电子表格、多媒体演示制作、电子邮件管理以及网页、图片浏览等功能，能适应当今无纸化、网络化的电子办公模式。本文将WPS Office中常用的快捷操作键列出，供读者速查。
+　　#1    一、文件编辑快捷键
+　　#2    1．常用快捷键
+　　快捷操作键			功能详解
+　　Alt + Enter			对象属性
+　　Ctrl + \			删除后半行
+　　Ctrl + <			页面缩小10%显示
+　　Ctrl + >			页面放大10%显示
+　　Ctrl +↑			页面向上滚动
+　　Ctrl + →			光标移到当前段首
+　　Ctrl +↓			页面向下滚动
+　　Ctrl + ←			光标移到下一段首
+　　Ctrl + A			选择全文
+　　Ctrl + Alt + F			字体组合框
+　　Ctrl + Alt + R			比例组合框
+　　Ctrl + Alt + S			字号组合框
+　　Ctrl + B			粗体字
+　　Ctrl + Back Space		删除光标所在位置到行首的所有字符
+　　Ctrl + Delete			删除光标所在位置到行末的所有字符
+　　Ctrl + End			光标移至文件末尾
+　　Ctrl + F			查找
+　　Ctrl + H			替换
+　　Ctrl + Home			光标移至文件头
+　　Ctrl + I			斜体字
+　　Ctrl + Insert			插入分栏符
+　　Ctrl + L			页面设置对话框
+　　Ctrl + M			设置书签
+　　Ctrl + N			建立新文件
+　　Ctrl + O			打开文件
+　　Ctrl + P或F9			打印输出
+　　Ctrl + Enter			插入换页符
+　　Ctrl + S或F2			文件存盘
+　　Ctrl + Shift + Alt +C		将选定文字设变为默认字体属性
+　　Ctrl + U			加下划线
+　　Ctrl + Y			重复操作
+　　Ctrl + Z			恢复操作
+　　Ctrl + Shift +Alt + P		将选定段落设为默认段落属性
+　　Ctrl +T				删除一个句子
+　　End				光标右移至当前行末
+　　F3				查找下一个
+　　F4				文字校对
+　　F8				打印预览
+　　Home				光标移至当前行的开头，即第一列
+　　Shift + F1			在线帮助
+　　#2    2．DOS风格快捷键
+　　快捷操作键			功能详解
+　　Ctrl + K + S			正在编辑的文件存盘，继续编辑
+　　Ctrl + K + V			将定义的块移到当前位置
+　　Ctrl + K + W			将定义的块写入磁盘文件
+　　Ctrl + K + X			正在编辑的文本存盘，停止编辑，退出WPS系统
+　　Ctrl + K + Y			将定义的块删除
+　　Ctrl + K + Z（F6）		水平分割窗口
+　　Ctrl + L			查找下一个
+　　Ctrl + O + D			取当前日期到当前光标位置
+　　Ctrl + O + F			标尺显示开关
+　　Ctrl + O + I			设定制表站
+　　Ctrl + O + P			设置或修改密码
+　　Ctrl + O + T			取当前时间到当前光标位置
+　　Ctrl + O + W			取当前星期到当前光标位置
+　　Ctrl + P + A			选择字体
+　　Ctrl + P + B			选择字型字号
+　　Ctrl + P + C			选择上下划线
+　　Ctrl + P + D			选择修饰
+　　Ctrl + P + F			选择英文字体
+　　Ctrl + P + K			选择字符间距
+　　Ctrl + P + L			选择行间距
+　　Ctrl + P + M			选择立体字
+　　Ctrl + P + O			选择打印颜色
+　　Ctrl + P + U			设置页眉
+　　#1    二、电子表格快捷键
+　　#2    1．非编辑状态下的快捷键
+　　快捷操作键			功能详解
+　　Alt + Back Space		撤消
+　　Alt + Enter			单元格属性设置
+　　Alt + Shift + F1		插入工作表
+　　Ctrl + 0			隐藏列
+　　Ctrl + 1			单元格属性设置
+　　Ctrl + 7			打开或隐藏常用工具条
+　　Ctrl + 9			隐藏行
+　　Ctrl + A			选择所有单元格
+　　Ctrl + Alt + F9			重计算当前工作薄
+　　Ctrl + Back Space		重复
+　　Ctrl + F			查找
+　　Ctrl + F3			定义名称
+　　Ctrl + H			替换
+　　Ctrl + Insert			拷贝
+　　Ctrl + K			超级链接
+　　Ctrl + L			页面设置
+　　Ctrl + Page Down		切换到上一个工作表
+　　Ctrl + Page Up			切换到下一个工作表
+　　Ctrl + S			保存文件
+　　Ctrl + Shift + 0		取消隐藏列
+　　Ctrl + Shift + 9		取消隐藏行
+　　Ctrl + Shift + F3		指定名称
+　　F2				编辑当前单元格
+　　Shift + Delete			剪切
+　　Shift + F11			插入工作表
+　　Shift + F5			查找
+　　Shift + Insert			粘贴
+　　#2    2．编辑状态下的快捷键
+　　快捷操作键			功能详解
+　　Alt + Enter			在单元格中折行
+　　Back Space			编辑活动单元格，然后清除该单元格，或在编辑单元格内容时删除活动单元格中前面的字				符
+　　Ctrl +；			输入日期
+　　Ctrl +Delete			删除插入点后的一个单词
+　　Ctrl +Enter			用当前输入项填充选定的单元格区域
+　　Ctrl +Shift+:			输入时间
+　　Delete				删除插入点右边的字符，或删除选定区域
+　　Enter				完成单元格输入
+　　ESC				取消单元格或编辑栏中的输入项
+　　Tab				完成单元格输入并在选定区域中右移
+　　#1    三、演示制作快捷键
+　　#2    1．编辑功能快捷键
+　　快捷操作键			功能详解
+　　Alt + Delete			删除当前页
+　　Alt + Enter			弹出对象属性设置对话框（若当前没选中对象，则弹出页面设置对话框）
+　　Alt + Insert			在当前页插入新页
+　　Ctrl + A			全选（当前页对象）
+　　Ctrl + Alt + F			设置字体
+　　Ctrl + Alt + R			设置显示比例
+　　Ctrl + Alt + S			设置字体大小
+　　Ctrl + B			文字加粗（或清除）
+　　Ctrl + Delete			删除当前页
+　　Ctrl + Enter			进入版式对象编辑状态，或插入新页
+　　Ctrl + F			查找
+　　Ctrl + F1			“关于…”对话框
+　　Ctrl + F5			演示播放（从第一页开始）
+　　Ctrl + H			替换
+　　Ctrl + I			文字添加或清除斜体
+　　Ctrl + Insert			复制
+　　Ctrl + L			页面设置
+　　Ctrl + N			新建演示稿
+　　Ctrl + O			打开演示稿
+　　Ctrl + S			文件存盘
+　　Ctrl + Shift + U		文字添加或清除着重号
+　　Ctrl + U			文字添加或清除下划线
+　　Ctrl + P			文件打印
+　　End				跳到最后一页（当没有对象处于文字编辑状态时）
+　　F2				文件存盘
+　　F5				从当前页开始播放
+　　F8				打印预览
+　　F9				文件打印
+　　Home				跳到第一页（当没有对象处于文字编辑状态时）
+　　Page Down			跳到下一页
+　　Page Up				跳到上一页
+　　Shift + Delete			剪切
+　　Shift + Insert			粘贴
+　　#2    2．播放时可用的快捷键
+　　快捷操作键			功能详解
+　　<Number>+Enter			跳转到第X页演示页
+　　B				黑屏，或从黑屏返回演示播放
+　　Back Space			执行上一个动画或返回到上一演示页
+　　Ctrl +A				重新显示隐藏的鼠标指针和将指针改变成箭头
+　　Ctrl +H				立即隐藏鼠标指针
+　　Ctrl +P				显示绘图笔
+　　E				擦除屏幕上的绘画
+　　Enter				执行下一个动画或切换到下一演示页
+　　Esc或Ctrl + Back Space		退出演示播放
+　　N				执行下一个动画或切换到下一演示页
+　　P				执行上一个动画或返回到上一演示页
+　　Page Up				执行上一个动画或返回到上一演示页
+　　Page Down			执行下一个动画或切换到下一演示页
+　　S				停止或重新启动自动演示播放
+　　Shift+F10			显示右键菜单
+　　W				白屏，或从白屏返回演示播放
+　　空格键				执行下一个动画或切换到下一演示页
+　　↑				执行上一个动画或返回到上一演示页
+　　↓				执行下一个动画或切换到下一演示页
+　　→				执行下一个动画或切换到下一演示页
+　　←				执行上一个动画或返回到上一演示页
+　　#1    四、网页浏览快捷键
+　　#2    1．编辑功能
+　　快捷操作键			功能详解
+　　Ctrl + A			网页内容全选
+　　Ctrl + C			选择内容拷贝（到系统剪贴板）
+　　Ctrl + F			网页内容查找
+　　Ctrl + V			粘贴剪贴板内容
+　　Ctrl + X			（在编辑框内）将选择内容剪切到剪贴板
+　　#2    2．网页浏览功能	
+　　快捷操作键			功能详解
+　　Alt + Home			返回默认主页
+　　Alt + ←			返回到上一页
+　　Alt + Enter			弹出网页属性对话框
+　　Alt + →			浏览下一页（在历史记录中相对于当前页）
+　　Ctrl + H			显示或隐藏历史记录树
+　　Ctrl + I			显示或隐藏收藏夹记录树
+　　Ctrl + N			新建默认主页
+　　Ctrl + O			弹出“打开”对话框
+　　Ctrl + P			网页打印
+　　Ctrl + S			网页保存
+　　Esc				停止下载当前浏览网页
+　　F11				全屏显示
+　　F5				刷新当前网页
+　　Shift + Esc			停止下载所有网页
+　　Shift + F1			显示“在线帮助”
+　　Shift + F5			刷新所有网页
+　　#2    3．使用地址栏时的操作
+　　快捷操作键			功能详解
+　　Alt + D				焦点移到地址栏
+　　Ctrl + Enter			自动补充网址为http://www.***.com的形式
+　　Down				（当焦点在地址栏）显示地址组合框的下拉列表框
+　　F4				显示地址组合框的下拉列表
+　　#1    五、图片浏览快捷键
+　　#2    1．主界面快捷键
+　　快捷操作键			功能详解
+　　Back Space			上一级目录
+　　Ctrl + C			拷贝图片内容
+　　F5				刷新文件列表框
+　　#2    2．大图浏览快捷键
+　　快捷操作键			功能详解
+　　-				缩小
+　　＋				放大
+　　Ctrl +C				拷贝图片内容
+　　Ctrl +F或F11			（切换）显示
+　　Page Down			下一幅图
+　　Page Up				上一幅图 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

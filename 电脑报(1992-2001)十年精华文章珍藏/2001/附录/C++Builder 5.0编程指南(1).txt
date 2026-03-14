@@ -1,0 +1,377 @@
+C++Builder 5.0编程指南(1)
+
+木子 
+2001年 60期
+
+#1    一、IDE界面介绍
+　　　　打开BCB总是出现下面的四个窗口，并且默认创建一个可以立即执行的空应用程序，这个程序只有一个和窗口设计界面一样的窗口。（^60090205a^）
+　　    1． 对象观察窗口（Object Inspector）
+　　    浏览和修改对象的属性（Properties）和事件（Events）。打开查看窗口的快捷键是F11，
+　　  　每个对象都有特定的属性和事件，我们将在后面做介绍（^60090205b^）。
+　　    2． 代码编辑窗口
+　　    （^60090205c^）
+　　　　代码窗口左边的代码浏览器，列出了代码结构，可以通过它快速定位到特定的代码段。代码编辑器具有很强的自动感应功能，只要程序员键入“->”或者“.”符号，立即就显示出成员变量和成员函数的索引，极大提高了代码的书写效率和准确率，使用“Ctrl+空格”组合键也相同的功能。可是在中文Windows系统下“Ctrl+空格”是打开默认中文输入法，这就要在控制面板中的输入法设定中修改热键了。同样，在编写调用某个函数的代码中键入左括号，编辑器将提示函数的参数名和类别，此功能的组合键是“Ctrl+Shift+空格”。
+　　    3．BCB5.0的主菜单和工具栏按钮
+　　　　BCB的全部功能都能在主菜单中找到相应的菜单项。下面作一个简单介绍：
+　　    （1）File菜单
+　　    （^60090205d^）
+　　    创建项目的选择窗口：
+　　    包含各种类型的程序单元及一些对象创建向导，New页面包含最常用的项目：
+　　    Application：创建一个新的工程，包含一个窗口和窗口的单元文件（.cpp和.h）；
+　　    Batch File：创建扩展名为.bat的批处理文件；
+　　    Component：打开组件创建向导；
+　　    Console Wizard：打开控制台程序创建向导；
+　　    Cpp File：添加一个.cpp文件；
+　　    Data Module：创建一个新的数据模块；
+　　    DLL Wizard：打开DLL（动态连接库）创建向导；
+　　    Form：添加一个空白窗口到当前工程；
+　　    Frame：创建一个组件框架；
+　　    Header File：添加一个头文件；
+　　    Library：创建一个库；
+　　    Package：创建一个组件包，可以封装方法并将包中组件安装到BCB的组件栏中；
+　　    Project Group：创建一个新的工程组；
+　　    Remote Data Module：创建一个远程数据模块；
+　　    Report：创建数据报表；
+　　    Resource DLL Wizard：打开创建资源DLL的向导；
+　　    Text：新建一个文本文件；
+　　    Thread Object：在当前工程中创建一个线程；
+　　    Unit：添加一个单元（包含一个.cpp文件和一个.h文件）。
+　　    （2）Edit菜单
+　　    （^60090205e^）
+　　    （3）Search菜单
+　　    （^60090205f^）
+　　    （4）View菜单
+　　    （^60090205g^）
+　　    （5）Project菜单
+　　    （^60090205h^）
+　　    （6）Run菜单
+　　    （^60090205i^）
+　　    （7）Component菜单
+　　    （^60090205j^）
+　　    （8）Database菜单
+　　    （^60090205k^）
+　　    （9）Tools菜单
+　　    （^60090205l^）
+　　    （10）Help菜单
+　　    BCB带有非常详尽的Help文本，还有非常详细的WinAPI函数文档，在IDE的任何位置按F1键都可以找到相关的资料。
+　　#1    二、界面设计
+　　　　大多数Windows下的应用程序是由Windows提供的基本元素组成，例如应用程序的窗口、按钮或者是菜单。BCB为我们提供了大量的窗口、按钮、文字输入框等，它们就是BCB中的组件。每个组件都由自己特定的功能，程序员只用关注组件具有什么功能、能够实现什么效果，而不必去考虑这个组件是怎样制作，或者它是由什么制作。这样我们编写程序就像搭积木一样，一块一块的将零散的部件通过我们的代码就连接成为一个整体。
+　　　　在这里我们首先了解怎样将BCB提供的组件添加到程序的窗口上。
+　　　　组件分为可视组件和不可视组件：可视组件在工程设计或者运行阶段是可以显示的，如按钮、窗口等；不可视组件只是提供某种功能的实现而没有可视的界面，如对话框组件。
+　　　　在组件栏中选择一个组件（鼠标单击），然后在设计界面的窗口中用鼠标拖出组件的大小，或者双击组件栏上组件的图标，按组件默认大小和位置添加到设计窗口。同时组件也支持复制、粘贴等操作，粘贴的组件和复制的组件有相近的属性。
+　　    1．调整组件的位置
+　　　　调整组件位置有很多的技巧，可以用鼠标拖动，也可以在属性编辑窗口中调整组件的位置属性，也可以使用Ctrl+上、下、左、右方向键，或者是Ctrl+Shift+方向键，或者使用Edit菜单中的Align（对齐）功能来实现。
+　　　　为了避免误操作改变组件的位置，可以在Edit菜单中选择Lock Controls功能，这时候就只能用修改属性和菜单中的调整功能了。
+　　    2．选择组件
+　　　　可以用鼠标框线、Shift或者Ctrl键加鼠标单击组件的方式一次选择多个组件进行控制。在设计窗口的空白处单击鼠标左键不放，拖动鼠标，让虚线框框住一个或多个组件，放开鼠标按键就完成选择，但是一些组件是添加在其它组件中间的，鼠标拖拽会带动组件移动，可以按住Ctrl键完成框选工作来避免。
+　　　　当我们需要选择一个组件，然而这个组件恰好被其它组件完全覆盖时，可以在对象观察窗口中选择它，或者选择到这个组件中包含的子组件，然后按下Esc键。同样再次按下Esc键会选择到这个组件的父组件，最终会选择到包含这些组件的窗口。
+　　    3．使用对象观察窗口
+　　　　对象观察窗口会显示当前选中组件的属性和事件，如果选中的是多个组件，则显示这些组件相同的属性和事件。
+　　　　现在我们学会了把组件放上窗口，在让它们为我们工作以前，我们得先学会一种能管理和指挥它们的语言C/C++。Borland C++ Builder（BCB）是工具，而C/C++才是语言。
+　　#1    三、什么是C/C++?
+　　　　C语言是使用非常广泛的编程语言，C++是在C语言的基础上发展而来的，可以说C++是C的超集。C++兼容C的很多语法，但是也有C没有的限制，不过C编写的代码可以在C++中进行少量修改或者无需修改就可以正常运行。
+　　    1．编写C/C++代码
+　　void __fastcall TForm1::FormCreate（Tobject *Sender）
+　　　　{
+　　	Form1->Caption = "Hello World!";
+　　　　}
+　　　　这条简单的语句意思是在创建窗口时将窗口（Form1）的标题（Caption）设定为"Hello World!"。其中
+　　void __fastcall TForm1::FormCreate（Tobject *Sender）
+　　	{
+　　	}
+　　　　是由编辑器自动生成的。在设计窗口的空白处双击鼠标，代码窗口中就会定位在窗口的创建函数中。在对象观察窗口的Events（事件）页面，双击某个事件，编辑器也会自动生成该事件的处理函数。关于具体组件的属性和事件将在VCL组件的应用中详细说明，这里我们重点关注C/C++的语法特点。
+　　　　C/C++代码的书写给程序员很大的灵活性，代码并不需要写在同一行上，每个语句总是以分号结束。上面的语句可以写成:
+　　Form1->Caption =
+　　　　"Hello World!";
+　　    2．变量、赋值
+　　　　变量可以储存一定的数据，变量名由英文字母、数字和下划线组成，必须以英文字母或者下划线开头，一般编译器将下划线开头的变量作为特殊变量或者函数的开始。特别注意的是C/C++是区分大小写的，XYZ和xyz是两个不同的变量。
+　　　　变量声明由变量类型、变量名称组成：int a;   //声明变量a为整型变量
+　　　　双斜杆（//）是行注释符，它后面到行结束都是注释。C/C++也支持多行注释/*（注释开始）和?*/（注释结束）
+　　　　声明过的变量如果不赋一个初值，那么变量的值将是不确定的，这和VB等语言不同，必须养成在使用变量或者其它对象前进行初始化。C/C++允许变量在声明的时候赋一个初始值：int a = 100;  声明整型变量a，值为100
+　　　　也可以同时声明几个变量：int a， b = 10， c = 2;  声明了a，b，c三个变量，b，c有初始值。
+　　    3．变量的作用域
+　　　　变量的作用域决定了变量的使用范围，分为局部变量（Local）、全局变量（global）、静态变量（static）和外部变量（external）。
+　　　　局部变量的作用域只是在一个函数的内部，变量值的改变不会影响函数外同名变量。
+　　　　Void __fastcall TForm1::FormCreate（Tobject *Sender）
+　　		{
+　　		int x， y;   //声明局部变量x， y
+　　		x = 10;
+　　		y = 25;
+　　		ShowMessage（（String）（x * y））;   //显示x， y相乘的结果
+　　		}
+　　　　x， y就是局部变量，只能在函数中使用，函数结束它们就被释放了。
+　　　　C/C++的初学者可能会对ShowMessage（（String）（x * y））有疑惑。ShowMessage是Windows的API函数，作用是显示一个消息窗口，消息内容是这个函数的参数，参数是字符串型变量，（x * y）是整数型，不能直接赋值，因此需要使用强制转换语句（String）转化。
+　　　　静态变量与局部变量不同的是，变量只在第一次调用函数时赋初值，函数完成时保持变量值不变。
+　　	Void teststatic（）
+　　　　{
+　　	statics int Count = 0;   //声明一个静态变量，赋初值为0
+　　	Count = Count + 1;   //每调用一次函数Count加1
+　　	ShowMessage（（String）Count）;   //显示函数调用次数
+　　　　}
+　　　　同时Count又是teststatic函数的私有变量，因此不会被其它函数改变。
+　　　　全局变量在整个单元中可以被本单元的所有函数访问和修改，全局变量需要在函数体外声明，或者在单元的头文件中声明（.h），在一个新工程的窗口代码中可以看到有一个：
+　　　　TForm1 *Form1; 
+　　　　Form1是一个全局变量，也是一个指针类型的变量。
+　　　　外部变量将局部变量的作用范围扩大到整个应用程序，需要通过extern关键字声明。在代码编辑窗口中点击鼠标右键，在弹出菜单中选择 Open Source/Header File， 打开单元头文件就能看到 extern PACKAGE TForm1 *Form1; 将变量Form1声明为一个外部变量，让整个工程的单元都能够访问它。
+　　    4．变量类型
+　　　　C/C++支持一系列基本的数据类型，这些类型是由语言本身定义的，其它的任何数据类型都建立在这些基本类型的基础上。（^60090205m^）
+　　
+　　signed和unsigned是变量有无符号的修饰词，除了char类型外其它类型都是默认有符号（signed）。浮点类型变量受到计算机处理的精度限制，无法处理非常接近0的数字，只要对精度要求不是很高，我们都认为浮点类型是准确的。、
+　　    5．运算符
+　　　　C/C++支持大量的运算符，功能强大，相对其它语言显得很复杂。对于初学者主要建立对这些运算符的印象，并不需要立即把它们都弄明白。
+　　    （^60090205n^）
+　　#1    四、最常用的控制结构
+　　    控制结构可以用清晰的方式描述判断和循环。这里介绍最常用的if、while、for、do、switch。
+　　　　1．If语句
+　　　　语法：if（表达式）语句 [else 语句]
+　　　　　if（表达式）{执行代码} [else {执行代码}]
+　　　　方括号中的部分是可以省略的。
+　　　　例子：
+　　　　if（a == 0）ShowMessage（"a 等于 0"）;
+　　if（a == 0）ShowMessage（"a 等于 0"）; else ShowMessage（"a 不等于 0"）;
+　　　　
+　　　　if（a == 0）{
+　　   …
+　　　　} else {
+　　   …
+　　　　}	
+　　　　大括号{}中间可以由多条语句组成，if语句也可以嵌套使用，如：
+　　　　if（表达式）{执行代码} else if（表达式）{执行代码}
+　　
+　　　　2.while语句
+　　　　循环控制语句，原型：
+　　　　while（表达式）语句
+　　　　while（表达式）{执行代码}
+　　　　如：
+　　　　while（count < 10）{   //做十次循环
+　　　　…
+　　　　count++;
+　　　　}
+　　
+　　　　3．Do语句
+　　　　循环控制语句，原型：
+　　　　do 语句 while（表达式）
+　　　　do {执行代码} while（表达式）
+　　　　与while不同，do语句判断是否继续循环的控制条件是放在做完一次循环以后，就是说无论怎样，do都要完成第一次循环。当表达式值为假时就停止循环。
+　　　　4．For语句
+　　　　for循环是一个确定，不像while用一个表达式来控制循环，它的原型：
+　　　　for（[初始化条件] ; [循环结束条件] ; [增量]）执行代码
+　　　　
+　　　　for（int a = 0; a < 10; a++）{…}   //做十次循环
+　　　　原形中方括号部分可以省略，上面的程序也可以写为：
+　　　　int a = 0;
+　　　　for（;a++ < 10;a++）{…}
+　　	
+　　　　5．Switch语句
+　　　　条件选择语句，根据控制表达式的值选择执行相应的代码，原型：
+　　　　switch（表达式）
+　　　　{
+　　　　case 值1 :
+　　　　执行代码
+　　　　[break;]
+　　　　case 值2 :
+　　　　执行代码
+　　　　[break;]
+　　		…
+　　　　[default :
+　　　　		默认执行代码]
+　　　　}
+　　　　switch先计算表达式的值，然后执行对应的case部分。如果没有对应的case部分就转到default部分，用break表示结束，否则将执行到下面的分枝。Switch只能对整数操作，不支持对字符串和对象的操作。
+　　　　
+　　　　Char c;
+　　　　…
+　　　　switch（c）
+　　　　{
+　　　　case ＇a＇ :
+　　　　case ＇b＇ :
+　　　　case ＇c＇ :
+　　　　ShowMessage（"有效值"）;
+　　　　	break;
+　　　　case ＇d＇ : 
+　　　　ShowMessage（"无效值"）;
+　　　　	break;
+　　　　default : ShowMessage（"不确定值"）;
+　　　　}
+　　　　只要c等于＇a＇， ＇b＇或者＇c＇都显示有效值。
+　　　　
+　　#1    五、指针
+　　　　指针使得C/C++语言变得强大，也让人难以理解，是众多朋友学习C/C++一大障碍。
+　　　　我们应该怎么理解指针？
+　　　　简单来说指针就是存贮内存地址的变量。
+　　    （^60090205o^）
+　　    看起来指针像个整型变量，它的特殊意义在于告诉处理器在内存的哪个位置可以找到数据。*p就可以访问p指针指向的值，如上面例子中的128。
+　　    【指针和实例】
+　　	int a = 128， b;
+　　	b = a;
+　　    a， b是int型变量，a对b赋值是数据拷贝，修改一个变量的值不会影响另一个变量。
+　　　　	Int a = 128;
+　　	int *p = &a;	
+　　    由于*p和a是指向同一个内存地址的值，所以
+　　	a = 32; 或 *p = 32;
+　　    它们是等价的。
+　　　　实际上我们很少用int类型的指针，因为这样意义并不大（除非作为函数可变参数，下一节函数将介绍），只是作为例子帮助大家理解指针。指针在大多数时候用作大量数据的传送。
+　　　　使用指针必须先为指针分配内存，且在使用完以后需要释放分配的内存：
+　　　　String *vStr;
+　　　　vStr = new String;   //为vStr分配内存空间
+　　　　*vStr = "Hello World!";
+　　　　String S = *vStr;   //赋值给字符串实例S
+　　　　delete vStr;   //释放指针
+　　　　
+　　　　对于例子中的实例S，访问它的成员要使用直接访问符号（.）
+　　　　S.Length（）   //计算字符串的长度
+　　　　而指针vStr访问成员就必须使用间接访问符号（->）
+　　　　vStr->Length（）
+　　　　
+　　　　【指针与数组】
+　　	int a[100];   //声明包含100个整型变量的数组
+　　	int I = 0;
+　　	while（I < 100）a[I++] = 25;   //将数组中的每个元素初始化为25
+　　
+　　	如果用指针来做：
+　　	int a[100]
+　　	int I = 0;
+　　	int *p = a;   //将数组a的开始地址传给指针
+　　	while（I < 100）*p++ = 25;
+　　	p首先指向a[0]，*p赋值为25，指针下移指向a[1]
+　　
+　　#1    六、函数
+　　　　在使用函数前必须对函数进行声明，还需要写函数的具体代码。声明函数的原型：
+　　　　函数返回类型 函数名（[参数]）;
+　　　　例如：int add（int a， b）;
+　　　　函数的实现代码：
+　　　　	int add（int a， int b）   //必须和声明的函数原形一致
+　　　　{
+　　　　   return a + b;   //返回a + b的值
+　　　　}
+　　    以后我们就可以对函数add进行调用：add（3， 5）;
+　　    如果函数不返回任何值，那么它的类型为void
+　　    void doSomething（int param）;    
+　　    函数不需要return语句返回值，但是可以用return;提前退出函数。
+　　　　Void doSomething（int &param）
+　　　　int a = 100;
+　　　　void doSomething1（int &param）
+　　　　void doSomething2（int param）
+　　　　void doSomething1（int &param）
+　　　　{
+　　　　	*param = 25;
+　　　　}
+　　　　void doSomething2（int param）
+　　　　{
+　　　　	param = 25;
+　　　　}
+　　　　doSomething2（a）;
+　　　　ShowMessage（（String）a）;   //a等于100，值没有被改变;
+　　　　doSomething1（a）;
+　　　　ShowMessage（（String）a）;   //a等于25;
+　　　　
+　　　　【函数的重载】
+　　　　函数名称相同，有两种或几种不同的参数或返回值，编译器根据调用函数时的参数，选择对应的函数执行。下面的例子是一个类似条件运算符（?:）的函数。
+　　　　Int iif（bool express， int truevalue， int falsevalue）;
+　　　　String iif（bool express， String truevalue， String falsevalue）;
+　　　　
+　　　　int iif（bool express， int truevalue， int falsevalue）
+　　　　{
+　　　　   if（express）return truevalue; else return falsevalue;
+　　　　}
+　　　　String iif（bool express， String truevalue， String falsevalue）
+　　　　{
+　　　　   if（express）return truevalue; else return falsevalue;
+　　　　}
+　　	int a;
+　　	……
+　　	ShowMessage（iif（a > 2， "a大于2"， "a小于等于2"））;
+　　	int c = iif（a > 2， a * 10， a）;
+　　
+　　    【怎样声明、使用函数指针】
+　　　　一般函数的指针是在调用动态连接库里的函数和回调函数时使用。声明函数指针和声明变量指针有很大差别：
+　　　　void（*p）（）;   //声明一个没有参数，无返回值的函数指针p
+　　    可以将函数 void doSometing（）; 的地址赋给p
+　　    p = &doSomething;
+　　    p（）;    //调用doSomething
+　　    我们可以用更灵活的方式来使用指针：
+　　    int __fastcall doSomething（int param）;   //doSomething函数的原形
+　　    Pointer p = &doSomething;    //声明p为一个指针指向doSomething的地址
+　　    由于Pointer是没有规定类型的指针，所以在使用p调用doSomgthing函数时要先结果类型转换。
+　　    （（int（__fastcall *）（int param））p）（5）;
+　　
+　　#1    七、枚举、结构、类
+　　　　【枚举变量】
+　　　　枚举是一系列的条目。每个条目由编译器或者程序员分配一个识别数字，在编程的时候需要定义一系列常量（const），且保证这些常量各不相同，那么使用枚举将是非常有效率的。枚举的语法格式：
+　　　　enum [枚举名称] {
+　　　　	项目名称， 项目名称， ……
+　　　　} [枚举变量名称];
+　　    方括号（[]）中的内容是可以省略的
+　　
+　　    enum TMyColor {Red， White， Yellow}MyColor;
+　　    MyColor = Red;
+　　
+　　　　enum TMyNum {twelve = 12， thirteen， twenty = 20， twenty_one};   //注意：省略了枚举变量名但是不能省略最后的分号
+　　    twelve指定值为12，那么thirteen就是它前面一个值加1即13
+　　    TMyNum MyNum;   //声明MyNum是枚举变量
+　　    MyNum = twelve; 或者可以写成 MyNum = （TMyNum）12;
+　　
+　　    【结构】
+　　    结构由struct或者union关键字声明，结构包含各种成员，是公有访问类型数据成员的集合。它的语法格式如下：
+　　    struct 名称 [: 基类] {
+　　	数据类型的声明
+　　　　}[变量名];
+　　
+　　    enum Tsex {male ， female};
+　　    struct Temployee {
+　　	String name;
+　　	Tsex sex;
+　　	int age;
+　　　　};
+　　　　定义一个包含雇员的姓名、性别和年龄的结构：
+　　	Temployee employee;   //声明变量
+　　	emploree.name = "小丽";
+　　	employee.sex = female;
+　　	employee.age = 21;
+　　
+　　	结构是具有继承性的，它可以继承基类中的成员：
+　　	struct Tperson : Temployee   //从Temployee继承
+　　	{
+　　		String work;
+　　		float income;
+　　	};
+　　	Tperson person;
+　　	person.name = "小丽";   //从Temployee继承过来的成员
+　　	person.work = "秘书";   //Tperson自身的成员
+　　	……
+　　
+　　　　union和struct在语法上是一致的，不同的是union内部的所有成员都使用相同的内存地址和共同的内存空间，在你需要不同的时候保存不同类型的变量时这将非常有用。
+　　	Enum {Int， Float， Char};
+　　	struct Tcommondata {
+　　		int data_type;
+　　		union {
+　　			int intdata;
+　　			float floatdata;
+　　			char chardata;
+　　		};
+　　	}commondata;
+　　	
+　　	commondata.data_type = Int;   //表明存放的是整型变量
+　　	commondata.intdata = 10;
+　　	commondata.data_type = Char;   //表明存放的是字符变量
+　　	commondata.chardata = ＇A＇;
+　　	
+　　	struct和union可以包含多个struct或union结构：
+　　	enum {Int， Float， Char};
+　　	struct Tcommondata {
+　　		int data_type;
+　　		union {
+　　			int intdata;
+　　			float floatdata;
+　　			char chardata;
+　　		};
+　　		struct {
+　　			Pointer p;
+　　		} datapoint;
+　　	}commondata;
+　　	……
+　　	commondata.data_type = Int;   //表明存放的是整型变量
+　　	commondata.intdata = 10;
+　　	commondata.datapoint.p = NULL;    //赋一个空指针 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

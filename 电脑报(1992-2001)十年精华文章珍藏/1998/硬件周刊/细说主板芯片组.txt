@@ -1,0 +1,36 @@
+细说主板芯片组
+
+杨帆
+1998年 第41期 07版
+
+#1　　Slot 1主板芯片组系列
+　　毫无疑问，Intel是目前最大的PC处理器和芯片组生产厂商，当Intel成功地完成从Socket 7到Slot 1的战略转移后，迅速推出了适应于从个人电脑到服务器的多款处理器，并为不同系列的处理器量身定制了最适合的芯片组。
+　　Intel 440LX　Intel 440LX是第一种成熟的Slot 1芯片组，它为大流量数据传输和并发操作提供了崭新的解决方案。LX包括82443LX PCI AGP Controller（PAC）主芯片和82371AB PCI－TO－ISA／IDE Xcelerator（PⅡX4）I／O芯片。其中82443LX提供了总线接口、AGP接口、内存管理等功能，82371AB提供PCI－ISA桥接器、DMA控制器、即插即用等功能。440LX是为代号Klamath的233MHz到333MHzPⅡ处理器设计的，工作的标准频率是66MHz，值得一提的是LX芯片组第一次把AGP技术带到了Intel平台中，为PC机图形处理的发展指出了一条可行之路。
+　　440LX芯片组具有成熟的PⅡ芯片组应有的一切功能：它支持双PⅡ处理器；优化了DRAM控制器和数据通道，支持多达512MB的SDRA或EDO RAM内存；符合AGP1.0标准；支持Ultra DMA／33，改善了IDE设备的性能；提供DPMA（动态能源管理体系）；支持USB设备管理。但440LX存在一些先天上的缺点，其中最主要的是它的标准工作频率是66MHz。尽管一些使用LX芯片组的主板提供了75MHz、83MHz甚至100MHz的隐藏频率，但这实际上是在超频使用芯片组，当然不能保证系统的稳定性。另外，LX也不支持笔记本电脑。
+　　Intel 440BX（见^410701a^）　当PⅡ处理器的频率达到333MHz后，CPU的核心频率已经是66MHz时钟频率的5倍。过低的时钟频率降低了系统的数据传输率，限制了CPU主频的提升，对系统性能有很大的副作用。为了适应主频更高的Deschutes系列PⅡ处理器的需要，Intel于今年4月推出了440BX芯片集，开始向100MHz外频转移。
+　　Intel 440BX芯片组由82443BX主桥芯片和82371EB I／O（PⅡX4E）芯片组成。主芯片82443BX的功能主要包括：100MHz总线管理，133MHz数据传输的AGP接口，64位主内存接口等。82371EB I／O芯片提供了PCI2.1版本的PCI－ISA桥接器、增强的DMA控制器、USB控制器、即插即用等功能。Intel 440BX芯片组是Intel第一个同时支持66MHz和100MHz外频的芯片组，它可以充分发挥Deschutes系列PⅡ处理器（350MHz、400MHz、450MHz）的性能。或者，挖掘Klamath系列PⅡ的潜力。
+　　Intel 440BX芯片组具有440LX的一切功能并有所增强。它支持最多四个PⅡ处理器，可以稳定地运行在100MHz的频率，它使用Intel的四端口加速器，提高了CPU、AGP、SDRAM、PCI总线之间的数据传输带宽，并且在所有接口之间都有数据缓冲器，以便更好地适应大流量数据传输和并发操作的需要。440BX同样支持AGP1.0规格、Ultra DMA／33和USB设备，提供ACPI电源管理。它还支持ECC纠错和最高1GB的主内存，能够满足服务器应用的需求，同时具有笔记本电脑需要的节电控制功能，第一次把PⅡ芯片引入了笔记本电脑。
+　　440BX与440LX芯片组的最大不同点在于它除了可以运行于66MHz的时钟频率外还能稳定运行于100MHz。同样，440BX也可以超频到112MHz甚至133MHz的总线频率，不过条件要求苛刻且并不稳定。
+　　440BX芯片组显然是目前Slot 1市场的主流，可以说440BX为新一代PⅡ芯片组提供了标准规格。Intel曾经策划了440BX＋Deschutes、440LX＋Klamath和440EX＋Celeron高低搭配的市场战略。但是，大家都知道部分PⅡ266、PⅡ300和Celeron具有很好的超频能力，这些原本工作于66MHz外频的CPU和440BX搭配后，在100MHz的外频下性能大幅度提升，所以440BX成了Slot 1市场最受欢迎的芯片组。
+　　Intel 440EX　Intel 440EX是Intel公司推出的专用于Celeron系列处理器的芯片组，440EX＋Celeron的组合原本是Intel占领低端市场的利器。
+　　440EX芯片组包括82440EX主芯片和82371AB I／O芯片，实际上是440LX的精简版本。它同样工作在66MHz的时钟频率下，能够提供440LX的大部分功能，包括支持AGP、Ultra DMA／33、USB和ACPI。440EX与440LX的不同之处在它只支持最多两个DIMM插槽和三个PCI设备，并且不支持ECC纠错。
+　　众所周知，Celeron由于“先天不足”而倍受指责，幸而由于Intel精良的制造工艺使之有很好的超频能力，目前国内的Celeron用户大多使用了基于440BX芯片组的主板。这样一来440EX芯片组发挥的领域相当小，现在市场上基于440EX芯片组的主板并不多见。
+#1Slot 1兼容芯片组
+　　非Intel的Slot 1芯片组有VIA（威盛）的Apollo PRO（见^410701c^）、SiS（矽统）的5600／5595（66MHz）和5601／5595（100MHz）、Ali（扬智）的ALADDIN PROⅡ。（编者注：Slot 1兼容芯片组在本报10月19日第40期已有详述，请读者自行查阅。目前国内市场上只有基于Apollo PRO的主板）这些芯片组具有Slot 1结构要求的一切功能并且各有特色，它们的出现为Slot 1芯片组市场增加了不少活力。
+#1Socket 7主板芯片组系列
+　　当Intel宣布停止Pentium芯片的生产后，实际上已经是放弃了Socket 7市场。Intel在芯片组市场留下的空白立即为扬智、威盛和矽统这三间公司所填补。这些公司打破430TX的66MHz频率的局限，先后推出了拥有100MHz外频并支持AGP的Socket 7芯片组，大大缩小了Socket 7和Slot 1系统之间的差距。我们习惯地把这些Socket 7芯片组称之为“Super 7”芯片组。
+　　ALADDIN V（见^410701b^）　ALI（扬智）ALADDIN V是Super 7阵营的第一个成员，它包括编号M1541的北桥芯片和编号M1543的南桥芯片。M1541体积较大，采用456针BGA封装，相当于Intel芯片组的主桥芯片（PAC），提供CPU、Cache、AGP和主存的控制。M1543体积略小，采用328针的BGA封装，相当于Intel的I／O芯片。 
+　　ALADDIN V芯片组北桥芯片M1541的功能包括支持P54C、P55C、K5、K6、K6－2、6x86、6x86MX、C6等CPU和高达1GB的主存；支持同步与非同步PCI时钟输出，以增加系统的稳定性；支持AGP1x（66MHz）和AGP2x（133MHz）；集成了L2 Cache控制器，支持最多1MB的L2 Cache；提供最多5组PCI设备的驱动能力等。ALADDIN V的南桥芯片M1543集成了IDE接口和I／O控制器，提供对Ultra DMA／33、ACPI的支持等。
+　　ALADDIN V芯片组的特点在于它对6x86／6x86MX和AMD K6支持很好，它支持6x86／6x86MX特有的Linnear burst Cache模式和K6的Write Allocate模式，可能有助于更好地发挥这两种芯片的性能。集成度高是 ALADDIN V的另一个优势，它的南桥芯片M1543集成的Tag SRAM和Super I／O芯片为主板生产厂商提供了不少方便，同时也更好地保证了这些部件的质量。
+　　SiS 5591（见^410701c^）　SiS（矽统）SiS 5591芯片组其实并不是真正的Super 7芯片组，它只提供最大90MHz的时钟频率。它支持全系列Socket 7处理器，由533针BGA封装的SiS 5591北桥芯片和208针PQFP封装的SiS 5595南桥芯片组成，SiS 5591北桥芯片的的主要功能有：集成了L2 Cache控制器，DRAM控制器和AGP控制器；支持AGP1x／2x模式，同步与非同步PCI时钟输出和最多五组PCI设备。南桥芯片SIS 5595提供PC97／98的APCI，Ultra DAM／33和Flash ROM控制接口的支持。
+　　SiS 5591芯片组同样支持高达1MB的L2 Cache，但它最多只支持三个DIMM插槽和768MB的主存。其特点是SiS 5595南桥芯片增加了Post Write Buffers和Read Prefresh Buffers功能，可以提升系统的性能。
+　　APOLLO MVP3（见^410701d^）　VIA（威盛）APOLLO MVP3或许是现在最为成功的Super7芯片组。它同样支持所有的Socket 7处理器。它包括一颗476针BGA封装的VT82C598（BABY AT结构）或VT82C598AT（ATA结构）北桥芯片和一颗208针PQFP封装的VT82C586B南桥芯片。其中北桥芯片使用0.35微米高速低功率工艺制造，主要为CPU、SDRAM、AGP、PCI提供控制，南桥芯片VT82C586B集成了IDE接口和Super I／O接口，提供EIDE、PC97／98 ACPI、Ultra DMA／33的支持。
+　　APOLLO MVP3支持AGP1.0、UltraDMA／33、PC97／98 ACPI同步与非同步PCI时钟输出等功能。它支持最大2MB的L2 Cache和1GB的主存。其独有的特点在于它提供了SDRAM异步运作方式，当系统频率达到100MHz时，SDRAM可以工作于66MHz的频率下，虽然系统性能有所下降，但仍能正常运行，这对使用66MHz SDRAM的用户来说无疑是个福音。APOLLO MVP3的另一特点是支持DDR SDRAM（SDRAM2），甚至大部分BX芯片组都不具有这一功能。它还支持6x86特有的Linnear burst Cache模式，Cyrix的6x86系列CPU在基于MVP3的主板上运行可以增加执行性能。
+　　APOLLO MVP4　APOLLO MVP4是Super 7阵营中最新的一款芯片组，也是目前集成度最高，制作工艺最先进的系统芯片组。它包括0.25制程492针BGA封装的VT82C501北桥芯片和0.35制程352针BGA封装的南桥芯片。
+　　APOLLO MVP4除了提供完整的Super7芯片集功能支持外，还集成了AGP图形加速，DVD解压和SB兼容的audio等功能。它是一种All in One的芯片组，主要定位于低端PC市场。
+　　看完了上述常见芯片组的情况介绍，我们不难会发现，目前Slot1领域仍然是Intel的天下，从兼容性和可靠性方面考虑，440BX是PⅡ处理器的最佳伴侣，其他厂商生产的芯片组较难与之对抗。而Intel退出后的Socket7芯片组市场更像三国鼎立，群雄大战。怎样选择一款好的Socket7主板芯片组，你就要好好考虑了。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

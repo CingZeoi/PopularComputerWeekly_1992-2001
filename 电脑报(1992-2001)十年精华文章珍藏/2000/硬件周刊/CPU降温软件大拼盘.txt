@@ -1,0 +1,54 @@
+CPU降温软件大拼盘
+
+韩宾
+2000年 第29期 
+
+　　以往给CPU降温大多是硬办法，如通过CPU散热风扇散热、CPU专用致冷器等。其实，硬的不行你可来点软的嘛！
+　　软件降温的工作原理各有千秋，有的是通过在CPU空闲时发送HLT指令迫使CPU降温，有的则是通过对CPU指令进行外部优化后来降低温度，其目的都是让CPU功能得到最佳的发挥。现在我们来看看几款CPU降温软件吧!
+#1    1．CpuIdle
+　　CpuIdle6.0.zip（http:∥www.bugcomputer.com/cpuidle/）
+　　6.0 Beta 1汉化补丁318KB：http:∥www.cnvnet.com/download/d/pcpuidle60b_sc.exe；CPUIdle
+　　CpuIdle是一款德国人制作的CPU降温软件，它是Win95/98下通过在CPU空闲时发送HLT指令使CPU降温的工具。CpuIdle可放在启动组中自动调入，但会占用1％～2％的系统资源。CpuIdle的启动界面十分清爽（如^29030301a^1），有点像EasyCD的界面。
+　　工作原理：
+　　由于CPU的速度较其他部件快，因此在大部分的时间中，CPU都是处在等待键盘、硬盘、光驱、甚至是内存动作完成后才开始执行下一个指令。在这样的等待中，CPU仍然消耗着同工作时一样多的能源!如果能在CPU等待的同时让它进入“睡眠”模式，这样CPU会使用较少的电流，电压也降低了，这样就使CPU的温度下降。
+　　运行：
+　　CpuIdle能自动识别CPU类型。CpuIdle运行后自动最小化，在任务栏图标上按右键选择Options项可进行设定。如果开始没设定任何参数，CpuIdle将占用大约500KB的内存资源。
+　　CpuIdle可用右键点选Options项进入操作界面（如^29030301b^2），窗口显示区有六个选项，分别是About（关于CpuIdle）、Registration（注册）、CPU（CPU信息）、Start－up（启动CpuIdle的设置）、Display（显示CpuIdle工作情况信息）、Monitor（监视器）。
+　　打开“CPU”选项，你可以看到CPU的全部资料和启用HLT的情况等。
+　　点选“Optimize cpu features”让Cpuidle优化CPU。
+　　在Idle display in task bar（在状态栏中的CPU空余情况图形显示方式）框内有三种选择：None、Numeric display、Graphical display，分别是没有、数字显示方式、图表显示方式。（如^29030301c^3）
+　　CpuIdle pro可以使CPU的温度降低摄氏5度～10度，利用在CPU相对空闲的时候，以外力促其稍事调整，从而降低功耗，减少发热。不过，它的弱点就是由于利用的是HLT指令，如果系统一旦繁忙起来，它就不顶用了（3D游戏等）。因此，CpuIdle只是在CPU相对空闲的时候才会起到比较明显的作用。
+#1    2．CPU杀手——CPUKiller 2.0
+　　这是一款共享软件，运行于Windows平台，最后更新于2000－01－21。下载地址：ftp:∥ftp.softhouse.com.cn/download/677cpukil20.zip。
+　　CPUKiller 2.0解开压缩包后仅592KB，因为它并不是利用程序控制CPU降温，而是让CPU降速！从严格意义讲CPUKiller 2.0并不是一款真正的CPU降温软件。如果你的CPU是PentiumⅡ或以上，由于CPU速度太快而使得一些较老版本的程序或游戏不能使用时，可以在使用该程序或游戏运行前先执行CPUKiller，此时CPU处理速度下降，就可正常运行程序或游戏，而且CPU的温度也下降了，真是一举两得，只是听起来不对劲。
+　　CPUKiller 2.0的使用方法很简单，启动CPUKiller后，会在屏幕上看到一块PⅡ、PⅢ模样的标识。在CPUKiller的主界面上一眼就会看到屏幕右边的Start（开始）启动键。在Start的下边还有一个红色的小箭头，中间是一个横拉式调节框。可通过拉动调节你想要的CPU速度（系统的速度明显在变慢，这就对了）。点击小箭头，这里可以Add（加入）或Remove（删除）想加入或删除的程序项，选择确定后就可以了。提醒一下，运行CPUKiller后，将Slow Down Factor调至最高时，运行大游戏时会出现死机现象；调至60％－80％时，系统运行速度大幅降低，此时游戏已无法再玩了！
+#1    3．Soft CoolerⅡ
+　　下载地址：http:∥www.newhua.com/file/softii.exe，1581KB
+　　下载汉化补丁：http:∥www.cnvnet.com/download/d/p－softII.Zip，62KB
+　　MSI（微星公司）出品的Soft CoolerⅡ，它比Ⅰ代强多了，能识别CPU并针对不同的CPU进行优化降温，让CPU时刻处在Normal状态，不再发烧。微星的MS－6163主板外频最高达153MHz，并支持多种非标准外频，它配备了CPU核心电压调节功能、PC AlertⅡ（系统硬件侦测软件）、TOP TechⅡ（测温技术）、CPU Plug＆PlayⅡ（免跳线微调技术）、Soft CoolerⅡ（自动降温软件）、3D TurboⅡ（显示设置软件）软件。
+　　Soft CoolerⅡ全部安装后不到700K。图标作得很有创意：人性化的CPU（如^29030301d^4）。操作界面十分简单，不需要做什么调整。启动后，Soft CoolerⅡ可以自动缩小至后台并对CPU进行降温。显示界面是可视化的，执行SoftCoolerⅡ，在状态栏中会出现一个Icon。在Icon上右击鼠标，即在任务栏上用右键点击Properties项，在弹出的Proceeor Information对话框中可看到^29030301e^5所示的信息。同时在其下面有三条信息框：Current idle（CPU当前空余）、Total idle（总空余）、Total idle Time[h:m:s]（总共空余时间）等等一目了然。在界面的最底端，可以看到跳跃不止的绿字。
+#1    4.Waterfall Pro
+　　http:∥www.yihong.com，1257KB
+　　Waterfall是一款老牌的CPU降温软件，它的功能比CPU Idle更强，包括CPU优化功能！能读取主板相关信息，如CPU温度、环境温度、CPU电压、输出输入电压、风扇转速等等。
+　　新版的Waterfall Pro除了提供在CPU降温方面的功能外，甚至还加入了系统监测等附加功能，包括：系统监测、CPU温度管理和系统最佳化。其独特的CPU Throttle（温度调节器）除了具备和老牌劲旅Rain同等级的降温效率以外，还可以自行设定警戒温度的高低、时间的长短等附加条件值。当CPU温度达到警戒值，Waterfall Pro就会自动强行降低系统的负荷，于是CPU的温度也就降低啦。
+　　执行Waterfall Pro，首先看到的是注册信息，可以选择“Try”，接着它对你的机器进行检测后就缩成一个图标到状态栏中。双击状态栏的Waterfall图标，就会出现Waterfall Pro的程序窗口（如^29030301f^6）。如果资源监视器上的数字出现比较明显的跳动就表明Waterfall Pro已经在让CPU降温了。打开Option选项，启动Setup，根据操作步骤提示依次选取CPU类型、主板类型、系统标准等若干项目并进行设置（如^29030301g^7），在设置项目中，要全部确定且确认，记住一定要设置该选项，因为这和软件能否发挥效果有直接的关系。另外，还有警告的条件设置，你可设置最高温度和最底温度，对CPU温度报警。还有一个重要的设置就是Optipon的最下边的两个选项，是选择摄氏温度或华氏温度的。其他的选项可以不设置。该程序目前全面支持市场上流行的各种CPU（连Cyrix芯片在这个最新的版本中也可以支持），占用CPU资源极少，与同类的著名软件CPU Idle比较，有着小巧玲珑、功能更强的特点。它凭着集监测与降温于一体的强大功能超过了CPU Idle，成为目前很受欢迎的CPU降温软件。
+#1    5.Rain2.0
+　　http:∥cpu.simplenct.com，121K
+　　由Waterfall作者推出的另一个软件。单击解压缩后执行Install安装程序会自动检测CPU类型（如^29030301h^8），如不是你的CPU类型可按Chang按钮，在弹出的Select your proccssor对话框里点选你的CPU类型，再单击OK按钮。同样你可选择安装路径，最后单击Install按钮进行安装。Rain的启动界面比较朴素（如^29030301i^9）。运行后在任务栏内添加一个图标。如果图标为一块芯片加上三滴雨，表示Rain处于有效状态，即允许执行HLT指令；当用鼠标右键单击后，图标变为上面没有雨滴的芯片，表示Rain处于无效状态，再单击右键可以切换回有效状态。对着图标单击左键后可以调出Rain的主窗口。
+　　Rain的工作原理也是在CPU处于空闲状态时执行HLT指令，使CPU转入Suspend（挂起）模式，通过降低CPU的功耗达到降温的目的。以后每次在开机启动时，系统就会自动下雨（加载Rain），它可以自动优化你的CPU，不用再进行设置。虽然Rain只有降温的功能，显得非常单一，使用起来也很简单，不过它的降温效果一点也不比同类软件差，且操作极为简便，占用的系统资源也很少。与其它CPU降温软件一样，当CPU处于100％工作状态时，Rain就无法发挥降温的作用。
+#1　　6．软件名称：CPU Cool
+　　下载：http:∥www.podien.onlinehome.de/cpucool9.zip
+　　CPU Cool 5.2.0.0大小为1305K，运行于Win95/98/NT/2000平台，是多功能的CPU降温软件。CPU Cool可以改变中央处理器的时钟频率，能优化AMD、Cyrix和英特尔的CPU，监测、显示主机板温度、风扇速度和电压（支持Intel、SIS、VIA、ALI等芯片组），并可搜寻被置于SDRAM微型组件的EPROMS的系统管理块。
+　　CPU Cool降温软件的使用：
+　　解压后双击三个CPU Cool字样的图标运行程序，先出现一对话框，内容是关于该软件的信息，点击OK继续。
+　　菜单项目（从左到右）：File（文件）、SD－RAM、Updaterate、Optimizeations（优化）、Display Options（显示任意选择控项）、Options（任意选择）、Register、Help。在主界面的右边有四个按钮：Configure（设置）、Minimize（最小化）、Small dispiay（小界面显示）、Exit（退出）。
+　　File菜单中的File Save Settings项能保存你做的设定。通过Updaterate菜单，能把更新比率换成下列值：1/2/5/10/20/30秒，不同的比率会在下面的图形中显示出不同时间的CPU工作量（如^29030301j^10）。窗口最小化时，在任务栏中以1～100的数字显示出不同时间的CPU工作量。
+　　通过Optimizeations菜单，CPU会自动检查CPU类型，并针对每种型号加以优化。各种CPU的优化配置也可在Do Optimizeations中进行（如^29030301k^11）。
+#1　　7．KCPU Cooler 0.6.0
+　　下载：http:∥matrix.crosswinds.net/～kirys/Files/kcpuc060.zip
+　　KCPU Cooler是一个免费的CPU降温软件，其降温原理是利用发送HLT指令，让CPU在空闲时节省能源达到降温效果。这是非常简单的可在CPU没有工作时使CPU休息的软件，可以降低CPU温度和延长CPU寿命。KCPU Cooler v0.6.0非常小，仅占用很小的系统资源，使用的内存非常少（在最小化时，仅200KB）。
+　　打开KCPUCooler时会显示关于该程序的测试后果自负的对话框，点击Start运行程序，在KCPU Cooler的主界面上有两个显示工作状态的图标Enabled和Disabled，还有CPU的生产厂家及CPU主频（比真正主频大约小20％，如^29030301l^12）。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

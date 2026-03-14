@@ -1,0 +1,137 @@
+学用钩子函数
+
+晨晨 
+2001年 24期
+
+编者按：在计算机病毒泛滥的今天，我们正使用着各种杀毒软件，你知道这些杀毒软件和病毒是怎么编写的吗？其实，这些杀毒软件和病毒都用到了一种重要的函数——钩子函数。
+　　使用钩子函数并不是什么高深的技术，很早在Microsoft的Win32 SDK手册上就有记载。不过很可惜要看懂Microsoft的手册，可是不容易的事！而且它的例子是使用SDK写的，又不完整！这就让我们这些只会Delphi的程序员更看不懂了。
+　　前段时间我研究了一下钩子函数，现在我把我几周的研究成果写出来，希望对大家有所帮助。
+　　钩子函数一共有12种，分为全局钩子和线程钩子两种。线程钩子就只监视某个线程，全局钩子可以监视Windows的所有线程。具体的你可以看看Delphi 带的Win32 SDK（说实话有些钩子我也没有用过^＿^），全局钩子是必须用DLL加载，也就是说钩子函数必须包装为一个DLL文件，然后再在主程序中调用钩子DLL中函数才可以！而且有些钩子是必须使用DLL加载为全局钩子，其他的钩子就可以分为全局和进程两种。
+　　再解释设置钩子的Api函数：
+　　function SetWindowsHookEx（idHook: Integer; lpfn: TFNHookProc; hmod: HINST; dwThreadId: DWORD）: HHOOK; stdcall;
+　　其中第一个参数是钩子的类型；第二个参数是钩子函数的地址；第三个参数是包含钩子函数的模块句柄；第四个参数指定监视的线程；返回钩子句柄。如果指定了某个确定的线程就只监视那个线程，即是线程钩子；如果为空，即是监视所有线程的全局钩子。
+　　如果你只想使用进程钩子的话，有一个现成的控件可以用，就是Rx的RxWindowHook控件。拖到窗体上，设置Active为True就可以了。然后它只有BeforeMessage（消息从消息队列取走前）和AfterMessage（消息从消息队列取走后）两个事件，响应它就可以了，怎么用就看你的了。
+　　下面我说说全局钩子的使用！我用最简单的鼠标全局钩子讲解，我假定你懂如何写DLL。来，看一个最简单的源程序：
+　　#1一、DLL的工程文件
+　　library hookprj;
+　　uses
+　　SysUtils，
+　　Classes，
+　　hkprocunit in ＇hkprocunit.pas＇;
+　　{$R *.RES}
+　　exports //只要把这两个函数输出就可以了，EnableMouseHook，DisableMouseHook;//不会不懂函数的意思吧^＿^
+　　begin
+　　end.
+　　#1二、DLL输出函数的实现单元
+　　unit hkprocunit;
+　　interface
+　　uses
+　　Windows，Messages;
+　　var
+　　hHk: HHOOK;//钩子的句柄值。
+　　function MouseHookProc（nCode: Integer;WParam: WPARAM;LParam: LPARAM）: LRESULT;stdcall;
+　　//鼠标钩子的回调函数，即用它来处理得到消息后要干什么。这里我只是发送一个//WM＿PASTE消息。
+　　//nCode参数是Hook的标志，一般只关心小于0时。看下面的详细说明
+　　//WParam参数表示鼠标消息的类型
+　　//LParam参数是一个指向 TMOUSEHOOKSTRUCT 结构的指针。结构包含了鼠标消息的状态，我只用了hwnd一个
+　　//即鼠标消息要传递给的窗口句柄。
+　　//返回值如果不是0的话Windows就把这个消息丢掉，其它的程序就不会再收到这个消息了。
+　　function EnableMouseHook:Boolean; stdcall; export;
+　　function DisableMouseHook:Boolean; stdcal; export;//两个函数都是Boolean类型，成功都是返回True
+　　implementation
+　　function MouseHookProc（nCode: Integer;WParam: WPARAM;LParam:LPARAM）: LRESULT;stdcall;
+　　var
+　　MouseHookStruct: ^TMOUSEHOOKSTRUCT;//这个结构Delphi在Windows单元有定义，直接用就可以了。
+　　nState: SHORT;//得到键盘状态的GetKeyState函数的返回值。这是一个16位的数。
+　　begin
+　　Result := 0; //最好首先给它一个返回值，不然会有警告的！记住这可不是C语言。
+　　//当nCode小于0时表示还有其它的Hook必须把参数传给它。
+　　//此时就要用Api函数CallNextHookEx让它调用下一个Hook!!!当然不用好像也可以。
+　　if nCode ＜ 0 then
+　　Result := CallNextHookEx（hHk，nCode，WParam，LParam）//参数是现成的，直接用就可以了。
+　　//详细的说明可以参考Win32 SDK
+　　else if wParam = WM＿LBUTTONDBLCLK then //判断是不是鼠标左键双击事件
+　　begin
+　　nState := GetKeyState（VK＿CONTROL）;//这个函数只有一个参数，就是要得到的键的//键值，这里用Windows的虚拟键值表示ctrl键。
+　　if （nState and $80000000） = $80000000 then//如果按下了，那么返回值的最高位为1
+　　begin                                     //即是16进制的80000000，如果没有按下就返回0
+　　MouseHookStruct := Pointer（LParam）;//转换指针并付值给MouseHookStruct变量。
+　　SendMessage（MouseHookStruct.hwnd，WM＿PASTE，0，0）;//如果条件都满足了就发送WM＿PASTE（粘贴）消息
+　　end;
+　　end;
+　　end;
+　　function EnableMouseHook:Boolean; stdcall; export;
+　　begin
+　　if hHk = 0 then //为了安全，必须判断一下再设置钩子。
+　　Begin
+　　//第三个参数的Hinstance 在Delphi中有定义，用就可以了。第四个参数必须为0
+　　hHk := SetWindowsHookEx（WH＿MOUSE，@MouseHookProc，Hinstance，0）;
+　　Result := True;
+　　end
+　　else
+　　Result := False;
+　　end;
+　　function DisableMouseHook:Boolean; stdcall; export;
+　　begin
+　　if hHk ＜＞ 0 then //如果有钩子就卸掉它。
+　　begin
+　　UnHookWindowsHookEx（hHk）;
+　　hHk := 0;
+　　Result := True;
+　　end
+　　else
+　　Result := False;
+　　end;
+　　end.
+　　#1三、使用钩子的应用程序的工程文件
+　　program Project1;
+　　uses
+　　Forms，
+　　Unit1 in ＇Unit1.pas＇ {Form1};
+　　{$R *.RES}
+　　...
+　　#1四、使用钩子的应用程序代码
+　　unit Unit1;
+　　interface
+　　uses
+　　Windows， Messages， SysUtils， Classes， Graphics， Controls， Forms， Dialogs，StdCtrls， RxHook;
+　　type
+　　TForm1 = class（TForm）
+　　Button1: TButton;//放上两个Button和一个Edit控键用来试用我们的钩子函数。
+　　Button2: TButton;
+　　Edit1: TEdit;
+　　procedure Button1Click（Sender: TObject）;
+　　procedure Button2Click（Sender: TObject）;
+　　procedure FormClose（Sender: TObject; var Action: TCloseAction）;
+　　private
+　　{ Private declarations }
+　　public
+　　{ Public declarations }
+　　end;
+　　var
+　　Form1: TForm1;
+　　//下面是调用hookprj.dll中的函数。
+　　function EnableMouseHook:Boolean; stdcall; external ＇Hookprj.dll＇ name ＇EnableMouseHook＇;
+　　function DisableMouseHook:Boolean; stdcall; external ＇Hookprj.dll＇ name ＇DisableMouseHook＇;
+　　implementation
+　　{$R *.DFM}
+　　procedure TForm1.Button1Click（Sender: TObject）;
+　　begin
+　　if EnableMouseHook then
+　　ShowMessage（＇启动钩子成功＇）;
+　　end;
+　　procedure TForm1.Button2Click（Sender: TObject）;
+　　begin
+　　if DisableMouseHook then
+　　ShowMessage（＇停止钩子成功＇）;
+　　end;
+　　procedure TForm1.FormClose（Sender: TObject; var Action: TCloseAction）;
+　　begin
+　　//这里调用是必需的，否则有可能没有卸载钩子就退出了，那就不好了。
+　　DisableMouseHook;
+　　end;
+　　end.
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,84 @@
+Video Blaste及随卡软件介绍
+
+
+1995-01-06
+
+        一、Video  Blaster简介
+        一套完整的Video  Blaster Card包装应包括一块视霸卡，视霸卡外接电缆线，一条用于连接VGA卡和视霸卡的扁平电缆线以及视霸卡配置软盘。其中视霸卡
+        电缆有五个接口，其中Video0、Video1、Video2可以外接电视机、摄像机、放像机等图像源，以输入视频图象信号，Audio  L和Audio  R用来输入或输出音频信号。
+        视霸卡所要求的系统配置为：
+        1.286以上的IBM PC及其兼容机，VGA显示器。
+        2.一个16位的扩展槽。
+        3.一个专门连接VGA显示器的插孔。
+        4.DOS3.0或更高版本。
+        5.Windows3.1或更高版本。
+        6.至少2MB的硬盘空间。
+        7.一根用于连接图象源或音频源到视霸卡的标准RCA视频导线。
+        二.Video Blaster卡随卡软件的安装
+        新加坡创新公司出品的视霸卡的配置盘上包括五个文件：
+        DISK.ID              	软件信息
+        README.COM        	阅读帮助信息的文件
+        README.TXT       	帮助信息的文本文件
+        INSTALL.EXE      	安装程序
+        INSTALL.001      	已打包的应用程序
+        一般视霸卡随卡软件按应用环境可分为For DOS和For Windows两种， 由于Windows有逐步取代DOS的趋势，所以这里着重介绍Windows下的视霸卡随卡软件。但不管是Windows下还是DOS下的视霸卡随卡软件，都是在DOS操作系统下进行安装。
+        在DOS环境下运行配置盘上的INSTALL.EXE程序，屏幕上出现提示信息，提醒你在安装过程中最好不要驻留SMARTDRV或PC-CACHE等高速缓存程序。但我在安装时驻留了SMARTDRV，而且没有遇到麻烦。随后是安装主菜单，选择Begin  Installation(开始安装)，出现硬盘上各个分区的剩余空间信息，以方便你选择所要用的目标磁盘。选定磁盘后系统将自动释放INSTALL.001中的文件到子目录VBLASTER中。最后需要设置I/O基地址和中断号，视霸卡的I/O基地址有三个选择：2AD6，2A90，2AF0，缺省值为2AD6；中断号有四个选择：5，10，11，12，缺省值为10。安装时一般选择缺省值，若出现硬件冲突，程序将提示你重新设置。正确设置了I/O基地址和中断号之后，系统将自动修改AUTOEXEC.BAT文件，在文件中增加一行内容：
+        Set Videoblst=<Path> A<Address> I<Interrupt>
+        其中〈Path〉为视霸卡文件存放的路径；
+        〈Address〉为I/O基地址；
+        〈Inperrupt〉为中断号。
+        例如：Set  Videoblst=D：\vblaster A2AD6 I10同时还将修改Windows的WIN.INI文件，以便使在下次开始运行Windows时自动在Program  Manager中安装Video Blaster图标。
+        三.视霸卡随卡软件的使用
+        进入Windows的Program  Manager，用鼠标双击其中的Video  Blaster程序组图标，可看到其中包括Video Kit，VB  Setup，VB  Sound三个图标。Video  Kit用于对图象源输入的视频图象进行各种操作；VB  Setup对Video  Blaster的操作进行设置；VB  Sound对音频信号进行控制。下面对这三个应用程序逐一进行介绍。   1.Video  Kit
+        Video  Kit主窗口的一级菜单包括Display，Configure，Accessories和Help。
+        (1)Display中有以下一些功能：
+        Load    在窗口中显示一个存放在磁盘上的图形文件，其文件格式可以是.PCX，.GIF，TIFF(.TIF)，Windows位图(.BMP)，Targa(.TGA)和IBM的MMotion(.MMP)。
+        Save    把窗口中的图象以上述的任一格式存入磁盘，此命令只在执行了Freeze功能后或窗口中有编辑的图象时方能使用。
+        Freeze/Unfreeze   冻结或解冻视频图象。此功能十分有用，比如你可以用它将电视中播放的精美画面冻结后，用Save功能存入磁盘，以方便你以后仔细欣赏、打印或后期处理。
+        Smoothen     冻结视频图象后，可以用此功能去掉可能出现的影响画面美观的条纹。
+        Clear     清理视频缓冲内存，正在显示的图象被清除，接着显示从图象源传来的图象。
+        Fit    调整图象大小，以便在窗口中用水平和竖直滚动条仔细观察图像的某一局部。
+        Aspect  Ratio     锁定用户规定的视频窗口比例或采用标准VGA窗口比例作为缺省值。
+        Zoom    当没有使用Fit功能时，Zoom用来放大或缩小图象。
+        Show    显示窗口中图象的尺寸和窗口左上角的位置。
+        Masks   调整图象的亮度和色度。调整时用鼠标点一下方框中的X 即可，运用亮度和色度的不同组合可以得到特殊的图象效果。
+        EXit    退出Video  Kit。
+        (2)Configure中有以下一些功能：
+        Color  Control    用以调整视频图象的亮度、饱和度、对比度、色调以及红、绿、蓝三色比例。
+        Port  Address     显示视霸卡的I/O基地址。
+        Buffer  Address   显示当前帧缓冲区地址。
+        Source  Select    选择用户欲使用的图象源输入端口，视频输入0，1，2对应视霸卡电缆线上Video0，Video1，Video2。如果有三个图象源(比如电视，放像机，摄像机)在同时使用，可以用此功能在三者之间互相切换观察。
+        (3)Accessories中只包括VB  Sound应用，它的作用与双击VB  Sound图标相同，具体用法如下所述。
+        (4)Help显示Video  Kit的版权信息。
+        2.VB  Sound
+        用鼠标双击VB  Sound图标进入VB  Sound主窗口，其一级菜单包括EXit，Setting和Help三项。同时出现在窗口中的还有几种音频设备的音量大小值，你不仅可以任意控制基本音量、立体声线路输入音量、话筒音量的大小，也可以调整视霸卡内部的两个音频输入的音量大小：一是FM音频；一是CD-ROM音频。
+        (1)EXit  用来退出VB  Sound。
+        (2)Setting中包含三个功能：
+        Lock  L/R  Vol         对音量进行调节时，此功能决定是左右声道一同调节，还是分开调节。
+        Set Updata Interval    设置校正的时间间隔，单位以毫秒记。
+        Show  Other  Levels    显示对视霸卡内FM和CD-ROM音频音量的控制台面。
+        (3)Help中包含版权信息。
+        3.VB  Setup
+        用鼠标双击VB  Setup图标，即可进入Video  Blaster   Setup窗口，一级菜单包括File、Edit、Configure、   View，同时在窗口正文栏中也显示了一些内容， 与Configure中的Source功能的内容完全相同。
+        (1)File中包含以下功能：
+        Save  Configuration  存入用户确定的各项配置到文件PCVIDEO.CFG。
+        EXIT  Setup          关闭VB Setup并退出。
+        About  VBWSetup      显示版权信息。
+        (2)Edit中包括以下功能：
+        Undo      清除用户所作的改写工作，恢复改写前的配置情况。
+        Default   使用生产厂家的配置作为缺省配置。
+        (3)Configure中包括以下功能：
+        Sources    运行此功能得到的结果与进入VB  Setup窗口后在正文栏中显示的内容相同，其中包括：
+        ①Video  Standard   设置电视机是PAL制式还是NTSC制式。
+        ②Input  Interlace  指定图象源是否是隔行扫描式，一般选择ON。
+        ③Input  Vsync  Polarity 指定视频信号源的垂直同步信号极性，一般选Active  High(高态有效)。
+        ④Input  Hsync  Polarity 指定视频信号源的水平同步信号极性，一般选Active  Low(低态有效)。
+        ⑤Video  Source  指定进行设置的图象源，即指明输入插孔是Video0，Video1，Video2中的哪一个。
+        ⑥Crop 调整窗口顶部的视频扫描行位置、图象起始横坐标和纵坐标以及图象的宽度和高度。
+        Preferences 调整视频图象的颜色、帧缓冲基地址和VGA调色版时滞。
+        Align  Video 调整视频图象大小使其与显示窗口相匹配，以不能看见边缘有粉红色背景为最佳。
+        (4)View中仅包含Video选项，此功能执行时，使屏幕显示用户选择的图象源输入内容，以方便配置时能进行效果观察。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,391 @@
+C++Builder 5.0编程指南(2)
+
+木子 
+2001年 60期
+
+　　【类】
+　　　　这种类型是根据进行的操作和需要的数据结构定义的，是完成特定任务的数据和函数的集合。用class关键字来声明：
+　　　　class 类名 [: 基类] {
+　　　　	声明部分
+　　　　}[变量名];
+　　    声明部分可以是成员变量和成员函数，看一个最简单的类声明例子：
+　　    class TMyClass {
+　　    String Ddata;
+　　    };
+　　　　看上去很象struct和union的声明，但TMyClass中的Fdata却是无法访问的，在类中默认成员是私有的（private），类以外是“看”不到的。扩展一下TmyClass：
+　　    class TMyClass {
+　　	String Fdata;
+　　	public:   //表明声明的函数对类以外的代码是可见的
+　　		void setdata（String value）;   //声明写入变量Fdata的函数
+　　		String getdata（）;   //声明获得Fdata值的函数
+　　    }*MyClass;   //声明为类的指针
+　　　　
+　　　　
+　　　　TMyClass::setdata（String value）
+　　　　{
+　　　　	Fdata = value;
+　　　　}
+　　　　
+　　　　TMyClass::getdata（）
+　　　　{
+　　	return Fdata;
+　　　　}
+　　　　现在尽管无法访问TMyClass的Fdata，我们可以通过它的成员函数setdata和getdata修改和获得Fdata的值，这种处理就是封装。
+　　
+　　    MyClass = new TMyClass;
+　　　　MyClass.setdata（"Hello World!"）;
+　　    ShowMessage（MyClass.getdata（））;
+　　    delete MyClass;
+　　　　这样的例子实际意义并不大，只是用来帮助你理解类。下面我们学得更多一些：
+　　　　
+　　    class TMyClass {
+　　	String Fdata;
+　　	public:   //表明一下声明的函数对类以外的代码是可见的
+　　		void setdata（String value）{Fdata = value;}   //setdata作为一个内联函数
+　　		String getdata（）{return Fdata;}  //getdata也一个内联函数
+　　    }*MyClass;
+　　
+　　　　这样TMyClass中的setdata和getdata功能和上一个例子一样，但是有更多的好处，比调用一般的函数效率更高。我们还可以做得更好些：
+　　　　
+　　　　class TMyClass {
+　　　　   private:
+　　　　      String Fdata;
+　　　　
+　　　　      void setdata（String value）{Fdata = value;}
+　　　　   public:
+　　　　      __property String data = {read = Fdata， write = setdata};   //建立一个属性
+　　　　}*MyClass;
+　　　　……
+　　　　String vStr = MyClass->data;   //修改TMyClass的data属性，即Fdata的值
+　　　　……
+　　　　MyClass->data = "Hello World!";   //获得TMyClass的data属性值，调用由write字句指定的setdata函数
+　　　　……
+　　　　
+　　　　类和结构一样也是有继承性，类还有个重要的特点就是具有构造函数和析构函数。在类用new关键字分配内存时，编译器自动执行类的构造函数，用delete关键字释放类时执行析构函数。如果类没有指定，编译器将提供一个隐藏的默认构造函数或析构函数，构造函数和析构函数的简单例子：
+　　　　
+　　　　enum Tsex {male， female};
+　　　　struct Tpersonrec {
+　　　　   String name;
+　　　　   int age;
+　　　　   Tsex sex;
+　　　　};   //建立记录结构
+　　　　class Tperson {
+　　　　   DynamicArray<Tpersonrec> persons;   //声明一个Tperson类型的动态数组
+　　　　   int Count;
+　　　　   public:
+　　　　      void NewPerson（String name， int age， Tsex sex）;   //添加新的人员
+　　　　      Tperson（）;   //Tperson类的构造函数
+　　　　      ~Tperson（）;   //Tperson类的析构函数
+　　　　}*person;
+　　
+　　    void Tperson::NewPerson（String name， int age， Tsex sex）
+　　    {
+　　        int I = Count;
+　　    	persons.Length = ++Count;   //动态数组长度加1
+　　    	persons[I].age = age;
+　　    	persons[I].sex = sex;
+　　    	persons[I].name = name;
+　　    }
+　　
+　　	Tperson::Tperson（） {Count = 0;}   //Tperson类的构造函数
+　　    　　Tperson::~Tperson（） {persons.Length = 0;}   //Tperson类的析构函数，让动态数量为0释放内存
+　　
+　　	person = new Tperson;   //编译器会调用构造函数
+　　	person->NewPerson（"小丽"， 21， female）;   //添加一条记录
+　　	……
+　　	delete person;   //编译器会调用析构函数
+　　
+　　　　构造函数和析构函数是不允许指定函数返回类型的，名称必须与类名一样（构造函数）或者类名加上~（析构函数）。
+　　　　C/C++就介绍到这里，C/C++语言是非常博大的，前面是一些比较基础内容，在后面实际应用的例子中再进一步介绍。
+　　#1    八、VCL组件的应用
+　　    1． 什么是VCL组件?
+　　    VCL（Visual Component Library）可视构件库。BCB的VCL包含了很丰富的组件，面向对象编程就是使用这些组件来架构应用程序。VCL组件分为可视构件，即在程序运行时用户能够看到的组件，如按钮、标签等，还有不可见组件，它只在后台实现某种特定任务，如定时器、数据库组件等。每个组件VCL一般都有属性、事件和方法，
+　　    2． 什么是属性、事件和方法?
+　　    属性（Property）就是组件的特征，如窗口的大小、位置、背景颜色等等。通常借助修改组件的属性来调整组件，例如Form1->Caption = "Hello World!"; 修改窗口的标题属性（Caption）来修改窗口的标题。
+　　　　事件（Events）是由用户的操作或者代码的执行引起的。如单击一个按钮的时候引发按钮的单击事件，鼠标在窗口上移动引发窗口的鼠标移动事件等，我们可以给这些事件编写处理代码，这些代码会被对应的事件驱动。
+　　  　方法就是类的成员函数，可以执行一定的操作。如Form1->Close（）;可以关闭窗口，Close（）是Tform类的一个成员函数。
+　　    3． 基本组件介绍
+　　　　（1）窗口
+　　　　窗口也是组件，一个工程可以有很多个窗口，但是只有一个主窗口，关闭主窗口将会结束整个程序。
+　　　　（^60090208p^）
+　　　　点击圆圈标识的按钮，可以添加新的窗口到工程里面，点击Project菜单里面的Options，在Forms页面可以看到：
+　　　　（^60090208q^）
+　　　　Auto-create forms里面包含了Form1和Form2，表明程序开始执行时自动创建Form1和Form2两个窗口，Main form指定Form1作为整个程序的主窗口。将Form1或者Form2移动到Available forms，程序就不会自动创建它们，可以让程序员在需要使用窗口时自行创建。Available form不能做为Main form。
+　　　　窗口的主要属性：
+　　    （^60090208r^）　
+　　　　在设计阶段可以通过对象观察窗口修改属性，运行时可使用代码修改。
+　　　　窗口的重要事件，在对象观察窗口的Events页面可以查看到以下内容：
+　　    （^60090208s^）
+　　　　Tform类的方法：
+　　    （^60090208t^）
+　　　　Tform类的属性、方法和事件非常多，这里只是介绍比较常用和重要的，其它组件也有和它相同的属性、方法和事件，就不再作介绍。
+　　　　（^60090208u^）　
+　　　　（2）Standard组件页
+　　    （^60090208tb1^）（Tframe）Frame框架，使用它以前必须执行File菜单中New Frame，会出现一个新的Frame设计窗口，可以在这个窗口上添加组件和编写代码，离开Frame窗口然后回到原来的Form窗口，再使用（^60090208tb1^）按钮将Frame添加到窗口上。Frame实现了组件和代码重用，可以在一个窗口或者几个窗口中多次添加Frame，它们都继承Frame里面编写的代码。
+　　    （^60090208tb2^）（TMainMenu）主菜单组件。它可以在窗口中创建主菜单，添加组件到窗口上后双击组件的图标或者在对象查看窗口中双击组件的Items属性值，打开菜单编辑窗口：（^60090208v^）
+　　　　Create Submenu是在选择的菜单项目上创建子菜单，双击某个菜单项目进入代码编辑窗口。一个窗口中可以有多个主菜单组件，但是只能有一个有效，可以修改Tform的Menu属性选择不同的菜单。
+　　　　（^60090208tb3^）（TPopupMenu）弹出式菜单，和主菜单相似。
+　　　　（^60090208tb4^）（Tlabel）标签组件，可以显示静态文本。
+　　    （^60090208w^）
+　　　　（^60090208tb5^）（Tedit）单行文本输入框
+　　    （^60090208x^）
+　　　　（^60090208tb6^）（Tmemo）多行文本输入框，属性和事件基本同单行文本输入框
+　　    （^60090208y^）
+　　　　（^60090208tb7^）按钮（Tbutton），单击以后产生一个OnClick事件。
+　　    （^60090208z^）　
+　　　　（^60090208tb8^）复选框（TCheckBox）
+　　    （^60090208a1^）
+　　　　（^60090208tb9^）单选框（TRadioButton），几个同一Parent的单选框只能有一个被选择，可以将它们分别放入Tpanel或者TRadioGroup等组件中进行分组，属性和事件基本同复选框
+　　　　（^60090208tb10^）列表框（TListBox）
+　　    （^60090208b1^）
+　　　　添加项目到列表框: ListBox1->Items->Add（"文本"）;
+　　　　插入项目：ListBox1->?Items->Insert（a， "文本"）;
+　　　　取得项目：String vStr = ListBox1->Items->Strings[1];
+　　　　（^60090208tb11^）下拉选择框（TComboBox）
+　　
+　 （^60090208c1^）
+　　　　（^60090208tb12^）滚动条（TScrollBox）
+　　
+　 （^60090208d1^）
+　　　　（^60090208tb13^）TGroupBox、TRadioGruop、Tpanel，都可以作为其它组件的容器
+　　　　（^60090208tb14^）（TActionList）非常有用的组件，它可以把多个组件联系起来统一进行操作，大大简化了程序对组件的管理，编程实例中将会使用ActionList来制作程序。
+　　　　Win32组件页：（^60090208e1^）
+　　　　（^60090208tb15^）多页面组件（TTabControl、TPageControl），用于制作多页面的对话程序如BCB的Project Options，TTabControl的页面内容是公共的，TPageControl每个页面是独立的内容。
+　　　　（^60090208tb16^）图片容器（TImageList），储存相同大小的图片，为程序和组件提供图片资源
+　　　　（^60090208tb17^）选择日期和时间的组件（TDateTimePicker、TMonthCalendar）
+　　　　（^60090208tb18^）树结构组件（TTreeView）
+　　    （^60090208f1^）
+　　 　　添加一个节点：TreeView1->Items->Add（NULL， "节点1"）;  添加在最顶层，
+　　 　　TreeView1->Items->Add（TreeView1->Selected， "节点2"）;  在当前选择的节点下面添加新节点
+　　 　　TreeView1->Items->AddChild（TreeView1->Selected， "节点3"）;  在选择的节点中添加新节点
+　　
+　　    （^60090208tb19^）列表显示框（TListView），像Windows的资源管理器一样效果
+　　    （^60090208tb20^）窗口状态栏组件（TStatusBar）
+　　    （^60090208tb21^）用于制作像IE按钮条的组件，编程实例中将会用到
+　　     调用Windows各种对话框的非可视话组件：（^60090208g1^）
+　　#1    九、编程实例
+　　    这部分就将C/C++语言和BCB的VCL组件联系起来开发一个简单的应用程序——文本编辑程序。
+　　    在BCB中新建一个应用程序（New Application），修改新窗口（Form1）的属性：
+　　    （^60090208h1^）
+　　    这样我们把MainForm作为程序的控制窗口。下面向窗口组件。
+　　    首先要为程序和组件准备图片资源，在Win32组件页添加一个（^60090208tb16^）图片容器到设计窗口上，命名为ImageList，双击组件图标打开资源选择窗口：
+　　    （^60090208i1^）
+　　    使用Add按钮选择磁盘上的文件，BCB5.0带有不少的图片资源，存放在C:\Program Files\Common Files\Borland Shared\Images文件夹中（假设你的Windows系统安装在C盘）。本程序使用的图片资源在里面都可以找到。（^60090208tb22^）
+　　    然后回到MainForm，添加（^60090208tb23^）ActionList组件并命名为ActionList，修改ImageList属性为ImageList，双击图标出现新的编辑窗口：
+　　    （^60090208j1^）
+　　    使用黄色的按钮添加动作（Action），并在对象查看窗口中编辑动作的属性，Actions列表中显示的是动作的Name属性值：
+　　    （^60090208k1^）（^60090208l1^）
+　　    在Standard组件页中添加一个（^60090208tb2^）主菜单到MainForm，将菜单组件的Name属性改为MainMenu，双击组件图标打开菜单设计窗口，按照下图添加两个菜单：
+　　    （^60090208m1^）
+　　    然后选择在文件（&F） 菜单下的空白项目，在对象查看窗口中编辑Action属性，选择对应的动作，再选择其它空白项目选择Action。最后完成整个菜单：
+　　    （^60090208n1^）
+　　    菜单项目的Caption为减号（-）时，显示一个横杆。这时候MainForm的设计窗口页出现了完整的菜单，但是没有图片出现，编辑MainMenu的ImageList属性就有了。
+　　
+　　    下面在窗口上添加操作按钮：
+　　　　在Win32组件页面添加一个（^60090208tb24^）Toolbar到设计窗口上，命名为Toolbar，修改ImageList属性
+　　　　在Toolbar组件上单击鼠标右键，选择New Button可以添加一个按钮，New Separator添加一个分割组件。选择一个按钮，在对象观察窗口中编辑对应的Action属性，根据主菜单的样式来设计一个Toolbar：（^60090208o1^）（^60090208p1^）
+　　　　我们还得准备一个供用户编辑的组件，在MainForm上添加一个多行文本编辑框（^60090208tb6^），修改属性:
+　　　　（^60090208q1^）
+　　　　在Dialogs组件栏中将一个OpenDialog添加到MainForm上，属性设置：
+　　    （^60090208r1^）
+　　　　再添加一个SaveDialog和FontDialog，属性基本设定和OpenDialog相同
+　　　　
+　　　　界面设计就完成了，最好将我们做的工作保存一下，要使用Save All命令将所有文件都进行保存，IDE会提示你Unit1.cpp和Unit2.cpp文件的保存名称，分别改为MainUnit.cpp和EditUnit.cpp，最后是过程文件名，改为editor.bpr，生成的执行文件名将是editor.exe。现在你就可以执行一下你的程序了，你会发现所有的菜单和按钮都是灰化的不能用，这是因为我们没有为他们编写代码，下面就开始做。
+　　　　/*从这里开始输入代码*/
+　　　　/*结束*/
+　　　　之间是需要自己的输入的代码
+　　　　
+　　　　//---------------------------------------------------------------------------
+　　　　
+　　　　#include <vcl.h>
+　　　　#pragma hdrstop
+　　　　
+　　　　#include "MainUnit.h"
+　　　　//---------------------------------------------------------------------------
+　　　　#pragma package（smart_init）
+　　　　#pragma resource "*.dfm"
+　　　　TMainForm *MainForm;
+　　　　/*从这里开始输入代码*/
+　　　　bool Modified;   //判断文本是否进行过修改
+　　　　String FileName = "";  //记录打开文件名
+　　　　/*结束*/
+　　　　//---------------------------------------------------------------------------
+　　　　__fastcall TMainForm::TMainForm（Tcomponent* Owner）
+　　　　   : Tform（Owner）
+　　　　{
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//在设计窗口中双击ActionList图标，然后在Actions列表中双击NewAction，进入这里
+　　　　void __fastcall TMainForm::NewActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　    CloseActionExecute（NULL）;  //调用关闭文件的功能
+　　　　    if（!Modified）Memo->Show（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击CloseAction，进入这里
+　　　　void __fastcall TMainForm::CloseActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　    if（FileName != ""）
+　　　　    {
+　　　　        if（Modified）
+　　　　           switch （Application->MessageBox（"文件已经修改是否进行保存?"，
+　　　　              "木子软件"， MB_YESNOCANCEL + MB_ICONINFORMATION））  //显示询问对话框
+　　　　              {
+　　　　                  case ID_YES : SaveActionExecute（NULL）;  //用户选择了YES按钮调用保存功能
+　　　　                     break;
+　　　　                  case ID_NO : Modified = false;
+　　　　                     break;
+　　　　                  case ID_CANCEL : return;
+　　　　              }
+　　　　    }
+　　　　    if（Modified） return;   //Modified不为false表明文本不能被关闭
+　　　　    FileName = "";
+　　　　    Memo->Hide（）;   //隐藏编辑框
+　　　　    Memo->Clear（）;   //清空文本输入框，可能会让Modified变成True
+　　　　    Modified = false;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击SaveAction，进入这里
+　　　　void __fastcall TMainForm::SaveActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   if（FileName == ""）
+　　　　   {
+　　　　       SaveAsActionExecute（NULL）;   //如果文件名是空，就调用另存为功能
+　　　　       return;
+　　　　   }
+　　　　   try
+　　　　   {
+　　　　      Memo->Lines->SaveToFile（FileName）;
+　　　　      Modified = false;   //成功保存将修改标志设定为false
+　　　　   } catch（…） {
+　　　　      Application->MessageBox（"文件保存出现错误!"， "木子软件"， MB_OK + MB_ICONERROR）;
+　　　　      return;
+　　　　   }
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击OpenAction，进入这里
+　　　　void __fastcall TMainForm::OpenActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   if（OpenDialog->Execute（））
+　　　　   {
+　　　　       CloseActionExecute（NULL）;  //调用关闭文件的功能
+　　　　       if（Modified）  return;        //如果文本没有关闭就返回
+　　　　       FileName = OpenDialog->FileName;
+　　　　       try
+　　　　       {//打开文件          
+　　　　          Memo->Lines->LoadFromFile（FileName）;
+　　　　       } catch（…） {
+　　　　          //打开文件出现错误
+　　　　          Application->MessageBox（"无法打开文件!"， "木子软件"， MB_OK + MB_ICONERROR）;
+　　　　          CloseActionExecute（NULL）;
+　　　　          return;
+　　　　       }
+　　　　       Memo->Show（）;
+　　　　       Modified = false;  //文件的载入会造成Modified变成true
+　　　　   }
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击SaveAsAction，进入这里
+　　　　void __fastcall TMainForm::SaveAsActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   if（SaveDialog->Execute（））   //打开保存文件对话框
+　　　　   {
+　　　　      FileName = SaveDialog->FileName;
+　　　　      SaveActionExecute（NULL）;   //调用文件保存功能
+　　　　   }
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击ExitAction，进入这里
+　　　　void __fastcall TMainForm::ExitActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　    Application->Terminate（）;   //应用程序结束
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//在对象查看窗口Memo组件的事件列表中，双击OnChange事件
+　　　　void __fastcall TMainForm::MemoChange（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   Modified = true;   //文本改变
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击UndoAction，进入这里
+　　　　void __fastcall TMainForm::UndoActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   if（Memo->CanUndo） Memo->Undo（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击CutAction，进入这里
+　　　　void __fastcall TMainForm::CutActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   Memo->CutToClipboard（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击CopyAction，进入这里
+　　　　void __fastcall TMainForm::CopyActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　    Memo->CopyToClipboard（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击PasteAction，进入这里
+　　　　void __fastcall TMainForm::PasteActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   Memo->PasteFromClipboard（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击DelAction，进入这里
+　　　　void __fastcall TMainForm::DeleteActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   Memo->ClearSelection（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　//Actions列表中双击SelALLAction，进入这里
+　　　　void __fastcall TMainForm::SelAllActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   Memo->SelectAll（）;
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　
+　　　　//Actions列表中双击FontAction，进入这里
+　　　　void __fastcall TMainForm::FontActionExecute（Tobject *Sender）
+　　　　{
+　　　　/*从这里开始输入代码*/
+　　　　   if（FontDialog->Execute（））Font->Assign（FontDialog->Font）;   //使用设定字体对话框
+　　　　/*结束*/
+　　　　}
+　　　　//---------------------------------------------------------------------------
+　　　　
+　　　　
+　　　　整个程序就这么多，按F9就可以运行了，虽然很简单但是已经具有了文本编辑程序的初步功能，如果你有兴趣可以继续拓展一下它的功能。如果你想把程序拷贝给你的朋友去使用，那还有点小工作要做：打开功能配置窗口（Project Options）
+　　　　Linker页面去掉Use dynamic RTL选项：（^60090208s1^）
+　　　　Packages页面去掉Build with runtime packages然后再重新编译程序（Build Project）：（^60090208t1^）
+　　　　
+　　　　BCB的帮助内容非常全面，涵盖了C/C++的语法、VCL组件的使用、数据库编程、大量的Windows API函数，还有大量的实例。只可惜是全英文的，对于英文基础比较差的朋友确实是个挑战，并不需要完全了解整个文档的内容，只要找关键部分就行了。在帮助文档中了解一个组件，只要大概知道它有哪些属性、事件和方法，然后再看看属性、事件和方法帮助中给出的例子，然后自己试试就够了。　　
+　　    作者水平有限，文中不当之处敬请指正，谢谢。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

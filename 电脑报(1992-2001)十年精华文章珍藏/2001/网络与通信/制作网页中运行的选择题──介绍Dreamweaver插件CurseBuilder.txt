@@ -1,0 +1,78 @@
+制作网页中运行的选择题──介绍Dreamweaver插件CurseBuilder
+
+黄胜锦 
+2001年 3期
+
+    我在网页中制作了选择题考试（^03040703a^），只要你一做对，就会出现一个小天使表扬你，你想学吗？不用编程，非常简单，保证你在五分钟内搞定，只要你使用Dreamweaver的插件CurseBuilder就可以了。
+　　    CurseBuilder是Dreamweaver的一个免费插件，它也是由Macromedia制造，它可在Macromedia的官方网站http://www.Macromedia.com下载，安装好该插件后，在Dreamweaver的Objects的Common面板中会多出两个图标（^03040703b^），单击CurseBuilder图标就会在网页中插入一个CurseBuilder交互。
+　　    CurseBuilder的交互类型非常多，如果算上每一类交互中的小类的话共有24种之多，有选择题、拖放题、填空题等，加上每一种又有繁杂详细的参数，它们都会自动生成JavaScript脚本，因此不用你去编程。本文挑选其中的一个进行讨论。
+　　    下面通过实际制作一个选择题的例子（^03040703c^）来帮助读者进一步体会Course Builder的制作过程。
+　　    1.启动Coursebuilder以后，在目录区中选择Multiple Choice（选择题选项）。右边会给出选择题的类型（^03040703d^）。
+　　    其中，第一个为True or False对或者错的选择类型。下排第一个选项是自定义图像选择题。选择项目前面的图形可以自己指定。
+　　    其余所有的类型都为一般的选择类型。只是形式有所不同。这里略图都已经显示得很清楚了。下面我们选择自定义图像选择题来实战制作。
+　　    2.单击选择该类型。在对话框中下方会多出四个标签（^03040703e^）。
+　　    3.单击General标签进行参数设定（^03040703f^）。
+　　    Interaction Name：交互名称。这个是用于脚本进行调用的名称。我们可以不必理会。
+　　    Question Text：输入选择题的题目。
+　　    Judge Interaction：交互响应方式。
+　　    when the user clicks a buttion labeled。当用户按下了某个按钮以后判断选择的答案是否正确。后面的文本框就是用来输入按钮名称的。
+　　    when the user clicks a choice。当用户选择了一个选项以后判断答案是否正确。
+　　    On a specific event：使用某个特定的行为来触发判断事件。
+　　    Correct When：何时认定答案是正确的。有两个选项：
+　　    All correct and None incorrect：所有选项都正确并且没有不正确的选项。
+　　    Any correct and None incorrect：只有一个选项正确，并且没有不正确的选项。
+　　    Knowledge Track：用于和学习跟踪系统Pathware等等进行通讯。
+　　    Tries Are：尝试次数。可以选择Unlimited那就是随便试。Limited To限制次数。可以输入次数限制尝试次数。
+　　    Time Is：限制答题时间。可以选择Unlimited限制时间。可以输入次数限制尝试秒数。
+　　    Reset：Create a Reset Button建立一个重置按钮清除选择的答案。
+　　    Layer：Insert in a Layer：将整个题目插入到层中去。这个选项很有用。假如我们的题目都在层中，那么制作题目的显示隐藏，滑动都没有问题了。
+　　    在本例中我们设定了如下参数：
+　　    Question Text：选择题的题目设定为：“正方形是哪一个？”
+　　    Judge Interaction：交互响应方式。选择when the user clicks a choice。当用户选择了一个选项以后判断答案是否正确。我们在本例中希望一选答案就看到正确与否。所以选择这个选项。
+　　    Correct When：何时认定答案是正确的。Any correct and None incorrect：只要有一个选项正确，并且没有不正确的选项。
+　　    Tries Are：尝试次数。Limited To限制尝试3次。
+　　    Time Is：限制答题时间。Limited To限制尝试时间为60秒。
+　　    4.设置答案选项。
+　　    单击Choices标签（^03040703g^）：系统弹出答案编辑对话框。
+　　    系统默认会给出4个答案。如果想增减答案。在对话框的上方有4个按钮。Add增加，Delete删除，Up将答案上移一个位置。Down将答案下移一个位置。在每个答案的右侧会有一个括号表示这个答案是不是正确选项。Incorrect表示错误选项。Correct选项表示正确选项。单击其中的答案，在下方设置这个答案的参数。
+　　    Choice Options：
+　　    Name：选项名，一般可以采取默认值。
+　　    Text（Optional）：答案的内容。
+　　    Image File：在答案中显示图片。子选项Place before text将图片放在答案的前面。
+　　    Appearance：答案的题头显示图片。这里我们选择答案相应的图片。例如矩形，我们选择一个矩形的答案。
+　　    Choice is：确定这个答案是否正确
+　　    Incorrect：不正确
+　　    Correct：正确
+　　    Not judged：不判断
+　　    Score：得分。选择该项能够得多少分。
+　　    按照答案的选项，依次设定所有的答案。
+　　    5.编辑响应结果。
+　　    选择Action Mgr标签（^03040703h^）。进入Action Manger对话框。ActionManger其实就是管理题目的判断流程。包括选正确了如何反应，选错了如何反应。这样我们可以通过调整，来实现丰富多彩的反馈结果。
+　　    首先我们了解一下这个选择题的工作流程。这个流程可以在当中的框中显示。由于是中文Win98下面使用。出现了一些乱码。不过这个流程我们还是可以看到的。如下面：
+　　    整个选择题的Action动作流程是这样的。
+　　    +Segment：Check Time（首先检查是否超过时间）
+　　    ──Segment：Correctness（检测答案是否正确，这段流程包含在检测时间流程的里面）
+　　    ──If Correct（如果答案正确）
+　　    Popup Message （弹出窗口）
+　　    Else If Incorrect（如果答案不正确）
+　　    Popup Message （弹出窗口）
+　　    ──Else If Unknown Response（如果不判断答案）
+　　    Popup Message （弹出窗口）
+　　    +Segment：Check Tires （检查是否超过尝试次数）
+　　    流程中，首先判断是否超时，如果没有，进入判断流程根据答案的回答情况执行相应的动作，最后判断是否超过尝试次数。
+　　    Action Manager就是对这些流程进行管理和编辑的。现在可以看到，假如我们的答案选对了，或者选错了。评价会在弹出的对话框中显示出来。但是，默认的情况下，评价是一段英文。我们想要修正成为别的答案，单击Popup Message（^03040703i^），选择Edit按钮。系统会弹出对话框让你修正。就像像图片中所示的。
+　　    这里的所有动作其实就是Behavior行为。随时随地可以给这段流程添加动作例如，添加一个显示或者隐藏层的动作。单击Popup Message，将对话框上方的下拉菜单拉出来。如图，所有的行为都藏在这里。只要选择好行为，再按Add就可以添加到PopupMessage的下面。
+　　    由此，其它的按钮就比较好理解了。
+　　    Add 添加行为。
+　　    Edit 编辑行为。
+　　    Cut Copy Paste：对行为进行编辑剪切、复制、粘贴。
+　　    Rename：修改流程的名称，便于阅读。
+　　    Expand/Collapse。展开压缩分支。
+　　    左侧的四个箭头用于将选中的流程进行上下位置的调整。
+　　    在本例中，将正确的响应设置为弹出窗口。显示信息“回答正确！！Great！！”。不正确为“再试试看？”在整个流程中修改响应的结果。如果想正确的响应设置为出现小天使，则流程的正确响应后面添加一个显示或者隐藏层的动作，Show-Hide Layers，将装有小天使GIF动画的原来隐藏的层显示出来即可，你甚至还可以为小天使制作时间线，让她高兴地飞来飞去（^03040703j^）。
+　　    6.单击OK键。一切OK。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

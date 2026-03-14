@@ -1,0 +1,100 @@
+港台常见的CD-ROM Drive(光碟驱动器)主要性能表
+
+张佛庆
+1995-01-27
+
+        ┃ 类  别 │ 厂   商  │  型    号  │存取时间│ 传输率 │ 接  口 │  兼 容 性    ┃
+        ┠────┼─────┼──────┼────┼────┼────┼───────┨
+        ┃   单	  │CD Tech   │Porta T3201 │325ms   │150KB/S │SCSI1   │MPC Level 1   ┃
+        ┃	  │Chinon    │CDX-431     │350ms   │150KB/S │SCSI1   │MPC Level 1   ┃
+        ┃   速	  │Genesis   │GenSTAR 200 │450ms   │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Hitachi   │CDR-1700S   │320ms   │154KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃   机	  │Hitachi   │CDR-1750    │320ms   │154KB/S │SCSI 1  │MPC Level 1   ┃
+        ┃	  │Hitachi   │CDR-3750    │300ms   │150KB/S │SCSI 2  │MPC Level 1   ┃
+        ┃	  │IBM       │3501	    │380ms   │150KB/S │SCSI 1  │MPC Level 1   ┃
+        ┃	  │LMSI      │CM231	    │400ms   │150KB/S │SCSI 1  │MPC Level 1   ┃
+        ┃	  │Mitsumi   │CRMC-FX001  │280ms   │175KB/S │AT-BUS  │CD-I CD-ROM   ┃
+        ┃150KB/S │Mitsumi   │CRMC-FX0020 │500ms   │150KB/S │AT-BUS  │VCD PHOTO CD  ┃
+        ┃	  │Mitsumi   │CRMC-FX005S │350ms   │150KB/S │AT-BUS  │CD-ROM XA     ┃
+        ┃	  │NEC	      │CDR-73      │300ms   │150KB/S │SCSI 1  │MPC Level 1   ┃
+        ┃	  │Panasonic │CR-501      │390ms   │150KB/S │SCSI 1  │MPC Level 1   ┃
+        ┃	  │Panasonic │CR-521/B    │390ms   │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Panasonic │CR-522/B    │390ms   │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Panasonic │CR-523/B    │390ms   │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Panasonic │CR-532      │290ms   │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Philips   │CDD-461     │700     │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │	      │CDD-462     │350     │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │	      │CM-205      │375     │150KB/S │AT-BUS  │MPC Level 1   ┃
+        ┃	  │Pioneer   │DRM-600     │600ms   │150KB/S │SCSI-1  │6片装	  ┃
+        ┃	  │PLI	      │CD-ROM      │380ms   │150KB/S │SCSI-1  │MPC Level1	  ┃
+        ┃	  │Procom    │PXCD650B    │340ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Sony      │CDU-31A     │490ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Sony      │CDU-31A-03  │325ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Sony      │CDU-7205    │340ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Sony      │CDU-7211    │380ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Tandy     │CDR-1000    │1000ms  │150KB/S │SCSI-1  │MPC Level1	  ┃
+        ┃	  │Texel     │DM-5021	    │340ms   │150KB/S │AT-BUS  │MPC Level1	  ┃
+        ┃	  │Toshiba   │TXM-3201A4  │325ms   │150KB/S │SCSI-1  │MPC Level1	  ┃
+        ┃	  │Toshiba   │TXM-3301-E1 │325ms   │154KB/S │SCSI-1  │MPC Level1	  ┃
+        ┃	  │Toshiba   │TXM-3301-B  │325ms   │150KB/S │SCSI-1  │MPC Level1	  ┃
+        ┠────┼─────┼──────┼────┼────┼────┼───────┨
+        ┃	  │Chinon    │CDS-535	    │350ms   │300KB/S │SCSI-2  │MPC Level2	  ┃
+        ┃	  │Creative  │OmniCD	    │320ms   │300KB/S │AT-BUS  │一般均可	  ┃
+        ┃   双	  │Hitashi   │CDR-6700    │260ms   │300KB/S │AT-BUS  │运行CD-ROM	  ┃
+        ┃	  │Hitashi   │CDR-6750    │245ms   │300KB/S │SCSI-1  │CD-I PHOTO-CD ┃
+        ┃   倍	  │Mitsumi   │CRMC-FX001D │280ms   │300KB/S │AT-BUS  │和CD-ROM XA	  ┃
+        ┃	  │NEC	      │CDR-210     │380ms   │300KB/S │SCSI-1  │下同	  ┃
+        ┃   速	  │NEC	      │CDR-55JD    │350ms   │300KB/S │SCSI-2  │		  ┃
+        ┃	  │NEC	      │CDR-74      │300ms   │300KB/S │SCSI-1  │		  ┃
+        ┃   机	  │NEC	      │CDR-74-1    │280ms   │300KB/S │SCSI-2  │		  ┃
+        ┃	  │NEC	      │CDR-84      │300ms   │300KB/S │SCSI-1  │		  ┃
+        ┃	  │NEC	      │CDR-84-1    │280ms   │300KB/S │SCSI-2  │		  ┃
+        ┃	  │NEC	      │CDR-84JD-1  │280ms   │30KB/S  │SCSI-1  │同上	  ┃
+        ┃	  │NEC	      │CDR-84JD    │280ms   │300KB/S │SCSI-1  │·		  ┃
+        ┃	  │Panasonic │CR-503-J    │320ms   │300KB/S │SCSI-1  │·		  ┃
+        ┃	  │Panasonic │CR-533/B    │290ms   │300KB/S │SCSI-2  │·		  ┃
+        ┃	  │Panasonic │CR-562B     │320ms   │300KB/S │AT-BUS  │·		  ┃
+        ┃	  │Panasonic │CR-563      │320ms   │300KB/S │AT-BUS  │·		  ┃
+        ┃300KB/S │Philips   │CM-206      │350ms   │307KB/S │AT-BUS  │·		  ┃
+        ┃	  │Sony      │CDU-33A     │320ms   │300KB/S │AT-BUS  │		  ┃
+        ┃	  │Sony      │CDU-561     │295ms   │300KB/S │AT-BUS  │		  ┃
+        ┃	  │Sony      │CDU-55E     │256ms   │342KB/S │IDE     │MPC Level2	  ┃
+        ┃	  │Sony      │CDU-55E(2)  │256ms   │342KB/S │IDE     │MPC 2	  ┃
+        ┃	  │Sony      │CDU-55S     │220ms   │360KB/S │SCSI-2  │MPC 2	  ┃
+        ┃	  │SANYO     │CRD-450P    │280ms   │300KB/S │IDE     │MPC 2	  ┃
+        ┃	  │SANYO     │CRD-H94A    │250ms   │300KB/S │AT-BUS  │MPC 2	  ┃
+        ┃	  │SANYO     │CRD-H94S    │250ms   │300KB/S │SCSI 1/2│MPC 2	  ┃
+        ┃	  │Talon     │DS-100      │320ms   │300KB/S │IDE	  │MPC 2	  ┃
+        ┃	  │Talon     │DS-200      │245ms   │330KB/S │IDE	  │MPC 2	  ┃
+        ┃	  │Texel     │DM3024      │265ms   │300KB/S │IDE	  │MPC 2	  ┃
+        ┃	  │Texel     │DM5024      │265ms   │300KB/S │SCSI-2  │MPC 2	  ┃
+        ┃	  │Texel     │DM5024      │265ms   │300KB/S │SCSI-2  │MPC 2	  ┃
+        ┃	  │Toshiba   │TXM-3401B   │200ms   │330KB/S │SCSI-2  │MPC 2	  ┃
+        ┃	  │Wearns    │CDD-110     │380     │300     │AT-BUS  │MPC 2	  ┃
+        ┃	  │Wearns    │CDD-120     │230     │300     │1DE	  │MPC 2	  ┃
+        ┠────┼─────┼──────┼────┼────┼────┼───────┨
+        ┃   三	  │NEC	      │3XE(外置式) │195ms   │450KB/S │SCSI-2  │MPC Level 2	  ┃
+        ┃   倍	  │NEC	      │3XI(内置式) │195ms   │450KB/S │SCSI-2  │可运行CD-I	  ┃
+        ┃   速	  │NEC	      │3XP	    │250ms   │450KB/S │SCSI-2  │CD-ROM XA	  ┃
+        ┃   机	  │NEC	      │CDR-500     │195ms   │450KB/S │SCSI-1  │PHOTO-CD	  ┃
+        ┃450KB/S │NEC	      │CDR-510     │240ms   │450KB/S │SCSI-1  │CD-ROM	  ┃
+        ┃	  │NEC	      │CDR-401     │240ms   │500KB/S │SCSI 1/2│CD-ROM	  ┃
+        ┠────┼─────┼──────┼────┼────┼────┼───────┨
+        ┃   四	  │Amconics  │Dolphin-8222│180ms   │600KB/S │1DE	  │MPC Level 2	  ┃
+        ┃   倍	  │Arvin     │PX-43CH     │150ms   │600KB/S │SCSI-2  │可运行	  ┃
+        ┃   速	  │AZTECH    │CDA468-01   │195ms   │600KB/S │AT-BUS  │CD-I	  ┃
+        ┃   机	  │Kain      │CD-55AK     │195ms   │600KB/S │AT-BUS  │CD-ROM XA	  ┃
+        ┃	  │NEC       │4Xpro	    │195ms   │600KB/S │AT-BUS  │PHTO-CD	  ┃
+        ┃600KB/S │NEC       │CDR501	    │220ms   │600KB/S │SCSI-1/2│CD-ROM	  ┃
+        ┃	  │Pioneer   │DR-U104X    │195ms   │614KB/S │SCSI-1/2│CD-ROM	  ┃
+        ┃	  │Pioneer   │DRM-604X    │300ms   │606KB/S │SCSI-1/2│CD-ROM	  ┃
+        ┃	  │SANYO     │CDR-254S    │200ms   │600KB/S │SCSI-1/2│CD-ROM	  ┃
+        ┃	  │SANY0     │CDR-244P    │200ms   │600KB/S │SCSI-1/2│CD-ROM	  ┃
+        ┃	  │TEAC      │CD-55A      │195ms   │600KB/S │AT-BUS  │CD-ROM	  ┃
+        ┃	  │TEAC      │CD-55AK     │195ms   │600KB/S │AT-BUS  │CD-ROM	  ┃
+        ┃	  │YAMAHA    │CDE-100     │	      │600KB/S │SCSI-2  │CD-ROM	  ┃
+        ┗━━━━┷━━━━━┷━━━━━━┷━━━━┷━━━━┷━━━━┷━━━━━━━┛	
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

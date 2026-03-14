@@ -1,0 +1,104 @@
+WINDOWS资源编译器出错信息
+
+
+1994-01-07
+
+        ACCELERATORS语句的type域应包含ASCⅡ值或VIRTKEY值。
+        BEGIN expected in table
+        BEGIN关键字应紧跟在ACCELERATORS关键字后
+        BEGIN expected in dialog
+        BEGIN关键字应紧跟在DIALOG关键字后
+        BEGIN expected in menu
+        BEGIN关键字应紧跟在MENU关键字后
+        BEGIN expected in rcdate
+        BEGIN关键字紧跟在RCDATE关键字后
+        BEGIN keyword expected in string or error table
+        BEGIN关键字应紧跟在STRINGTABLE或ERRTABLE关键字后
+        Cannot reuse string constants 不能重复使用STRINGTABLE或ERRTABLE语句中的同一值
+        Control character out of range ［^A-^Z］
+        ACCELERATORS语句中的一控制字符无效，跟在插入符(^)之后的字符应在A到Z之间(包括A和Z)
+        Copy of temp-file-2 to exe-file failed  此临时文件不能生成新的.EXE文件
+        Copying segment id (size bytes) (V)RC正拷贝指定段到.EXE文件
+        Could not find RCPP.EXE 没有找到RCPP.EXE文件(RCPP.EXE应在当前目录下，或在PATH环境中的一个目录下)
+        Could not open in-file-name RC不能打开指定文件
+        Couldn't open resouce-name RC不能打开.RES文件
+        Couldn't write executable .EXE文件不能拷到临时文件
+        Creating resource-name (V)RC正生成一个新的.RES文件
+        Empty menus not allowed 出现于菜单项之前的一个END关键字在MENU语句中定义了，RC不允许空菜单
+        END expected in dialog END关键字应出现在DIALOG语句段的末尾
+        END expected in menn END关键字应在一个MENU语句段末尾
+        Error:bitmap file resource-file is not in 3.0 format  资源文件不是3.0的格式(用SDKPAINT将版本2.X资源文件转换成3.0的格式)
+        Error:creating resource-name 不能生成指定的.RES文件
+        Error:I/O error reading file 读失败，无指定的文件名
+        Error:I/O error seeking in file 文件读/写指针移动失败
+        Error:I/O error writing file 写失败，无指定的文件名
+        Error:old DIB in resource-name, pass it through SDKPAINT  指定的资源文件不与WINDOWS3.0兼容
+        Error:out of memory, try not using resources with string identifiers  没有足够内存分配给一字符串名字表
+        Error:resource file resource-name is not in 3.00 format  资源文件不是3.00的格式，要保证图符和光标已用最近版本的SDKPAINT读和保存
+        Errors in .EXE file LINK失败
+        .EXE file too large; relink with higher/ALIGN value  EXE文件太大。以一更多的/ALIGN值再连接.EXE文件
+        .EXE not created by LINK 该LINK版本无法创建.EXE文件  应该用来自C5.1以上版本的一个LINK版本创建.EXE文件
+        Expected comma in accelerator table
+        PC需要在ACCELERATORS语句中的EVENT和IDVALUE域之间出现一个逗号
+        Expected control class name
+        DIALOG语句中的CONTROL语句中的CLASS域应为下列类型之一：BUTTON、COMBOBOX EDIT、LISTBOX、SCROLLBAR、STATIC或用户定义的类型
+        Expected font face name
+        DIALOG语句中FONT任选项的TYPEFACE域应是双引号括起的一个ASCⅡ字符串。此域表示一字体的名字
+        Expected ID value for menuitem MENU语句应包含一个MENUID域，此域表示菜单资源的名字及数量
+        Expected menu string 每个MENUITEM和POPUP语句应包含一个TEXT域，此域为双引号括起的一字符串，表示菜单项或弹出菜单的名字
+        Expected numeric command value  RC在ACCELERATORS语句中需要一个数字IDVALUE域，保证有一个#DEFINE常量定义此值。
+        Expected numeric constant in string table  STRINGTABLE或ERRTABLE语句的BEGIN关键字之后必须紧跟一个由#DEFINE语句定义的数字常量
+        Expected numeric point size DIALOG语句中的FONT任选项的POINTSIZE域应是一整数指针大小值
+        Expected numerical dialog constant  DIALOG语句需要X，Y，WIGTH和HEIGHT域的整数值
+        Expected string in STRINGTABLE/ERRTABLE  STRINGTABLE或ERRTABLE语句中的每个STRINGID之后应有一字符串
+        Expected string or constant accelerator command  RC不能确定为加速键设置哪种键，ACCELERATOR语句中的EVENT域可能无效
+        Expecting numer for ID DIALOG语句中需要一数字表示控制语句的ID域
+        Expecting quoted string in dialog class  DIALOG语句中的CLASS任选项的class域应是一整数或一字符串(用双引号括起来)
+        Expecting quoted string in dialog title  DIALOG语句中的CAPTION任选项的captiontext域应是用双引号括起的一个字符串
+        File not found:filename PC命令行中标识的文件未找到。检查此文件是否移到别的目录，文件名或路径名输入是否正确
+        Font names must be ordinals FONT语名中的POITSIZE域应是一整数，而不是一字符串
+        Gangload area is ［size］ bytes at offset ox ［address］  段放在.EXE文件中的连续区域，以利于装载，偏移量从文件头算起
+        Insufficient memory to spawn RCPP.EXE  无足够内存运行预处理器(RCPP)，用户不能试图运行占太多内存的内存驻留软件
+        Invalid Accelerator ACCELERATORS语句中的EVENT域不被承认，或大于两字符长
+        Invalid accelerator type (ASCⅡ or VIRTKEY)  ACCELERATORS语句中的TYPE域无效，TYPE域应包含ASCⅡ值或VIRTKEY值
+        Invalid control character ACCELERATORS语句中的控制字符无效，有效的控制字符包含一个字母(仅一个)后跟一个插入符(^)
+        Invalid control type 无效的控制语句类型
+        Invalid .EXE file .EXE文件无效
+        Invalid switch, option 使用了无效的任选项
+        Invalid type 资源类型超出WINDOWS.H文件中定义的类型
+        Invalid usage. Use RC-? for help  无效的工作，利用RC-?可得到命令行任选项表
+        No executable filename specified  -FO任选项被用，但未指定.EXE文件名
+        No resource binary filename specified  -FE任选项被用，但未指定.RES文件名
+        Not a Microsoft Windows format .EXE file  连接器不能正确生成.EXE文件
+        Out of far heap memory 无足够内存。不要运行占内存太多的内存驻留软件
+        Out of memory, need n bytes 无足够内存，RC不能分配指定大小的内存空间
+        RC: Invalid swap area size: -s string 无效的盘交换区大小
+        RC: Invalid switch: option 用户使用了无效的任选项
+        RC: RCPP preprocessor-command-string  (V)RC正传送指定字符串至预处理器
+        RC： RCPP.ERR not found 未找到PCPP.ERR文件，RCPP.ERR应在当前目录中，或在PATH环境的一个目录中
+        RC: terminated by user 按下了CONTROL+C键结束RC
+        RC: terminating after preprocessor errors 预处理器错误而结束RC
+        RCPP.EXE command line greater than 128 bytes  命令行太长，超过128个字节
+        RCPP.EXE is not a valid executable RCPP.EXE无效，此文件可能已改变
+        Reading resource-name (V)RC正读.RES文件
+        Resource will be aligned on number byte boundaries  (V)对齐(ALIGN)由LINK行上的ALIGN：number任选项确定
+        Sorting preload segments and resoutces into gangload section  (V)RC正排序预安装段，以使它们能快速安装
+        Text string or ordinal expelted in control  DIALOG语句中的CONTROL语句的TEXT域为一字符串或为指向控制的类型的顺序索引
+        The EXETYPE of this program is not windows  EXETYPE WINDOWS语句未在.DEF文件中出现，由于连接器可能作了不适于WINDOWS的OS/2
+        优化(缺省EXETYPE)，所以应指定EXETYPE WINDOWS
+        Unable to create destination RC不能生成目的文件
+        Uuable to open exe-file RC不能打开.EXE文件
+        Unbalanced parentheses 括号不对称(要保证关闭DIALOG语句中的所有括号)
+        Unexpected value in RCData RCDATA中的RAW-DATA值应为整数或字符串，每部分以逗号隔开
+        Unknown DIR header formal  位图头不是一个BITMAPCOREHEADER或BITMAPIMFOHEADER头
+        Unknown error spawning RCPP.EXE RCPP未启动，试着从SDK盘上拷贝文件，并用CHKDSK程序检查可用内存大小
+        Unknown Menu SubType MENU语句中的ITEM-DEFINITION域可以只包含MENUITEM和POPUP语句
+        Warning: ASCⅡ character not equivalent to virtual key code  警告：在ACCELERATORS语句中有一无效的虚拟键码
+        Warning: Discardable segment id (hex-size bytes) is execessively large  警告：段大于27FFH，因为太大的段会极大地影响内存的使用
+        Writing resource resource-name or ordinal-jd resource type(resource size)  警告：RC正在写资源名或顺序ID，后跟一个句号和资源类型、大小(字节数)
+        Warning: SHIFT or CONTROL used without VIRTKEY  警告：ALT、SHIFT和CONTROL任选项仅适用于ACCELERATORS语句中的虚拟键
+        Warning string segment number set to PRELOAD  警告：RC拷贝了一段，此段应为预安装的，但未在连接器.DEF文件中注明为PRELOAD。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

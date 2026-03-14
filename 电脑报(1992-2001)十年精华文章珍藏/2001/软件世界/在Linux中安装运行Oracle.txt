@@ -1,0 +1,133 @@
+在Linux中安装运行Oracle
+
+小箭 
+2001年 11期
+
+    编者按：经过了种种猜测和怀疑之后，Oracle于1998年10月7日发布了Linux上的Oracle 8数据库和Oracle Application Server。这是Linux近期历史中最为耀眼的一幕。该公司在大规模数据应用领域的巨大声誉使这次产品发布成为一个明确的标志：整个世界都应该认识到，Linux已经是一个成熟的操作系统，足以承担企业级的应用。
+　　#1    一、开始安装
+　　    在Red Hat上安装Oracle是相当容易的，但要是完全依照Oracle公司的文档就未必那么容易了。最快的捷径是访问Tom Bisset的主页http://jordan.fortwayne.com/oracle。注意这里没有JDBC的安装介绍。JDBC对于跨平台的Oracle应用十分方便，安装JDBC，只需在安装过程中选择组件时，根据需要选择相关选项即可。当然，首先必须先装好JDK。然后需要设置Oracle用户的ClassPath环境变量，最好的办法是在Oracle用户目录的.bash_profile 或.profile中加上一句：CLASSPATH=/usr/lib/jdk/lib/classes.zip；export CLASSPATH。
+　　    另外请注意：安装程序让你输入各口令时，不同于UNIX中是允许口令里有“.”的，Oracle就不行了。安装程序的另一个问题是试图往还没有建立的目录里拷贝文件。有必要在安装前执行mkdir -p /u01/app/oracle/product/8.0.5/doc/server.805/install。
+　　    安装成功后，必须以ROOT身份登录，运行root.sh。我们也可以对root.sh进行改动：
+　　    把LBIN环境变量由/usr/lbin改为/usr/local/bin
+　　    增加环境变量LOG=/tmp/oracle-root.sh.log，这样脚本的运行结果会被记录下来
+　　#1    二、配置python
+　　    python是一种强大、快速的面向对象的脚本语言，用以测试Oracle的编程接口和网络接口。要在python中连接Oracle，需要Digital Creation（Zope应用服务器的作者）的DCOracle模块。你只需下载软件并按照指示做就行。如果是DCOracle 1.1.0版本，可以使用Setup-8.0.4的配置，从ORACLE_LIBS变量中删去-lsocket、-lnsl、-lgen、-lelf、-laio和-lposix4即可，那些都是Solaris专用的。注意Redhat 5.2和6.0中安装的python设置不全，config目录和include目录被省略，无法编译。安装第三方的模块。你必须自己编译python或者下载一个合适的RPM。可以在Oliver Andrich的 Python & Linux主页上找到python的RPM。运行rpm -e --nodeps python， 然后 rpm -i python。安装好python后，可以运行了以下的基本查询，访问Oracle。
+　　    [uche@malatesta uche]$ python
+　　    Python 1.5.1（#1，Sep 3 1998，22：51：17）[GCC 2.7.2.3] on linux-i386
+　　    Copyright 1991-1995 Stichting Mathematisch Centrum，Amsterdam
+　　    >>> import DCOracle
+　　    >>> #connect to DB. scott/tiger are the test database username/password
+　　    >>> dbc=DCOracle.Connect （“scott/tiger@sforza”）#sforza is the local Oracleserver
+　　    >>> c = dbc.cursor（）
+　　    >>> c.execute（“SELECT * FROM emp WHERE emp.deptno = 10”）
+　　    >>> rows = c.fetchall（）
+　　    >>> print rows
+　　    [（7782， CLARK， MANAGER， 7839， dbiDate（1981-06-09 00:00:00）， 2450.0， None， 10），  
+　　    （7839， KING， PRESIDENT， None， dbiDate（1981-11-17 00:00:00）， 5000.0， None， 10），  
+　　    （7934， MILLER， CLERK， 7782， dbiDate（1982-01-23 00:00:00），1300.0， None， 10）]  
+　　#1    三、配置开发工作站
+　　    在数据库服务器以外的一台机器上编译安装了python和其他编程接口。最初，看起来似乎必须安装Oracle 的所有PRO*C/C++软件包。但要把Oracle安装程序运行到那一步也够麻烦的，其实可以找出写程序所需要的最小限量的头文件（include）、对象文件（object）和库文件（library）：
+　　    $ORACLE_HOME/lib/*，$ORACLE_HOME/rdbms/demo/*和$ORACLE_HOME/rdbms/lib/*
+　　    本人机器上设ORACLE_HOME为/usr/local/oracle。
+　　    注意有了这些文件还不足以在C程序中直接嵌入SQL语句，只有完整安装PRO*C/C++后才行。如果要用JAVA的话，还得增加$ORACLE_HOME/jdbc/lib/*；注意把这个目录加到ClASSPATH变量中。
+　　#1    四、JDBC连接
+　　    下面通过一个例子测试JDBC连接，该例子实现在一个listbox内显示测试库中的所有雇员名。下面的程序是调用JDBC的java Applet，JDBC安装成功后，将程序存为 JDBCTest.java，然后执行：
+　　    javac JDBCTest.java
+　　    appletviewer JDBCTest.html
+　　    你就可以自己看看结果如何了，其中JDBCTest.java如下：
+　　    JDBCTest.java：
+　　    /*Applet that reads in several rows from a remote Oracle database and presents them in a listbox. */
+　　    import java.sql.*;
+　　    import java.awt.*;
+　　    import java.applet.*;
+　　    import java.lang.*;
+　　    public class JDBCTest extends Applet
+　　    {//Single-select ListBox
+　　    private List employee_list = new List（5，false）
+　　    public void init（）
+　　    {setLayout（new BorderLayout（））;    
+　　    try {
+　　    //Set up the Oracle JDBC driver
+　　    DriverManager.registerDriver（new oracle.jdbc.driver.OracleDriver（））;    
+　　    //Connect to an Oracle database on machine sforza，using username
+　　    //“scott” and password “tiger”
+　　    Connection DB_conn = DriverManager.getConnection
+　　    （“jdbc:oracle:thin:@sforza:1521:ORCL”，“scott”，“tiger”）;  
+　　    //Connection DB_conn = DriverManager.getConnection
+　　    （“jdbc:oracle:thin:scott/tiger@sforza:1521:ORC”）;  
+　　    //Create a JDBC statement object
+　　    Statement statement_obj = DB_conn.createStatement（）;  
+　　    //Execute a query to get the employee names from the test DB
+　　    ResultSet results = statement_obj.executeQuery （“select ENAME from EMP”）;  
+　　    //Populate the list box with all the employee names
+　　    while（results.next（））{     
+　　    employee_list.add（results.getString（1））;}
+　　    }catch（SQLException e）
+　　    {throw new RuntimeException（“SQL Exception”） + e.getMessage（））;}    
+　　    add（employee_list）;  
+　　    }}
+　　    程序中的大部分都是与具体数据库无关的JDBC调用，依样画葫芦你也可以访问PostgresQL，主要和Oracle相关的部分是：
+　　    Connection DB_conn = DriverManager.getConnection （“jdbc:oracle:thin:@sforza:1521:ORCL”，“scott”，“tiger”）;  
+　　#1    五、过程性语言扩展PL/SQL
+　　    对SQL的过程性语言扩展（PL/SQL）是Oracle最著名的特点。这种强大的专业数据库管理语言允许你对声明的SQL加以逻辑控制。一般情况，PL/SQL的存储过程用命令行sqlplus，图形化的Developer/2000（Linux上目前还没有）或其他工具开发，允许你从Oracle众多的查询接口（Oracle Application Server， Python， Perl，JDBC或者C）访问数据库。参看存储进程的一个小范例：
+　　    create or replace package stored_sample as function get_annual_salary （emp_number in number）return number;
+　　    end stored_sample;
+　　    /create or replace package body stored_sample as function get_annual_salary （emp_number in number）return number
+　　    is
+　　    annual_salary number;
+　　    monthly_salary number;
+　　    begin
+　　    select sal into monthly_salary from emp where empno = emp_number;
+　　    annual_salary := monthly_salary * 24;
+　　    return （annual_salary）;
+　　    end get_annual_salary;
+　　    end stored_sample;/
+　　    上面程序的执行过程是接收一个员工号，返回该员工的年薪。相关的函数get_annual_salary封装在PL/SQL包sample_package中。如果把该程序存为文件sample.sql，你可以通过sqlplus运行它，如下所示：
+　　    [oracle@sforza demo]$ sqlplus
+　　    SQL*Plus: Release 8.0.5.0.0 - Production on Sun Mar 7 13:36:32
+　　    1999
+　　    （c） Copyright 1998 Oracle Corporation.All rights reserved.
+　　    Enter user-name: scott
+　　    Enter password:
+　　    Connected to:
+　　    Oracle8 Release 8.0.5.0.0 - Production
+　　    PL/SQL Release 8.0.5.0.0 - Production
+　　    SQL> @sample
+　　    Package created.
+　　    Package body created.
+　　    SQL> set serveroutput on
+　　    SQL> exec
+　　    dbms_output.put_line（stored_sample.get_annual_salary（7782））
+　　    58800
+　　    PL/SQL procedure successfully completed.
+　　    SQL>
+　　    通过其他的编程接口，也可以使用这个PL/SQL包。关于Python/DC Oracle，参见Connection对象的procedures成员，关于JDBC，参见java.sql.CallableStatement。
+　　    Oracle有众多的内置函数。事实上，大多数可以用外部代码完成的功能都可以通过PL/SQL高效地完成。请参考PL/SQL手册，可以获得比较常用的功能。如果准备做大量的Oracle编程，可以参阅PL/SQL手册以便熟悉各种函数。
+　　#1    六、管理Oracle for Linux
+　　    运行相对不那么复杂的数据库，在Oracle中完成一些日常操作，例如建立新数据库或者性能调谐，会显得相当复杂。有一些关键的配置文件需要维护，如init.ora， config.ora和tnsnames.ora。
+　　    一般有好几种办法指定一些关键参数，如当前的SID。可以在上述的文件中声明，也可以在环境变量中声明，或者是通过Oracle工具的运行参数。
+　　    同Linux一样，Oracle提供的安全机制如果管理不当，就形同虚设。花时间熟悉各种访问规则和设置，以及各种特殊Oracle用户账号的角色，还是值得的。
+　　    Oracle的性能调谐是一个非常大，也非常专的话题。调谐得当，可以很大程度地提高性能。Oracle运行与CPU、内存、外存的关系是相当复杂的，这些因素必须考虑。另外，PL/SQL包，存储过程，临时表空间，表结构本身，所有这些都会随着使用而日趋复杂，保证数据库的结构优化，没有垃圾，绝对比定期从cron运行vacuum复杂得多。Oracle DBA（database adminstrator，数据库管理员）深受电脑专业人员的青睐，这并不奇怪。Oracle的强大功能和灵活性，也同时意味着多得让人发疯的各种小秘密、小技巧、小陷阱。如果需要在Oracle上完成许多工作，找找OReilly Oracle专辑。那里，你会找到比Oracle迷宫式文档好得多的信息来源。
+　　#1    七、Oracle for Linux vs.Oracle for NT
+　　    Oracle在NT上的销量超过了SQL SERVER，是NT上的第一大数据库，NT上的Oracle为许多管理功能提供了图形界面，类似的功能在UNIX/Linux上只能通过sqlplus访问。它的图形界面，设计得与NT控制面板的其他部分颇为相似。Linux DBA必须熟悉sqlplus。NT的问题是，许多管理任务要求用户在主控台（机器屏幕前）完成，如果想远程管理就需要昂贵的第三方软件。而UNIX上的Oracle管理可以从任何经过授权的远地进行，效果同在机器主控台一样。
+　　    NT上的Oracle使用一个进程内的多个进程，而UNIX/Linux上的Oracle使用多个独立的，相互独立的内存空间（注：UNIX上也有多线程的部分：Multithreaded Server，MTS，相当于前文提到的listener的多线程版本）。NT上的实现方式避免了进程间通信，有小小的性能优势，但UNIX上的实现方式提供了高得多的可靠性和数据完整性，因为一个Oracle进程不可能侵入另一个Oracle进程的地址空间。在NT和VMS上，创建一个新的进程比创建一个新的线程昂贵得多，而且NT的进程间切换很慢，因此微软建议程序员只要有可能就使用多线程。在UNIX上，建立新进程是比较高效的。而在Linux上，建立新进程和新的内核线程──kernel thread都使用同一个基本系统调用，效率相当高。
+　　#1    八、一些好工具
+　　    Oracle同时发布了Oracle Application Server（OAS）的Linux版本。对OAS的深入探讨在本文范围之外，但它确实是连接后端Oracle数据库，建立Internet或Intranet应用的一个强有力的工具。OAS提供JAVA开发能力，可以将HTTP和IIOP与OCI网络接口串在一起，具备友好的界面以便设计Web表单和报表，还有其他方面的工具。
+　　    Oracle如此流行，自然也有相应的一批开源软件（Open Source）工具。其中的OWS killer 是一个基于JAVAServlet的可以替代OAS的Web接口工具，与Apache Web服务器、Apache的Jserv JAVA Servelet模块集成，提供对Oracle数据库的访问。（注：OWS， Oracle Web Server是Oracle Application Server早期版本的名称）。
+　　    可以在Matts House 找到更多的工具以管理Oracle的存储过程、提供快速的报表功能。
+　　    掌握Oracle比较难，但如果你需要高级的SQL，或者PL/SQL的功能，或者trigger，或者各种扩展，或者先进的交易管理，或者必须和Oracle系统共存，那么Linux是一个极佳的Oracle平台。
+　　    资源链接：
+　　    在Redhat上安装Oracle 8.0.5和OAS 3的详细指导: http://jordan.fortwayne.com/oracle
+　　    下载Oracle 8和Oracle Application Server：http://technet.oracle.com/tech/linux/section.htm
+　　    Oliver Andrichs Python & Linux Page: http://andrich.net/python
+　　    Blackdown.org -- Linux JDK:http://www.blackdown.org/
+　　    Pythond的Oracle模块: http://www.zope.org/Download/DCOracle/
+　　    Oracle SQLJ -- 在Java中嵌入SQL: http://www.oracle.com/java/sqlj/index.html
+　　    OWS Killer: http://www.adela.sk/kuzela/OWSKiller/
+　　    Matts House：http://www.mattshouse.com/procedit/
+　　    在FreeBSD上运行Oracle for Linux：    http://www.freebsd.org.ru/linux-oracle.HOW-TO.html
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,141 @@
+在Linux中设置DNS和Mail Server
+
+黄清华 
+2001年 3期
+
+    随着Linux汉化的进一步深入，许多朋友迫切需要认识Linux、掌握Linux。Linux在各方面都有着强大的功能，特别是在网络方面，如：WWW服务器、FTP服务器、路由、域名服务器（DNS）、邮件服务器（Mail Server）等。本文结合自己的一些实际经验，介绍一下如何在Linux中设置自己的DNS和Mail Server（主要在局域网内）。
+　　    操作环境为：
+　　    1.有一台装有Linux（Redhat 6.0）的主机，用它来做DNS和Mail Server。
+　　    2.Sendmail 8.9.3 。
+　　    3.Pop3。（若没有，请装上imap-4.5软件包。）
+　　    4.Named域名解释软件。（若没有，请装上bind-8.2和caching-nameserver-6.0软件包。）
+　　    5.客户端（如Win95/98）若干台，一台也可以得到预想的结果。
+　　#1    一、设置DNS
+　　    要设置好Mail Server必须首先设置好DNS。设置DNS主要涉及到的文件是：/etc/named.conf（因为我们采用Bind8，若是bind4 则应是/etc/named.boot，请作相应的修改）。
+　　    假设你的域名是xyz.com ，你的局域网的IP地址范围是：192.168.0.*，装Linux的主机名是dns_mail，dns_mail主机的IP地址是：192.168.0.1
+　　    1.则/etc/named.conf应具有如下的形式：
+　　    options 
+　　    directory “/var/named”;
+　　    };
+　　    zone “.”{ 
+　　    type hint;
+　　    file “named.ca”;
+　　    };
+　　    zone “xyz.com”{
+　　    type master;
+　　    file “named.xyz.com”;
+　　    };
+　　    zone “0.0.127.in-addr.arpa”{
+　　    type master;
+　　    file “named.local”;
+　　    };
+　　    zone “0.168.192.in-addr.arpa”{
+　　    type master;
+　　    file “named.192.168.0”;
+　　    };
+　　    2.修改/var/named/named.xyz.com（这是DNS正向解析文件，若没有，请建立一个）。
+　　    @	IN SOA dns_mail.xyz.com. root.dns_mail.xyz.com.（
+　　    	2000070701;serial
+　　    	28800;refresh
+　　    	14400;retry
+　　    	3600000;expire
+　　    	86400;default_ttl
+　　    	    ）
+　　    	IN	NS	dns_mail
+　　    	IN	MX 10   dns_mail
+　　    xyz.com.	IN	A	192.168.0.1
+　　    dns_mail	IN	A	192.168.0.1
+　　    other_host	IN	A	192.168.0.2
+　　    www	IN	CNAME	dns_mail
+　　    ftp	IN	CNAME	dns_mail
+　　    mail	IN	CNAME	dns_mail
+　　    其中：
+　　    2000070701：取你修改该文件的日期加上当天的修改次数。其他成员见字面注释，可以不改。
+　　    IN NS dns_mail指出xyz.com这个域的DNS服务器是dns_mail。
+　　    IN MX 10 dns_mail指出xyz.com这个域的邮件服务器是dns_mail，10表示优先级数，可以在这里多定义几台邮件服务器。www、ftp、mail是别名，它们均指向dns_mail。other_host是xyz.com域中的另外主机，它在这里被解析，若要解析其他的主机请在这里添加相应的记录，同时，也要在下面的named.192.168.0中添加应有的记录。
+　　    3.修改/var/named/named.192.168.0（这是DNS反向解析文件，若没有，请建立一个）。
+　　    @	IN	SOA dns_mail.xyz.com.	root.dns_mail.xyz.com. （
+　　    		2000070701;serial
+　　    		28800;refresh
+　　    		14400;retry
+　　    		3600000;expire
+　　    		86400;default_ttl
+　　    		）
+　　      	IN	NS	dns_mail.xyz.com.
+　　    1	IN	PTR	dns_mail.xyz.com.
+　　    2	IN	PTR	other_host.xyz.com.
+　　    其中：
+　　    2000070701是你修改该文件的日期加上当天的修改次数。其他成员见字面注释，可以不改。
+　　    IN  NS dns_mail的意义同上。记录“2 IN PTR other_host.xyz.com”中的“2”是指192.168.0.2中的“2”，添加新的主机可以按相同的原理。
+　　    到这里，DNS已经设置好了。以root身份运行/etc/rc.d/init.d/named restart，你可以尝试ping www看有没有反应，运行nslookup后，在“>”状态下依次输入www+回车，ftp+回车，192.168.0.1+回车进行验证，应该能得到正确的结果，否则，重新启动机器后重试，并检查上述文件中是否有错，如点号、分号有误否。
+　　#1    二、设置Mail Server
+　　    1.检查是否安装了sendmail-cf-8.9.3，若没有请装上！找到装上sendmail-cf-8.9.3后得到的redhat.mc（在/usr/lib/sendmail-cf/cf/），将它修改如下：
+　　    divert（-1）
+　　    dnl This is the macro config file used to generate the /etc/sendmail.cf
+　　    dnl file. If you modify thei file you will have to regenerate the
+　　    dnl /etc/sendmail.cf by running this macro config through the m4
+　　    dnl preprocessor
+　　    dnl
+　　    dnl  m4 /etc/sendmail.mc > /etc/sendmail.cf
+　　    dnl
+　　    dnl You will need to have the sendmail-cf package installed for this to
+　　    dnl work.
+　　    include（＇/usr/lib/sendmail-cf/m4/cf.m4＇）
+　　    define（＇confDEF_USER_ID＇，“8:12”）
+　　    OSTYPE（＇linux＇）
+　　    undefine（＇UUCP_RELAY＇）
+　　    undefine（＇BITNET_RELAY＇）
+　　    define（＇confAUTO_REBUILD＇）
+　　    define（＇confTO_CONNECT＇，＇1m＇）
+　　    define（＇confTRY_NULL_MX_LIST＇，true）
+　　    define（＇confDONT_PROBE_INTERFACES＇，true）
+　　    define（＇PROCMAIL_MAILER_PATH＇，＇/usr/bin/procmail＇）
+　　    define（＇ALIAS_FILE＇，＇/etc/mail/aliases＇）
+　　    FEATURE（＇smrsh＇，＇/usr/sbin/smrsh＇）
+　　    FEATURE（＇mailertable＇，＇hash -o /etc/mail/mailertable＇）
+　　    FEATURE（＇virtusertable＇，＇hash -o /etc/mail/virtusertable＇）
+　　    FEATURE（＇domaintable＇，＇hash -o /etc/mail/domaintable＇）
+　　    FEATURE（redirect）
+　　    FEATURE（always_add_domain）
+　　    FEATURE（use_cw_file）
+　　    FEATURE（local_procmail）
+　　    MAILER（procmail）
+　　    MAILER（smtp）
+　　    FEATURE（＇access_db＇）
+　　    FEATURE（＇blacklist_recipients＇）
+　　    dnl We strongly recommend to comment this one out if you want to protect
+　　    dnl yourself from spam. However， the laptop and users on computers that do
+　　    dnl not hav 24x7 DNS do need this.
+　　    dnl FEATURE（＇accept_unresolvable_domains＇）
+　　    dnl FEATURE（＇relay_based_on_MX＇）
+　　    使用命令：m4 redhat.mc  > /etc/sendmail.cf （为安全起见，最好对sendmail.cf先做备份）
+　　    2.把/etc/sendmail.cf中的Fw/etc/sendmail.cw 改为 Fw/etc/mail/sendmail.cw
+　　    把/etc/sendmail.cf中的DS打头的那一行改为DSdns_mail.xyz.com
+　　    把/etc/sendmail.cf中的DM打头的那一行改为DMxyz.com
+　　    在/etc/mail/access追加一行xyz.com RELAY，执行makemap hash /etc/mail/access.db < /etc/mail/access以形成散列。
+　　    在/etc/mail/mailertable追加一行xyz.com relay:[192.168.0.1]，并执行makemap hash /etc/mail/mailertable.db < /etc/mail/mailertable以形成散列。
+　　    在/etc/mail/relay-domains（若没有，请建立一个）追加一行192.168.0。
+　　    在/etc/mail/sendmail.cw（若没有，请建立一个）追加一行xyz.com
+　　    3.这一步可选，主要处理别名问题，在/etc/mail/aliases中实现，形式如下：
+　　    eg: nickname: username@xyz.com
+　　          alias-name: real-user-account
+　　    如有mail nickname或mail nickname@xyx.com都将邮寄给username@xyz.com
+　　    4.重新启动机器一次。在客户端收发E-mail，当然客户端的DNS和网关要设置为：192.168.0.1，简单设置发送/接收邮件服务器为xyz.com（因为DNS能解析为到dns_mail那台主机），用户的E-mail形式为username@xyz.com。
+　　    注意事项：
+　　    a.DNS和Sendmail的服务进程要打开！即可以用ntsysv来启动named和sendmail服务。
+　　    b. 本文要使用到Sendmail和POP3，所以也要检查pop3服务是否提供，若没有要先装上（前文已经提到），并且找到/etc/inetd.conf中pop这一行，去掉前面的注释，即成为：
+　　    pop-3 stream tcp nowait/usr/sbin/tcpd ipop3d
+　　    在命令行状态执行telnet 127.0.0.1 110应该能看到如下提示：
+　　    Trying 127.0.0.1	...
+　　    Connected to 127.0.0.1.
+　　    Escape character is ＇^]＇.
+　　    +OK POP3 localhost v7.59 server ready.
+　　    c.每次修改/etc/named.conf、/var/named.xyz.com、/var/named.192.168.0后都要执行/etc/rc.d/init.d/named restart。在测试阶段，重新启动是最好的（包括重启Sendmail）。
+　　    d.dns_mail的/etc/resolv.conf最好为：
+　　    	search	xyz.com
+　　    	nameserver  192.168.0.1（即指向自己）
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

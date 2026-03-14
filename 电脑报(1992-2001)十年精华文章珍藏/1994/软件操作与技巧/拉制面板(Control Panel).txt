@@ -1,0 +1,66 @@
+拉制面板(Control Panel)
+
+曹国钧
+1994-12-30
+
+        控制面板是WINDOWS 3.1提供用来定制WINDOWS使用环境的工具。选择程序管理器的Main组中的Control Panel程序项，就可以启动控制面板。控制面板窗口中的图符表示用户能在Control Panel中设置的任选项组，每个图符在Setting菜单中有一个对应的菜单项命令。
+        下面重点介绍其中的Color,Ports,Mouse,Keyboard,Printers和Desktop的使用方法。
+        二、调整工作台颜色(Color)
+        利用Color任选项可对WINDOWS窗口工作桌面及其各组成部分设定不同的颜色。以满足用户色彩的喜好。一般而言，有以下三种配方供用户选择：
+        1.选取WINDOWS系统配色方案
+        (1)选择Control Panel窗口中的Color图符，此时，出现Color对话框；
+        (2)Color Schemes下拉式列表框含有二十余种系统本身所提供的配色方案，WINDOWS Default为当前默认的颜色配色图案，用户在Color Schemes表框的右边按Down箭头可任意选取一种配色方案名称，如Emerald City,然后观察列表框Color Schemes下窗口样本实例颜色，直到用户满意为止，选择OK就改变到新的选取颜色中。
+        2.用户生成配色方案Ⅰ
+        若用户对Color Schemes所含有的配色方案都不满意，则可单击Color Palette按钮生成自己的配色方案。在Color aplette对话框的Screen Element下拉式列表框含有屏幕窗口组成元素，这些元素的颜色都可以人为地修改。在Basic Color中则含有一组颜色选项，在VGA颜色系统中有48种颜色可供选择。下面就是该配色方案Ⅰ的方法。
+        (1)单击窗口实例中的菜单栏，此时，Screen Element框将显示Menu Bar，表明 Menu Bar将被配色。在Basic Colors中任选一种颜色，如选取绿色；
+        (2)单击绿色菜单栏中的File或Edit文字，Screen Element框将显示Menu Text,在Basic Colors中任选一种颜色，如红色；此时，用户已将窗口实例中的菜单栏配为绿色方案保存下来，选取OK后WINDOWS屏幕颜色将显示用户所期望的颜色。
+        3.用户生成配色方案Ⅱ
+        若用户对上面Basic Colors的颜色都不满意，可单击DEfine Custom Colors...定义自己喜欢的颜色，此时，WINDOWS显示Custom Color Selector对话框。WINDOWS允许增加16种用户定制的颜色，这16种颜色是由用户通过混合红、绿、蓝(Red/Green/Blue)或Hue/Sat/Lun三种基色来定义。利用鼠标定义用户定制的颜色时，可调整两个指针，即大方格中的十字瞄准光标(用户控制颜色的色调饱和度)和垂直彪尺右边箭头(用于控制颜色的亮度)；也可以在Ted/Green/Blue或Hue/Sat/Lun文本框中输入数值定制颜色。WINDOWS在Custom Color Selector窗口下角的Color/Solid方框中将显示所调制的颜色样本。当发现喜欢的颜色后，可以通过按Add Color按钮，将它加到Custom Colors:调色板中，供用户以后使用。
+        三、配置通讯端口(Ports)
+        串行口是计算机与一些外部设备，如Modems,Mouse或打印机相连的物理装置，计算机中至少存在一个串行口，也可能多达四个，分别被命名为COM1，COM2,COM3和COM4，利用Ports图符可对这些串行端口的各种参数进行设置，下面就是配置串行口参数的方法。
+        (1)选择Control Panel窗口中的Ports图符，出现Ports对话框，此框给出了四种可能的串行口图符；
+        (2)用户要设置的通讯端口的图符，如COM1：上按快速两次，或选择端口图符后，选择Setting...按钮，则出现Settings for Com1：对话框；
+        (3)在此对话框中设置五个通信参数：①Band Rate(波特率)，默认值为9600；②Data Bit(数据位，默认为8；)③Parity(奇偶性)，默认为None(无)；④Stop Bit(停止位)，默认为1；⑤Flow Control(流控制)，默认为Xon/xoff。在该对话框中还有一个扩充Avanced...按钮，它促使用户改变通信接口的基地地址或中断请求(IRQ)线。
+        (4)选OK，则设定了COM1通信参数。
+        在正常情况下不要轻易修改这些参数，除非用户对通信参数比较熟悉。
+        四、改变鼠标器的使用(Mouse)
+        鼠标的移动灵敏度、按钮快慢等，都可以利用Mouse图符来作适度地改变以配合用户的习惯。
+        (1)选择Control Panel窗口中的Mouse图符，出邮Mouse对话框；
+        (2)移动灵敏度，可向Fast或Slow方向拖动Mouse Tracking Speed的滚动条；
+        (3)修改鼠标器按两次之间的速度快慢，Fast或Slow方向拖动Double Click speed的滚动条。
+        (4)互换鼠标的左右键的功能，可选择Swap left/Right Buttons检查框。。
+        美丽、改变键盘的速度(Keyboard)
+        (1)选择Control Panel窗口中的Keyboard图符，出现Keyboard对话框；
+        (2)Delay Before First Repeat栏为当重复按下某键后，系统要等多久才将该键重复显示出来；Repeat Rate为重复的速度；用户可在TSET栏中测试设定的结果。
+        Keyboard设定的结果既对WINDOWS又对DOS或CCDOS系统起作用。
+        六、设定打印机(Printers)
+        利用Printers图符可选择相要使用的打印机、增加或删除打印机、设定打印机的端口、设定打印错误出现的时间、设定打印纸的格式和其他条件等。
+        1.选择想要使用的打印机(Defalut Printer)
+        (1)选择control Panel窗口中的Printers图符，出现了Printers对话框；
+        (2)Default Printer栏将显示目前所设定的打印机类型；在Install Printers栏列出了所有已安装在WINDOWS中打印机的种类，用户可从中选择其中一种。
+        (3)若用户想将打印程序交给Print Manager(打印管理器)去管理而继续其它用户工作，可选择Use Print Manager检查框，否则，在打印机打印完才能做其它工作。
+        2.设定打印纸的格式和其他条件(Setup)
+        在Printers对话框中选择Setup...按钮，则出现缺省打印机(Default Printer)对话框，该对话框将随打印机的不同而不同。一般都有以下项目：
+        Resolution(图形分辨率)，Paper Size(纸张大小)，Paper Source(纸张种类)，Memory(内存),Orientation(纸张打印方向)，Cartridges，设定打印机字体盒的数目，Fonts(附加字体)，Options(选项)。
+        选择OK按钮后，否则以上打印机的配置保存到WINDOWS系统中。
+        七、设定桌面(Desktop)
+        利用Desktop命令，可以设定光标闪动的速度、屏幕背景显示的图形，也可以调整各缩小图标之间的距离，让屏幕的显示更加美观。
+        选择Control Panel窗口中的Desktop图符，则出现Desktop对话框，在该对话框中可设定如下桌面定制的内容：
+        1.设珲屏幕图形(Pattern)
+        在Desktop对话框中选择Pattern栏中的Name:右边的向下箭头，WINDOWS提供了九组背景画面，用户可从中选择一种背景图形；若用户还对这些背景图形不满意，可选择Edit Pattern...按钮，则出现Desktop-Edit Pattren对话框，用户只能利用鼠标个性该背景画面的图形，即按鼠标左加一个白点，如此反复，直到获得满意的背景图形为止。
+        2.墙纸图案的设定(WallPaper)
+        系统背景的墙纸图案，在Desktop对话框中选择WallPaper栏中的File:右边的向下箭头，WINDOWS提供了七种预设的背景图案，可用PaintBrush修改这些文件。另外，WallPaper栏还提供了墙纸图案的两种显示方式，即Center和Tile，其中Center为墙纸图案只出现一个，且在屏幕中心，而Tile迷墙纸图案有很多个，且象瓷砖一样整齐地并排在一起。
+        3.应用程序之间的快速键(Application)
+        在Desktop对话框中选择Applicaton栏的Fast "ALT+TAB" Switching检查框定义应用程序之间的快速键，系统默认为ALT+TAB。
+        4.设定屏幕保护功能(Screen Saver)
+        在WINDOWS3.1中的Desktop对话框中提供了一个有用的屏幕保护功能，使用该功能有以下三个好处：可以延长屏幕使用的寿命；可以减少屏幕散射出来的有害射线；可以防止他人破坏用户的现场。
+        5.调整缩小的图标之间的距离(Icons)
+        在Desktop对话框中选择Sizing Grid)栏中的Granularity(间隔尺寸)增量框，默认为0，即窗口的移动或某一边界的改变是一点一点变动的，当其值大于0时，窗口的改变会按此值作一个单位为准的变动；运行Border Width(边界宽度)增量框，默认为3，它将调整窗口边框的粗细，其值越大，则窗口的边界越宽。
+        注：若在用鼠标移动窗口时发生跳动或鼠标指针跳动或出错，则可将Granularity设置为0试一试。
+        7.设定光标的闪烁速度(Cursor Blink rate)
+        在Desktop对话框中选择CursorBlink rate栏，在该栏有一个调整光标的闪烁速度的滚动和，向左(Fast)移动，则光标的闪烁速度加快。
+        (完)(曹国钧)
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

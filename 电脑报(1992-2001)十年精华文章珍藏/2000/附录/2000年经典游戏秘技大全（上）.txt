@@ -1,0 +1,310 @@
+2000年经典游戏秘技大全（上）
+
+杨曦
+2000年 第53期 
+
+#1    1.救世传说（NOX）
+    按F1键呼出控制台，输入Racoiaws启动秘技模式:
+    cheat ability=增加属性能力
+    cheat goto x y=将玩家传送到坐标x y
+    cheat health＝恢复生命值
+    cheat mana＝增加法力值
+    cheat level （1-10）=增加等级
+    cheat spells（1-10）=增加法术
+    cheat gold （0-10000）=增加黄金
+    set god＝无敌模式
+    help cheat＝秘技表
+#1    2.幻世录
+    安装完幻世录后，将桌面上创建的幻世录快捷方式属性中的hsl.exe后面加上godset，启动hsl后，战斗中，F5为已方加满，F6为相反，F7为提高等级。
+#1    3.冰风溪谷
+    （1）按Ctrl+Tab开启console，然后输入下列密玛：
+    CHEATERSDOPROSPER:ExploreArea（）：＝完整地图
+    CHEATERSDOPROSPER:Hans（）：＝瞬间转移队伍去 pointer
+    CHEATERDOPROSPER:SetCurrentXP（[number]）：＝给予指定角色经验值
+    CHEATERDOPROSPER:AddGold（[数字]）：＝给予整个队伍金钱
+    CHEATERDOPROSPER:Midas（）：＝给予整个队伍总共 500 金币
+    CHEATERSDOPROSPER:FirstAid（）：＝得到5个治疗剂、5个解毒剂和1个投石卷轴
+    CHEATERSDOPROSPER:CreateItem（“XXXX”）：＝创造物品XXXX（物品名称如下）
+    物品列表:
+    SCRL1Q＝Scroll of Vampiric Touch		SCRLO4＝Protection from Cold
+    SHLDO6＝Large Shield +1			SW1HO1＝Bastard Sword
+    SW2HO1＝Two Handed Sword			WANDO2＝Wand of Fear
+    XBOWO3＝Heavy Crossbow of Accuracy		AMULO1＝Necklace of Missiles
+    AROWO7＝Arrow of Dispelling			AX1HO1＝Battle Axe
+    BELTO2＝Golden Girdle			BLUNO5＝Mace +1
+    BOLTO2＝Bolt +1				BOOKO3＝＋1 Con
+    BOOTO1＝Boots of Speed 			BOWO1＝Composite Long Bow
+    BRACO6＝Gauntlets of Ogre Power		BULLO2＝Bullet +2
+    CHANO6＝Mithril Chain Mail +4		CLCKO2＝Cloak of Protection +2
+    DAGGO3＝Dagger +2				DARTO2＝Dart +1
+    HALBO2＝Halberd +1				HAMMO3＝War Hammer +2
+    HELMO3＝Helm of Glory			MISC35＝Horn Coral Gem
+    POTNO3＝Potion of Hill Giant Strength	PLATO5＝Full Plate Mail +1
+    RINGO1＝Ring
+    （2）游戏内建的秘籍模式激活步骤如下：
+    首先在修改之前，将相应文件备份，以防不测，然后用任意的文本编辑器打开游戏目录中的icewind.ini文档，在其中[Game Options]段里添加Cheats=1，保存并退出后开始游戏，在游戏中按下Ctrl+Tab键开启控制台，输入以下密码：
+    CHEATERSDOPROSPER:EnableCheatKeys（），之后就可以按如下的功能键了：
+    Ctrl + J 将选中的角色瞬间传送到光标所在的位置
+    Ctrl + R 治愈或使角色复活
+    Ctrl + Y 随意杀死指定的怪物或NPC
+    Ctrl + 4 显示陷阱
+    Ctrl + 9 显示角色的范围格子 
+#1    4.幕府将军
+    在游戏中可以输入以下秘籍：
+    .matteosartori 地图全开
+    .daggins 地图全开
+    .muchkoku 拥有无限的KoKu
+    .conan 建筑单位能力提升并对KoKu产生负面影响
+    .prototypearmy 部队生命无限
+    .ifoundsomecu 所有地方均为铜制品 
+#1    5.弥赛亚
+    在游戏中按下Esc键并键入下列密码
+    ucantkillme		激活上帝模式（Bob Only）
+    fleshnblood		解除上帝模式
+    braindead AI 	关闭
+    einstein AI		开启
+    icantsee AI 	显示关闭
+    icanseeu AI 	显示开启
+    freezecam 		固定视角
+    thawcam        	不固定视角
+    toohardforme 	结束游戏
+    charwireon 		打开人物边框
+    charwireoff 	打开人物边框
+    worldwireon 	打开世界边框
+    worldwireoff	关闭世界边框
+    onpolycount 	多边形计算打开
+    offpolycount 	多边形计算关闭
+    gamespot     	得到武器弹药
+    voodooextreme 	得到火箭筒
+    softwarebuys 	得到手榴弹
+    weldme 		得到火把
+    buzzbuzz        	得到圆锯
+    boomstick 		得到
+    Pumpgun rapidfire 	得到机关枪
+    slicendice 		变成残疾人
+    lightmeup    	得到火焰喷射器
+    cooloff 		得到Pak枪
+    bigbang        	得到火箭筒
+    coolfx 		得到微波枪
+    stickaround 	得到鱼叉枪
+    illbeback 		得到武器弹药
+    getsome        	得到手榴弹
+    guncmndr 		变成指挥官
+    mynightmare 	变成巨兽
+    cantseemyface 	变成焊接工
+    workinman    	变成工人
+    egghead		变成科学家
+    glowstick    	变成辐射工人
+    heydoc 		变成医生
+    smellyguy    	变成Chot 1
+    nohygiene 		变成Chot 2
+     idontdance 	变成Chot 3
+    scumbucket 		变成Chot 4
+    chotling     	变成Chot 矮人
+    smellysteroids 	变成Chot 巨兽
+    fungirl        	变成Fungirl
+    workit 		变成Prost 1
+    mansdream    	变成Prost 2
+    specialguyS		变成Hung
+    averagejoe 		变成男性居民 1
+    averagejack 	变成男性居民 2
+    averagejohn 	变成男性居民 3
+    janeplain		变成女性居民 1
+    jillplain    	变成女性居民 2
+    femfatale 		变成Subgirl 1
+    nastyone     	变成Subgirl 2
+    varmint 		变成老鼠
+    bestfriend 		变成酒吧招待
+    bringmeadrink 	变成女服务生
+    bustamove 	        变成舞蹈少女 1
+    cutarug 		变成舞蹈少女 2
+    mixalot 		变成DJ
+    tophat 		变成皮条客
+    onsteroids 		变成巨兽
+    addedfirepower 	变成攻击性的蝇蛆
+    keepmecompany       变成蝇蛆的同伴
+    letmein 		变成巨人 
+#1    6.霹雳小组3
+    在游戏中，按下SHIFT + ~键呼出控制台，然后输入以下密码：
+    iamleet=立刻胜利
+    johnwoo=速度变慢
+    swatlord=整个小队无敌
+    biggerpockets=弹药无限
+    casual=小队队员穿内衣
+    doubleshot=开火速度变快
+    nc17=受伤后流血更多
+    noshades=夜晚的任务在变白天
+    whosyourboss=强迫对友开火
+    hotstuff=嫌疑犯生命力变强
+    justin=嫌疑犯不会投降
+    rabies=射击速度加快
+    不会伤害自己人：用文本编辑工具编辑swat.cfg文件，将shootgoodguys=1改成shootgoodguys=0
+#1    7.大刀
+    以Daikatana.exe+set console 1启动游戏。
+    CHEATS 1=启动密技模式
+    GOD=无敌
+    NOCLIP=穿墙
+    NOTARGET=隐形
+    MASSACRE=消灭所有敌人
+    HEALTH #=增加生命值#
+    WEAPON_GIVE_ #=得到#号武器
+    SCREENSHOT=抓图
+    DEVELOPER 1=显示所有讯息
+    FLUSHMAP 1=完全清除地图
+    R_SPEEDS 1=显示贴图速度
+    R_DRAWFLAT 1=只贴flat-shaded材质
+    R_FULLBRIGHT 1=物件表面不贴图
+    GL_POLYLINES 1=只显示line drawing
+    TIMESCALE 1=游戏以正常速度进行（0.5=一半速度）
+    CAM_TOGGLE=改变视角
+    CAM_NEXTMON=改变角色
+    CAM_NEXTSIDEKICK=改变 sidekicks 
+#1    8.冠军经理1999/2000
+    免费得到球员：首先给你中意的球员提供一份令他满意的待遇，进入球队状态表里选中他的名字，按下转会申请同时撤消他，重新开出一个免费的价格并设置好，返回再确定他，这时给他一份契约他也会接受的，于是就可以无偿得到他的加盟了。
+#1    9.刀锋边缘
+    按下F9显示控制窗口，接着输入“bangunsnotgames”来激活作弊模式和无敌，然后可以输入以下密码：
+    E 车辆以随机车型的方式出现
+    G 向前移动10步，或踏上边沿
+    I 显示给路人可行走的区域
+    J 显示座标
+    L 制造光线
+    P 检视敌人，开启/关闭
+    Q 显示车辆路经
+    R 制造会爆炸的木桶
+    W 制造下雨的波纹
+    [ 切换敌人视点
+    ] 切换敌人视点
+    ; 慢动作
+    ＇ 暂停
+    / 秘密行动Debug
+    CTRL 显示数据
+    F3 离开游戏
+    F11 切换云，开/关
+    F12 制造游戏的武器
+    ambient [red] [green] [blue] 选择外界环境的颜色
+    Keypad 3 橙色的雾
+    Keypad 5 执行游戏效果
+    Keypad 7 选择游戏效果
+    BOO 连串爆炸
+    CRINKLES 波纹效果开/关
+    DARCI 控制Officer D＇arci
+    ROPER 控制Roper
+    FADE # 设定雾的褪色级別为# （注：#可以是任何数字）
+    WORLD 选择音乐
+    AMBIENT # # # 选择殖碟的燈光（R，G，B）
+    WIN 在这个级別胜出
+    LOSE 在这个级別落败
+    CCTV 所有物件发出绿色荧光
+    TELW # 去到Game Point #
+    TELS 将当前位置保存记录
+    TELR 返回存盘时所在的位置 
+#1    10、王国兴亡录
+    （1）在游戏中有个忍者的职业，把职业练到lv30级（多闯迷宫忍者开宝箱即可升级很快）。忍者有一招火隐之术和水，隐之术又可开锁爬墙，让他当前锋冲到一号旗的面前，然后火隐之术连放， 再强的国家也会输。
+    （2）以下是一些宝物以及附加能力，而使用附加能力的方式，就是使用物品即可使用，而其宝物都要靠搜寻得到，所以有空就派一些人去搜寻山洞等地方（宝物的出现并不固定，每次都不一样，除了特殊的宝物才会在固定地方得到）。
+    火焰剑=红骑士专用，火焰风暴
+    精灵弓=用弓者即可用，能量转换
+    正宗日本刀=忍者专用，性命的祈祷
+    索尔的头盔=给主角用，爆发
+    米拉迪亚得盾=主角用，区域治愈（札古雷姆得到）
+    风神剑=白骑士，虚风的祈祷（狂龙宫殿收服绿龙后他会给你） 
+#1    11.古墓丽影 4（THE LAST REVELATION）
+    （1）面朝正北方，进入背包画面，再依下列动作启动秘技
+    点选LOAD GAME，同时按住H+E+L+P四个键再放开，离开背包画面＝跳关。
+    点选小药包（small medipak），同时按住G+U+N+S四个键再放开，离开背包画面=物品全满。
+    （2）启动物品全满秘技后，进入背包画面
+    点选大药包（large medipak），同时按住W+E+A+P+O+N+S七个键再放开，离开背包画面＝武器全满。
+    （3）朝正北方的方法
+    先面对北方大略方向，再进入背包看指北针，一边切换画面，若红色针尖正对北方，指北针就会变成透明的。
+#1    12.雷神之锤3（QUAKE 3）
+    （1）单人版
+    游戏中按下“～”键后输入
+    /iamacheater               简单级（skill 1）
+    /iamamonkey                困难级（skill 100）
+    /model sarge/ krusade      神秘肤色
+    （2）将捷径修改成下列，即可看到全部动画
+    quake3.exe+seta g_spVideos    "tier1\1\tier2\2\tier3\3\tier4\4\tier5\5\tier6\6\tier7\7\tier8\8"
+    （3）连线版
+    连线主机必须用/devmap +map[关卡名]启动，游戏中按“～”键后输入：
+    /god    无敌
+    /give all    武器全满
+    /give #      得到物品
+    #物品有：
+    allammo      弹药全满
+    armor        护甲
+    battle suit  战斗装
+    bfglok       终极武器
+    flight       飞行器
+    gauntlet     臂铠
+    grappling hook    钩子
+    grenade launcher  榴弹发射器
+    haste             加速器
+    health            生命值
+    invisibility      隐形
+    lightning gun     闪光枪
+    machinegun        机枪
+    medkit            药包
+    personal teleporter    传送点
+    plasma gun        电浆枪
+    quad damage       四分仪 （杀伤力增强）
+    railgun           轨迹炮
+    regeneration      重生
+    rocket launcher   火箭发射器
+    shotgun           散弹枪
+#1    13.猎鹿人3（Deer Hunter 3）
+    在游戏中按下F2键，输入以下密码：
+    dh3beacon=动物会接近你
+    dh3find=传送至鹿的附近
+    dh3nofear=动物不会恐惧
+    dh3sightin=瞄准器
+    dh3leadeye=子弹镜头
+    dh3ice=下雪
+    dh3water=下雨
+    dh3zeus=闪电
+    dh3thor=打雷
+    dh3monster=鹿变大
+    dh3homegym=猎人不会死
+    dh3showme=显示鹿在地图上的位置
+    dh3truck=可以穿越任何障碍物
+    dh3skyhook=飞行模式
+    dh3super=所有秘技
+    dh3caddyshack=行走在目标攻击距离
+    dh3plague=没有动物
+    dh3fl3=游戏更血腥
+#1    14.神偷2 （THIEF 2: THE METAL AGE）
+    把cash_bonus #这一行加入至dark.cfg文件中，其中#为游戏开始时的金钱数量。
+    同时按住Ctrl+Alt+Shift+End四个键＝跳关。
+#1    15.极品飞车5
+    （1）在创业模式下当你有钱买旧车时，随便买一辆，把它修好，再卖出去，把价钱提高，比如999999元，这时当你退出的时候，就会有人以新车的价钱来买。当然，买旧车的钱加修车的钱不会比新车的价格高。
+    （2）所有车辆：以“allporsche”作为你的名字即可。
+#1    16.帝国时代2：征服者
+    在游戏中你可以输入以下的密码：
+    WOOF WOOF　　 飞行的狗
+    FURIOUS THE MONKEY BOY　　得到一部分金钱
+    POLO　         取消迷雾
+    MARCO　　      地图全开
+    AEGIS　　      快速建设
+    ROCK ON　　    得到1000单位石材
+    LUMBERJACK　   得到1000单位木材
+    ROBIN HOOD　   得到1000单位金钱
+    CHEESE STEAK JIMMY＇S　　    得到1000单位食物
+    NATURAL WONDERS　　         控制自然界
+    RESIGN　     　             自杀
+    WIMPYWIMPYWIMPY　　         自杀
+    HOW DO YOU TURN THIS ON 　  得到一个Cobera
+    TO SMITHEREENS　　          得到一个Saboteur
+    TORPEDO8　　杀死第8号对手
+    TORPEDO7　　杀死第7号对手
+    TORPEDO6　　杀死第6号对手
+    TORPEDO5　　杀死第5号对手
+    TORPEDO4　　杀死第4号对手
+    TORPEDO3　　杀死第3号对手
+    TORPEDO2　　杀死第2号对手
+    TORPEDO1　　杀死第1号对手
+    BLACK DEATH    　　直接获胜
+    I R WINNER　     　直接获胜
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

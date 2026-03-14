@@ -1,0 +1,70 @@
+CAD教学网组建实例
+
+岑志松、傅汉球
+1998年 第31期 22版
+
+#1　　一、网络的规划设计
+　　经过从投入资金、使用需求、管理维护等多方面综合考虑，我们决定：CAD教学网使用1台服务器和30台无盘工作站、Netware 4.10 网络操作系统、星型拓扑结构。为提高网络运行速度，用内部网桥分成两个局域网，即在服务器里加两块网卡，每块网卡接一个16口的集线器，负担15台工作站。网络结构如^312201a^所示。
+　　服务器和工作站的配置如下：
+　　服务器：Pentium MMX200 CPU、ASUS TX97－XE主板、64M SDRAM、2只4.3G QUANTUM 火球硬盘、2个D_Link PCI网卡、14″彩显
+　　无盘工作站：Pentium MMX166、ASUS SP97_V主板（集成SIS显示卡）、16M EDORAM 、1.44M软驱、Anet 2000 ISA 网卡、14″彩显
+#1　　二 、 网络的安装
+#1　　1. 服务器的安装
+　　先创建DOS分区并装入DOS的系统引导文件。该分区主要用来存放网络的启动文件，100M就足够。再进入Netware4.1光盘的install\english目录执行install即开始进行安装。
+#1　　2. 无盘工作站的安装
+　　工作站无盘启动的原理是利用网卡上的BootROM芯片截取计算机对A驱的读申请，从网上的sys:login目录打开net＄dos.sys文件，在内存中虚拟一个A盘，然后用这盘引导启动计算机。无盘启动的条件是：服务器上网卡使用的帧类型应有Ethernet802.3，否则BootROM将找不到服务器；工作站上网卡的使用模式应为Jumpless;sys:login目录下应有自举映象文件net＄dos.sys。还应注意网卡默认的内存地址C800是否与其它设备冲突，如在SP97V主板上就应把内存地址设置为D800。
+　　工作站的启动方式有IPX和ODI方式两种。对Netware4.1应采用ODI方式。
+　　进入sys:public\client\doswin目录，执行install就可把ODI方式的启动文件装到A盘（A盘应是可引导的）。因为要实现无盘启动，还应把sys:public\client\doswin\rpl目录下的rplodi.com文件复制到A盘，并在A盘的startnet.bat的lsl.com行后插入rplodi.com命令，在autoexec.bat文件末尾加上startnet.bat行（不能用Call startnet.bat）。进入sys:system目录，运行dosgen自动把A盘内容做成映像文件
+net＄dos.sys，把该文件和A盘中autoexec.bat和startnet.bat文件复制到sys:login目录。经过上述步骤，就可实现无盘启动工作站了。
+#1　　三、 网络应用程序的安装
+　　应用程序在网络上可分为共享与不共享两类。我们把可共享的应用程序安装在一共用的目录下，如sys:APPL，把不可共享的应用程序则按需要安装在用户自己的目录下。把map root g:=sys:APPL和map root h:=user:user\％login_name放在用户的登录文本（login script）中映射为G盘和H盘。G盘存放可共享的应用程序，而H盘存放不可共享的应用程序。从G盘和H盘的映射可知，不同用户的G盘是一样的，而H盘是不同的，但对各用户来讲，使用环境完全一样。
+　　有些应用程序指定安装在本地盘上，如C盘（或D盘），这时可用map 命令映射出C盘（或D盘）再安装，在使用前也应映射出C盘（或D盘）。
+　　Windows的应用程序要在Windows环境下安装。在网络上安装中文Windows3.2的方法，一般是用setup／a命令把Windows全盘安装到服务器上，安装目录可自定，如winuser；再在用户环境下用setup／n选择定制安装到用户的Windows目录中，如win32，用户的网络搜索路径应包含有winuser目录。由于Windows3.2的网络驱动与Netware4.1不兼容，这样安装的Windows可能不能使用。解决办法有：1在定制安装时，Netware项选择Not installed。但这样Windows的网络功能，如网络打印等将不能使用。2定制安装后，在用户的win32目录下创建system目录，转到sys:public \client\doswin目录执行install，进行ODI方式启动文件的安装过程，在是否支持Windows选择中选择yes，Windows目录定为用户的win32目录，完成后把用户win32\system目录下的文件复制到winuser目录（要覆盖同名文件）。这样，以后经setup／n安装的Windows3.2就能正常使用了。
+　　由于用户H盘的使用环境是完全一样的，用某一用户环境安装的应用程序，把该用户H盘的内容复制到另一用户的H盘后，另一用户马上就可使用这些应用程序。这给网络管理带来很大方便；一旦某一用户的应用程序被破坏了，只需从另一用户中复制过来就可使用，而不需重新安装。
+　　应注意若要使用Windows3.2，无盘启动时不应在config.sys文件中安装emm386.exe。
+#1　　四、 用户权限的设定
+　　为防止某些用户对网络文件的恶意破坏，在能正常使用的情况下，用户权限应尽可能地少。用户对所有要使用的应用程序目录均应有基本的Read和File Scan权限。Modify权限一般不赋予用户。其它权限应根据实际情况确定。有的应用程序用户只需有Read和File Scan权限就可以使用了；有的应用程序因为在某一目录下要创建临时文件，或修改某些文件，那用户对该目录就应有Create、Erase、Write的权限。确定用户权限的步骤如下：
+　　1． 赋予用户应用程序目录所有权限，并运行一次应用程序。
+　　2． 进入应用程序目录，用Filer命令看是否有删除过的临时文件。若没有，则用户对该目录只需要基本权限就够了；反之则说明还应有Create、Erase和Write权限。
+　　3． 进入应用程序目录，作dir ／od命令观察有哪些文件被改过。若有则用户对这些文件应有Write的权限，除了这些文件，其它文件可用Flag命令加上Read Only属性。
+　　4． 重新设定用户权限后运行应用程序，若不能正常使用，则说明权限不够，这时只能通过逐步开放权限进行尝试了。
+　　应注意，对用户拥有Erase权限的目录，其中的文件应尽量设为Read Only。由于用户要有Write权限的文件不能设为Read Only，应做一备份，以便文件被破坏时可以恢复。
+#1　　五、 关键环节设计
+#1　　1.卷的设计 
+　　我们的服务器有两个硬盘，我们在一个硬盘建sys卷，另一个硬盘建user卷，sys卷放系统文件和应用程序，user卷放用户目录。sys卷上建的目录有:APPL目录、start目录（启动网络的目录，把启动的文件都放在目录里面。并在登录文本映射本目录，如map s1:=sys:start）等。user卷建dosuser目录、winuser目录、teacher目录（教师）、savefile目录（公用存文件目录），dosuser目录下建用户的子目录，如D01、D02、D03....D30等，winuser目录下建用户子目录，如W01、W02、W03....W30等。
+#1　　2.组的设计
+　　 根据DOS环境和Windows环境，建两大组，一组是dosgroup，另一组是wingroup，再建各用户，如Dos、D01、D02、D03...D30（都属于dosgroup组），Win、W01、W02、W03...W30（都属于wingroup组）。
+#1　　3. 登录文本的设计
+　　D01的登录文本:
+　　Map  F:=sys:login
+　　Map  root  G:=sys:appl
+　　Map  root  H:=user:dosuser\％login_name
+　　Map  root  I:=user:savefile
+　　Map  s1:=sys:start
+　　Map  s2:=sys:login
+　　Map  s3:=sys:public
+　　Map  s4:=sys:dos
+　　Map  s5:=sys:appl\ucdos
+　　Map  s6:=sys:appl\cced
+　　Exit  ″dos.bat″
+　　W01的的登录文本:
+　　Map  F:=sys:login
+　　Map  root  G:=sys:appl
+　　Map  root  H:=user:winuser\％login_name
+　　Map  root  I:=user:savefile
+　　Map  s1:=sys:start
+　　Map  s2:=sys:login
+　　Map  s3:=sys:public
+　　Map  s4:=sys:appl\winser
+　　Exit  ″win.bat″
+#1　　4. 自动登录和自动退出的设计
+　　在autoexec.bat和config.sys中设计成多重菜单:
+　　           1 DOS
+　　           2 Windows
+　　做出选择后就进入网络，然后相应执行Login dos （或Login win），根据DOS用户的登录文本（或Windows用户的登录文本），相应进入各台工作站，登录到DOS环境和Windows环境，完成全自动登录过程。要实现退出系统时自动退出网络，就要在DOS用户的登录文本（或Windows用户的登录文本）的末尾加入  Exit   ″logout″  这一句。这样做有两个好处：1当退出系统后自动退出网络，免得管理员一台一台地退出；2在使用过程中，就算不小心退出了网络，只要执行 Login dos （或Login win）就可以进入网络了。
+　　该CAD教学网建成后，其速度快，操作简单，使用方便，网络的维护简单高效，使用效果令人满意。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,109 @@
+华硕主板BIOS的升级方法
+
+杨肖澜
+1998年 第52期 36版
+
+    文中所涉及的主板型号为ASUS TX97－E（华硕公司的一款以82430TX芯片制作的Pentium主板，用户拥有量很大），其它型号华硕主板的升级方法和过程与之基本相同。
+#1    一、升级前的准备工作
+#1    1.确定BIOS版本序号
+    笔者ASUS TX97－E主板原配的BIOS为Award Modular BIOS v4.51PG和Award Plug and Play BIOS Extension v1.0A。通过系统启动时，内存自检过程中屏幕上第三行的显示内容，可以了解到主板上的BIOS版本序号为＃401A－0104e，即0104版。用户所要升级的就是此版本序号。而屏幕的最下方则依次显示了主板BIOS版本的发布时间、主板上的芯片组型号和主板型号等参数。
+    －－－－－－－－－－－－－－－－－－－－－
+    Award Modular BIOS v4.51PG，An Energy Star Ally
+    Copyright（C）1984－95，Award Software，inc.
+    ＃401A0－0104e
+    Award Plug and Play BIOS Extension v1.l0A
+    03／19／97－82430TX－<TX97－E>C－00
+    －－－－－－－－－－－－－－－－－－－－－
+#1    2.获取BIOS升级文件
+    用户获取主板BIOS升级文件的方法很多，可以从华硕主板的销售代理商处获得，亦可以从软件市场上购买含有相应文件的产品（如《电脑报配套光盘第三辑》上即有TX97－E主板的0107版升级文件），当然，最直接的方法是从华硕公司的网上主页中下载最新的文件。
+    华硕公司在因特网上的主要站点分别在中国台湾和美国，其网址分别为：
+    http:／／www.asus.com.tw
+    http:／／www.asus.com
+    进入华硕公司主页，选择好主板型号TX97－E（不可选错!）后进入下载主板BIOS升级文件的网页。在此用户可以了解到有关TX97－E主板的各种版本的BIOS，即：
+    xe5i0108.zip   TX97－E主板BIOS的0108版，发布时间12／02／97
+    xe5i0107.zip   TX97－E主板BIOS的0107版，发布时间08／01／97
+    xe5i0106.zip   TX97－E主板BIOS的0106版，发布时间06／24／97
+    xe5i0104.zip   TX97－E主板BIOS的0104版，发布时间03／19／97
+    根据华硕公司在网上的说明，最新版本的BIOS中包含了在此之前所有版本BIOS中的功能变化，用户可以直接使用最新版本BIOS，而不必去依次地逐个升级。因此，用户可以直接下载网上的最新版本，即0108版的升级文件xe5i0108.zip即可。
+    文件xe5i0108.zip的大小为114688字节，正常情况下一分钟左右即可下载完毕。经解压后，得到文件xe5i0108.awd，大小为131072字节。
+#1    3.制作BIOS升级盘
+    制作一张不含有autoexec.bat和config.sys文件的系统引导软盘，将主板配套光盘中的BIOS管理应用程序pflash.exe和上述升级文件xe5i0108.awd复制到此引导盘上。至此，升级前的软件准备工作就绪。
+#1    4.设置主板跳线开关
+    关机后打开机箱，参考主板用户手册，将主板左下方的跳线开关Boot Block Write跳接为［2－3］脚短接，使主板处于“引导块可编程刷新”状态。至此，升级前的硬件准备工作就绪。
+#1    二、升级时的具体操作
+    用上述自制的引导盘引导系统后，运行pflash.exe进入程序的主菜单：
+    －－－－－－－－－－－－－－－－－－－－－
+    ASUSTek PNP BIOS
+    FPLASH MEMORY WRITER V1.5
+    Copyright（C）1995，ASUSTek COMPUTER INC.
+    Flash Type－Winbond W29EE010
+    Current BIOS Revision:＃401A0－0104e
+    Choose one of following:
+    1.Save Current BIOS To File
+    2.Update BIOS Main Block From File
+    3.Advanced Feature
+    Enter choice:［］
+    －－－－－－－－－－－－－－－－－－－－－
+    在此，程序列出了主板EPPOM的类型和主板上当前的BIOS版本序号。先选择［1］以文件形式保存当前主板的BIOS内容，以防不测；再选择［3］进入高级性能菜单：
+    －－－－－－－－－－－－－－－－－－－－－
+    Advanced Feature
+    Flash Type－Winbond W29EE010
+    Current BIOS Revision:＃401A0－0104e
+    Choose one of following:
+    1.Clear PNP Parameter Block
+    2.Update BIOS including Boot Block and ESCD
+    Enter choice:［］
+    －－－－－－－－－－－－－－－－－－－－－
+    选择［2］即进入BIOS的升级菜单：
+    －－－－－－－－－－－－－－－－－－－－－
+    Update BIOS including Boot Block and ESCD
+    Flash Type－Winbond W29EE010
+    Current Bios Revision:＃401A0－0104e
+    Please Enter File Name for NEW BIOS:
+    －－－－－－－－－－－－－－－－－－－－－
+    输入升级文件的名称xe5i0108.awd后按回车确认。经过再确认后，即开始了将升级文件写入主板EPROM中的刷新过程。此时，屏幕上有同步的刷新过程指示（本文以＊＊＊＊＊表示之），直到提示已经成功地完成了BIOS升级的刷新过程：
+    －－－－－－－－－－－－－－－－－－－－－
+    Update BIOS including Boot Block and ESCD
+    Programming＊＊＊＊＊
+    Flashing Successfully
+    －－－－－－－－－－－－－－－－－－－－－
+    按［ESC］进行后续操作，用［N］来回答程序的提问“Do You Want To Program Again［Y／N］”，表示不需要进行再次刷新操作。
+   ［注意］如果系统未提示已经成功地完成刷新过程的话，此时一定要选择［Y］再次重复上述操作，直到刷新成功为止。根据华硕公司在网上的警告，如果此时重新引导系统的话，主板从此将不可再引导。切记!!!
+    在退回主菜单时，程序会提示用户已经刷新了主板的EPROM内容，建议用户关机，在再次引导系统时，进入系统的BIOS设置程序，用LOAD SETUP DEFAULTS（加载默认的设置内容）来用新的BIOS将CMOS内容升级：
+    －－－－－－－－－－－－－－－－－－－－－
+    You have flashed the EPROM;it is recommended that you
+    turn off the power，enter SETUP and LOAD SETUP DEFAULTS
+    to have CMOS update with new BIOS when exit.
+    －－－－－－－－－－－－－－－－－－－－－
+    在关机后重新开机引导系统之前，先要将主板上的跳线开关Boot Block Write跳接为［1－2］脚短接状态，使主板恢复到BIOS写保护状态。
+    用默认值成功地重新引导了系统并工作正常后，用户即可再次进入BIOS设置，按照用户的个人喜好进行个别参数调整设置。此至，整个主板BIOS的版本升级过程全部完成，用户可以充分感受新版本BIOS所带来的新功能了。
+#1    三、升级后BIOS的变化
+#1    1.升级的验证
+    从系统引导时内存自检过程的屏幕上，可以清楚地看到，版本的序号已经变成0108e，相应的BIOS版本发布时间变成了12／02／97。由此，用户直观地验证了BIOS版本的升级变化：
+    －－－－－－－－－－－－－－－－－－－－
+    Award Modular BIOS v4.51PG An Energy Star Ally
+    Copyright（C） 1984－95，Award Software，inc.
+    ＃401A0－0108e
+    Award Plug and Play BIOS Extension V1.0A
+    12／02／97－82430TX－<TX97－E>C－00
+    －－－－－－－－－－－－－－－－－－－－－
+    此外，在系统引导过程中，对笔者的SONY CDU311光驱的自动检测时间明显缩短。
+#1    2.功能的变化
+    据笔者粗略地统计，从0104e版到0108e版，其间TX97－E主板的BIOS一共升级了三个版本，功能的变化（包括新增、改进、删除等）多达46处。
+    用户可能从华硕的网页上了解到详细的功能变化过程和内容，笔者在此不再一一赘述，仅介绍几处主要的变化：
+    ＊纠正了NSTL 2000年检测失败的问题
+    ＊纠正了检测不到Goldstar十六速光驱的问题
+    ＊支持IOMEGA ZIP 100引导功能
+    ＊删除了“Boot Up Speed”功能选项
+    ＊改进了识别ATAPI检测的算法，加快了对某些CD－ROM自动检测的速度（只对Master主通道有效）
+    ＊增加了“USB IRQ Enable/Disable”功能选项
+    ＊允许“Wake On Lan”功能
+    ＊支持LDCM3.1 for Win95
+    ＊纠正了太一光驱CD－524E引导失败的错误
+    ＊增加了对102键USB键盘的支持
+    ＊纠正了S3显示卡在Win95下当系统振铃时出现闪烁的问题。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

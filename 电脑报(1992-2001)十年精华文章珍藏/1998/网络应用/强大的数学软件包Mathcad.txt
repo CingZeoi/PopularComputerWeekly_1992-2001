@@ -1,0 +1,112 @@
+强大的数学软件包Mathcad
+
+ 
+1998年 第15期 15版
+
+　　Mathcad是由MathSoft公司推出的一种交互式数值系统。在输入一个数学公式、方程组、矩阵之后，计算机能直接给出结果，而无须去考虑中间计算过程。最令人激动的是在加入软件包自带的Maple插件后能直接支持符号运算。你可以在计算机上输入数学公式、符号和等式等，很容易地算出代数、积分、三角以及很多科技领域中的复杂表达式的值，并可显示数学表格和图形，通过对图形结果的分析，使我们对问题的理解更加形象。
+　　Mathcad的用户主要针对具备应用数学知识但并不要求具有较多的计算机知识的用户，如工程研究人员、学生等。
+#1　　一、文件功能
+　　（1）Insert……　在当前文件中插入Mathcad文件，能达到合并两个文件的效果。
+　　（2）Save Configuration……　将当前Mathcad有关的字体属性、数值有效位等各类设置存贮成一个配置文件，以备后用。
+　　（3）Execute Configuration……　载入配置文件。
+　　（4）Associate Filename……　定义文件变量。此功能提供Mathcad与外部数据的接口功能。将数据文档（如.dat　.prn等数据文件）载入Mathcad内，并将数据送给矩阵或矢量。此功能较为重要，通过此功能，用户可以用其它语言编写程序（如用C语言编写自己的计算程序，通过fprint函数生成数据文件），然后将包含计算结果的数据文件送给Mathcad处理。下面将详细说明Mathcad如何读写数据文件。
+#1　　二、数据读写功能
+　　为了进行ASCII数据文件读写，Mathcad提供几个内部读写函数READPRN（）、WRITEPRN（）、APPENDPRN（）、READ（）、WRITE（）、APPEND（）（函数名必须大写）。其中READPRN（）、WRITEPRN（）、APPENDPRN（）是对结构化数据（structured data）文件进行读写和追加；而READ（）、WRITE（）、APPEND（）是针对无结构数据（unstructured data）文件进行操作。下面以无结构化数据为例子说明Mathcad的数据读写功能。^151501a^
+　　第一步：建立文件变量
+　　点击File菜单下的Associate Filename……命令，弹出Associate Filename对话框。在对话框中选择好数据文件后，在Mathcad variable中输入文件变量名filevar，然后点击Associate选项便建立文件变量（见^151501b^）。
+　　第二步：定义数组变量
+　　（1）定义下标i:=0..100
+　　（2）向数组读入数据，即完成了数据的读入功能。
+　　vi：=READ（filevar）
+　　注意：
+    1.Mathcad对变量名区分大小写。
+　　2.文件为ASCII文件，数值间用空格隔开，例如文件格式为100 200 300。
+#1　　三、编辑功能
+　　（1）Undo Last Edit　取消上次的操作。
+　　（2）Paste Special　对象嵌入（OLE）式拷贝。
+　　（3）Select All Regions　选取当前文件中所有的运算式、文字、图形等对象。
+　　（4）Ins／Del Blank Lines　在当前光标处插入或删除给定数量的空白行。
+　　（5）View Regions　选择此命令后，窗口内的各对象（运算式、文字等）会以白色长方形显示，其余背景则以灰色显示。你可以更清楚地发现各对象是否有重叠。
+　　（7）Insert PageBreak　在当前光标处插入分页线。
+　　（8）Set Right Margin　设置右边界线，此线为棕色实线。
+　　（9）Clear Right Margin　取消右边界线设置。
+　　（10）Headers／Footers　设置各页的页首页尾是否打印文件名、日期、页数等信息。
+#1　　四、对象自动排列功能
+　　（1）当对象较多时很可能有些对象重叠在一起而使一些已存在的对象不能发现。但此时你可以用鼠标选取一些对象，然后使用Separate Regions命令将所选对象进行排列，把重叠在一起的对象分开。
+　　（2）对齐对象。使用Align Regions中的Align Vertical和Align Horizontal命令分别将对象水平对齐和垂直对齐。这样可以让你节约更多的排版时间。
+#1　　五、文本功能
+　　Mathcad提供了一定的文本功能，可以用Text菜单下的Create Text Region或Create Text Paragraph命令分别在文件中建立文字区域或文字带。同时Mathcad提供Check Spelling……命令对文字进行拼写检查。发现拼写错误将提示你改正，并给出纠错建议。Mathcad 5.0在中文环境下支持汉字，甚至可以用汉字作变量名。使用这些功能，你可以直接在Mathcad完成数学论文。
+#1　　六、矩阵功能
+　　（1）Matrices……命令：此命令生成自定义的矩阵或矢量（当Columns设为1时）。
+　　Create命令生成新的矩阵，Insert命令在当前矩阵内的光标处插入新增的行数和列数，Delete命令在当前矩阵内的光标处删除设定行数和列数。
+　　（2）Matrix Operations矩阵操作命令：
+　　1.Transpose Matrix矩阵转置。
+　　2.Invert Matrix求逆矩阵。
+　　3.Determinant of Matrix求矩阵的行列式的值。
+#1　　七、Math功能
+　　（1）Built－In Variables……　此命令可修改所有Mathcad的内置常数。
+　　（2）Units包括Insert Unit……、Change System Of Units……、Dimensional Format……　三个命令.Insert Unit……命令通过窗口加入单位;而Change System Of Units……　命令用来设置当前Mathcad所使用的单位系统；至于Dimensional Format……　则设置单位的名称。
+　　（3）Insert Function　此命令可以帮助你输入内部函数，并可以了解各函数参数定义。当然你也可以不用此命令而直接输入函数，但函数名一定要与Mathcad所定义的内部函数名相同。
+　　（4）Randomize……　此命令用来设置函数rnd（x）的随机数种子，通过设置不同的随机数种子来生成不同规律的随机数。但须注意种子的值必须大于或等于1。
+　　（5）Calculate　重新计算被选中的运算式，如果未设置自动计算模式（Automatic Mode命令设置），你必须用此命令来计算答案。
+　　（6）Calculate Document　此命令将当前文件中的所有式子都重新计算一次。
+　　（7）Toggle Equation　对被选中的式子抑制计算。式子或图形被抑制后，将出现标记符号（式子在右方，图形在右上方）。如想重新计算被抑制的式子，只要重新使用此命令即可。
+　　（8）Automatic Mode　设置或取消自动计算模式，如不使用自动计算模式，就必须使用Calculate命令（按F9）计算被选中的式子。
+　　（9）SmartMath　是否使用SmartMath计算功能。
+　　（10）SmartMath Controls……　此命令包括两项控制：
+　　a.Live Symbolics　设置是否使用SmartMath中的会自动重新计算的函数运算符号“→”。
+　　b.Optimize　可使SmartMath自动对文件中有“:=”（定义局部变量）、“≡”（定义全局变量）的式子进行处理，而不必在文件中使用Optimize关键字
+　　（13）Show SmartMath……　显示SmartMath化简后的式子内容。
+　　（14）Numerical Format……　设置Mathcad数值格式，包括进制、显示小数位的位数和精度。
+#1　　八、图形功能
+　　Graphics菜单下的命令给我们提供了重要的图形功能，包括绘制二维和三维图形。通过对图形的分析，能让我们对函数的性质有形象和深入的认识。
+　　（1）Create X－Y Plot　生成一个X－Y图框。
+　　（2）Create Polar Plot　生成一个极坐标图框。
+　　（3）Create Surface Plot 　生成一个表面图的图框。
+　　（4）Create Contour Plot　生成一个等高图的图框。
+　　（5）Create Picture　生成一个图形（＊.bmp格式）输入框。
+　　（6）X－Y Plot Format……　修改X－Y图的显示格式。
+　　（7）Polar Plot Format……　修改极坐标图的显示格式。
+　　（8）Picture Format……　修改选中的输入图形格式。
+　　下面重点讲解用Create X－Y Plot作一元函数图和用Create Surface Plot作二元函数图。
+　　（一）作一元函数图
+　　第一步：用“:=”（Shift＋:）操作定义范围变量（range variables）x:=－10，9.9..10（－10，9.9..10表示从－10开始每0.1（－9.9－（－10）=0.1）为步长取值，一直取到10；“..”操作符按“；”键）
+　　第二步：定义函数f（x）=sin（x）
+　　第三步：用Create X－Y Plot 作一元函数f（x）=sin（x）的图（见^151501c^）。在X－Y图框的左边输入f（x）和值域；在下方输入x和定义域
+　　（二）作二元函数图
+　　第一步：用“:=”（Shift＋:）操作定义范围变量（range variables）作为数组的下标i:=0..100 j:=0..100（数组下标是大于等于零的整数）
+　　第二步：定义自变量数组（见^151501d^）
+　　第三步：定义函数（见^151501e^）
+　　第四步：用Create Surface Plot作二元函数图
+　　用Create Surface Plot命令生成表面图图框，然后只要图框左下角输入z即可。图形见^151501a^。
+#1　　九、符号功能
+　　（1）Evaluate包含三个命令。
+　　a．Evaluate Symbolically　对选中的式子进行运算，得出代数解。可以进行函数化简、微分、积分、求和等运算。（如^151501f^所示）
+　　b．Complex Evaluation　用复数来计算被选中的式子。
+　　c.Floating Point Evaluation　用浮点数来计算被选中的式子。结果为数值答案。
+　　（2）Simplify　对选中的式子化简，可以进行通分、合并，甚至三角函数化简。
+　　（3）Expand Expression　将选中的式子全部展开。（如^151501g^所示）
+　　（4）Factor Expression　因式分解或合并为单一式（通分）。（如^151501h^所示）
+　　（5）Collect On Subexpression　合并同类项，可以与Factor Expression命令配合使用，能更好的处理代数式。
+　　（6）Polynomial Coefficients　将式子作多项式分解，求出各项系数的矢量形式答案。
+　　（7）Differentiate on Variable　在式子中针对选中的变量进行一次微分。
+　　（8）Integrate on Variable　在式子中针对选中的变量进行积分。
+　　（9）Solve for Variable　在式子中求选中变量的根，既求函数解。
+　　（10）Substitute for Variable　在式子中对选中的变量用剪接板中的式子代换。
+　　（11）Expand to Series……　在式子中以选中的变量作泰勒或其它级数展开。
+　　（12）Convert to Partial Fraction　展开运算式为部分分式。
+　　（13）Transforms　转换操作：
+　　a.Fourier Transform　在式子中对选中的变量作富氏变换。
+　　b.Inverse Fourier Transform　与上命令对应，作反富氏变换。
+　　c.Laplace Transform　将运算式作拉普拉斯变换。
+　　d.Inverse Laplace Transform　与上命令对应，作反拉普拉斯变换。
+　　e.Z Transform　将运算式作Z变换。
+　　f.Inverse Z Transform　与上命令对应，作反Z变换。
+　　g.Derivation Format……　设置符号运算的输出格式。
+　　h.Drive in Place　设置是否答案要取代原式。
+　　注意：如符号处理命令无效，请检查是否启动SmartMath或加载符号处理器（Symbolica菜单下的Load Symbolica Processor命令）。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

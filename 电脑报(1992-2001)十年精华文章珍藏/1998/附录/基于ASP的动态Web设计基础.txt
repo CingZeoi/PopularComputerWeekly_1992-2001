@@ -1,0 +1,283 @@
+基于ASP的动态Web设计基础
+
+汪洁
+1998年 第52期 17版
+
+    Internet/Intranet技术的日益发展，使得企业的IS部门已经认识到Intranet的优势，更使得数据库与Web的连接成为数据库开发方面的热门技术之一。由于Intranet具有跨平台及低成本等优点，所以基于Web服务器/浏览器（Web Server/Browser）结构的各种软件同传统的数据库前台开发工具（如PowerBuilder、Delph或Visual Basic）将与昂贵的群体及其他工作流软件（如Lotus Notes、Novel Group Wise）展开竞争。
+    人们对于Web的要求越来越高，不再只是满足于HTML所提供的简单的静态页面，而是需要灵活的动态页面。如果利用传统的公共网关接口CGI（Common Gateway Interface）来实现动态页面，不仅开发困难，而且CGI对每一个HTTP请求都将激活一个相应进程，由此造成程序挤占系统资源，降低效率，在出现大量并发请求时更是力不从心。ISAPI或NSAPI相对于CGI在效率上有了很大提高，它通过利用DLL（动态链接库）技术提高了性能和速度，但需要考虑线程同步问题，所以开发起来比较麻烦。而Java的执行效率较低，开发也比较困难。至于完全的客户端VBScript和JavaScript以及IDC（Internet Database Connector）则功能有限，不能满足较高的要求。
+    微软的Active Server Pages（支持Active技术的服务器页，简称ASP）是一种应用程序环境，它使所有的开发者可以使用几乎所有的开发工具来组合HTML代码，这些脚本可以利用本地服务器或远程服务器上运行的组件来存取数据库、应用程序或处理信息。因此，可利用ASP来直观、简易地实现强大的Web应用程序。
+    ASP的工作原理：用户浏览器从WEB服务器上请求 *.ASP文件时，ASP脚本在服务器上开始执行。然后WEB服务器调用ASP，ASP全面读取请求的文件，执行所有脚本文件，并将ASP执行结果的常规HTML码（WEB页）传送给用户浏览器。
+#1    一、ASP的优点
+    ASP具有以下几个优点：
+    1.开放性
+    在IIS（Microsoft  Internet  Information  Server） 3.0上，并不需要开发者使用一个专有的脚本语言来生成网络应用程序，实际上Active Server Pages 包括了对VBScript和JavaScript/JScript的本机支持。通过第三方组合组件，它还可以使用其他语言（如Perl、REXX和Tcl）。多个脚本语言甚至可以在相同的ASP文件中交替使用并相互调用。而ActiveX Server组件实际上可以用任何语言编写，这些语言包括Java、Visual Basic、C++、COBOL等等。
+    2.易操作性
+    ASP使HTML设计人员可以在服务器上方便地“激活”他们的Web页面，可以立刻对定制化网页和简单的应用程序进行开发。以往需要用PERL或C编写复杂的CGI程序来完成功能（如数据库连接），现在若使用ASP，只需要几行简单的代码就能够实现。
+    3.程序与外观分离
+    通过使用脚本和组件，Active Server Pages允许用户将编程工作与一个网页的设计和其他工作分离开来。这样就可以确保开发者能够将主要的精力用来考虑编写程序的逻辑，而不必担心外观是怎样的。同时，它也是那些外观设计的人员可以利用一些工具来对网页进行修改，而不用过于关心编程问题。
+    4.非手工编译
+    ASP的即时编译系统在被请求时自动对ASP源文件重新编译，并将其载入服务器的高速缓存中。因此，开发者对ASP文件的修改可在浏览器中立即得到反应，只需要简单的保存该文件并在浏览器中刷新即可。
+    5.浏览器独立性
+    ASP提供了一种浏览器中枢方案来完成应用程序的设计工作。因为用于生成动态内容的脚本可以在服务器上执行，所以开发者不必担心客户用什么浏览器来浏览网点。
+#1    二、ASP基础
+    对开发者来说，要想熟练掌握ASP，则还需要了解以下三个方面的知识：Active Scripti ng（Active脚本编程）、内建对象和基本组件。
+#1    1.Active Scripting（Active脚本编程）
+    Active Scripting就是用VBScript、JavaScrip/JScript和Perl等脚本语言并遵照ASP的语法规则编写出的程序，这并不复杂，只需要使用“〈%”和“%〉”这两个定界符即可。例如下面的程序“〈%UserName=%〉”将在浏览器上显示“Anny”这四个字符。
+    完整的源代码（包括HTML代码）如下：
+    HTML〉
+    HEAD〉
+   〈TITLE〉〈/TITE〉
+   〈/HEAD〉
+   〈BODY〉
+   〈%UserName=“Anny”%〉
+    用户名：〈%UserName%〉
+   〈/BODY〉
+   〈/HTML〉
+    再看一看如下HTML代码（hello.asp）：
+    <HTML>
+    <BODY>
+    <% For i = 3 To 7 %> 
+    <FONT SIZE=<% = i %>> 
+    你好!<BR> 
+    <% Next %> 
+    </BODY> 
+    </HTML>
+    分析一下上面的脚本，你会发现同HTML脚本比较，它多了两个符号“<%”和“%>”，这就是ASP的定界符，它将一般的HTML脚本同ASP代码分隔开来，它中间的代码就是ASP"语言”，它的语法与Visual Basic差不多。
+    ASP的脚本语言可以是任何Script语言，不过你得提供相应的引擎，ASP本身支持VBscript 和JavaScript，到底使用哪一种，可以由你决定。你只需在使用ASP脚本前增加一句“<script LANGUAGE="VBScript" RUNAT="Server">”或者“<script LANGUAGE="JavaScript" RUNAT="Server">”就行了。缺省的是VBscript。
+    用任何一种无格式的文本编辑工具（如记事本）或专用ASP开发工具Visual InterDev  等将上述代码写入，并保存为扩展名是.ASP的文件（例如hello.asp），在将其放入Web Server上有执行权限的目录下，就可以访问了。比如Windows NT上的IIS，就放在＼Inetpub＼wwwroot下的某个目录下；Windows 95/98上的 Personal Web Server，就放在＼WebShare＼wwwroot下的某个目录下。然后，还必须确保你的服务器上安装了ASP，否则，服务器不知道ASP是什么东西。
+    注意：现在只有 IIS（Microsoft  Internet  Information  Server） 3.0 on Windows NT Server、Peer Web Server V3.0 on NT Workstation和Personal Web Server on Windows 95/98支持ASP，并且在这三种Web服务器（Web Server）上必须安装ASP（Active Pages Server）组件。
+#1    2. ASP内建对象
+    ASP包括许多内置的服务器和应用程序构建对象。这些对象使开发者可以摆脱很多烦琐的工作，如存取来自客户方请求的细节，管理应用程序状态和调配请求等。这些内建对象包括:
+    （1）Request：取得用户信息
+    Request对象提供了对任何有HTTP请求而转入脚本的信息的存取，其中包括窗体、表格、URL查询和HTTP域名等有关信息。
+    Request对象把客户信息保存在几个集合中，供ASP应用使用。通用的访问方法为：
+    Request.Collection（"membername"）
+    当你不指定集合名时，以QueryString、Form、Cookie和ServerVariable的顺序搜索所有集合，当发现第一个匹配的变量时，就认定他是要引用的成员。当然，为了提高效率，你最好显式指定是那个集合中的成员。
+    QueryString集合：当HTML表单使用GET方法向ASP文件传递数据时，数据被保存在集合QueryString中。其成员可以具有与之相关的多个值，也就是说，同一个表单中，多个元素可以有相同的名字，下面的代码访问这些数据：
+    <%For each item in Request.QueryString（"Name"）
+    Response.write Item &"<br>"
+    Next %>
+    Form集合：当表单用POST方法时，数据被保存在Form集合中。
+    ServerVariable集合：保存了随HTTP请求一起传送HTTP头的信息，可以通过它获取有关浏览器的信息，主要成员有：
+    REMOTE_ADDR：远程主机IP地址。
+    REMOTE_HOST：远程主机名称。
+    REMOTE_USER：客户名称。
+    REQUEST_METHOD：请求方法（如POST、GET和HEAD等）。
+    SERVER_NAME：服务器名。
+    SERVER_PROTOCOL：服务器版本号（如HTTP/1。0）。
+    （2）Response：传递信息给用户
+    Response对象可用来构建对信息的反馈，其中包括网页截止时间和HTTP输出流的全控件。通常用来控制向客户返回的HTML的内容，有若干属性和方法。常用的有：
+    Buffer属性：如果为True，则Response的内容要写入缓冲区，当脚本处理完时再发给客户。
+    Status属性：传递HTTP Response报文的状态。服务器返回的状态代码由三位数字组成，可以用于测试阶段和转换控制到其他站点（即Forward）
+    Write方法：向客户输出HTML，可以是任何合法的HTML脚本。
+    Redirect方法：使浏览器重新定向到另外一个URL上，如：
+    <%browsetype=Request.ServerVariables（"HTTP_USER_AGENT"）
+    IF Left（browsetype，11）="Mozilla/2.0" then
+    Response.Redirect "FancyStart.asp"
+    Else
+    Response.Redirect "OldStart.asp"
+    End if%>
+    Clear方法：如果设Buffer属性为True，则Clear方法清楚所有缓冲区内容。
+    Flush方法：将缓冲内容立即发送给客户。
+    End方法：当Active Server遇到该方法时，立即停止处理ASP文件，如果有缓冲，立即发送内容到客户。
+    BinaryWrite方法：输出二进制数据
+    （3）Request对象和Response对象的Cookies集合
+    写入Cookies:Response.Cookies（"Cookie名称"）［（"键名称"）.属性］=值。
+    如果该Cookie已经存在，则值被新值替代，否则，创建该cookie。
+    例如：
+    <% Response.Cookies（"NewCookie"）="New Cookie Value" %>。
+    读取Cookies：<%=Request.Cookies（"NewCookie"）%>
+    Cookie还有一些属性，请参见有关资料。
+    （4）Application和Session
+    这些对象用来简化状态处理。Application对象被用于存储一个特定应用程序所需的信息，而Session对象被用于存储一个特定用户任务所需的信息。这是ASP的一个非常有用的特性，可以用来解决许多Webmaster头痛的问题。利用Application对象，用户可以对Web应用程序的属性进行设置，以便在众多用户中实现信息共享。
+    Active Server应用程序是虚拟目录及其子目录下的所有文件，即一个Web。可以使用Application对象在应用软件的所有用户中共享信息，并可以在服务器运行期间持久地保存数据。它有一些控制访问应用层数据的方法和事件。
+    Application本身没有内置属性，可以由用户定义：
+    Application（"属性名"）=值
+    保存在Application对象中的数据可以被Application的所有用户读取。如用来做访问记数：
+    Application（"aVisits"）=Application（"aVisits"）+1
+    方法有两个：
+    Lock:当用户调用Lock时，只有当前用户能够编辑或增加Application对象的属性。
+    Unlock:一定要记住，调用了Lock，完成时一定要调用Unlock.
+    事件也有两个：
+    Application_OnStart事件：应用程序启动时调用。
+    Application_OnEnd事件：应用程序终止时调用。
+    这两个事件再加上Session的两个事件的处理程序都放在文件Global.asa中，一个Web应用只有一个Global.asa文件，且放在该应用的根目录下。
+    Global.asa文件向Application和Session提供了脚本，如果需要的话，这些脚本就由Application和Session对象的OnStart和OnEnd事件激活。OnStart和OnEnd事件的脚本存在于脚本标记之中，并将其RunAt属性设置为Server。这些脚本标记可包含一些函数，用于在Session和Application对象中加入属性，以备 Session和Application域中后续的.ASP文件使用。
+    一个Global.asa文件的例子如下：
+    <Script Language="VBScript" Runat="Server">
+    Sub Application_OnStart
+    Dim laChats（15）
+    Application（"gaChats"）=maChats
+    Application（"giCounter"）=0
+    End Sub
+    利用Session对象，只要用户在同一任务中，如在Web应用程序中的页之间跳转时，则存储在Session对象中的变量始终有效；只有当任务被截止或者放弃时，服务器才毁坏这一任务对应的Session对象。Session对象最常见的用途之一就是用来存储以登录用户的权限信息，这样就可以方便地解决Web应用程序的安全问题 。
+    Active Server使用会话设置为使用应用程序的单个用户持久保持数据。当用户请求Active Server应用程序中ASP文件的URL时，要启动Session。在缺省情况下，如果没有用户请求，则服务器只保留Session 20分钟。用户也可以通过设Session的属性TimeOut来改变。或显示地调用Session.Abandon方法来释放Session对象。
+    SessionID属性:唯一标识一个会话的标识符。
+    TimeOut属性:定义Session保留的时限，单位为分钟，如Session.TimeOut=10。
+    象Application一样，Session也可由用户来定义属性。
+    Session的唯一方法是Abandon，用来取消用户的Session对象，并释放其占用的服务器资源。如：<%Session.Abandon%>
+    事件有Session_OnStart和Session_OnEnd，其处理程序应放在文件Glabal.asa中。
+    （5）Server：提供访问服务器的方法和属性
+    Server对象允许脚本生成Active Server组件的实例，并且利用新的功能对ASP环境进行扩展。Server对象拥有两个重要办法，即Mappath和CreateObject.Mappath，可用来将Web Server的虚拟路径还原成实际路径；CreateObject可能是最重要的一个方法，用它可产生服务器对象的实例。
+    常用方法如下：
+    HTMLEncode方法：对特定的字符串进行HTML编码，如你本来要显示下列内容：
+    The Underline tag（<u></u>） is used to underline the surrounded text.
+    但很可能实际显示成：
+    The Underline tag（） is used to underline the surrounded text.
+    为了避免这种情况，可以调用Server对象的HTMLEncode方法，如：<%Response.Write Server.HTMLEncode（"The Underline tag（<U></U>） is used to underline the surrounded text."）%>。
+    URLEncode方法：根据URL规则对字符串进行编码。当字符串数据以URL格式传递到服务器时，串中间不能有空格，不能有特殊字符，这时，你就必须用URL编码。
+    CreateObject方法：用于创建已注册到服务器机器上的ActiveX组件例程，这是最重要的一个方法。其句法为：
+    Server.CreateObject（"ComponentName"）
+    可以作为例程启动的组件可以是ActiveX能够使用的所有内置组件，实际上是存在于服务器上的任何ActiveX组件。比如，要使用金融计算，步骤如下：
+    创建对象：<%set x=server.createobject（"extend.financial"）;%>
+    调用对象的方法：
+    <% set x=server.createobject（"extend.financial"）
+    response.write Format（x.futval（.07/12，200，-500），"###，###，##0.00"）%>
+    释放例程：<%set x=Nothing%>
+    （6）FileSystem和TextStream对象
+    FileSystem和TextStream对象可用于建立对文件系统的访问，并提供顺序访问文件的机制。FileSystem没有属性，只有两个方法，第一个方法是CreateTextFile方法，可以在宿主机上创建新的文本文件，并返回TextStream对象以提供对新创建文件的访问机制。第二个是OpenTextFile方法，用于打开文本文件供顺序访问并返回一个TextStream对象。如：
+    <%
+    set fsFilesys=CreateObject（"Scripting.FileSystemObject"）
+    set tsCoffee=fsFilesys.CreateTextFile（"c:＼coffe.txt"，True）
+    tsCoffee.WriteLine（"Man，I Could use some coffee."）
+    tsCoffee.Close
+    %>
+    TextStream对象的使用有：
+    AtEndOfLine:如果文件当前字符处在行的末尾则返回true。
+    AtEndOfScreen:如果当前字符在文件的末尾则返回true。
+    Column:返回当前字符的列号。
+    Line:返回当前字符的行号。
+    TextStream对象的方法为：
+    Close:关闭并释放TextStream对象。
+    Read:从一个文件中读取给定个数的字符到一个变量中。
+    ReadAll:读取文件的全部内容到一个变量中。
+    ReadLine:读取给定行号的内容到一个变量中。
+    Skip:跳过给定个数的字符。
+    SkipLine:跳过给顶的行书。
+    Write:写如字符串。
+    WriteLine:写入以换行结束的字符串。
+    WriteBlankLines:写入给顶数量的空格。
+#1    3. ASP基本组件
+    ASP组件，以前被称为OLE自动服务器（OLE AUTOMATION SERVERS），现在经过设计后可以作为一个网络应用程序的一部分在用户的网络服务器上运行。这些组件允许用户在内部对其脚本进行功能扩展，系统对这些扩展的功能进行保密。ASP组件可以构建在由Microsoft公司建立的公认的公约标准上。也可以直接使用ASP自带的基本组件，如ActiveX数据对象（ADO）组件、内容链接组件、文件系统组件、浏览器功能性组件和广告转子组件。
+    （1）ACTIVEX数据对象（ADO）组件。
+    ADO是最重要的一个组件，它提供了与任何ODBC兼容数据库或OLE DB数据源的高性能连接。ADO允许网络开发者方便地将一个数据库与一个“激活”的网页相连接，以便存取和操作数据。这就使得开发者能够为网络开发出一个新型的、由数据库驱动的Web应用程序，并可以在一个系统上设置一个网络“前端处理器”。一个使用 ADO的ASP文件可以动态地从某个数据库中请求信息。例如，在对一个交易数据库进行修改后，可以立刻给每个股民以相应的反馈信息，而不必改动HTML代码。
+    （2）内容链接组件。
+    内容链接组件管理一个URL表，这样用户就可以象看书一样在网点上方便地对URL进行访问。用户可以使用内容链接组件的功能来自动生成以及更新内容表并导航性地与前后的Web页进行链接。这对于象联机报纸和论坛信息表等应用程序来说是理想的模式。内容链接组件参照一个内容链接表文件，此文件包含了链接Web页的列表，这个列表被存储在网络服务器上。对一个网页“流”可以动态的管理和重排，而不会破坏链接。增加、删除或移动网页则要求在列表文件中对页序进行调整。用户不必在单个网页上对HTML文件进行编辑。
+    （3）文件系统组件。
+    文件系统组件提供了一种存取方式，以完成对存储在服务器上文本文件的存取工作。通过这种方式，开发者无需编写自己的代码即可在文件系统上打开或关闭文件，因为大多数脚本语言不允许直接存取文件，所以这种方法非常有用。
+    （4）浏览器功能性组件。
+    通过使用浏览器功能性组件，一个ASP文件可以对客户使用的浏览器的功能进行组织，并动态地完成布局和内容的优化。这就确保了Webmaster不必再为每个浏览器生成一系列重复的网页。例如，微软自己的网点上有一个针对支持ActiveX的浏览器的视窗、一个针对图文框浏览器的视窗和一个不支持图文框浏览器的视窗.ASP文件控制定制操作，因此只存在内容的一个拷贝。
+    （5）广告转子组件
+    想在自己的页面上加入可以方便变幻的广告部分吗？广告转子组件可以让你轻松的做到这一点，它通过对不同图像的广播间转子进行管理来完成对不同广告和通告显示过程的简化。它构成一个不同广告的列表来安排显示优先权的相对比例。每次对ASP文件进行一次请求后，可以通过使用组件并基于当前的标准来显示一个广告。
+    要调用服务器上的基本组件，必须先利用前面介绍的SERVER对象中的方法CREATOBJECT产生服务器组件对象实例：
+    SERVER.CREATOBJECT（PROGID）
+    其中PROGID指定了构件标识。构件可以是EXE程序，也可以是DLL动态链接库。这些程序必须在操作系统中注册后，COM才会在系统资料库（Registry）中维护这些信息。上述5个基本组件在安装ASP时已经注册，你也可以用VB或VC方便地开发自己的构件，然后用Regsvr32进行注册。注册完毕之后，就可以调用这些构件了。
+#1    三、ASP的实际应用
+#1    1.ASP与表单
+    ASP的目的是让页面与用户交互，那么，怎样得到用户的信息呢?当然是用表单（Form），不论是CGI、IDC、JAVA，还是其他的什么技术，都是通过嵌在WWW页面中的表单来让用户输入信息，然后，表单的提交动作，把数据传给了服务器，服务器再把数据传给CGI或是其他程序。下面用简单的实例看一看在ASP中，怎样获得用户在表单中输入的数据，同时，还要到ASP是怎样将结果返回到WWW页面的。
+    首先，建立一个表单，它的HTML代码如下:
+    <HTML>
+    <HEAD><TITLE>定单</TITLE></HEAD>
+    <BODY>
+    <H2>定单Form例子</H2>
+    <P>
+    请向我们提供以下信息，然后单击"提交":
+    <FORM METHOD="POST" ACTION="response.asp">
+    <P>
+    First Name: <INPUT NAME="fname" SIZE="48">
+    <P>
+    Last Name: <INPUT  NAME="lname" SIZE="48">
+    <P>
+    称呼: <INPUT NAME="title" TYPE=RADIO VALUE="先生">先生
+    <INPUT NAME="title" TYPE=RADIO VALUE="女士">女士
+    <P><INPUT TYPE=SUBMIT VALUE="提交"><INPUT TYPE=RESET VALUE="清除">
+    </FORM>
+    </BODY>
+    </HTML>
+    这个表单是一个简单的定单例子，它接收客户的姓名、称呼，然后用POST方法将数据提交。表单（Form）提交数据常有两种方法：一种是GET，一种是POST。对于GET提交的数据，WWW服务器将把数据放在环境变量QUERY_STRING中。对于POST方法，数据被送到WWW服务器的STDOUT中，然后CGI从自己的STDIN中读取。传统的CGI方法必须自己处理这些数据。可是在ASP中，采用了面向对象的思想，所有从浏览器来的数据都被封装进了对象Request中。
+    Request有方法Form和Querystring，分别返回用POST方法和GET方法提交的数据。我们要得到表单提交的数据，只需用“Request.Form（"表单域名"） ”或“Request.Querystring（"查询参数名"） ”就可以了。
+    接下来建立.asp文件Response.asp来处理上面的表单提交的数据。这里，我们只是简单的将用户提交的数据返回给用户。
+    <HTML>
+    <HEAD></HEAD>
+    <BODY>
+    <% 
+    Title = Request.Form（"title"） 
+    LastName = Request.Form（"lname"）
+    If Title = "先生" Then 
+     %>
+    <%= LastName %>先生
+    <% ElseIf Title = "女士" Then %> 
+    <%= LastName %>女士
+    <% Else %>
+    <%= Request.Form（"fname"） & " " & LastName %>
+    <% End If %>
+    </BODY>
+    </HTML>
+    上面这段代码有些难懂吧，我们分析发现，开头和结尾都和普通的HTML代码没有什么两样，关键是中间。如果略去定界符“<%”和“%>”，然后将前面没有东西的等号换成“Print”，它就变成了:
+    Title=Request.Form（"title"）
+    LastName=Request.Form（"lname"）
+    If Title="先生" Then
+    print  LastName 先生
+    ElseIf  Title="女士" Then
+    print LastName 女士
+    Else
+    print Request.Form（"fname"）&" "& LastName
+    End If
+    这是不是VB?很简单吧?
+    有一点要说明的是，.asp文件中，不在定界符之内的字符，当成普通的HTML解释。如上面的“先生”，“女士”，.ASP自己的输出用一个等号加上对象名来实现（当然，ASP的代码在定界符之内），如上面的<%=LastName%>。其实，在.asp文件中，任何对象要作用到定界符之外就要用这种形式：<%=对象名%>。
+    上面我们用“<%=对象名%>”来实现ASP向页面的数据输出，使得.asp文件看起来比较接近HTML文件。下面我们用另一种方法来实现:
+    <HTML>
+    <HEAD></HEAD>
+    <BODY>
+    <% 
+    Title = Request.Form（"title"） 
+    LastName = Request.Form（"lname"）
+    If Title = "先生" Then  
+    Response.Write  LastName & "先生"
+    ElseIf Title = "女士" Then
+    Response.Write  LastName & "女士"
+    Else
+    Response.Write  Request.Form（"fname"） & " " & LastName
+    End If %>
+    </BODY>
+    </HTML>
+    除了开头和结尾，这看起来是不是更像一个VB程序？对了，我们用了另一个ASP内置对象Response的Write方法来输出数据。
+#1    2.ASP与数据库
+    Active Server最令人兴奋的一个属性是其Active Data Object（ADO）所提供的数据库连接功能。它向用户提供了连接任何兼容ODBC的数据库以及创建全功能数据为应用程序的能力。Open Database Connectivity（ODBC）是由微软提供的用于开放式数据库连接的一种工具。ODBC是一套中间件，它位于显示数据的用户界面和存储数据的数据库引擎之间。
+    当用户界面软件要从数据库获取数据时，就以SQL（Structured Query language）语句的规格向ODBC发送一个请求，ODBC就会将SQL语句翻译成特定的由数据引擎专用的SQL语言。
+    注意：如果读者对SQL和ODBC还不甚了解，Que公司有许多优秀的出版物可以提供帮助。ODBC的一大优点是它简化了用于操作特定相关数据库管理系统的具体知识。ODBC的关键就是SQL。
+    使用ADO访问数据库的设计要领是掌握ASP脚本的几个典型语句，它们是：
+    （1）定义数据库组件。有两种定义方法：
+     一种是使用“Server.CreateObject”建立连接的对象。
+    SET CONN=Server.CreateObject（“ADODB.CONNECTION”）
+    另一种是 使用〈OBJECT〉标记建立连接的对象。
+    〈OBJECT RUNNAT=SERVER ID=CONN CLASSID=“CLSID：00000293-0000-0010-8000-00AA006D22EA4”〉〈/OBJECT〉
+    （2）用“OPEN”打开待访的数据库：CONN.OPEN“DSN名称”。
+    （3）设定SQL语句，使用“EXECUTE”命令，即可开始执行访问数据库的动作。
+     SET RS=CONN.EXECUTE（“SQL语句”）
+     其中RS为结果集对象（RECORDSETS）。
+    （4）利用RECORDSETS对象所提供的属性显示查询结果，如下例将查询结果显示于一个表格中，其中〈%。。。。。。。%〉是ASP脚本的专用定界符。
+    〈TABLE BORDER=1〉
+    〈TR〉
+    〈% FOR I=0 TO RS.FIELDS.COUNT -1 %〉
+    〈TD〉〈% =RS（I）.NAME %〉〈/TD〉
+    〈% NEXT %〉
+    〈/TR〉
+    〈% DO WHILE OT RS.EOF %〉
+    〈TR〉
+    〈% FOR I=0 TO RS.FIELDS -1 %〉
+    〈TD〉〈% =RS（I）%〉〈/TD〉
+    〈% NEXT %〉
+    〈/TR〉
+    〈% RS.MOVENEXT
+     LOOP
+     %〉
+    〈/TABLE〉
+    （5）关闭结果集对象，断开与数据库的连接。
+       RS.CLOSE
+       CONN.CLOSE
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

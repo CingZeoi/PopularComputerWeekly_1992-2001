@@ -1,0 +1,589 @@
+C#入门教程
+
+黄容 
+2001年 60期
+
+    C#读作C Sharp，作为Microsoft的下一代面向对象的语言，能够让开发人员在.NET平台上快速地建立大量的应用程序。按照Microsoft给出的定义，C#是一种源自于C和C++的，简单的、现代的、面向对象的和类型安全的程序设计语言。C#为程序员提供了开发飞速发展的Web应用程序所需要的强大而灵活的功能。与C++相比，C#将更容易被人们理解和接受，未来大量.NET平台的应用将由C#开发，C#将是未来开发企业级分布式应用程序的首选。
+　　#1    一、C#的特点
+　　    C#就是这样一种编程语言，它使程序员能快速地为新一代Microsoft .NET平台开发出应用程序。具体来说，微软的C#具有如下特点：
+　　    1.快速应用开发（RAD）功能
+　　    支持快速开发（Rapid application development，RAD）可以说是目前开发语言最为重要的一大功能，支持快速开发可以使得开发人员的开发效率倍增，从而使得他们可以从繁重的重复性劳动中解放出来。
+　　    C#的RAD功能主要表现在垃圾收集、指代等特性上。垃圾收集机制将减轻开发人员对内存的管理负担，而指代功能更是可以让开发者不经过内部类就调用函数。利用C#的这些功能，可以使开发者通过较少的代码来实现更强大的应用程序，并且能够更好地避免错误发生，从而缩短了应用系统的开发周期。
+　　    2.语言的自由性
+　　    用C#编写的程序能最大程度地和任何支持.NET的语言互相交换信息。能够继承和使用任何语言所编写的程序，这样做的好处是节省了大量的工作，你不必把COBOL等语言强行改成另一种语言，.NET让各种语言真正地互相交流了。
+　　    3.强大的Web服务端组件
+　　    在C#的Web编程中，最让人兴奋的是Web服务端的组件，它们不仅包括传统组件，还包括那些能够自动连接服务的可编程组件，你可以用C#编写自己的服务器端组件，使用它们可以更自由、更容易地进行数据绑定。
+　　    4.支持跨平台
+　　    随着互联网应用程序的应用越来越广，开发人员所设计的应用程序必须具有强大的跨平台性。C#编写的应用程序就具有强大的跨平台性，这种跨平台性也包括了C#程序的客户端可以运行在不同类型的客户端上，比如PDA、手机等非PC装置。
+　　    5.与XML的融合
+　　    由于XML技术真正融入到了.NET之中，C#的编程变成了真正意义的网络编程，甚至可以说.NET和C#是专为XML而设计，使用C#的程序员可以轻松用C#内含的类来使用XML技术。就这方面而言，目前C#提供给了程序员裹多的自由和更好的性能来使用XML。
+　　    6.对C++的继承
+　　    C#继承并保留了C++强大的功妮，例如， C#保留了类型安全的检测和重载功能，C#还提供了一些新功能取代了一些原来的ANSI C预处理程序的功能，提高了语言的类型安全等安全性。
+　　#1    二、简单应用程序举例与分析
+　　    在全面、系统地学习以前，我们先来看一个C#的经典程序“Welcome”。
+　　    1.Welcome程序
+　　    第一个程序总是很简单的，我们让用户通过键盘输入自己的名字，然后程序会在屏幕上打印出一条欢迎信息。程序代码如下：
+　　    //源文件：welcome.cs
+　　    using System;
+　　    class Welcome
+　　        {
+　　        static void Main（）{
+　　            Console.WriteLine（"Please enter your name:"）;
+　　                //要求用户输入姓名；
+　　                    Console.ReadLine（）;//读取用户输入；
+　　            Console.WriteLine（"Welcome to you!"）;
+　　                /*本行代码用于打印欢迎信息；
+　　          你可以在这里添加自己的代码；
+　　          程序结束*/
+　　        }
+　　    }
+　　    上面的代码你可以在任意一种字处理软件中进行编写，然后以文件名“Welcome.cs”存盘。典型的C#源文件都是以“.cs”作为文件的扩展名的。
+　　    注意：C#语言是大小写敏感的。
+　　    2.代码分析
+　　    （1）名字空间
+　　    using System表示导入名字空间。如果你熟悉C或者C++编程，那么你一定经常使用“#include”之类的语句来导入其他C或者C++源文件。C#的含义与此类似，用于导入预定的元素。“System”就是一个名字空间，“using”指令允许对属于该名字空间成员的类型无限制引用。
+　　    （2）类和类的方法
+　　    在程序第二行，class Welcome声明了一个类，类的名字叫做“Welcome”。这个程序让我们所作的事情都依靠它来完成。
+　　    Static void Main（）表示类“Welcome”中的一个方法，方法总是为我们完成某项工作的。在C#中，程序的执行总是从“main（）”方法开始，一个程序中不允许出现两个或者两个以上的“main（）”方法。
+　　    就像一个文件夹可以容纳多个文件一样，一个名字空间可以被视为某些类的一个容器。因为.NET有很多类，所以名字空间是必要的。微软已经编写了数以千计的基类，同吮任何合理的大型应用程序都可以定义更多的类。通过把类放入名字空间可以把相关的类组织起来，并且可以避免命名冲突。
+　　    （3）“{”和“}”
+　　    与C和C++一样，源代码被包含在一对大括号之中，每一个右括号总是和它前面离它最近的一个左括号相配套。如果左括号和右括号没有全部的配套，那么这就是一个错误的程序。所有语句都以分号“;”结束。
+　　    （4）程序的输入与输出
+　　    程序所完成的输入输出功能都是通过“Console”来完成的，“Console”是在名字空间“System”中已经定义好的一个类，你根本不需要管它是怎么完成工作的，只要直接使用它就可以了。
+　　    上面的程序代码中，类“Console”为我们展现了两个最基本的方法：ReadLine和WriteLine。Console.ReadLine表示接受输入设备输入，Console.WriteLine用于在输出设备中输出。
+　　    3.运行程序
+　　    （1）执行代码
+　　    理解了源程序中每一条代码的具体含义后，下一步我们要做的就是让这个程序真正能够运行。
+　　    如果你的计算机上安装了Visual Studio .NET，则可以在集成开发环境（Integrated Developer Environment，IDE）中直接编译并执行源文件。如果你不具备这个条件，那么安装Microsoft .NET Framework SDK也是可以的。实际上，.NET平台内置了C#的编译器。下面让我们使用微软提供的命令行编译器来对上面的程序进行编译。
+　　    启动一个命令提示符，输入一行命令：
+　　    csc welcome.cs
+　　    此时，Welcome.cs文件将被编译并运行，屏幕上会出现一行字符，提示你输入姓名：
+　　    Please enter your name:
+　　    输入任意安符并回来确认，屏幕是将打印出欢迎信息：
+　　    Welcome to you!
+　　    在C#中，编译器只执行编译过程，而在C或者C++中要经过编译和链接两个阶段。也就是说，C#源文件并不被编译成目标文件（.obj），而是直接生成可执行文件（.exe）或动态链接库（.dll）。C#编译器中不需要包含链接器。
+　　    （2）命令行编译器选项
+　　    我们可以灵活地使用.NET平台提供的命令行编译器的不同选项，选择不同的编译方式。
+　　    例如，我们希望对源文件进行编译，生成一个名为MyWelcome.exe的可执行文件，我们可以采用下面的命令：
+　　    csc/out MyWelcome.exe Welcome.cs
+　　    有如不同的命令参数一样，不同的命令行编译器选项会影响我们编译执行的结果，如果不知道各个选项的具体含义，你可以通过编译器帮助来获得：
+　　    csc/?
+　　    4.添加注释
+　　    C#中注释的方式和C、C++没有什么区别，每行中双斜杠“//”后面的内容，以及在分割符“/*”和“*/”之间的内容都将被编译器忽略。其中，“//”表示进行单行注释；“/*”和“*/”表示多行注释。
+　　#1    三、C#语言基础
+　　    （一）数据类型
+　　    应用程序总是要处理数据的，我们必须要让计算机了解需要处理什么样的数据，用什么方式进行处理，按什么格式保存数据等。这就需要了解程序设计语言的数据类型。
+　　    1.值类型
+　　    在学习各种类型以前，我们先提一下变量的概念，变量即是存储信息的基本单元，另一方面，我们也可以把变量理解为计算机内存中的一个存储空间。C#的值类型可以分为：简单类型、结构类型、枚举类型。
+　　    简单类型是直接由一系列元素构成的数据类型。C#中为我们提供了一组已定义的简单类型。这些简单类型可分为：整数类型、布尔类型、字符类型和实数类型。
+　　    （1）整数类型
+　　    整数类型的变量的值为整数。C#中有九种整数类型：短字节型（sbyte）、字节型（byte）、短整型（short）、无符号短整型（ushort）、整型（int）、无符号整型（uint）、长整型（long）、无符号长整型（ulong）。这些整型类型在数学上的表示以及在计算机中的取值范围如下表所示。
+　　    （^60090201g^）
+　　    （2）布尔类型
+　　    布尔类型是用来表示一个事件或状态的“真”和“假”。我们知道，不管任何数据，在计算机的内部都是采用二进制方式处理和存储。布尔类型表示的逻辑变量只有两种取值：“真”或“假”，在C#中分别采用“true”和“false”表示。
+　　    （3）实数类型
+　　    浮点类型：数学中的实数不仅包括整数，而且包括小数。小数在C#中采用单精度（float）和双精度（double）。它们的差别在于取值范围和精度不同。
+　　    单精度：取值范围在（^60090201a）^到（^60090201b^）之间，精度为7位数。
+　　    双精度：取值范围在（^60090201c^）到（^60090201d^）之间，精度为15到16位数。
+　　    十进制类型（decimal）：是C#专门为我们定义的一种数据类型，主要用于方便我们在金融和货币方面的计算。C#通过提供这种专门的数据类型，使我们能够更快捷地设计这方面的应用程序。其取值范围从大约（^60090201e^）到（^60090201f^）的28到29位有效数字。
+　　    当定义一个十进制变量并赋值给它时，使用m下标以表明它是一个十进制类型。如果省略了m下标，在变量被赋值之前，它将被编译器当作双精度数据类型来处理。下面是一个合法的赋值：
+　　    decimal d_value=1.0m;
+　　    （4）字符类型
+　　    除了数字以外，计算机还需要处理的信息主要就是字符了。字符包括数字字符、英文字符、表达符号等，C#提供的字符类型采用了国际公认的Unicode字符集标准。一个Unicode的标准字符长度为16位，用它可以表示大多数的字符类型了。可以按下面的方法给一个字符变量赋值，如：
+　　    char c=′A′;
+　　    另外，我们还可以直接通过十六进制转义符（前缀＼x）或Unicode表示法给字符型变量赋值）（前缀＼u），用来在程序中指代特殊的控制字符。
+　　    （5）结构类型
+　　    在具体的程序设计中我们经常要把一组相关的信息存放在一起。把一系列相关的变量组织成为一个单一实体的过程，称为生成结构的过程。这个单一实体的类型我们就叫做结构类型，每一个变量称为结构的成员。结构类型的变量采用struct来进行声明。下面的程序代码说明定义一个通讯录记录结构（包括姓名、电话和地址）的定义。
+　　    Struct PhoneBook{
+　　        public string name;
+　　        public string phone;
+　　        public string address;
+　　    }
+　　    PhoneBook p1;
+　　    p1就是一个通讯录（PhoneBook）结构类型的变量。上面声明中的“public”表示对结构类型的成员的访问权限。对结构成员的访问通过结构变量名加上访问符“.”号，后跟成员的名称：
+　　    p1.name=″tom″;
+　　    结构类型包含的成员类型没有限制，可以相同也可不同。
+　　    （6）枚举类型
+　　    枚举（enum）实际上是为一组在逻辑上密不可分的整数值提供便于记忆的符号。下面的程序代码声明了一个代表星期的枚举类型的变量。
+　　    Enum WeekDay{
+　　        Sunday，Monday，Tuesday，Wednesday，Friday，Saturday
+　　    };
+　　    WeekDay day;
+　　    注意：枚举类型的变量在某一时刻只能取枚举中某一个元素的值。如，day这个表示“星期”的枚举的变量，它的值要么是Sunday，要么是Monday或其他的星期元素，但它在一个时刻只能代表具体的某一天，不能既是星期二，又是星期三。
+　　    Day=Tuseday;
+　　    按照系统默认，枚举中的每个元素都是整型（int），且第一个元素删去的值为0，它后面的每一个连续的元素的值按加1递增。在枚举中，也可以给元素直接赋值。下面的程序代码把星期一的值设为1，其后的元素的值分别为2，3……
+　　    enum WeekDay{
+　　        Sunday=1，Monday，Tuesday，Wednesday，Friday，Saturday
+　　    };
+　　    为枚举类型的元素所赋值的值的类型限于long、int、short和byte等整数类型。
+　　    2.引用类型
+　　    在这里，引用的含义是该类型的变量不直接存储所包含的值，而是指向它所要存储的值。即引用类型存储实际数据的引用值的地址。C#中的引用类型有四种：类、代表、数组和接口。
+　　    （1）类
+　　    类是面向对象编程的基本单位，是一种包含数据成员、函数成员和嵌套类型的数据结构。类的数据成员有常量、域和事件。函数成员包括方法、属性、索引指示器、运算符等。类和结构同样都包含了自己的成员，但它们之间最主要的区别在于：类是引用类型，而结构是值类型。
+　　    类支持继承机制，通过继承，派生类可以扩展基类的数据成员和函数成员，进而达到代码重用和设计重用的目的。下面介绍两个经常用到的类：
+　　    object类：它是所有其他类型的基类，C#中的所有类型都直接或是间接地从object类中继承。因此，对一个object的变量可以赋予任何类型的值。
+　　    Int x=25;
+　　    object obj1;
+　　    obj1=x;
+　　    object obj2=′A′;
+　　    对object类型的变量声明采用object关键字，这个关键字是在.NET平台中为我们提供的预定义的名字空间System中定义的，是类System.Object的别名。
+　　    String类：专门用于对字符串的操作。同样，这个类也是在.NET平台中为我们提供的预定义的名字空间System中定义的，是类System.String的别名。
+　　    字符串在实际中应用非常的广泛，在类的定义中封装了许多内部的操作，我们只要简单地加以利用就可以了。可以用加号“+”合并两个字符串，采用下标从字符串中获取字符等。
+　　    String String1=″Welcome″;
+　　    string String2=″Welcome″+″everyone″;
+　　    char c=String1［0］;
+　　    bool b=（String1==String2）;
+　　    （2）代表
+　　    在C#中取消了C和C++中的指针的这个概念。而代表实际上相当于是C#中的函数指针原型，与指针不同的是，代表在C#中是类型安全的。
+　　    在声明代表时，只需要指定代表指向的原型的类型，它不能有返回值，也不能带有输出类型的参数。如我们可以声明一个指向int类型函数原型的代表：
+　　    delegate int MyDelegate（）;
+　　    如果我们声明了自己的一个代表，那么它就是对系统定义的类System.deldgate的一个扩展。
+　　    （3）数组
+　　    在进行批量处理数据的时候，我们要用到数组。数组是一组类型相同的有序数据。数组按照数组名、数据元素的类型和维数来进行描述。C#中提供Ststem.Array类是所有数组类型的基类。
+　　    数组的声明格式为：
+　　    non-array-type［dim-separators］ array-instance name;
+　　    比如我们声明一个整数数组：
+　　    int［］arr;
+　　    在定义数组时，可以预先指定数组元素的个数，这时在“［］”中定义数组的元素个数，它的个数可以通过数组名加圆点加“Length”获得。而在使用数组时，可以在“［］”中加入下标来取得对应的数组元素。C#中的数组元素的下标是从0开始的，以后递增。
+　　    在C#中数组可以是一维的也可以是多维的，同样也支持矩阵和参差不齐的数组。其中一维数组最为普遍，用得也最多。
+　　    Class Tese
+　　    {
+　　        static void Main（）{		//可动态生成数组的长度
+　　            string［］ a1;		//一维数组string
+　　            string［］ a2;		//二维数组string
+　　            string［］ a3;		//三维数组string
+　　        }
+　　    }
+　　    （4）接口
+　　    接口定义了一个协议（conrtact）。一个类或结构要实现接口就必须坚持这种协议。接口可以包括方法、属性、索引和事件作为成员。下面的程序代码说明了一个接口，它包含一个索引、一个事件E、一个方法F和一个属性P。
+　　    Interface Iexampie
+　　    {
+　　    string this［int index］{get; ste;}＼
+　　        event EventHandler E;
+　　        void F（int value）;
+　　        string P{get; set;}
+　　    }
+　　    （二）变量与常量
+　　    相信你应该对变量和常量的概念再熟悉不过了，有关变量和常量的知识都是任何一门编程语言的基础知识，而每一门编程语言都有自己相对应的变量和常量的命名规则和使用方式。
+　　    1.变量
+　　    （1）变量的概念
+　　    程序要对数据进行读、写、运算等操作，当需要保存特定的值或计算结果时，就需要用到变量（Variable）。在用户看来，变量是用来描述一条信息的名称，在变量中可以存储各种类型的信息，如姓名、价格、文件的长度等。在计算机中变量代表存储地址，变量的类型决定了存储在变量中的类型，C#是一种安全类型语言，它的编译器存储在变量中的数值具有适当的数据类型。同时，变量的值可以通过赋值被改变。
+　　    使用变量的一条重要的原则是：变量必须先定义后使用。
+　　    （2）变量的类型
+　　    在C#中，我们把变量分为七种：静态变量、非静态变量、局部变量、数组元素、值参数、引用参数和输出参数等。
+　　    静态变量：带有“static”修饰符声明的变量称为静态变量。一旦静态变量所属的类被装载，直到包含该类的程序运行结束时它将一直存在。静态变量就是该变量类型的默认值。静态变量最好是在定义时便赋值。如static a =10;
+　　    非静态变量：不带有“static”修饰符声明的变量称其为实例变量。如int a;类中的非静态变量，一旦一个类的新的实例被创建，直到该实例不再被应用从而所在空间被释放为止，该非静态变量将一直存在。同样鉴于定义赋值检查，一个类的非静态变量也应该是在初始化的时候赋值。
+　　    数组元素：数组元素也是变量的一种，该变量随该数组实例的存在而存在。每一个数组元素的初始值是该数组元素类型的默认值。同样地，鉴于定义赋值检查，数组元素最好是在初始化的时候被赋值。
+　　    局部变量：局部变量是指在一个独立的程序块中，一个for语句、switch语句或者using语句中声明的变量，它只在该范围内有效。当程序运行到这个范围内时，该变量即开始生效，程序离开时变量失效。与其他几种变量类型不同的是，局部变量不会自动被初始化，所以也就是没有默认值。在进行赋值检查时，局部变量被认为没有被赋值。
+　　    在局部变量的有效范围内，在变量的定义以前就使用是不合法的。如下面的代码：
+　　    for（int I=0;I<10;I++）{
+　　        int num=a;    //这是非法的，因为局部变量a还没有被定义
+　　        int a;
+　　        int b=a;
+　　    }
+　　    有关值参数、引用参数和输出参数在这里我们不作讨论，有兴趣的读者可以参看相关的书藉。
+　　    2.常量
+　　    所谓常量就是其值固定不变的量。从数据类型来讲，常量的类型可以是任何一种值类型或者是引用类型。一个常量的声明，就是声明程序中要用到的常量的名称和它的值，与变量一样，我们可以同时声明一个或者多个给定类型的常量。常量声明的格式如下：
+　　    attributes constant-modifiers const type constant-declarators;
+　　    其中：常量修饰符constant-modifiers可以是：new、public、protected、internal、private。
+　　    常量的类型type必须是下面中的一种：
+　　    sbyle、byte、short、ushort、int、uint、ulong、char、float、double、decimal、bool、string或是引用类型（reference-type）。
+　　    常量表达式constant-declarators表示常量的名字。
+　　    如：public const double X=1.0，Y=2.0，Z=3.0;
+　　    （三）表达式
+　　    C#语言中的表达式类似于数学运算中表达式，它是操作符、操作对象和标点符号等连接而成的式子。操作符是用来定义类实例中表达式操作符的。表达式是指定计算的操作符、操作数序列。
+　　    1.操作符的分类
+　　    表达式由操作数和操作符组成。表达式的操作符指出了对操作数的操作。比如操作符有+、—、/；操作数可以是文字、域、当前变量或表达式。
+　　    依照操作符作用的操作数的个数来分，C#中有一元操作符：作用于一个操作数，包括前缀操作符和后缀操作符；二元操作符：作用于两个操作数，使用时在操作数中插入操作符；三元操作符：只有一个操作符“?:”。作用于三个操作数，使用时在操作数中间插入操作符。
+　　    下面分别给出使用操作符的例子：
+　　    int x=5，y=10，z;
+　　    x++;				//后缀一元操作符
+　　    --x；				//前缀一元操作符
+　　    z=x+y;				//二元操作符
+　　    y=（X>10?0:1）;			//三元操作符
+　　    2.操作符的优先级
+　　    当一个表达式包含多样操作符时，操作符的优先级控制着单个操作符求值的顺序。例如，表达式x+y*z按照x+（y*z）求值，因为“*”操作符比“+”操作符有更高的优先级。下表给出了所以操作符从高到底的优先级顺序。
+　　    （^60090201h^）
+　　    当一个操作数出现在两个有相同优先级的操作符之间时，操作符按照出现的顺序由左至右执行。除了赋值的操作符，所有的二进制操作符都是按照从左向右的顺序执行。如x+y+z按（x+y）+z进行。
+　　    赋值操作符和条件操作符（?:）按照从右向左的顺序执行。如x=y=z按照x=（y=z）进行。
+　　    建议：在写表达式时，如果无法确定操作符的有效顺序，则尽量采用括号来保证运算的顺序，这样也使得程序一目了然，而且自己在编程时能够思路清晰。
+　　    （四）流程控制
+　　    在前面众多的程序代码中，我们的程序都还只能按照编写的顺序执行，中途不能发生任何的变化。为了适应需要，我们经常要转移或者说是要改变程序执行的顺序，达到这些目的的语句就是流程控制语句。
+　　    1.条件语句
+　　    当程序中需要进行两个或两个以上的选择时，可以根据条件判断来选择将要执行的一组语句。C#提供的选择语句有if语句和switch语句。
+　　    （1）if语句
+　　    if语句是最常用的选择语句，它根据布尔表达式的值来判断是否执行后面的内嵌语句。其格式为：
+　　    if（boolean-expression）embedded-statement或
+　　    if（boolean-expression）embedded-statement
+　　    else embedded-statement
+　　    当布表达式的值为真时，则执行if后面的内嵌语句embedded-statement。为假时则程序继续执行。如果有else语句时，则执行else后面的内嵌语句，否则继续执行下一条语句。
+　　        If （x-int（x）>0.5
+　　        {
+　　            I=int（x）+1；
+　　        }
+　　        else
+　　        {
+　　            I=int（x）
+　　        }
+　　    如果if或者else之后的嵌套语句只包含一条执行语句，则嵌套部分的大括号可以省略。如果包含了两条以上的执行语句，对嵌套部分一定要加上大括号。
+　　    如果程序的逻辑判断关系比较复杂，通常会采用条件判断嵌套语句。If语句可以嵌套使用，即是在判断之中又有判断。具体的形式如下：
+　　    if（boolean-expression）
+　　    {
+　　        if（boolean-expression）
+　　            {……}；
+　　        else
+　　            {……};
+　　    ……
+　　    }
+　　    else
+　　    {
+　　        if（boolean-expression）
+　　            {……};
+　　        else
+　　            {……}
+　　    ……
+　　    }
+　　    此时应注意，每一条else与离它最近且没有其他else与之对应的if相搭配。
+　　    （2）Switch语句
+　　    if语句每次判断只能实现两条分支，如果要实现多种选择的功能，那么可以采用Switch语句。Switch语句根据一个控制表达式的值选择一个内嵌语句分支来执行。它的一般格式为：
+　　    switch（controlling-expression）
+　　    {
+　　        case constant-expression;
+　　            embedded-statements
+　　        default;
+　　            embedded-statements
+　　    }
+　　    Switch语句的控制类型，即其中控制表达式（controlling-expression）的数据类型可以是sbyle、byte、short、short、uint、long、ulong、char、string或是枚举类型（rnum-type）。每个case标签中的常量表达式（constant-expression）必须属于或能隐式转换成控制类型。如果有两个或两个以上case标签中的常量表达式值相同，编译时将报错。Switch语句中最多只能有一个default标签。
+　　    下面的程序代码说明Swtich语句按所提供参数的数字执行不同的语句。
+　　    Using system;
+　　    class Test
+　　        {
+　　            static void Main （string［］ args） {
+　　                switch （args.Length） {
+　　        case 0;
+　　                Console.WriteLine （"No arguments were provided"）;
+　　                break;
+　　        case 1;
+　　                Console.WriteLine （"One arguments was provided"）;
+　　                break;
+　　        default;
+　　                Console.WriteLine （"{0} arguments were provided"）;
+　　                break;
+　　            }
+　　        }
+　　    }
+　　    2.循环语句
+　　    循环语句可以实现一个程序模块的重复执行，它对于我们简化程序，更好地组织算法有着重要的意义。C#提供了四种循环语句：While语句、do-while语句、for语句、foreach语句。
+　　    （1）While语句
+　　    While语句有条件地将内嵌语句执行0遍或若干遍。其格式为：
+　　    while （boolean-expression） embedded-statement
+　　    其执行的顺序是：
+　　    首先计算表达式boolean-expression的值；当布尔表达式的值为真时，执行语句embedded-statement一遍，程序转至第1步；当布尔表达式的值为假时，while循环结束。
+　　    （2）do-while语句
+　　    do-while语句与while语句不同的是，它将内嵌语句执行一次（至少一次）或若干次。其格式为：
+　　    do embedded-statement while（boolean-expression）
+　　    其执行的顺序是：
+　　    首先执行内嵌语句embedded-statement一遍；当布尔表达式的值为真时则回到第1步，为假时则终止do循环。
+　　    在do-while循环语句中同样允许用break语句和continue语句实现与while语句中相同的功能。
+　　    （3）for语句
+　　    for语句是C#中使用频率最高的循环语句。在事先知道循环次数的情况下，使用for语句是比较方便的。其格式为：
+　　    for（inttializer，condinton;iterator）embedded-statement
+　　    其中inttializer、condinton、iterator三项是可选项。Inttializer为循环控制变量做初始化，循环控制变量可以有一个或多个（用逗号隔开）；condinton为循环控制条件，也可以有一个或多个语句；iterator按规律改变控制变量的值。
+　　    其执行的顺序是：
+　　    首先按照书写顺序将inttializer部分（如果有）执行一遍，为循环控制变量赋初值；然后测试condinton（如果有）中的条件是否满足；若没有condinton项或条件满足，则执行内嵌语句一遍，按iterator改变循环控制变量的值，回到第2步执行；若条件不满足，则for循环终止。
+　　    下面的程序代码说明用一个for语句写出整数1～10。
+　　    Using System;
+　　    class Test
+　　        {
+　　            static void Main（）{
+　　                for （int I=0; I<10; I++）
+　　                    Console.WriteLine（I）;
+　　            }
+　　        }
+　　    （4）foreach语句
+　　    foreach语句是在C#中新引入的。它表示收集一个集合中的各元素，并针对各个元素执行内嵌语句。其格式为：
+　　    foreach（type identifier in expression）embedded-statement
+　　    其中类型（type）和标识符（identifier）用来声明循环变量，表达式（expression）对应集合。每执行一次内嵌语句，循环变量就依次取集合中的一个元素代入其中。在这里，循环变量只是一个只读型局部变量，如果试图改变它的值或将它作为一个ref或out类型的参数传递时，都将引发编译出错。
+　　    Foreach语句中的expression必须是集合类型，如果该集合的元素类型与循环变量类型不一样，则必须有一个显示定义的从集合中的元素类型到循环变量元素类型的显示转换。
+　　    下面的程序代码说明用一个foreach语句来循环显示列表中的元素。
+　　    Using System;
+　　    using System.Collections;
+　　    class Tese
+　　        {
+　　            static void WriteList（Arraylist list）{
+　　                foreach（object o in list）
+　　                    Console.WriteLine（o）;
+　　            }
+　　            static void Main（）{
+　　                ArrayList list=new ArrayList（）;
+　　                for（int I=0; I<10; I++）
+　　                    list.Add（I）;
+　　                WriteList（list）;
+　　            }
+　　        }
+　　    3.转子语句
+　　    （1）break语句和continue语句
+　　    break语句用来退出最近的switch、while、do、for、foreach语句的循环，而continue语句用来开始一个新的while、do、for和foreach语句的循环。
+　　    （2）标签声明和goto声明
+　　    标签声明可以交替声明，goto声明可以把控制传送到标签声明。
+　　    （3）return语句
+　　    return语句返回对语句中的成员控制。无表达式的return语句只能在无返回值的成员中应用。带表达式的return语句只能在返回表达式的函数成员中运用。
+　　    （4）throw语句与try语句
+　　    throw语句用来抛出异常。Try语句提供一个在程序块执行过程中捕获异常的机制。此外，try语句还提供当try语句脱离控制时总是要执行的代码块。
+　　    （五）异常处理
+　　    程序中对异常的处理能使你的程序更加强壮。现在的许多程序设计语言都增加了异常处理的能力，C#也不例外。
+　　    1.异常处理语句
+　　    C#中的异常处理语句有三种形式：try-catch 捕捉异常、try-finally 清除异常、try-catch-finally 处理所有异常。
+　　    下面的一段代码处理溢出异常：
+　　    try{
+　　                    for（;n<=max;n++）
+　　                         sum*=n;
+　　                  }
+　　    catch（OverfolwException oe）
+　　        {
+　　            Console.WriteLine（“溢出“）;
+　　            return;
+　　        }
+　　    2.清除异常
+　　    try-finally 结构将清除异常。看下面的代码：
+　　    try{
+　　                for（;n<=max;n++）
+　　                sum*=n;
+　　            }
+　　    finally
+　　        {
+　　            Console.WriteLine（“溢出“）;
+　　            return;
+　　        }
+　　    上面的代码中finally 子句中的代码在任何情况下总会被执行，即使没有异常发生。
+　　    3.处理所有异常
+　　    try-catch-finally 处理所有的异常。如下面的代码：
+　　    try{
+　　                for（;n<=max;n++）
+　　                sum*=n;
+　　            }
+　　    catch（OverfolwException oe）
+　　        {
+　　            Console.WriteLine（“溢出“）;
+　　            return;
+　　        }
+　　    catch（Exception e）
+　　        {
+　　    //捕捉所有异常
+　　        }
+　　    finally
+　　        {
+　　        }
+　　    4.抛出异常
+　　    程序中我们可以先抛出异常，然后进行捕捉。
+　　    抛出异常的语法如下：
+　　    throw new Exception（）
+　　#1    四、一个简单的客户应用程序
+　　    有了上面的基础，通过下面的实例可以轻松掌握如何创建组件和一个简单的客户应用程序。
+　　    1.构建组件
+　　    首先在文本编器中编写源代码，以下是两个文件add.cs，mult.cs的程序代码。
+　　    //add.cs
+　　    using System;
+　　      public class AddClass
+　　     {
+　　       public static long Add（long I，long j）
+　　       {
+　　          return（I+j）;
+　　       }
+　　     }
+　　
+　　    //mult.cs
+　　    using System;
+　　      public class MultiplyClass
+　　     {
+　　       public static long Multiply（long x，long y）
+　　       {
+　　          return（x*y）;
+　　       }
+　　     }
+　　    以上代码定义了两个类AddClass和MultipyClass，并分别构造了两个方法Add（）和Multiply（）。
+　　    2.编译组件
+　　    csc/target:library/out:MyLibrary.dll Add.cs Mult.cs
+　　    通过csc把Add.cs和Mult.cs两个文件编译成类型库MyLibrary.dll。
+　　    3.客户应用程序调用
+　　    客户应用程序调用组件的方法如下：
+　　    //MyClient.cs
+　　    using System;
+　　    class MyClient
+　　     {
+　　       public static void Main（string[ ] args）
+　　       {
+　　         Console.WriteLine（"Calling methods from MyLibrary.dll:"）;
+　　         if （args.Length !=2）
+　　         {
+　　           Console.WriteLine（"Usage:MyClient <numl> <num2>"）;
+　　           return;
+　　         }
+　　         long num1=long.Parse（args[0]）;
+　　         long num2=long.Parse（args[1]）;
+　　         long sum=AddClass.Add（num1，num2）;
+　　         long product=MultiplyClass.Multiply（num1，num2）;
+　　         Console.WriteLine（"The sum of {0} and {1} is {2}"，num1，num2，sum）;
+　　         Console.WriteLine（"The product of {0} and {1} is {2}"，num1，num2，product）;
+　　       }
+　　     }
+　　    在编译客户应用程序时，引用了上面编译好的新组件库MyLibrary.dll，然后运行MyClient.exe文件得到结果。
+　　    Csc/out:MyClient.exe/reference:MyLibrary.dll MyClient.cs
+　　    4.执行结果
+　　    在命令行输入：
+　　    >MyClient 2 3 （回车）
+　　    5.输出结果
+　　    Calling methods from MyLibrary.dll:
+　　    The sum of 2 and 3 is 5
+　　    The product of 2 and 3 is 6
+　　    以上的组件并没有使用名字空间，如果构建组件的文件中添加了名字空间的语句，如下：
+　　    using System;
+　　    namespace MyMethods
+　　    {
+　　      public class …
+　　      {
+　　        public static long …（long I， long j）
+　　        {
+　　          …
+　　        }
+　　      }
+　　    }
+　　    那么，在客户应用程序中将使用引导名字空间的语句，这样程序才会根据名字空间的方向找到应用的类和方法。例如：
+　　    //MyClient.cs
+　　    using System;
+　　    using MyMethods;
+　　    class MyClient
+　　    {
+　　    …
+　　    }
+　　    以上名字空间的好处在于一个空间定义多个类或是名字空间再包括其他名字空间，这样可以降低编译程序的出错率。
+　　
+　　#1    五、一个GUI例子
+　　    该例子中有一个文本框，两个按钮，单击“点击我”的按钮在文本框中显示“你好，电脑报”。单击“终结者”的按钮结束程序。
+　　    Using System;
+　　    using System.Drawing;
+　　    using System.Collections;
+　　    using System.ComponentModel;
+　　    using System.Windows.Forms;
+　　    using System.Data;
+　　
+　　    namespace WindowsApplication1
+　　    {
+　　    /// <summary>
+　　    /// Summary description for Form1.
+　　    /// </summary>
+　　    public class Form1 : System.Windows.Forms.Form
+　　    {
+　　	private System.Windows.Forms.TextBox textBox1;
+　　    	private System.Windows.Forms.Button button1;
+　　	private System.Windows.Forms.Button button2;
+　　	/// <summary>
+　　	/// Required designer variable.
+　　	/// </summary>
+　　	private System.ComponentModel.Container components = null;
+　　
+　　	public Form1（）
+　　	{
+　　		//
+　　		// Required for Windows Form Designer support
+　　		//
+　　		InitializeComponent（）;	//初始化窗体及子控件
+　　
+　　		//
+　　		// TODO: Add any constructor code after InitializeComponent call
+　　		//
+　　	}
+　　
+　　	/// <summary>
+　　	/// Clean up any resources being used.
+　　	/// </summary>
+　　	protected override void Dispose（ bool disposing ）		//释放对组件的引用，以便垃
+　　	{								//圾回收器回收无用的内存
+　　		if（ disposing ）
+　　		{
+　　			if （components != null） 
+　　			{
+　　				components.Dispose（）;
+　　			}
+　　		}
+　　		base.Dispose（ disposing ）;
+　　	}
+　　
+　　	#region Windows Form Designer generated code
+　　	/// <summary>
+　　	/// Required method for Designer support - do not modify
+　　	/// the contents of this method with the code editor.
+　　	/// </summary>
+　　	private void InitializeComponent（）
+　　	{
+　　		this.textBox1 = new System.Windows.Forms.TextBox（）;
+　　		this.button1 = new System.Windows.Forms.Button（）;
+　　		this.button2 = new System.Windows.Forms.Button（）;
+　　		this.SuspendLayout（）;
+　　		// 
+　　		// textBox1
+　　		// 
+　　		this.textBox1.Location = new System.Drawing.Point（74， 64）;
+　　		this.textBox1.Name = "textBox1";
+　　		this.textBox1.Size = new System.Drawing.Size（144， 21）;
+　　		this.textBox1.TabIndex = 0;
+　　		this.textBox1.Text = "C#酷吗？";
+　　		// 
+　　		// button1
+　　		// 
+　　		this.button1.Location = new System.Drawing.Point（58， 160）;
+　　		this.button1.Name = "button1";
+　　		this.button1.Size = new System.Drawing.Size（72， 24）;
+　　		this.button1.TabIndex = 1;
+　　		this.button1.Text = "点击我";
+　　		this.button1.Click += new System.EventHandler（this.button1OnClick）;
+　　		// 
+　　		// button2
+　　		// 
+　　		this.button2.Location = new System.Drawing.Point（162， 160）;
+　　		this.button2.Name = "button2";
+　　		this.button2.Size = new System.Drawing.Size（72， 24）;
+　　		this.button2.TabIndex = 2;
+　　		this.button2.Text = "终结者";
+　　		this.button2.Click += new System.EventHandler（this.button2OnClick）;
+　　		// 
+　　		// Form1
+　　		// 
+　　		this.AutoScaleBaseSize = new System.Drawing.Size（6， 14）;
+　　		this.ClientSize = new System.Drawing.Size（292， 273）;
+　　		this.Controls.AddRange（new System.Windows.Forms.Control[] {
+　　																  this.button2，
+　　																	  this.button1，
+　　																	  this.textBox1}）;
+　　		this.Name = "Form1";
+　　		this.Text = "我爱C#";
+　　		this.ResumeLayout（false）;
+　　
+　　	}
+　　	#endregion
+　　
+　　	/// <summary>
+　　	/// The main entry point for the application.
+　　	/// </summary>
+　　	[STAThread]
+　　	static void Main（） 
+　　	{
+　　		Application.Run（new Form1（））;			//启动程序
+　　	}
+　　//响应单击按钮“点击我”的button1OnClick事件
+　　private void button1OnClick（object sender， System.EventArgs e）  
+　　	{
+　　		textBox1.Text="你好！电脑报";		
+　　		//
+　　	}
+　　
+　　//响应单击按钮“终结者”的button2OnClick事件
+　　	private void button2OnClick（object sender， System.EventArgs e）
+　　	{
+　　		Application.Exit（）;		//退出应用程序		
+　　	}
+　　}
+　　} 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

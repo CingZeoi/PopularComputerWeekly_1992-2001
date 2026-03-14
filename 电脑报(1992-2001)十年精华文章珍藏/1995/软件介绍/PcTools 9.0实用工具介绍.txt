@@ -1,0 +1,582 @@
+PcTools 9.0实用工具介绍
+
+谢 翔
+1995-01-06
+
+        1993年，功能更强大的PcTools 9.0版问世了，该版本较以前版本提供了全新的系统恢复工具Recuperator，功能增强的更新版本杀毒软件CPAV2.0、系统测试软件SI PRO、数据监控软件DataMon、多任务切换程序CPTask以及新增的软磁盘拷贝工具Fastcopy，同时它的磁盘优化工具Optimizer、磁盘修复工具DiskFix及磁盘备份工具CP Backup都支持DoubleSpace、Stacker压缩驱动器。
+        二、实用工具介绍
+        PcTools 9.0的功能繁多，其中有一些非常有用的实用工具(表一)。这些工具对于用户维护、优化、深入了解微机系统起着很好的帮助作用。为了使用户尽快掌握、熟悉这些工具，下面将详细介绍它们的功能、使用方法及技巧。
+        	   表一
+        1 CPTask	多任务切换程序
+        2 DiskEdit	磁盘编辑工具
+        3 DiskFix	磁盘修复工具
+        4 DM		目录管理工具
+        5 Edisk		创建应急磁盘工具
+        6 Fastcopy	快速拷贝程序
+        7 Optimizer	磁盘优化工具
+        8 PC Config	PcTools设置程序
+        9 SI		系统测试工具
+        10 Wipe		清除磁盘文件程序
+        1.CPTask(多任务切换程序)
+        Windows优越于DOS，不仅表现在内存管理和窗口界面技术上，另外也体现在它的多任务切换功能上。PcTools则为DOS用户提供了这种常驻内存的多任务切换的工具CPTask。CPTask允许在同一时间内运行不同的应用程序，并且只需通过热键将后台程序切换到前台运行。CPTask运行后自动装入到高端内存。
+        CPTask的命令行格式：
+        CPTask ［Parameters］   其中［Parameters］含义如下：
+        /hotkey=<><>--定义热键。在第一个括号中必须是ALT或CTRL，第二个括号中可以是ESC或F1～F12中的一个，例如cptask/hotkey=<ALT><F1>。
+        /U--将CPTask清除出内存。
+        /TMP=d--指定放置任务切换所产生的临时文件的驱动器。
+        /XMS=nnnn--分配nnnnKB的扩充内存给切换的文件。
+        /EMS=nnnn--分配nnnnKB的扩展内存给切换的文件。
+        /timeout=n--设置延时的时间。
+        /S--显示CPTask的配置文件CPTASK.INI。
+        CPTask第一次装入内存时，屏幕提示其占用内存大小及激活热键(缺省键为ALT+ESC)，然后返回DOS状态。用户可用热键激活CPTask的主菜单，当前运行的任务是DOS，CPTask菜单中有如下选项：
+        New Task：启动一个新任务。
+        Delete：将任务列表中光亮条所标示的任务清除出内存。(慎用!对于不再需要运行的任务，建议使用该任务的正常退出功能。)
+        Unload：从内存中清除CPTask。
+        Cancel：取消当前操作。
+        Idel：显示当前任务名。
+        切换任务时，用户只须在CPTask主菜单的任务列表中移动光亮条至要切换的程序名，然后敲回车键即可。
+        用户使用CPTask时不能运行一些对磁盘进行低级操作的程序，如DiskFix，DiskEditor等。因为CPTask实质是一种基于DOS的中断调用，在运行上述程序时进行任务切换会导致硬盘不可恢复的损伤。另外CPTask会与一些汉字系统相互冲突。
+        2.DiskEdit(磁盘编辑，简称DE)
+        DE是一种功能很强大并且危险的低级磁盘编辑工具。利用DE，用户可以查阅、编辑磁盘中任何一个扇区的内容，包括分区表、文件分配表(FAT)、目录区、引导区记录等重要的信息，也因此DE又是危险的。使用DE的用户最好具备一些低级文件格式操作的知识，否则对上述系统区域内容不要随意的修改，以免造成不可恢复的改变后导致整个系统的瘫痪。
+        DE的使用：
+        (1)命令行格式：
+        DE［d:］［path］［\filespec］ /P /W，其中
+        d:--要进行编辑的驱动器(缺省是当前的驱动器)。
+        path--目录或文件路径。
+        filespec--待查阅或编辑的文件或目录名。
+        /P--避开DOS，仅允许物理格式的存取。
+        /W--允许写模式(包含读模式)。
+        (2)在DOS提法符下键入DE并回车，或在DESKTOP界面中拉下Disk菜单，然后选择DiskEdit项，屏幕显示DE的菜单界面如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃					DiskEdit					    ┃
+        ┃     ┌──────────────────────────────────────┐     ┃
+        ┃     │    Seclect 	 Edit	   Find       Options	   Tools       Help(略)      │     ┃
+        ┃     └──────────────────────────────────────┘     ┃
+        ┃C:\											    ┃
+        ┃Sector 401										    ┃
+        ┃NAME		EXT	SIZE	DATE		TIME	CLU# 	ARC R/O SYS HID DIR VOL    ┃
+        ┃IO		SYS	40566	2/13/94	06:21a	9  	ARC R/O SYS HID	    ┃
+        ┃MSDOS		SYS	38138	9/30/93	06:20a	12  	ARC R/O SYS HID	    ┃
+        ┃DOS			0	12/08/94	05:25p	43  			 DIR	    ┃
+        ┃...(略)										    ┃
+        ┃											    ┃
+        ┃F	   F	    F	     F	     F	      F	      F	      F	        F	 F	    ┃
+        ┃1:Help   2:Inex   3:Exit   4:Hex   5:Text   6:Dir   7:Fat   8:Partn   9:Boot	 10:Menu    ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        用户通过F10功能键激活菜单条，菜单条中各菜单项功能如下：
+        Ⅰ、Select菜单
+        Drive：选择驱动器。
+        Directory：选择目录
+        File：选择文件。
+        CLustor：选择簇号。
+        Sector：选择扇区号(DOS分区所划分的扇区范围内)。
+        Physical Sector：选择物理扇区号。
+        Partition Table：查阅、编辑分区表。
+        Boot Record：查阅、编辑引导区记录。
+        1st copy of FAT：查阅、编辑文件分配表一。
+        2st copy of FAT：查阅、编辑文件分配表二(内容等同于一，是DOS为FAT所做的备份)。
+        Exit：退出DE。
+        Ⅱ、Edit菜单(该菜单在写模式下被屏蔽。)
+        Undo：取消最后一次进行的操作(仅用于Edit菜单中的操作，但对Write Changes项无效)。
+        Mark Block：定义块(通过移动光标键)。
+        Restore Last Block：恢复显示最后一次定义的块。
+        Fill Block..：允许用户将一单个字符插入定义的块中。一般用于插入一个特殊字符，如制表符等图形字符。
+        Copy to Clipboard：将定义的块内容拷贝至剪接板中(最多只能拷贝一个簇的内容)。
+        Paste from Clipboard：取剪接板中的内容至当前光标位置并覆盖原先的内容。
+        Edit Clipboard：查阅、编辑剪接板中的内容。
+        Write Changes：在用户对当前目标内容做了任何改变的情况下，选择该项后，DE将永久性地以改变后的内容覆写原先的内容。(在十分确信你对当前目标内容的改写正确前，请别使用本选项。安全的做法是：选择本项前，使用DE菜单项Tools中的Write Object to将目标内容备份。)
+        Discard Changes：在用户对当前目标内容做了任何改变的情况下，选择该项后，取消对当前目标内容所做的改变。
+        Ⅲ、Find菜单
+        Search：查找十六进制字符串或ASCII字符串。
+        Repeat Search：重复前一次的查找。
+        Go to offset..：根据用户输入的补偿区号查找并定位在该区。
+        Ⅳ、Options菜单
+        Object info：显示当前目标的有关信息。
+        Drive info：显示有关逻辑驱动器和物理驱动器的参数，如分区类型、簇数、扇区数、磁头数、磁道数以及物理驱动器的数值。
+        Map of Object：显示当前目标在磁盘中的映射位置，用于了解文件存放的连续性(即碎片化等级)。
+        Windows(二级子菜单)其功能项如下：
+        ①Split Screen：屏幕上单个窗口和双窗口的切换操作。
+        ②Switch Windows：切换激活双窗口的其中一个。
+        ③Resize Windows：改变当前窗口的大小。
+        ④Compare Windows：以单个字符方式比较两个窗口中的内容是否一致。
+        ⑤Link Windows：在两个窗口间建立有效联系。如当一个窗口显示目录中的一个文件时，另一个窗口将同时显示该文件所在磁盘扇区中的数据内容。
+        Link(二级子菜单)其功能项如下：
+        ①File：在文件和它所在的扇区间建立联系(可通过回车键切换)。
+        ②Parent Directory：返回当前文件所在目录。
+        ③Cluster Chair(FAT)：在文件和FAT表间建立联系(回车键切换)。
+        ④Cluster：在簇区和FAT表间建立联系(回车键切换)。
+        ⑤Partition：在分区表和其所在扇区间建立联系(回车键切换)。
+        View(二级子菜单)其功能项如下：
+        ①Hex：以十六进制方式显示当前目标的数据内容。
+        ②Text：以文本方式显示当前目标的数据内容。
+        ③Directory：显示当前目标是目录信息。
+        ④FAT：显示当前目标是FAT表中的信息。
+        ⑤Partition Table：显示当前目标是分区表中的信息。
+        ⑥Boot Record：显示当前目标是引导区记录中的信息。
+        Configuration：设置DE，其对话框如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃		     Configuration Changes			┃
+        ┃□ Read Only：目标内容只读和允许写的切换选项。		┃
+        ┃■ Sync FATs：当两张FAT表中的任一张表中发生改变时，允许/不允许┃
+        ┃		另一张自动地做相同的变化。			┃
+        ┃■ Auto View：自动/人工选择目标内容的最佳显示方式。		┃
+        ┃■ Hyper Links：显示/不显示与目标建立连接的有关信息的窗口。	┃
+        ┃Reread Tree：FAT表被改变后，重读┃/不重读目录树。		┃
+        ┃■ Quick Exit：按ESC键退出时，提示/不提示退出信息。		┃
+        ┃		┌───┐	┌───┐	┌───┐	┃
+        ┃		│  OK	│	│Save	│	│Cancel│	┃
+        ┃		└───┘	└───┘	└───┘	┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        Ⅴ、Tools菜单
+        Recalc Partition..：在当前分区表的基础上计算丢失的分区数据。例：当你的分区表中存在病毒时，可用此项测定分区长度，首先输入第一个分区的起始扇区号和结束扇区号，再用块标记这个分区，选择本功能并在其对话框中选取分区长度选项。
+        Recalc File Length：计算当前文件的实际长度。
+        Resync FATs..：当两张FAT表中一张遭破坏时，利用本功能将另一张表内容复制过去。
+        Start FAT Chain：确定FAT表的起始链。
+        Add FAT Chain：添加FAT表的链。
+        End FAT Chain：确定FAT表的结束链。
+        Write Object to..：将当前目标内容或用户指定的文件写入到由用户指定的文件或簇区或一定范围的扇区中。
+        Print Object to..：以用户选择的十六进制、文本、目录等格式中的一种打印输出当前目标内容。
+        Hex Calculator..十六进制计算器，便于用户进行十六进制、二进制、十进制数据间的转换计算。
+        ASCII Table..：ASCII码列表。
+        Memory Display..：显示一定范围内的内存信息。
+        注：在只读模式下，DE中涉及对当前目标的任何写操作的功能项都被屏蔽。
+        3.DiskFix(磁盘修复)
+        磁盘修复工具DiskFix能够预防、修复多种磁盘错误。它主要用于以下方面：
+        ①修复非物理性损坏的磁盘，包括磁盘引导扇区、文件分配表、根目录区记录等方面的错误。
+        ②寻找并恢复丢失的簇链。
+        ③扫描介质表面；识别已遭破坏的数据；标识损坏的扇区并将可恢复的数据移至安全位置。
+        ④对DOS读写错误的磁盘进行低级格式化并且不破坏任何数据。
+        ⑤通过设置最有效的扫描方式优化硬盘的运行，尤其是数据的存储。
+        ⑥搜录系统区域包括分区表和引导区的病毒。
+        DiskFix的使用：在DOS提示符下键入DISKFIX并回车或在DESKTOP界面中拉下TOOL菜单选择DISKFIX选项后，屏幕显示界面如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃				DiskFix				    ┃
+        ┃								    ┃
+        ┃				WARNNING			    ┃
+        ┃								    ┃
+        ┃  在使用DiskFix前，你必须关闭除PC-CACHE以外的高速缓存程序。PcTools┃
+        ┃中的工具及鼠标驱动程序是安全的，其它的常驻内存的程序必须从内存中清┃
+        ┃除，其中包括DOS工具FASTOPEN。					    ┃
+        ┃		┌───────────────────┐	    ┃
+        ┃		│	现在是否需要继续DiskFix?	│	    ┃
+        ┃		│	┌───┐	  ┌───┐	│	    ┃
+        ┃		│	│OK	│	  │CANCEL│	│	    ┃
+        ┃		│	└───┘	  └───┘	│	    ┃
+        ┃		└───────────────────┘	    ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        选择Cancel退出DiskFix，选择OK则进入DiskFix的菜单界面，内有下列选项：
+        Repair a Disk；Surface Scan；Revitalize a Disk；Configure Option；Unlo a Diskfix Repair；Advice。
+        Ⅰ、Repair a Disk(修复磁盘)
+        当你的磁盘出问题时，执行该选项后，DiskFix将分析DOS文件系统包括文件分配表、根目录区记录、子目录各方面出现的错误并告之用户。使用步骤如下：
+        ①在Repair a Disk对话框中选择所列出的驱动器。
+        ②DiskFix分析引导区、文件分配表(FAT)的完整性和一致性、介质描述信息、FAT的有效性、目录结构、交叉链接文件和坏簇，上述信息在检查正确后会在每条信息后标识“OK”。
+        ③检查发现错误时弹出一对话框说明错误的性质，由用户选择修复或放弃，选择修复后，系统提示用户保存当前磁盘状态以便出现意外时恢复至原状态，继续执行至最终DiskFix会报告修复成功与否。
+        Ⅱ、Surface Scan(扫描磁盘表面)
+        Surface Scan可以帮助用户解决遇到的磁盘读写错误问题。它通过对磁盘上所有数据的低级读写来扫描介质上的缺陷位置，损坏的扇区将会在文件分配表中被标识，并且不会再用于存储数据。在非物理性损坏情形下，坏扇区中的数据可以被修复，必要时可以将恢复的数据移至好的扇区。此外Surface Scan还能对未被损坏的磁盘进行日常的维护工作。使用步骤如下：
+        ①在Surface Scan对话框中选择驱动器。
+        ②屏幕上出现检测模式对话框，内有四种模式供用户选择执行：
+        Read/Write Only--仅以读写方式检测数据，修复可更正错误，将数据移至安全位置。(系统缺省选择)
+        Minimum Pattern Testing--同上，但使用20种检测方式。
+        Average Pattern Testing--同上，但使用40种检测方式。
+        Maximum Pattern Testing--使用80种检测方式。
+        用户根据需要选择检测模式，但要考虑到检测方式越多，耗用时间越长。
+        ③屏幕出现扫描过程，Surface Scan自动标识坏的扇区，并将数据移至安全位置。
+        ④结束后用户可选择打印或存储结果报告。
+        Ⅲ、Revitalize a Disk
+        Revitalize a Disk具有不损伤数据的低级格式化磁盘的功能。它用于修正磁盘上反复出现的读写错误。另外，Revitalize a Disk在格式化磁盘前或无法格式化时要对磁盘优化检测扫描(等同于Surface Scan功能)。需要注意的是只有RLL和MFM格式的硬盘可以使用该功能进行低级格式化，而其它一些格式的硬盘如IDE格式则无法进行。使用步骤如下：
+        ①选择驱动器，屏幕上出现一系列检查内容。
+        ②系统显示当前磁盘是否可以低级格式化。
+        ③不允许低级格式化时，Revitalize a Disk将使用Read/Write Only模式对磁盘进行优化检测扫描。
+        ④允许时，屏幕显示两种选项：Use the Fastest Tested Interleave(最快扫描方法)和Use the Selected Interleave(选择扫描方法)，由用户选择在低级格式化前优化检测扫描磁盘，其中后一选项提供的四种模式和Surface Scan中的相同。然后Revitalize a Disk将对磁盘进行直观的低级格式化。
+        Ⅳ、Undo a DiskFix Repair(取消磁盘修复操作)
+        使用本功能前，用户必须在使用Repair a Disk时出现的Undo a DiskFix Repair对话框中选择存储磁盘信息。Undo a DiskFix Repair用于在修复磁盘时发生意外情况后恢复磁盘至原先状态。使用步骤如下：
+        ①选择储存着磁盘修复前信息的驱动器。(存在软盘上的，要先插入该盘再进行选择。)
+        ②选择OK。
+        Ⅴ、Configure Option(设置DiskFix)
+        本功能便于用户选择以何种方式使用DiskFix。使用步骤如下：
+        ①在Configure Option对话框中有下列选项由用户选择。
+        Test Partition Information：在DiskFix主菜单出现前检测硬盘的分区和引导区内容。
+        Check Boot Sector For Viruses：在DiskFix主菜单出现前检测引导区病毒。与前一选项共同使用。
+        Use BIOS Surface Scan：使用BIOS级的磁盘扫描方式。
+        Use Custom Error Message：发现磁盘错误时定制用户信息。
+        Enable Manu Fix Option：允许用户使用DiskEdit人工修复磁盘错误或由DiskFix自动修复。
+        ②用户进行完上述选择后选择OK(确认)或CANCEL(取消)。
+        Ⅵ、Advice(报告)
+        Advice提供错误信息列表来告知用户在使用微机时通常会遇到的关于磁盘和文件错误的问题，其中包括DOS和CHKDSK所产生的这方面信息。用户通过使用PCTOOLS中的工具可以得到这些问题产生的原因及如何修正的解答。建议用户应尽可能的使用DiskFix替代CHKDSK去分析和修复磁盘上的问题，因为使用CHKDSK可能会对数据产生不可恢复的破坏作用。
+        4.DM(全称Directory Maintenance，目录管理程序)
+        刚使用PcTools8.0或9.0的用户可能会奇怪：在DeskTop的Disk菜单中已有一些关于目录操作的选项，为什么还另外添置独立使用的DM呢?其实Disk菜单中的目录操作功能主要是便于用户使用的，在管理复杂的目录结构时DM更为适用。除了可以对目录进行建立、删除、更名、转移、属性修改等操作外，DM还具有其它的特点和更多的功能选项，使用DM可以很容易的管理维护逻辑盘和网络盘上的目录，例如：查看一个目录包含的子目录和文件所占有的总磁盘空间大小；核实用户在网络驱动器上的权利(DM与Nevell NetWare 2.10及以上版本完全兼容)。
+        DM的使用：
+        在DOS提示符下键入DM并回车，或在Desktop中选择Disk菜单项，拉下名为Directory Maitenance的二级子菜单，选择其中的DM Program项。系统进入DM的主菜单界面(如下)：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃		Directory Maintename			┃
+        ┃┌───────────────────┐		┃
+        ┃│Volume   Directory   Help(略)	  │		┃
+        ┃└───────────────────┘		┃
+        ┃Volume name:MS-DOS_6 209,211,392 bytes 14,258,176 free┃
+        ┃┌───┬──────────────┐		┃
+        ┃│ 5886K├┐PCTOOLS			│		┃
+        ┃│  606K│├DATA			│		┃
+        ┃│ 4153K│├SYSTEM			│		┃
+        ┃│    8K│└OLDPCT			│		┃
+        ┃│  184K├─OBJ			│		┃
+        ┃│ 1110K└─MB88			│		┃
+        ┃└──────────────────┘		┃
+        ┃C:\PCTOOLS						┃
+        ┃Speed Search:						┃
+        ┃功能键(略)						┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        用户通过F10功能键激活菜单条，菜单条中各菜单项功能如下：
+        Ⅰ、Volume菜单
+        Rename Volume：修改卷标名。
+        Reread Tree：重读当前目录树。
+        Change Drive：选择驱动器。
+        Print Tree：打印目录树。
+        Tree Data Display：设置目录的显示信息。单机上，该功能以图形条的方式显示目录树中各目录所占硬盘空间的大小，它支持Stacker或SuperStor压缩驱动器，网络上，它用于显示目录的创建者、创建时间及用户在当前目录的权利。
+        Exit：退出DM。
+        Ⅱ、Directory菜单
+        Make Directory：创建一新目录。
+        Rename Directory：更换目录名。
+        Delete Directory：删除目录(包括其中的子目录、文件)。
+        Copy Tree：拷贝当前目录树。
+        Prune&Gruft：剪裁、嫁接子目录，用于将当前子目录及其内容移至其它子目录中。
+        Modify Attributes：修改当前目录的属性(内有隐含、只读、系统、文件档四种属性)。
+        Branch Size：显示目录(包括其中的子目录和文件)所占磁盘空间。
+        Show File：显示目录总尺寸并在屏幕右方弹出一窗口，内有当前目录所含文件及其尺寸列表。
+        Network Right：查看用户在网络驱动器中对目录、文件操作的权利。
+        另外，在菜单界面的下端有Speed Search输入框，它用于快速选择目录，用户只需输入目录名的前两个字符即可，可果有其它目录名的前两个字符与之相同，用户可通过光标键切换。
+        注意：在使用DM剪裁、移动目录时，需考虑到有些程序在安装时就固定在硬盘的某个物理位置以达到加密目的，对这样的程序所在目录的任何改变位置的操作都有可能造成该程序无法运行。
+        5.Edisk(建立应急磁盘，全称Emergency Disk。)
+        Edisk用于建立一张应急磁盘，其中包含用户微机系统的重要信息，如系统文件、引导区记录、文件分配表CMOS信息，此外还有CPAV2.0、DiskFix、DiskEdit、Undelete、Unformat等工具。当用户的系统遇到严重问题后，可以利用应急盘启动机器，恢复硬盘数据并重建系统。
+        Edisk的使用：
+        (1)命令行格式：Edisk ［Parameters］，其中［Parameters］含义如下：
+        /DEST=<dir>--指定的启动路径(缺省A:\)。
+        /NET=<dir>--列出在autoexec.bat中未说明路径的网络文件。
+        /NONET--不搜寻网络文件和信息。
+        /BATCH--自动创建应急磁盘(与/DEST=<dir>配合使用)。
+        /QUIET--不显示/BATCH的状态条信息。
+        /VERBOSE--显示格式化和镜像程序产生的全部错误信息。
+        /BOOTDEV=X--指明根目录下config.sys和autoexec.bat的位置。
+        /NOVIRES--不执行对内存的病毒查找。
+        (2)在DOS提示符下键入Edisk并回车，或在Desktop中拉下Tools菜单选择Build Emergency Disk项。系统自动查找病毒，再检查用户系统内容以决定应急磁盘的内容结构。检查结束后，系统进入Edisk的菜单界面，内有如下选项：
+        Create Edisk：建立应急磁盘，用户可通过执行Configure Edisk选项来选定其中包含的文件和工具，也可以由系统根据应急磁盘的大小自动确定。
+        Update Edisk：建立应急磁盘后，硬盘内容发生较大变化时用于更新应急盘。
+        Configure Edisk：提供建立应急磁盘必须或重要的文件和工具列表，由用户选择确定其中一些重要的文件和工具装入到应急磁盘中。该选项的对话框中还有两个子选项：Media用于选择应急磁盘格式化的尺寸，Format Disk First用于建立应急磁盘前先格式化磁盘。
+        6.Fastcopy(快速拷贝)
+        Fastcopy是PcTools9.0中新增的一个全新拷贝工具。作为DOS下的拷贝工具，Fastcopy具有速度快、功能强的特点。在一对多的拷贝时，它通过在硬盘中建立源盘数据的映象文件做法以达到加快拷贝速度、避免频繁读取源盘的效果。Fastcopy适用于下列方面：
+        (1)、一对多的快速磁盘拷贝；
+        (2)、不同格式的磁盘拷贝；
+        (3)、备份目标盘原先的磁盘信息(包括卷标号)至磁盘中最后一个文件的末尾。
+        Fastcopy功能与DUP、HD-COPY相近。
+        Fastcopy的使用：
+        (1)命令行格式：
+        Fastcopy /copies=xxx ［other options］--一对多的拷贝。其中xxx是目标盘的数量。
+        Fastcopy d: masterfile ［other options］--在硬盘中建立源盘的映象文件。其中d:为源盘驱动器，masterfile为映象文件名。
+        Fastcopy masterfile d: ［other opitons］--利用映象文件对目标盘进行拷贝，其中d:为目标盘驱动器。
+        ［options］含义如下：
+        /F--预格式化目标盘(Fastcopy自动检测磁盘尺寸格式)。
+        /VF--校验目标盘的格式化结果。
+        /VC--校验拷贝结果。
+        (2)Fastcopy是一单独的PcTools工具，可直接在DOS提示符下键入Fastcopy并回车，系统进入其功能选项界面，界面中有如下选项：
+        Ⅰ、Duplicate from floopy：一对多拷贝。
+        在本项对话框中含有下列选项：
+        □Format：在每次拷贝前预格式化目标盘。
+        □Verity Format：校验格式化结果，用以确定经格式化的目标盘是否可靠。
+        □Verity Copy：校验拷贝结果，用以确认拷贝的目标盘中的数据是否正确、安全。
+        □Number of Copies：需要拷贝的目标盘的数量(缺省是1)。
+        另外，在拷贝过程中，当系统提示插入目标盘时，用户可通过热键F4选择不同尺寸格式的软盘进行拷贝。
+        Ⅱ、Create Master File：创建源盘的映象文件。
+        在本项对话框中含有下列选项：
+        □Source：指定源盘。
+        □Target：指定创建映象文件的路径及其名称。(Fastcopy根据源盘的尺寸大小自动为其添加扩展名，如：.360，.120，.720，.144。)
+        □Browse：列出可得到的驱动器及目录，你可以选择其中的某个目录做为创建映象文件的路径。(确定路径后，必须指定映象文件名。)
+        Ⅲ、Duplicate from Master File：利用映象文件对目标盘进行拷贝。
+        在本项对话框中含有下列选项：
+        □Soure：指明已创建的映象文件的路径及其名称。
+        □Target：指定目标驱动器。若目标盘尺寸与源盘不一致，你首先要使用功能IV：Convert Master File。
+        □Browse：列出可得到的驱动器及目录、文件名，用以选择映象文件所在的路径。(确定路径后，须指明映象文件名。)
+        □Format：在每次拷贝前预格式化目标盘。
+        □Verity Format：校验格式化结果。
+        □Verity Copy：校验拷贝结果。
+        □Number of Copies：需要拷贝的目标盘的数量(缺省是1)。
+        Ⅳ、Convert Master File：转换不同尺寸格式的映象文件。
+        在本项对话框中含有下列选项：
+        □Convert：选择目标盘的尺寸格式。
+        □Source：指定需进行尺寸格式转换的映象文件的路径及其名称。
+        □Target：指定新的尺寸格式的映象文件路径及其名称。
+        □Browse for Source File：列出可得到的驱动器及目录、文件名，用以选择源映象文件所在的路径。(确定路径后，须指明映象文件名。)
+        □Browse for Target File：列出可得到的驱动器及其中目录，用以选择其中的某个目录做为创建新的尺寸格式映象文件的路径。(确定路径后，必须指定映象文件名。)
+        Ⅴ、Set Up Disk Drive：设置驱动器尺寸格式。当用户安装了Fastcopy未知尺寸格式的驱动器时可使用该功能。
+        7.Optimizer(磁盘优化)
+        磁盘是计算机设备中最频繁使用的设备之一，在磁盘上经常的数据删除、写入等操作会造成磁盘上文件在物理位置上的非连续性(即文件碎片)，这会增加文件存取的时间，造成磁头的频繁移动以至磨损磁盘。
+        Optimizer是用于优化、维护磁盘的工具。它能够有效的消除文件碎片；重新调整文件在磁盘上的位置，使文件的内容能基本上连接在一块。此外，Optimizer还具有将空闲空间移至磁盘的背面；移动指定的目录或文件至磁盘的前列位置；指定磁盘上不可移动的文件或目录；显示磁盘上某块位置中数据所属的文件名等功能。
+        Optimizer的使用：
+        (1)命令行格式：Optimizer［Options］，其中［Options］含义如下：
+        d:--待优化的驱动器名，缺省为当前驱动器。
+        /D--移动子目录及其中的文件至磁盘的前列位置。
+        /S--移动所有数据簇至磁盘的前列位置，所有空闲空间移至磁盘的后面。
+        /V--消除文件碎片并将空闲移至磁盘的后面。
+        /F--执行彻底的优化方法。
+        /C--执行彻底的优化方法并清理所有空闲的扇区。
+        /SKIPUMB--禁止使用高端内存。
+        /SKIPEMS--禁止使用扩展内存。
+        /SKIPALL--禁止使用基本内存以外的内存区。
+        /NM--禁止使用PcTools中的Mirror(镜像功能)程序。建议：在优化磁盘后应该使用Mirror。
+        注：命令格式中有关于指定目录、文件顺序，文件排序的选项这里从略，请参阅下面的菜单项中的与之相同的功能说明。
+        (2)在DOS提示符下键入Optimizer并回车，或在Desktop中拉下Tools菜单选择Disk Optimization项，屏幕出现Optimizer的主菜单界面询问你是直接进行优化还是激活其菜单项进行设置后优化，选择设置后可激活下列菜单项：
+        	┌──────────────────┐
+        	│Optimize  Analysis  Option  Help(略)│
+        	└──────────────────┘
+        Ⅰ、Optimize菜单项：
+        Begin Optimize(热键F4)：执行优化。
+        Choose Drive：选择待优化的驱动器。
+        Exit Optimizer：退出Optimizer菜单界面。
+        Ⅱ、Analysis菜单项：
+        Disk Ststistics(热键F5)：磁盘统计。该功能提供一份关于当前磁盘的已分配簇数、未分配簇数、坏簇总数、所有连续的文件链、已碎片化的文件链、文件碎片化的百分率、断接的空闲磁盘区、交叉链接文件、丢失的文件簇、文件中的坏簇报告给用户。在检测中若发现磁盘的系统区域有问题，Optimizer将给出警告，在该错误修正之前，Optimizer不进行优化。
+        Flie Fragmentation Analysis：文件碎片化分析。该功能用于分析当前目录下所有文件并且显示各个文件所占磁盘的簇数及其碎片化的百分率。
+        Show File in Each Map Blook：显示映射块中数据所属的文件名。用户通过移动光标键到达欲观察的映射块。
+        Ⅲ、Options菜单项：
+        Options Technique..(热键F6)：优化技术选择。在该功能对话框中用户可以选择需要的优化方法优化磁盘。其选项如下：
+        ①Optimize Free Space(优化空闲空间)：使磁盘空闲区连续起来，在拷入大文件时使用。
+        ②Optimize Directories(优化目录)：在增加或删除目录时使用。
+        ③Unfregment Files(快速优化)：不消除文件碎片，在文件碎片化率小于10%时使用。
+        ④Full Optimization(完全优化)：在文件碎片化率大于10%时使用。
+        ⑤Full Optimization /Clear(完全优化/清理空闲区)：功能同上并彻底清除已删除的文件。
+        ⑥File Sort(文件排序)：仅排序文件，不进行优化。
+        Ordering Methods(热键F7)：设定顺序。在该功能对话框中用户可以选择所需要的方式以指定目录、文件在磁盘上的排列顺序。其选项如下：
+        ①Standed：标准模式(目录在前，文件任意)。
+        ②File Placement：目录在前，同时指定的文件也靠前。
+        ③Directories First：所有的目录在前，每个目录中文件成组的靠后。
+        ④Directories with Fies：每个目录和其中文件成组的放在一起。
+        Directory Order(热键F8)：指定目录顺序。该功能便于用户将指定的目录放置在目录树的前端，而用户对其它目录的创建、删除等操作不影响它的位置。该功能还自动地将Autoexec.bat中的PATH所指定的目录移至磁盘的前面。
+        File to Place First：指定文件放置顺序。该功能将指定的文件放置在磁盘的前面便于快速存取。
+        Allow File Movement：允许移动文件。微机中存在一些隐含文件(如IO.SYS等)，它们的位置是固定的，位置上的变化会引起一些问题，该功能允许用户在必要时移动它们。
+        Unmovable Files：指定不允许移动的文件。该功能是为迎合一些采用硬盘位置加密手段的文件及系统文件的使用的。
+        File Sort Options..(热键F9)：文件排序选项。该功能允许用户在优化磁盘时对文件进行排序。
+        Print Report..：打印输出优化报告。该功能可将优化报告送至一文本文件或直接在打印机上输出。
+        (3)用户若在未使用Delete Protection(删除保护)或Mirror(镜像程序)的情况下偶然地删除了文件或误格式化磁盘，而在此之前用户对磁盘进行过优化，则这些数据还将可以得到完全、有效地恢复。
+        8.PC Config(PC设置)
+        PC Config用于调整PcTools显示界面的颜色配置；设置文本或图形显示方式，键盘、鼠标的参数；在Autoexec.bat中预设启动程序。
+        PC Config的使用：在DOS提示符下键入PC Config后再按回车键即进入到PC Config主菜单后，屏幕显示如下选项：Color；Display；Mouse；Keyboard；Startup Program；Passwords。
+        ①Color(颜色配置)
+        Color便于用户按自己的喜好调整PcTools的界面颜色配置。用户可通过其中的Schemt选择PC Config提供的几种模式，也可以通过Category功能直接调整某元素的颜色。
+        ②Display(显示方式配置)
+        Display用于调整屏幕显示的文本行数，设置图形显示方式。选择Display选项后屏幕上出现如下对话框：
+        ┌───────────────────────┐
+        │	Display Options				│
+        │( )	Text Mode		(文本模式)	│
+        │( )	Graphics Mode		(图形模式)	│
+        │[ ]	Fast Video On CGA			│	
+        │( )	25 Lines		(缺省)		│
+        │( )	28 Lines		(VGA适用)	│
+        │( )	43 Lines		(VAG、EGA适用)	│
+        │( )	50 Lines		(VGA适用)	│
+        │		┌─┐		┌───┐	│
+        │		│OK│		│CANCEL│	│
+        │		└─┘		└───┘	│
+        └───────────────────────┘
+        其中图形模式只能用于VGA和EGA显示器。当用户只有CGA显示器时，可以选择Fast Video On CGA选项，但屏幕出现“雪花”时则要关闭该选项。用户可根据机器的显示卡类型及自己的需要选择文本显示行数。
+        ③Mouse(鼠示设置)
+        Mouse对话框中含有下列选项：
+        Mouse Speed：设置鼠标移动速度。
+        Fast Mouse Reset：提供选择鼠标功能。
+        Left Handel Mouse：左手鼠标。
+        Disable Mouse：关闭鼠标的使用。
+        Graphics Mouse：设置图形鼠标箭头。
+        ④Keyboard(键盘设置)
+        Keyboard对话框中含有下列选项：
+        Rate：当用户按住一个键时，Rate决定该键重复按动的频率。
+        Delay：Delay决定该键重复之间用户必须按住该键的持续时间。
+        ⑤Startup Program(配置PcTools启动程序)
+        在Startup Program的对话框中出现启动程序列表(表二)，用户可根据需要选择启动程序由PC Config将它们加入到用户的Autoexec.bat文件中，选择启动程序时用户需注意屏幕上所列出的空闲基本内存的大小，其大小不得低于470K。所选程序在下一次启动机器后将自动执行。
+        ⑥Passwords(密码设置)
+        PC Tools Desktop	：	PcTools的桌面程序	
+        Desktop Accessoris	：	台面辅助程序	
+        Directory Lock		：	目录加锁程序	
+        Disk Light 		：	磁盘灯程序	
+        Write Protection	：	写数据保护程序	
+        Delete Protection	：	删除数据保护程序	
+        Screen Blanker		：	屏幕保护程序	
+        RAM Boost		：	内存优化程序	
+        Anti-Virus TSRS		：	常驻内存病毒防护程序	
+        Anti-Virus Options	：	病毒防护程序CPAV2.0	
+        Central Point Commute	：	通信程序	
+        Drive Map		：	驱动器映射程序	
+        PC-Cache		：	PC高速缓冲程序	
+        Task Switcher		：	多任务切换程序	
+        Program Seheduler	：	任务调度程序	
+        Mirror 			：	镜像程序	
+        Fax Drive		：	传真驱动程序         9.SI PRO(全称System Information Professional，系统测试工具)
+        SI是用于测试用户机器系统性能的工具。它将报告给用户一份关于当前微机的操作系统、CPU类型及速度、内存、驱动器、显示卡、I/O端口、键盘、鼠标、CMOS、网络、声音卡等所有软、硬件方面的信息。用户在购买微机时利用SI可以确认所购产品的真实性能。
+        SI的使用：
+        (1)命令行格式：SI ［Parameters..］，其中［Parameters..］含义如下：
+        /MEM--显示当前内存使用状况。
+        /RPT--将系统测试报告送至自动创建的名为SI.RPT的文本文件存储在磁盘中，用户可通过文本阅读器打开查阅。
+        /NOULD--禁止检查扩展显示卡。
+        (2)在DOS提示符下键入SI并回车，或在Desktop中拉下Tools菜单选System Information项。系统进入SI的主菜单项界面(如图1)。
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃			Ssytem Informaton Professional					┃
+        ┃	┌───────────────────────────────┐		┃
+        ┃	│File System Disk Memory Diagnostics Benchmarks Help(略)	│		┃
+        ┃	└───────────────────────────────┘		┃
+        ┃				System Summary						┃
+        ┃	┌───────────────────────────────┐		┃
+        ┃	│			Computer Inventory			│		┃
+        ┃	│Ssytem Type(系统类型) 	：80386Dx			│		┃
+        ┃	│Operating System(操作系统)	：DOS 6.20			│		┃
+        ┃	│Video Adapter(显示卡)		：Video Graphics Array(VGA)	│		┃
+        ┃	│I/O Ports(I/O端口)		：2 Serial, 1 Parallel		│		┃
+        ┃	│Keyboard/Mouse(键盘，鼠标)	：101 Key Enhanced/Not Install	│		┃
+        ┃	│CMOS (CMOS信息)		：Present			│		┃
+        ┃	│Drive Summary(驱动器类型)	：1 Fixed Drive (204M)		│		┃
+        ┃	│				  2 Floppy Drives(1.44M,1.2M)	│		┃
+        ┃	│				  0 Other Drive			│		┃
+        ┃	└───────────────────────────────┘		┃
+        ┃				    Memory						┃
+        ┃	   Conventional:   640K	Extended:3264K	Expanded:3648K				┃
+        ┃	   Used:	    23K		  512K		  656K				┃
+        ┃	   Free:	   617K		 2752K		 2992K				┃
+        ┃F	   F	   F	   F	    F	       F       F	F	 F	 F	┃
+        ┃1:Help   2:Prnt  3:Exit  4:Auto   5:Config   6:CPU   7:Disk   8:Soft   9:Hard  10:Menu┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        						图1
+        用户通过F10功能键激活菜单条，菜单条中各菜单项功能如下：
+        ①File(文件组)中有下列选项：
+        View Autoexec.bat：显示Autoexec.bat文件内容。
+        View Config.sys：  显示Config.sys文件内容。
+        Print Report...：  将测试报告送至打印机或名为SI.RPT的文本文件中。(在Print Repot...对话框中用户可选择打印输出通常信息、操作系统信息、驱动器信息、内存信息或全部信息。)
+        Exit：退出SI。
+        ②System(系统组)中有下列选项：
+        System Type：显示CPU、协处理器、主机板类型。
+        Operating System：报告操作系统版本及设备制造商。
+        Video Adapter：报告显示卡类型。
+        I/O Ports：所有I/O端口地址。
+        Keyboard/Mouse：显示所支持的键盘及鼠标的扩展功能。
+        CMOS Information：CMOS信息。
+        Network：网络信息。
+        Software Intertupts：软件使用的中断地址和标志。
+        Hardware Intertupts：硬件使用的中断地址和标志。
+        ③Disk(磁盘组)中有下列选项：
+        Drive Summary：显示当前微机中的驱动器类型。
+        Disk Details：显示当前微机中的物理驱动器参数。
+        ④Memory(内存组)中有下列选项：
+        Convertional：基本内存使用状况。
+        Statistics：内存使用状况统计表。
+        Extended：扩充内存使用状况。
+        Expanded：扩展内存使用状况。
+        Device Drive：设备驱动程序内存使用状况。
+        ⑤Diagnostics(诊断组)中有下列选项：
+        CPU Test：CPU诊断测试。
+        Co-processor Test：协处理器诊断测试。
+        Motherboard Tests：主机板诊断测试。
+        Memory Tests：内存诊断测试。
+        Floppy Disk Tests：软磁盘诊断测试。
+        Hard Tests：硬盘诊断测试。
+        Keybord Input Test：键盘输入诊断测试。
+        Disply Adaptor Tests：显示卡诊断测试。
+        Serial Port Tests：串行口诊断测试。
+        Parallel Port Tests：并行口诊断测试。
+        Printer Output Tests：打印输出诊断测度。
+        Sound Tests：扬声器、声音卡诊断测试。
+        Test Results：诊断测试结果。
+        ⑥Benchmarks(标志组)中有下列选项：
+        CPU Speed Test：CPU速度测试。
+        Disk Speed Test：磁盘读写速度测试。
+        Overall Performance：包含CPU Speed Test、Disk Speed Test。(用户机器中多于一个硬盘时，请使用Disk Speed Test。)
+        Network Performance：网络信息传送速度测试。
+        10.Wipe(数据清除)
+        Delete在删除文件时只是将文件名的第一个字符改为0，但其包含的数据仍然存在直至被新的数据覆盖。在有些情况下，用户需要对文件进行彻底清除以防止他人非法恢复，而Wipe就是对数据进行彻底删除的工具。Wipe是通过对被删除数据的覆盖来清除文件、子目录、磁盘内容的。
+        Wipe的使用：
+        (1)命令行格式：Wipe［d: or d:\filespac］［Parameters...］。
+        [d: or d:\filespac］是指驱动器名或文件路径。
+        [Parameters...］含义如下：
+        /UNVSED--彻底清除使用DOS及PcTools的删除程序(如DELETE)删除文件所留下的空闲磁盘空间。
+        /GOUT--以美国保护标准局要求的清除方式删除数据。
+        /REP:r--重复删除的次数(缺省为3次)，r为次数。
+        /VALUE:v--以用户设置的ASCII码值做为覆盖删除数据的值(缺省值是246)，r为用户设置的ASCII码值。
+        /QUIET--只给出状态行信息，不给出警告。
+        /DISK--清除整个磁盘内容。
+        /DELETE--只使用DELETE进行数据删除。
+        /SUB--清除了目录中的文件。
+        /HIDDEN--清除隐含文件。
+        /READONLY--清除只读文件。
+        /MODIFIED--清除设置过文档文件位的文件。
+        /NOMODIFIED--清除未设置过文档文件位的文件。
+        /NOCONFIRM--清除数据前无需确认。
+        (2)在DOS提示符下键入Wipe并回车，或在Desktop中拉下Tools菜单选择Wipe项。系统进入Wipe的主菜单界面，内有File、Disk、Configure三个选项：
+        Ⅰ、File选项对话框如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃File OptionFile specification: c: \PCTOOLS\					┃
+        ┃										┃
+        ┃■ Confirm each file			● Wipe files				┃
+        ┃□ Include subdirectories		○ Clear only unsed file space		┃
+        ┃□ Include hidden files		○ Delete files				┃
+        ┃□ Include read-only files    						┃
+        ┃○ Older than  07/28/1995							┃
+        ┃○ Only modified files		○ Equal to				┃
+        ┃○ Only unmodified files		○ Younger than 04:19 		○ am	┃
+        ┃● Both modified and nomodified	● Any date/			● pm	┃
+        ┃┌───┐		┌─────┐		┌─┐		┌───┐	┃
+        ┃│Drive │		│Directory │		│OK│		│Cancel│	┃
+        ┃└───┘		└─────┘		└─┘		└───┘	┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        在对话框中关于时间选项含义说明如下：
+        Old Than：删除创建日期/时间比输入的日期/时间旧的或相同的文件。
+        Equal to：删除创建日期/时间和输入的日期/时间相同的文件。
+        Younger Than：删除创建日期/时间比输入的日期/时间新的或相同的文件。
+        Any Date/Time：删除文件不考虑创建日期/时间。
+        其它选项请参见命令行格式中的说明。
+        Ⅱ、Disk选项对话框如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃			Disk Option				┃
+        ┃								┃
+        ┃	B：1.2M							┃
+        ┃	■ Wipe Disk (清除磁盘)					┃
+        ┃  	□ Clear only unsed disk space (参见命令行格式/UNUSED)	┃
+        ┃	┌─────┐		┌──┐	┌───┐	┃
+        ┃	│选择驱动器│		│ OK │	│CANCEL│	┃
+        ┃	└─────┘		└──┘	└───┘	┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        Ⅲ、Configure选项对话框如下：
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃		      Configuration Option			┃
+        ┃								┃
+        ┃■ Fast wipe：删除一次并写入字符0。				┃
+        ┃								┃
+        ┃□ DOD wipe：重复进行3次删除并写入十六进制数FF和00，在最后一次┃
+        ┃								┃
+        ┃	       删除时将数据区域覆盖ASCII码值246(即十六进制数F6).┃
+        ┃	┌────┐		┌──┐	┌───┐	┃
+        ┃	│保存设置│		│ OK │	│CANCEL│	┃
+        ┃	└────┘		└──┘	└───┘	┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        对话框中的03、FF、00、246、F6等数值均可由用户设置。
+        注意：用户需谨慎使用Wipe，使用Wipe后数据将不可恢复。
+        三、除了上面介绍的工具外，PcTools9.0还提供了其它一些较小的但同样有用的程序。下面将择其要对它们做简单说明。
+        1.BootSafe(保存引导区信息程序)
+        该程序用于在软盘上保存一个或多个逻辑驱动器的引导区信息。其命令行格式如下：
+        BOOTSAFE ［drive1］［drive2］［drive3］etc.../option
+        ［drive1］［drive2］［drive3］etc...  系指可同时保存多个逻辑驱动器的引导区信息。
+        Option的主要含义如下：
+        /M--产生保存引导区信息的新的映象文件。
+        /R--从A盘读取映象文件以恢复当前或指定的驱动器引导区信息。
+        2.DataMon(数据监控程序)
+        DataMon一般设置在autoexec.bat中作为驻留内存的启始程序以达到监控目的。它具有下列功能：
+        Directory Lock：设置对指定目录允许读写的口令。
+        Disk Light：磁盘灯功能(在PcTool9.0中Disk Light从DataMon中分离出来)。它能替代硬件上驱动器的指示灯的功能。
+        Delete Protection：删除保护。它提供两种保护方法：Delete Sentry在硬盘上建立一隐含目录Sentry来存放被删除的数据。Delete Tranck则保存被删除的数据的有关信息以利于恢复。
+        Screen Blanker：屏幕保护。防止屏幕静态灼烧。
+        Write Protection：写保护。防止数据被意外删除、改写或破坏。
+        3.RAMBoost\RAMSetup(内存优化及其安装程序)
+        RAMBoost能够重新调整基本内存中的常驻程序和设备驱动程序并优化高端内存区，这样它可提供给用户尽可能大的空闲基本内存以利于其它应用程序的运行。RAMBoost必须和EMM386、QEMM、386MAX中的一个配合使用。使用时，系统将重新启动两次。RAMSetup用于在内存中安装RAMBoost。(注：RAMBoost只适用于MSDOS6.0。)
+        4.TSR Manger(常驻内存程序的管理工具)
+        在PcTools目录中TSR Manger名为WNTSRMAN.EXE。TSR Manger是作为一种纯粹的Windows应用程序使用的。它必须和vsafe.exe或vwatch.com监测病毒程序配合使用，首先要运行vsafe或vwatch，然后在Windows中运行TSR Manger，它将监视系统内的异常情况并随时给出相应的警告。
+        5.View(文件阅读器)
+        View不仅能阅读TXT、WordPerfect、Write等多种格式的文本文件进行，还能阅读Dbase、Foxpro、Paredox等数据库文件，Lotous1-2-3、Microsoft Excel等电子表格文件及ASCII、二进制代码文件。(View所支持的全部格式请参阅View的联机帮助文件。)
+        说明：
+        (一)文中所指的磁盘系指软、硬磁盘。
+        (二)命令行格式中一般均有/VIDEO、/?命令项，文中均略过介绍。/VIDEO的说明请参见PC Config中的关于设置display项的介绍；/?的功能是显示命令格式的信息。
+        (三)PcTools中所有对话框、菜单界面均无汉字，文中在这些地方出现的中文是为说明方便而用的。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

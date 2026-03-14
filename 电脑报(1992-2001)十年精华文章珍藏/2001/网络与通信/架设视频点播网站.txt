@@ -1,0 +1,58 @@
+架设视频点播网站
+
+梁俊清 
+2001年 11期
+
+    视频点播一直是新一代宽带网的魅力所在。但是，自从RM格式的文件出现后，在一般的56K拨号连接上就可以实现视频点播了。另外一方面，由于现在ISDN、Cable Modem、ADSL以及局域网的普及，使得VOD（Vedio On Demand）需求大增。笔者就以学校建立的一个视频点播网站的经验为例，跟大家共同分享如何在LAN以及WAN中架设一个VOD网站。
+　　#1    一、基本的硬件与软件要求
+　　    1.硬件建议配置：PⅢ800以上的CPU或者双CPU系统，256M内存以及一个RAID系统。
+　　    2.软件配置：采用Win2000 Advanced Server，因为它的硬件兼容性，特别软件兼容性很好，我们制作视频点播文件的软件都是基于Windows平台的。而且，Win2000 Advanced Server可以用软件来实现RAID 0，1，5。我们建议使用三个硬盘实现RAID5，既可以提高IO速度，建立容错系统，也节省我们硬件方面的投资。Web Site软件我们采用Win2000 Advanced Server自带的IIS5.0，因为IIS 5.0可以与操作系统很好的结合起来，管理很轻松。在视频点播文件制作方面，我们采用超级解霸2000以及RealProducer Plus，为了加快制作的速度，建议把DIVX MPEG4程序也安装上。
+　　#1    二、架设Web网站
+　　    用Win2000系列操作系统来建立一个Web网站是很轻松的一件事情，而且，我们今天的重点在于建立多媒体点播系统，所以这方面的问题，我们就不再累述了，大家可以参阅相关文章。这里要提醒一下，每10M的网络带宽，理论上可以同时实现40个视频点播流，100M以太网可以实现400个，但是你可以通过双网卡来灵活的调节。比如说把Web服务器安装两个10M网卡，那么它就可以支持80个视频流了。当然，两个Web站点的虚拟目录都应该是同一个物理目录，请见Web站原理图。
+　　#1    三、视频点播文件的制作
+　　    对于视频点播的文件，一般有两种格式：MPG以及RM。由于MPG文件（第一代视频点播使用的文件格式，采用MPEG1压缩）压缩率比较低，造成硬盘空间紧张，占用大量的网络带宽，现在已经被慢慢地淘汰，取而代之的是RM格式的文件。
+　　    所以，我们下面以制作RM格式文件为例子。
+　　#2    1.制作RM的中间体文件
+　　    由于现在我们很多片源都是采用VCD文件格式，后缀名为dat，这种文件格式不能被RM制作软件RealProducer Plus支持，所以，我们必须使用超级解霸把它转换成MPG文件，或者AVI文件，如果你的片源就是MPG、MOV、AVI等RealProducer Plus支持的格式，就可以跳过这一步，直接到第2步。
+　　    安装好超级解霸2000后，点“开始/程序/超级解霸2000/豪杰使用工具集”，运行“VCD转AVI工具”，你会看到如图1（^11040703a^）的窗口。点击“视频文件”，然后选取要制作的VCD源文件，确定。然后，点“视频处理方法”，这里有三个选择，一般情况下建议选择“MMX的快速算法”，如果你对图像要求很高，则选择“高保真浮点算法”。接着，你可以设置输出的AVI文件路径，默认是在源文件目录下。再点击“开始压缩”，会出现一个对话框，让你选择压缩算法。经过我的反复比较，这里选择“DIVX MPEG4（Low Motion）”可以实现高速度的压缩。选择了压缩算法后，你还需要点“配置”，否则压缩出来的AVI只能够用惨不忍睹来形容。配置窗口如图2（^11040703b^）所示，建议把“Compression Control”一项设置为0，这样可以最大限度的保证画面质量。最后点“确定”，就开始压缩了。这是一个漫长的过程，特别是CPU的速度比较慢时。
+　　#2    2.制作RM文件
+　　    经过上一步后，我们可以得到一个AVI格式的文件，此时，运行RealProducer Plus8v.0，选择“File/New Session/Record From file”，选择我们上一步压缩好的AVI文件，接着，是输入该文件的一些注释，诸如作者、版权之类的，点击“下一步”。这里有两个选择，如果有不同连接速率的客户机访问你的RM文件，那么，你需要选择“Muti-rate SureStream for RealServer G2”，否则，如果只有相同速率的客户机访问你的文件，比如在LAN中，那么请选择“Singal-rate for web server”。点“下一步”，你需要选择连接的速度，从28K一直到512K DSL/Cable Modem都有，建议采用256K DSL/Cable Modem，除非你对速度很敏感，比如是针对拨号上网的用户。点“下一步”，选择音频格式，一般电影选择“Voice with background music”就可以了，对于双声道电影，需要选择“Stereo Music”来保留双声道。点“下一步”，选择画面质量，由于我们这些片子已经经过多次压缩，所以我建议采用“Sharpest Image Video”，否则，电影会有很多马赛克。点“下一步”，选择输出RM文件的路径，默认与AVI源文件相同，最后点“完成”，就可以准备压缩了。
+　　    但是，为了保证电影的图像或者声音质量，我们还得仔细设置一下。点“Options/Performance”，如图3（^11040703c^）所示。在“SureStream”选单中，针对你的电影设置对音频或者视频的增强，比如，电影《拯救大兵瑞恩》之类的片子，你就需要选择“Enphasize Video”。如果你的电影是MTV，那么，你肯定要设置为“Enphasize Audio”。在“Video Codec”选单中，需要选择针对的播放器，我建议为“RealVideo 8.0”，这样可以实现最好的音频与视频播放，同时把“Variable bit rate Encoding”选择上，这样可以改善图像的质量。理论上把“2-pass Encoding”点上，也可以改善质量，但是，这样会降低文件的兼容性，使得某些播放器不能播放。
+　　    这时，我们就可以开始压缩了，如图4（^11040703d^）所示，左边是源文件的实时播放，右边是输出RM文件的实时播放，如果对其效果不满意，可以马上停止，重新设置压缩参数。
+　　#1    四、把制作好的RM发布到网站上
+　　    做了这么多准备工作，我们终于可以做视频点播最关键的一步了。发布RM格式的文件，可以采用两种方法，一种是直接编写HTML文件，适用于对HTML语言很熟识的朋友，第二种是通过RealProducer Plus发布。
+　　    1.直接编写HTML文件
+　　    HTML文件必须通过Object元素调用RM播放对象才能实现播放，对于RM文件，有统一的classid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA，而且，还要一个RPM文件作为临时下载的连接。我们举一个例子来说明。有一个ff8.rm文件，一个ff8.html文件，一个ff8.rpm文件。
+　　    其中ff8.html文件必须的内容如下：
+　　    <OBJECT>
+　　    ID=video1
+　　    CLASSID=“clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA”
+　　    HEIGHT=240 WIDTH=352>  /设置电影的宽和高
+　　    <PARAM NAME=“controls” VALUE=“ImageWindow”>
+　　    <PARAM NAME=“console” VALUE=“Clip1”>
+　　    <PARAM NAME=“autostart” VALUE=“false”> /是否自动播放<PARAM NAME=“src” VALUE=“ff8.rpm”>/设置播放的文件为ff8.rpm
+　　    <EMBED SRC=“ff8.rpm” type=“audio/x-pn-realaudio-plugin” CONSOLE=“Clip1” CONTROLS=“ImageWindow”
+　　    HEIGHT=240 WIDTH=352 AUTOSTART=false>
+　　    </OBJECT>
+　　    <P>
+　　    <OBJECT
+　　    ID=video1
+　　    CLASSID=“clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA”
+　　    HEIGHT=125 WIDTH=275> /设置播放控制栏的宽和高
+　　    <PARAM NAME=“controls” VALUE=“All”>/使所有控制项目有效
+　　    <PARAM NAME=“console” VALUE=“Clip1”>
+　　    <EMBED type=“audio/x-pn-realaudio-plugin” CONSOLE=“Clip1” CONTROLS=“All”
+　　    HEIGHT=125 WIDTH=275 AUTOSTART=false> /是否自动播放
+　　    </OBJECT>
+　　    ff8.RPM文件的内容：
+　　    file:///I:/mtv/ff8.rm /这里为url
+　　    这样，我们把这三个文件都放到Web Server的Web目录下，默认值为wwwroot，然后通过浏览器访问ff8.html，就可以看到如图5（^11040703e^）的窗口，我们就可以播放了。
+　　    2.通过RealProducer Plus发布
+　　    通过RealProducer Plus来发布RM文件，可以大大减轻我们的工作。点RealProducer的“Tools/Create Web Page”，然后选择RM文件的路径。点“Next”，选择是通过Realplayer播放（popup player），还是通过浏览器（Enbedded player）来播放。一般来说，用Realplayer播放操作更加容易，但是兼容性稍差；采用浏览器来播放控制差点，但是兼容性好，不会出现不能播放的情况。点“Next”，选择使用浏览器播放时采用那些控制选项，一般是“standard player”就可以了。接着一直“next”下去，就可以生成一个ff8.html文件，访问它，就可以实现视频点播了。
+　　    RealProducer Plus还带有一个“publish web page”功能，可以把你的.html文件、.rm文件、.rpm（.ram）文件都一起上传到指定的服务器上面，前提是你需要设置用户名密码与目标目录等，这个与Leapftp相似，这里也不多讲了。
+　　    好了，经过我们的努力，终于可以实现视频（音频）点播了，别看他的操作步骤有点繁锁，其实是很容易上手的。大家快试试吧，如有问题可以发邮件跟我联系：notebookboy@telekbird.com.cn。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

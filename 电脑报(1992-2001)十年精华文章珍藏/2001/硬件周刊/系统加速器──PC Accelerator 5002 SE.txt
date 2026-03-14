@@ -1,0 +1,37 @@
+系统加速器──PC Accelerator 5002 SE
+
+李红 
+2001年 19期
+
+PC Accelerator 5002 SE是一款高级系统优化工具，适用于Win95/98/NT，它可以对整个系统进行加速，使计算机和网络性能得到很大的提高。
+　　#1一、下载和安装
+　　PC Accelerator 5002 SE的工作原理是通过调整注册表来为系统提速，它主要在TCP/IP性能、3D特效、CPU和内存、Windows系统性能四个方面对注册表进行优化。此外它还能强化系统安全能力，例如屏蔽注册表的编辑，想让系统跑得快、更安全的朋友，不妨到“http://www.download.com.cn/show.phtml?action=detail&id=1741”去下载该软件的免费试用版。
+　　PC Accelerator 5002 SE下载后，点击下载文件即可安装，整个安装过程很简单，只要确定安装在哪个目录下，然后一路点击“Next”按钮即可完成。点击“开始/程序”，找到“PC Accelerator 5002”程序组，里面有PC Accelerator 5002 SE和Registry Backup两项，其中后者专用于注册表的备份和恢复。由于PC Accelerator 5002 SE优化时要修改注册表，所以为了防止注册表修改出错，建议在优化系统前使用Registry Backup备份注册表，这样万一出了什么问题，就可以用它进行恢复。
+　　#1二、认识主界面
+　　运行PC Accelerator 5002 SE后，进入其主界面（如图1）（^19030401a^），这里有“File”（文件）、“MonitorTweak”（显示器调节）、“Manual Tweak”（手工调节）等菜单。在“File”菜单中，你可以把当前设置保存到文件上，也可以调出以前保存的设置文件；“MonitorTweak”可以调整显示器的亮度和对比度；“Manual Tweak”菜单可以手动设置一些参数，例如菜单显示延迟时间、文件Cache的最大/最小值、交换文件的最大/最小值、文件名和路径Cache、DMA缓冲区、页面缓冲区等，但试用版只能设置菜单显示延迟时间。
+　　#1三、使用指南
+　　在主界面中，除了“TCP/IP”按钮外，还有另外四个按钮：“3D Video”、“Security”、“CPU/Windows”、“Reset Defaults”，分别对应不同的优化功能，其中“Reset Defaults”即恢复Windows系统默认的设置，下面就来详细介绍这些功能。
+　　#21.TCP/IP优化
+　　PC Accelerator 5002 SE启动后默认界面就是TCP/IP优化设置窗口，该窗口分成Quick Settings（快速设置）、Advanced Settings（高级设置）和Custom（自定义）三部分。在里面选择设置好优化项目后，点击“Accelerate”按钮即可保存，重新启动机器后，设置就会生效。
+　　（1）Quick Settings中需要用户选择一个合适的网络速度，对于使用普通MODEM上网的用户，有Defeault、2倍速、4倍速、8倍速、10倍速可供选择；如果使用ISDN上网就应选择ISDN；局域网则选择LAN BOOST；还有CABLE/ADSL可供选择；如果选择了Custom，则自己来定义TCP/IP速度。
+　　说明：试用版只能为MODEM和ISDN提速。
+　　（2）Custom中允许用户自定义TCP/IP设置。实验表明，较为合适的TCP/IP设置是MTU=576，MaxMSS=536， TTL=128，RWIN=4288，你不妨按照这些数值进行设置。
+　　说明：该窗口中的MaxMTU是最大的TCP/IP传输单元，在TCP/IP协议中，要传输的数据是分成较小的组进行传输的，MaxMTU是每个组的大小，只有使用与ISP的MaxMTU相同值，才会使网上传输速度最快；MSS（Maximum Segment Size）即最大分组数，等于MxaMTU减去40；TTL是TCP/IP分组的寿命，如果分组在网络中传输的时间超过了分组的寿命，则该分组将被丢弃，将TTL改得更大些，有利于信息在网络上传得更远；RWIN是缺省的传输单元缓冲区的大小，RWIN的值最好是MSS的整数倍。
+　　（3）Advanced Settings中有许多优化项目，例如：WINDOWS SCALING/TIME STAMP（选中后允许最佳的Windows Scaling和time stamp）、MAXIMUM DUPACKS ENABLED（允许最大的DupAcks）.OPTIMIZE MODEM CACHE SYSTEM（优化Modem使用的缓存系统）、OPTIMIZE NDI CONNECTIONS（优化NDI 连接设置）、OPTIMIZE NDI SOCKETS（优化NDI接口设置）、SACK OPTIONS ENABLED（激活高级Sack选项模式，以便优化TCP性能）、OPTIMIZE NDI CACHE（优化NDI缓存）、OPTIMIZE WEB CONNECTIONS（加快连接网站的速度，为冲浪提速）。
+　　此外还有BLACK HOLE DETECT（黑洞检测）、AUTO DISCOVERY（自动侦测）、SESSION KEPT ALIVE、OPTIMIZE WEB FILE TRANSFERS、TCP/IP PERFORMANCE BOOST等选项。
+　　#22.改进3D显卡性能
+　　在主界面点击“3D Video”按钮，进入3D性能优化设置窗口（如图2）（^19030401b^），共有“3D Graphics Card”、“3D Graphics General Options”、“Advanced Options”三部分，每部分又有许多优化选项。
+　　（1）“3D Graphics Card”中提供了13种3D显卡类型，例如Voodoo2/3/5、TNT/2、GeForce256/2、Rage128等，你可以根据你的3D显卡类型从中选择一种，一旦选中后软件就会决定显示卡将采用何种类型的速度和性能。
+　　（2）“3D Graphics General Options”中Optimal和Custom是用来优化3D处理器性能的。Optimal表示自动优化；Custom是自定义优化3D处理器性能，选中后，在右边的方框中输入一个频率值，就可让3D处理器运行在该频率下，注意：Voodoo1显卡不要超过57MHz，Voodoo2不能超过97MHz，TNT不能超过110MHz，TNT2/TNT2 Ultra不能超过150/175MHz，V3 2000/3000/3500不能超过155/175/190MHz。
+　　此外，在“3D Graphics General Options”中还可以进行各种3D加速优化，例如Direct3d Acceleration是为D3D音效加速的；DXInput Acceleration可加速Direct输入特性；DXMusic Acceleration可加速Direct音乐特性。还有其他的优化选项（试用版不能使用）：Disable Direct X debug（取消内建在Direct X中的调试，因为它会降低3D处理速度）、Direct play acceleration（加速Direct播放性能）、Direct Media acceleration（加速Direct媒体性能）、Show frame rate in D3D games（在D3D游戏中显示帧率）。
+　　（3）Advanced Options共有9种优化选项，每种都对应优化3D某方面的性能。它们是：Fast V-Sync（启用快速垂直同步）、Fast RAS Read（启用3DFX快速RAS读取功能）、Abstract Lighting（启用快速光线特效）、Fast memory（启用最大3DFX内存爆发率特性）、Fast 24-bit Rendering（在3D处理器中采用24位渲染替代16位）、Disable Textures（取消Textures功能）、Fast PCI Read（启用最大PCI读取爆发率）、Dual Monitor Mode（在3DFX游戏中可以使用两台显示器）、Advanced Anti-aliasing（启用高级反图形失真技术，平滑3D多边形的锯齿边）。
+　　#23．CPU/WINDOWS性能优化
+　　“Overall PC”（如图3）（^19030401c^）是专门对CPU、内存、Windows进行优化的。优化时要先在“Processor Type”中选择你的CPU类型，在“Current Memory Configuration”中设置你的内存总容量。“Overall PC”共分成两部分，即高级BIOS优化设置和Win95/98/NT优化设置。其中高级BIOS优化设置主要有:
+　　（1）CPU auto HLT：把CPU发热量控制到最低；
+　　（2）CPU Priority Enabled：优化CPU执行效率；
+　　（3）Fast PCI Concurrence：优化提速PCI；
+　　（4）Fast DRAM Leadoff Timings：优化内存性能。
+　　PC Accelerator 5002 SE除了能对系统进行优化外，还可以加强系统的安全性。正式版提供了33项安全设置（试用版提供了22项安全设置），设置这些选项以后，就可以极大地增强系统的安全性，感兴趣的朋友自己去试一试吧！ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

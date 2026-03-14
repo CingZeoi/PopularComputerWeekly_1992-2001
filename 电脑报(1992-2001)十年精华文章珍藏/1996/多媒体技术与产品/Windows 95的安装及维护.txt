@@ -1,0 +1,121 @@
+Windows 95的安装及维护
+
+龚兵 王浩 张莉
+1996-12-06
+
+        1.备份文件
+        对于新WIN95用户，由于对WIN95不熟悉，而且在安装过程中可能会出一些问题，所以建议准备几张软盘来保留旧的DOS和Windows 3.x的主要文件，以供Win95安装不成功后恢复安装之前的文件和系统时带来的麻烦。例如：Config.sys、AUTOEXEC.BAT、WINDOWS的WIN.INI、SYSTEM.INI文件及其它*.INI文件。因为在安装WIN95时系统会自动修改根目录下的这些文件，一旦出现安装方面的问题，只需恢复这些文件即可。
+        Windows95的引导区不同于原先的MS-DOS引导区及文件系统。所以在安装Windows95之前，要做好文件的备份。如果你硬盘上什么也没有，这一步可以省略。
+        2.删除交换文件
+        WIN 3.x和WIN95都使用一个交换文件(Swap file)来模拟内存(即虚拟内存)，以提高运行速度。WIN 3.x版本通常使用的是一个大小固定的永久性交换文件，即使系统没有运行WINDOWS环境，这个交换文件仍然保留在硬盘上，白白占据磁盘空间。而WIN 95使用的是动态交换文件，在缺省条件下，系统能够根据需要来调整交换文件的大小，而无需用户人为定制。因此，原来Win 3.x的交换文件不再需要，可以删除这个文件，为硬盘腾出更多的空间。
+        注意，如果在安装Win 95后还想保留原来的Win 3.x版本，就不需要删除这个交换文件，在运行Win 3.x时还会用到它。可以在Windows环境中删除交换文件，启动WIN 3.x，进入主群组下控制面板中，用鼠标双击“386增强方式”图标，在386增强模式对话框中，单击“虚拟内存”按钮，将会显示虚拟内存对话框。在对话框中有交换文件大小和类型，将其交换文件更改为无就删除了这个交换文件。
+        3.整理硬盘
+        整理硬盘为的是优化硬盘，用DOS提供的DEFRAG /F/SN程序能将你的硬盘重新整理过。也可用NortonUtilies之中的“SPEEDISK/FF/SN”命令整理硬盘。其目的是为了WIN95安装在硬盘上一个连续存储空间内，以提高硬盘读写速度。
+        还要请大家注意的是在安装WIN 95之后，WIN 95也提供了一个优化工具DiskDefragmenter(磁盘碎片整理程序)。这个程序是在WIN 95中使用。在DOS中提供的DEFRAG只能在DOS下用，否则会破坏WIN95的长文件名文件。
+        这样就使得当前系统和WINDOWS95安装程序可能发生的冲突或错误减至最少。
+        4.硬盘整理完成后不要运行其它驻留内存的程序，包括反病毒程序。不要在内存中驻留任何形式的缓冲程序例如象Smartdrv之类的程序。因为WIN 95已经为这些设备准备了这些安装程序，而且可能要比其它的版本更好。
+        另外还应注意在安装时不要设置CMOS中的节电功能，以避免安装过程中硬盘掉电。
+        二、Win 95的安装
+        WINDOWS95的安装提供了两种方法，一种是从现有的WINDOWS系统升级安装，这时WINDOWS95将自动把WINDOWS 3.X的应用程序转换为WINDOWS95的格式，以供在WINDOWS95中顺利运行；另一种是保留WINDOWS3.X在计算机上建立双启动系统，即原来的DOS和WINDOWS与WINDOWS95共同存在，可以选择使用，但若想在WINDOWS95中使用WINDOWS3.X的应用程序，则必须重新安装WINDOWS3.X的应用程序，这样就重复占用了大量的磁盘空间。
+        执行第一张盘或“光盘”的SETUP.EXE程序就开始了WINDOWS95的安装过程。若要建立双启动系统，须使用“定制安装”(CUSTOMIZE SETUP)来为WINDOWS95选择一个安装目录，此目录与原来的WINDOWS目录不相同；要想把WINDOWS3.x升级为WINDOWS95中文版，则选择“标准安装”(STANDARD SETUP)，WINDOWS95的安装程序将自动找到当前的WINDOWS目录，然后敲入回车键，按系统提示执行，WINDOWS95将自动安装完成。
+        WINDOWS95中文的安装可以分下面几个阶段完成。
+        三、Windows 95安装中故障处理
+        (1)在安装Windows 95的开始，运行SETUP时首先检查硬件，若无故障后应立即自动进行下一步，如果屏幕出现如下显示：
+        “Windows setup was unable to update your system files.This may be virus detection that is built in to your machine,or by virus detection software running on your system .....”
+        (Windows 无法修改你的系统文件，可能是你的机器自带的防病毒程序或机器所运行的防病毒软件所致.)
+        从提示信息可知，是主板上BIOS芯片中的防病毒程序在起作用，该程序在应用软件试图改写硬盘引导区时会在屏幕上出现一个方框，并显示报警的文字，并呜响喇叭以提示用户。一般来说在DOS下安装时一旦有这种情况，用户可以根据提示忽略报警，继续安装；但在Windows图形界面下，该防病毒程序的报警画面往往无法正常显示，从而导致死机。这时可以在CMOS参数设置中使主板的防病毒程序失效，即将CMOS的参数设置“BIOS Features Setup”选项中的“Virus Warning”设置为“Disable”再重新安装Windows 95，则一般会恢复正常。
+        在有的主板的CMOS中防病毒测试项为“Virus check reminder”也应设置为“Disable”。
+        在CMOS中的“Security”栏目有一项“Fixed disk boot sector”，的设置为“Write proter”要改为“Normal”，再重新安装Windows 95才有可能正常。
+        (2)在安装Windows 95时，一开始拒绝执行SETUP程序，并有如下显示：
+        System Detection
+        ......
+        Your computer use a BIOS that could lead to data loss if you run Windows 95.
+        Please updata the BIOS before installing Windows 95.For more information, contact your computer manufacturer.
+        上面是英文说明你的电脑的BIOS版本太旧，在Windows 95下它可能会引起数据的丢失，如果你实在要冒险安装Windows 95的话，可以插入Windows 95的第一张安装盘，然后输入命令：Extract Pocopy2.cab msdet.inf把它拷贝到Windows子目录下，然后在[BadDSBios]块的每一行前面加上一个分号，重新启动机器，SETUP就不会拒绝执行，但是最好不要使用这个方法，因为它有可能在安装的过程中丢失数据，即使安装成功了也不一定能正常运行Windows 95。
+        (3)关于Windows 95的中文平台的问题，同Windows 3.x一样，英文的Windows 95也可以在安装完成后再将中文之星加上去，不过只能用中文之星2.0plus或2.5，或者四通利方的RichWin 4.02版本的中文系统，这两个汉字系统的版本都能在Windows 95下运行。当然，你也可以直接安装中文Windows 95。
+        四、WINDOWS 95的系统文件
+        Windows 95号称是不再依赖DOS的完全独立的操作系统，从表面上看的确如此，因为启动电脑时是直接进入WIN 95的，但事实上WIN 95仍然依赖着DOS，只是这个DOS为特定的，称之DOS 7.0这是Microsoft公司没有单独发表的DOS版本，它随WIN 95一起自动安装到你的电脑上，并负责引导你的电脑，只是DOS 7.0完成引导之后并不停留在DOS命令提示行状态，而是自动执行WIN命令而进入Windows 95。
+        如果你原来的系统是DOS 6.X，你会发现在C盘的根目录下，DOS的文件有了变化，包括IO.SYS、MSDOS.SYS、COMMAND.COM、CONFIG.SYS和AUTOEXEC.BAT都仍然存在，但是基长度、时间及内容全都变了，原因是它们已被写入了WIN 95的启动文件。而原来的系统文件都还在，只是文件的扩展名改为*.DOS了。所以在根目录中有IO.DOS、MSDOS.DOS、COMMAND.DOS、CONFIG.DOS和AUTOEXEC.DOS，见下表
+        现名   原名
+        IO.DOS   IO.SYS
+        MSDOS.DOS   MSDOS.SYS
+        COMMAND.DOS   COMMAND.COM
+        CONFIG.DOS   CONFIG.SYS
+        AUTOEXEC.DOS   AUTOEXEC.BAT
+        要注意的是MSDOS.SYS在DOS 6.X是系统文件，而在DOS 7.0中的MSDOS.SYS文件是文本文件，有点像DOS 6.X中的CONFIG.SYS和WIN.INI文件。
+        五、Windows 95的启动
+        WINDOWS 95安装完成后，就可以启动系统了，若在屏幕上出现“START WINDOWS 95”提示信息时，按F8键就可以进入WINDOWS 95的启动菜单，其中有7个选项，其含义如下：
+        1.NORMAL(一般)
+        按照正常方式启动系统，即先调入WINDOWS 95的DBLSPACE.BIN REGISTRY数据库、文件管理系统驱动程序IFSHLP.SYS，然后执行DOS 7.0的CONFIG.SYS和AUTOEXEC.BAT的功能。
+        2.LOGGED(BOOTLOG.TXT)
+        采用已形成的BOOTLOG.TXT(启动跟踪目击文件的内容完成WINDOWS 95的启动，BOOTLOG.TXT可由下面将要介绍的菜单4来建立。
+        3.SAFE MODE(安全模式)
+        这是WINDOWS 95启动的完全模式。选择后将在屏幕上显示如下信息：
+        WINDOWS IS BY PASSING YOUR FILES
+        即WINDOWS 95在启动时，只是调入必要的文件，不执行CONFIG.SYS和AUTOEXEC.BAT中的配置。
+        4.STEP-BY-STEP CONFIGMATION(单步配置)
+        这是一个WINDOWS 95单步执行系统配置的菜单。每一步可按用户的需求进行选择执行或不执行，若在此菜单中形成一个BOOTLOG.TXT文件，则在下次启动选2时，就可以利用此文件启动相应的选择项。
+        5.COMMAND PROMPT ONLY(DOS 7.0方式)
+        该菜单使WINDOWS 95直接进行入MSDOS 7.0的CONFIG.SYS和AUTOEXEC.BAT的启动状态，这同原来的MSDOS启动方式完全相同。
+        6.SAFE MODE COMMAND PROMPT ONLY(DOS 7.0安全方式)
+        该选项使WINDOWS 95只执行COMMAND.COM返回到DOS提示符下，其它配置均不执行。
+        7.Previous Version of MS-DOS(以前的DOS版本)
+        该选项使系统回到原来的DOS版本下，已经改名为*.DOS的五个系统文件也自动还原为原来的文件名，而且还要将WIN 95中的系统文件改名后保留。见下表：
+        WIN 95系统启动文件改名
+        七、Windows 95(DOS 7.0)启动盘的制作：
+        对于Windows 95(MS-DOS 7.0)来说，制作启动系统盘已变得非常方例，除仍可用原来的FORMAT/S格式化磁盘及SYS程序传送系统文件外，一个重大的变化就是只要是用Windows 95(或DOS 7.0)格式化过的磁盘(BOOT表已修改)，只需将IO.SYS及COMMAND.COM两文件拷入目标盘，即制作好Windows 95(DOS 7.0)系统启动盘。在DOS 7.0中原来系统处理模块的功能已加入到IO.SYS中，MSDOS.SYS则变成.INI格式的纯文本设置文件，可用文本编辑软件如Notepad、Edit打开它。
+        八、MSDOS.SYS文件主要内容的设置：
+        MSDOS.SYS这个设置文件中许多项都是相互关联的，包括[Path]用[Options]等块，文件各块不分先后，块中各行次序也可任意调，不列出的项取缺省值。
+        1.[Path]块：
+        WinDir=是指定Windows 95的工作目录，如非法设置，Windows 95将自动更正。
+        WinBootDir=是确定启动文件所在目录。
+        HostWinDrv=是确定启动文件所在磁盘(盘符后无冒号：)，它与上一项一起指示启动文件的位置(包括IO.SYS、COMMAND.COM、HIMEM.SYS、DBLBUFF.SYS、IFSHLB.SYS和SETVER.EXE等，这些文件如存在，启动中可按设置自动调入)。如果WinBootDir=B：，HostWinDrv=B，则可以从非引导盘的B盘启动系统，这点也是Windows 95的改进。
+        UninstallDir=是指定在替换旧版本Windows后，两个保留的恢复数据文件所在目录，若删除Windows 95，将从该目录中恢复原来的系统。
+        2.[Options]块：
+        Logo=该项决定了启动过程中是否显示Windows 95封面。等于1显示，等于0不显示该封面。显示封面时，如C盘根目录下有一名为LOGO.SYS的符合Windows 95要求的位图文件，则用它作为封面，如不存在，则用IO.SYS内含的位图作封面。
+        BootMulti=选择是否允许使用DOS 7.0及旧版本DOS进行双启动。等于1时允许，启动中选用DOS 7.0，会将旧版本的IO.SYS、MSDOS.SYS、COMMAND.COM、CONFIG.SYS和AUTOEXEC.BAT这些文件的扩展名改为.DOS；启动中如选旧版本的DOS，则会将DOS 7.0的这些文件扩展名改为.W40。等于0时不允许用双启动，也不对上述文件的扩展名进行改换，所以当前的IO.SYS、COMMAND.COM等文件为哪个版本就用哪个版本启动系统。
+        BootWin=是选择哪种版本DOS启动系统。等于1时是用DOS 7.0引导系统，等于0时用旧版本DOS引导。
+        BootMenu=在启动中选择是显示“Microsoft Windows 95 Startup Menu”(Windows 95启动菜单)，还是显示“Starting Windows 95…”提示。等于1显示启动菜单；等于0时(缺省值)显示提示，到BootDelay设置的时间后执行BootGUI的设定(在BootKeys设置为1时仍可执行人工选择)。
+        BootGUI=指定Windows 95启动菜单中第1项Normal的内容。
+        BootMenuDelay=是在BootMenu设置为1时，自动执行缺省项前的等待时间秒数。
+        BootDelay=是在BootMenu=0时设置显示“Starting Windows 95…”提示的等待时间秒数，以便于用功能键来改变启动方式(缺省值是2)。
+        BootMenuDefault=是指定Windows 95启动菜单的缺省项执行项(缺省值是1，即Normal方式)。
+        BootKeys=设置是否允许在启动时进行人工干预。等于1时可通过按F4(调用旧版本DOS)，F5(安全模式启动)，Shift+F5(启动中略去CONFIG.SYS及AUTOEXEC.BAT的设置进入DOS提示符状态)，F8(显示Windows 95启动菜单)，Shift+F8(单步启动，允许对每一项设置进行选择)等来改变启动方式。该值等于0时屏蔽这些功能键，则不能进行人工干预。
+        DoubleBuffer=选择是否设置保留2K的常规内存为不兼容的设备使用。等于1时保留，等于0则不保留常规内存。
+        DblSpace=如果用DoubleSpace对磁盘进行了扩容，该项则选择是否加载DoubleSpace磁盘压缩程序。等于1时加载，等于0时不加载。
+        DrvSpace=如用DriveSpace对磁盘进行了扩容，该项则选择是否加载DriveSpace磁盘压缩程序。等于1时加载，等于0不加载。
+        Network=在安装了网络后选择是否使用网络。等于1使用网络，等于0则不使用。
+        3.示例：
+        ①如果从C盘WIN95目录引导Windows 95，自动进入Windows 95，允许使用功能键改变启动方式，显示启动菜单，缺省项选1，等待时间5秒，允许使用双自动方式，用DOS 7.0引导系统，不安装磁盘压缩程序，显示Windows 95封面，为不兼容设备保留常规内存，安装网络，则可进行如下设置：
+        [Pahts]
+        WinDir=C:\WIN95
+        WinBootDir=C:\WIN95
+        HostWinBootDrv=C
+        [Options]
+        Logo=1
+        BootKeys=1
+        BootMenu=1
+        BootMenuDefault=1
+        BootMenuDelay=5
+        BootMulti=1
+        BootWin=1
+        DoubleBuffer=1
+        DrvSpace=0
+        Network=1
+        ;
+        ;以下各行是为兼容其它程序所必须的。
+        ;不要删除它们(MSDOS.SYS需要大于1024字节)。
+        ②如按下面的方法修改[Options]块的内容，则忽略Windows 95(感觉不到它的存在)，仍按过去的方式启动系统：
+        [Options]BootDelay=2BootGUI=0BootKeys=1BootMenu=0BootMulti=1BootWin=0DoubleBuffer=0Logo=0③仅用DOS 7.0引导系统，启动后停留在DOS提示符下，系统此时可提供多达624K的常规内存。修改[Options]块如下：
+        [Options]BootDelay=2BootGUI=0BootKeys=1BootMenu=0jBootMulti=1BootWin=1Logo=0Network=0九、从当前硬盘上卸掉Windows 95
+        删除Windows 95一般是比较麻烦的。不同的条件下安装的Windows 95删除的方法不同。Windows 95引导区是特殊的，不同于其它操作系统的引导扇区。因此不能拿以前的MS-DOS引导区简单覆盖。下面分两种情况讲叙：
+        (1) 最简单的情况：你在安装Windows 95时选择了"Save System Files"(保存系统文件)，这样，卸样Win95时，你只需在Windows 95里面单击Control Pan的Add/Remove Programs图标下的Install/Uninstall书签，然后在列表框里选择“Windows 95”，Uninstall程序被调出，你只需要按照屏幕提示做就可以了。你也可以在使用Windows 95安装过程中建立的应急盘(Emergency Repair Disk)来启动，然后在A>提示符下输入UNINSATLL回车就可以了。
+        (2)最麻烦的情况：你没有选择保留系统文件，这就比较麻烦了，第一步，退回到DOS，然后启动机器，按下F4进入以前的DOS版本的DOS，然后根据你的情况删除Windows 95子目录的全部或者部分文件；第二步，用DOS 6.22启动机器，在命令行下输入"Fdisk/MBR"来恢复以前的引导信息；第三步，仍然是在DOS命令行下，输入“SYS C：”恢复以前的DOS来恢复以前的引导信息，第四步，用DOS 6.22启动机器，重新安装Windows 3.X版本的视窗。
+        从上面的情况看，从当前硬盘上删除Windows 95是比较麻烦的，所以我们向大家推荐：在安装时最好要保留系统文件，以免在以后发生不必要的麻烦。
+        (全文完)
+        
+        
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

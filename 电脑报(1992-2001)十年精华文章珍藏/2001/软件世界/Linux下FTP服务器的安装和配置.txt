@@ -1,0 +1,125 @@
+Linux下FTP服务器的安装和配置
+
+高山 
+2001年 5期
+
+编者按：在以前的文章中，我们介绍了Linux下万维网（WWW）服务器的安装和配置。下面，我们接着为大家介绍Linux下FTP服务器的安装和配置。
+　　FTP（File Transfer Protocol）也是Internet上被广为应用的一种服务，它主要被用来完成文件上传与下载的工作。Linux下常见的免费FTP服务器也有许多种，目前最常见的是wu-ftp（Washington University FTP Server）。本文就以它为例来说明FTP服务器的安装和配置。由于FTP服务器的安装比较简单，本文的重点将放在FTP服务器的配置上。
+　　#1    1.安装
+　　在安装Linux系统的时候（如 RedHat Linux、Turbo Linux、蓝点Linux、红旗Linux等），选择安装FTP Daemon，然后安装程序就会自动为你安装好FTP服务器。如果高级用户或者Linux发烧友想自己编译并安装wu-ftp服务器的话，可以到各大Linux站点去下载软件包wu-ftpd-2xxx.tar.gz然后自己试着编译并安装一下，这里就不详细叙述了。
+　　在安装完成之后，为了验证wu-ftp服务器是否在工作，最简便的方法就是使用以下命令：
+　　[root@redhatlinux /]# ftp localhost
+　　Connected to localhost.
+　　220 redhatlinux.myserver FTP server Version wu-2.4.2-academ[BETA-18]（1）
+　　Mon Aug 3 19:17:20 EDT 1998）ready.
+　　Name（localhost:root）:mike
+　　331 Password required for mike.
+　　Password:
+　　230 User mike logged in.
+　　Remote system type is UNIX.
+　　Using binary mode to transfer files.
+　　ftp>bye
+　　221 Goodbye.
+　　注意：默认情况下，root用户是不被允许从FTP登录的。所以在试验之前，先要建一个普通用户，或者使用匿名用户（anonymous）登录。如果显示一切正常的话，wuftp服务器就已经被正确安装了。
+　　#1    2.配置
+　　同Apache WWW 服务器一样，有几个文件控制着wu-ftp服务器的工作。它们是：ftpaccess、ftpconversions、ftpgroups、ftphosts和ftpusers 。在Redhat Linux下，这几个文件都放在/etc/下，不同的FTP服务器有可能把它们放在不同的目录下，用户可以用find命令找到它们。
+　　2.1配置ftpaccess
+　　它是wu-ftp服务器的主要配置文件。下面是一个典型的ftpaccess文件的内容，在#后面，给出了语法说明和简要的解释。
+　　class  all real，guest，anonymous * 
+　　# 语法：class <class> <typelist> <addrglob>[<addrglob>...]
+　　定义用户类别：它定义从各<addrglob>地址来，用<typelist>登录的用户为<class>类。<typelist>为用户类型，可以为real（真实用户），guest（属于客人组的真实用户，用guestgroup定义），anonymous（匿名FTP用户）。上面的例子，就定义了从任意节点（*）来，用真实用户身份、guest身份以及用匿名身份登录的用户都为all这个类的用户。将用户定义为多个类，可以在下面的指令中对其分别设置不同的权限。
+　　email root@localhost
+　　# 语法：email email-address
+　　FTP服务器管理员的电子邮件地址。
+　　loginfails 5
+　　# 语法：loginfails number
+　　设置在用户在number次登录错误之后，显示“Repeated login failures”信息并断开连接。这在一定程度上增加了别人猜测用户密码的难度。
+　　limit all 100 SaSu｜Any1800-0600/etc/msgs/ftp.toomany
+　　limit all 60 Any /etc/msgs/ftp.toomany
+　　# 语法：limit <class> number <time> message-file
+　　限制各类用户在某时间段登录的数量。如果超过限制，给被拒绝登录的用户显示message-file指定的文件内容。上面的指令限制all类的用户在周六周日的18:00到06:00不能超过100人，平时不能超过60人。
+　　readme  README*  login
+　　readme  README*  cwd=*
+　　# 语法：readme readmefile condition
+　　设置当用户登录或者第一次进入某个目录时系统提示用户阅读的文件。
+　　message /welcome.msg   login
+　　message .message   cwd=*
+　　# 语法：message messagefile condition
+　　设置当用户登录或者第一次进入某个目录时系统给出的提示信息。
+　　compress  yes    all
+　　tar    yes     all
+　　chmod no guest，anonymous
+　　delete no guest，anonymous
+　　overwrite no guest，anonymous
+　　rename no guest，anonymous
+　　# 设置某一类的用户是否支持用这些系统功能。
+　　log commands real
+　　# 语法：log commands <typelist>
+　　记录<typelist>用户使用的命令。
+　　log transfers anonymous，real inbound，outbound
+　　# 语法：log transfers <typelist> <directions>
+　　记录<typelist>用户在<directions>方向上的文件传输。<directions>可以为inbound（上传）和outbound（下载）。
+　　shutdown /etc/shutmsg
+　　# 语法：shutdown filename
+　　如果filename指定的文件存在，服务器将定期检查它以确定服务器是否预定关闭。这个文件的格式为：
+　　<year> <month> <day> <hour> <minute> <deny_offset> <disc_offset>
+　　<text>
+　　其中<deny_offset>和<disc_offset>的意思是在服务器关闭之前多长时间将拒绝新的连接和中断现存的连接。<text>是给被拒绝连接的用户的一段信息。
+　　passwd-check rfc822 warn
+　　# 语法：passwd-check check-method solve-method
+　　设置口令检验方式。check-method可以为
+　　none：不进行口令检查。
+　　trivial：口令中必须含有“@”符号。
+　　rfc822：口令必须满足rfc822规定。
+　　solve-method可以为
+　　warn：只警告用户，但允许登录。
+　　enforce：警告用户并且断开连接。
+　　guestgroup ftponly
+　　#语法：guestgroup group
+　　定义哪个组的真实用户属于guest组。
+　　2.2配置ftpconversions
+　　这个文件定义文件的“飞行”转换规则。所谓“飞行”转换是指文件或目录在（使用RETRIEVE命令）传递过程中进行压缩（解压缩）和打包。
+　　/etc/ftpconversions的内容如下：
+　　:.Z:::/bin/compress -d -c %s:T_REG｜T_ASCII:O_UNCOMPRESS:UNCOMPRESS
+　　:::.Z:/bin/compress -c %s:T_REG:O_COMPRESS:COMPRESS
+　　:.gz:::/bin/gzip -cd %s:T_REG｜T_ASCII:O_UNCOMPRESS:GUNZIP
+　　:::.gz:/bin/gzip -9 -c %s:T_REG:O_COMPRESS:GZIP
+　　:::.tar:/bin/tar -c -f - %s:T_REG｜T_DIR:O_TAR:TAR
+　　:::.tar.Z:/bin/tar -c -Z -f - %s:T_REG｜T_DIR:O_COMPRESS｜O_TAR:TAR+COMPRESS
+　　:::.tar.gz:/bin/tar -c -z -f - %s:T_REG｜T_DIR:O_COMPRESS｜O_TAR:TAR+GZIP
+　　以上的指令的意思可以解释如下表：
+　　“飞行”转换的主要作用是压缩传递的数据量，减少传递时间；另外，可以将一个目录下的所有文件打包后一次传过来，不用费事地一一传输。
+　　2.3配置ftpusers
+　　这个文件主要是用于控制哪些用户不可以登录本FTP服务器。下面是一个典型的ftpusers文件。
+　　root
+　　bin
+　　daemon
+　　adm
+　　lp
+　　sync
+　　shutdown
+　　halt
+　　mail
+　　news
+　　uucp
+　　operator
+　　games
+　　nobody
+　　如果一个本地用户被包含在此文件中，他将不可以登录本FTP服务器。我们应当将root及其他系统账号加入本文件，这样可以提高系统的安全性。
+　　2.4配置ftpgroups
+　　这个文件并不是用于定义哪些用户组不可以登录本FTP服务器，它只有在使用Site Group功能时才起作用，请参考wu-ftpd的有关文档，一般不必使用它。
+　　2.5配置ftphosts
+　　这个文件设置允许或拒绝某些特定的节点以特定的用户名登录。如下面的例子：
+　　allow ftp 61.128.193.48
+　　deny ftp 61.128.193.*
+　　将拒绝61.128.193子网除61.128.193.48以外的所有节点的匿名登录。
+　　注意：如果上面两行倒过来写，allow一行将不起作用。又如：
+　　allow ftp*.cpcw.com*.yesky.com
+　　deny ftp*
+　　将拒绝除cpcw.com和yesky.com以外的所有节点的匿名登录。（^05020401a^）
+　　关于Linux下wu-ftpd的介绍，就到此为止了。希望大家以后在应用的时候多开动脑筋，活学活用。大家有问题欢迎来信讨论，我的E-Mail是cold.fire@263.net。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,191 @@
+ASP实战指南
+
+漆辉斌
+2000年 第53期 
+
+#1    一、认识ASP
+#1    （一）ASP的特点
+    ASP的全称是Active Server Pages，它提供了一种服务器端脚本编写环境和服务器端执行指令的环境，是用附加特性扩展了的标准的HTML文件。使用ASP可以创建和运行动态、交互的Web服务器应用程序。ASP可以将脚本命令（包含服务器端和客户端两种）、ActiveX组件、Java小程序、闪烁文本等嵌入HTML页而创建交互式的Web页和基于Web的功能强大的应用程序。
+    ASP页面可以使用脚本语言（如JavaScript、VBScript、Perl）编写，程序代码隐藏，输出到用户浏览器的只是动态的HTML文件，而且毫无浏览器兼容问题。用户只需经过简单的学习就可以编写出一个好的Web应用程序。
+    访问数据库轻松容易。通过使用内置的ASP组件ADO，ASP页面可以通过ODBC存取数据库，并将结果返回给用户的浏览器。
+#1    （二）ASP的运行环境
+    ASP的执行环境在服务器端，但并不是任何服务器都可以执行ASP。ASP需要Microsoft的IIS（Internet 信息服务器）的支持。并根据不同的操作系统安装相应的IIS服务器后，进行配置。可以是Windows NT+IIS 4.0、Windows 2000+IIS 5.0和Windows 98+PWS之一。
+#1    二、ASP的对象和组件
+#1    （一）Active Server Pages对象
+    Active Server Pages包含六大内置对象。这些对象使用户可扩展脚本功能。利用这六个内部对象，可以设计出功能强大的ASP应用程序。例如可用这些对象访问浏览器请求并控制对请求的响应。
+    1.Application对象——用来存储、读取用户共享的应用程序信息，如可以用此对象在网站的用户间传送信息。（如^00100012a^）
+    2.Request对象——从客户端取得信息。可用来访问从浏览器发送到服务器的请求信息，可用此对象读取已输入HTML表单的信息。（如^00100012b^）
+    3.Response对象——将信息送到客户端。用来向浏览器回发信息，可用此对象从脚本向浏览器发送输出。（如^00100012c^）
+    4.Server对象——提供一些Web服务器工具。Server对象最强有力之处，在于通过它，你可以和Web服务器进行交互。（如^00100012d^）
+    5.Session对象——储存在一个Session内的用户信息，该信息只能被该用户访问，如可存储用户对网站的访问信息。（如^00100012e^）
+    6.ObjectContext对象——可用来配合 Microsoft Transaction Server（MTS）服务器控制ASP事务。（如^00100012f^）
+#1    （二）ASP内置组件
+    ActiveX 组件与ASP内置对象相似。但使用Active ServerPages时，二者有重要区别。组件在使用前必须明确创建。
+    同前面讨论的内置对象一样，Active Server Pages组件也可以扩展脚本功能。组件与对象的不同在于其主要用于专门任务。以下给出了捆绑在Active ServerPages上的一些组件简介。
+    Ad Rotator组件——用来在网站的网页上显示横幅广告。可用此组件规定不同横幅广告的显示频率。
+    Browser Capabilities组件——根据不同浏览器性能显示不同HTML内容。如可用此组件对与框架兼容的浏览器显示带框架的网页。
+    Content Linking组件——用来链接不同的HTML页面使其操作更简单。如用此组件显示在线书籍的页面。
+    Counters组件——跟踪网站访问者的数量。可用此组件向特定网页添加计数器。
+    Content Rotator组件——可在页面上通过HTML的内容旋转。如用此组件随机显示网站主页的不同公告。
+    Page Counter组件——在向特定页面添加计数器和跟踪访问者数量方面与Counters组件完全一样。
+    Permission Checker组件——可只对被允许的用户显示网页的链接，并可用此组件创建只面向网站管理人员的网页。
+    Collaboration Data Objects（CDO）——可在Active Server Pages中发送或读取email。新用户在网站注册后，可用这些对象向其发送email。
+    ActiveX Data Objects（ADO）——用来在Microsoft SQL Server等数据库中读取或存储数据。
+#1    （三）ADO、数据库与ASP
+    在目前的站点设计中，越来越多的使用到了数据库技术。通过数据库，可以使站点的风格更为多样、灵活，内容更为丰富。我们在前面已经讲到ASP通过ADO，ADO再通过ODBC访问数据库获得数据信息，然后再返回结果送到客户端浏览器。ADO（ActiveX Data Objects）支持Web程序开发人员可以通过Internet存取数据库，即可以在客户端在线实现对数据库的访问、即时更新等操作。这样的结果是使得Web站点与数据库的集成更为紧密。ADO可以在任何支持COM以及OLE的服务器端操作系统上使用。但数据库是各种各样的，要实现对所有数据库的存取，就要用到ODBC，通过ODBC驱动程序，ADO就可以兼容各种数据库系统，包括Microsoft自身的Access、FoxPro、SQL Server以及Oracle、Informix、Sybase等公司的数据库服务器，而且具有统一的处理界面。比如在Windows 98的“控制面板”中就有一个“ODBC 数据源（32位）”，读者可以从中看到自己的系统安装了哪些ODBC驱动程序。
+    在ASP中主要的ADO对象有三个，分别是Connection、Command以及RecordSet，这三个对象又分别有一些子对象。
+    Connection提供对数据库服务器的连接，在数据库与应用程序之间建立联系，然后再将Recordset和Command对象来查询、请求、增加或更新数据。
+    Command对象的主要作用是进行数据库的查询。其工作方法是将采用SQL标准的查询语句指定到Command对象的CommandString属性，然后执行查询动作，数据库服务器响应后，将查询结果存储在Recorset对象中供用户使用。
+    Recordset对象存储了从数据库中取得的符合查询条件的数据集合。Web页面开发人员再通过ASP页面中的脚本对其加以处理、分析，然后显示在客户端的浏览器上。
+    这三个对象的一般语法格式如下：
+    Set rs = CreateObject（″ADODB.Recordset″）
+    Set conn = CreateObject（″ADODB.Connection″）
+    Set cm = CreateObject（″ADODB.Command″）
+    而对数据库的ODBC方法连接，一般采用系统DSN（DATA Source Name）和文件DSN两种方式。根据笔者在实际开发工作中的经验，连接到Microsoft SQL Server 7.0是采用的系统DSN，而对于Microsoft Access据库则是采用的文件DSN，这与连接信息的存储位置相对应。下面例子中的脚本用系统DSN打开了一个对数据库的连接：
+    <%
+    Set Conn = Server.CreateObject （ ″ADODB.Connection″ ）
+    Conn.Open ″DSN=ShopDSN;UID=sa;PWD=;DATABASE=OnlineShop″
+    %>
+    此脚本用CreateObject 方法创建了一个ADO Connection对象实例，然后通过输入有4个参数（系统 DSN、用户ID、密码和数据库名）的连接字符串打开Connection对象。执行此脚本之前，必须在Windows中创建System DSN。下面是步骤：
+    1.启动ODBC数据资源管理器。此程序位于Windows控制面板，标有ODBC数据源（32位）。
+    2.在ODBC数据资源管理器中，选择标有“系统 DSN”的一项。
+    3.单击“添加”，选择SQL Server Driver，单击“完成”。
+    4.输入一个名称（如ShopDSN）和描述，选择要连接的服务器。若SQL Server与IIS位于同一台机器上，则选择Local，否则输入网络上该服务器的IP地址或域名，选择“下一步”。
+    5.选择授权方法。
+    6.最后是新连接的测试。
+    创建了数据源后，我们就可以综合利用上面提到的三种对象来访问数据库了。如下面的脚本范例：
+    <%
+    Set rs=Server.CreateObject（"ADODB.Recordset"）
+    rs.Open "Select * from products"，"DSN=ShopDSN"
+    %>
+    在这个范例中，“Select * from products”就是使用字符串表示的Command对象，而“DSN=ShopDSN”是字符串所表示的Connection对象，它告诉服务器端的Connection对象所需连接的ODBC数据库数据源名称，即是我们上面新建的ShopDSN。
+    Recordset对象有17种属性，19种方法。
+    Connection对象有10种属性，6种方法。
+    Command对象有5种属性和2种方法。
+    与上面介绍ASP的内置对象和组件时一样，由于篇幅所限，我们只是简单的做了介绍。我们将在接下来的建站实例中熟悉一下这些对象的具体应用。如果读者需要更为详尽的资料和做更深入的学习，可以访问http://www.lan-home.com/asp-shop-cpcw/，读者在这里还可以找到本文讨论的、完整的ASP在线商店应用程序及更多的其他ASP实用程序。
+#1    三、ASP轻松组建网上建店
+    这里将讨论如何用Active Server Pages创建一家在线商店。你将学会开发一个可供商店用来通过因特网销售商品的站点。
+    如果你想要参照正在运行中的站点范例，可以访问http://www.lan-home.com/asp-shop-cpcw/，这是专门针对本文而在网上开办的的一家网上商店。
+#1    （一）商店数据库的规划及连接
+    首先，从性能、安全、数据完整性等因素综合考虑，一个网上商店应该采用一个大型的数据库。在LAN-HOME＆CPCW网上示范商店中，采用的是Access 桌面数据库，这是方便读者能够将整个应用程序搬回去更深入的学习和讨论。
+    决定了采用的数据库后，就要考虑数据库结构的设计，如应该创建哪些表、哪些字段？这应该根据商店将要准备提供哪些功能、采用什么经营方式来决定。
+    由LAN-HOME＆CPCW网上示范商店首页画面我们可以知道，在这家商店里，人们可以：
+    查看有关商店的最新资讯（也可以是外界的最新消息，或者是特色商品、新到货品推荐等）
+    浏览商品列表（这里必不可少的应该包括商品的名称、规格、产地、价格、描述及其他更多详细的资料，比如配套图片）
+    参与讨论（比如对商店的建议、质疑及顾客们之间进行闲聊）
+    订阅邮件（这样，顾客可以定期或不定期收到商店的最新公告或新品发布消息）
+    立即购买（选中了心水商品，立即放进购物车，呵呵，多多益善——这应该是整个站点最繁忙的地方）
+    付款埋单（把购物车推到收银台，付款吧。不管对于大中型或小型商让来说，网上支持的安全性是重要的。）
+    为了实现上面的功能及便于管理，LAN-HOME＆CPCW网上示范商店数据库cpcwshop.mdb包含下列数据表：
+    Customer：采用会员制是网上商店的习惯做法，会员可以获得购物上的若干优惠，这也是一种促销策略。而对于会员，我们希望获得他的姓名、年龄、性别、电话、传真、住址、邮政编码、email等有关信息，因此，对于Customer表可用下面的命令创建相关的字段：
+    CREATE TABLE Customer " _
+        ＆ ″（Customer_id Long，Customer_name text（20），True_name text（10），Password text（20），PhoneNo text（20），″ _
+        ＆ ″Address text（100），PostCode text（6），FaxNo text（20），Email text（50），Level_id text（1））″
+    在Customer表中，Customer-name是指会员在站点使用的用户名，而True-name是进行交易时用到的真实姓名，最后一项Level-id，是指会员的级别，在LAN-HOME＆CPCW网上示范商店中，会员有a、b、c三种级别，不同的级别，享受的优惠不同。
+    特别要说明的是，如果读者要在SQL Server中使用Create Table来创建表，则要注意字符型字段应是 Char（） 而不是 Text（）。
+    Forum：论坛，实际就是现在非常火爆的社区，在LAN-HOME＆CPCW网上示范商店中没有新建一个BBS系统，而是直接采用了www.lan-home.com现有的论坛。读者同样可以在这个站点找到该论坛的完整源代码下载，因此在这里就略过不讲。
+    Orders：订单包含信息有客户ID号、订购日期、订购商品名称、订购数量、订购成交金额、支付方式、送货方式等，因此，在LAN-HOME＆CPCW 网上示范商店中通过Order和OrderDetail两个表来进行处理。表的创建命令如下：
+    CREATE TABLE Order ″ _
+        ＆ ″（Order_id int Indetity，Customer_id int，Order_date text（20），Product_id Int （10），Order_Price Long，Pay_way text（1），Delivery_way text（1），Deliveried text（1），Order_proce text（1））″
+    CREATE TABLE OrderDetail ″ _
+        ＆ ″（Order_id int，Product_id int，Product_quence Long）″
+    在表Order中，Order是自动编号字段，Customer-id和Product-id是来自Customer和Product两个表的自动编号字段（也是该表的主键）。Pay-way和Delivery-way分别表示付款方式和送货方式，分别用字符型的数字表示不同的状态。如：送货方式以1、2、3分别表示邮寄、送货上门、特快专递，付款方式以1、2、3分别表示邮局汇款、银行汇款、网上支付，而Order-Proc则指当前订单的状态，分别以1、2、3、4表示新订单（即未结算订单）、已确认订单（顾客确认购买）、已付款订单（即已结算订单）、无效订单（含有顾客取消或因其他原因未成交的订单）。
+    Products：在LAN-HOME＆CPCW网上示范商店里，我们假定从事的是通讯产品销售，则商店的经营项目包含手机、固定电话、BB机、电话卡、配件等类别，而在每类的下面又有具体的产品及其相关信息。因此，商品数据库由商品类别表、商品明细表组成。
+    下面是表的创建命令：
+    CREATE TABLE Catalog ″ _
+        ＆ ″（Catalog_id int Indetity，Catalog_name text（50），Parent_id int，IsValid text（1））″
+    CREATE TABLE Products ″ _
+        ＆ ″（Product_id int，Product_name text（50），Product_mode text（20），Product_price real，Product_discount real，Product_currency text（10），Product_Made text（50），Product_img text（50），Product_profile memo，IsCommend text（1），Catalog_id int）″
+    在Catalog表，IsValid字段的作用是控制该类别的产品是否摆上货架，比如在缺货的情况下，将该字段置为0，则商品类别列表中就不会显示出该类别，货架上也就不会显示相关的商品。
+    在Products表中，依次定义的是产品自动编号、产品名称、产品型号、产品价格、产品折扣、产品产地、产品图片、产品描述、是否推荐产品、产品分类编号。其中是否推荐产品是指是否显示在首页右边的列表中。
+    News：最新资讯表主要由消息自动编号、消息标题、消息内容、消息插图、发布时间等字段组成。表的定义从略。
+    Merchant：这是一个有关商店本身信息的表。可以包括商店的中文名称、英文名称、地址、邮政编码、电话、传真、联系人、供销范围、简介、Logo等信息。
+    下面是表的创建命令：
+    CREATE TABLE Merchant ″ _
+        ＆ ″（Merchant_id int，Company_name text（50），Address text（50），PostCode text（6），Telephone text（20），Fax text（20），Linkman text（10），Discount long，Discount_Value long，Sales_Area text（150），Profile memo，Logo_Path text（50），IsValid text（1））″
+    表中的IsValid字段实际是为升级到商城做准备，即可以通过商城的控制程序在此赋值，以决定此商店是否有效。
+    应该说，上面的7个表（论坛所用的数据库除外）已经能满足需要了，当然，在实际的建店过程中，还可能会有所增删或改变。在本文的最后部分，我们还将简略提到商店后台的维护工作，但数据库的设计则基本是固定的了。
+    用户访问网站时，他由在线商店站点的“前页”default.asp开始。它给用户提供从这起始页面开始浏览整个网站所需的基本信息。
+    用户可以用关键字在起始页面搜索项目。还有对用户的购物车的链接，以及其它帮助区域，如Custom Service和一个Help页面。起始页面还可以包含时间性强的产品，用户可以从应用程序的主页直接把某一项加入购物车中。
+    数据库创建好之后，我们就可以进行数据源的连接。由于考虑到整个LAN-HOME＆CPCW网上示范商店应用程序将提供给读者下载，所以，我们采用的是文件DSN，同时将对数据库的连接操作集中在一个.INC文件中的。
+    Shopdsn.inc的内容如下：
+    <%
+    Set Conn=Server.CreateObject（″ADODB.Connection″）
+    Connstr=″DBQ=″+server.mappath（″database/cpcwshop.mdb″）+″;DefaultDir=;DRIVER={Microsoft Access Driver （*.mdb）};DriverId=25;FILE=MSAccess;ImplicitCommitSync=Yes;MaxBufferSize=512;MaxScanRows=8;PageTimeout=15;SafeTransactions=0;Threads=3;UserCommitSync=Yes;″
+    Conn.Open connstr%>
+#1    （二）首页的规划及组成
+    通过前面的介绍，我们已经知道ASP可以象C一样支持 Include 语法，即可以包含多个外部文件。因此，对于多个页面都要调用的一段相对独立的代码，我们都可以将它们包含在.inc文件里。如上面创建的用于数据库连接的shopdsn.inc。
+    在lan-home网上示范商店里，我们可以看到每个页面都相同的地方是header和footer两个部分。即同样的logo和同样的版权声明。而实际上，我们通过.asp源代码还可以知道，在每个页面开始时，相同的还有对用户身份的识别代码。对于这样情况，在网页设计技术里，传统的方法是采用frame技术，但在.asp里，我们可以通过包含文件来实现。因为，frame会固定的占用页面的部分，会对浏览速度造成一定的影响。在这里我们以首页为例来说明如何通过包含文件有效的进行整个页面的组织。
+    下面则是相应的源代码：
+    程序清单1：default.asp
+    <html>
+    <head>
+    <title>欢迎光临 LAN-HOME＆CPCW 网上示范商店</title>
+    <meta http-equiv=″Content-Type″ content=″text/html; charset=gb2312″>
+    </head>
+    <body bgcolor=″#FFFFFF″>
+    <table width=″755″ border=″1″ cellspacing=″0″ cellpadding=″0″ height=″100%″>
+      <tr>
+    <td><!--#include file=″header.inc″ --></td>
+      </tr>
+    </table>
+    <table width=″755″ border=″1″ cellspacing=″0″ cellpadding=″0″ height=″100%″>
+      <tr>
+    <td width=″155″ valign=″top″><!--#include file=″menu.inc″ --></td>
+    <td width=″420″ valign=″top″><!--#include file=″catalog.inc″ -->
+      <p><!--#include file=″catalog.inc″ --></p></td>
+    <td width=″155″ valign=″top″><!--#include file=″commend.inc″ --></td>
+      </tr>
+    </table>
+    <table width=″755″ border=″1″ cellspacing=″0″ cellpadding=″0″ height=″100%″>
+      <tr>
+    <td><!--#include file=″footer.inc″ --></td>
+      </tr>
+    </table>
+    </body>
+    </html>
+    1.Header.inc
+    包含文件Header.inc包含在每个页面的起始处，在LAN-HOME＆CPCW网上示范商店里，我们将上面提到的对数据库进行连接的shopdsn.inc包含了进来。即此header.inc所能进行的事务有：
+    （1）建立并使用ADO的Connection对象连接到商店数据库；
+    （2）获得Merchant-Name变量的值，这是用来设置<head>标签中的页面标题的，也是用于首页中显示欢迎信息的。取值方法说明如下：在服务器的asp-shop-cpcw目录中有一个Merchant.txt的文本文件，其内容只有一行：asp-shop-cpcw，此值即是数据库中Merchant表的Merchant-Name的值，我们先采用VBScript的Scripting.FileSystemObject对象打开该文本文件取值，再通过ADO对数据库的访问操作，查询得到商店的公司名称，即表Merchant中Company-Name的值。因此，实际上这种方法预留了一种扩展功能，即LAN-HOME＆CPCW 网上示范商店可以升级为一个网上商城，因为我们通过在Merchant表中增加记录，而获得更多的商店的信息。即Merchant表同时兼负商城里商店的管理职能。这在后面我们要讲到的后台维护时，还要进一步说明。
+    （3）在每个页面的左上角，Header.inc放置LAN-HOME＆CPCW网上示范商店的Logo图片；这个图片可以链接到商店的首页default.asp；Header.inc为每个页面的右上角则放置主力站点的Logo图片，并建立有到主页的链接。
+    （4）在设置了深色背景的表格中间，Header.inc通过采用Script Block用JavaScript来显示当前的日期，这是一种流行的作法。
+    （5）注意，在程序中（包括后面的所有程序），我们将变量的名称定义为与数据库的字段名一致，这样做的好处是增强程序的可读性，给今后的维护工作带来方便。在Header.inc中，我们立即对Recordset对象进行了清除处理，除非在特殊情况下，按照严密的逻辑，应该及时关闭并清除有关的对象和变量，这是一种优秀程序设计风格。同样地，出于增加程序的可读性，虽然ASP对大小写不敏感，我们仍有意识的进行了单词首字母的格式化书写。
+    （6）将Merchant-Name的值写入Session是方便后面的程序调用。
+    2.Footer.inc
+    与包含文件Header.inc一样，是为统一界面风格出现的。Footer.inc的包含指令是放在每个页面的</body>和<html>标签之前的。主要包含站点的版权声明和一组主要页面的链接。
+    3.Menu.inc
+    包含文件Menu.inc实际是将包含文件Footer.inc中的有关商店主要页面链接的重新布局，Menu.inc将作为包含文件出现在商店的首页中。采用包含文件的方法，主要是便于更新商店的显示风格。即，如果读者如果需要改变Menu中的图片或颜色，只要更新Menu.inc就可以了，而不必对整个default.asp文件进行手术。
+    4.Content.inc
+    包含文件Content.inc用于显示首页的正文。这是主要通过前面header.inc传来的Session（″Merchant″） 对表Merchant进行存取，将商店的有关信息，如公司名称、电话、传真、地址、联系人及公司欢迎辞（或是商店简介）显示在首页的主要位置。正如笔者现在正从事的工作，通过对Merchant表的访问，不但可以方便的更新商店的数据，而且可以立即创建更多的在线商店。结合ASP，我们需要做的就是先设计一个表格，然后将从数据库中读出来的值填到表格中去就行了。只是要注意：这些值做为VBScript出现，应该使用标识符<%和%>。
+    5.Catalog.inc
+    Catalog.inc的功能是在首页的显要位置以列表的形式将Catalog 表中的商品类型显示在Internet 访问者的浏览器上。在ASP中用Connection对象的Execute方法将数据记录从数据库中读出即出，读者可单独对此.inc进行进一步的版面的控制而不必修改整个首页。
+    6.Commend.inc
+    Commend.inc的功能是在首页的右边以列表的形式将Products表中的IsCommend 字段值为1的商品显示在Internet访问者的浏览器上，即推荐产品的显示。在一些电子商务站点上也叫做热门商品区。在ASP中仍可以 Connection 对象的Execute方法来进行处理，但应加上限制条件。这是因为推荐产品可能很多，而且，每个产品类型中都会有推荐产品，因此，综合考虑首页的容量及版面设计，有必要对数据库的操作加以控制。
+    上面这六个包含文件就构成了LAN-HOME＆CPCW 网上示范商店的首页default.asp，它们的详细代码请到LAN-HOME＆CPCW网上示范商站去下载。采用多个包含是ASP允许的，因此，我们今后我们首页进行风格上的调整就变得极为容易了，只要在default.asp的 <!--#include-->进行相应的改变就可以了。在lan-home的首页，也正是采用这一方式而给整个站点的维护带来事半功倍的效果。
+#1    （三）店内布置
+    现在，Internet访问者已经来到我们的首页，看得出来，他们对于我们在前面设计的简单而引人注目的首页是满意的。他们可以左边偏上的黄金位置输入关键字而搜索到自己需要的商品，也可以直接将右边“全新特价”区的商品直接放进购物车。再没有比此更方便的购物商店了。接下来，我们的顾客将进入我们的店里，因此我们还得接待、还得布置、还得处理一些事情（包括一些突发事情）。呵呵，这其实就是更多商品的显示、购物推车的处理、收银成交发货的处理，当然，还有会员登记、邮件列表发送等友好活动。
+    由于篇幅所限，我们在这里仅以商品搜索和显示，购物推车和订单处理为例进行说明，真实的体验和完整的源代码，读者可以在www.lan-home.com/asp-shop-cpcw/的LAN-HOME＆CPCW网上示范商店找到。
+    1.商品搜索及商品显示
+    在首页Default.asp的包含文件menu.inc中有一个包含一个文本框的<form>，访问者可以在这里通过输入与他寻找的产品的名称、项目号码或描述相符的关键字。Go图片则把这个表单提交给Search.asp处理。Search.asp根据访问者输入的关键字信息在数据库中进行商品搜索，再将结果显示出来。
+    2.购物推车
+    想象一下我们到一个超市购物时的情景：提着购物篮或推着购物车，走在货架间，哦，这是我最爱吃的巧克力，放进购物车，三块，嗯，太少，再加多两块；哗，那种名牌香水终于来了，得，买一瓶送给MM，哦，还有……逛呀，逛呀，到收银台了，糟了，钱没有带足，不好意思，那包火腿肠不要了，然后付帐，作个搬运夫拎着大包小包再陪往家返……因此，读者朋友们，请注意：在网上购物也完全是这样：允许顾客自由的选择、查看，可以有增加有取消，也有银两不够而后悔的时候。
+    购物车应有如下的几种操作：
+    添加：add
+    继续购物：continue
+    计算：Recalculate
+    确认：Confirm
+    查看：Show
+    其中，添加是初次购物时的操作，查看是缺省的操作，即在添加、重新计算、确认后，都是显示出购物车的现有商品，因此，确认、重新计算都是在后台进行的，前端并不显示。同时，要控制程序生成订单。即顾客进行了购物的Confirm后，就要准备通过添加一个记录到订货表中以完成订单，为每个用户的订货添加一个记录到订货细节中。这可以通过检查购物车会话变量和使用标准ADO技巧来添加相应的记录。
+    3.订单处理
+    如果我们收到了新的订单，表明订货已经开始。对于订单的处理可以包含下面三种情况：
+    显示
+    打印
+    清除
+    对于订单的处理基本上类似于推车购物。
+#1    （四）后台处理
+    一个在线商店需要一个后台来进行处理吗？答案是肯定的。比如商器类型的增加、删除、修改，商品的增加、删除、修改，订单的结算、删除、统计，前台的显示风格、商店基本信息、最新消息发布、访问流量统计，会员管理、邮件列表维护等，都得有一个好的后台来进行维护。这就好象行军打仗时所说的后勤，粮和草都是在这里准备的。由于篇幅所限，对于后台的操作，我们在此从略。读者可以在www.lan-home.com/asp-shop-cpcw/可以查看本文所讨论的LAN-HOME＆CPCW网上示范商店及其后台维护系统。读者在这里还可以找到该系统的最新源程序文件。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,40 @@
+从恐龙到航海家——NetScape崛起的故事
+
+  ●王中游
+1996-07-05
+
+        1996年初，美国《财富》杂志统计：NetScape公司在1995年的营业收入为8070万美元。对于商品经济高度发达的美国来说，这只是一个中等企业的规模，但要提醒读者注意的是，NetScape公司获得8070万美元的时候，距该公司成立日期仅一年!在刚刚成立一年营业收入就达8070万美元，这是全球软件巨人Microsoft也不曾有过的梦想。大家知道，Bill Gates的个人财产数字上升到了139亿美元的时候，他本人不过38岁，就凭这一点，他成了美国首富和无数青年的偶像。今天，NetScape公司的成就多少冲淡了Microsoft的光辉。
+        读者或许还记得《电脑报》1995年登过一篇《我制造了恐龙》的电脑史话。讲的是“硅图象”公司，即SGI公司用计算机设计电影画面的故事。董事长Jim Clark是这家公司的缔造者。《侏罗纪公园》的巨大成功使他的公司成了世界上最著名的计算机工作站制造商。然面在此之后，公司领导层内部出现一些矛盾，最终演化成了严重的分歧。Jim Clark失望之余，于1992年2月辞去了董事长的职位，离开了“硅图象”公司。
+        下一步怎么办?Jim clark已经52岁了，还能有前途吗?然而，在商机无限的美国，很难说清在什么年龄才不可能创业。Jim Clark 把目光投向了正走向高潮的Internet。Internet的普及使信息高速公路的建设有了基础。但也正由于它还不是非常成熟，所以还缺少了一些必要的网络软件。在硅谷纵横半生的Jim Clark，看见了机会。
+        二、闪电般地崛起
+        Jim Clark把World Wide Web(www)的浏览程度作为突破口而进入Internet。浏览程序是WWW服务器的一个图形前端，也是一个客户软件。通过浏览程序，用户才能轻而易举地在World Wide Web 网络上漫游。同时，用户还可以通过一个名为http(超级文本传输协议)的标准网络协议使用浏览程序超越World Wide Web而对各种文档进行检索。这也正是Internet网络最为诱人的地方。
+        1993年，美国伊利诺斯大学的学生Marc Andreesen设计出一个图形浏览程序MOSAIC，由该大学在Internet上免费发送。许多用户都是从这一程序开始认识到Internet的巨大好处的。MOSAIC使Internet的用户上升到1000万人以上。从MOSAIC开始，成千上万的人改变了自己的生活方式，学会了坐在计算机前漫游世界。
+        Jim Clark 发现Andreesen设计MOSAIC的时候只有23岁，这是一个与Bill Gatesg 一样的软件天才。于是，Jim Clark通过E-mail给Andreesen发了一封信，邀请他共同合作，开发新的产品，而Andreesen则与Jim Clark一拍即合。请读者注意，Bill Gates正是在Andreesen这个年龄与IBM公司签订了DOS使用许可合同。就这样，对信息产业有丰富经验的老谋深算的硅谷前辈与对程序设计有非凡才华的精力充沛的软件神童挽起了手。他们的合作宛如一道闪电划亮了Internet的上空。
+        1994年4月，Clark和A ndreesen合开了一家公司，这个公司到当年11月正式命名为NetScape。“Net”在英语中是“网”的意思，“Scape”则含有“前景、远景”的意思，这两个词结合到了一起就成了今天响彻软件世界的名字。
+        Jim Clark向NetScape公司投资了400万美元，并雇用了Andreesen的大部分同事。Andreesen带领这群计算机天才，仅用了一个月的时间，就开发出了浏览程序的新版本，但不再叫MOSAIC，取名为“Navigator 1.0”，在英语里，Navigator的意思是航海家。NetScape公司的理想是要让用户能象航海家一样在Internet的信息海洋中自由地探索。Navigator 1.0拥有更快的网络信息处理能力，并能够迅速处理复杂图形，同时还内置了一个安全保障程序，这引起了十分尊重隐私权的美国人的兴趣。
+        为了使Navigator 1.0尽早取代MOSAIC，Jim Clark决定采取伊利诺斯大学的做法，把该浏览程序免费发送给Internet用户，当然，如果用户需要该程序的改进版和其他售后服务，则应付出39美元。到1995年的6月，Internet网上有60%的WWW浏览程序是Navigator。用户们纷纷掏出39美元，要求得到Navigator的改进版和其他服务。NetScape公司的股票在上市后一个月，面值就上升到发行时的两倍。它已经抢到了浏览程序市场的头把交椅，其他软件公司，包括不可一世的Microsoft公司还没有反应过来，就已被远远地抛在后面。然而，NetScape公司为此在浏览程序市场净亏损了1280万美元。
+        对于一个刚刚成立的公司来说，免费赠送新产品这一举动体现了Clark这个商界老手的远见与大胆。实际上，浏览程序仅是NetScape公司市场战略中的第一步棋。NetScape公司的大手笔是随后推出的网络服务器软件。用户使用NetScape公司的网络服务器软件，可以在Internet网上创建交互式的“主页”(HomePage)。利用这种HomePage，商家可以通过WWW建立起虚拟的商场或发布大量广告，大公司则能够建立起内部的通讯网络。就在用户饱尝了免费的Navigator的甜头之后，一份份订单向NetScape公司飞来。NetScape公司最低档的网络服务器软件的单价为1495美元，如果加上安全的信用卡交易程序，则单价涨至5000美元，能够处理数据库的联机软件则要卖到50000美元。在NetScape公司的刺激下，庞大的服务器软件市场形成了。今天，计算机用户们象二十年前购买DOS一样疯狂地购入服务器软件，仅惠普公司就从NetScape公司那里购买了10万份Navigator的拷贝，而Microsoft、IBM、Sun和Apple等每一个软件巨人都在对这个市场虎视耽耽。到1996年5月，Navigator在浏览程序市场的份额已达到80%。
+        三、挑战巨人哥利亚的大卫
+        虽然到1995年结束时，NetScape公司已成为网络服务器软件市场上最大的赢家，但是，业界风云变化无常，谁都明白还有一个大人物没有出场，这就是试图控制整个软件业并已作出了卓有成效工作的Microsoft公司。
+        Microsoft在浏览程序市场的竞争中已经先输一筹。1995年6月，Navigator已占领了浏览程序市场中60%的阵地，而Microsoft直到1995年8月24日才推出Windows 95，在这个本身就姗姗来迟的操作系统中加入了一个并不令人满意的Internet Explorer程序。Microsoft原本有一个名为Plus!for Windows的浏览程序，但当时还很不完善，若是等它完善了，恐怕连Windows 95也要被耽误了，于是只好先用Internet Explorer来搪塞一下，Plus!for Windows也未能加入到通过零售渠道销售的Windows 95之中。现在，Microsoft已经把这一浏览程序加入Windows 95的原始设备制造商(OEM)版本里，Windows 95的零售商们也计划在今后的零售软件中加入Plus!for Windows，同时，用户也可以直接从Internet上下载它。以此重整雄风。
+        为了对抗Microsoft的勃勃雄心，NetScape公司开发出了最新版本的浏览程序__Navigator 2.0，这个版本允许用户方便地插入其他软件，并可使网络人员观察到更复杂的网络图形、3D图形以及各种音频或视频信息，但它最重要的特性是支持Sun公司的惊世之作Java编程语言。这种语言可以在宿主机上创造一个“虚机”来运行WWW服务器提供的程序或对象，不受任何操作系统的限制。用Java语言编制的小程序(Applet)可通过Internet网从服务器传到用户终端上并直接执行。
+        1995年12月4日，NetScape公司和sun公司共同宣布，两家公司联合推出了Java Script语言。这种语言避免了原来Java语言的不足之处，是一种开放式、跨平台的对象描述语言。它面向非编程人员，易学易用，用户可用Java Script在企业网络(Intranet)和Internet网上创建应用系统。12月5日，Clark的老根据地SGI公司宣布支持Java Script语言。随后，America Online、AT&T、Borland、CA、DEC、惠普、Informix、Novell、Oracle、Sybase和东芝等28家大公司也相继宣布支持这一崭新的编程语言。其中以其编程语言C++闻名于世的Borland公司对Java Script语言的支持表明这种语言有可能取代风靡一时的C++而成为Internet下一代编程语言的标准。
+        针对NetScape公司咄咄逼人的攻势，Microsoft立即展开了反击。1995年12月7日，Bill Gates在该公司网络战略研讨会上反复强调：“对Microsoft来说，Internet是至关重要的”。Microsoft效法Jim Clark的战术，免费用用户提供浏览软件Internet Explorer，获取了Java Script语言的使用许可证，并将其并入Internet Explorer。但Bill Gates的真实意图并不在Java Script，而是建立在为编写DOS立下了汗马功劳的BASIC语言基础上。现在，Microsoft推出了一种新的编程语言Visual Basic Script作为武器，对抗Java Script。Bill Gates再次使用了让人怀疑带有不正当竞争色彩的做法，即向用户无偿提供Visual Basic Script的使用权，这无疑是要完全扼杀Java Script。
+        除了在编程语言领域大打出手外，NetScape和Microsoft还在浏览程序声音软件战场上打了一场宣传战，尽管谁也没有生产出这种软件。1996年4月22日，NetScape负责技术开发的副总裁埃里克·哈恩宣布，NetScape将在1996年年底推出浏览声音应用程序，这项技术将进入电话和电视会议、无线电广播和电视等领域的应用。Microsoft公司的Internet平台和工具部经理布莱克·欧文马上指出，NetScape公司所说的浏览程序声音功能将无法在NetScape公司出的ActiveX平台上正常使用，这个平台就象是一种不能相互操作的电话环境。
+        Microsoft还渗透到了NetScape最大的根据地__网络服务器软件市场，NetScape公司的网络服务器软件价值从300美元至数千美元不等，而Microsoft则允许使用其Windows NT操作系统的客户可得到免费赠送且速度更快的同样产品。在Microsoft的强大攻势下，NetScape公司的股票呈下跌趋势，为了抵抗其拥有雄厚财力的对手的赠送行为，它不得不把用于Windows NT的商业服务器软件削价至原来的75%，对于一个成立不过十几个月的公司，这是一种难以承受的压力。
+        除了Microsoft之外，NetScape公司还面临着其他软件业巨头的挑战。曾超越Microsoft，夺取软件业第一公司，并在1995年并入蓝色巨人怀抱的莲花公司正在修改其名作Notes群件的程序，以使之成为一个WWW服务器程序，该程序有500万以上的用户；1996年2月26日，Oracle公司推出一个新的WWW服务器程序，这可以与其广为流行的数据库软件协同运作。然而NetScape公司没有在这些压力下垮掉，它像《圣经》中敢于挑战哥利亚的大卫一样，以一个又一个的新式软件为石头，向巨人们的眉心掷去?
+        四、NetScape会成为下一个Microsoft吗?
+        NetScape在网络领域与Microsoft竞争中已处处领先。1995年10月，NetScape已把相当于Java Script原型的Live Script组装在Navigator的评测版中，1995年12月4日后，更推出了多种与Java Script相配套的产品的目录，而Microsoft的Visual Basic Script直到现在也还只有一个规格设计书，与Java Script的进度相差甚远；在网络服务器软件方面，NetScape的多种产品已整装待发，除了普通的通信服务器软件外，还有具备保密功能的商业服务器软件以及和Master Card(万事达卡)International等组织以及促进标准化的信用卡付款协议SEEP相适应的软件包Merchant System。来自美国的最新消息，Navigator的最新版本Navigator 3.0已经公布，用户目前可从NetScape的WWW上得到，Navigator 3.0具有被称为LiveConnect的能力，这种能力能使WEb的开发商连接存在于HTML页面上的不同目标，如内插附加件和Java applets。Navigator 3.0还包括一系列管理与合作的特性，使得用户能够设定目录按钮电子邮件优选服务器设置、委托寻址和安全设置等。Microsoft则除了在1996年第一季度推出了Word Wide Web服务器软件Internet Explorer Server外，再无其他建树。
+        在争夺未来的战斗中，NetScape人不卸甲，马不卸鞍，闪电般地采取了一个又一个攻势：
+        它不断利用其手中的股票兼并具有先进技术的软件公司，网罗优秀的软件人才。1995年，NetScape收购了群件程序制造商Colabra，把该公司的群件程序加到1996年6月推出的Navigator 3.0中。1996年1月31日，它以1.61亿美元购买了多媒体会议制造商Insoft公司的全部普通股，并计划在其WWW浏览程序和服务器软件中使用Insoft的声像联网标准。1996年2月12日，它又兼并了虚拟现实软件制造商Paper软件公司，并计划在1996年底以前收购Netcode公司，以该公司的技术为基础发表一种直观工具借以使Java开发更容易。
+        它与通用电气公司投资成立了一个新的软件公司Actra Business Systems。通用电气公司目前向42个国家的4万多家公司提供电子商业、电子邮件和数据交换服务。NetScape搭上了通用电气公司的快车，使这些企业可以通过NetScape的产品在Internet网上进行订货、支付和发送电子目录等业务，这无疑又比Microsoft先跨出了一步。
+        随后NetScape公司又与美国最大的长途电话公司AT&T、最大的在线服务公司America Online以及拥有450万用户的CompuServer公司等达成了合作协议，这不仅使其用户猛增到赶2000万，而且有力地再次回击了WINTEL联盟的挑战。
+        它即将推出一个更强大的浏览程序Navigator Gold。该软件集成了所见即所得的创作环境，打破了浏览器和HTML创作工具之间的界限。Navigator Gold还为用户提供了一个字处理程序，使用户能拖放文件和对象，并使图像与HTML结合。这一举动不能不令人回忆起当年已凭DOS发了大财的Microsoft又推出了Word和Excel时的野心。Jim Clark还宣布，1997年，Navigator将出现在用户的电视机机顶盒和其他可通过电视提供网络存取的设备中心，这意味着NetScape已经把目光投向了网络领域的“最后一公里”。
+        现在，NetScape在网络领域的各个方面都超过了Microsoft，与后者相比，NetScape只缺少二十年的存在历史，以及由这个历史所形成的固定的势力范围。
+        但Microsoft历来以强硬态度著称，Bill Gates从来不对任何一个向他发起挑战的对手手软。不要忘记，当年Lotus 1-2-3也曾逼得Microsoft步步后退，但最终被卷土重来的Excel狂潮所摧毁。目前，Microsoft建立了一个能年产6000万套Windows的基地，这意味着它将利用自己的操作系统方面的优势，强迫使用Windows的用户们也同时使用能挂在Windows之下的Microsoft的网络服务器软件。
+        NetScape的发家则与Microsoft很类似，它现在羽翼已丰，摆出了小蛇吞象的姿势，它似乎不惧怕来自任何竞争对手的威胁。从1996年开始，软件业已取代了钢铁、石油、汽车等行业而成为美国最大的产业。在这个产业中，没有第二、第三，永远只有第一，谁走在后面，谁就面临着无情的淘汰，王安、Apple和莲花公司都是前车之鉴。随着网络的不断发展，在Internet网上屡占先机的NetScape能击败在PC机用户心目中无所不能的Microsoft吗?
+        让我们拭目以待！
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

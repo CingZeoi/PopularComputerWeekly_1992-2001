@@ -1,0 +1,475 @@
+用Delphi设计代理服务器
+
+王国忠   4206902@21cn.com
+2000年 第29期 
+
+　　笔者在编写一个上网计费软件时，涉及到如何对局域网中各工作站上网计费问题。一般来讲，这些工作站通过代理服务器上网，而采用现成的代理服务器软件时，由于代理服务器软件是封闭的系统，很难编写程序获取实时的上网计时信息。因此考虑是否能编写自己的代理服务器，一方面解决群体上网，另一方面又解决上网的计费问题呢？经过实验性编程，终于圆满地解决了该问题。现写出来，与各位同行分享。
+#1　　一、 思路
+　　当前流行的浏览器的系统选项中有一个参数，即“通过代理服务器连接”，经过编程测试，当局域网中一台工作站指定了该属性，再发出Internet请求时，请求数据将发送到所指定的代理服务器上，以下为请求数据包示例：
+　　GET http://home.microsoft.com/intl/cn/ HTTP/1.0
+　　Accept: ＊/＊
+　　Accept－Language: zh－cn
+　　Accept－Encoding: gzip， deflate
+　　User－Agent: Mozilla/4.0 （compatible; MSIE 5.0; Windows NT）
+　　Host: home.microsoft.com
+　　Proxy－Connection: Keep－Alive
+　　其中第一行为目标URL及相关方法、协议，“Host”行指定了目标主机的地址。
+　　由此知道了代理服务的过程：接收被代理端的请求、连接真正的主机、接收主机返回的数据、将接收数据发送到被代理端。
+　　为此可编写一个简单的程序，完成上述网络通信重定向问题。
+　　用Delphi设计时，选用ServerSocket作为与被代理工作站通信的套接字控件，选用ClientSocket动态数组作为与远程主机通信的套接字控件。
+　　编程时应解决的一个重要问题是多重连接处理问题，为了加快代理服务的速度和被代理端的响应速度，套接字控件的属性应设为非阻塞型；各通信会话与套接字动态绑定，用套接字的SocketHandle属性值确定属于哪一个会话。
+　　通信的衔接过程如^29020401a^1所示：
+    （1）被代理端浏览器发出Web请求，代理服务器的ServerSocket接收到请求。
+　　（2）代理服务器程序自动创建一个ClientSocket，并设置主机地址、端口等属性，然后连接远程主机。
+　　（3）远程连通后激发发送事件，将ServerSocket接收到的Web请求数据包发送到远程主机。
+　　（4）当远程主机返回页面数据时，激发ClientSocket的读事件，读取页面数据。
+　　（5）代理服务器程序根据绑定信息确定属于ServerSocket控件中的哪一个Socket，将从主机接收的页面信息发送到被代理端。
+#1　　二、程序编写
+　　使用Delphi设计以上通信过程非常简单，主要是ServerSocket、ClientSocket的相关事件驱动程序的程序编写。下面给出编写的实验用代理服务器界面（^29020401b^2）与源程序清单，内含简要功能说明：
+　　unit main;
+　　interface
+　　uses
+　　  Windows， Messages， SysUtils， Classes， Graphics， Controls， Forms， Dialogs，
+　　  ExtCtrls， ScktComp， TrayIcon， Menus， StdCtrls;
+　　type
+　　   session_record=record
+　　  Used: boolean; {会话记录是否可用}
+　　  SS_Handle: integer; {代理服务器套接字句柄}
+　　  CSocket: TClientSocket; {用于远程连接的套接字}
+　　  Lookingup: boolean; {是否正在查找服务器}
+　　  LookupTime: integer; {查找服务器时间}
+　　  Request: boolean; {是否有请求}
+　　  request_str: string; {请求数据块}
+　　  client_connected: boolean; {客户机联机标志}
+　　  remote_connected: boolean; {远程服务器连接标志}
+　　end;
+　　type
+　　  TForm1 = class（TForm）
+　　ServerSocket1: TServerSocket;
+　　ClientSocket1: TClientSocket;
+　　Timer2: TTimer;
+　　TrayIcon1: TTrayIcon;
+　　PopupMenu1: TPopupMenu;
+　　N11: TMenuItem;
+　　N21: TMenuItem;
+　　N1: TMenuItem;
+　　N01: TMenuItem;
+　　Memo1: TMemo;
+　　Edit1: TEdit;
+　　Label1: TLabel;
+　　Timer1: TTimer;
+　　procedure Timer2Timer（Sender: TObject）;
+　　procedure N11Click（Sender: TObject）;
+　　procedure FormCreate（Sender: TObject）;
+　　procedure FormClose（Sender: TObject; var Action: TCloseAction）;
+　　procedure N21Click（Sender: TObject）;
+　　procedure N01Click（Sender: TObject）;
+　　procedure ServerSocket1ClientConnect（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ServerSocket1ClientDisconnect（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ServerSocket1ClientError（Sender: TObject;
+　　  Socket: TCustomWinSocket; ErrorEvent: TErrorEvent;
+　　  var ErrorCode: Integer）;
+　　procedure ServerSocket1ClientRead（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ClientSocket1Connect（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ClientSocket1Disconnect（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ClientSocket1Error（Sender: TObject; Socket: TCustomWinSocket;
+　　  ErrorEvent: TErrorEvent; var ErrorCode: Integer）;
+　　procedure ClientSocket1Write（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure ClientSocket1Read（Sender: TObject; Socket: TCustomWinSocket）;
+　　procedure ServerSocket1Listen（Sender: TObject;
+　　  Socket: TCustomWinSocket）;
+　　procedure AppException（Sender: TObject; E: Exception）;
+　　procedure Timer1Timer（Sender: TObject）;
+　　  private
+　　{ Private declarations }
+　　  public
+　　Service_Enabled: boolean; {代理服务是否开启}
+　　session: array of session_record; {会话数组}
+　　sessions: integer; {会话数}
+　　LookUpTimeOut: integer; {连接超时值}
+　　InvalidRequests: integer; {无效请求数}
+　　  end;
+　　var
+　　  Form1: TForm1;
+　　implementation
+　　{S|    R ＊.DFM}
+　　//系统启动定时器，启动窗显示完成后，缩小到System Tray...
+　　procedure TForm1.Timer2Timer（Sender: TObject）;
+　　begin
+　　   timer2.Enabled:=false; {关闭定时器}
+　　   sessions:=0; {会话数=0}
+　　   Application.OnException := AppException; {屏蔽代理服务器出现的异常}
+　　   invalidRequests:=0; {0错误}
+　　   LookUpTimeOut:=60000; {超时值=1分钟}
+　　   timer1.Enabled:=true; {打开定时器}
+　　   n11.Enabled:=false; {开启服务菜单项失效}
+　　   n21.Enabled:=true; {关闭服务菜单项有效}
+　　   serversocket1.Port:=988; {代理服务器端口=988}
+　　   serversocket1.Active:=true; {开启服务}
+　　   form1.hide; {隐藏界面，缩小到System Tray上}
+　　end;
+　　//开启服务菜单项...
+　　procedure TForm1.N11Click（Sender: TObject）;
+　　begin
+　　   serversocket1.Active:=true; {开启服务}
+　　end;
+　　//停止服务菜单项...
+　　procedure TForm1.N21Click（Sender: TObject）;
+　　begin
+　　   serversocket1.Active:=false; {停止服务}
+　　   N11.Enabled:=True;
+　　   N21.Enabled:=False;
+　　   Service_Enabled:=false; {标志清零}
+　　end;
+//主窗口建立
+procedure TForm1.FormCreate（Sender: TObject）;
+begin
+   Service_Enabled:=false;
+   timer2.Enabled:=true;{窗口建立时，打开定时器}
+end;
+//窗口关闭时
+procedure TForm1.FormClose（Sender: TObject; var Action: TCloseAction）;
+begin
+   timer1.Enabled:=false;{关闭定时器}
+   if Service_Enabled then
+      serversocket1.Active:=false;{退出程序时关闭服务}
+end;
+//退出程序按钮
+procedure TForm1.N01Click（Sender: TObject）;
+begin
+   form1.Close;{退出程序}
+end;
+//开启代理服务后
+procedure TForm1.ServerSocket1Listen（Sender: TObject;
+  Socket: TCustomWinSocket）;
+begin
+   Service_Enabled:=true;{置正在服务标志}
+   N11.Enabled:=false;
+   N21.Enabled:=true;
+end;
+//被代理端连接到代理服务器后，建立一个会话，并与套接字绑定...
+procedure TForm1.ServerSocket1ClientConnect（Sender: TObject;
+  Socket: TCustomWinSocket）;
+var
+i，j: integer;
+begin
+   j:=－1;
+   for i:=1 to sessions do{查找是否有空白项}
+      if not session[i－1].Used and not session[i－1].CSocket.active then
+         begin
+            j:=i－1;{有，分配它}
+            session[j].Used:=true;{置为在用}
+            break;
+         end
+      else
+         if not session[i－1].Used and session[i－1].CSocket.active then
+               session[i－1].CSocket.active:=false;
+   if j=－1 then
+      begin{无，新增一个}
+         j:=sessions;
+         inc（sessions）;
+         setlength（session，sessions）;
+         session[j].Used:=true;{置为在用}
+         session[j].CSocket:=TClientSocket.Create（nil）;
+         session[j].CSocket.OnConnect:=ClientSocket1Connect;
+         session[j].CSocket.OnDisconnect:=ClientSocket1Disconnect;
+         session[j].CSocket.OnError:=ClientSocket1Error;
+         session[j].CSocket.OnRead:=ClientSocket1Read;
+         session[j].CSocket.OnWrite:=ClientSocket1Write;
+         session[j].Lookingup:=false;
+      end;
+   session[j].SS_Handle:=socket.socketHandle; {保存句柄，实现绑定}
+   session[j].Request:=false;{无请求}
+   session[j].client_connected:=true;{客户机已连接}
+   session[j].remote_connected:=false;{远程未连接}
+   edit1.text:=inttostr（sessions）;
+end;
+//被代理端断开时
+procedure TForm1.ServerSocket1ClientDisconnect（Sender: TObject;
+  Socket: TCustomWinSocket）;
+var
+i，j，k: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].SS_Handle=socket.SocketHandle） and session[i－1].Used then
+         begin
+	session[i－1].client_connected:=false; {客户机未连接}
+            if session[i－1].remote_connected then
+               session[i－1].CSocket.active:=false {假如远程尚连接，断开它}
+            else
+	session[i－1].Used:=false;{假如两者都断开，则置释放资源标志}
+            break;
+         end;
+   j:=sessions;
+   k:=0;
+   for i:=1 to j do{统计会话数组尾部有几个未用项}
+      begin
+         if session[j－i].Used then
+            break;
+         inc（k）;
+      end;
+   if k>0 then{修正会话数组，释放尾部未用项}
+      begin
+	sessions:=sessions－k;
+	setlength（session，sessions）;
+      end;
+	edit1.text:=inttostr（sessions）;
+end;
+//通信错误出现时
+procedure TForm1.ServerSocket1ClientError（Sender: TObject;
+  Socket: TCustomWinSocket; ErrorEvent: TErrorEvent;
+  var ErrorCode: Integer）;
+var
+i，j，k: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].SS_Handle=socket.SocketHandle） and session[i－1].Used then
+         begin
+            session[i－1].client_connected:=false;{客户机未连接}
+            if session[i－1].remote_connected then
+               session[i－1].CSocket.active:=false{假如远程尚连接，断开它}
+            else
+               session[i－1].Used:=false;{假如两者都断开，则置释放资源标志}
+            break;
+         end;
+   j:=sessions;
+   k:=0;
+   for i:=1 to j do
+      begin
+         if session[j－i].Used then
+            break;
+         inc（k）;
+      end;
+   if k>0 then
+      begin
+         sessions:=sessions－k;
+         setlength（session，sessions）;
+      end;
+   edit1.text:=inttostr（sessions）;
+   errorcode:=0;
+end;
+//被代理端发送来页面请求时
+procedure TForm1.ServerSocket1ClientRead（Sender: TObject;
+  Socket: TCustomWinSocket）;
+var
+tmp，line，host: string;
+i，j，port: integer;
+begin
+   for i:=1 to sessions do{判断是哪一个会话}
+      if session[i－1].Used and （session[i－1].SS_Handle=socket.sockethandle） then
+          begin
+        session[i－1].request_str:=socket.ReceiveText; {保存请求数据}
+       tmp:=session[i－1].request_str; {存放到临时变量}
+             memo1.lines.add（tmp）;
+             j:=pos（char（13）＋char（10），tmp）;{一行标志}
+             while j>0 do{逐行扫描请求文本，查找主机地址}
+                begin
+                   line:=copy（tmp，1，j－1）;{取一行}
+                   delete（tmp，1，j＋1）;{删除一行}
+                   j:=pos（＇Host＇，line）;{主机地址标志}
+                   if j>0 then
+                      begin
+                         delete（line，1，j＋5）;{删除前面的无效字符}
+  j:=pos（＇:＇，line）;
+  if j>0 then
+     begin
+        host:=copy（line，1，j－1）;
+        delete（line，1，j）;
+        try
+           port:=strtoint（line）;
+        except
+           port:=80;
+        end;
+     end
+  else
+     begin
+      host:=trim（line）;{获取主机地址}
+      port:=80;
+     end;
+	if not session[i－1].remote_connected then{假如远征尚未连接}
+	begin
+	session[i－1].Request:=true;{置请求数据就绪标志}
+	session[i－1].CSocket.host:=host;{设置远程主机地址}
+	session[i－1].CSocket.port:=port;{设置端口}
+	session[i－1].CSocket.active:=true;{连接远程主机}
+	session[i－1].Lookingup:=true;{置标志}
+	session[i－1].LookupTime:=0;{从0开始计时}
+                            end
+                         else
+	{假如远程已连接，直接发送请求}
+	session[i－1].CSocket.socket.sendtext（session[i－1].request_str）;                                    
+	break;{停止扫描请求文本}
+   	end;
+   	j:=pos（char（13）＋char（10），tmp）;{指向下一行}
+                end;
+             break;{停止循环}
+          end;
+end;
+//当连接远程主机成功时
+procedure TForm1.ClientSocket1Connect（Sender: TObject;
+  Socket: TCustomWinSocket）;
+var
+i: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].CSocket.socket.sockethandle=socket.SocketHandle） and session[i－1].Used then
+         begin
+            session[i－1].CSocket.tag:=socket.SocketHandle;
+            session[i－1].remote_connected:=true;{置远程主机已连通标志}
+            session[i－1].Lookingup:=false;{清标志}
+            break;
+         end;
+　　end;
+//当远程主机断开时
+procedure TForm1.ClientSocket1Disconnect（Sender: TObject; Socket: TCustomWinSocket）;
+var
+i，j，k: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].CSocket.tag=socket.SocketHandle） and session[i－1].Used then
+         begin
+　　            session[i－1].remote_connected:=false;{置为未连接}
+            if not session[i－1].client_connected then
+               session[i－1].Used:=false{假如客户机已断开，则置释放资源标志}
+            else
+               for k:=1 to serversocket1.Socket.ActiveConnections do
+                  if （serversocket1.Socket.Connections[k－1].SocketHandle=session[i－1].SS_Handle） and session[i－1].used then
+                     begin
+                        serversocket1.Socket.Connections[k－1].Close;
+                        break;
+                     end;
+            break;
+         end;
+   j:=sessions;
+   k:=0;
+   for i:=1 to j do
+      begin
+         if session[j－i].Used then
+            break;
+         inc（k）;
+      end;
+   if k>0 then{修正会话数组}
+      begin
+         sessions:=sessions－k;
+         setlength（session，sessions）;
+      end;
+   edit1.text:=inttostr（sessions）;
+end;
+//当与远程主机通信发生错误时
+procedure TForm1.ClientSocket1Error（Sender: TObject;
+  Socket: TCustomWinSocket; ErrorEvent: TErrorEvent;
+  var ErrorCode: Integer）;
+var
+i，j，k: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].CSocket.tag=socket.SocketHandle） and session[i－1].Used then
+         begin
+            socket.close;
+            session[i－1].remote_connected:=false;{置为未连接}
+            if not session[i－1].client_connected then
+               session[i－1].Used:=false{假如客户机已断开，则置释放资源标志}
+            else
+               for k:=1 to serversocket1.Socket.ActiveConnections do
+                  if （serversocket1.Socket.Connections[k－1].SocketHandle=session[i－1].SS_Handle） and session[i－1].used then
+                     begin
+                        serversocket1.Socket.Connections[k－1].Close;
+                        break;
+                     end;
+            break;
+         end;
+   j:=sessions;
+   k:=0;
+   for i:=1 to j do
+      begin
+         if session[j－i].Used then
+            break;
+         inc（k）;
+      end;
+   errorcode:=0;
+   if k>0 then{修正会话数组}
+      begin
+         sessions:=sessions－k;
+         setlength（session，sessions）;
+      end;
+   edit1.text:=inttostr（sessions）;
+end;
+//向远程主机发送页面请求
+procedure TForm1.ClientSocket1Write（Sender: TObject;
+  Socket: TCustomWinSocket）;
+var
+i: integer;
+begin
+   for i:=1 to sessions do
+      if （session[i－1].CSocket.tag=socket.SocketHandle） and session[i－1].Used then
+         begin
+            if session[i－1].Request then
+               begin
+                  socket.SendText（session[i－1].request_str）;{假如有请求，发送}
+                  session[i－1].Request:=false;{清标志}
+               end;
+            break;
+         end;
+end;
+//远程主机发来页面数据时
+procedure TForm1.ClientSocket1Read（Sender: TObject; Socket: TCustomWinSocket）;
+var
+i，j: integer;
+rec_bytes: integer;{传回的数据块长度}
+rec_Buffer: array[0..2047] of char; {传回的数据块缓冲区}
+begin
+   for i:=1 to sessions do
+      if （session[i－1].CSocket.tag=socket.SocketHandle） and session[i－1].Used then
+         begin
+            rec_bytes:=socket.ReceiveBuf（rec_buffer，2048）; {接收数据}
+            for j:=1 to serversocket1.Socket.ActiveConnections do
+          if serversocket1.Socket.Connections[j－1].SocketHandle=session[i－1].SS_Handle then
+                  begin
+                     serversocket1.Socket.Connections[j－1].SendBuf（rec_buffer，rec_bytes）;  {发送数据}
+                     break;
+                  end;
+            break;
+         end;
+end;
+//“页面找不到”等错误信息出现时
+procedure TForm1.AppException（Sender: TObject; E: Exception）;
+begin
+  inc（invalidrequests）;
+end;
+//查找远程主机定时
+procedure TForm1.Timer1Timer（Sender: TObject）;
+var
+i，j: integer;
+begin
+   for i:=1 to sessions do
+      if session[i－1].Used and session[i－1].Lookingup then{假如正在连接}
+         begin
+            inc（session[i－1].LookupTime）;
+            if session[i－1].LookupTime>lookuptimeout then{假如超时}
+               begin
+                  session[i－1].Lookingup:=false;
+                  session[i－1].CSocket.active:=false;{停止查找}
+                  for j:=1 to serversocket1.Socket.ActiveConnections do
+               if serversocket1.Socket.Connections[j－1].SocketHandle=session[i－1].SS_Handle then
+                        begin
+                           serversocket1.Socket.Connections[j－1].Close;{断开客户机}
+                           break;
+                        end;
+               end;
+         end;
+end;
+end.
+#1    三、总结
+    由于这种设计思路仅仅在被代理端和远程主机之间增加了一个重定向功能，被代理端原有的缓存技术等特点均保留，因此效率较高。经过测试，利用一个33.6K的Modem上网时，三到十个被代理工作站同时上网，仍有较好的响应速度。由于被代理工作站和代理服务器之间的连接一般通过高速链路，因此瓶颈主要出现在代理服务器的上网方式上。
+    通过上述方法，作者成功开发了一套完善的代理服务器软件并与机房计费系统完全集成，实现了利用一台工作站完成上网代理、上网计费、用机计费等功能。
+    有编程经验的朋友完全可以另行增加代理服务器功能，如设定禁止访问站点、统计客户流量、Web访问列表等等。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

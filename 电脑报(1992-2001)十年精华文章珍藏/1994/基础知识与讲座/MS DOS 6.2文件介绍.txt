@@ -1,0 +1,77 @@
+MS DOS 6.2文件介绍
+
+
+1994-01-07
+
+        *.CPI 编码页信息文件。如果你不用编码页，这些文件可以删除。
+        *.INI大型应用程序如MemMaker、DoubleSpace或SmartDrive的启动文件。不要删掉它们。
+        ANSI.SYS 本设备驱动程序支持扩展光标和屏幕显示。因为它用得少，一般可以删除它。
+        ATTRIB.EXE能够显示和修改文件属性。不要删掉。
+        AUTOEXEC.BAT，CONFIG.SYS保存操作系统的配置。你可以编辑自己的配置文件，也可用MEMMAKER.EXE由系统帮助你产生配置文件。
+        CHKDSK.EXE支持磁盘空间分配的检查、修正，不要删除它。
+        CHOICE.COM在批文件中给你提供选择功能。不要删除。
+        COMMAND.COM命令解释器，不许删除。
+        COUNTRY.SYS 保存有关国家的特殊信息。因为其中还没有中国的特殊编码，可以删除。
+        DBLSPACE.EXE,DBLSPACE.INI,DBLSPACE.SYS,DBLSPACE.BIN,DBLSPACE.HLP是用DoubleSpace 压缩磁盘的前提，不要删除。请记住，DoubleSpace还会采用DEFRAG程序。
+        DEBUG.EXE 支持机器代码命令的反汇编和直接输入及其它一些功能。一般为专业计算机工作人员所使用，如非特殊情况，尽量不要删除它。
+        DEFRAG.EXE,DEFRAG.HLP因为DoubleSpace可以用它们加快硬盘的存取，你最好不要删除此程序及其帮助文件。用户也可以直接运行它。
+        DELOLDOS.EXE本程序专门作旧操作系统的删除。它的功能完成以后，可以删除。   DELTREE.EXE能够删除完整的目录结构。除非你在使用一个DOS外壳或WINDOWS，最好不要删除它。
+        DISKCOMP.COM 这个程序能够在磁盘间比较数据。因为它实际上用得很少，可以删除它。
+        DISKCOPY.COM能够拷贝软盘。一般不要删除。如果你在用一个DOS外壳或WINDOWS的话，可以考虑删除它。
+        DISPLAY.SYS支持代码表的设备驱动程序，用得极少，因此一般可以删除该文件。
+        DOSHELP.HLP,FASTHELP.EXE,HELP.COM,HELP.HLP如果你想用帮助功能，请保留。值得注意，为了享用DOSHELP你还需要QBASIC.EXE，不要删除它。
+        DOSKEY.COM是命令行编辑器。也不要删除。
+        DOSSHELL.EXE,DOSSHELL.COM,DOSSHELL.HLP,DOSSWAP.EXE，许多图形文件(*.GRB，*.VID)DOS外壳和进程交换器是MS-DOS 6.0的部分，更新系统时它们不自动被删除。不是每个人都喜欢DOS外壳。如果你不准备用它，而且你不想交换进程，就可以不要它们。
+        DRIVER.SYS 能够进行物理驱动器的设置。一般不用它，因此删除也可以。
+        EXPAND.EXE 能够反压缩(装入)安装盘上的操作系统文件。该文件不要删除。
+        FASTOPEN.EXE 该程序支持驱动器的快速存取，一般不要删除它。
+        FC.EXE能够比较文件。随你的便。删除也可以。
+        FDISK.EXE硬盘管理程序，无论如何不要删除。
+        FIND.EXE包括一个DOS寻找功能。可以删除。
+        FORMAT能够格式化软盘和硬盘驱动器。是MS-DOS 6.2需要的。
+        GRAPHICS.COM,GRAPHICS.PRN这些文件能够在图形打印机上输出图形，使用得较少，可以删去。
+        HIMEM.SYS内存空间的存储管理程序，不要删除它。
+        INTERLNK.EXE,INTERSVR.EXE支持连接好的计算机之间串行接口的数据交换。如果你不想利这个功能，可以删除。
+        IO.SYS,MSDOS.SYS该系统文件是用MS-DOS的基础，绝对不能删除。
+        KEYB.COM,KEYBOARD.SYS能够使键盘适合各个欧洲国家的字符。用户可以删除。  LABEL.EXE创建、改变或删除磁盘上的卷标。如果你用DOS外壳或WINDOWS，可以删除。
+        LOADFIX.COM确保程序是放在装入常规内存的第一个64KB字节之上。如果你运行程序时得到Packed File Corrupt错误提示，你就应该使用该命令。不要删除它。
+        MEM.EXE显示内存状态信息。对你了解系统状况十分有用，不要删除。
+        MEMMAKER.EXE,MEMMAKER.HLP,MEMMAKER.INI在DOS下能最合理地利用内存。在你把配置修改了以后，最好重新运行MEMMAKER，你最好不要删除它们。
+        MODE.COM管理不同硬件的配置，一般不要删除。
+        MORE.COM一次只输出一屏。如果在DOS下不用管道功能进行分屏显示，可以删除它。
+        MOUSE.COM这是Microsoft公司设计的鼠标驱动程序，能够适合很多种鼠标。最好不删除它：如果以后你的鼠标发生问题的话，还可以用它代替别的鼠标厂家设计的鼠标驱动程序。
+        MOVE.EXE能够移动、改名目录和文件。不要删除。  MSAV.HLP,MSAV.EXE,MSAVHELP.OVL,MSAVIRUS.LST,MWAV.EXE,MWAV.HLP,MWAVABSI.DLL,MWAVDLG.DLL,MWAVDOSL.DLL,MWAVDRVL.DLL,MWAVMGR.DLL,MWAVSCAN.DLL,MWAVSOS.DLL,MWAVTSR.EXE是检测和杀死病毒所需要的文件。如果你想让MSAV在DOS下运行，你需要以“MS”开始的文件。如果你想在WINDOWS下运行，你需要的是以“MW”开始的文件。假设你想使它在DOS和WINDOWS两个环境下都可运行，你就将上面的文件都保留MSBACKFB.OVL,MSBACKFR.OVL,MSBACKUP.EXE,MSBACKUP.HLP,MSBACKUP.OVL,MSBCONFG.HLP,MSBCONFG.OVL,MSTOOLS.DLL,MSBACKDB.OVL,MSBACKDR.OVL,MWBACKUP.HLP,MWGRAFIC.DLL,MWBACKF.DLL,MWBACKR.DLL,MWBACKUP.EXE如果你在DOS和WINDOWS环境下用BACKUP，不要删除这些文件。当然只要安装正确，你可以筛出DOS下或者WINDOWS下可需要的BACKUP文件。如果你想在DOS和WINDOWS下都支持BACKUP功能，你都要保留它们。
+        MSCDEX.EXEMS-DOS 6.2兼容光盘驱动程序。你没有光盘驱动器的话。可以删除
+        MSD.EXE它是Microsoft Diagnosis Program(诊断程序)。因为它帮你检查系统配置，安装它是有好处的。
+        MWUNDEL.EXE,MWUNDEL.HLP这个程序在WINDOWS下能恢复被删去的文件。
+        NETWORK.TXT,USERINFO.TXT,INFO.TXT,OS2.TXT解释MS-DOS 6.2怎样适合特殊的硬件和软件。正确地安装以后可以删除它们。
+        NLSFUNC.EXE国际语言支持功能，极少使用，可以删除它。
+        PACKING.LST  是安装软盘上的文件目录。把它拷贝到硬盘上没有什么意思。
+        POWER.EXE这是一个很有趣的程序，让你的笔记本计算机节约用电。不幸的是，它在普通PC机和大型计算机上不起作用，因此后者可以删除它。
+        PRINT.EXE管理打印排队，如果你使用的软件自身带有打印程序，可以删除它
+        QBASIC.EXE,QBASIC.HLP,EDIT.COM,EDIT.HLP这些文件是EDIT和QBASIC所需要的，它们包括程序、帮助文件。
+        RAMDRIVE.SYS系统配置程序。能够支持安装RAM盘(虚拟驱动器)。如果你不准备用虚拟驱动器可以删除它。
+        REPLACE.EXE能够替换文件。一般可以删除。
+        RESTORE.EXE恢复用以前的MS-DOS版本的Backup命令备份的文件。在MS-DOS 6.2环境下Backup被菜单控制的应用程序MS BACKUP.EXE所代替。因此，如果不恢复以前DOS版本的BACKUP保存的数据，可以删除它。
+        SCANDISK.EXE这个硬盘检测程序很方便，并且DoubleSpace建立压缩磁盘时它自动被执行。因此该程序和属于它的SCANDISK.INI启动文件最好不要删除。
+        SETUP.EXE,SETUP.MSG,BUSETUP.EXE能够安装MS-DOS 6.2，但是不用将这些文本保存在硬盘上。
+        SETVER.EXE 管理MS-DOS版本表，不要删除它。
+        SHARE.EXE在网络操作和复杂数据库系统中管理数据存取。要保留。
+        SIZER.EXE能够确定驻留程序的容量要求。因此不要删除它。
+        SMARTDRV.EXE,SMARTMON.EXE,SMARTMON.HLP这些文件包括建立硬盘高速缓冲区和相应的屏幕的程序。不要删除。
+        SORT.EXE这个排序程序不很常用。如果你磁盘容量小，删除也可以。
+        SUBST.EXE 能够代替驱动器、目录的名称。可以删除。
+        SYS.COM该程序支持系统文件的传送。因此不要删除它。
+        TREE.COM能够提示目录树状结构。如果用DOS外壳或WINDOWS的话，可以删除它
+        UNDELETE.EXE恢复被删除文件的DOS程序。如果你大部分时间用WINDOWS，可以考虑删除它。
+        UNFORMAT.COM能够取消格式化。不要删除。
+        UNINSTAL.EXE帮你在安装以后，按需要取消DOS 6.2版本的安装。但是一般你都能让6.2版本满意地工作，这样的话，可以删除它。
+        VSAFE.COM驻留内存的病毒警告程序。不要删除。
+        WINA20.386在WINDOWS 3.0下为了打开A20总线用的。如果你不用WINDOWS3.0版本，或你用的是3.1版本，可以不要它。
+        XCOPY.EXE功能强于COPY的拷贝程序，不要删除。
+        8514.VID,VGA.VID等VID
+        DOS外壳的图形程序。除了你自己的显示卡需要的图形程序以外，其它接口卡的程序都可删除。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

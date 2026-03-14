@@ -1,0 +1,67 @@
+聚焦MP3播放器
+
+袁斌
+1999年 第12期 15版
+
+#1    一、常见MP3播放器
+    1.WinAmp：
+    网址：http://www.winamp.com
+    Nullsoft公司的负责人同时也是WinAmp的作者，在一年多的时间内提供了大大小小几十个WinAmp的升级版本。WinAmp中最早实现的插件原理（来源于Windows Control panel）、Skin标准、特效显示等现在已经成为事实上的标准。可以毫不夸张地说：“WinAmp部分地推动了MP3的发展”。WinAmp又有点像Windows，大而全，什么功能都有，什么格式都支持，而且启动有越来越慢的趋势。不过，值得一提的是，WinAmp到现在为止还是解码速度最快的播放器，虽然曾经有其他播放器超过它。
+    另外，Nullsoft最近又推出了用于网络流式播放MP3音乐的Shoutcast server，Shoutcast可以像Real audio server那样为MP3播放器提供基于http协议的数据流，同时品质又优于前者。
+    2.Wplay：
+    网址：http://www.xaudio.com/wplay/
+    Wplay采用的是Xaudio的解码引擎，其特点是设计生硬，对用户来说不够友好，它可以引用你能见到的所有格式的Skin，为了兼容更多被做得越来越大。但Wplay是首先在播放器内引用MP3编码器的，这一点还算有新意。
+    3.Kjofol：
+    网址：http://www.audioforge.net/kjofol/
+    Kjofol来自韩国，它使用Mpg123解码引擎。是第一个为Mpg123解码引擎成功开发Win32 GUI的软件。通过其复杂的Option对话框可以设定大量的解码引擎运行参数。如果你想研究如何开发解码引擎，建议好好研究一下Kjofol。
+    4.Digideck：
+    网址：http://www.worldkey.com/digideck/（已经关闭）
+    Digideck是我见到的最神奇的MP3播放器之一，它是由一个芬兰人开发的。使用他自己写的MP3解码内核，其运行代码只有几十K（不包含MFC运行库），而运行速度经Vtune测试超过了当时的WinAmp。Digideck还首创了只用两张bitmap图就表示skin的概念。然而Digideck消失的速度几乎和它出现的速度一样快。一夜之间，Digideck就无影无踪了，甚至在MP3播放器开发者圈内人们也知之甚少。现在在有些网站上仍然可以下载Digideck的Skin，可见其影响力。（^121501a^）
+    5.XAudio：
+    网址：http://www.xaudio.com/。
+    XAudio是网上能见到的最为规范、支持平台最为广泛的播放器。它还同时向程序员发放其解码引擎库。XAudio引擎支持目前所能见到的各种Win32平台及各种Unix平台，XAudio甚至支持了WinCE 2.0，而且针对Pentium及MMX做过认真的优化。同时它也是工作最稳定，提供技术文件最多的解码引擎。用任意可引用的API语言（如VB、VC、VJ、Delphi、及BCB，甚至Perl等）都可以为其开发界面。
+    Wplay就是架构在XAudio上的。最新版的XAudio已经支持插件方式的输入/输出模块。凭借这种方式，用户可以开发DSP处理、可视化模块。不过，XAudio并不是完全免费的开发包。当你用它来开发商业应用时，要付5美元以获得许可。
+    6.Mpg123：
+    网址：http://dorifer.heim3.tu-clausthal.de/~olli/mpg123/
+    Mpg123可以说是网上最具魅力的MP3解码器之一。其核心来源于ISO国际标准化协会公布的标准MPEG AUDIO解码源程序，历经无数次优化，吸收了各家解码器的精华。最难能可贵的是，Mpg123开发组公布了全部源程序，并开放了程序开发讨论组。Kjofol以及X11Amp就是以此为基础开发的。需要注意的是Mpg123主要是针对Unix平台开发的，虽然也有Win32的移植版本，但工作并不是太好。Mpg123定义了一套完整的命令行接口，借助这个接口可以完成所有MP3播放器应该具备的功能。目前Mpg123最新的版本是今年1月26日发布的0.59版，这一版对其源程序进行了大量的整理。另外，它开始支持内存文件操作（仅限于Unix平台）。
+    7.Sonique：
+    网址：http://www.sonique.com/
+    Sonique恐怕是我见过的最完美的MP3播放器UI，用户在使用该播放器时更像是在玩一个游戏。各种控件在窗口上飞来飞去，颇具欣赏性。但除此之外恐怕再没有什么特点了。解码速度平平，EQ效果平平。
+    8.X11Amp：
+    网址：http://www.x11amp.org/
+    X11Amp是一个完全基于Linux的MP3图形化播放器。它简直真像是WinAmp克隆出来的。最近，笔者发现该开发组完全公布了X11Amp的源程序，而其中我们最感兴趣的UI部分由尼尔森—WinAmp图形部分的开发者编写。这样一来，通过学习X11Amp的程序，我们就可以完全开发出和WinAmp相同效果的播放器来。在X11Amp的代码中，有关可视化处理、插件处理、EQ处理的部分写得相当简洁独到。
+#1    二、Rainplay——国内开发的第一个MP3播放器
+    网址：http://rainplay.yeah.net
+    作为国内第一个专业的MP3播放器Rainplay，更大的意义在于尝试与研究。它证明了国内完全可以开发出具有一定水平的多媒体专业程序来。Rainplay 目前的版本为1.20，最近一段时间我几乎停止了对它的升级。通过Rainplay我掌握了MFC和GUI的特技操作。Rainplay内部的解码引擎为Jeff Tsay的Maplay。所以它在有些机器上会比较慢，不过，下一个版本的Rainplay将基于Mpg123引擎，支持ID3Tag、可视化显示、DSP、EQ、Playlist、Skin等功能。
+#1    三、Freeamp基本情况介绍
+    网址：http://www.freeamp.org/
+    Freeamp是Goodnoise（佳音）公司下属的一个开发计划，其目的是开发一个播放MP3的免费播放器。Freeamp开发是基于GPL （General Public License）的。所以，Freeamp公布其最新源程序。Freeamp主要负责人有Elrod、Jason等。笔者的Rainplay最近荣幸地被集成其中。
+    从附图中读者可以看到Rainplay UI已经具备现代MP3播放器的常见特点。下一步是从其中独立出来再集成Mpg123解码引擎。Freeamp与众不同之处在于其近乎完美的插件开发机制。主程序主要用于调入各个插件及协调它们工作。而其定义的各种插件则完成各种不同类型的任务。每个插件是一个定义了接口的DLL文件。这种机制看起来很像OLE机制，但由于其运转和接口都十分简单，所以比OLE更具快捷性和易用性。Freeamp现在采用的是Xing提供的GPL方式的解码引擎。凭借其多年的MPEG解码经验，Xing MP3解码引擎具有无可比拟的优越性，但现在Freeamp还没有对其进行太多的优化。
+    UI：用户介面层，完成MP3播放器的图形/文字用户介面的处理。
+    LMC：本地媒体转换层，完成MP3文件解码工作。不过这里并不特指MP3，也可以是MOD、WAV等。
+    PMO：物理媒体输出层，完成把将由LMC送来的数据从声卡播放出来的动作。
+    PMI：物理媒体输入层，完成把原始数据送入LMC处理，一般为文件I/O处理，也可以是从网络或其他什么形式的物理媒体传来的数据。
+    Player：播放器主控层，完成以上各个模块的协调工作。
+    Player启动时首先从指定目录下枚举各个可用的模块，然后分别将其注册后进行初始化，当UI根据用户的要求进行某种动作时，UI向Freeamp核心（Player）发送格式化的特定消息。Player在收到某条消息后统一存放到一队列中，待Player中的消息解释线程逐一处理后再将结果发回UI。其他模块也是依照上述机制进行交互处理的。这样处理同Windows消息机制比较有简洁高效，可携带结构化批量数据等特点。
+#1    四、MP3硬件播放器
+    在国外，基于硬件解码的MP3播放器发展十分蓬勃。而绝大多数MP3硬件播放器都是以车载播放器为最终目标的。MP3硬件播放器作为车载播放器有CD播放器和磁带播放器无法比拟的优点，它音质接近CD，抗震动、容量大、纯数字电路、开发容易。
+    1.Whitney System:
+    网址：http://www.sparta.lu.se/~bjorn/whitney/index.htm
+    通过从基于TCP/IP的Printer server上读取stream，播放MP3文件流，自带功放。网站上公布了从设计图纸到印刷板图直至DSP芯片内部程序等再现Whitney系统所需的一切资料。
+    2.Visual System One:
+    网址：http://www.zg169.net/~vsco/
+    国人开发的MP3播放卡，插入386以上的计算机后可以直接进行硬解压。不过，在PⅢ时代好像没有什么必要。（^121501b^）
+#1    五、相关站点
+    1.http://www.mp3.com
+    这是MP3第一大站，这里提供每日MP3新闻，免费MP3下载，及最新MP3软件。在这里你可以找到所有主流操作系统下的各种MP3播放软件。Rainplay在其中被评为3颗星。
+    2.http://www.hut.fi/Misc/Electronics/dsp.html
+    介绍数字信号处理技术及相关程序。
+    3.http://www.id3.org/
+    MP3文件简介标记，ID3 Tag开发包。
+    4.http://www.mp3place.com/
+    The MP3 place，介绍最新播放器、Skin、plugin等。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

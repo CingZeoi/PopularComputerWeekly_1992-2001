@@ -1,0 +1,79 @@
+在LINUX下玩小游戏
+
+阮志峰 
+2001年 4期
+
+2001年春节就快到了，在春节假期中，大家都想尽情放松一下吧！其实，在Linux下也有很多好玩的小游戏。下面，小编就向大家介绍几个，愿大家过一个欢乐、祥和的春节。
+　　#1    一、终端游戏
+　　#2    月球飞车
+　　Moon-Buggy是一个简单而不失有趣的终端游戏，在这个字符图形的世界，你驾驶着小巧的臭虫汽车飞奔在月球的表面，当遇到星罗棋布的月亮环形山时，要沉着冷静地指挥小汽车跳过这些鸿沟。
+　　游戏可以在其主页http://www.hangout.de/moon-buggy/index.html下载取得，可供下载的包括源代码和RPM包。在笔者的Red Hat 6.0系统中，将198KB的moon-buggy-0.5.1.tar.gz解压安装后，运行效果如图1（^04029104a^）。
+　　游戏的安装步骤如下：
+　　% tar zxf moon-buggy-0.5.1.tar.gz
+　　% cd moon-buggy-0.5.1
+　　% ./configure
+　　% make
+　　# make install
+　　在Terminal中输入“./moon-buggy”指令就可以启动游戏。在靠近屏幕的底部，会显示一些在游戏中可以使用的相关操作键：
+　　SPACE、j：让小汽车跳起来。跳跃的长度是固定的，只有在小汽车轮子着地时，你才可以让它跳起来。
+　　a、l：发射激光束。激光可以用来帮助你清除遇到的石头障碍。
+　　q：提前结束游戏。不过这时你仍可以取得应有的分数以及排名。
+　　Moon-Buggy可以在相当宽的屏幕中运行，不过当屏幕宽度设置在小于80个字符的时候，可以取得较好的效果。
+　　#1    二、SDL游戏
+　　Simple DirectMedia Layer（缩写为SDL）是一个交叉平台的多媒体应用库，提供了快速访问图形缓冲和音效设备的能力。SDL支持Linux、Win32、BeOS、MacOS、Solaris、IRIX和FreeBSD等多个系统平台。它通常用于MPEG回放软件和许多流行的游戏中。
+　　事实上，我们下面提到的众多游戏都使用了SDL库技术，因此在编译游戏时就需要SDL的支持。要想享受这些游戏的乐趣，下载和安装SDL是必不可少的步骤。所需SDL及SDL_devel库内容及下载网址列表如下：
+　　Simple DirectMedia Layer：http://www.devolution.com/~slouken/SDL/
+　　SDL Image Library：http://www.devolution.com/~slouken/SDL/projects/SDL_image
+　　SDL Mixer Library：http://www.devolution.com/~slouken/SDL/projects/SDL_mixer/
+　　其中前两项是必须的，第三项是为游戏中的音效和音乐准备的，可以根据系统的情况选用。在上述链接中有为各种操作系统准备的库文件，对于Red Hat用户来说，只需要下载相关SDL和SDL-devel的i386.rpm文件就足够了。rpm文件在Red Hat的X Window中安装十分简单，打开文件管理器，找到相应的rpm文件，右击鼠标，选择“Install”就可以顺利地完成安装工作。在六个rpm文件一一成功安装完成之后，就可以着手游戏的安装了。
+　　#2BoboBot
+　　这是一个单人玩的超级玛莉类游戏，游戏的主角就是BoboBot，一只生活在美丽的地球上的机灵的机器猴子。为了完成拯救地球的光荣使命，BoboBot必须走遍全球，打败八个邪恶头目。
+　　该游戏可以在网站http://www.newbreedsoftware.com/bobobot/下载，bobobot-preview2.tar.gz的大小是1.48MB。
+　　#2    游戏安装
+　　或者因为是预览版的缘故，游戏的安装颇费了一些周折。首先要做的是把压缩包解压出来：
+　　% tar zxf bobobot-preview2.tar.gz
+　　% cd bobobot-preview2
+　　BoboBot的安装指令格式如下：
+　　% make PREFIX=path-to-x INSTALLROOT=path-to-install
+　　其中“path-to-x”是指你的X Window服务器的档案存放路径，例如是“/usr/X11”或者“/usr/openwin”，在Red Hat 6.0中是“/usr/X11R6”；而“path-to-install”是你希望安装游戏的路径（包括可执行文件以及图像、音效和其它数据文件），可以是“/usr/X11/games/bobobot”或者“/home/kendrick/bobobot”，像笔者就将它放在“/usr/games/bobobot”目录中。
+　　在正式安装以前你得在解压出来的bobobot-preview2目录中新建一个obj目录，不然在编译时就会出现“缺少obj目录”的提示：
+　　% mkdir obj
+　　接下来，你可能需要修改一下游戏的安装脚本makefile档案，在修改以前记住先进行备份。需要修改的原因是脚本中有一处涉及到“-lmixer”的地方，据说它包括在一个SDL的示范压缩包里但却并不属于SDL的一部分。在makefile档案的第25行是这样的：
+　　SDL_LIB=-L$（SDL_PREFIX）/lib -lmixer -lpthread -lSDL -ldl
+　　把中间的“-lmixer”删掉你将可以完成编译的工作，或者你也可以尝试跳过这一步看看编译是否成功，不行的话再回头做也是可以的。现在可以开始安装游戏了：
+　　% mkdir /usr/games/bobobot
+　　% make PREFIX=/usr/X11R6 INSTALLROOT=/usr/games/bobobot
+　　如果需要音效或者是游戏杆支持，在编译时加上“SOUND=YES”或“JOY=YES”，例如：
+　　% make SOUND=YES PREFIX=/usr/X11R6 INSTALLROOT=/usr/games/bobobot
+　　至此，编译工作告一段落，然而要想开始游戏还有一些事情要做。在BoboBot的安装路径（笔者用的例子是/usr/games/bobobot），可以看到可执行程序bobobot以及images、sound等相关目录，你需要把它们全部复制到根目录之下。这样做了以后，总算可以看到BoboBot了。
+　　#2    游戏玩法
+　　现在你已经可以启动期待已久的BoboBot了，精神抖擞的BoboBot随时准备踏上征途，只等你按一下空格键（如^04029104b^2）。
+　　BoboBot能够装备9种武器按住Z键开始射击。要装备不同的武器，必须按TAB键转到选择武器屏幕，此时可以按UP和DOWN键选择装备不同的武器，按TAB、回车或者空格键回到游戏。
+　　#1    Circus Linux!
+　　这是一个声色并茂的著名的马戏团游戏。你在游戏中用鼠标控制着翘翘板的移动，把两个可爱的小丑轮流抛向空中，当他们到达顶部的时候，就可以击破挂在上面的汽球，然后再落下来。要是你不能用翘翘板接住他们，就失去了一个小丑，要是你失去了五个小丑，就意味着输掉了这场游戏。
+　　Circus Linux!的源代码可以在其主页http://www.newbreedsoftware.com/circus-linux/下载得到，游戏分为Windows和Linux版本。Linux版本的circuslinux-1.0.1.tar.gz大小为1449KB。
+　　#2    游戏安装
+　　首先要解压缩从网站下载的游戏压缩包，然后编译软件。安装的步骤简述如下：
+　　% tar zxf circuslinux-1.0.1.tar.gz
+　　% cd circuslinux-1.0.1
+　　% ./configure
+　　% make
+　　% make install
+　　#2    游戏玩法
+　　编译完成之后，可以在游戏目录内找到可执行程序circuslinux，双击图标或者在X Window下面的Terminal中以指令执行方式都可以启动游戏。
+　　当玩家准备好了，就可以点按鼠标开始游戏（如^04029104c^3）！
+　　要想让游戏暂停，可以按空格、TAB或者P键，再按一下其中一个键可以取消暂停。除了鼠标以外，你也可以用键盘进行游戏。按回车、ALT或者SHIFT键开始，在游戏中按击这三个键能够改变翘翘板的倾斜方向，左右箭头键控制翘翘板的移动方向。如果你的电脑有安装游戏杆，也可以用它来操纵游戏。
+　　#1    三、流行游戏
+　　疯狂弹珠游戏（Roll’m Up）
+　　在Roll’m Up的主页http://www.medialab.lostboys.nl/projects/madewith/pinball/pinballgame.html上，可以找到下载游戏的链接，适合于Linux的文件Rollemup.tar.gz的大小为19.2MB，你只需要安装很少的动态库档案（例如libstdc++），就可以运行游戏。
+　　软件无需安装，在Linux的X Window中，打开一个Terminal视窗，用如下指令解压文件和启动游戏：
+　　tar zxf Rollemup.tar.gz
+　　cd Rollemup
+　　./Rollemup
+　　这个多媒体游戏的主画面和音乐、音效极尽奢华（如^04029104d^4）。
+　　按“N”键开始新的游戏。按住回车键控制画面右下角的弹簧，收放之间就可以将弹珠从长笛管中发射出去。在主画面的下方，有两个用来挡击弹珠的手柄，分别用“Z”和“/”键来控制，“/”键还同时控制着屏幕中间的一个手柄。玩家就是要通过它们的动作，保证弹珠不会滑落到三度空间之外，同时，手柄反应的强弱也决定着弹珠的弹跳力度和方向。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

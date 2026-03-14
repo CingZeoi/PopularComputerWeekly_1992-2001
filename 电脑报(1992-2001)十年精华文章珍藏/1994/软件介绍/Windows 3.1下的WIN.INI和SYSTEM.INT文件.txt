@@ -1,0 +1,723 @@
+Windows 3.1下的WIN.INI和SYSTEM.INT文件
+
+
+1994-01-07
+
+        一般来说WIN.INI可作为记录用户设置的文件。而在改换运行Windows的设备或解决某些系统方面的问题时就要使用SYSTEM.INI文件了。
+        INI文件的组成和编辑
+        WIN.INI和SYSTEM.INI都是ASCII文本文件。每个文件分别由若干段组成，每段开头都有一个括在方括号内的单词或词组，如［Desktop］。
+        在段道词下面有一行或多行由关键字、等号以及0个或多个参数组成的设置。如下所示是一种典型的设置：
+        KeyboardSpeed=31
+        如果某行等号右边没有参数，则Windows认为该行使用缺省值。例如：
+        KeyboardSpeed=
+        与下行等效：
+        KeyboardSpeed=31
+        因为31是KeyboardSpeed的默认值。
+        在大多数情况下，如果省缺某行，则Windows也使用该行的缺省值。(也有例外的情况：如果在SYSTEM.INI中删除某行，则Windows将它视为无效而不使用缺省值。)如果用户需要为WIN.INI中省缺的某行指定一个非默认值，那么只要简单地将该行加入就可以了。
+        许多.INI文件的入口都需要Boolean(布尔)值。例如可通过输入True、Yes、On或1来打开某功能开关(大小写均可)，通过输入False、No、off或0来关闭功能开关。Windows将任何以分号开始的行视作注释行。用户可以随时增加注释行。在每段中，行的排列顺序无关紧要；在文件中，段的顺序也可任意安排。
+        WIN.INI和SYSTEM.INI中的主要内容都由Windows软件的各组成部分建立并保持。用户无需自己修改它们的内容，Windows将自动完成修改工作。
+        但是有些设置必须通过编辑.INI文件才能完成。例如改换Windows图标下文本显示的字体。
+        作为一项规则，Windows的某些组成部分(如Control Panel)对.INI文件的修改可立即生效。而用户自己作的修改一般需在下次启动Windows时才能生效。(通过Setup程序对SYSTEM.INI作的修改在下次启动Windows前不生效。但Setup为用户提供了一个按钮，按下它后可自动重新启动Windows。)
+        编辑Windows初始文件有两条原则：首先，在编辑前要作备份；其次，不要使用格式化的编辑器。制作备份文件可以在发生严重错误时恢复原有文件。格式化的编辑器(如大多数字处理程序)则会把非文本字符转换成文档，造成.INI文件错误。
+        编辑WIN.INI和SYSTEM.INI的最安全的方法就是使用Microsoft公司随Windows一起发售的System Editor。该Windows应用程序的正式名称为SYSEDIT.EXE。如果Program Manager group中没有相应的图标，那么用户可自己将其加入。SYSEDIT是一个简单的编辑器，但该程序有两个优点：它可自动生成备份文件(带有.SYD扩展名)，并且在文件中不放置任何格式化字符。
+        WIN.INI文件内容介绍
+        WIN.INI文件是由不同的段组成的，段名包括在方括号内，如［Windows］、［Desktop］等。其中每行都有一个等号，如Device=。等号后面是可使用的参数。如果参数是有限的几个离散数值之一，那么这些数值之间用竖线(|)划分开。如Yes|No。每一项的缺省值都用圆括号括起来，写在行的尾部。例如：(缺省值：3)
+        表1 中列出了WIN.INI文件中各段的名称和说明。
+        表1 Windows文件中各段的名称和说明
+        ───────────────────────────
+        段名			说明	
+        ［Windows］		影响WINDOWS操作环境的部分，包括在启动WINDOWS时执行哪一个应用程序，警告声音的设置、打印、窗口边框宽度、键盘响应速度、鼠标设置以及将文件定义为文档或程序等内容。	
+        ［Desktop］		控制系统界面显示形式及窗口和鼠标的位置。	
+        ［Extensions］	联接待定的文件类型与相应的应用程序。	
+        ［Intl］		描述怎样为除美国外的其它国家显示有关文件项目。	
+        ［Windows Help］	列出有关HELP窗及对话窗的默认尺寸、布局、文本颜色等设置。	
+        ［Ports］		列出所有可用的输出接口。	
+        ［Font Substitute］	列出WINDOWS可识别的互换字体。	
+        ［TrueType］		使用和显示TRUE TYPE字体的可选设置。	
+        ［Sounds］		为每个系统事件设计的声音文件列表。	
+        ［MCI extensiions］	把MEDIA控制接口设备同特定的文件类型联接起来。	
+        ［Compatibility］	用于解决WINDOWS 3.1和WINDOWS 3.0之间的差异所引起的兼容性问题。	
+        ［Fonts］		描述WINDOWS装入的屏幕字体文件。	
+        ［Network］		描述网络设置及与当前网络的联接。	
+        ［Embedding］		列出对象链接与嵌入(OLE)使用的服务器目标。	
+        ［Colors］		定义WINDOWS的显示颜色。	
+        ［PrinterPorts］	WINDOWS将要访问的激活或非激活的输出设备。	
+        ［Devices］		与旧版本WINDOWS应用程序兼容的激活输出设备。	
+        ［Programs］		当用户打开某个数据文件时，该段可为WINDOWS查找相应程序文件提供附加的路径。
+        应用程序还可能会在WIN.INI中增加一些段。
+        [Windows]段
+        ［Windows］段中各行的内容可影响显示和运转Windows系统的多种因素。其中绝大部分内容都是由Control Panel设置的。
+        Beep=Yes|No(缺省值：Yes)
+        该设置可使Windows在用户出现操作错误时发出口都口的告警声。若用户嫌声音太吵，则可将其关闭，即把Beep=行的内容从Yes改为No。为完成这一操作，需打开Control Panel中的Sound，并取消Enable System sounds核实框。
+        Border Width=数值(缺省值：3)
+        该参数设置Windows可缩放窗口边框的宽度。参数值范围为1～49。缺省值为3，同时它也是Windows中不可变窗口(如对话窗等)边框的宽度值。若要修改BorderWidth设置值，则应打开Control Panel中的Desktop，然后在对话窗左下角的BorderWidth域内输入新设置值。
+        CoolSwitch=0|1(缺省值：1)
+        该设置可影响Alt+Tab和Alt+Shift+Tab两组合键的使用。打开Cool Switch开关(设置为1)后，若Alt+Tab组合键切换程序，则Windows在屏幕中央弹出一个窗口，显示将要切入的程序名及图标。Alt+Shift+Tab按相反顺序切换应用程序。如果关闭Cool Switch开关，那么当用户切换程序时，Windows就会显示程序的标题条和窗口边界(或图标和图标名称)。Cool Switch可以加快切换速度，因为它只要求做很少的图形方面的工作。另外，它的缺省值可使用户确切地了解自己转入的程序。若要关闭CoolSwitch，则需打开Control Panel的Desktop，并清除Fast“Alt+Tab”Switching核实框。
+        Cursor Blink Rate=毫秒值(缺省值：530)
+        该设置用于控制Windows在文本文档、电子表格单元以及其它编辑区域内光标的闪烁速度。如果觉得光标影响了自己的注意力，那么就降低它的闪烁频率。假如在屏幕上很难找到光标，那么就提高它的闪烁频率。要修改该参数值，可在Control Panel中Desktop对话窗右下角的Cursor Blink Rate部分对光标的闪烁频率进行修改。
+        在Control Panel的游标上使用的参数范围为200～1200(这些值在Control Panel上是看不见的)。当设置为200时，光标闪烁速度极快；若为1200，则光标几乎不动。用户可以直接修改WIN.INI文件，设置该范围以外的频率闪烁数值。但最好还是按照Control Panel提供的范围进行设置。
+        Default Queue Size=数值(缺省值：8)
+        此设置用于指定在一个应用程序的消息队列内可容纳的最多消息数。WIN.INI文件中也许省缺了这一行(也就是说，系统使用了缺省值)。你只能在WIN.INI文件中修改这一设置，此设置主要是为那需要在不同条件下测试自己的应用程序的开发人员准备的，普通用户无需修改此设置。
+        Device=输出设备名，设备驱动程序，使用的输出接口
+        根据Coltrol Panel中printer的定义记录当前系统默认的打印机设置。该行参数由三部分组成，各部分之间以逗号分开。
+        其中第一部分是打印机名称，它与应用程序的打印机选择对话窗中的定义是一致的。另外，该名称还必须与WIN.INI文件的［Devices］段(将在本节后面介绍)中的某一输入项一致。第二个参数为打印机驱动程序名，但不带.DRV扩展名。第三个参数为默认的打印机接口。该参数必须与WIN.INI文件的［Ports］段中的某一输入项一致(可在Print Marager的Option菜单中选Printer Setup或在Control Panel中选Printers来修改此项设置)。
+        Device NotSelected Timeout=秒(缺省值：15)
+        该设置用于说明Windows等待打印机联接的时间，若超过此时间打印机仍未联接好，则系统显示错误信息。用户只能通过修改WIN.INI文件中该行的参数来增加或减少系统等待打印机的时间。若要改变某一打印机设置的默认等待时间，则需选择Control Panel中Printers图标下的Printerports选项。
+        Documents=扩展名(缺省值：无)
+        本行用于说明Windows文档文件的扩展名。扩展名之间以空格分隔。如果WIN.INI文件的Documents=行中的扩展名也在［Extensions］段中，那么最好删除Documents=行的设置，系统自动将［Extensions］段中的扩展名作为文档文件扩展名。那些有此处列出的扩展名的文件不与其它应用程序发生联系，只能通过修改WIN.INI设置来修改此项选择。
+        DOSPrint=Yes|No(缺省值：No)
+        该设置可使Windows直接把打印机输出内容送到硬件接口，而不再通过DOS中断访问。这样可以提高系统的速度，但也要求硬件完全兼容。如果用户需要从DOS而不是从Windows中打印(在已经安装了正确的Windows打印机驱动程序的情况下)，那么就要将该行设置改为Yes。打开Control Panel的Printers，选择任一已安装的打印机驱动程序，按下Connect按钮，然后清除Fast Printing Driect to Port核实框。
+        Double Click Height=象素数(缺省值：4)
+        Double Click Width=象素数(缺省值：4)
+        这两项设置用于指定连续两次按动鼠标键(double click)之间鼠标可移动的范围。如果鼠标在X或Y方向上移动的距离超过了两个象素点(默认值的一半)，那么Windows就认为这是两次单独按动鼠标键的操作，而不是一次double-click。若要使Windows对此不过于敏感，则需增大WIN.INI中该行的参数值(此值一般应为偶数)。
+        Double Click speed=毫秒(缺省值：452)
+        此设置用于定义连续两次按动鼠标键之间允许的最大时间间隔。如果两次按动鼠标键之间的时间间隔超出了此设置值，那么Windows就将其作为两次单独按动鼠标键的操作。若要使Windows对此不过于敏感，则应打开Control Panel的Mouse，并调整Double Click Speed游标。
+        Keyboard Dleay=毫秒(缺省值：2)
+        该设置用于指定一次击键过程的最长时间。(注意：仅在Windows 3.1中提供此设置行。)若要加快键盘响应输入的速度，则需降低该行的参数设置值。另外也可以通过打开Control Panel的Keyboard，并向右调整其顶部的游标来达到目的。
+        Keyboard Speed=数值(缺省值：31)
+        该行用于设置在按住某一键时，键盘重复接收该键信息的速度。若提高参数值，则键盘重复接收的速度就会加快。该行的默认值为31，这也是系统可接受的最高值。若要改变键盘速度，则需打开Control Panel的Keyboard，并调Repeat Rate游标。
+        Load=文件名(缺省值：无)
+        此设置用于指定在开始Windows任务时以图符方式执行的应用程序的文件名。如果该程序没有存放在WINDOWS目录、SYSTEM目录或其它以DOS的PATH命令设置的目录中，那么就要加上它的全部路径名。若有多个程序名，则用空格将它们分开。
+        如果使用Program Manager作为Windows Shell，要自动启动一个应用程序或文档，只需将它的图标移入到Startup程序组中。Load=行中还可以设置兼容的旧版Windows程序。也可以将某一应用程序的安装例程加入到该行中。
+        如果用户使用的Shell不是Program Manager，那么就可以在Load=行中指定启动程序。File Manager、MS-DOS Executive、Norton Desktop for Windows以及其它Shell程序在启动时都要检查Load=行中的设置信息，并按设定项装入指定的程序。但是，并非所有的Shell程序都具备此功能。
+        Menu Drop Alignment=0|1(缺省值：0)
+        该设置用于Windows的下拉菜单向左或向右与标题对齐。缺省设置是向左对齐，若要使菜单向右对齐，则需编辑WIN.INI文件，将该行设置改为1(有时需要将此设置加在［Windows］段中)。
+        Menu Show Delay=毫秒(缺省值：386和486微机为0；286微机为400)
+        该行用于定义Windows下拉菜单从被选中到显示之间的时间间隔。在286微机上Windows使用400ms延迟。这样，当鼠标在带有已打开的下拉菜单的菜单条上滑动时，可避免菜单显示的抖动。(如果鼠标在菜单拉下之前就已滑过，则不再显示该菜单。)如果觉得延迟时间过长，那么可以减小设置值。(用户也许需要在文件中增加此行以指定一个非缺省值。)
+        Mouse Speed=0|1|2(缺省值：1)
+        Mouse Threshold1=象素数(缺省值：5)
+        Mouse Threshold2=象素数(缺省值：10)
+        以上设置可控制鼠标的加速性能。如果Mouse Speed设置为0，则鼠标和箭头的移动速度相同。如果Mouse Speed设置为1，那么鼠标移动可得到一级加速，也就是说，当鼠标在两次中断之间移动的距离超过Threshold1个象素点时，箭头移动的速度是鼠标的2倍。若Mouse Speed为2，那么当鼠标在两次中断之间移动的距离超过Threshold2个象素点时，箭头的移动速度为鼠标的4倍。
+        调整这些设置的最简单的方法就是选择Control Panel中Mouse区的选项。因为所有这三种设置都是通过Control Panel向用户提供的。当然，用户也可以直接编辑WIN.INI文件来修改这些设置。
+        Mouse Trails=数值(缺省值：0)
+        当Mouse Trails设置为1～7间的数字时，Windows将显示鼠标箭头在屏幕上划过的轨迹图象。可用不同的参数值指定显示的轨迹长度。Windows为该设置提供的唯一显示驱动程序可用于EGA、VGA、和SuperVGA。依靠鼠标驱动程序，用户可以修改ControlPanel中Moues区的设置。如果那里没有Mouse Trail选项或Mouse Trail选项以淡色显示，那么用户就需要编辑WIN.INI文件了。该设置有利于用户从LCD显示器上捕提鼠标箭头的踪迹。
+        Net Warn=0|1(缺省值：1)
+        当Net Warn设置为1时，如果用户在网络不可用的情况下启动一个需要运行在网络上的Windows应用程序，那么系统将显示一个警告信息。若不需要这一警告，则可在Control Panel的Network区中关闭Network Warning选项。
+        Null Port=字符串(缺省值：“None”)
+        早期的Windows版本不允许用户在同一个打印机接口上定义多个打印机。如果有两台打印机，但只有一个接口，那么就得将其中一个定义为空接口。此设置默认参数为“None”，但也可改为zip、nada或者其它名。只能通过WIN.INI文件来修改此设置。
+        Programs=扩展名(缺省值：com exe pif bat)
+        该设置用于说明Windows可执行程序的扩展名。各扩展名之间用空格分隔，只有在该行中作过说明的文件类型才能在Windows中执行。因此，只要简单地将Programs=行中的EXE扩展名删去，就可以导致系统无法运行(在此操作之前一定要先备份WIN.INI文件。只能在WIN.INI中修改此项设置。
+        如果在该行中包括了pif，那么用户就可以从File Manager中运行一个.PIF文件来启动相应的DOS应用程序。方法很简单，只需在.PIF文件名上连续两次按动鼠标键。
+        Run=文件名(缺省值：无)
+        此设置用于说明在Windows启动后运行于打开窗口中的程序名。如果该程序没有存放在WINDOWS目录、SYSTEM目录及其它以DOS的PATH命令设置的目录中，那么就需要说明它的全部路径名。在该行中若要说明多个程序，则用空格将它们分开。
+        一般可在Program manager中的startup group中加入应用程序来修改此设置。如果用户使用的Shell程序不是Program Manager，那么就可以使用Run=行来指定启动程序。File Manager、MS-DOS Exectuve、Norton Desktop for Windows以及其它Shell程序在启动时都先检查Run=行中的信息，然后装入指定的文件。但是，并非所有的Shell程序都含此功能。
+        Screen Save Active=0|1(缺省值：0)
+        此设置决定Windows在系统闲置时是否激活它的某个屏幕保护程序。默认状态为关闭屏幕保护程序。若要打开这一开关，则应修改Control Panel中Desktop的设置。如果系统使用的是第三方屏幕保护程序，那么就要关闭此设置。
+        Screen Save Timeout=秒(缺省值：120)
+        此设置用于系统闲置时Windows等待激活当前屏幕保护程序的时间。(注意：仅在Windows3.1中使用该设置。)缺省值为2分钟。用户可通过Control Panel的Desktop来修改此设置值。
+        Spooler=Yes|No(缺省值：Yes)
+        此设置用于说明是否由Print Manager管理打印机。如果将设置值改为No，那么Windows就可以更快地进行打印，但是每次只能进行一项打印工作。若要关闭这一开关，则应打开Control Panel的Printers，清除Use Print Manager核实框。
+        Swap Mouse Buttons=0|1(缺省值：0)
+        此设置用于指定鼠标键。如果Swap Mouse Buttons为0(缺省值)，则鼠标左键为主键。若要使右键为主键，则需选Control panel中Moues的Swap Left/Right Buttons框。
+        Transmission Retry Timeout=秒(缺省值：45)
+        此设置用于定义Windows在向打印机传送数据时，等待应答的最长时间限制。(若使用的是Post Script打印机，则Windows将用Transmission Retry Timeout参数设置的2倍时间进行等待。)如果时间超出了仍无应答，那么Windows将显示超时错误。修改WIN.INI文件中该行的设置值，可以延长或缩短系统中等待打印机的时间。若要取消某一打印机的默认设置，则需修改WIN.INI文件中［Printer Ports］段的有关该打印机的Retry Timeout参数设置，或者也可以打开Control Panel中Printers选项的Connect对话窗，修改其中的Transmission Retry的设置值。
+        ［Desktop］段
+        ［Desktop］段用于记录用户对Windows系统的界面要求。本段中的大部分设置都是由Control Panel的Desktop自动管理的。
+        Grid Granularity=数值(缺省值：0)
+        本行用于设置Windows中应用程序窗口的位置。如果为GridGranularity设置一个非零值，那么程序窗口就会对准某一图象栅格。参数值可为0到49范围之间的数，每个栅格点对应8个象素点，当用户需要为图标或文本窗口精确布局时，该功能可以提供一些帮助。要改变本行设置，需打开Control Panel的Desktop对话窗，并修改其左下角的Granularity设置值(在Sizing Grid窗口中)。
+        Icon Spacing=象素数(缺省值：77)
+        本设置定义了Windows在响应Arrange Icons命令时排列图标所用的水平间距。若要增大图标之间的水平距离，则需增加Icon Spacing的值。即修改Control Panel中Desktop对话窗的Spacing设置。
+        要防止图标标题重叠，在Windows3.1中有一个解决的简单办法，就是让Windows分行显示图标标题。但是，尽管打开了IconTitleWrap开关(设置为1)，用户有时还是会遇到图标标题重叠的情况，特别是在把含有最大化文本窗口的应用程序缩为图标的时候。在这种情况下，图标的标题不仅包括应用程序名，而且还包括当前文档名。那么有什么解决办法呢?只有象上面所说的那样，加大图标之间的水平距离和垂直距离。
+        Icon Title Face Name=字体名(缺省值：MS Sans Serif)
+        该设置指定Windows图标标题的字体。若要改换本行的字体设置，则需编辑WIN.INI文件中的本行内容，指定另外一种字体(WIN.INI的［Fonts］段中将列出可用的字体清单)。
+        Icon Title Size=数值(缺省值：8)
+        本设置用于定义图标标题文本字体的尺寸。如果在高分辨率显示屏上看不清图标标题，那么可增大本设置参数。只能在WIN.INI文件中修改此设置。
+        Icon Title Wrap=0|1(缺省值：1)
+        该设置可使Windows在需要时将长的图标标题分成两行或三行显示，以适应在Icon Spacing中定义的空间大小。如不需要，则清除Control Panel中Desktop的Wrap Title核实框。
+        Icon Vertical Spacing=象素数(缺省值：依据其它设置确定)
+        该设置定义了Windows在响应Arrange Icon命令时排列图标所用的垂直距离。它的缺省值要由图标标题大小和显示驱动程序共同确定。若要改变该值的大小，则编辑WIN.INI中的本行内容。
+        Pattern=b1 b2 b3 b4 b5 b6 b7 b8(缺省值：“(None)”)
+        本行用于记录Control panel中Desktop段定义的desktop背景图案。这些数字表示一个高和宽皆为8个象素点的矩阵。若要改换图案，则需修改Control Panel的Desktop对话窗。用户既可以从下拉列表中选择一种内建的图案，也可以按下Edit Pattern按钮来设计图案。
+        Title Wallpaper=0|1(缺省值：0)
+        本设置用于确定当前背景是在屏幕中心放置一个(默认状态)还是贴满屏幕。修改Control Panel中的Desktop选项可以改变此设置。
+        Wallpaper=文件名(缺省值：“(None)”)
+        本设置用于说明当前背景位图的文件名及路径。修改Control panel中的Desktop选项可改变此设置。
+        Wallpaper Origin X=数值(缺省值：0)
+        Wallpaper Origin Y=数值(缺省值：0)
+        缺省值时，Windows可将背景从屏幕的左上角开始一直贴满全屏幕。若将Wallpaper OriginX=和Wallpape Orgin Y=设置为其它非0值，则将从该坐标开始粘贴背景。Wallpaper OriginX定义的参数相对于屏幕左上角的水平偏移量(以象素点为单位)，Wallpaper OriginY定义的参数相对于屏幕左上角的垂直偏移量。
+        上面两行设置也会影响中心对称的背景。如果设置坐标为0，0(或者在WIN.INI文件中略去这两行)，那么将从屏幕中心对称粘贴背景。非0坐标可由屏幕左上角开始计算背景中心点。
+        ［Extensions］段
+        ［Extensions］段中可包含多个如下格式的设置行：
+        扩展名=命令行
+        每一行都将一类文档与一个应用程序联接起来。例如，若将.INI文件和Notepad联接起来，则设置行应为：
+        ini=notepad.exe^.ini
+        当用户运行一个扩展名已在此说明的文档时，Windows将启动相应的应用程序，该应用程序则装入文档。用户可在FileManager窗口连续两次按动鼠标以运行一个文件，也可以在其它Shell程序中选择File、Run命令来达到目的。注意：一个应用程序可以联接多个扩展名，而一个扩展名却只能联接 个应用程序。
+        Windows Setup程序可以自动建立这种联系。在用户的［Extensions］段中也许已经包括了.WRI.TXT.CAL等扩展名。另外，其它应用程序的安装程序也会修改此段。
+        建立或修改一个联接关系的最快的方法就是使用File Manager中File菜单的Associate命令。该命令可同时修改登录数据库和WIN.INI文件的［Extensions］段。
+        ［Intl］段
+        ［Intl］段用于记录有关数字、日期、时间等显示格式的用户设置。以i开头的设置为整数，以s开头的设置代表字符串(文本)。可通过Control Panel的International设置段中所有说明。默认设置全部为美国习惯用法。
+        iCountry=国家代码(缺省值：1)
+        此设置说明用户采用的是哪一国家的标准设置。国家代码为该国的国际电话代码(加拿大除外)。加拿大的代码定为2。1代表美国。
+        iCurrDigits=数值(缺省值：2)
+        此设置指定货币格式数值中十进制分隔符右边应出现的数字个数。(根据iCountry设置，该小数点可以是句点，也可以是逗号。)
+        iCourrency=数值(缺省值：0)
+        此设置用于指定货币符号的位置。(符号本身由sCurrency设定。)设置为0时，符号放在数字前；设置为1时，符号放在数字后；设置为2时，符号放在数字前(符号与数字之间隔一个空格)；设置为3时，则不显示货币符号。
+        iDate=数值(缺省值：根据iCountry设定)
+        此设置用于指定Windows使用的日期格式。0代表(mm/dd/yy)，1代表(dd/mm/yy)，2代表(yy/mm/dd)。该设置与Windows2.x版兼容。
+        iDigits=数值(缺省值：2)
+        此设置用于指定在小数点右边加多少个0。
+        iLZero=0|1(缺省值：0)
+        此设置用于说明是否在纯小数的小数点左边加一个0。0表示不加，1表示加。
+        iMeasure=0|1(缺省值：1)
+        此设置用于选择公制(0)或英制(1)测量标准。
+        iNegCurr=数值(缺省值：0)
+        此设置用于控制负货币值的显示。货币符号和十进制分隔符由sCurrency和iCurrency设定。
+        表2列出了各参数值所代表的负货币值显示方式。
+        表2 WIN.INI文件［Intl］段的
+        iNegCurr=设置行所使用的负货币值设置
+        ──────────────────
+        设置值	显示格式
+        0		($123.45)1
+        2		-$123.45
+        3		$-123.45
+        4		$123.45-
+        5		(123.45$)
+        6		-123.45$
+        7		123.45-$
+        8		123.45$-
+        9		-123.45$
+        10		-$123.45
+        		123.45$-i
+        Time=数值(缺省值：0)
+        此设置用于选择12小时(0)或24小时(1)计时方式。
+        iTLZero=数值(缺省值：0)
+        此设置用于说明单数字时间值前是否加0。若加0，则设置为1。
+        s 1159=字符串(缺省值：AM)
+        此设置用于指定中午12点前的12小时内，在时间值后面应显示的字符。
+        s 2359=字符串(缺省值：PM)
+        此设置用于指定中午12点后的12小时内，在时间值后面应显示的字符。
+        sCountry=字符串(缺省值：美国)
+        此设置用户说明系统使用的是哪一国家的标准值。
+        sCurrency=字符串(缺省值：$)
+        此设置用于选择货币符号。
+        sDecimal=字符串(缺省值：.)
+        此设置用于选择十进制分隔符。
+        sLanguage=字符串(缺省值；enu)
+        此设置用于说明用户选择的标准语言。有些Windows应用程序将根据此设置信息决定排序的顺序或选择适当的拼读检查程序，表3中列出了所有参数值。
+        	  表3 WIN.INI文件的［Intl］段中
+        	为Windows标准语言设置提供的参数
+        参数值	语言
+        dan     	丹麦语
+        deu     	德语
+        eng     	国际英语
+        enu     	美国英语
+        esn     	现代西班牙语
+        esp     	Castilian西班牙语
+        fin     	芬兰语
+        fra     	法语
+        frc     	加拿大法语
+        isl     	冰岛语
+        ita     	意大利语
+        nld     	荷兰语
+        nor     	挪威语
+        ptg     	葡萄牙语
+        swe     	瑞典语
+        sLis=字符串(缺省值：，)
+        此设置用于选择分隔清单中各项目的标点符号。
+        sLongDate=格式(缺省值：dddd,MMMM,dd,yyyy)
+        此设置用于选择长日期格式。表4中列出了可使用的各符号及其含义。
+        	 表4 WIN.INI文件的［intl］段
+        	中使用的各种日期设置符号
+        符号	   含 义
+        d         不带首位0的日期(1-31)
+        dd        带首位0的日期(01-31)
+        ddd       缩写的星期名(mon-sun)
+        dddd      完整的星期名(monday-sunday)
+        M         不带首位0的月份号(1-12)
+        MM        带首位0的月份号(01-12)
+        MMM       缩写的月份名(Jan-Dec)
+        MMMM      完整的月份名(January-December)
+        yy        两位数字表示的年份(00-99)
+        yyyy	   四位数字表示的年份(1900-2040)
+        sThousand=字符串(缺省值：，)
+        当数值大于999时，应使用标点符号将其按3位一组分组。此设置即用于选择该标点符号。
+        sTime=字符串(缺省值：)
+        此设置可用于选择时间值中间的分隔符号。
+        ［Windows Help］段
+        WIN.INI的［Windows Help］段中记录了有关Help窗口及其对话窗的尺寸和布局的设置项。包括显示Help宏(macro)、弹出窗口或信息屏幕的文本颜色。
+        M-WindowPosition=［左上角x坐标，左上角y坐标，宽，高，0|1］
+        此设置用于指定主Help窗的默认位置和尺寸。前两个参数描述了窗口左上角的x，y坐标，第三、四两参数指定了窗口的宽度和高度(以象素点为单位)。若窗口被最大化显示，则第五个参数为1；若不是，则该参数为0。这五个参数都包括在方括号内。若改变这里的参数设置，则可以直接控制help窗口的显示方式，而不必再编辑WIN.INI文件中的本行内容。当退出Windows时，Winhelp可自动修改WIN.INI文件。
+        H-WindowsPosition=［左上角x坐标，左上角y坐标，宽，高，0|1］
+        此设置用于指定Help系统中History对话窗的默认位置和尺寸。其各参数的使用同M-Windows Position中的一样，但第五个参数在这里无效，因为History对话窗不能被最大化显示。
+        A-Windows Position=［左上角x坐标，左上角y坐标，宽，高，0|1］
+        此设置用于指定Help系统中Annotate对话窗的默认位置和尺寸。其各参数的使用同M-Window Position中的一样，但第五个参数在这里无效，因为Annotate对话窗不能被最大化显示。
+        C-WindowsPosition=［左上角x坐标，左上角y坐标，宽、高，0|1］
+        此设置用于指定Help系统中Copy对话窗的默认位置和尺寸。其各参数的使用同M-WindowPosition中的一样，但第五个参数在这里无效，因为Copy对话窗不能被最大化显示。
+        IFJumpColor=r g b
+        此设置用于指定Winhelp的“inter-file”跳转文本的颜色。当在跳转文本上按动鼠标时，系统将从另外一个帮助文件中调出一个新的信息窗。这三个参数分别用于指定红、绿、蓝三种颜色值，其范围必须在0～255之间。如果显示卡无法显示设置的颜色，那么Windows将使用一种最接近的纯色代替它。
+        若要修改此设置，则需编辑WIN.INI文件。第一次修改设置时可能会发现该行被略去，此刻用户只要加入该行即可。如果要恢复原始颜色设置，那么就将该行删去或者只删除三个参数设置，而留下不带参数的关键字和等号。
+        IFPopupColor=r g b
+        此设置用于指定Winhelp的弹出文本的颜色。当用户在该文本上按动鼠标时，屏幕上可生成一个从其它文件中调出的弹出窗口。这里的参数使用方法同IFJumpColor中的一致。
+        JumpColor=r g b
+        此设置用于指定Winhelp的“inter-file”跳转文本的颜色。当用户在该文本上按动鼠标时，屏幕上将显示从同一帮助文件中调出的另一信息窗。这里的参数的使用方法同IFJumpColor中的一致。
+        MacroColor=r g b
+        此设置定义了用于运行一个Helpfile宏的文本颜色，其参数使用方法同IFJumpColor中的一致。
+        PopupColor=r g b
+        此设置用于指定Winhelp的“intra-file”弹出热文本的颜色。当用户在该文本上按动鼠标时，屏幕上将生成一个常用于定义条目的弹出窗口。该设置参数的使用方法  同IFjumpColor中的一致。
+        ［Ports］段
+        WIN.INI的［Ports］段中列出了系统中的串行接口和打印机接口，以及在串行接口上的通讯参数设置。用户最多可以列出10个接口。
+        通过Cortrol Panel的Ports对话窗，用户可以指定其中的通讯参数。WIN.INI将使用下面的语法记录所有的用户设置：
+        端口名:=波特率，奇偶性，字长，停止位。［［，p］其中P参数表示硬件数据交换起作用。
+        端口名可以是下列内容：
+        LPTn:=
+        COMn:=
+        EPT:=
+        FILE:=
+        filename.ext=
+        LPTn.ext=
+        LPTn.ext=路径
+        LPTn:=用于说明一个并行打印接口。在这里必须使用冒号和等号。该行无参数设置。EPT:=用于说明一台IBM Personal Pageprinter打印机。该行无参数设置。
+        FILE:=用于定义向磁盘打印。该行无参数设置。如果当前打印机联向一个文件接口，那么Windows将提示用户输入文件名，然后直接向该文件输出。用户可使用FILEManager功DOS的COPY命令将此文件的内容传送到一个实际打印机上。
+        filename.ext=用于定义向某一特定文件打印。在这种情况下，Windows将不向用户作出提示。
+        LPTn.ext=用于取消Windows直接向接口打印输出的打印方法。(请参照［Windows］段中的DOSPrint=行。)例如，若要通过MS-DOS中断21服务向1号并行口打印，则应用下行进行设置：
+        LPT1.DOS=
+        (在此处的接口后面不要使用冒号。另外，该行亦无参数设置。)在该设置行中扩展名对设置无影响。若用户是从早期Windows版本升级的，那么WIN.INI文件中可能会找到一个LPT1.OS2行。实际上该行是与Windows3.1中的LPT1.DOS等效的。
+        由于LPT1.DOS名中不含冒号，所以Windows把它看作文件名。将输出定向到上述文件名，与DOS中把输出定向到普通磁盘文件的过程是类似的。但是，DOS会把文件名中前四个字符作为一个打印设备，并照此处理数据。其结果就是通过DOS中断直接向打印机进行输出。
+        ［FontSubstitutes］段
+        在Windows 3.1中，WIN.INI文件的［FontSubstitutes］段为系统提供了字体别名的清单。段中每一设置都按如下格式书写：
+        字体名=字体名
+        Windows包括4个缺省设置：
+        Helv=MS Sans Serif
+        Tms Rmn=MS Serif
+        times=times New Roman
+        Helvetica=Arial
+        Helv和Tms Rmn是Windows以前版本的点阵字体。在Windows 3.1中它们的等效字体分别为MS Sans Serif和MS Serif。例如，若用户从Windows 3.1打开在Windows 3.0中建立的、使用Helv字体的文档，则Windows将用MS Sans Serif字体代替Helv(在保留这些［FontSubstitutes］段的缺省设置的情况下)。
+        如果系统中仍有显示点阵字体的文档，那么就将它们替换成等效的TrueType字体文档。给所有外来文档中的字体命名，并将它们分别与TrueType字体建立转换关系。注意，若在一个应用程序的字体窗中输入系统中的非TrueType字体名，则Windows仍可正确显示该字体。另外，在WIN.INI中的［FontSubstitutes］段说明的都是非Truetype字体，而不是TrueType的等效字体。
+        ［TrueType］段
+        WIN.INI的［TrueType］段是Windows 3.1所特有的内容，因为Windows 3.1是第一个使用TrueType字体的Windows版本。TrueType字体可以按比例进行构造：可放大缩小、转向、以及按其它标准静态字体无法提供的方式实施处理。
+        Outline Threshold=pixels-per-em(缺省值：256)
+        此设置可定义一个“crossover”点，在该点通过调用GDI(Graphics Device Interface)可以将TrueType字符由轮廓变为点阵。在这里没有使用TrueType光栅处理器，如果使用了，那么处理速度会更快些。
+        若该值设置太高，则可能无法生成大尺寸字符(即在300dpi打印机上的61点字符，特别是高度修饰的字体)。Microsoft公司建议将限值设置在300以下。如果在打印页面上应该有字符的地方出现了空白，那么就需要编辑WIN.INI文件，将Outline Threshold的设置值降低。
+        TTEnable=0|1(缺省值：1)
+        此设置用于确定系统是否提供TrueType字体。在缺省状态下，系统将为应用程序提供TrueType字体。若要关闭此设置，则应打开Control Panel的Fonts对话窗，按动TrueType按钮并清除Enable TrueType Fonts核实框。
+        TTIfCollisions=0|1(缺省值：0)
+        当一种TrueType字体和非TrueType字体的名称相同而且字符集一样时，此设置可确定Windows将使用哪种字体。缺省状态下，Windows将使用非TrueType字体。
+        TTOnly=0|1(缺省值：0)
+        此设置用于说明在应用程序中是否仅使用TrueType字体。缺省设置将为应用程序提供系统支持的所有字体。Windows 3.1的内建TrueType字体十分出色__当坐标点尺寸在4～127之间时，它都可以显示，并且在打印机中也可以安装该字体以产生真正的“所见即所得”输出。
+        如果用户喜欢TrueType字体，那么就可修改该设置，使Windows只显示这种字体。打开Control Panel的Fonts对话窗，按动TrueType按钮，并选择Show Only TrueType Fonts in Applications框。
+        ［Sounds］段
+        ［Sounds］段用于记录在Control Panel的Sound对话窗内与声音文件建立联系的系统事件。本段设置的一般格式如下：
+        系统事件=文件名，描述         系统没有什么特殊的原因需要编辑［Sounds］段。用户只要在Control Panel中将事件和声音文件设置好，系统就会自动修改WIN.INI文件。
+        用户必须安装一块合适的可支持Windows的声音板，或者也可以使用Microsoft公司的扬声器驱动程序以播放.WAV文件。如果用户的微机没有这两样设备，那么Control Panel中Sound对话窗的Events和Files列表窗将以淡色显示而且在WIN.INI文件中［Sounds］段也可能消失。
+        ［MCI extensions］段
+        ［MCI extensions］段(仅用于Windows 3.1)中可包括多行以下格式的设置：
+        扩展名=多媒体设备类型
+        典型的例子有：
+        wav=waveaudio
+        mid=sequencer
+        rmi=sequencer
+        mmm=animation
+        这几行都是由Windows Setup程序自动设置的，用于告诉Windows怎样执行多媒体文件。用户无需自己编辑本段内容。
+        ［Compatibility］段
+        ［Compatibility］段中的设置用于解决Windows 3.1和Windows 3.0之间的差异所引起的兼容性问题。每行的关键字都是一个应用程序名，而参数则为一个十六进制数，如下所示：
+        CHARISMA=0X2000
+        在安装Windows 3.1时，Setup程序可自动建立24个以上的［Compatibility］段设置(无论系统中是否有这些应用程序)。其它应用程序的安装程序也可以把相关的设置加入到WIN.INI文件中。用户无需自己编辑此段内容。
+        ［Fonts］段
+        ［Fonts］段用于记录Windows在启动每个任务时所装入的屏幕字体名。每一设置行的格式如下：
+        字体名=字体文件名
+        字体名是Windows对话窗中显示的字体名。字体 文件名是描述该字体特征的文件名。
+        注意，只在WIN.INI的［Fonts］段中另入一个新设置，并不能为系统提供相应的字体。要使屏幕字体可用，必须通过Control Panel的Fonts对话窗进行安装。
+        ［Network］段
+        Windows和DOS不同，DOS从不真正管理网络，而Windows则将LAN的存在作为它环境的一部分。WIN.INI的［Network］段允许为Windows任务详细描述网络联接的内容。
+        drive=网络服务器及共享此设置用于告知Windows，在启动每个任务时应恢复哪一种相应的网络联系。用户可使用File Manager中的Disk菜单的Network Connections命令来修改此设置。
+        InRestoveNetConnect=0|1(缺省值：1)
+        此设置用于告知Windows在启动时是否恢复网络联接。要改变这一设置，应使用Control Panel的Network对话窗。如果有关用户网络的Network对话窗中没有重新联接这一选项，那么就要将本设置值改为1，以便在重新启动时联接网络。
+        port=网络打印机路径
+        此设置可为网络打印机定义路径和接口。若要修改此项设置，则应打开Control Panel的Printers对话窗，选择适当的打印机驱动程序，并按下Connect按钮。最后按下Network按钮。
+        ［Embedding］段
+        ［Embedding］段(仅用于WINDOWS 3.1)中可包括一行或多行下列格式的设置项：
+        对象=描述，描述，程序名，格式
+        这些设置用于定义可嵌入OLE客户应用程序的对象的类别。用户无需自己编辑本段内容。它是为和WINDOWS 3.0兼容而设立的。
+        尽管该段的设置最终会过时，但是也不能把它从WIN.INI文件中删去。因为WINDOWS 3.0中许多OLE客户应用程序都使用WIN.INI文件，而不是从登录数据库中读取对象信息。
+        ［Colors］段
+        ［Colors］段用于记录用户在Control Panel的Color对话窗中指定的颜色。段中包括21行如下格式的设置项：
+        component=r g b
+        行中的component关键字用于命名WINDOWS用户界面的一个组成部分。参数r、g和b则分别用于说明红、绿、蓝三种颜色值，参数范围在0～255之间。
+        由于Control Panel会自动对本段进行修改，所以在一般情况下用户无需自己编辑本段。假如用户喜欢其它机器屏幕的颜色设置，那么可以把那台机器中的WIN.INI文件拷入自己的系统。
+        在WIN.INI文件中不记录颜色设置的命名(包括WINDOWS提供的和用户自己建立的)，而是将它们存放在的CONTROL.INI文件的［Colorschemes］段中。
+        ［PrinterPorts］段
+        ［PrinterPorts］段用于说明系统的每台打印设备所联的接口，以及各自的超时设置。
+        当用户联接打印机驱动程序和接口并调整超时设置时，Control Panel就自动对此段进行修改。对于某些应用程序，如Winfax和Publisher's Powerpak等，用户可以在此段中为它们增设虚拟口。但用户无需编辑此段。
+        ［PrinterPorts］段中可包含一行或多行如下格式的设置项：
+        device=driver,port,Device Timeout,RetryTimeout［，其它接口…］
+        device为用户打印机名，应在WIN.INI的［WINDOWS］段中的device=行说明该名。driver为打印机的驱动程序名，但不带.DRV扩展名。如果该程序不在WINDOWS\SYSTEM子目录中，那么就要在设置中说明它的全部路径。
+        port是WIN.INI的［Ports］段中的一个接口名。
+        DEVICE TIMEOUT用于指定WINDOWS等待打印机联接的最长时间，若超过此时间设置，则系统显示超时错误。
+        RETRY TIMEOUT用于指定WINDOWS在向打印机传送数据时等待打印机应答的最长时间。若超过此设置，则系统报告超时错误。
+        如果一台打印机和多个接口相联，那么应在该打印机的DEVICE=行中一起说明各联接关系。
+        在改变此段中的项时，必须保证它不与［DEVICES］段中的相应项目起冲突，如果一个联好的打印机没有在［PRINTER PORT］段中出现可能会出问题。
+        ［Device］段
+        ［Device］段是为了与WINDOWS 2.X版的应用程序兼容而设置的。在WINDOWS 2.X中，它的作用与这里的［PrinterPorts］段类似。用户同样无需直接对它进行编辑，该段不能被删除或作为注释，因为非WINDOWS 3.1的应用程序也许需要从这里而不是［PrinterPorts］段中查询信息。
+        ［Device］段可以包括一行或多行下列格式的设置项：
+        device=driver,port［,other port］
+        这里出现的项目与在［PRINTER PORTS］中的是一致的，你如果进行修改，请注意不要引起冲突，选择CONTROL PANEL中的PRINTS进行修改［PRINTER PORTS］也会引起此段的修改。
+        ［Programs］段
+        ［Programs］段(不要同［WINDOWS］段中的PROGRAMS=行混为一谈)用于扩展DOS的PATH环境变量。当需要运行一个文本文件，而WIDNOWS无法找到相应的.EXE文件时，系统将提示输入该.EXE文件的路径。在正确地启动了.EXE文件之后，WINDOWS便在WIN.INI的［PROGRAMS］段中建立相应的设置项。其格式如下：
+        程序文件=驱动器：目录\程序文件
+        注意，用户无需自己编辑此行。
+        SYSTEM.INI文件内容介绍
+        WINDOWS中的SYSTEM.INI文件主要用于 记录系统的组成信息，如显示方式、驱动程序、网络等等。因此，如果需要深入了解WINDOWS的内部工作，那么就必须全面掌握SYSTEM.INI。下面将介绍SYSTEM.INI中用户可能会加以修改的设置项。好好学习这些知识，它们会对日后的工作大有帮助。
+        在浏览过SYSTEM.INI文件后，用户也许会发现在本节没有列出其中一部分设置项。这是因为，有些安装驱动程序对系统来说是必不可少的。其它在386ENHANCED模式中使用的虚拟设备驱动程序(其参数以“*”号开始)是与WIN386.EXE一起工作的。所有这些省略的设置行都不允许用户修改或删除。否则很可能会破坏WINDOWS系统。
+        表5中列出了SYSTEM.INI文件的各段的名称及其说明。
+        表5 组成SYSTEM.INI
+        文件的各段名称和说明
+        段名	        		说明	
+        ［Boot］			驱动程序和WINDOWS模块清单	
+        ［KEYBOARD］			包括有关键盘的信息	
+        ［BOOT. DESERIPTION］	可通过WINDOWS SETUP修改的设备名	
+        ［386ENH］			386ENHANCED模式下WINDOWS需要使用的信息	
+        ［STANDARD］			STANDARD模式下WINDOWS需要使用的信息	
+        ［Non WindowsApp］		非WINDOWS应用程序使用的信息	
+        ［MCI］			MEDIA CONTROL INTERFACE(MCI)驱动程序清单(本段仅用于WINDOWS 3.1)	
+        ［DRIVERS］			可安装的驱动程序名或别名清单(仅在WINDOWS3.1中使用)
+        我们主要对4个段：［BOOT］、［386ENH］、［STANDARD］和［NONWINDOWSAPP］进行详细地介绍。这是因为其它段都不允许用户修改。修改SYSTEM.INI中的主要设置项是非常危险的。
+        若进行了修改，则很可能导致WINDOWS任务的致命错误。仔细阅读表6，我们已把SYSTEM.INI各段中不允许用户修改的设置项全部列在其中。
+        表6 SYSTEM.INI文件中
+        各段及其中不可修改的设置
+        段  名	   		设   置
+        ［BOOT］		286grabber=文件名
+        			386grabber=文件名
+        			CacheFileHandles=数值
+        			DISPLAY.DRV=文件名
+        			DRIVERS=文件名|别名
+        			KEYBOARD.DRV=文件名
+        			LANGUAGE.DLL=字库名
+        			MOUSE.DRV=文件名
+        			NETWORK.DRV=文件名
+        			SYSTEM.DRV=文件名
+        ［KEYBOARD］		KEYBOARD.DLL=文件名
+        			OEMANSIBIN=文件名
+        			SUBTYPE=数值
+        			-TYPE=数值
+        ［BOOT.DESERIPTION］	全段的所有设置项
+        ［386ENH］		A20EnableCount=数值
+        			BkGndNotifyAtPFaul=0|1
+        			DEVICE=文件名|*设备名
+        			DISPLAY=文件名|*设备名
+        			EBIOS=文件名|*设备名		
+        			EISADMA=0|1| channel.size
+        			HarDdiskDMABuffer=字节数(kb)		
+        			IdleVMWakeUpTime=秒
+        			IgnoreInstalledEMM=0|1
+        			InDOSPolling=0|1
+        			Keyboard=文件名|*设备名
+        			KybdPasswd=0|1
+        			Local=设备名
+        			LPTnAutoAssign=秒
+        			LRULowRateMult=数值
+        			LRURateChoqTime=毫秒
+        			LRUSweepFreq=毫秒
+        			LRUSweepLen=长度(页数)
+        			LRUSweepLowWater=数值
+        			LRUSweepReset=毫秒
+        			MapPhgsAddress=范围
+        			MaxBPs=数值
+        			MaxDMAPGAddress=地址
+        			NinUnIockMem=字节数(kb)
+        			Mouse=文件名|*设备名	
+        			Network=文件名|*设备名
+        			NMIreboot=0|1
+        			NoWaitNetIo=0|1
+        			OverLappedLO=0|1
+        			PageOverCommit=字节数(MB)
+        			PerformBackfill=0|1
+        			PSPIncrement=数值
+        			ReserveVideoROM=0|1
+        			ROMScanThreshold=数值
+        			ScrollFrequency=数值
+        			SGrabLPTt=接口号
+        			SyncTime=0|1
+        			SystemROMBreakPoint=0|1
+        			SysVMEMSlimit=数值|字节数(KB)
+        			SysVMEMslocked=0|1
+        			SysVMEMsrequired=字节数(KB)
+        			SysVMV86Locked=0|1
+        			SysVMXMSLimit=数值|字节数(KB)
+        			SysVMXMSRequied=字节数(KB)
+        			TimerCriticaleetion=毫秒
+        			TranslateScans=0|1
+        			TrapTimerPocts=0|1
+        			UniqueDOSPSP=0|1
+        			UseInstFile=0|1
+        			VideoBackgrondMsg=0|1
+        			VideoSuspencDisable=0|1
+        			WindowUpdateTime=毫秒
+        			WOAFont=字体文件名
+        			latBufferSize=字节数(KB)
+        			XMSUMBIntCalls=0|1
+        ［Standard］		PadCodeSegments=0|1
+        			StackSize=字节数(KB)
+        ［NonWindowsApp］	GIobalHeapSiz=字节数(KB)
+        ［MCI］		全段的所有设置项
+        ［DRIVERS］		全段的所有设置项
+        ［BOOT］段
+        ［BOOT］段中记录了一些在WINDOWS启动时建立的基本设置。最重要的是，这里有控制WINDOWS屏幕的SHELL程序。通常此SHELL程序是WINDOWS PROGRARN MANAGER。但也可以改换为其它程序。
+        Comm.drv=文件名(缺省值：NONE)
+        此设置用于指定系统使用的串行通讯驱动程序名。有些第三方通讯程序则安装自己的驱动程序代替缺省值，要想改变此项必须改变SYSEM.INI文件。
+        Fixedfon.fon=文件名(缺省值：根据显示驱动程序确定)
+        此设置项用于说明可运行在WINDOWS3.1中的WINDOWS2.X的字体。如果系统中有使用单一空间(MONOSPACED)字体的旧版本应用程序，那么可通过修改此行来更新字体。
+        为使NOTEPAD在VGA系统上使用适当的空间字体，用户应将FIXEDFON。FON设置为VGASYS。FON。在引设置中可使用的是光栅字体文件，其扩展名为.FON。这些字体文件必须存放在SYSTEM目录中。
+        egasys.FON,VGASYS.FON和8514SYS.FON。)
+        如果在这里指定了一种不可用字体，那么WINDOWS将无法运行，此时必须重新启动计算机。
+        修改WINDOWS菜单字体(不仅限于系统字体)的另外一种方法，就是修改WIN.INI文件中的［FONTS］段的描述。
+        Oemfonts.fon=文件名(缺省值：根据显示驱动程序确定)
+        此设置可定义CLIPBOARD VIEWER程序用于显示OEM TEXT格式文本的字体。这里指定的字体都是使用DOS字符设置的单一空间字体，而不是使用ANSI字符设置的其它WINDOWS字体(符号除外)。当用户向CLIPBOARD中拷贝文本块时，WINDOWS一般都以OEMTEXT格式将其存放。此时若将该文本块调入一非WINDOWS应用程序，则Clipboard以OEMText格式向其提供数据。例如，在进行了适当的字符值转换后，在非WINDOWS应用程序中可象在WINDOWS应用程序中那样显示加重的字符。在CLIPBOARD VIEWER中选择DISPLAY命令和OEM TEXT后，就可以在OEMFONTS.FON=行设置字体了。WINDOWS可支持三种OEM类字体，包括EGAOEM.FON,vgaoem.fon和8514oem.fon。
+        SETUP程序可为不同的显示分辩率安装适当的字体，并据此对OEMFONTS.FON=行进行初始化。用户可通过编辑SYSTEM.INI来修改此设置，但无特殊原因不要修改。若修改此行，则指定的字体必须是WINDOWS的OEM字体，否则将无法运行WINDOWS，只能重新启动计算机。
+        Shell=文件名(缺省值：PROGMAN.EXE)
+        此设置项可指定用于启动或结束WINDOWS任务的默认SHELL程序。该设置行是系统必须的，所以不能删除此设置项或它的参数。WINDOWS的SETUP程序自动将PROGRAM MANAGER作为默认的SHELL程序，但用户也可以将其改为FILE MANAGER或其它程序。(若将FILE MANAGER作为默认SHELL程序，则应在此行设置WINFLE.EXE参数。)如果指定的程序不在WINDOWS、SYSTEM或其它通过DOS的PATH命令说明的目录中，那么在设置此参数时就要加上它的完整的路径名。
+        几乎所有的应用程序都可用作默认的SHELL程序，但如果该程序不能激活其它应用程序，那么就会使WINDOWS系统成为一个单一应用程序环境。在有些时候这一特点是很方便的。例如，若用户只使用EXCEL，那么就可以将EXCEL设置为默认的SHELL程序，这样可节省启动时所花费的时间。
+        在选择第三方SHELL程序(如NORTON DESKTOP FOR WINDOWS)作为默认设置时，通常可自动修改SHELL行。若需要恢复PROGRAM MANAGER作为默认设置，则将SHELL行参数指定为PORGMAN.EXE。(注意，SHELL行必须带有参数。若无参数或删除该行，则WINDOWS将无法启动。)
+        Sonud.drv=文件名(缺省值：根据系统的声音硬件确定)
+        此设置项用于指定系统使用的声音驱动程序。
+        TaskMan.Exe=文件名(缺省值：TASKMAN.exe)
+        此设置项用于指定当用户按下CTRL+ESC，或在屏幕上未被任何窗口覆盖在空白处连续两次按动鼠标键，或选择一个应用程序的SWITCH TO 命令时，系统应调用的程序。当此行缺省或不带参数时，WINDOWS将TASKMAN.EXE作为默认设置，一些第三方SHELL程序带有自己的任务转换程序，并据此修改本设置项。用户也可以自己修改本设置行，以便在按下CTRL+ESC时弹出需要的程序。
+        若要恢复原来的设置参数TASKMAN.exe，则可删除该行或者将参数改为TASKMAN.EXE。如果在等号后面不输入任何参数，那么系统将不使用任务转换程序。?
+        ［386ENH］段
+        以386ENHANCED模式运行的WINDOWS与在STANDARD模式中不同。这些差别主要围绕着怎样充分地利用386处理器这一问题。［386ENH］段用于定义386ENHANCED模式运行的WINDOWS所使用的参数。
+        32BitDiskAccess=OFF|ON(缺省值：OFF)
+        在带有与WESTERN DIGITAL 1003标准完全兼容 的硬盘控制器的系统中，该行可用于确定WINDOWS是否使用“FASTDISK”技术替代ROM_BIOS磁盘访问服务。FASTDISK可加快磁盘访问的速度，也可以使用户在386 ENHANCED模式中同时运行更多的非WINDOWS应用程序。
+        安装此设置项后，WINDOWS将检查用户硬件是否可进行32位磁盘访问。若可以，则CONTROL PANEL的VIRTUAL MEMORY对话窗中将显示一个USE 32_BIT DISK ACCESS核实框。如果通过WINDOWS运行386 ENHANCED模式中的DOS应用程序，那么32位虚拟内存将会起很大作用。它可加快虚拟内存的访问速度，提高微机在进行后台处理的同时运行DOS应用程序的能力。但它也有一些不足之处：32位磁盘访问只能工作在与WESTERN DIGITAL 1003兼容的硬盘控制器上，而且对于使用电池的节能型PC机来说也无法保证运行的安全。如果在用户不使用便携机、ESDI或SCSI硬盘的情况下，那么最好还是调用32位磁盘访问功能。
+        设置FASTDISK时，应打开CONTROL PANELR的386 ENHANCED窗口，选择VIRTUAL MEMORY、CHANGE，然后确认USE 32_BIT DISK ACCESS框。CONTROL PARIEL可自动修改SYSTEM.INI文件中的32BIT DISKACCESS=行的设置参数。
+        AIIEMSLocked=OFF|ON(缺省值：OFF)
+        此设置项为ON时，WINDOWS将不再把扩展(EXPANDED)内存移入磁盘，并取消任何阻止扩展内存加锁的PIF设置，在大多数情况下，将扩展内存转换到磁盘上都不会引起什么问题。
+        如果系统中使用了磁盘缓存程序或要求扩展内存的DOS设备驱动程序，那么就应将此设置项改为ON。
+        AiiVMsExclusive=OFF|ON(缺省值：OFF)
+        此设置项为ON时，ENHANCED模式中的所有非WINDOWS应用程序都将以全屏幕方式显示，此时忽略其PIF文件设置，MICROSOFF公司建议在运行网络或与WINDOWS3.1不完全兼容的TSR软件时，应使用该项设置。
+        此设置项为ON时，屏蔽了ALT+ENTER组合键的功能。在WINDOWS中运行DOS应用程序时，该组合键可使程序在全屏幕显示方式和窗口显示方式之间切换。
+        AltKeyDelay=秒(缺省值：0.005)
+        此设置项定义了按下ALT键之后WINDOWS等待字符输入的最长时间。如果系统中的某些应用程序不能正确处理ALT键，那么最好延长此设置参数。
+        AltPasteDelay=秒(缺省值：0.025)
+        此设置项定义了按下ALT键之后WINDOWS等待字符输入的最长时间。有些应用程序要求比默认值更高的设置值。
+        AutoRrstoreScree=OFF|ON(缺省值：ON)
+        此设置项用于确定在转向一个运行于386 ENHANCED模式下的非WINDOWS应用程序时，该程序屏幕是由WINDOWS还是由程序自己恢复。此设置仅对运行于VGA显示模式下的应用程序起作用。并且应用程序在收到WINDOWS发送的显示刷新信息时能刷新屏幕。  将此设置项改为OFF可减少占用的内存，但也能导致系统性能降低。因为WINDOWS恢复屏幕的速度更快。
+        CGANoSnow=OFF|ON(缺省值：OFF)
+        此设置项改为ON时，WINDOWS可在CGA显示器上进行消除“雪花”的工作。
+        CGA40WOA，FON=文件名(缺省值：CGA40WOA·FON_美国用法)
+        此设置项可指定一种字体，WINDOWS将使用该字体显示那些需要40列，小于等于25行显示方式的非WINDOWS应用程序。改此设置需退出WINDOWS，运行SETUP，改变CODEPAGE或DISPLAY设置。
+        CGA80WOA，FON=文件名(缺省值：CGA80WOA·FON_美国用法)
+        此设置项可指定一种字体，WINDOWS将使用该字体显示那些需要80列、小于等于25行显示方式的非WINDOWS应用程序。修改方法与上一项相同。
+        Com1AutoAssign=数值(缺省值：2)
+        Com2AutoAssing=数值(缺省值：2)
+        Com3AutoAssign=数值(缺省值：2)
+        Com4AutoAssign=数值(缺省值：2)
+        此设置项用于说明WINDOWS在两个非WINDOWS应用程序或一个非WINDOWS应用程序与一个WINDOWS应用程序同时提出使用某一特定的COM接口时处置的方法。若参数值设为_1，则WINDOWS将发出警告，并询问用户联接哪个应用程序。参数设为0时，WINDOWS将不介入冲突，也就是说任何应用程序在任何时间都可使用该接口。若参数值大于0，WINDOWS则把接口分配给首先提出申请的应用程序。当该应用程序使用完毕后，WINDOWS将等待若干秒(即这里的设置值)，然后再把此接口分配给第二个应用程序使用。这里的设置值应小于1000。
+        注意：WINDOWS经常对WINDOWS应用程序提出的设备请求进行仲裁。AUTOASSIGN值仅作用于虚拟机之间的请求，也就是说其中至少有一个请求来自于非WINDOWS应用程序。为COM接口修改AUTOASSIGN值时，应先打开CONTROL PANEL的386ENHANCED窗口，在它的DEVICE CONTENTION区域中说明386需要修改设置的接口。然后可选择ALWAYS WARN、NEVER WARN或IDLE。
+        在一般情况下，参数值最好不设为0。
+        COM1BASE=地址(缺省值：在BIOS数据区域内的接口值)
+        COM2BASE=地址(缺省值：在BIOS数据区域内的接口值)
+        COM3BASE=地址(缺省值：3E8H)
+        COM4BASE=地址(缺省值：在BIOS数据区域内的接口值)
+        这些设置项可在STANDARD模式和ENHANCED模式中为每个串行接口定义基本(启动)地址。要修改这些设置项时，应打开CONTROL PANEL的PORTS对话窗，在其中相应接口的图标上连续两次按动鼠标，然后再按下SETTING按钮和ADVANCED按钮以修改基本地址。
+        COM1BUFFER=数值(缺省值：128)
+        COM2BUFFER=数值(缺省值：128)
+        COM3BUFFER=数值(缺省值：128)
+        COM4BUFFER=数值(缺省值：128)
+        这些设置项定义了WINDOWS分配给 每个接口的缓冲区的字符数。如果字符较多，那么就需要增大缓冲区。MICROSOFT公司建议在修改缓冲区大小之前，先将COMXPROTOCOL行设置为XOFF。
+        COM1FIFO=OFF|ON(缺省值：ON)
+        COM2FIFO=OFF|ON(缺省值：ON)
+        COM3FIFO=OFF|ON(缺省值：ON)
+        COM4FIFO=OFF|ON(缺省值：ON)
+        这些设置项用于确定16550UART的FIFO缓冲区是否可用。如果系统中使用了一个不能很好地支持FIFO缓冲区的旧版本的16550UART，并且遇到了问题，那么就将相应接口的FIFO缓冲区关闭，也就是将上述相应设置参数改为OFF。
+        COM1IRQ=数值(缺省值：4)
+        COM2IRQ=数值(缺省值：3)
+        COM3IRQ=数值(缺省值：ISA和EISA为4；MCA为3)
+        COM4IRQ=数值(缺省值：3)
+        这些设置项用于说明每个串行接口在STANDARD模式和ENHANCED模式中使用的中断请求(IRQ)。要修改这些设置项，应打开CONTROL PANEL的PORTS对话窗，在其中相应接口的图标上连续两次按动鼠标，然后按下SETTINGS按钮和ADVANCED按钮，并说明需要使用的IRQ。若要禁止一个串行口的输入，则将其IRQ置为-1。
+        COM1PROTOCOL=XOFF|(空格)(缺省值：空格)
+        COM2PROTOCOL=XOFF|(空格)(缺省值：空格)
+        COM3PROTOCOL=XOFF|(空格)(缺省值：空格)
+        COM4PROTOCOL=XOFF|(空格)(缺省值：空格)
+        这些设置项用于确定386 ENHANCED模式运行的WINDOWS是否停止在虚拟机中仿真一个XOFF字符的应答字符。如果上述参数被设置为XOFF以外的其它值或者全部设置行缺省，那么WINDOWS将忽略XOFF字符。若其中某行被设置为XOFF，则WINDOWS在收到一个XOFF字符后将停止发送字符，当它收到第二个字符(无论什么字符)时才恢复发送。当某一串行口进行二进制文件传送时，用户应关闭其相应的PROTOCOL设置。如果在高波特率传送时发生字符丢失现象，那么应将相应的PROTOCOL值设置为XOFF，若此时仍然有字符丢失现象，那么就增大相应的COMXBUFFER行设置值。
+        COMBoostTime=毫秒(缺省值：2)
+        此设置项用于定义虚拟机处理一个COM中断的最长时间。如果在某一通讯程序运行时屏幕上发生字符丢失现象，那么就要增大此设置值。
+        COMIrqSharing=OFF|ON(缺省值：MCA和EISA为ON；ISA为OFF)
+        此设置项用于确定串行接口是否可共享中断请求行。如果COM1和COM3或COM2和COM4在系统中使用同一个IRQ，那么本行应设置为ON。
+        COMdrv30=OFF|ON(缺省值：OFF)
+        此设置行参数为OFF时(默认设置)，WINDOWS的虚拟通讯驱动程序将使用自己的串行通讯驱动程序的中断处理器。
+        如果系统中使用的是WINDOWS3.0的通讯驱动程序(［BOOT］段的COMM.DRV=行中进行说明)，那么就要把本行设置参数改为ON。若SYSTEM.INI文件中省缺了本行设置，那么就应将其加入。
+        DMABufferIn1MB=OFF|ON(缺省值：OFF)
+        此设置项用于确定是否因需要与8位总线控制卡兼容而将直接内存访问(DMA)缓冲区装入内存中高于64K的首兆字节中。
+        DMABufferSIze=字节数(KB) (缺省值：16)
+        此设置项用于定义DMA缓冲区所使用的内存大小。有些系统的DMA缓冲区需要16K以上的内存。如CENTRAL POINT SOFTWARE建议设置64K的DMA缓冲区。
+        如果NETBIOS网络是在启动WINDOWS前安装的，那么WINDOWS将使用较大的内存设置参数，而且需在NetDMASIze中对该参数加以说明。
+        如果系统使用了带有D=参数的EMM386.EXE。那么WINDOWS将忽略此参数，而使用DMABufferSize的设置参数。
+        DOSPromptEsxitInstruc=OFF|ON(缺省值：ON)
+        若此设置项为ON(或省缺)，则系统在386ENHARCED模式下运行COMMAND.COM(或激活PROGRAM MANAGER中的DOS PROMPT图标)时，屏幕上方将显示5行说明。这些说明告诉用户键入EXIT可退出DOS任务，按下ALT+TAB可临时切换到WINDOWS或其它应用程序中，以及按下ALT+ENTER，可以在窗口和全屏幕之间切换DOS任务。
+        如果不需要这些信息，那么应将DOSPromptExitInstruc行设置为OFF。(若SYSTEM.INI文件中的［386ENH］段省缺了本行，那么就将它加入。)
+        注意，消除了这些提示信息后，DOS任务屏幕的上部仍然会显示MICROSOFT公司的版权信息，并且在键入WIN，从DOS任务返回时还会显示一些礼貌言词。
+        DualDisplay=OFF|ON(缺省值：根据显示适配器确定)
+        若希望EMM386将B000～B7FF段地址范围用作高位内存块(UMB)，则应设置本行为ON。本行设置项为ON时，还应在CONFIG.SYS文件的DEVICE=EMM386.EXE语句中加入参数：
+        I=B000～B7FF
+        EGA40WOA.FON=文件名(缺省值：EGA40WOA.FON_美国用法)
+        此设置项用于指定一种字体，WINDOWS将使用该字体显示那些需要40列，大于等于25行显示方式的非WINDOWS应用程序。
+        EGA80WOA.FON=文件名(缺省值：EGA80WOA.FON_美国用法)
+        此设置项用于指定一种字体，WINDOWS将使用该字体显示那些需要80列，大于等于25行显示方式的非WINDOWS应用程序。
+        EMMExclude=段范围(缺省值：无)
+        此设置项用于禁止WINDOWS检查高位内存中的指定范围。本行主要应用于故障处理。如果用户怀疑WINDOWS将扩展内存页或翻译缓冲区放在了已被硬件适配器或设备占据的区域，那么就可以将本行设置为：
+        EMMExclude=A000～EFFF
+        以排除所有的高位内存。此时若系统可正常工作，那么就将高位内存的排除区域缩小，继续测试直至可确定发生冲突的地址。
+        在使用EMMEXCLUDE时，要用十六进制数说明应排除范围的最低限值和最高限值，并在两值间以连字符(-)分隔。在需要时，WINDOWS将使用低值以下，高值以上的内存，所以该范围设置应为16K的倍数。若要减小这一高位内存区域，则应使用RESERVED HIGH MEMORY=设置。
+        EMMInclude=段范围(缺省值：无)
+        此设置项明确地告诉WINDOWS在指定的高位内存范围内查找空闲的UMB，但要跳过在EMMExelude行中说明的区域。将本设置与EMMExclude一起使用，可查找UMB冲突。
+        同EMMExclude一样，WINDOWS在需要时使用指定区域以外的16K的整数倍内存。若需要指定更小的区域，则使用USABLE HIGH AREA设置。
+        如果EMMInclude定义的范围同EMM386的X=参数定义的某一范围发生重复，那么WINDOWS将忽略EMMINCLUDE的设置项。
+        EMMPage Frame=段地址(缺省值：无)
+        此设置项明确定义WINDOWS的扩展内存Expanded memary页面框架的起始地址。
+        EMMSize=字节数(KB)(缺省值：64)
+        此设置项为使用扩展内存的非WINDOWS应用程序分配可用的扩展内存。EMMSize行指定作为EMS使用的最大内存量。当某应用程序需要使用全部扩展内存时，用户可进行上述定义，但此时系统将无法启动其它应用程序。
+        此设置项为0时，WINDOWS将不分配扩展内存，但仍然装入它的扩展内存管理程序。若确实不需要任何扩展内存，那么可使用NoEMMDrive=ON设置。
+        FileSysChang=OFF|ON(缺省值：在386ENHANCED模式中为ON；在STANDARD模式中为OFF)
+        此设置项用于确定当一个非WINDOWS应用程序建立、删除、拷贝、移动、改名或修改一个文件时，是否向FILE MANAGER报告。此设置为OFF时，可以加快运行速度。如果在386ENHANCED模式下运行WINDOWS且不需要立即修改FILE MANAGER记录，那么就将此设置改为OFF。若［386ENH］段中没有本行内容，则将其加入。)
+        Globai=设备名(缺省值：无)
+        此设置项用于定义一个全局的MS_DOS设备，也就是说只需在内存中保留一份该设备的状态，所有虚拟机都可以使用它。在默认设置下，除CON外的所有DOS设备都为全局性的，但是有些设备的驱动程序可将自己定义为局部的。所以，当将某些设备定义为局部性的并引起系统中断时，改变GLOBAL=设置可以排除故障。
+        本设置项中的设备名必须是那些已在CONFIG.SYS中列出的设备名，否则将导致设置项无效。
+        Int28Critica=OFF|ON(缺省值：ON)
+        此设置项为ON时，说明处理驻留内存软件所使用的28H中段需要临界段。默认设置为ON，是因为一些网络使用虚拟设备作为响应28H中断的内部任务转换器。如果系统没有使用这类软件，那么可将此开关置为OFF，以加快任务转换速度。
+        IRQ9Global=OFF|ON(缺省值：OFF)
+        此设置项为ON时，IRQ9屏蔽将转换为全局性的。若在386 ENHANCED模式下无法读取软盘数据，那么就将本行设置为ON。
+        KeyBoostTime=秒(缺省值：0.001)
+        此设置项用于说明一个应用程序在接受键盘输入时获得高优先权的时间。当有后台程序在运行，而前台的应用程序又对键盘输入响应较慢时，可提高此设置值以改变此状况。
+        KeybufferDelay=秒(缺省值：0.2)
+        此设置项用于说明在键盘缓冲区已满之后，显示键盘输入之前，WINDOWS的等待时间。当某些非WINDOWS应用程序不能正确显示CLIPBOARD文本时，可提高此设置值以改变此状况。
+        KeyIdleDelay=秒(缺省值：0.5)
+        此设置项用于定义WINDOWS在向虚拟机模拟一键盘输入后，忽略空调用的时间。减少此设置值可加快键盘输入速度，但也可能引起一些应用程序的运行速度降低。
+        KeyPasteCRSkipCount=数值(缺省值：10)
+        KeyPasteSkipCount=数值(缺省值：2)
+        这两行设置可控制WINDOWS用以减缓虚拟机输入速度的延时循环。特别是在发送了一个“回车”(.KeyPasteSkipCount)或其它字符(KeyPasteSkipCount)之后，WINDOWS发送第二个字符之前，这两个设置可确定有多少个INT 16H调用应该返回“空”。如果在向一个非WINDOWS应用程序传送时发生字符丢失现象，那么就要提高此设置值以改变此状况。
+        KeyPasteDelay=秒(缺省值：0.003)
+        此设置项用于定义WINDOWS在发送两个字符之间等待的最短时间。若想改变在发送时出现的字符丢失现象，则提高此设置值。
+        KeyPasthTimeOut=秒(缺省值：0.003)
+        此设置项用于定义WINDOWS在由快速发送( INS 16H)转向慢速发送(INT 9H)机构之前，提供给一个应用程序进行BIOS键盘读调用的时间。
+        KeybdReboot=OFF|ON(缺省值：ON)
+        此设置项用于确定WINDOWS在响应CTRL+ALT+DEL命令时是否使用一个键盘控制器命令重新启动计算机。若使用该键盘命令重新启动计算机时发生系统中断，那么应将此设置改为OFF。
+        LocaLoadHhg=OFF|ON(缺省值：OFF)
+        此设置项用于确定在DOS5.0下WINDOWS是否保留一些空闲UMB以供虚拟机的局部使用。除非有特殊的虚拟机需要局部使用UMB，否则不要将此行设置为ON。
+        LocalReboot=OFF|ON(缺省值：ON)
+        此设置项为ON时，可用CTRL+ALT+DEL键盘命令在不重新启动计算机的情况下终止一个中断了的应用程序。
+        MaxCOMPort=数值(缺省值：4)
+        此设置项用于说明WINDOWS最多可支持的通讯接口数。如果系统使用的通讯接口超过4个，那么就要增加此设置值。
+        MaxPagingFileSize=字节数(KB)(缺省值：可用磁盘空间的50％)
+        该行是SYSTEM.INI中用于控制临时交换文件最大长度的两行设置之一，它与硬盘的可用空间大小有关(另一设置为MinUserDiskSpace)。WINDOWS一般不允许建立容量大于可用硬盘空间一半的临时交换文件。如果磁盘空间不多，那么应降低此设置值，即在［386ENH］段中加入MaxPagingFileSize行，并将其设置为需要的数值。然后重新启动WINDOWS，进入CONTROL  PANEL的386 ENHANCED窗口，依次选择VIRTUAL MEMORY、CHANGE，并给出临时交换文件的大小和位置。
+        PAGE=十六进制页数(缺省值：根据WINDOWS启动时所测试的物理内存总数定)
+        此设置项用于说明可供WINDOWS使用的最多物理内存页数。WINDOWS在启动时根据自己在系统中所找到的物理内存总数对此设置项进行初始化。如果硬件设备不能识别系统中所有的物理内存，那么就在MaxPhysPage=行中设置一个具休值。(例如，ISA DMA网络卡不能使用16MB以下的内存。)
+        MCADMA=OFF|ON(缺省值。MCA计算机为ON，其它计算机为OFF)
+        此设置项用于确定WINDOWS是否对DMA使用微通道(MICRO CHANNEL)扩展。如果用户使用的是不带DMA扩展的微通道计算机，那么应将此行设置为OFF。
+        MessageBackColor=VGA颜色属性(缺省值：1)
+        MessageTextColor=VGA颜色属性(缺省值：F)
+        此设置项用于定义WINDOWS在显示全屏幕文本信息(例如在按下CTRL+ALT+DEL时显示的信息)中使用的前景和背景颜色。在默认设置下，背景色为蓝色，字符为白色。背景色的参数值范围为0～7，前景色参数值的范围为0～F(十六进制数)。
+        MinTimeSlice=毫秒(缺省值：20)
+        此设置项用于定义允许一个虚拟机运行的最短时间。削减此设置值可使多任务运行顺利，但会引起整体性能的降低。因为在这种情况下WINDOWS需要花费更多的时间进行任务切换。注意，由于所有WINDOWS应用程序都运行在一个虚拟机中，所以此设置不会对WINDOWS应用程序之间的处理器时间分配产生影响。
+        若要修改此设置项，应打开CONTROL PANEL的386 ENHANCED窗口，并调整MinimumTimeSlice值。而后，CONTROL PANEL将自动修改SYSTEM.INI文件。
+        MinUserDiskSpace=字节数(KB)(缺省值：2000)
+        此设置项定义了WINDOWS在建立一个临时交换文件时所应保留的最小空闲硬盘空间。(若建立的是固定交换文件，则此设置无效。)在默认状态下，系统为WINDOWS应用程序建立的临时文件(如新的、增大了的数据文件)保留2K的存储空间。如果临时交换文件需要更多的存储空间，那么可以适当降低此设置值。
+        MouseSoftInit=OFF|ON(缺省值：ON)
+        当在窗口中运行非WINDOWS应用程序时，如果在使用鼠标的过程中光标和屏幕信息被破坏，那么就将此设置项由ON改为OFF以改善这种状况。(通过编辑SYSTEM.INI文件实现)。
+        NetAsynchFallback=OFF|ON(缺省值：OFF)
+        NetAsynchTimeout=秒(缺省值：5.0)
+        上述设置项用于确定WINDOWS是否需要挽救一个失败的异步NeTBIOS请求。一般情况下，如果WINDOWS在全局网络缓冲区中没有足够的空间处理一个请求，那么该请求将会失效。但当NetAsynchFallback设置为ON时，WINDOWS将在局部内存中分配一个缓冲区，并且暂停运行其它虚拟机，直到超过了NetAsynchTimeout定义的时间以后才能继续运行。
+        NetDMASize=字节数(KB)(缺省值：在MCA计算机上为32；在其它计算机上为0)
+        此设置项定义了NetBIOS传送软件所使用的DMA缓冲区的大小。WINDOWS使用的DMA缓冲区大小由DMABuffrSize设置，而且其数值较大。         NetHeapSize=字节数(KB) (缺省值：12)
+        此设置项定义了WINDOWS在ENHANCED模式下通过网络传送数据时使用的常规内存缓冲区的大小。增加此设置值会减少网络所需要的可用常规内存。NetHeapSize一般都设置到下一个4K地址处。
+        NoEMMDriver=OFF|ON(缺省值：OFF)
+        此设置项为ON时，WINDOWS将不安装扩展内存驱动程序。(扩展内存是为运行在386ENHANCED模式下的非WINDOWS应用程序提供的。)
+        如果非WINDOWS应用程序不需要扩展内存，那么就将此行设置为ON，这样，WINDOWS就可以把传送缓冲区分配在高位内存块中，而为非WINDOWS应用程序释放更多的常规内存。注意，如果WINDOWS把传送缓冲区分配在常规内存中，那么就会减少所有虚拟机可用的常规内存。
+        PagBuffers=数值(缺省值：4)
+        此设置项定义了WINDOWS在使用32_BIT DISK ACCESS时用于存放异步读写页的4K页缓冲区的个数。增加此设置值可提高WINDOWS的性能。
+        Paging=OFF|ON(缺省值：ON)
+        此设置项为OFF时，WINDOWS不能使用虚拟内存。如果用户需要使用由临时或固定交换文件占用的磁盘空间，那么就将此设置改为OFF。方法是打开CONTROL PANEL的386 ENHANCED窗口，依次选择VIRTUAL MEMORY、CHANGE项，然后在TYPE列表中选择NONE。PagingFile=路径及文件名(缺省值：C:\WINDOWS\WIN386.SWP)
+        此设置项用于说明临时交换文件的位置和文件名。由于本行中包括了文件的全部路径名，所以它可以克服PagongDrive=中的任何矛盾的设置。一般无需修改本设置内容。
+        PagingDrive=驱动器名(缺省值：SYSTEM.INI文件所在的驱动器)
+        此设置项定义了WINDOWS中临时交换文件使用的驱动器名，若系统使用的是固定交换文件，则此设置无效。若要修改此设置，则打开CONTROL PANEL的386ENHANCED窗口，选择VIRTUAL MEMORY并按动CHANGE按钮，然后再选择一个新驱动器名。
+        PermSwapDOSDrive=驱动器名(缺省值：无)
+        此设置项定义了WINDOWS的固定交换文件所使用的驱动器。如果系统中使用的是临时交换文件，那么此设置无效。要改变此设置，应打开CONTROL PANEL的386 ENHANCED窗口，选择VIRTUAL MEMORY并按下CHANGE按钮，然后再选择一个新驱动器名。
+        PermSwapSizeK=字节数(KB)(缺省值：无)
+        此设置项用于说明固定交换文件的长度。修改此设置时，应先打开CONTROL PANEL的386 ENHANCED窗口，然后选择VIRTUAL MEMORY并按下CHANGE按键，最后再修改NEW SIZE窗口中的描述内容。
+        PerVMFiles=数值(缺省值：10)
+        此设置项定义了为每个虚拟机提供的局部文件句柄数。注意：如果系统中装入了DOSSHARE实用程序，那么此设置无效。另外，所有虚拟机可打开的文件句柄与CONFIG.SYS中FILES语句说明的文件句柄之和不得超过255。
+        如果一个非WINDOWS应用程序显示的错误信息提示应增加CONFIG.SYS中FILES语句的设置值，那么可忽略此提示，而只提高PERVMFILES=行的设置即可解决此问题。
+        RerlectDOSInt2A=OFF|ON(缺省值：OFF)
+        此设置项用于确定WINDOWS是否应该响应INT 2AH中断。此开关置为OFF时，WINDOWS将不影响INT 2AH中断，并且能够以更高的效率运行。如果系统中运行了需要调用INT 2AH的驻留内存软件，那么就应将此开关置为ON。
+        ReservedHighArea=段地址范围(缺省值：无)
+        此设置项用于定义一个禁止WINDOWS检查的高位内存范围。以十六进制数值说明该区域的上下界，且两值之间以连字符(-)分隔。在需要时，WINDOWS将使用该范围以外的区域，所以此范围大小应为4K的整数倍。本行设置与EMMEXCLUDE相似，但是，这里指定的内存区域更小些。
+        ReservePaghFrame=OFF|ON(缺省值：ON)
+        在UMB空间不足的情况下，此设置项可告诉WINDOWS将优先权交给扩展内存页框架还是传送缓冲区。此设置为ON时，如果WINDOWS发现高位内存中没有足够的空间给EMS页框架和传送缓冲区，那么它就会把EMS页框架放在高位内存中(在具有连续的64K空闲空间时)，把传送缓冲区放入常规内存。但是，这样就减少了所有虚拟机可使用的常规内存。如果DOS应用程序不使用扩展内存，那么最好把此设置项改为OFF。
+        TokenRingSearch=OFF|ON(缺省值：ON)
+        此设置项用于确定WINDOWS是否需要在AT机上查找令牌环(TOKEN-RING)网络适配器。如果系统没有使用令牌环网络，而且此查询干扰了其它设备，那么应将此设置改为OFF。
+        UsableHighArea=段地址范围(缺省值：无)
+        此设置项明确定义了一个高位内存区域，WINDOWS可在该区域中查找空闲的UMB，但需跳过与EMMExclude行的定义重叠的区域。用户可将此行与EMMExclude联合使用以寻找发生一个UMB冲突的具体位置。如果需要，WINDOWS将使用4K的整数倍的内存空间。若要设置一个较大的区域，则应使用EMM Include。如果此设置区域与EMM386的X=参数所排除的某一区域重叠，那么WINDOWS将忽略此设置范围。
+        UseROMFont=OFF|ON(缺省值：ON)
+        此设置项用于确定在运行于全屏幕的非WINDOWS应用程序中显示文本时(包括从一个非WINDOWS应用程序移开时显示的信息)，WINDOWS是否使用视频ROM中的软字体。如果在屏幕上有随机出现的点或有形体，那么就应将此设置改为OFF。根据MICROSOFT公司的意见，当VGASwap选择项中带QUALITA的386MAX或BlueMax时，应将此开关置为OFF。VGAMoncText=OFF|ON(缺省值：ON)
+        若应用程序不使用VGA适配器的单显模式，那么就应将此开关置为OFF。这样可使WINDOWS能够访问附加的高位内存块：B000～B7FF。在不使用VGA 显示器的系统中，此开关无效。
+        VirtualHDIrq=OFF|ON(缺省值：AT兼容机为ON；其它机器为OFF)
+        此设置项为ON时，WINDOWS可将硬盘中断行虚拟化，并跳过ROM BIOS。虚拟化(VIRTUALIZATION)可为WINDOWS提供更好的性能，但它与某些硬盘控制器及部分软件产品不兼容。要求将VIRTUALHDIQ设置为OFF的程序包括SUPER PC_KWIK缓存实用程序、BORLAND公司的REFLEX、TOSHIBA HARDRAM、BRODERBUND的各种游戏、PLUS DEVELOPMENT 的HARD CARD PLUSE 80II，以及一些ESDI硬盘控制程序等。
+        WindowKBReouired=字节数(KB)(缺省值：256)
+        此设置项定义了WINDOWS启动时必须拥有的空闲常规内存空间。若在启动WINDOWS时遇到麻烦，则可降低此设置值。
+        WindowMemSize=-1|字节数(KB)(缺省值：-1)
+        此设置项定义了WINDOWS自己使用的常规内存的大小。在默认状态下(-1)，WINDOWS可随意使用常规内存。
+        在带有2MB内存的系统上运行虚拟机时，如果发生内存不足的情况，那么就应将WINDOW MEMSIZE设置为一个640以下的数值。(或者使用PIF文件，为KBReouired设置一个较小的数值。)
+        WinExclusive=0|1(缺省值：0)
+        此设置项用于禁止一个以386ENHANCED模式运行的非WINDOWS应用程序在后台的运行。如果此行设置为1，那么当前台有WINDOWS程序运行时，将终止所有的非WINDOWS应用程序。要改变此设置项，应打开CONTROL PANEL的386 ENHANCED窗口，然后设置或清除EXCLUSIVE IN FORE GROUND核实框。
+        WinTimeSlice=前台值，后台值(缺省值：100，50)
+        当WINDOWS虚拟机运行于前台及后台时，此设置项用于确定将优先权交给WINDOWS虚拟机还是非WINDOWS虚拟机。(在386 ENHANCED模式下，所有的WINDOWS应用程序都运行在一个虚拟机中，而非WINDOWS应用程序则分别在自己的虚拟机中运行。inTlmeSlice与MinTimeSlice行不同，前者指的是相对值，而后者则使用ms作为测量单位。例如，假设WinTimeSlice的参数为100和50(默认值)，并且没有正在运行的DOS程序，在这种情况下，WINDOWS虚拟机将得到百分之百的处理器时间，因为系统中没有非WINDOWS虚拟机。现在假设运行两个非WINDOWS应用程序，它们的优先权设定值亦为100和50。(这些值由应用程序的PIF文件确定。如果不从PIF文件运行该程序，那么WINDOWS将使用-DEFAULT.PIF中的设定值，即100和50，当然除非用户自己另外指定。)当WINDOWS虚拟机在前台运行时，它将得到近一半的处理器时间，如下面表达式所示：
+        WINDOWS FOREGROUND PRIORITY
+        (WINDOWS虚拟机前台优先值)
+        DOSVM1 BACKGRO UND PRIORITY+DOSVM2 BACKGROUND PRIORITY
+        (第一DOS虚拟机后台优先值+第二DOS虚拟机后台优先值)
+        100
+        此时为：-------
+        50+50
+        当第一个非WINDOWS应用程序在前台运行时，所有的WINDOWS应用程序将总共得到三分之一的处理器时间，如下式所示：
+        WINDOWSVM BACKGROUND PRIORITY
+        (WINDOWS虚拟机后台优先值)
+        DOSVM1 FORE  GROUND PRIORITY+DOSVM2 BACKGROUND PRIORITY
+        (第一DOS虚拟机前台优先值+第二DOS虚拟机后台优先值)
+        50
+        此时为：------
+        	   100+50
+        如果将DOS程序的优先权设为100和50(也就是说，在-DEFAULT.PIF或其它应用程序的PIF文件中不重新设置参数值)，那么用户可通过提高WinTimeSlice行中的前台参数值，来减少后台的非WINDOWS应用程序对前台WINDOWS应用程序的影响。即，打开CONTROL PANEL的386 ENHANCED窗口，提高WINDOWS IN FOREGROUND的设置值。该值范围可从1到10000。同样，如果对前台的非WINDOWS应用程序的性能不满意，那么也可以通过调整CONTROL PANEL中WINDOWS IN BACKGROUND的设置值来降低WINTIMESLICE行的后台优先权。(若要提高某一非WINDOWS应用程序的性能，则可增加它的前台优先权，或者仅将它运行于EXCLUSIVE模式。这些工作可通过修改该应用程序的PIF文件来完成。)
+        ［STANDARD］段
+        SYSTEM.INI文件中的［STANDARD］段用于定义WINDOWS以STANDARD模式运行时所使用的参数。
+        FasterModeSwitch=0|1(缺省值：0)
+        此设置项可通过增加STANDARD模式下的WINDOWS的输入输出量使286微机在保护(PROTECTED)模式和实(REAL)模式中更快地进行转换。(该设置项在386或486微机上无效。)设置的默认值为0，因为当它为1时可引起某些较早型号的IBM PC_AT机及其兼容机在WINDOWS启动时发生中断。但对于大多数286微机来说，将FasteModeSwitch置为1可提高其性能。(如果［STANDARD］段中省略了本行，则将其加入。)
+        如果在ZENITH Z_248系统中进行输入时发生字符丢失现象，在OLIVETTI M-250-E系统中失去了鼠标控制，或者在带有WINFAX PRO2.0的286微机上发生字符丢失或性能降低等现象，那么就应该把FASTERMODESWITCH设置为1。
+        Int28Filter=数值(缺省值：10)
+        在STANDARD模式中，此设置项用于确定在WINDOWS启动之前装入系统的应用程序可以识别的INT 28H中断的百分比。在默认设置下，WINDOWS将使十分之一的中断可识别。增加此设置值可提高系统性能，但也会导致某些驻留内存程序发生故障。
+        MouseSyncTime=数值(缺省值：500)
+        此设置项用于定义在WINDOWS确认一组完整数据之前，每两个鼠标数据字节之间可停顿的时间长度。(此行仅适用拥有运行在STANDARD模式下的IBMPS/2鼠标接口的系统。)
+        NetAsynehSwitch=0|1(缺省值：0，除非有应用程序可支持NetBIOS对TaskSwitchAPI的使用)
+        在STANDARD模式下，此设置项用于确定当一个应用程序进行了异步NetBIOS调用后，是否可将它转向后台。由于在这种情况下将某些应用程序转向后台可导致系统中断，所以WINDOWS将此默认值设为0，使开关关闭。
+        NetHeapSize=字节数(KB)(缺省值：8)
+        此设置项定义了在STANDARD模式下，WINDOWS通过网络进行数据传送时所使用的常规内存缓冲区的大小。如果不能正确运行应用程序，那么应增大设置值，但是增大参数值也会减少网络需要的可用常规内存。
+        Stacks=数值(缺省值：12)
+        此设置项用于定义映射堆栈的个数。DOSX.EXE将使用这些堆栈把实模式中的DOS或BIOS中断映射到保护模式中。
+        如果屏幕上显示出“STANDARD MODE：STACK OVERFLOW(STANDARD模式：堆栈溢出)”错误信息，那么就增大这里的设置值。参数值范围为8～64。
+        [Non WindowsApp]段
+        WINDOWS需要一些基本操作信息，以能够运行DOS应用程序。这些信息主要集中体现在DOS本身的运行、DOS中的鼠标操作、以及其它管理工作等方面。
+        CommandEnvSize=字节数(B)(缺省值：DOS3.0或3.1为0；对于DOS3.2或以上版本来说，其缺省值应与CONFIG.SYS文件中SHELL语句的/E：参数一致)
+        此设置项用于指定DOS环境空间的大小。在WINDOWS中运行一个非WINDOWS应用程序时，如果屏幕上显示出“NOT ENOUGH ENVIRONMENT SPACE(环境空间不足)”信息，那么就应该增大此设置值。在386 ENHANCED模式下运行一个DOS应用程序时，WINDOWS将建立一个虚拟机，并且为它提供一个DOS备份。该DOS环境空间与CONFIG.SYS中分配的相同，默认值为160字节，用户也可以指定其它数值，如下所示：
+        SHELL=C：\DOS\COMMAND.COM/E：1024
+        在［NONWINDOWSAPP］段中加入COMMANDENVSIZE=行，可为所有的非WINDOWS应用程序增加环境空间。例如，要分配2K环境空间，则输入下行：
+        COMMANDENVSIZE=2048
+        用户也可以使用PIE文件为某一非WINDOWS应用程序增加环境空间。例如，要将WHIZBANG.EXE运行在虚拟机上，并带有2048字节的环境空间，那么就应建立如下PIF文件：
+        PROGRAM NAME：COMMAND.COM
+        RPOGRAM TITLE：WHIZBANG
+        POGRAM PARAMETERS：/E：2048/C C：\WHIZ\ WHIZBANG.EXE
+        STARTUP DIRECTORY：C：\WHIZ
+        如果通过PIF文件定义的环境空间大于COMMAND ENVSIZE=行的设置值，那么WINDOWS将按大数值进行分配(仅对PIF文件激活的虚拟机有效)。
+        DISABLEPOSITIONSAVE=0|1(缺省值：0)
+        有关窗口状态的信息(如它是否被最大化、它使用的字体以及在386 ENHANCED模式下何时退出了一个运行在窗口中的非WINDOWS应用程序等)都存放在一个名为DOSAPP.INI的初始化文件中。选择应用程序的CONTROL菜单(当应用程序在窗口中显示时)中的FONTS命令，并清除SAVE SETTINGS EXIT核实框，就可以使WINDOWS不记录这些信息。若将本行设置项从0改为1，那么WINDOWS便不再记录这些有关状态和字体的信息了。如果本行省缺，则WINDOWS自动将其置为缺省状态(0)。修改设置之前，应该先在SYSTEM.INI文件中加入本行内容。
+        FONTCHANGEENABLE=0|1(缺省值：在使用WINDOWS3.1GRABBER文件的系统中为1；在使用WINDOWS3.0 GRABBER文件的系统中为0)
+        此设置项用于确定是否允许用户修改一个运行在386 ENHANCED模式下的非WINDOWS应用程序所使用的显示字体。如果无法进行修改，则说明系统中使用了一个显示驱动程序和WINDOWS 3.0的GRABBER文件(GRABBER文件可支持在视频内存中进行非WINDOWS应用程序和WINDOWS3.1之间的数据转换。)为解决这一问题，可将FONTCHANGEENABLE置为1。但是这种方法不能应用在所有显示系统中，因为它也会引起鼠标箭头显示错误。若鼠标不能正常工作，则应将FONTCHANGEENABLE参数恢复为0。
+        LOCALTSRS=TSR程序名1，TSR程序名2…
+        此设置项列出了可拷入每一个正在运行的虚拟机的TSR程序。在WINHDOWS启动之前安装的TSR程序无法在虚拟机中正常工作。例如DOSECIT就是这种情况。(假设系统中只有一个键盘缓冲区，而不是每个虚拟机都有独立的缓冲区。)如果在LOADTSRS=行中包括一个在WINDOWS启动时装入内存的TSR程序，那么WINDOWS就会把它拷入每一个虚拟机中，注意，有些通过这种方法拷入虚拟机的TSR程序不能工作。
+        MOUSEINDOSBOX=0|1(缺省值：若已安装鼠标驱动程序则为1；否则为0)
+        在386 ENHANCED模式下的WINDOWS3.1中，当以窗口方式运行一个非WINDOWS应用程序时，鼠标事件通常可以传送进来。(对于大多数扩展名为.COM或.SYS的鼠标驱动程序来说，这一功能都是可实现的。)如果用户希望选择一个文本并将它拷入CLIPBOARD，那么就必须先使用应用程序中CONTROL菜单的EDIT和MARK命令。若想直接选择文本(不进入CONTROL菜单)并且不在意会失去应用程序的鼠标界面，那么就可以将MOUSEINDOSBOX行的设置项由1改为0。
+        SCREENLINES=数值(缺省值：25)
+        当一个非WINDOWS应用程序运行于全屏幕时，此设置用于指定其在屏幕上可显示的最多行数。该设置默认值为25。如果机器的显示系统允许，那么就可以编辑此行，将设置改为43或50行。但应用程序可能不会接收这一设置值。
+        SWAPDISK=驱动器：\目录(缺省值：DOSTEMP环境变量所指向的目录；若无TEMP变量，则缺省值为第一个硬盘的根目录)
+        在STANDARD模式中，当把一个非WINDOWS应用程序转向后台时，WINDOWS便 将其数据交换到磁盘上，并存放在SWAPDISK=行所指定的目录中。为提高这一处理过程的效率，用户可将DOS环境的TEMP变量指向一个速度最快，分区最少的硬盘。或者也可以将SWAPDISK=行设置为一特定的驱动器和目录。
+        若以STANDARD模式运行WINDOWS，并且系统使用了RAM盘，那么就可以把TEMP变量指向RAM盘，将SWAPDISK=行设置为其它驱动器和目录。这样，在TEMP目录存放临时文件的应用程序就可以使用RAM盘了，但是用户不能把整个应用程序从RAM驱动器中切入切出。(如果SWAPDISK=行指向的RAM盘不够大，那么将不得不重新启动系统。)在386 ENHANCED模式中，SWAPDISK=行的设置无效
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

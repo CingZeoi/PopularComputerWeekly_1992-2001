@@ -1,0 +1,217 @@
+WAP网站建设指南
+
+王巍
+2000年 第53期 
+
+    1999年11月3日开通了国内第一个个人移动信息服务网站——掌门网（www.byair.com）；1999年12月10日推出了世界上第一部商业化可上网手机——诺基亚7110；2000年3月16日，国内诞生了第一家提供WAP中文信息服务的专业网站——随身网（http://www.cwap.com）；2000年3月25日，中国移动通信集团开通了移动电话上网业务。现在，随着中国移动通信的两大运营商——中国移动、中国联通正式从网络上支持WAP业务以来，国内WAP网站就开始多起来了。本文详细介绍WAP网站的基本概念及网站建设的全过程。
+#1    一、WAP基本概念
+#1    1.WAP论坛和WAP协议结构
+    1997年6月，移动通信界的四大公司爱立信、摩托罗拉、诺基亚和无线星球（即Phone.com公司）组成了无线应用协议（Wireless Application Protocol）论坛，即WAP论坛。其目的是建立一套适合不同网络类型的全球协议规范。它是一项网络通信协议，是全球性的开放标准。它的出现使移动互联网有了一个通用的标准，标志着移动互联网标准的成熟。WAP是简化了的无线Internet协议。它将Internet和移动电话技术结合起来，使随时随地访问丰富的互联网络资源成为现实，目前的WAP版本是WAP 1.1。
+    WAP所使用的协议类似HTTP的Internet协议，但主要针对无线通讯设备所开发的，因为无线设备频宽有限、屏幕也较小，因此需要制定专门的协议来支持。WAP协议结构也是一种分层结构，从上至下一般包含WAE（无线应用环境）、WSP（无线会话协议）、WTP（无线事务协议）、WTLS（无线传输层安全协议）、WDP（无线数据报协议）、承载体（Bearer）等，每层完成各自的功能，有的层是可选的，如WTLS层。WAP协议层结构与因特网协议层基本上是一一对应的，不同的是，WAP采用WDP替代TCP协议，与HTTP协议对应的是WSP，WSP采用了压缩技术，以减少通信对无线频率资源的占用。^53200019a^1列出了因特网的TCP/IP协议结构和WAP协议栈的对应关系。
+    其中：
+    WAE规范（Wireless Application Environment）定义了手机上的用户界面，是应用层次上的规范标准。它包含有一种与HTML类似的标记语言WML和一种与JavaScript类似的脚本语言WMLScript等内容。
+    WSP规范（Wireless Session Protocol）定义了两类会话服务：一个是建立在WTP基础之上的面向连接的操作服务；另外一种是建立在WDP基础之上的无连接服务。
+    WTP规范（Wireless Transaction Protocol）是在一种数据报服务（比如TCP/IP协议栈中的用户数据报协议UDP）之上的一层规范标准。它提供了三类事务服务：不可靠的单向请求服务，可靠的单向请求服务和可靠的请求／应答服务。
+    WTLS规范（Wireless Transport Layer Security）提供了认证与加密选项等安全措施，并为在移动环境中使用进行了优化。
+    WDP规范（Wireless Datagram Protocol）为WAP协议栈的上面几层提供了一致的数据格式，从而使WAP应用能独立于各式各样的承载体，使得WAP协议能不依赖于某种特定的网络。
+    Bearer层依赖于移动网络的类型，它可能是CSD、SMS、CDMA，以及其他一些数据载体。
+#1    2.WML和WMLScript
+    WAP手机不能直接访问互联网网站。因为Web网站使用的语言为HTML，而WAP网站使用的语言为WML，它是特别为无线系统编制的，并经过了优化处理。互联网站必须用WML语言编写的主页才能被WAP用户访问。
+    WML（Wireless Markup Language，无线标记语言）语言用于描述WAP网页，它是一种与HTML语言非常相似的WAP网页编制语言，是由XML 1.0（eXtensible Markup Language）来定义的。用WML语言编写网页是专门用来在手机等一些无线终端显示屏上显示，供人们阅读的，并且同样也可以向使用者提供人机交互界面，接受使用者输入的查询等信息，然后向使用者返回他所想要获得的最终信息。
+    WMLScript是一种与JavaScript非常相似的脚本语言，它同样也专门针对WAP进行了优化，删除了一些不需要的脚本功能。但是，它与JavaScript最大的不同之处是：WMLScript不能被直接嵌入到WML网页中去，WML只能通过URL地址来调用WMLScipt文件。还有一个明显的差别就是：WMLScript文件在被WAP终端（比如WAP手机）运行前，先要有WMLScript编译器把它编译成WMLScript二进制字节代码。因此，一个WAP浏览器必须包含一个WMLScript虚拟机（Virtual Machine，VM）以便能运行这些被编译过的脚本。
+#1    3.WAP网关
+    简单地讲，网关（Gateway）在你的WAP手机和你要浏览的WAP站点之间充当的是中间人角色。当在你的WAP手机上输入一个WAP站点的网址后，你的WAP手机将发送一个请求到WAP网关，由该网关服务器把你的请求发送到你指定的WAP站点，在获取相关WML页面之后，再把它送到你的WAP手机上。
+    需要注意的是，虽然你编制的WAP网页用的是WML语言，但实际上WAP手机从WAP网关获取的并不是一个简单的WML页面。原因是：当你从你的WAP手机上请求一个页面时，网关从WAP站点取出某页面后，将把该页面加以编译处理，即把页面进行代码化压缩处理，它的目的是使得页面能在传输速度不太快的无线网络上得以更快地传输。当你的WAP手机得到这些经处理的代码后，将它们解码成一个正常的WML页面，然后再把它显示在你的手机屏上。
+    各类WAP手机都对经编译的WAP页面的大小有限制。比如，诺基亚7110手机允许的最大字节数是约1400个字节。如果你编写的页面在经过一个具有高效编译能力的网关编译后的字节数正好为该手机的容许值，则它能顺利被执行；但若你使用另外的可能编译效率较低的网关时，该网页将不能被你的手机正常接收操作。因此，你编制的WML网页应尽可能地在不同类型的WAP手机和不同的网关上进行测试，以便尽可能地让你的WAP网站能为绝大多数人所浏览。同时建议你把你编制的WML网页大小控制在1200个字节以下，尤其是那些含有中文的WML网页。
+    在WAPDRIVE网站（http://www.wapdrive.com）上列出了20多个国家的近百个WAP网关，其中有一部分是免费使用。另外你的手机制造商一般也都提供有WAP网关服务。
+#1    4.WAP网站内容
+    一个完整的WAP服务体系，应包括手机、网络和内容提供商，三者缺一不可。
+    无线终端本身的局限性如屏幕、电池等，无线网络系统的制约如传输制式、传输带宽与速率、网络覆盖等，这些因素决定了无线上网用户群的特殊性，也决定了其网络应用目的的特殊性。因此并不是所有的内容都合适于WAP网站的，更不能简单地把Web站点上的内容照搬到WAP网站上。
+    一般认为实时新闻、信息查询、网上金融服务与股票交易、天气预报、网上预定、网上购物等服务比较合适于WAP站点。还有那些与地理位置相关的信息也适合于WAP站点，比如交通信息、附近的医院、饭店、酒吧、电影院、提款机等信息。
+    最关键的是WAP站点提供的服务应具有高度的时效性、实用性和准确性，并且信息内容应尽可能简短。只有做到这一点你才有成功的希望。
+#1    5.WAP网站浏览方式
+    （1）手机浏览
+    手机浏览是最基本的方式，WAP站点的设立目的就是让那些有移动通信终端的用户使用的。当然你的手机必须是支持WAP功能的，并在初次使用前要作一些必要的设置。具体的设置方法在许多文章中已有详尽的论述，故在此不再加以叙述。
+    （2）WAP浏览器
+    WAP站点也可如同Web站点一样，通过那些支持WML语言的浏览器来浏览。比如，第一个在Windows环境下支持WAP的浏览器Opera（http://www.opera.no），它还能让你查看WAP网页的源代码，并可保存WML格式网页。
+    （3）WAP模拟器
+    通过WAP模拟器，你可以以逼真的手机界面来浏览WAP站点，通常它的浏览效果与真正的用手机浏览所得到的效果相一致。比如诺基亚公司（http://forum.nokia.com/main.html）的WAP开发工具Nokia Wap Toolkit，它能模拟诺基亚的三款WAP手机：6150、6110和7110。还有Phone.com公司（http://www.phone.com）的WAP软件开发包UP.SDK中所包含的UP.Simulator模拟器，目前它提供了对阿尔卡特的One Touch袖珍手机、摩托罗拉的iDEN手机、三星的Duette手机的界面模拟，并提供了一个通用手机模型的界面浏览。
+    （4）在线浏览
+    有些站点提供有在线WAP站点的访问。比如：GELON网站，你只要在浏览器的页面地址（URL）里键入http://www.gelon.net/ericsson/ewindow.html，在页面上就会出现ERICSSON R380模拟器。此时你只要先单击“Open Location”，然后输入相应的WAP网址即可通过仿真的窗口来浏览WAP站点。另外，提供免费WAP主页空间的网站大都提供有在线预览工具。
+#1    6.WAP网页开发工具
+    （1）文本编辑器
+    你可以用任何文本编辑器来编写WML文件，但前提条件是你必须熟悉无线标记语言WML的元素标签和属性。如果你是个WAP网站的开发能手，则不妨用文本编辑器来编写WML文件，然后再在WAP模拟器上加以调试。
+    （2）WML编辑工具
+    若你对WML语法不太了解，那么采用WML编辑工具来编写WML文件是一个比较好的选择。有的WML编辑工具提供有标签按钮，你只须点击按钮就能获得相应的标签的WML代码。也有的工具提供了“所见即所得”的能力，比如Nokia WML Studio for Macromedia Dreamweaver软件（可到http://exchange.macromedia.com站点免费下载），它是一个嵌入Macromedia Dreamweaver的WML编辑器，可以让你通过拖动来生成WML页面，是一个具有所见即所得能力的开发工具，而且你可以以Nokia 7110手机的模拟界面来预览网页。再比如WAPtor免费软件（下载点：http://www.waptop.net/default.htm），也是一个非常简单易用的WML编辑器，它能编辑已有的WML文件，以及通过一个简单的模版来创建一个新的WML文件，同时它也能让你随时预览WML页面的效果，这是一个特别适合初学者使用的WML编辑工具。
+    另外，像诺基亚公司（http://forum.nokia.com/main.html）、摩托罗拉公司（http://www.motorola.com/MIMS/MSPG/cgi-bin/spn_madk.cgi）、爱立信（http://www.ericsson.com/developerszone/）等公司推出的WAP软件开发包（SDK）都提供了WML编辑器，并提供有调试工具、模拟器，以及丰富的联机开发帮助文档以供随时查阅。
+    （3）在线WAP页面编辑
+    有些提供免费WAP主页空间的网站提供有在线WAP页面编辑功能，它们一般都具有网页制作导航能力，你只需要按照提示操作即可，而不必熟悉WML标记语言。因此，可以很方便地为你生成一个WAP网站或完全定制一个新的WAP页面。
+#1    7.WAP图形文件
+    目前在WAP网站上仅能使用一种被叫做无线位图格式（WBMP）的图形文件。WBMP格式图片是一种黑白位图图片。你可通过如下几种方式来获得这种格式的图形文件。
+    （1）绘图工具
+    你可以通过WBMP图像编辑器来绘制WBMP图片。比如PHNET网站（http://www.phnet.fi/public/jiikoo）提供的WAPDraw免费软件，它能绘制的最大图形尺寸是96×80像素。该工具软件的运行平台是Windows 95/98/NT。
+    （2）图像转换工具
+    你可以以通过图像转换工具把BMP、GIF、JPEG等格式的图形文件转换成WBMP格式的图形文件。比如WAPTIGER网站（http://www.waptiger.de/download.html/）提供的bmp2wbmp图像转换工具，可以在BMP与WBMP文件格式之间转换。又如GINGCO网站（http://www.gingco.de/wap/content/download.html）提供的pic2wbmp免费软件可以让你读取GIF、JPG、BMP格式的图形文件，然后以WBMP格式存储。
+    （3）在线转换
+    你可以通过在线转换工具在网上进行图像文件的格式转换。比如TERAFLOPS网站（http://www.teraflops.com/wbmp）提供的在线转换工具能读取GIF、JPEG和BMP格式的图片文件，然后以WBMP格式存储。
+    （4）实时转换
+    有些提供免费WAP主页空间的网站提供有图像文件格式的自动转换功能。比如WAPJAG网站（http://wapjag.com/）能自动把你上载的GIF和JPEG文件转换成WBMP格式文件。
+    （5）网上下载
+    有些网站专门提供有各种WBMP格式的图片文件，以供免费下载使用。比如WBMP gallery（WBMP画廊）网站（http://www.hicon.nl/wbmpgallery.htm）、WAPSPY网站（http://www.wapspy.com/）。
+#1    二、WAP软件开发包
+    最简单的开发方法是先用文本编辑器写好WAP页面，然后把该页面上传到你的WAP站点上，再到WAP模拟器上去调试。在这里介绍一个集成的WAP站点开发工具——Nokia WAP Toolkit。该工具包集成有WAP模拟器、WAP网页编辑器、调试工具、联机帮助文档、以及样本例子，它是一个很不错的完整的WAP网站开发平台。
+    首先，你必须先下载两个软件包：Nokia WAP Toolkit（http://www.forum.nokia.com/wapforum/nwt_disclaimer.html?version=13b）和Java Run Time Environment（http://java.sun.com/products//jdk/1.2/jre/download-windows.html）。
+    假定你把这两个软件包存放在你计算机的C:＼Temp目录。此时在该目录中已有两个文件：setupex13b.exe（约10MB）和jrel_2_2-001-win.exe（约5MB）。现在你可以依次直接点击该两个文件，遵循屏幕显示的安装提示进行安装工作。
+    标准安装的情况下，你可以通过点击“开始”、“程序”菜单的Nokia WAP Toolkit/Toolkit子菜单项来启动Nokia WAP工具包。此时将装载工具包，然后会显示两个窗口：一个是Nokia WAP Toolkit窗口，另外一个是Nokia 6150窗口。
+    Nokia WAP Toolkit窗口是你的网页开发区，在此处你可以编辑你的WML（.wml）和WMLScript文件（.wmls），以及对这些文件进行编译（.wml文件经编译后的扩展名为.wmlc；.wmls文件经编译后的扩展名为.wmlsc）。更为重要的一点是，你可以在此处运行你的脚本和操纵你的Nokia 6150模拟手机，就好像是它提供有一个WAP服务器。
+#1    三、WML编程
+#1    1.基本规则
+    （1）WAP页面的基本结构
+    WAP页面总体上是由两大部分构成的。首先是文档头部定义，然后才是文档主体。
+    a.文档头部
+    因为WML语言是遵循XML 1.0标准的，因此你必须首先在WML文件定义如下文档头部。
+    <?xml version=“1.0”?>
+    <!DOCTYPE wml PUBLIC “-//WAPFORUM//DTD WML 1.1//EN”
+    "http://www.wapforum.org/DTD/wml_1.1.xml">
+    b.文档主体
+    WML代码的主体必须包含在一对标签<wml>和</wml>之间。该主体定义的就是一个卡片组。一个WML页面可以包含多个卡片。一个卡片的内容必须被定义在一对标签<card>和</card>之间。用户可以在各卡片之间导航。
+    另外需说明的是：卡片中的内容必须被包含在<p>和</p>中。因此若你在卡片中已结束了一个段，则接下来的内容依然要包含在段标签中。
+    下面是一个最简单的例子，用来说明一个WML页面的基本框架，使读者能对它有一个总体上的概念。
+    <?xml version=″1.0″?>
+    <!DOCTYPE wml PUBLIC ″-//WAPFORUM//DTD WML 1.1//EN″
+    ″http://www.wapforum.org/DTD/wml_1.1.xml″>
+    <wml>
+      <card title=″example″>
+        <p>Hello!</p>
+      </card>
+    </wml>
+    （2）WML语言的标签
+    WML语言和HTML语言从总体上看差不多，它也套用和修正了部分HTML中的标签，并且增加了部分新标签。在WML语言中，所有元素的标签和属性都必须是小写的。另外它的标签也不一定是成对出现的，对于不成对的标签需要在“>”之前加上“/”。比如强制换行元素标签<br/>。这里想顺便提一下：所有的卡片名和变量都是对大小写敏感的，这一点必须要注意，否则很容易出错。
+    （3）变量的引用
+    在WML代码中允许你引用变量。若你要引用变量，则必须在变量名前加上“$”符号。即格式应如下：
+    $变量名
+    （4）特殊字符
+    WML保留了<、>、′、″、＆字符。因此你若要在显示文本中显示这些字符，则你必须在文本中使用替代字符元素。另外，因为对于连续空格的处理和HTML语言中一样，也是只显示一个空格，因此你若要在文本中显示空格，也要用替代字符。替代字符元素的样式是以和字号“＆”开头，以分号“;”结束。下面列出了这些特殊字符的替代字符元素：（^53200019b^）
+#1    2.定义超链接的方法演示
+    有两种链接类型：一种是链接到其它WML页上；另外一种是连接到你指向的WML页中一个卡片上。若你指向的是一个卡片，则要在卡片名前加上符号“#”。
+    下面是一个样本例子：（说明：为减短文章篇幅，本文中所举的全部例子清单将都不列出文档头部，读者自己在编写WML文件时必须把它加上。）
+    <wml>
+      <card>
+        <p>
+          Some links:<br/>
+          <anchor title=″Link1″><go href=″d1.wml″/>News</anchor><br/>
+          <anchor title=″Link2″><go href=″d2.wml″/>Sports</anchor>
+        </p>
+      </card>
+    </wml>
+    下面举的是在一个卡片组（deck）中的卡片（card）间的导航实现例子：
+    <wml>
+    <card>
+        <do type=″accept″>
+          <go hred=″#card2″/>
+        </do>
+      <p>
+        Press OK to display the next screen
+      </p>
+    </card>
+    <card id=“card2”>
+      <p>
+        This screen displays Card 2
+      </p>
+    </card>
+    </wml>
+#1    3.控制显示文本的方法演示
+    你可以通过<b>、<i>、<small>等元素标签控制你要显示文本的样式。
+    下面是一个要求对“OK”以粗体字形式显示的样本例子：
+    <wml>
+      <card>
+        <p>
+          press <b>OK</b> to go to the next screen.
+        </p>
+      </card>
+    </wml>
+#1    4.文本录入的范例演示
+    你可以通过<input>元素定义文本录入功能，并可通过指定type属性的属性值为password来定义被输入的文本是密码，此时屏幕上不会显示你正在键入的字符，只是以星号“*”替代显示内容。举例如下：（要求输入你的姓名、地方、邮编、密码等内容）
+    <wml>
+      <card>
+        <p>
+          First Name:
+          <input name=“fname” maxlength=“15”/><br/>
+          Last Name:
+          <input name=“lname” maxlength=“15”/><br/>
+          State:
+          <input name=“state” maxlength=“2” emptyok=“true” value=“SH”/><br/>
+          Zipcode:
+          <input name=“zipcode” maxlength=“6” format=“NNNNNN”/><br/>
+          Password:
+          <input name=“password” maxlength=“8” type=“password”/>
+        </p>
+      </card>
+    </wml>
+    这里详细地说明一下<input>元素中的format属性可以定义的文本输入格式类型：（^53200019c^）
+    如果不使用*和f，则你必须为每个允许的字符重复使用格式代码。比如：AANN表示允许输入DE12，但不允许输入1234。如果没有规定格式，则用户可以键入无限个数的任何字符。
+#1    5.用户列表选项功能演示
+    在一个卡片组中使用列表定义功能，则用户能够从列表中选取选项，并且通过用户的选择能触发特定的事件。为了实现这些功能，需要使用<select>元素。该元素定义了供用户选择的选项列表。你还可以规定用户可采取的选择方法：单项选择或多项选择。
+    下面是一个有列表选项功能的卡片例子：（当你选择了一个选项后，会导航到另一个卡片去显示你选择的内容）
+    <wml>
+      <card>
+        <do type=“accept”>
+          <go href=“#displayaccount”/>
+        </do>
+        <p>
+        Choose an account:
+        <select name=“account” ivalue=“2”>
+          <option value=“Could be better.”>Checking</option>
+          <option value=“Not bad.”>Savings</option>
+          <option value=“I＇m impressed.”>Mutual Fund</option>
+        </select>
+        </p>
+      </card>
+      <card id=“displayaccount”>
+        <p>
+        $account
+        </p>
+      </card>
+    </wml>
+    注：详细的WML语法请见电脑报2000年合订本配盘光盘《WML语法速查》。
+#1    四、WAP主页空间的申请
+    目前，已有不少网站向用户提供免费的WAP主页空间申请，考虑到国外的免费WAP空间网站比较多，并且大多是英文网站。在此以一个比较好的站点HOILEY上的网站空间申请过程为例来介绍具体的操作过程。
+    HOILEY网站的网址是http://www.hoiley.com。它提供的免费WAP空间支持WML、WMLScript和PERL，它支持FTP网页上传和网上上传。同时它还提供给你免费的E-mail、日历、地址簿等应用服务。它还有使用极其方便的网页制作导航功能，你可以用它很方便地完成你的WAP网站建设。
+    具体操作过程如下：
+    1.在IE浏览器中打开网页http://www.hoiley.com，在其主页上点击“Sign Up”进入注册页面（见^53200019d^2）。
+    2.你只要依次输入ID号、密码（要重复一次）、密码遗忘时所要用的提问问题和你的答案、出生日期和你的E-mail地址。填好后点击“Register”按钮。若填写准确，并且你的ID号尚未被他人使用，则网站会显示一个欢迎页面，告诉你过几分钟后取接收网站发给你的一份E-mail。该E-mail将告诉你你的用户名（即ID号）和密码以及其他有关内容。
+    此时，你已获得了一个免费的WAP空间，它的网址是：http://www.hoiley.com/user/用户名。
+    注意，若你的网页是经FTP上传的，则它的网址是http://www.hoiley.com/users/用户名。这种情况是该网站所特有的，其他提供免费WAP主页空间的网站一般都没有这种现象，因此你要特别加以留意。
+    3.接下来，你就可以在该网站主页上点击“Log In”，登录后就进入了网站创建页面（见^53200019e^3）。
+    若你是个初学者，尚未熟悉WML语法，则你可以在“Beginner”栏点击“Creat a WAP Page!”链接，进入网页制作导航操作，它会一步一步提示你键入有关信息，你无需知道WML语法，它就能自动为你生成你定制的网页。若你要上载WBMP格式的图片，则你可通过点击“Upload”来实现。
+    若你是自己手工编制WAP网页的，则可在“Professional”栏上传网页文件，一次至多可上传5个文件，你指定好要上传的文件后，只要点击“Upload”按钮即可进行上传工作。
+    当你做好上述工作后，就可通过WAP浏览器查看你的WAP网站效果了。
+#1    五、免费WAP主页空间的网站
+    1．HOILEY  http://www.hoiley.com
+    个人域名: http://www.hoiley.com/user/用户名/
+    * 提供FTP上传服务。提供无限免费空间，支持WML、WMLScript、Perl。
+    2．掌上网  http://www.airwap.com
+    个人域名: http://www.airwap.com/手机号（必须是注册会员时填入的号码）
+    * 默认WAP首页为index.wml。
+    3．WAPPY  http://wappy.to/
+    个人域名: http://wappy.to/用户名
+    * 它也提供免费的WAP站点重定向服务。虚拟域名为http://wappy.to/用户名。
+    4．MOBITEXT  http://mobitext.com
+    个人域名: http://mobitext.com/go.cfm?用户名
+    * 它也提供E-mail。
+    5．WAPDRIVE  http://wapdrive.com
+    个人域名: http://www.wapdrive.com/用户名
+    * 默认WAP首页为index.wml。它也提供对FTP网页上传的支持。
+    6．TAGTAG  http://tagtag.com/
+    个人域名: http://tagtag.com/用户名
+    * 该网站提供了强大的WAP网页制作导航能力. 目前尚未提供FTP上传功能。
+    7．UHOME  http://uhome.net/
+    个人域名: http://用户名.uhome.net
+    * 支持CGI（Perl 5.6）/PHP 4/SSI/WAP.空间38M.繁体中文站点。
+    8．WAPMORE  http://www.wapmore.com/
+    个人域名: http://www.wapmore.com/用户名.wap
+    * 你也可以建立E-mail。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

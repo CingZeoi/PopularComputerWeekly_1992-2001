@@ -1,0 +1,330 @@
+离线浏览器三剑客
+
+推磨的蚊子 
+2001年 60期
+
+　　“离线浏览器”这个组合词从诞生那天起，就注定要吸引无数网民的眼球，至少对于还处在拨号上网阶段的大多数网民来说，离线浏览器的出现减缓他们腰包缩水的速度，对他们而言这的确是个福音。
+　　　　那么，离线浏览器到底有些什么作用？目前有哪些比较好的离线浏览软件呢？这都是下文要解决的问题，我们将为你介绍目前最新的三种离线浏览软件的一般使用方法，希望能对你有所帮助。
+　　　　就目前来看，离线浏览软件按功能主要分为两类，一种是Cache（缓存）浏览器，它可以查看已经浏览过的网页，但仍需要先用Navigator、Internet Explorer等浏览器一个网页接一个网页地浏览一遍。为了节省时间，很多用户此时根本不看网页的内容，而直接将网页资料传到Cache中。因为一次只能够传送一个网页， 所以这种方法速度仍然很慢。另一种则是离线浏览器，它的主要功能是将网站下载到硬盘，离线后再做查阅。比起Cache浏览器，它的主要优点是可以同时下载多个网页，而且可以把整个网站原封不动地下载下来，这为建立镜像站点提供了方便。本文中我们将重点为你介绍第二类离线器。现在让我们言归正传一起来揭开离线浏览器的神秘面纱吧！
+　　　　
+　　#1    离线浏览三剑客之WebZIP篇
+　　#2　　一、WebZIP的基本功能介绍
+　　　　WebZIP是Spidersoft出品的一个比较经典的离线浏览工具，以功能强大、界面美观而著称（如^60090304a^1），是同类共享软件中较出色的产品之一。WebZIP集下载、存储、在线浏览、离线浏览诸多功能为一体其主要功能有：
+　　　　1．下载一个完整的站点并把它压缩为一个ZIP文件。这种一边压缩一边下载的工作方式是WebZIP的特色。由于下载过程中采用压缩方式，所以它下载速度特别出色，这一点是其它离线浏览工具所无法比拟的。
+　　　　2．有选择地下载并压缩Web站点中所需要的内容。这使我们能够只下载自己感兴趣的内容，把不需要的给过滤掉。
+　　　　3．WebZIP支持多链接下载，即一个站点可以有多条链接通道来同时进行下载，这样进一步提高了下载速度。WebZIP缺省是以10条链接下载一个站点，你最大可设置为16条。
+　　　　4．智能更新。WebZIP允许让你只下载新的或变动过的内容，而不用将所有站点信息重新再全部下载，从而快速更新站点内容。
+　　　　5．智能恢复、继续。WebZIP允许你在下载过程中随时中断，以后你可以从断点处继续下载，这很类似文件传输中的断点续传功能。
+　　　　6．通过设置，你可以安排WebZIP在某个时间里自动启动下载站点进程。 
+　　　　
+　　#2　　二、WebZIP初级使用方法
+　　　　对于大多数用户来说，一般只需要使用一些最基本、最常用的功能，只要可以把网站内容全部搬到自己电脑硬盘上就行了，至于其他的功能以后再说啦。现在笔者就简单的为你介绍一下WebZIP的初级使用方法。
+　　　　（一）下载网站的方法： 
+　　　　 1．设定下载站点地址 
+　　　　在下载网站之前，先要设定需要下载的目标站点。点击快捷工具栏中的“New Task”，打开“Create New Task”对话框。在左边窗口中选择“Download URLs”，在右边窗口
+　　　　“Download a Web page and follow links from this start page”栏中输入目标站点的网址。如：“http：//www.cpcw.com.”，在“Save to”栏中输入或选择下载文件的存放位置。
+　　　　 2．下载任务的具体设置 
+　　　　我们还需要对下载任务进行一些详细设置： 
+　　    Filetypes： 在此选择需要下载站点里的哪些文件。大家都知道，很多WWW站点的组成是非常复杂的，除了组织站点的HTML文件外，还有其他很多文件用以实现其多媒体和交互功能。而用户需要下载的可能只是部分类型的文件。在“Filetypes”中，您可指定下载文件的类型，可选择下载全部文件或指定下载HTML文件、图像文件、音频文件、视频文件、Java文件、ActiveX、插件、可执行文件或是其他类型的文件。此外图像文件还具体分为JPG、GIF等，若您只想下载其中的JPG文件，可以双击“Images”，再在树型选单中选择相应的文件类型即可。对于其他类型的文件也可按此方式进行详细设定。 
+　　　　Followed Links：现在的Internet网站已变得越来越复杂，绝大多数的网站是由许多个页面组成的，在“Followed Links”里，用户可填写需要下载的网站层数。 
+　　　　URL Filters：在此您可以指定下载或拒收包含某些特殊字符或短语的资料，具体内容可在“Include（包括）”栏或“Exclude（排除）”栏中填写。 
+　　　　Link Conversion：当用户将站点下载到本地硬盘后，有些指向服务器的链接地址将不能使用，因为他们使用了绝对路径。WebZIP可帮助用户改变链接地址，让用户下载的站点在本地硬盘上也能顺利地运行。用户可以将“Link Conversion”对话框中的2个选项“Convert All followed links to relative links”和“Convert unfollowed links to absolute links”都选上。 
+　　　　Password：如果该站点需要口令登录，在“Account”中填写账户名称，在“Password”中填写口令。 
+　　　　Schedule： 设立下载时间表。由于下载网站往往是一个漫长的过程，很多用户希望能够指定一个约定的时间开始下载，比如利用网络速度较快、ISP收费较少的时段进行下载。在“Schedule”项中，您可在“At： ”栏里填写开始下载的时间。 
+　　　　3．下载 
+　　　　 一切准备就绪后，就可以下载了。选中“Run Now”按钮就可以让刚才建立的任务立刻运行。 
+　　     在下载过程中，我们可以随时观察下载状况。点击工具栏中的“Explore”，可看到正在下载的文件的名称、大小以及标题等。此外每个文件的前面都有一个标记，下载完毕的文件都是以对钩标记。如果下载过程中文件出错，就可以命令WebZIP重新下载。方法是用鼠标选择该文件，单击鼠标右键，在弹出的菜单中选择“Mark for update”，这时文件前面的标记改变，下次WebZIP会自动更新这个文件。点击工具栏中的“Connection”可以查看当前建立的链接，默认是同时链接10个文件进行下载，可以通过右下角的“Connection”滑标调整链接的数目。靠右的“Download Priority”滑标是选择倾向于优先下载网页还是倾向于优先下载文件资源。 
+　　　　在WebZIP界面左下角的状态栏中显示了总共连接的时间，如果您的任务是分几次完成的，这个时间就是完成几次任务的总和。同时，状态栏中还显示了已经下载的页面、出现的错误以及下载速率等等，并有传输和暂停的快捷工具按钮。 
+　　　　如果在下载网站过程中发生了中断，可使用WebZIP的断点续传功能，一直到下载完成为止。下载完毕后，WebZIP会弹出提示框，提示用户下载已经完毕。 
+　　　　（二）离线浏览 
+　　　　用WebZIP下载网站的目的就是为了离线浏览。下载完毕后，点击工具栏上的“Browse”按钮，选取任意一个已下载的页面，随后调用系统默认的浏览器进行浏览，双击工具栏中的“Browse”按钮可以扩大浏览区域。您还可以通过选择“Task”*“Browse”*“Offline”，在弹出的菜单中选择您习惯使用的浏览器。 
+　　    离线浏览的感觉和在线浏览一模一样，而且不必担心查阅时间过长。不过在内置的浏览器和Internet Explorer中，存在HTML文件兼容性的问题。有的网站用Navigator浏览时一切正常，但用Internet Explorer或内置的浏览器浏览就有问题，相反的情况也可能出现。如果出现这些情况，您可以试用另一种浏览器。
+　　#2　　三、WebZIP 的进一步设置和使用 
+　　　　（一）安排某个下载任务自动执行 
+　　　　在Tasks工具窗口中选择某个下载任务，以鼠标点击快捷工具栏的Schedule Task，在弹出的Schedule Task窗口里，点选Schedule（Once-off），这表示一次性下载，在At后面你可以选择下载任务自动执行的日期和时间；如果你需要下载的站点被经常更新的话，可以点选Every（每隔几小时几分钟）/Daily（每天几点钟）/Weekly（每个星期哪几天的几点钟）。
+　　　　Schedule设置是否使用定时下载，分三个选项：“Now”立即开始下载、“At：”在设定的时间开始自动下载、“Don’t schedule this task”不对这个任务进行预定。 
+　　　　（二）通过代理服务器下载站点 
+　　　　如果你是通过代理服务器下载站点的话，与浏览器一样，也需要对WebZIP 进行设置，选择View－Options－Connection，在弹出的窗口中激活连接通过代理服务器，并在Address一栏中键入代理服务器的IP地址或域名，在Port一栏中键入代理服务器的端口号（如果代理服务器要求验证的话，还要输入用户名和密码）。 
+　　　　小结：
+　　　　看了上面的介绍以后，不可否认WebZIP确实是一个功能强大的离线浏览器，用好它能为你带来很多好处，至少可以为你节约很多的银子，又可以把一些精彩的网站永久留在你的硬盘中，这些，难道对你还没有吸引你吗？快去下载一个吧！。 　　
+　　　　 
+　　#1    离线浏览器之Offline Explorer
+　　　　据说这是一个新兴的离线浏览软件，当然这是与WebZIP相比得出的结论。既然能称为新兴的东东当然有它与众不同的地方。现在就让我们一起来认识一下这个优秀的离线浏览软件吧。
+　　#2　　一、Offline Explorer的特点：
+　　　　Offline是由MetaProducts 公司出品的一款新一代的离线浏览器软件，具有以下的特点：
+　　　　1．支持最高达100个线程，即可以同时下载100个文件，而且速度很快。 
+　　　　2．内嵌浏览器，直接调用IE内核，可以进行在线或离线浏览，而不用退出Offline，当然它也可以外挂其他的浏览器。
+　　　　3．支持拖动功能，可以在浏览的时候，把喜欢的网址直接拖到Offline的窗口，它将在后台自动下载。
+　　　　4．它支持JavaScript 和Java Classes。
+　　　　5．可以为它设置下载时间表，让它按时间表自动下载，以便避开上网高峰。
+　　　　以上只是Offline Explorer一些表象的特点，他真正吸引的地方还是在实际的应用中。
+　　#2　　二、初级使用入门
+　　    （一）运行界面介绍：
+　　    （如^60090304b^2）               
+　　　　主菜单：Offline的全部功能都可在主菜单中设置。
+　　　　工具条：如果你用Offline时觉得视野不够大，可以选择主菜单“View/Toolbars”，把Stand button前的对勾去掉。大部分功能都可以通过工具条上的按钮来实现，比主菜单来的快捷。
+　　　　地址栏：填入你要下载网站的网址。
+　　　　下载按钮：写好网址，设好下载链接的层数，单击此按钮，Offline开始工作。
+　　　　项目目录：这里列出了已经或正在下载的网站。它成树状结构，分成两部分：文件夹和具体的网站，这样易于管理，因为你可以把不同类的网站放在不同的文件夹里，比如：电脑网站一类，音乐网站一类。
+　　　　内置浏览器：因为Offline调用IE的内核，所以在兼容性、浏览效果方面都毫无问题，你既可以在线浏览，又可以用它离线浏览。
+　　     下载状态：它显示现在有多少个线程在运行。也就是说有多少文件在同时下载。
+　　     状态栏：显示了已经下载的文件数量和速度等情况，使你一目了然。
+　　    （二）下载网站的方法
+　　　　下面我们以一个简单的实例来介绍一下Offline Explorer的一般用法以及相应的参数设置。好，让我们开始吧（以搜虎为例）。
+　　　　选择主菜单“File / New/Folder”或者在项目目录区单击鼠标右键，选择“New /Folder”，输入名称，这个名称的作用只是一个标识，你可以根据自己的兴趣任意取一个就行了。再建立新的项目，最简单的办法是单击工具条上的“Add”按钮。弹出新的窗口它分成两部分：左边是Project，File Type，URL Filter，Advanced 四大类，右边是对应的各项具体配置。
+　　　　这些参数的设置是下载的重点，如果参数设置不对，有可能无法下载的。下面我们对几个参数的设置详细介绍一下，看完这一节，你就会用Offline Explorer把你喜欢的网站原样抬回家了。
+　　　　【Project】
+　　Project Name：输入要下载的网站的名称：“搜狐”。
+　　Address （URL）：输入www.sohu.com。
+　　　　Level ：大家知道一般网页上都含有许多链接，可以单击链接一级一级看下去。这里定义的是需要下载几级。视情况而定。这里我们填入3。
+　　File modification check：你选用何种方式更新网站。
+　　    （1）Download only Modified files：只下载更新过的文件； 
+　　    （2）Download All files：下载全部文件。
+　　    （3）Do not download exiting files：不下载已经存在的文件，而不管其是否更新。
+　　　　（4）Skip exiting files on levels high than：这个选项用于下载经常更新的网站，如：新闻网站，因为这样的网站结构与其他网站不同。
+　　　　【File Types】
+　　    File Size：定义下载文件的大小，可以设置上限和下限。
+　　　　Extension：设置具体的下载文件类型，可以删除和添加类型。
+　　    【URL filter】
+　　    Server：设置从哪个服务器下载。
+　　　　（1）Load files from all servers： 从所有的服务器下载。因为有的网站的某些图片或文件来自其他网站，这时就应该设置此项。
+　　　　（2）Load files only within the staring server： 只从当前网站的服务器上下载。
+　　　　（3）Custom servers configuration：从用户指定的服务器上下载。
+　　    Directory：设置从哪个目录中下载
+　　　　Filename：设置哪些文件下载
+　　　　Advanced：高级选项
+　　    Scheduling：下载时间表。可以设置手动或某年月日的具体时间自动下载。
+　　　　Password：设置如何处理需要密码登录的网站。因为用的极少，不在这里详细介绍。设置好后，单击“OK”。你会看到在项目目录区多了一个“搜狐”项目。再单击工具条上“Download”按钮。它会自动拨号上网，为你把“搜狐”搬回家。下载完毕，就可以清茶一盏，从从容容，舒舒服服的浏览了。用鼠标选中“搜狐”，再单击“Brower”按钮。整个网站就会在右边的浏览区展现出来。浏览时与“IE”操作无异。
+　　　　如果下载的时间比较长，你想另选时间继续下载，Offline也支持断点续传。选择主菜单中“Downloads/suspend to file”，然后输入文件名即可。恢复时， 选择主菜单中“Downloads/suspend from file”，再选择要恢复的文件名。
+　　　　完成以上的参数设置以后，下载工作就开始了，于是你能做的就只能是等待了。
+　　#2　　三、高级参数设置方法
+　　　　上文中我们介绍了几个参数的基本意义，如果你已经看懂了，那么简单的下载工作你已经能够了，当然，如果你想让你的下载工作更简单，最安全一些，你完全有必要继续阅读本文。下文笔者将与你一起探讨一下Offline Explorer高级参数的一些设置方法。
+　　    1．创建新模板
+　　　　所有新创建的Project（项目）的属性都是系统默认的，而你可能会根据实际情况以不同方式下载各个网站：有的只下载文字图片；有的则要全部下载；有的需要每日更新；有的每周更新就够了。如果每次创建Project前都要进行一次设置就显得很不方便。解决的办法是：先选择菜单“File”→“Templates”打开“TemplatesEditor”窗口，然后点击“New”按钮创建几个设置不同的常用配置模板。以后在创建Project时，只要选中需要的模板来进行创建即可。
+　　    2．创建新目录
+　　　　Offline Explorer主窗口的Projects栏中最初只有一个Default目录，所有下载的网站都存放在这里。很明显，一旦下载的网站太多，查找起来就很麻烦了。你可以选择菜单“File”→“New”，创建几个新的Fold（目录），将网站分门别类摆放，这样更便于管理。
+　　    3．指定下载位置
+　　　　Offline Explorer默认情况下是将网站下载到C：\download中，然后根据Project的名字建立对应的子目录来存放网站内容的。你现在可以重新设定这个目录。先选择菜单“View”→“Options”，在弹出的窗口左边选择“Advanced”→“Directory”，然后在“Downloaddirectory”栏中进行设置。
+　　    4．利用IE收藏夹
+　　　　也许在使用Offline Explorer之前，你的IE收藏夹中已经保存了很多网址。你可以很容易地将它们变成Offline Explorer的Project。首先选好将要存放下载内容的目录，然后通过菜单“File”→“Import”→“MSIEFavorites”，就可以看到IE收藏夹中的内容。选中其中一个，对应网站就会出现在指定的目录下。
+　　    5．自动下载 
+　　　　通常想下载一个网站时，总是要记下网站地址后又到Offline Explorer中去创建Project，真是很麻烦。现在，先选择菜单“View”→“Options”，在弹出的窗口左边选择“Advanced”→“Integration”，里面的选项让一切变得轻松。
+　　　　Monitor clip board：一直监视Windows剪贴板，每当里面出现了“http：//”或“ftp：//”开头的字符串，Offline Explorer就将认为这是一个网站地址，从而自动为其创建一个Project。因此你所做的就是选中需要下载的网站地址并复制一下，让其进入剪贴板；
+　　　　Use MS Internet Explorer context menu：在IE的右键菜单中增加两个选项，当在IE中浏览到一个满意的网页时，可以随时通过右键菜单命令调用Offline Explorer下载；
+　　　　Use default template：用来决定是否自动下载时都使用默认模板中的设置；
+　　　　Automatically start download：一旦创建了新的Project，下载将自动开始，只有上一个选项选中时才起作用。
+　　    6．过滤下载内容
+　　　　正如一开始提到的，网站中可能包含有很多的内容，如果全部下载的话速度会很慢。因此，在建立Project时，就该在“File Filters”中进行一下设置。Offline Explorer允许你进行很详细的设置，大类中可以指定是否下载文字、图片、视频、声音等等，然后其中还可以进行更详细的筛选，比如图片是否只下载指定的格式。对于视频和声音这些一般比较大的文件，就建议不要下载了。
+　　　　（提示：请在“URL Filters”→“Server”中选择“Load files only with in the start ingserver”，这样可以避免下载网页上链接的其它网站。）
+　　　　7．定时更新网页
+　　　　选中一个Project，选择鼠标右键菜单上的“Properties”，然后选择其中的“Advanced”→“Scheduling”，其中的“Downloadintervals”有多种选择：
+　　　　Manual是默认方式，表示使用手动更新；
+　　　　Every是每小时都更新，可以指定在什么时刻进行；
+　　　　Daily是每天更新，你可以指定具体在几时几刻进行；
+　　　　Weekly是每周更新，可以指定是在星期几的几时几刻进行；Monthly和Yearly是每月和每年更新，不过应该不会有多少人这么久才更新一次。
+　　　　8．Internet 选项设置 
+　　　　（1）设定“Internet”： 
+　　　　设定“Connection”：“Number of connections”设定连接的个数，建议设 为20（最大为 100，如果站点连接较慢，可以适当将连接数目加大，页不要设置 太多，以免太多的请求使服务器当机）；“Timeout”设定超时时间，默认是300秒， 已经足够大了，如果在这么长的时间内无法连接就稍候再试用不着将数值加大了；“Number of retries”设定续传数，建议设为0，即不限制；“Internal HTTP server port”设定内部 HTTP 服务器端口；“Agent Identification”设定代理身份，如果有些服务器作了特殊的设置，不允许“拉站”之类的非正常访问，可以尝试使用其它的代理身份，如Netscape Navigator或者Internet Explorer。 
+　　　　（2）设定“ Proxy Server ”（代理服务器）：如果你使用代理服务器下载，要设定代 理服务器的类型，地址及端口，如果要身份认证，则也必须设定用户名及密码.
+　　#2　　四、命令行参数运行
+　　    （^60090304c^3）        
+　　　　Offline Explorer 支持命令行参数运行，这样就可以使用第三方的日程安排程序的完美整合使用，考虑非常的周到。 
+　　　　命令行参数允许你在 Offline Explorer 执行的时候开始下载一个或者多个指定的项目。命令的格式为： 
+　　　　<Folder_name>/<Number_Project_in_Folder>
+　　　　Project numbers 从 0 开始记数，因此，如果在文件夹“Books”中有5个计划，你需要从第一个到最后一个项目全部执行，你就必须要输入下面的命令行参数： 
+　　　　OE.exe Books/0 Books/4
+　　　　当然，你也可以输入不同文件夹中的项目： 
+　　　　OE.exe Books/3 Auto/5 Space/1
+　　　　你需要用空格分开不同的项目，你也可以使用“all”替换项目的数目开始下载 指定文件夹中的所有项目： 
+　　　　OE.exe Books/all
+　　　　你也能够使用参数“/Close”使 Offline Explorer 在没有下载行为后片刻自 动关闭。这个有用的特性可以及时的关闭 Offline Explorer 从而节约内存和其他 资源的开销： 
+　　　　OE.exe Books/3 /close
+　　　　如果你需要在所有的下载完成后片刻自动关机的话，你可以使用“/shutdown”参数： 
+　　　　OE.exe Books/3 /shutdown
+　　　　小结：
+　　　　本篇中笔者对Offline Explorer中的一些参数设置做了比较详细的说明。参数的设置是Offline Explorer的重点之一。如果你清楚了知道了每一个参数的作用，我相信，下载网站与离线浏览对你而言都会变成一件轻松与快乐的事。这也是笔者的希望。
+　　
+　　#1    离线浏览器三剑客之Teleport Pro篇
+　　　　既然本篇中我们为你介绍的是Teleport Pro，当然就有必要首先说明一个这是一个什么样的东东。Teleport Pro由美国Tennyson Maxwell公司开发出品一款优秀的离线浏览软件曾被PC Magazine评为“编辑选择奖”、ZDNet评为五星。Teleport Pro主要的特点在于：支持HTML4.0、CSS2.0、DHTML和Java applet ，能够处理所有类型网站上的文件；可以同时打开十个进程来下载文件，速度极快；另外，还可以设定计划任务时间表，让Teleport Pro在指定的时间自动拨号联接、完成指定的任务后再自动挂断。为Teleport Pro唱了这么赞歌，相信大家对它的兴趣也越来越大，现在就请跟随笔者一道来充分领略一下Teleport Pro的过人风采吧。
+　　#2　　一、界面介绍
+　　　　启动Teleport Pro后，我们就会看到如（^60090304d^4）所示的软件界面窗口。最上面是菜单栏，菜单栏下面是工具栏，窗口的主要部分是两个窗口，其中左面是项目框，右面是下载文件列表框，最下面是状态栏。下面我们就来详细了解一下各个部分的含义：
+　　　　菜单栏分为四个菜单项，分别是File（文件）、Project（项目）、View（查看）、Help（帮助）。各个菜单项的具体内容如下：
+　　    【File菜单】
+　　    New window 打开新窗口
+　　    New project wizard 新项目向导
+　　    New project 新项目
+　　    Open project 打开项目
+　　    Save project 保存项目
+　　    Save project as 另存项目为
+　　    Load project configuration 装载项目设置
+　　    Save project configuration 保存项目设置
+　　    Proxy server 设置代理服务器
+　　    Connection 设置连接方式
+　　    Free space limit 硬盘剩余空间设置
+　　    Exit 退出
+　　
+　　    【Project菜单】
+　　    New starting address 增加新网址
+　　    Starting address properties 开始网址属性
+　　    Paste new starting address 从剪贴板上粘贴一个新网址
+　　    Start 开始
+　　    Pause 暂停
+　　    Stop 停止
+　　    Abort 中止
+　　    Project properties 项目属性
+　　    Schedule 计划表
+　　    Clear database 清除全部网站文件
+　　    Relink all files 重新链接文件库中的文件
+　　    Select all files 选择所有的文件
+　　    Enable all starting address 使网址有效
+　　    Disable all starting address 使网址无效，暂时不去抓取站中文件
+　　
+　　    【View菜单】
+　　    Tool bar 工具栏
+　　    Thread bar 线程提示灯
+　　    Status bar 状态栏
+　　    List view 列表显示
+　　    Detail view 详细资料显示
+　　    Show only new files 只显示新抓取的文件
+　　    Project folder 显示与该项目相对应的文件夹
+　　
+　　    【Help菜单】
+　　    Help 帮助
+　　    Register 注册
+　　    Technical support 技术支持
+　　    About Teleport Pro 关于Teleport Pro
+　　
+　　    工具栏上的按钮由左到右依次是：
+　　    1．New project wizard 新项目向导
+　　    2．New project 新项目
+　　    3．Open project 打开项目
+　　    4．Save project 保存项目
+　　    5．Project properties 项目属性
+　　    6．Add starting address 增加新网址
+　　    7．Open project folder 打开与该项目相对应的文件夹
+　　    8．Start 开始
+　　    9．Pause 暂停
+　　    10．Stop 停止
+　　    11．Abort 中止
+　　    12．List view 列表显示
+　　    13．Detail view 详细资料显示
+　　    14．Show only new files 只显示新抓取的文件
+　　　　最右面的十个线程指示灯用来显示每个线程的下载状态，当你开始下载站点时，它呈现出各种颜色交替状态，灰色表示空闲状态；红色表示处于连接服务器状态；绿色表示请求文件；蓝色表示接收文件，而且用不同的圆面积表示下载的进程。
+　　　　窗口中间的两部分分别是：
+　　　　左面是项目框，用来显示当前要下载到本地硬盘中的项目名称，右面是下载文件列表框，用来显示已下载到本地硬盘中的文件。
+　　最下面的状态栏显示文件下载过程中各线程的工作状态。
+　　#2    二、初级使用方法
+　　　　Teleport Pro是一款使用简单、功能强大的离线浏览器，它不用复杂的设置，使用它提供的向导模式，你只需简单的做一些选择，就可以把一个站点或该站点中的特定内容（如某个站点中的全部JPEG文件）下载到你的硬盘中。
+　　    （一）下载网站的方法
+　　　　下面我们就开始下载一个站点的具体操作，要下载一个站点，事实上就是在Teleport Pro中建立一个项目，建立项目有几种方法，最简单的方法就是使用Project wizard（项目向导）。
+　　　　1．启动程序后，在File菜单中选择Project wizard或单击工具栏中的Project wizard图标，就会出现一个向导窗口，在此窗口中选择你想要建立的项目的类别：
+　　　　（1）Create a browsable copy of a website on my hard drive将整个网页中能够浏览的内容都下载到硬盘中
+　　　　（2）Duplicate a website including directory structure复制一个网站，包括该网站的目录结构
+　　　　（3）Search a website for files of certain type在网站上找出特定格式的文件
+　　　　（4）Explore every site linked from a central site除了下载设定的网站文件外，同时将该网站超链接到的网站文件也下载回来
+　　　　（5）Retrieve one or more files at known address将多个网址设置在一个项目中
+　　　　（6）Search a website for keywords抓取网站中符合关键字的网页文件
+　　　　2．选择好自己需要的项目类别后，点击“下一步”按钮，出现“Starting address”（增加新网址）设置窗口，在上面的文本框中填上你要下载的网站地址（可以是站点的任意一层），在下面的文本框中输入下载到本地硬盘中的项目名称。点击“下一步”按钮。
+　　　　3．在出现的“Project configuration”（项目设置）窗口中选择你要下载的文件类型：
+　　　　Just text只抓取文本文件（HTML、TXT等）
+　　　　Text and graphics抓取文本文件以及图形文件
+　　　　Text graphics and sound抓取文本文件、图形文件以及声音文件
+　　　　Everything抓取所有文件（包括Java Applet等）
+　　　　下面的帐号、密码栏，是在需要身份认证的站点者需要的，一般网站并不需要。点击“下一步”按钮。
+　　　　4．出现Congratulations祝贺建立项目成功的窗口，单击“完成”按钮。
+　　　　5．出现询问保存文件窗口，这时输入一个名字并指定下载文件保存的位置，单“保存”按钮，至此，一个新的项目就建立好了。
+　　　　6．在Teleport Pro主界面上，按一下工具栏中三角形的开始键，你就可以去干别的事了，Teleport Pro会帮你打点好一切的。网页下载结束后，只要进入到文件的目录中，双击其中的index.htm文件（或以其它名字命名的网站首页文件名），你就可以慢慢欣赏网页了。
+　　　　（二）修改项目设置
+　　　　当你利用项目向导建立了一个新项目之后，你可以根据自己的需要修改它的默认设置，使之更好地满足你的要求。
+　　　　1．Starting address properties（开始地址属性）设置
+　　　　打开Project菜单下的Starting address properties选项，出现一个对话窗口，在这里我们可以设置网站的起始地址以及下载时搜索的深度和范围。
+　　　　URL 要下载的网址
+　　　　TITLE 项目名称
+　　　　Explore pages up X links away from this address 从这个地址开始，下载的深度
+　　　　Address that begin with http：//… 链接的网址开头为设置时，才能抓取
+　　　　Anywhere within the path of external links 没有任何限制
+　　　　Files up X links away from any 抓取除…….之外的文件
+　　　　对于一些需要认证的站点还需要在下面的文字框中输入帐号（Account）和密码（Password）。
+　　    2．Project properties（项目属性）设置
+　　　　打开Project菜单下的Project properties选项，出现一个对话窗口，在这里控制整个项目的设置，它包括五个选项卡：Summary（摘要）、File retrieval（文件检索）、Browsing/Mirroring（浏览和镜像）、Exploration（搜索）、Netiquette（网络礼议）、Exclusions（排除）、Advanced（高级），每个选项卡包括的具体内容分别是：
+　　　　（1）Summary（摘要）
+　　　　显示当前状态下项目下载的一些信息：
+　　　　Pages read 读取的页面数
+　　　　Files retrieved 下载的文件数
+　　　　Bytes received 文件的大小
+　　　　Database size 数据库的大小
+　　　　Starting 起始地址
+　　　　Autosave the project database X seconds 每隔X秒自动保存项目数据库文件
+　　　　（2）File retrieval（文件检索）
+　　　　设置接收文件的类型，可以根据需要自行设定，也可以使用通配符。
+　　　　Retrieve all files except those X kilobytes in size 抓取所有类型的文件，除非文件长度大于X字节
+　　　　Retrieve only files of the types and size 仅抓取限定类型的文件
+　　　　Retrieve embedded files 将与网页相关的图形、音乐文件一并下载回来
+　　　　Retrieve background graphics 将网页背景图片一并下载回来
+　　　　Retrieve java applet 将java applet下载回来
+　　　　Retrieve only file names 仅将文件名称抓回来，而不抓取文件内容（用来建立网站地图时使用）
+　　　　（3）Browsing/mirroring（浏览和镜像）
+　　　　Always save HTML pages 将抓回来的文件保存成HTML文件
+　　　　Replicate the directory structure of remote servers 将抓回来的文件按照远程目录结构存放在自己的硬盘内
+　　　　Use MSIE compatible filenames 使用MSIE兼容的文件名称
+　　　　Localize links for all retrieved files 所有下载的文件进行本地化链接
+　　　　Link to a message file that explains why the file not retrieved 将没有抓取回来的网页链接到一人用来解释未能抓取原因的网页
+　　　　Link to the internet address for the file 保留网络链接位置，如果使用者点选这些没有抓取回来的网页时，将会链接到网络上阅读
+　　　　Link to the place where the local file will be stored 链接到硬盘的其它地方
+　　　　Link using 8.3 filenames 用8＋3格式的文件名进行链接
+　　　　（4）Exploration（搜索）
+　　　　Explore server-side image map 搜索服务器端的映象图
+　　　　Explore frame source files 搜索帧的原始文件
+　　　　Explore forms 搜索表单
+　　　　Launch up to X retrieval threads 启动X个抓取的线程
+　　　　Abort threads that show no activity X seconds 当线程超过X秒没有反应时，就放弃该文件的抓取
+　　　　Retry denied requests X times 如果收到拒绝读取的信息，重复执行的次数
+　　　　Retry incomplete X times 重复未完成的次数
+　　　　（5）Exclusions（排除）
+　　　　利用关键字设定在项目中不想接收的文件类型、网页站点、链接等，可以使用通配符。在这个界面中共有3个文字框，由上到下它们的用法分别是：
+　　　　在第一个文字框中填入要保存页面所包含的关键字；第二个文字框中填入不抓取的任何DOS类型的文件；在第三个文字框中填入不想抓取的任何以这里设置的URL为开头的网络文件。
+　　　　（6）Netiquette（网络礼议）
+　　　　允许下载过程中对服务器提出请求、自动避免进入较慢的服务器等，这里的设置尽可能不要修改。
+　　　　（7）Advanced（高级）
+　　　　Automatically begin this project when opened 打开项目后，自动进行下载动作
+　　　　Run for no more than X minute 超过X分钟后停止运行
+　　　　Run continuously when projects stops ， run again after waiting X seconds 中断项目后X秒种，自动继续抓取
+　　　　Exit program when this project stops running 当项目停止运行后，关闭本程序
+　　　　3．Connection（连接）设置
+　　　　在File菜单中选择Connections选项，在出现的对话框中你就可以对连接和中断连接的情况进行设置。
+　　　　（1）Connecting（连接）
+　　　　Use your default internet connection 使用缺省的连接
+　　　　Use this connection 使用选定的连接，可以单击后面的下拉列表框进行选择，选定以后，你还可以在下面的Account内填上帐号，在Password内填上密码。
+　　　　Disconnect all other open connections before opening 打开之前中断其它所有的连接
+　　　　If the connection is closed prematurely ， reconnect 如果这个连接过早关闭，重新连接
+　　　　（2）Disconnecting（中断连接）
+　　　　Don＇t disconnect 不要中断连接
+　　　　Disconnect whenever a project is completed 项目完成后中断连接
+　　　　Disconnect when Teleport Pro terminates 当Teleport Pro终止时中断连接
+　　　　Ask before disconnect 中断连接之前进行询问
+　　#2　　三、高级应用技巧
+　　　　1．使用时间表（Scheduler）
+　　　　Scheduler是一个安排项目执行时间的程序，如（^60090304e^5）所示，设置好这个程序后，我们就不必坐在电脑前面操作下载文件的指令，只要设置的时间一到，电脑就会自动将文件抓回到你的电脑里。如果是拨号网络的使用者，也可以在下载时由这个程序自动拨号，在下载结束后，自动切断网络连接，节省你的通讯费用。下面我们就来介绍它的使用方法。
+　　　　（1）启动时间表（Scheduler）
+　　　　有两种方法：一是单击Project菜单下的Scheduler选项；二是选择Windows9X“程序”组中的Teleport Pro scheduler快捷方式。
+　　　　（2）安排计划任务
+　　　　在Edit菜单中选择Add project选项或者单击程序界面中的加号按钮就会出现如（^60090304f^6）所示的界面，在个窗口中你可以选择（Browser）或新建（New）一个方案。
+　　　　（3）设置时间表
+　　　　加入新的方案之后，便要设置该方案的时间表，单击Scheduler选项进入时间表设置：
+　　　　At operating system after X minutes 每次开机时，经过X分钟后开始下载指定的网站
+　　　　Hourly 每小时抓取一次
+　　　　Daily 可设置一星期的哪几天时间进行下载
+　　　　Monthly 设置每月的什么时间进行下载
+　　　　Just once 只抓取一次，以后就不执行了
+　　　　（4）设置参数
+　　　　单击Parameters进入参数设置窗口，在这里你可以设定自动的设置以及下载完成后断开连接。如果你使用的是拨号网络，请将Disconnect when finished选项选中，这样当下载完成时，程序便会自动将拨号网络切断，节省通讯费用。
+　　　　2．使用代理服务器（Proxy server）
+　　　　打开File菜单中的Proxy server选项，出现如（^60090304g^7）所示的对话窗口，选中Connect to the internet through this proxy server复选框，在Address中填入代理服务器的地址，在Port中输入端口号，单击OK，就可以使用代理服务器进行下载啦。
+　　　　3．多站点同时下载
+　　　　Teleport Pro不但支持同一站点的十个线程进行下载，而且还支持不同站点的同时下载。打开Project菜单下的New starting address 选项，出现如图5所示的对话窗口，在这个窗口中输入网址及其它内容（见上面介绍），即可建立一个新的下载站点。重复上述操作可设定多个要下载的站点。要注意的是，由于数据通道传输的限制，多任务下载文件容易造成传输堵塞，反而得不偿失，一般情况下不要使用多站点下载。（DOWN）
+　　　　小结：
+　　　　本文中笔者为你介绍了WebZIP、Offline Explorer、Teleport Pro三种离线浏览器的使用方法，重点解释了一些相关参数的设置。相信通过本文的介绍你一下能初步掌握离线浏览器的使用方法。至于一些最深层次的使用技巧，已不在本文的介绍范围之内。全靠大家在使用中自己的挖掘与发现了。
+　　　　文尽于此，希望本文能对你有所帮助。打完，收工也！ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

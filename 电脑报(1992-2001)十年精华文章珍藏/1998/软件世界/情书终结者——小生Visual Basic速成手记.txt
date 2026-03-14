@@ -1,0 +1,163 @@
+情书终结者——小生Visual Basic速成手记
+
+歪歪
+1998年 第29期 12版
+
+　　我，《电脑报》的歪歪，外号“电子情圣”，最近听闻小生失恋，特旷工一天，往游戏室探望挚友小生。一进大门，见小生正在奋笔疾书，万精油、铁拳红眼蹲在一旁。正值酷暑（头儿不幸买到劣质空调，送修！），小生挥汗如雨，却忘情狂书。歪歪以为小生正在用工作来逃避失恋的痛苦，走上前去安慰他。没想到小生敲的内容是：“亲爱的张小姐：□□□（下删3万字）”万精油悄悄的拉住我的手（肉麻！）低声啜泣道：“情圣，小生他……他居然利用报纸来欺骗大家，说他失恋了，结果引无数女孩叙衷情，每天收到n（n>10）封情书，太可恨了……”“别听他胡说，那个唐朝的李什么写的‘此情可待成追忆’下一句是什么来着?”小生继续奋笔疾书。“唉，失败！失败！想我‘电子情圣’每天收到n（n>20）封情书，不也是如此逍遥吗？可惜你们没有我的情书终结者。”我摇摇头。“关门，放狗！”“汪……汪……”天哪！美好的游戏室马上变成了满清十大酷刑室，我被按在地上，小生右手持一块刀状Voodoo2卡，左手高举力反馈摇杆，恶狠狠地说：“快说！情书终结者是什么？”“士可杀不可辱，歪歪一向是吃软不吃硬，不过把你手上的东西借我三个月，我还可以考虑、考虑！”“成交”小生态度马上发生变化。于是我们开始了情书终结者的研究。
+#1　　一、编写情书终结者工具探讨
+　　歪歪：其实情书终结者就是我用Visual Basic编写的一个小程序，（如^291201a^），双击右边的文本框就会把里面的内容粘贴到左边的正在写信的文本框里。
+　　万精油：右边的像录音机的按钮的东西是干什么的？
+　　歪歪：问这么多？真是麻烦！俗语说：家有万金，不如薄技在身。今天我就花点时间，教你们一点Visual Basic编程的基本知识，让你们自个儿也能编情书终结者。
+　　小生：（滴答着口水……）：那太……太好了，我可以以超音速炮制情书了……哎哟！（歪歪回头一望，小生已被万精油、铁拳放倒在地。）
+　　歪歪：其实，VB不仅可以编情书终结者，它还可以编其他的东东，大部分Windows的应用程序都可以用VB实现，前天我在台湾的一个VB论坛上看到《红色警报（Red Alert）》居然也用了VB来编写了一部分程序（小生：也不知是真是假！）。好了，我们来看看VB的界面（如^291201b^）。
+　　小生：好啊！全中文的界面，我喜欢！这下我不愁看不懂英文了。
+　　万精油：（自言自语）：打英文游戏不是挺利害的吗，怎么现在……？
+　　歪歪：当然了，最新的VB5.0简体中文版连帮助和联机手册都汉化了，几十万字还怕学不会编程吗？我来介绍一下VB的界面，图上标得已经很清楚了，VB的编程环境中比较重要的有以下几个部分：菜单、工具条、窗体设计器、工具箱、工程窗体、属性窗体。菜单全是中文，就不多说了。工具条是菜单的快捷方式。窗体设计器是应用程序的基本舞台，我们的程序就在这里设计。工具箱比较重要，上面的小图标是开发应用程序的工具，称为控件。将鼠标移到控件的小图标上，屏幕将会显示小黄条的提示，告诉我们是什么控件。我们将各种控件放在设计窗体，设计好控件属性后，再编写代码就写成了我们的程序了。
+　　小生：我明白了，控件就像是情书中的套话，不同的套话组合在一起，再写上开头就形成了我小生的不同风格的情书了（纯情型、流浪型、成熟型……）。（歪歪、万精油、铁拳同时晕倒，1分钟……2分钟……3分钟……）
+　　歪歪：我看把控件比作积木可能比较合适吧！（万精油、铁拳举起双手双脚赞成），控件就是最后成型的积木中的部件，但如何搭这个积木就要看各位的创意了，把积木横着放还是竖着放则要在属性窗体中设计了，属性窗体就是设计控件属性的地方。至于工程窗体就是组织它们的地方。）你们明白了吗？
+　　小生：Easy!Very easy!这比我用FPE修改游戏容易多了，浪费了这么多时间，情书终结者还不开始（举起了Voodoo2刀）。
+　　歪歪：千万别磨刀霍霍向歪歪，熟悉了VB界面我们就几乎成功了一半了。情书终结者设计教程完全简体中文正式版（绝非Beta版，专人测试，决无病毒）现在开始！！！（铁拳、万精油、小生：怎么这么耳熟！？!@＃＄％难道歪歪生产盗版光盘！）
+#1　　二、创建数据库
+　　歪歪：创建Visual Basic应用程序有三个主要步骤：1.创建应用程序界面。2.设置属性。3编写代码。情书终结者比较特别一点，它需要一个储存情话的地方，用我们的专业话来说就是数据库，因此我们在进行三个步骤之前先建立一个数据库。
+　　小生：我知道！就像我们储存的游戏秘技一样。（说着搬出比一个人还高的秘技大全，歪歪被小生的工作态度感动得泪流满面！）
+　　歪歪：数据库有很多种，我们选择VB内建支持的Microsoft Access 7.0作为我们的数据库，好！打开电脑，跟我建数据库。
+　　1．进入VB的工作界面（如^291201b^），打开菜单外接程序（A）→可视化数据管理器（V）…
+　　2．出现如^291201c^的界面，选择文件（F）→新建（N）→Microsoft Access→版本70MDB后，将弹出一个对话框，输入c:\love，一个名为love.mdb的数据库就建立起来了。
+　　3.点击在Visdata程序中的数据库窗口，再按鼠标右键，选择新表，就会弹出如^291201e^的窗口，在表名中任意输一个自己喜欢的名称（哇，小生居然输了“泡妞大全”），在单击“添加字段（A）”建立一个名为lovetext的字段，类型选为Memo（备注型），单击“关闭”按钮，一个表便建立好了。
+　　4．重复3的步骤，建立多个表。
+　　5．单击建立好的表，再单击鼠标右键，选择“打开”，就可以在里面录入数据了。
+　　小生（自言自语）：我建个“小生情话”表，好！太容易了，录入什么话，对了，我敲，“小生是一个浪漫的人”。（铁拳悄悄地把这句话改为“小生是一个浪荡的人”！）
+#1　　三、创建应用程序界面
+　　歪歪：好了。现在我们开始进入正式的程序设计的第一步：创建应用程序界面。如果要我们从头开始写程序，那太累了，我们借用VB自带的例程－SDI记事本程序，在它的上面改写（囫囵吞枣的利用别人的程序是提高自身程序设计水平的一个捷径！）
+　　万精油：对!我常常偷看铁拳的攻略来提高我的级别。
+　　歪歪：我们选用文件（F）→打开工程（O）打开c:\program files\DevStudio\vb\samples\pGuide\SDI\Sdinote.vbp（VB安装的缺省目录）。按Ctrl＋R后弹出工程窗体双击frmSDI（frmsdi.frm），我们就可以看到我们设计程序的主界面了。
+　　现在我们可以来学学如何在窗体设计器添加控件了。
+　　1.单击工具箱上要绘制的控件的图标。2.将指针移到窗体上。该指针变成十字线。3.将十字线放在控件的左上角所在处。4.拖动十字线画出适合你要的控件大小的方框。（拖动的意思是按住鼠标左键用鼠标指针移动对象。）5.释放鼠标按钮。控件出现在窗体上。在窗体上添加控件的另一个简单方法是双击工具箱中的控件按钮。这样会在窗体中央创建一个尺寸为缺省值的控件；然后再将该控件移到窗体中的其它位置。
+　　小生：终于把控件添加完了（如^291201d^），歪歪你看我总结的添加控件一览表对不对（^291201f^）。
+　　歪歪：完全正确！真是天才儿童！
+#1　　四、设置属性
+　　歪歪：现在，我们开始第二步行动，设置属性。跟我来：1.单击窗体设计器中的控件，按F4键，出现该控件的属性窗体，在属性窗体中我们就可以更改该控件的属性了。
+　　小生：天那！这么多属性，我晕……（歪歪：别，在属性窗体最下方有当前焦点属性的中文介绍。）
+　　歪歪：我们要把刚才放在frmSDI窗体上的10个控件，设置好属性。其实大部分我们都可以用它的默认值。我们需要改的如下：
+　　编号1 更改属性：（名称）combo1
+　　编号2 更改属性：（名称）Data1;DataBaseName c:\love.mdb;
+　　编号3 更改属性：（名称）Text1;DataSource data1;DataFiled lovetext;locked True;MultiLine True;ScrollBars 2－vertical;
+　　编号4 更改属性：（名称）Comadd;Caption 添加;
+　　编号5 更改属性：（名称）Comchange;Caption 更改;
+　　编号6 更改属性：（名称）Comdel;Caption 删除;
+　　编号7 更改属性：（名称）Comsave;Caption 存盘;
+　　编号8 更改属性：（名称）Comundo;Caption 取消;
+　　编号9 更改属性：（名称）comexit;Caption离开;OK!属性更改完毕！
+　　小生：这比我用画笔画漫画还快!
+#1　　五、编写代码
+　　歪歪：让我们按一下F5键。不错吧，我们的程序已经可以运行了（小生发现了“小生是一个浪荡的人”，脸气得通红！）我们来学学编写代码的基本方法。在窗体设计器上双击任一地方，就会弹出代码编写窗^291201e^。
+　　左上的下拉列表框1是控件的（名称）集合，右上的下拉列表框2是控件的事件集合。如果我们要对按钮（名称为 Comsave）的按下事件编程。我们先从1中选取Comsave，再在2中选取click，再在光标处编写代码即可。
+　　小生：要编写好多代码吗？我打字特快（一副跃跃欲试的样子）。
+　　歪歪：不，很少的代码就能解决问题，在下面的代码分析中我们很容易发现，代码编写主要是在我们添加的几个控件事件中，我们编写的代码主要实现以下几个功能：（1）在启动的时候把窗体布局调整好。（2）把右边文本框的内容粘贴到左边文本框。（3）维护我们建立的数据库，实现添加、更改、删除等操作。
+　　1.在工程窗体中双击模板，在双击module1，出现一个新的代码编写窗口，改变右上的下拉列表框为ResizeNote，将下列代码替换ResizeNote内的代码，在启动的时候把窗体布局调整就搞定了。
+　　Sub ResizeNote（）
+　　′文本框充满窗体的内部区域
+　　If frmSDI.picToolbar.Visible Then
+　　frmSDI.txtNote.Height=frmSDI.ScaleHeight－
+　　　　　　　　　　　　frmSDI.picToolbar.Height
+　　frmSDI.txtNote.Width=frmSDI.ScaleWidth＊2/3
+　　frmSDI.txtNote.Top=frmSDI.picToolbar.Height
+　　Else
+　　frmSDI.txtNote.Height=frmSDI.ScaleHeight
+　　frmSDI.txtNote.Width=frmSDI.ScaleWidth＊2/3
+　　frmSDI.txtNote.Top=0
+　　End If
+　　End Sub
+　　小生：为什么我一输入frmSDI就弹出一个框是什么东西?
+　　歪歪：这正是VB的一个贴心设计，弹出的是frmSDI的所有属性，按回车键就可选择其中的一个，也就是说我们不必记忆属性的拼写了。
+　　2.实现核心代码把右边的文本框内容粘贴到左边的文本框内。
+　　Private Sub Text1_DblClick（）
+　　　Clipboard.SetText Text1.Text　′将右边文本框
+　　　　　　　　　′内容粘贴到Windows的粘贴板
+　　　txtNote.SelText=Clipboard.GetText（）　′将
+　　　　′Windows的粘贴板内容粘贴到左边文本框
+　　End Sub
+　　3.最后我们将下面内容加到Form Load事件中去。
+　　ChDir App.Path
+　　ChDrive App.Path
+　　Data1.Refresh　′刷新数据库
+　　For i=0 To Data1.Database.TableDefs.Count－5
+　　　′用循环读出表名显示于Combo1中
+    Combo1.AddItem Data1.Database.TableDefs（i）.Name
+　　Next i
+　　′初始化情话框
+　　Combo1.ListIndex=0
+　　Data1.Caption=Combo1.Text
+　　Data1.Refresh
+　　4．选择Combo1框后发生的改变。在Combo1的Click事件中添加。
+　　Private Sub Combo1_Click（）
+　　　Data1.RecordSource=Combo1.Text　′打开一
+　　　　　　　　　　　　　　　　　　　′个新表
+　　　Data1.Refresh
+　　　Data1.Caption=Combo1.Text
+　　End Sub
+　　下面的一段代码是对五个按钮的操纵，用下面的操作可以完成程序的添加、修改、维护等。
+　　1.在添加按钮Comadd的Click事件中添加代码如下
+　　Private Sub comadd_Click（）
+　　　Text1.Locked=False
+　　　　　′让右边文本框可修改
+　　　txtNote.Enabled=False
+　　　　′让左边文本框不可修改
+　　　Data1.Recordset.AddNew　′给数据库添加一条记录
+　　　Comchange.Enabled=False　′让更改按钮不可
+　　　　　　　　　　　　　　　　′用
+　　　Comdel.Enabled=False　′让删除按钮不
+　　　　　　　　　　　　　　′可用
+　　　Comexit.Enabled=False　′让离开按钮不
+　　　　　　　　　　　　　　′可用
+　　End Sub
+　　2.在更改按钮Comchange的Click事件添加代码如下
+　　Private Sub Comchange_Click（）
+　　　Text1.Locked=False
+　　　txtNote.Enabled=False
+　　　Comadd.Enabled=False
+　　　Comdel.Enabled=False
+　　　Comexit.Enabled=False
+　　End Sub
+　　3.在删除按钮Comdel中的Click事件添加代码如下
+　　Private Sub Comdel_Click（）
+　　　Text1.Locked=False
+　　　If Data1.Recordset.EOF=False Then
+　　　　Data1.Recordset.Delete　′删除记录
+　　　　Data1.Recordset.MoveNext
+　　　End If
+　　　Text1.Locked=True
+　　End Sub
+　　在离开按钮Comexit中的Click事件添加代码如下
+　　Private Sub Comexit_Click（）
+　　Unload Me　′退出程序
+　　End Sub
+　　在存盘按钮ComSave中的Click事件添加代码如下
+　　Private Sub comSave_Click（）
+　　　Data1.Recordset.Edit
+　　　Data1.Recordset.Update　′更新数据库内容存盘
+　　　Comadd.Enabled=True
+　　　Comchange.Enabled=True
+　　　Comexit.Enabled=True
+　　　Comdel.Enabled=True
+　　　Text1.Locked=True
+　　　txtNote.Enabled=True
+　　End Sub
+　　在取消按钮Comundo中的Click事件添加代码如下
+　　Private Sub Comundo_Click（）
+　　　Data1.UpdateControls　′取消更改
+　　　Comadd.Enabled=True
+　　　Comchange.Enabled=True
+　　　Comexit.Enabled=True
+　　　Comdel.Enabled=True
+　　　Data1.Refresh
+　　　Text1.Locked=True
+　　　txtNote.Enabled=True
+　　End Sub
+#1　　（歪歪打了一个哈欠，拿着Voodoo2和力反馈摇杆刚走出大门，忽然眼前一黑，背后传来小生的一阵狞笑……）
+#1　　（本故事纯属虚构，如有雷同，纯属巧合）
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

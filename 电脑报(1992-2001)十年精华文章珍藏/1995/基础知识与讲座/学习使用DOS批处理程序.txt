@@ -1,0 +1,135 @@
+学习使用DOS批处理程序
+
+安波
+1995-08-25
+
+        语法：PAUSE[message]
+        参数：message是用户输入的提示或注释信息。仅当ECHO在ON状态时，PAUSE才能在批处理程序中显示这一信息。
+        说明：PAUSE命令是一个简单而文极为重要的批处理命令，在需要执行几种操作的批处理程序中使用PAUSE命令尤为重要。DOS以显示“press any key to continue……”来响应PAUSE命令。
+        例子：把驱动器A中的软盘所有的文件拷贝到当前目录中，并提示用户更换软盘的批处理程序为：
+        @ECHO OFF
+        :BEGIN
+        COPY A:*.*
+        ECHO Please put a new disk into drive A
+        PAUSE
+        GOTO BEGIN
+        该批处理程序将A盘上的所有文件拷贝到当前目录，在提示将另一张软盘插入A驱动器时，PAUSE命令使批处理程序暂停执行并显示“press any key to continue……”，当用户更换软盘后按任意键则继续执行，并且永远循环运行。要终止执行则按Ctrl+C键，屏幕上显示“Terminate batch job(Y/N)?”，按Y键终止并返回到DOS操作系统。
+        ECHO C MS BACKUP
+        ECHO
+        CHOICE/C:ABC Choose an option
+        IF ERRORLEVEL 3 GOTO MSBACKUP
+        IF ERRORLEVEL 2 GOTO MSAV
+        IF ERRORLEVEL 1 GOTO EDIT
+        :EDIT
+        EDIT
+        GOTO END
+        :MSAV
+        MSAV
+        GOTO END
+        :MSBACKUP
+        MSBACKUP
+        GOTO END
+        :END
+        运行该批处理程序后，屏幕上提示：A MS EDITOR
+        B MS ANTI-VIRUS
+        C MS BACKUP
+        Choose an option [A,B,C]?
+        按A键则启动EDIT程序；按B键则启动ANTI-VIRUS程序；按C键则启动BACKUP程序。
+        二：SHIFT：移动批处理程序中可替换变量的位置。一个命令行中允许指定10个以上的可替换变量。
+        语法：SHIFT
+        说明：批处理程序中能接受的可替换变量为10个(%0到%9)，SHIFT命令可以使批处理程序接受10个以上的变量。SHIFT命令每执行一次，它就丢弃%0变量的值，并把其它变量的值往下移动(例如：%1的值传给%0，%2的值传给%1等)，并把一个新的值拷贝到最后一个指定的变量(如%9)。这样%9以后的变量都能被用作可替换变量。
+        例子：下面的批处理程序是把指定目录上的所有文件拷贝到驱动器A：
+        REM User must specify a directory name for %1
+        :COPY
+        IF %1.==. GOTO END
+        COPY %1 A:
+        SHIFT
+        GOTO COPY
+        :END
+        IF命令指定当%1不再含有值时，即“ .==.”为真，则批处理程序转到：END；
+        COPY命令拷贝变量%1指定的文件到驱动器A:
+        SHIFT命令移动%1的值到%0，并把下一个文件名装到变量%1中；
+        GOTO命令运行返回到IF检查，如果%1含有文件则继续拷贝；否则，批处理程序终止执行。
+        三：IF：检查条件是否为真，如果条件为真，则IF语句中的命令被执行；否则命令就被忽略。如果在语句中使用了关键字NOT，则IF检查条件是否为假。
+        语法：IF ［NOT］ condition command
+        参数：condition必须是如下三种形式之一：
+        ERRORLEVEL number指定前面运行的程序返回的代码大于或等于number时，IF语句为真且指定的命令被执行；
+        stringl==string2用于比较两个字符串的值。只有当字符串(包括诸如%1、%2…等可替换变量)相同时，条件为真(注意在进行比较时大小写字符是有区分的)；EXIST filename只有当filename存在时条件为真。Filename中可以包括驱动器符、路径等；
+        command 任何有效的DOS命令(可以包含可替换变量%1、%2等)。
+        说明：字符“==”(双等号)是与IF命令一起使用的比较运算符，它类似于BASIC语言中与IF…THEN语句一同使用的单等号。“==”两边必须有某些值，如果两个都没有赋值、或一个值是空变量，就会产生语法错误。IF命令允许有条件地执行DOS命令，当IF条件语句同GOTO命令一起使用时是非常有用的。
+        例子：下面是一个显示菜单的批处理程序：
+        IF %1==1 GOTO WORD
+        IF %2==2 GOTO EXCEL
+        GOTO END
+        …
+        :WORD
+        …
+        :EXCEL
+        …
+        :END
+        IF检查条件%1==1是否为真，即变量%1是否取值为“1”；如果用户按1键，则转到：WORD的标号处，并开始执行下一个命令，启动WORD字处理程序，如果用户按2键，第一个条件语句为假，则执行下一个语句(为真)，然后转到：EXCEL的标号处，启动EXCEL电子数据表格程序；如果没有一个条件为真，则GOTO END语句被执行且转到批处理程序结束处。这样，IF命令起到了“决定”执行哪个程序的作用。
+        四：GOTO：强迫批处理程序转向执行一个具有指定标号的命令。
+        语法：GOTO label
+        参数：label是指明批处理程序中将要转向执行的入口标号。
+        说明：GOTO命令必须在批处理程序中有相匹配的标号。指定的label标号必须以一个冒号开始，并且单独占用一行。
+        例子：下面的批处理程序将显示一个目录中的文件名，然后结束。ECHO语句永远不会被执行，因为GOTO命令使控制转向了标号END处，所有在GOTO和END之间的命令都会被忽略。
+        DIR
+        GOTO END
+        ECHO why doesn't anyone listen to me?
+        ：END
+        注：在GOTO命令中使用标号时，前面可以不加冒号(尽管GOTO END和GOTO：END是同样有效的)，而在实际的标号行中，标号前必须有一个冒号(如：END)。
+        五：FOR：循环反复执行一条命令，每次使用不同的文件名或变量。
+        语法：FOR %%variable IN(set) DO command[command_parameters]
+        参数：%%variable表示可替换的循环变量。FOR命令用指定集合中的每个文本字符串替换%%variable(为区分批处理变量%1到%9，可对variable使用除1到9的任意字符，例如A到Z的任一字符等)，直到该命令(command参数指定的命令)处理完所有的文件；
+        (set)指定一个或多个要指定命令处理的文件或通配符(括号是必须的)；
+        command指定对文件执行的DOS命令；
+        command_parameters指定要与指定命令一起使用的变量或选项。
+        说明：IN和DO不是参数，它们在FOR命令中是必须的。当在批处理程序中使用FOR命令时，set中的第一个值替换%%variable，DOS按指定的命令顺序处理这些值，直到处理完set中相应值对应的所有文件(或文件组)。set参数表示的一组文件或多组文件，可以使用通配符(*和?)来指定一组文件，如(*.doc)、(*.doc*.txt*.me)、(ar??1991 .*ap??1991.*)等。
+        例子：使用type命令显示当前目录下所有扩展名为.doc或.txt文件的内容。为此，在批处理程序中加入：
+        FOR %%A IN(*.doc *.txt) DO type %%A
+        当前目录下每一个具有扩展名为*.doc或*.txt的文件用来替换%%A变量，直到每一个文件的内容都显示完为止(在命令提示符下要用%A来代替%%A，否则DOS显示错误信息)。
+        六：CHOICE：使用户能在某个批处理程序中作出一种选择。
+        语法：CHOICE[/C[:]Keys][/N][/S][/T[:]C,nn][text]
+        参数：text是需要显示的文字提示信息；
+        /C[:]Keys显示在[]内并逗号分隔开的选择键字符。按对应的键则执行相应的批处理命令；
+        /N禁止显示选择键字符；
+        /S区分选择键字符的大小写。如果不加/S参数，CHOICE对大小写字符均接受；
+        /T[:]C,nn设置等待用户进行选择时间(秒)及缺省执行项：
+        C: 在nn秒后执行的缺省项；
+        nn:设置等待的时间(0-99)秒)。
+        说明：CHOICE在显示指定的提示信息时，使用户能够在指定键集合中进行选择。它是DOS6.0版新增的批处理命令。
+        例子：以下的批处理程序是通过按A、B或C键分别选择执行Edit、Msav和Msbackup程序：
+        @ECHO OFF
+        CLS
+        ECHO
+        ECHO A MS EDITOR
+        ECHO B MS ANTI-VIRUS
+        七：CALL：在当前的批处理程序中调用另一个批处理程序，当被调用的批处理程序结束后，再返回原批处理程序继续执行。
+        语法：CALL［Drive:］[path]batchfile[parameters]
+        参数：drive指定被调用批处理程序所在的驱动器；如果缺省，则CALL认为是当前驱动器；
+        path指定被调用批处理程序所在的路径；如果缺省，则CALL认为是当前路径；
+        batchfile被调用的批处理程序名；
+        parameters给出被调用批处理程序需要的命令行参数(可以是文件名、控制开关、可替换变量%1到%9等)。
+        说明：CALL命令允许在当前的批处理程序中调用另一个批处理程序，但值得注意的是，必须为调用的批处理程序提供一个出口条件，否则就会陷入无穷无尽的死循环之中。
+        例子：若要从当前的批处理程序中调用test.bat批处理程序，可在该批处理程序中加入命令：CALL list，如果该批处理程序接受两个可替换变量、并且要将这两个可替换变量传给teat.bat，则可使用命令：CALL test %1 %2。
+        注：可替换变量(%1到%9)是在命令提示下键入的参数的位置标志符，当运行批处理程序时，DOS将用键入的实际参数来代替可替换变量。例如test.bat批处理程序中包括有两个可替换变量的COPY命令：COPOY %1 %2
+        在命令提示下可键入两个相应的变量，如C:\>teat d:\comm\*.* a:
+        则DOS将用d:\comm\*.*来代替%1，用a：来代替%2。
+        在可替换变量中，%0为批处理程序本身所保留。
+        10.批处理程序的创建
+        ●用COPY命令来创建批处理文件：
+        语法：COPY CON [drive:] [path] filename
+        参数：drive、path和filename分别是指定批处理程序的盘符、路径和文件名；
+        注意，文件名filename后必须加上扩展名.bat
+        说明：当命令逐行输入完毕后，按Ctrl+Z或F6键，然后再按回车键，就创建了一个新的批处理程序。
+        ●用EDIT编辑器创建和编辑批处理程序：
+        自DOS5.0以后新增加的全屏幕编辑器EDIT，是很受欢迎的一项新功能。它具有菜单、鼠标驱动、剪贴和查找替换等功能，比用EDLIN行编辑器更容易地编辑批处理文件，同时它的全屏幕显示功能也比用TYPE命令更易于控制屏幕的显示。
+        语法：EDIT [drive:] [path]filename [/b] [/g] [/h] [/nohi]
+        参数：drive、path和filename分别是指定文件的盘符、路径和名字。创建和编辑批处理程序时，文件名filename后要加上扩展名.bat。
+        /b、/g、/h、/nohi均是设置显示方式的选项，详见DOS Help。
+        说明：如果指定的文件不存在，则EDIT创建一个新的文件；如果指定的文件存在，EDIT将打开该文件，并在屏幕上显示其内容。当命令逐行输入或修改完毕后，用鼠标单击File菜单(或按Alt+F键)，选择Exit项，当屏幕提示“Loaded file is not savedSave it now?”时，按Y键则存贮该文件并返回DOS系统。
+        
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,309 @@
+Linux基础教程
+
+尚进
+1998年 第52期 17版
+
+#1    一、Linux简介
+    Linux是一个优秀的完全免费的操作系统。它和UNIX很像。它与其他操作系统有两点最主要的区别：一是完全免费；二是程序原代码，包括内核部分全部对用户公开。
+    由于Linux代码的完全公开，使得任何用户都可以在其内核中增加代码，以满足自己的需要。例如，对于中国用户来说，可以在Linux内核中增加对汉字的支持模块，如汉字输入／输出等。
+    Linux有四个主要的版本，它们分别是：
+    1.Red Hat Linux
+    这是由Red Hat公司（http:／／www.redhat.com）包装的最新Linux版本（5.1），其主要特点是易于安装。
+    2.Slackware Linux
+    这是由Walnut Creek Software公司（http:／／www.cdrom.com）包装的Linux版本，其主要特点是Linux制作技巧，十分适用于构建Internet服务器和路由器。如果想自学Linux，则此版本是最好的。Slackware Linux最新版本为3.5。
+    3.Open Linux
+    这是由Caldera公司（http:／／www.caldera.com）包装的Linux版本，十分适用于有Novell背景的用户。
+    4.Debian Linux
+    这是由Debian公司（www.debian.com）包装的Linux版本，其主要特点是安装十分便利，以软件包控制见长。
+#1    二、Linux安装
+    1.Linux运行环境
+    无论用户系统是如何构造的，Linux都可以简单、紧密地融合到用户的局域网中去，它可以很好地支持Machintosh、DOS、Windows NT、Windows 95／98、Novell、OS／2。在局域网中，用户可以将Linux作为网络操作系统运行，也可作为单机操作系统运行，而且在服务器上可以混用Linux、Novell、Windows NT。Linux对服务器上的要求不高，有16MB甚至更少的交换空间，Linux就能做到上面的一切。
+    在Linux所有版本中，Slackware Linux 3.5、Red Hat Linux 5.1使用最多，下面主要介绍这两种版本的安装。
+    2.Slackware Linux的安装
+    Sleackware Linux3.5包含了许多盘集（即A、AP、D、E、F、I、N、OOP、Q、TCL、Y、X、XAP、XD、XV、IV、OI、T等），每个盘集是一些特定类型的软件，如：A盘集包含了Linux核心和新文件系统标准的可运行文件；AP盘集包含各类应用软件和附加程序；D盘集包含了程序开发工具（如Gcc／C++／objective C 2.5.8、makeolanv和BSD等）。用户必须拥有A盘集，其他可任选。下面详细介绍Slackware Linux 3.5的安装步骤：
+    （1）创建启动盘和根盘
+    无论从CD－ROM或软盘上安装，都需要创建需要两片磁盘，它们是启动盘（bootdisk）和文件系统盘或根盘（rootdisk）。启动盘的映像文件放在／linux／bootdsks.144／中，在MS DOS提示符下转到＼Linux＼bootdsks.144下，用GZIP对启动盘映像文件进行解压：
+    C:＼>GZIP －D BAR.GZ
+    C:＼>RAWRITE bar A:
+    上面两条命令首先对BAR.GZ进行解压，产生文件bar，然后将bar文件写到软盘中。
+    转到存有文件系统软盘映像文件的子目录＼Linux＼rootdsks下，用GZIP对根盘映像文件进行解压：
+    C:＼>GZIP －D COLOR144.GZ
+    C:＼>RAWRITE color144 A:
+    上面的两条命令可以解压得到color144文件，然后将color144文件写到软盘中。
+    这样就得到了两张盘：启动盘和文件系统盘或根盘。这两张盘不再被MS DOS识别，在某种程度上它们是Linux格式的软盘。
+    （2）对硬盘进行分区
+    Linux是一个独立的操作系统，它需要一个单独的分区。如果你的硬盘已经被全部使用了，那么你最好把它重新分区，为Linux划分出空间来。而且Linux所用的root区（根文件系统区）的起始部分的柱面号不应大于1024，也就是说，Linux启动分区的开始部分应位于硬盘504M之前的位置，否则Linux只能用软盘启动。
+    在通常情况下，Linux需要两个分区，一个分区用作根文件系统（它对应“／”，即Root分区），另一个分区用作交换空间（它对应“／usr”，它可以位于504MB以外的空间）。下面以一个新的2.5GB硬盘为例进行分区。
+    用做好的bootdisk启动机器。很快，就会出现欢迎画面，大概意思是请你输入一些必要的参数。一般情况下，可以不去管它，直接按回车，等待十几秒后，屏幕上出现了许多信息。（注意：我的硬盘的设备名是／dev／hda，IDE光驱是／dev／hdb，这表示Linux已经检测到安装在第一个IDE口上的作为主驱动器的硬盘和作为从驱动器的光驱。）最后停在下面这一行上：
+    VFS:Insert root floppy disk to be loaded into ramdisk and press ENTER
+    在软驱中插入文件系统盘（rootdisk），按回车键。稍等一会儿，又出现一屏欢迎信息，系统最后几行是
+    You may now login as “root”.
+    slackware login:
+    输入“root”作为用户名，密码也是“root”，回车，进入Linux。此时系统提示符为“#”。
+    使用Linux的内部命令来完成分区，再输入命令“fdisk”后回车；
+    ＃fdisk
+    （说明：对已经做好DOS分区的硬盘，你可以使用“#fdisk／dev／had”命令，／dev／hda表示第一个物理硬盘，其中／dev／hda1为第一个硬盘的第一个分区，／dev／hda2为第一个硬盘的第二个分区，以此类推）。
+    出现下面画面：
+    Command（m for help）：
+    按m，则可以获得fdisk的帮助信息，这和我们用惯了的Dos下的FDISK很不一样。实际上，它和Dos的FDISK功能差不多。帮助信息如下所示：
+    Atoggle a bootable flag（切换启动标志）。
+    Ddelete a partition（删除分区）。
+    Llist known partition types（显示可知分区类型）。
+    Mprint the menu（显示此菜单）。
+    Nadd a new partition（增加新的分区）。
+    Pprint the partition table （显示分区表）
+    Qquit without saving changes（不保存修改结果而退出）。
+    Tchange a partion＇s system id（更改分区的系统类型）。
+    Uchange display／entry units（更改显示／入口单元）。
+    Vverify the partition table（验证分区表）。
+    Wwrite table to disk and exit（将修改结果写到硬盘中）。
+    Xextra functionality （expert only）（只适用于专家级别的功能选项）。 
+    以下是对一个新硬盘进行分区的操作步骤：
+    Command （m for help）: n←n设立新的分区
+    Command action
+    e extended
+    p primary partition （1－4）
+    p ←p指定primary分区。
+    Partition number （1－4）：1←1指定第一个。
+    First cylinder（1－4970）：1←指定第一分区位置，从1－915cylinder。
+    Last cylinder or＋size or＋sizeM or＋sizeK（1－4970）：915。
+    Command（m for help）：n←n增加新的分区。
+    Command（m for help）：
+    e extended
+    p primary partition（1－4）
+    p←p指定primary分区。
+    Partition number（1－4）：2←2指定第二分区位置，从916－946 cylinder。
+    First cylinder（916－4970）：916←填入916。
+    Last cylinder or＋size or＋sizeM or＋sizeK（916－4970）:946←填入946。
+    Command（m for help）：t←修改分区类型。
+    Partition number（1－4）：2←选择修改第二个分区。
+    Hex code（type L to list codes）：82←82代表Linux Swap Partition。
+    Changed system type of partition 2 to 82（Linux swap）。
+    Command（m for help）：p←p查看分区设定结果。
+    Command（m for help）：w←w将修改后的硬盘分区表写回到硬盘中。
+    （注：要详细了解Linux Fdisk支持的分区类型，你可以在Hex code（type L to list codes）后选择L命令，它将列出所有支持的分区类型代码，其中，82对应的分区类型为Linux swap；83对应的分区类型为Linux native。）
+    完成后，取出rootdisk，换上bootdisk，按CTRL+ALT+DEL重新开机。仍然按前面的步骤适时换上rootdisk盘，并最终用root用户注册。
+    （3）为Linux分区创建文件系统
+    在创建了Linux分区后，我们必须为这些分区创建文件系统结构，这相当于DOS中的高级格式化操作。执行下面命令可以完成此任务：
+    #mke2fs-c ／dev／hda1
+    #mkswap  -c ／dev／hda2
+    #／dev／hda1
+    其中“-c”参数用于坏块检查。
+    （4）安装软件包
+    在对磁盘进行格式化后，就可以将软件安装到Linux中了。
+    在“＃”提示符下运行setup：
+    :#setup
+    这时将进入一个彩色设置菜单，使用此菜单可以引导你完成软件的安装。setup命令提供的菜单有：
+    help：显示setup的在线安装帮助说明。
+    Keymap：更改键盘的排列方式（默认为美式键盘）。
+    Quick：安装方式，有quick（快速）和Verbose（普通方式）两种。
+    make tags：该菜单允许你建立自己的标记（tag）文件，允许你集中预选要安装的软件包（即改变软件内建安装选项）。
+    Addswap：允许指定一个Linux交换分区作为Linux系统专用交换空间。
+    Target：指定目的硬盘分区。
+    Source：指定安装的源盘（软盘、硬盘或光盘等）。
+    disk sets：选择要安装的盘集组。如果您选择A、AP、D、K、N、F、X、XAP、Y盘集，则您将得到一个完整的Linux系统。
+    Install：开始安装。
+    Configure：系统设定。在软件包安装后，此菜单允许你选择从硬盘还是从软盘引导Linux系统，它也允许完成一部分机器配置工作，如鼠标、调制解调器和网络的配置等。在开始安装时，你可以暂时跳过这些配置选项。
+    Pkgtool：使用Pkgtool软件安装或者删除软件包。
+    Exit：退出安装过程。
+    ●增加交换区
+    通过选择Addswap菜单建立和配置交换分区。
+    全部选择“Yes”或“OK”，直到出现：
+    ......Would you like to continue the installation and setup your TARGET drive（s）?
+    ●选择目标分区
+    在上面的提问中选“Yes”，进入选择目标分区视窗。由于现在只建立了一个Linux分区，所以可直接选择“OK”，进入下面视窗，选择第一项：
+    Format Quick format with no bad block checking
+    文件系统就做好了。选“Yes”进入下一步。
+    ●选择安装源
+    选择5，从CD－ROM上安装。在下面的选择CD－ROM类型视窗中，这里选择了
+    1－Works with most ATAPI／IDE CD drives （／dev／hd＊）
+    下面出现了一长串CD－ROM可能的设备名列表。如果你弄不明白该用哪个，那么请选第一个选项“Scan”，它能很快地扫描到你的CD－ROM的设备名称。
+    下一步是指定Linux在光盘上的存放路径。
+    选“Custom”，再输入
+    linux／slackware
+    选“Yes”进入下一步。
+    ●选择安装包
+    屏幕上出现了所有可安装包的列表。
+    用箭头键上下移动，空格键选中或不选。完成后，按回车键。
+    以下连按几次回车后，出现一个“SELECT PROMPTING MODE”对话框。按回车键选“Normal”模式并开始安装。
+    安装完成之后，将会出现一个“INSTALL Linux KERNEL”菜单，有四个选择项。显然当前的bootdisk引导的Linux能够正常工作，所以Linux推荐用选项1，从当前使用的bootdisk拷贝Kernel到硬盘中。按回车确认之前，不要忘了把bootdisk放进驱动器。
+    然后出现一个标题为“CONFIGURE YOUR SYSTEM?”的画面，选“Yes”，又有一个“MAKE BOOT DISK?”的画面。Linux强烈建议你制作一张启动软盘，这样，一旦出现意外，仍然可以利用这张启动软盘救急。
+    接着Linux询问是否配置你的调制解调器和鼠标，这里选择了“No”。
+    ●安装LILO
+    安装到此，将要进行非常重要的LILO的设定。LILO是一个相当优秀的系统工具。如果在硬盘中安装了Lilo，就可以进入多操作系统选择菜单选择用户需要的操作系统进行启动。在Setup中选择Configure就可以安装Lilo。例如，你可以选择从你的硬盘上启动LINUX、WINDOWS 95等多种操作系统。
+    按照提示，选择你想默认启动的操作系统，选择“INSTAL”则安装完成。
+#1    三、Linux的启动及启动文件配置
+    在安装了Lilo后，重新启动计算机，系统将出现如下提示：
+    Lilo：
+    并暂停一会儿。如果你不选择，则Lilo将引导默认的操作系统。如果在停顿时，按下了Shift、Ctrl、Alt中的任何一个键，则系统将给出如下提示：
+    boot：
+    同时在提示符后面，显示要引导的操作系统或内核名称，如DOS。如果在提示符下按Tab键，将得到一个可供选择的操作系统名称清单，如：DOS／Linux。
+    为了使lilo具有上述功能，应设置lilo的配置文件：／ect／lilo.inf。
+    将要引导的操作系统或内核的有关信息写入此文件，然后执行“#lilo”命令来完成安装。
+    下面用例子来说明lilo配置文件的具体内容。假定引导的默认操作系统为DOS，在“boot：”提示符后面可以选择DOS或者Linux。
+    #LILO configuration file
+    #Global section
+    boot=／dev／hda
+    delay=5
+    #DOS bootable partition section
+    other=／dev／hda1
+    label=DOS
+    table=／dev／hda
+    #Linux bootable partition section
+    image=／vmlinuz
+    root=／dev／hda2
+    label=linux
+    read-only
+    该配置文件内部分成两段：从global段开始，以后的各段分别表示引导时可供选择的操作系统（或内核）。每个系统（或内核）各占用一段，global段后面的第一段为默认的系统（或内核）。
+    在该例子中，global段包括两行，第一行告诉lilo从哪个硬盘引导机器，第二行指定了lilo引导默认系统前的停顿时间，选择范围为1～10秒。
+    由于DOS是默认的操作系统，紧接着是DOS段，其中三行分别表示:包含DOS的分区名称、在boot:提示符后面要显示的标号及分区表的位置。
+    最后一段包含引导Linux的信息:可引导的内核映像文件的完整路径名、包含根文件系统的分区名称、在boot:提示符后面显示的标号。最后根文件系统必须以只读方式装配，使得Linux文件系统检查程序能够进行完整性检查。
+    你可以根据上面的分析修改引导顺序、停顿时间以及“Boot：”提示符后面的显示标号等。
+#1    四、Red Hat Linux 5.1的安装
+    与Slackware Linux 3.5相比，Red Hat Linux 5.1的安装要方便多了，因为它不需将Linux root分区限制在504MB以内。另外，Red Hat Linux 5.1提供了Disk druid分区程序，使分区更为方便。下面简要地介绍Red Hat Linux 5.1的安装步骤。
+    1.将Red Hat Linux 5.1光盘插入光驱。
+    2.进入“＼DOSUTIL”目录，执行AUTOBOOT命令，启动Linux（这就相当于上面提到的启动盘与根盘的操作步骤），此时Linux将进行硬件诊断，并给出系列参数，然后按回车键后将要求你选择安装的语言（默认为US）、源路径（如光盘），在作了选择后，将进入Disk Druid操作界面。
+    3.在此界面中，你可以进行分区的建立和删除操作，建立方法十分简单，然后将修改后的分区表结果写入硬盘。
+    4.建立Linux分区后，接着是对这两个分区进行高级格式化。
+    5.高级格式化完成后，将给出软件包组件列表，你可以根据自己的需要选择合适的选项。全部选择需要580MB空间。
+    6.在选择了安装组件后，则进入软件拷贝进程。
+    7.拷贝结束后，将进入系统配置，如ClockChip（时间芯片的检测）、Select Video Modes（选择显示模式）、网络配置、时区配置、自动服务设置、打印机设置、Root Password（Linux启动口令）、创建启动盘、LiLo安装、引导分区的选择等。
+    8.在配置结束后，将要求你重新启动机器，在启动时会出现：“LiLo：”的提示符，输入DOS，进入DOS系统，如有WIN95／98系统，可以在DOS系统中启动Win95／98系统。若键入Linux，则进入Linux系统。
+#1    五、在MS DOS中引导Linux
+    Lilo软件包只是Linux引导装入程序中的一个，另一个引入程序Loadlin，它可以在DOS中引导Linux系统。这两者有什么差别呢?其实Lilo允许用户在机器引导时选择操作系统，而Loadlin需要先引导DOS系统，只有在进入DOS系统后，才能选择是留在DOS内还是用Loadlin引导Linux系统。
+    为了使用Loadlin，必须先将它和Linux内核复制到DOS分区，最方便的方法是将DOS分区装配在Linux下，然后使用Linux的cp命令进行复制：
+    1.执行下面命令将“／dev／hda1”DOS分区装配到Linux的“／mut”目录下：
+    #mount -t msdos ／dev／hda1 ／mut
+    注意：只有root用户才能执行mount命令。
+    2.将光盘DOSUTIL目录中的loadlin.exe、loadlinx.exe两个文件复制到DOS分区中，您也可在linux中执行如下操作：#unzip loadin*.zip
+    #cp ／root／LOADLIN／LOADLIN.EXE ／mnt／dos
+    #cp ／root／LOADLIN／LOADLINX.EXE ／mnt／dos　
+    3.使用下面的命令将压缩的Linux内核映像复制到DOS分区中:
+    #cp ／usr／src／linux／arch／i386／boot／zImage ／mut／vmlinuz
+    4.启动DOS，然后执行如下命令：
+    C:＼>loadlin c:＼vmlinuz root=／dev／hda2 ro
+    就可以在DOS中启动Linux系统了。
+#1    六、安装和设定 XFree86
+    X  Window  System 是 UNIX 系统上强大的图形化操作环境。目前使用较多的是XFree86 3.3版。XFree86 的完整资料是可以从 XFree86 的网站（http:／／www.XFree86.org）上得到。
+    1.硬体需求
+    对于XFree86 3.3版， 以下的显示芯片组是被支持的。如果买到很新的显示卡， 或买一台新机器而附有显示卡， 注意该显示卡是的生产厂家、型号及芯片组。大部分PC显示卡是标准的SVGA卡，它能在你的系统上正常运行。
+    一般支持以下标准SVGA芯晶片组: 
+    （1）Tseng ET3000，ET4000AX，ET4000／W32，ET6000 
+    （2）Western Digital／Paradise PVGA1 
+    （3）Western Digital WD90C00，WD90C10，WD90C11，WD90C24，WD90C30，WD90C31，WD90C33 
+    （4）Genoa GVGA 
+    （5）Trident TVGA8800CS，TVGA8900B，TVGA8900C，TVGA8900CL， TVGA9000，TVGA9000i，TVGA9100B，TVGA9200CX，TVGA9320，TVGA9400CX，TVGA9420，TGUI9420DGi，TGUI9430DGi，TGUI9440AGi， TGUI9660XGi，TGUI9680 
+    （6）ATI 18800，18800-1，28800-2，28800-4，28800-5，28800-6，68800-3，68800-6，68800AX，68800LX， 88800GX-C，88800GX-D，88800GX-E，88800GX-F，88800CX，264CT，264ET，264VT，264VT2， 264GT 
+    （7）NCR 77C22，77C22E，77C22E+ 
+    （8）Cirrus Logic CLGD5420，CLGD5422，CLGD5424，CLGD5426， CLGD5428，CLGD5429，CLGD5430，CLGD5434，CLGD5436，CLGD5440， CLGD5446，CLGD5462，CLGD5464，CLGD6205，CLGD6215，CLGD6225， CLGD6235，CLGD6410，CLGD6412，CLGD6420，CLGD6440 
+    （9）OAK OTI067，OTI077，OTI087 
+    （10）Avance Logic ALG2101，ALG2228，ALG2301，ALG2302， ALG2308， ALG2401 
+    （11）Chips & Technologies 65520，65530，65540，65545， 65520，65530，65540，65545，65546，65548，65550，65554 
+    （12）MX MX68000， MX680010 
+    （13）Video 7／Headland Technologies HT216-32 
+    （14）SiS 86C201， 86C202，86C205 
+    （15）ARK Logic ARK1000PV，ARK1000VL，ARK2000PV， ARK2000MT 
+    （16）RealTek RTG3106 
+    （17）Alliance AP6422 
+    （18）Matrox MGA2064W and Mystique cards 
+    （19）NVidia／SGS Thomson NV1， STG2000 
+    以下具有加速特性的SVGA芯片组也被支持: 
+    （1）8514／A （and true clones） 
+    （2）ATI Mach 8，Mach 32，Mach 64 
+    （3）Cirrus CLGD5420，CLGD5422，CLGD5424，CLGD5426， CLGD5428，CLGD5429，CLGD5430，CLGD5434，CLGD5436，CLGD5440， CGLD5446，CLGD5462，CLGD5464
+    （4）S3 86C911，86C924，86C801，86C805，86C805i，86C928，86C864，86C964，86C732，86C764，86C765，86C868，86C968，86C325，86C988 
+    （5）Western Digital WD90C31，WD90C33，WD90C24A 
+    （6）Weitek P9000 
+    （7）IIT AGX-014，AGX-015，AGX-016 
+    （8）IBM XGA-2 
+    （9）Tseng ET4000／W32，ET4000／W32i，ET4000／W32p，ET6000 
+    （10）Ark Logic ARK1000PV， ARK1000VL， ARK2000PV， ARK2000MT 
+    （11）MGA2064W 
+    在Linux下安装XFree86，建议计算机是一台P5或更好（如PII），而且至少搭配 16M RAM和具有上述所列出芯片组的显示卡。为了有更好的表现，建议使用加速卡。
+    2.安装XFree86
+    XFree86的Linux binary distribution，可以在许多FTP站找到。在XFree86站，它是在 ftp:／／ftp.xfree86.org／pub／XFree86／current／binaries／Linux-ix86。
+    在做任何其它操作之前，首先下载且执行preinst.sh的shell script，它将告诉你继续安装之前，你需要在注意的问题。
+    如果你直接下载XFree86， 这个列表列出在 XFree86-3.3 软体套件中的文件。
+    以下server之一是必需的： 
+    X338514.tgz：Server for 8514-based boards. 
+    X33AGX.tgz：Server for AGX-based boards. 
+    X33I128.tgz：Server for the Number Nine Imagine 128.
+    X33Mach32.tgz：Server for Mach32-based boards.
+    X33Mach64.tgz：Server for Mach64-based boards.
+    X33Mach8.tgz：Server for Mach8-based boards. 
+    X33Mono.tgz：Server for monochrome video modes.
+    X33P9K.tgz：Server for P9000-based boards.
+    X33S3.tgz：Server for S3-based boards.
+    X33S3V.tgz：Server for the S3 ViRGE and ViRGE／VX （considered beta）
+    X33SVGA.tgz：Server for Super VGA-based boards.
+    X33W32.tgz：Server for ET4000／W32-based boards.
+    如果你不知道要取哪一个，就取 VGA16 server，X33VGA16.tgz。无论怎样，你都要下载这一个，因为你将需要它在下个步骤去执行自动设定工具。
+    以下全部文件都是必须的：
+    preinst.sh：Pre-installation script。
+    postinst.sh：Post-installation script。
+    X33bin.tgz：The rest of the X11R6 binaries。 
+    X33cfg.tgz：Config files for xdm， xinit and fs。
+    X33doc.tgz：Documentation。
+    X33man.tgz：Manual pages。
+    X33fnts.tgz：75dpi， misc and PEX fonts。
+    X33lib.tgz：Shared X libraries and support files。
+    X33set.tgz：XF86Setup utility。
+    X33VG16.tgz：Server for VGA／EGA-based boards。
+    以下文件是选择性的：
+    X33f100.tgz：100dpi fonts。
+    X33fcyr.tgz：Cyrillic fonts。
+    X33fnon.tgz：Other fonts （Chinese， Japanese， Korean， Hebrew）。
+    X33fscl.tgz：Scalable fonts （Speedo and Type1）。
+    X33fsrv.tgz：Font server and config files。
+    X33prog.tgz：X header files， config files and compile-time libs。
+    X33lkit.tgz：X server LinkKit。
+    X33lk98.tgz：PC98 X server LinkKit。
+    X33nest.tgz：Nested X server。
+    X33prt.tgz：X print server。
+    X33vfb.tgz：Virtual framebuffer X server。
+    X33ps.tgz：PostScript version of the documentation。
+    X33html.tgz：HTML version of the documentation。
+    在下载站点的XFree86目录还包含有目前版本的release notes，在RELNOTES文件中。对于安装细节，可查阅该文件RELNOTES。
+    所要安装XFree86的工作是取得以上文件，以 root 身分 建立 ／usr／X11R6目录，从 ／usr／X11R6 解开那些文件。如下列指令： 
+    gzip -dc X33bin.tgz | tar xfB -
+    注意：这些 tar 文件是相对于／usr／X11R6 目录所包装起来的， 所以很重要的是要在解包时后包装。
+    你需要确定 ／usr／X11R6／bin 是有设在你的 path 中。通过编辑系统设置文件／etc／profile 或 ／etc／csh.login实现。或者你可以简单地修改 ／etc／.bashrc 或 ／etc／.cshrc来把该目录加入你个人的path。 
+    你也需要确定 ／usr／X11R6／lib 能被 runtime linker ld.so 找到。为了完成设定，加入该行／usr／X11R6／lib 到／etc／ld.so.conf文件中， 然后以 root 身份去执行／sbin／ldconfig。
+    3.设定 XFree86
+    （1）一般设定
+    目前的版本不需要你去设定鼠标、键盘、显示器和显示卡，你所要做的是执行XF86Setup程序。这个程序依赖现今所有新出货而且搭配具EGA／VGA能力的显示器的PC硬体情况而定。它采用 SVGA16 server，而且利用它以640x480的模式来开启打开X server。然后它执行交互式程序，带你经过连续五个设定面板 -- mouse， keyboard， （video） card， monitor 和 other，全部过程比较简单。
+    （2）问题解决
+    当你刚开始开启 X server， 有些项目偶尔会没有设定不正确。这是由你的设定文件中的一些问题所引起的。通常是显示器的 timing values 不正确， 或显示卡的 dot clocks 设定不正确。少数问题可以通过 xvidtune 来解决； 当屏幕上出现混乱不清时，通常表示需要回到XF86Setup选择功能比较低的显示器型式［monitor type］。
+    如果你的显示出现卷曲［roll］， 或边缘显示模糊不清［fuzzy］， 这很清楚地表示显示器的timing values 或 dot clocks 是错的。再者， 要确定你是正确地指出你的显示卡晶片组， 在 XF86Config 中的 Device 段落的其它项目也是如此。要确定你已经使用正确的 X server ，而且 ／usr／X11R6／bin／X 有符号连结 ［symbolic link］到这个 server.    如果发生其它的所有失败情况，请试试［bare］开启 X，即使用指令：
+    X > ／tmp／x.out 2>&1 
+    然后你可以删去 X server（使用 ctrl+alt+backspace键的组合），检查 ／tmp／x.out 的内容。X server 将报告任何警告及错误。
+    如果你的显示卡没有一个 dot clock 可符合你的显示器所支持的模式，可以使用 ctrl+alt+numeric+ +和ctrl+alt+numeric+ - 来切换在XF86Config中的 Screen 段落的 Modes 行所列出的显示模式。若最高分辨率模式不能看起来很适当，试试切到较低的分辨率，这至少会让你知道你的X设定这部分是正确的运作。
+    （3）自定设定
+    如果你的显示器能支持1600x1200，而用XF86Setup来安装的最高所能够支持的分辨率是1280x1024， 那么需要你亲自动手去尝试调整［hand-hack］的X的设定，以便取得最佳化的表现。
+    （4）使用16-位的颜色
+    如果你要使用先进的图形应用程序，256色也许不足够. 你可以简单地使用 16-位的增强色而有 65K颜色，在开启 X 时，用以下指令：
+    startx -- -bpp 16
+    或者将下列这行
+    exec X :0 -bpp 16
+    写进你的 .xserverrc 文件内。注意：不是所有的应用程式都能用 16-bit 颜色来正常运行。
+    （5）执行 XFree86
+    当你的 XF86Config 已设定， 准备开启 X server 试用一下， 请确定 ／usr／X11R6／bin 设在你的 path 中。
+    执行XFree86的指令是：
+    startx 
+    这是xinit的front-end［前端介面］，该指令将会启动 X server，而且在你的根目录［home directory］下执行.xinitrc 文件内所找到的指令。.xinitrc 只是个包含所要执行 X clients 的 shell script。如果这个文件不存在， 那么系统内定的 ／usr／X11R6／lib／X11／xinit／xinitrc 将会被使用。
+    一个标准 .xinitrc 文件如下： 
+    #!／bin／sh
+    xterm -fn 7x13bold -geometry 80x32+10+50 &
+    xterm -fn 9x15bold -geometry 80x34+30-10 &
+    oclock -geometry 70x70-7+7 &
+    xsetroot -solid midnightblue &
+    exec twm 
+    这个 script 将开启两个 xterm clients， 一个 oclock， 而且设定根视窗［root window］（背景）的颜色成深蓝色［midnightblue］。然后打开视窗管理程序twm。
+    注意：twm 是用 shell 的 exec 语句［statement］执行的；这造成 xinit 程序［process］被 twm 取代。一旦 twm 程序离开， X server 将关毕。你可以使用 root 菜单［menus］ 来使 twm 离开，在桌面背景上放开鼠标的第一个按键，将出现下拉表单，选择“Exit Twm”将离开Twm。 
+    确定在 .xinitrc 中的最后面的指令是以 exec为开头的， 而那不会被放在背景执行的，否则， X server 关毕瞬间， 将会再去执行 .xinitrc 文件中的 client。
+    此外， 你还可以按 ctrl+alt+backspace 组合键离开X。 这会直接关闭 X server， 离开视窗系统。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

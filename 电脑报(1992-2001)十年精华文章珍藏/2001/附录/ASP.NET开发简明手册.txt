@@ -1,0 +1,346 @@
+ASP.NET开发简明手册
+
+曾筱 
+2001年 60期
+
+    ASP.NET作为Visual Studio.NET的一个组成部分，是从ASP发展过来的，但并不是ASP的简单升级，而是Microsoft推出的新一代Active Server Pages。
+　　    ASP.NET是微软的.NET框架的重要组成部分，它使用VB.NET、C#和Jscript.NET程序设计语言来实现动态网页编程，这使得它的编程非常灵活和高效。同时ASP.NET是基于组件技术和面向对象的开发系统，程序员可以使用系统的丰富组件，如文件上传、E-mail发送、文件操作、广告组件等。不但如此，程序员还可以开发自己的组件，扩展ASP.NET的功能。
+　　    ASP.NET直接支持组件和Code-Behind技术，可以更好地实现程序代码和HTML代码的分离。ASP.NET采用了新的叫做ADO.NET的数据库访问技术，可以大大地提高数据访问的效率，也可以很容易地开发数据库应用系统。
+　　#1    一、ASP.NET的运行、开发环境
+　　    1.ASP.NET的运行环境
+　　    （1）硬件要求
+　　    CPU: Intel Pentium II 300 MHz （最好Intel Pentium III 600 MHz）
+　　    内存: 96 MB （最好128 MB）
+　　    磁盘空间: 250 MB（完全安装） 155 MB（快速安装）
+　　    显示: 800×600， 256色
+　　    CD-ROM:倍速光驱
+　　    （2）软件要求
+　　    Windows 2000 Professional、Windows 2000 Server、Windows 2000  Advanced Server、IE 5.5、NGWS。
+　　    ASP.NET目前能支持C#、VB、Jscrip等三种语言。
+　　#1    二、ASP.NET的安装
+　　    1.安装ASP.NET
+　　    可以从这里下载ASP.NET的安装程序：http：//download.microsoft.com/download/platformsdk/Trial/1812.10full/NT5/EN-US/Setup.exe。ASP.NET的安装过程很简单，只需按照简单提示安装即可完成。但是，如果你的计算机安装了Office 2000，建议安装ASP.NET之前先备份＼MicroSoft Office＼Office＼mso9.dll文件，因为安装完ASP.NET后，Office会提示你注册，否则的话Office 2000会出现使用50次的限制。此时将备份的mso9.dll文件覆盖掉原来的文件即可。
+　　    2.NGWS
+　　    ASP.NET实际上是一个崭新的运行结构的一部分，这个结构提供对所有Windows应用程序的支持。这个结构是MicroSoft＇s Next Generation Web Services （NGWS）关键部分。当你安装了这个结构，你也就同时获得了ASP.NET。这个结构同样支持所有其他服务器程序技术。
+　　    NGWS 结构通过对可升级分布式应用添加（新的和增强的服务）来扩展COM的结构，此种结构常用做编写可重复调用的可共同使用的软件组件，这些新的和增强的服务有：
+　　    一套统一的丰富的程序库； 一个支持多语言的运行引擎；简单地应用建立、调试以及维护；对分布式应用加强了可升级性；保护现已存在的软件和投资。
+　　#1    三、ASP.NET概念解析
+　　    1.Web Form
+　　    表单，英文单词是Form。在.NET架构里，Form是一个经常使用到的词汇。Web Form代表了一个一个的Web页面。总的看来，Form就像是一个容纳各种控件的容器，各种控件都必须直接或者间接地与它发生依存关系。“表单”这个词，在Web程序员看来，总是和HTML里面的“Form”相混淆。“Web表单”似乎翻译成“Web页面”更加妥当一些。
+　　    大家还记得VB里面的Form实际上就是一个对象吧，它可以有自己的属性、方法、事件等等。Web表单，或者说Web页面，实际上是一个“对象” （Object）。.NET架构里面一个比较重要的概念就是“对象”，所有的控件都是对象，甚至数据类型都成了对象；每种数据类型都有自己特有的属性和方法。我们在后面的编程中将体会到。
+　　    Web Form的后缀名是ASPX。当一个浏览器第一次请求一个ASPX文件时，Web Form页面将被CLR（Common Language Runtime）编译器编译。此后，当再有用户访问此页面时，由于ASPX页面已经被编译过，所以，CLR会直接执行编译过的代码，这和ASP的情况完全不同。ASP只支持VBScript和JavaScript这样的解释性的脚本语言。所以ASP页面是解释执行的。当用户发出请求后，无论是第一次，还是第一千次，ASP的页面都将被动态解释执行。而ASP.NET支持可编译的语言，包括VB.NET、C#、Jscript.NET等。所以，ASP.NET是一次编译多次执行。
+　　    为了简化程序员的工作，ASPX页面不需要手工编译，而是在页面被调用的时候，由CLR自行决定是否编译。一般来说，下面两种情况下，ASPX会被重新编译：
+　　    （1）ASPX页面第一次被浏览器请求；
+　　    （2）ASPX被改写。
+　　     由于ASPX页面可以被编译，所以ASPX页面具有组件一样的性能。这就使得ASPX页面至少比同样功能的ASP页面快250%！
+　　    网络表单把基于VB表单的高效率的优点带到了网络应用程序的开发中来。网络表单支持传统的将HTML内容与脚本代码混合的ASP语法，但是它提出了一种将应用程序代码和用户接口内容分离的更加结构化的方法。引入的网络表单控件用于为封装通用用户接口元素提供了一种机制。这些新的特点使得开发工具在支持VB应用程序的同时，也支持设计时模块，使得WYSIWYG（所见即所得）工具支持网页布局。
+　　    网络表单控件负责生成用户接口，典型情况是在HTML表单中。ASP.NET提供了一套映射传统的HTML用户接口小部件（包括列表框，文本框和按钮）的网络表单控件和一套附加的更加复杂的网络控件（如日历和广告板）。这些控件的一个重要特点是，它们可以被编写以适应客户端的能力；同一网页把大范围的客户端平台和表单因素作为目标。换句话说，网络表单控件能“探测”到正在查找表单的客户，然后返回合适的可能是适合低级浏览器的HTML 3.2或是适于IE 5.0的动态HTML。
+　　    考虑到网络是一种无状态的联接模型，网络应用程序开发人员所面临的一个很复杂的问题是，他们要对用户与基于网络接口的交互作用作出反应。网络利用ASP.NET的体系架构提供了一套丰富的服务，以帮助开发人员建立交互式网页。这些服务的作用是使基于组件的、事件驱动的可编程模块，对开发人员来说，非常象客户端的表单程序设计。用户与网页交互作用的状态管理的复杂性被ASP.NET网络表单和网络表单控件隐藏起来了。对开发人员来说，提供的丰富数据绑定服务使得显示通过数据访问服务得到的数据变得非常容易。
+　　    代码与内容的分离使ASP.NET网页能动态地编译到受控类中，用以提高性能。每个引入的HTTP请求都被传递到一个新的网页实例，因此开发人员不需要关心代码中的线程安全性。
+　　    2.NameSpace（名字空间）
+　　    对象一直是Windows开发环境中，程序开发的中心。不论在VB、VBA、VC++、VBScript等都是如此，不同的开发环境有不同的对象，这些对象均是各个语法所提供“资源”，程序开发人员可以利用这些资源，来编写所需的系统。
+　　    在过去的ASP中，仅有Server、Request、Response……等七个对象。而在ASP.NET的对象库中却分得很细。
+　　    例如在ASP.NET网页中要通过SQL语句获得数据库中的数据，必须使用“System.Data.SQL”，这是NameSpace（名字空间）名称。在System.Data.SQL下，又有很多类（Class）。每个类可视为一个对象，因为类下有属性、方法和事件等
+　　    所以，最上层的NameSpace看作是同类型对象的集合，一个NameSpace之下可拥有多个类。它们之间的关系如图：    （^60090407a^）
+　　    3.文件类型
+　　    ASP 的文件类型只有一种，其扩展名是.asp文件。但在ASP.NET有很多的文件类型：
+　　    （^60090407b^）
+　　#1    四、ASP.NET的控件应用
+　　    ASP.NET提供四种类型的控件，即服务器端控件、验证控件、HTML控件和自定义控件，充分利用这些控件提供的功能，可以加快完成任务的速度。
+　　    1. 服务器端控件
+　　    在ASP.NET中，一切都是对象，Web页面本身也是一个对象。或者说，Web页面就是一个对象的容器。服务器端控件，英文是Server Control，就是放在这个容器里面。
+　　    什么是Control？简单地说，Control就是一个可重用的组件或者对象，这个组件不但有自己的外观，还有自己的数据和方法，大部分组件还可以响应事件。通过微软的集成开发环境（Visual Studio.NET），你可以简单地把一个Control拖放到一个Form中。
+　　    那为什么叫“Server Control”？这是因为这些Control是在服务器端存在的。服务器端控件也有自己的外观，在客户端浏览器中，Server Control的外观由HTML代码来表现。Server Control会在初始化时，根据客户的浏览器版本，自动生成适合浏览器的HTML代码。主要的服务器端控件及其用途如下表所示：
+　　    （^60090407c^）
+　　    例1：服务器控件
+　　<HTML>
+　　<HEAD>
+　　<TITLE>服务器控件示例</TITLE>
+　　</HEAD>
+　　<BODY>
+　　<asp:TextBox runat=server
+　　      id="txtLogin"
+　　      Text="文字编辑"
+　　      Font_Face="Arial" Font_Size="3"
+　　      BackColor="lightblue"
+　　      TextMode="MultiLine"
+　　      Heigth=10
+　　      OnTextChanged="txtLogin_Changed（）"
+　　/>
+　　<asp:CheckBox id=Check1 runat="server"
+　　   Text="CheckBox 1"
+　　   AutoPostBack="True"
+　　/>
+　　<asp:CheckBoxList id=Check1 runat="server"
+　　   RepeatLayout="flow"
+　　>
+　　   <asp:ListItem>Item 1</asp:ListItem>
+　　   <asp:ListItem>Item 2</asp:ListItem>
+　　   <asp:ListItem>Item 3</asp:ListItem>
+　　   <asp:ListItem>Item 4</asp:ListItem>
+　　   <asp:ListItem>Item 5</asp:ListItem>
+　　   <asp:ListItem>Item 6</asp:ListItem>
+　　</asp:CheckBoxList>
+　　</BODY>
+　　</HTML>
+　　
+　　    2. 验证控件
+　　    这是用以验证Web页面中用户输入信息是否有效的非常重要的一种方法。在ASP.NET的Web From框架中提供了一套验证控件，它们提供了强大易用的方式来检查错误，如果需要的话可以显示提示信息给用户。这些控件可以分为如下表所述的几种类型：（^60090407d^）
+　　    例2：验证控件
+　　<HTML>
+　　<HEAD>
+　　<TITLE>验证控件</TITLE>
+　　</HEAD>
+　　<BODY>
+　　<TABLE>
+　　<TR>
+　　<TD>
+　　   <asp:Textbox id="txtLastName" runat="server"></asp:Textbox>
+　　</TD>
+　　<TD>
+　　   <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
+　　      ControlToValidate="txtLastName"
+　　      ErrorMessage="Last name is a required field"
+　　      ForeColor="Red">
+　　   </asp:RequiredFieldValidator>
+　　</TD>
+　　</TR>
+　　</TABLE>
+　　<TABLE>
+　　<TR>
+　　<TD>
+　　   <asp:Textbox id="txtDepartureDate" runat="server"></asp:Textbox>
+　　</TD>
+　　<TD>
+　　   <asp:CompareValidator id="CompareFieldValidator1" runat="server"
+　　      ForeColor="Red"
+　　      ControlToValidate="txtDepartureDate"
+　　      ControlToCompare="txtArrivalDate"
+　　      Type="DateTime"
+　　      Operator="GreaterThanEqual"
+　　      ErrorMessage="Departure date cannot be earlier than arrival date.">
+　　   </asp: CompareValidator >
+　　</TD>
+　　</TR>
+　　</TABLE>
+　　<TABLE>
+　　<TR>
+　　<TD>
+　　   <asp:Textbox id="txtAge" runat="server"></asp:Textbox>
+　　</TD>
+　　<TD>
+　　   <asp:CompareValidator id="CompareFieldValidator1" runat="server"
+　　      ForeColor="Red"
+　　      ControlToValidate="txtAge"
+　　      ValueToCompare=0
+　　      Type="Integer"
+　　      Operator="GreaterThanEqual"
+　　      ErrorMessage="Please enter a whole number zero or greater.">
+　　   </asp: CompareValidator >
+　　</TD>
+　　</TR>
+　　</TABLE>
+　　<SCRIPT LANGUAGE="JavaScript">
+　　function validateLength（ oSrc， txtValue ）{
+　　   var retValue = true; // assume ok
+　　   if（txtValue.length < 8）{
+　　      retValue = false;}
+　　   return retValue
+　　}
+　　</SCRIPT>
+　　
+　　<asp:Textbox id="text1" runat="server" text="">
+　　</asp:Textbox>
+　　
+　　<asp:CustomValidator id="CustomValidator1" runat=server 
+　　   ControlToValidate="text1" 
+　　   ErrorMessage="You must enter at least 8 characters!"
+　　   ClientValidationFunction="validateLength（o， v）" >
+　　</asp:CustomValidator>
+　　
+　　<p>
+　　ZIP: <asp:TextBox id=txtZIP runat="SERVER"></asp:TextBox>
+　　<asp:RegularExpressionValidator 
+　　     id=txtZIP_validation runat="SERVER" 
+　　     ControlToValidate="txtZIP" 
+　　     ErrorMessage="Enter a valid US ZIP code."
+　　     ValidationExpression="[0-9]{6，6}">
+　　</asp:RegularExpressionValidator>
+　　</p>
+　　</BODY>
+　　</HTML>
+　　
+　　    3. HTML服务器控件
+　　    HTML控件在服务器端是可见的，所以我们可以根据它来按照我们的意愿编写。HTML控件表现为一些可见的控件。
+　　    HTML服务器控件直接对应到HTML元素，每一个HTML服务器控件都支持通用控件的属性和方法，它们都可以绑定到数据源上。
+　　    （^60090407e^）
+　　    例3：HTML控件示例：
+　　<html>
+　　   <head>
+　　<!--列表处理>
+　　      <script runat="server" language="VB">
+　　         Sub FruitList_Click（ Source As Object， _
+　　                               E As EventArgs ）
+　　            FruitName.InnerHTML= FruitList.Value
+　　            FruitImage.SRC= "images\" & FruitList.Value & ".jpg"
+　　         End Sub
+　　　　　</script>
+　　　　　<!--按钮处理>
+　　　　　<script language="C#" runat="server">
+　　　　　       void Button1_OnClick（object Source， EventArgs e） {
+　　　　　          Span1.InnerHtml="You clicked Button1";
+　　　　　       }
+　　　　　       void Button2_OnClick（object Source， EventArgs e） {
+　　　　　          Span2.InnerHtml="You clicked Button2";
+　　　　　       }
+　　　　　       void Button3_OnClick（object Source， EventArgs e） {
+　　　　　          Span3.InnerHtml="You clicked Button3";
+　　　　　       }
+　　　　　    </script>
+　　　　　<!--文件上传>
+　　　　　<script language="VB" runat="server">
+　　　　　      Sub UploadBtn_Click（Sender as Object， e as EventArgs）
+　　　　　
+　　　　　         ＇ Display information about posted file
+　　　　　         FileName.InnerHtml = MyFile.PostedFile.FileName
+　　　　　         ContentType.InnerHtml = MyFile.PostedFile.ContentType 
+　　　　　         ContentLength.InnerHtml = cStr（MyFile.PostedFile.ContentLength）
+　　　　　         FileDetails.visible = true
+　　　　　
+　　　　　         ＇ Save uploaded file to server
+　　　　　         MyFile.PostedFile.SaveAs（"c:\Uploadedfiles\uploadfile.txt"）
+　　　　　      End Sub
+　　　　　   </script>
+　　   </head>
+　　   <body>
+　　      <form runat="server">
+　　         <font face="Verdana">
+　　         <b>Please Select A Fruit: </b>
+　　         <select id="FruitList" runat="server" size="1">
+　　            <option value="Orange">Orange</option>
+　　            <option value="Apple">Apple</option>
+　　            <option value="Mango">Mango</option>
+　　            <option value="Pear">Pear</option>
+　　            <option value="Banana">Banana</option>
+　　         </select>
+　　         <input type="submit" value="submit" runat="server"
+　　            OnServerClick="FruitList_Click">
+　　         <p>
+　　         <table><tr><td>
+　　            <img id="FruitImage" src="images\blank.gif" runat="server" />
+　　         </td><td>
+　　            <font face="Verdana" size=6>
+　　               <span id="FruitName" runat="server"/>
+　　            </font>
+　　         </td></tr></table></font>
+　　　　　</form>
+　　　　　<h3><font face="Verdana">Simple HtmlForm Sample</font></h3>
+　　　　　    <form id="ServerForm" runat="server">     
+　　　　　        <button id=Button1 runat="server" onServerClick="Button1_OnClick">Button1</button>
+　　　　　        &nbsp;&nbsp;
+　　　　　        <span id=Span1 runat="server" />
+　　　　　        <p>
+　　　　　        <button id=Button2 runat="server" onServerClick="Button2_OnClick">Button2</button>
+　　　　　        &nbsp;&nbsp;
+　　　　　        <span id=Span2 runat="server" />
+　　　　　        <p>
+　　　　　        <button id=Button3 runat="server" onServerClick="Button3_OnClick">Button3</button>
+　　　　　        &nbsp;&nbsp;
+　　　　　        <span id=Span3 runat="server" />
+　　　　　    </form>
+　　　　　<form action="fileupload.aspx" method="post" enctype="multipart/form-data" runat="server">
+　　　　　
+　　　　　         <h1>ASP.NET File Upload Example</h1>
+　　　　　         Select File To Upload to Server: <input id="MyFile" type="file" runat="server"> <br>
+　　　　　         <br>
+　　　　　         <input type=submit value="Upload!" OnServerclick="UploadBtn_Click" runat="server">
+　　　　　         <br>
+　　　　　         <br>
+　　　　　         <br>
+　　　　　         <div id="FileDetails" Visible=false runat="server">
+　　　　　            FileName: <span id="FileName" runat="server"/> <br>
+　　　　　            ContentType: <span id="ContentType" runat="server"/> <br>
+　　　　　            ContentLength: <span id="ContentLength" runat="server"/>bytes <br>
+　　　　　         </div>
+　　　　　      </form>
+　　   </body>
+　　</html>
+　　
+　　    4. 自定义控件
+　　    ASP.NET中提供的增加内嵌服务器控件的功能，使你能够轻松增加你所定义的各种控件。事实上，对于表单等各种控件，可以不用更改或者稍微更改一下就可以多次使用。在通常情况下，我们把一个用作服务器控件的Web表单统称为用户控件，我们用一个.ASCX为后缀的文件保存起来，这样保存使得它不被当作一个Web表单来运行，当我们在一个.ASCX文件中使用它时，我们用“Register”方法来进行调用，假设我们有一个文件名为login.ascx的文件，我们用下面的语句来调用它：
+　　        <%@ Register TagPrefix=″Leftme″ TagName=″Login″ Src=″login.ascx″ %>
+　　    上面的TagPrefix标记为用户控件确定一个唯一的名字空间，TagName为用户控件确定一个唯一的名称，你也可以用其他的名字代替“Login”，Src为确定所包含的文件名称和路径。这样，我们就可以用下面的语句来调用它了：
+　　    <Leftme:Login runat=″server″/>
+　　    用户自定义控件就只有由程序员自己编写来使用了。下面以一个简单的例子介绍它的编写方法。
+　　    例：用户自定义控件
+　　    我们建立两个简单文件来说明这个控件的使用方法：cou1.aspx、cou1.ascx，在cou1.ascx文件里我们只有一条HTML标记：
+　　    <a href=″http://www.ccidnet.com″>到CCIDNET去看看有什么新东东</a>
+　　    然后我们在文件cou1.aspx里面进行注册：
+　　    <%@ Register TagPrefix=″Goto″ TagName=″CCID″ Src=″cou1.ascx″ %>
+　　    页面上的应用，我们用这句话来表达：
+　　    <Goto:CCID runat=″server″/>
+　　    cou1.aspx文件的完整代码如下：
+　　    <!--注册-->
+　　    <%@ Register TagPrefix=″Goto″ TagName=″CCID″ Src=″cou1.ascx″ %>
+　　    <html>
+　　    <body>
+　　    <P>
+　　    <CENTER>
+　　      自定义页面控件
+　　    <P>
+　　      <Goto:CCID runat=″server″/>
+　　    </CENTER>
+　　    <P>
+　　    </body>
+　　    </html>
+　　    当然我们也可以生成更复杂的自定义控件，在这里就不多说了，有兴趣请参考ASP.NET的帮助文件用C#、VB.NET等来编写功能强大的控件，一般来说，这些控件可以编译成为.dll文件，以供随时使用。
+　　#1    五、 数据库操作
+　　    ASP.NET中主要通过ADO.NET和DataSet来完成对数据库的操作。ADO.NET和ASP中的ADO相对应，它是ADO的改进版本。DataSet是ADO.NET的中心概念。你可以把DataSet想象成内存中的数据库。正是由于DataSet，才使得程序员在编程序时可以屏蔽数据库之间的差异，从而获得一致的编程模型。DataSet支持多表、表间关系、数据约束等。这些和关系数据库的模型基本一致。过去，数据处理主要依赖于两层结构，并且是基于连接的。连接断开，数据就不能再存取。现在，数据处理被延伸到三层以上的结构，相应地，程序员需要切换到无连接的应用模型。这样，DataSetCommand就在ADO.NET中扮演了极其重要的角色。它可以取回一个DataSet，并维护一个数据源和DataSet之间的“桥”，以便于数据的访问、修改和保存。DataSetCommand自动将数据的各种操作变换到数据源相关的合适的SQL语句。
+　　    ADO.NET访问数据库的步骤是：
+　　    （1）创建一个数据库链接；
+　　    （2）请求一个记录集合；
+　　    （3）将记录集合暂存到DataSet；
+　　    （4）如果需要，返回第2步；（DataSet可容纳多个数据集合）
+　　    （5）关闭数据库链接；
+　　    （6）在DataSet上作所需要的操作。
+　　    DataSet在内部是用XML来描述数据的。由于XML是一种与平台无关、语言无关的数据描述语言，而且可以描述复杂数据关系的数据，比如父子关系的数据，所以DataSet实际上可以容纳具有复杂关系的数据，而且不再依赖于数据库链接。
+　　    我们以一个非常简短的例子来说明数据库的连接、检索，更多的操作如增加、删除、修改等请参考ASP.NET文档。
+　　    例：数据库连接、检索
+　　    <%@ Import Namespace=″System.Data″ %>
+　　    <%@ Import Namespace=″System.Data.ADO″ %>
+　　    <!--必须使用这两个名字空间才能操作数据库-->
+　　    <%
+　　      ＇设置连接串，与SQL Server的连接，使用SQL Server的pubs示例数据库
+　　      Dim strConnString as String
+　　      strConnString = ″Provider=SQLOLEDB; Data Source=（local）; ″ & _
+　　              ″Initial Catalog=pubs; User ID=sa″
+　　          ＇创建对象ADOConnection
+　　      Dim objConn as ADOConnection
+　　      objConn = New ADOConnection
+　　          ＇设置ADOCOnnection对象的连接串
+　　      objConn.ConnectionString = strConnString
+　　          objConn.Open（）  ＇打开数据连接
+　　          ＇创建SQL字符串
+　　      Dim strSQL as String = ″SELECT * FROM authors″
+　　          ＇创建对象ADODatasetCommand 和Dataset
+　　      Dim objDSCommand as ADODatasetCommand
+　　      Dim objDataset as Dataset = New Dataset
+　　      objDSCommand = New ADODatasetCommand（strSQL， objConn）
+　　          ＇填充数据到Dataset
+　　      ＇并将数据集合命名为 ″Author Information″
+　　      objDSCommand.FillDataSet（objDataset， ″Author Information″）
+　　          objConn.Close（）    ＇关闭数据链路
+　　      objConn = Nothing  ＇清除对象
+　　              Authors.DataSource = _
+　　            objDataset.Tables（″Author Information″）.DefaultView
+　　      Authors.DataBind（）
+　　        %>
+　　        <HTML>
+　　    <BODY>
+　　    <asp:DataGrid id=″Authors″ runat=″server″/>
+　　    </BODY>
+　　    </HTML>
+　　    ASP.NET的功能还有很多，这里介绍的只是它的一些基础功能，高级一些的功能如Web应用程序、Web Service、性能优化、XML集成、三层结构和消息队列MSMQ等需要你去参考相应的专业书籍以作全面了解、掌握。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

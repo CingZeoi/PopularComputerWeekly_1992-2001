@@ -1,0 +1,184 @@
+WML语法速查
+
+王巍
+2000年 第53期 
+
+#1    一、卡片和卡片组
+#1    1.<wml>元素：定义WML卡片组。
+    <wml xml:lang="lang">              <!-- 定义WML文档使用的语言，一般为“en-us” -->
+         content
+    </wml>
+#1    2.<card>元素：定义一个卡片（card）。
+    <card id="name"                    <!-- 定义卡片的名字 -->
+          title="label"                <!-- 定义该卡片的简要描述标签 -->
+          newcontext="boolean"         <!-- 定义当用户通过<go>任务来导航到该卡片时，是否设备要初始化有关内容 -->
+          ordered="boolean"            <!-- 定义卡片内容的组织次序。属性值是布尔值true或false -->
+          onenterforward="url"         <!-- 定义如果用户通过<go>任务来导航到该卡片时，要打开的URL地址 -->
+          onenterbackward="url"        <!-- 定义如果用户通过<prev>任务来导航到该卡片时，要打开的URL地址 -->
+          ontimer="url">               <!-- 定义当<timer>元素过期时，要打开的URL地址 -->
+        content
+    </card>
+#1    3.<template>元素：定义一个可供卡片组中所有卡片都可使用的卡片级的事件模板。该模板的内容可由<card>定义来覆盖。
+    <template onenterforward="url"     <!-- 定义如果用户通过<go>任务来导航到该卡片时，要打开的URL地址 -->
+              onenterbackward="url"    <!-- 定义如果用户通过<prev>任务来导航到该卡片时，要打开的URL地址 -->
+              ontimer="url">           <!-- 定义当<timer>元素过期时，要打开的URL地址 -->
+       content                         <!-- 可使用<do>元素或<onevent>元素 -->
+    </template>
+#1    4.<head>元素：定义与卡片组整体相关的信息。包括<meta>和<access>控制信息。
+    <head>
+       content                        <!-- 可以有一个<access>和一个或多个<meta>信息 -->
+    </head>
+#1    5.<access>元素：定义了对一个WML卡片组（deck）的处理控制信息。
+    <access domain="domain"           <!-- 定义其它卡片组的URL域以处理该卡片组中的卡片 -->
+            path="path"/>             <!-- 定义其它卡片组的URL根路径以处理该卡片组中的卡片 -->
+#1    6.<meta>元素：定义元数据。
+    <meta name="name"|http-equiv="name"   <!-- 指定特性名。若为http-equiv属性，则元数据被转为HTTP响应头 -->
+          content="value"                 <!-- 定义特性值 -->
+          forua="true|false"/>            <!-- 指定元数据是否要被送往浏览器 -->
+#1    二、定时器
+#1    7.<timer>元素：定义定时事件出发。
+    <timer name="variable"          <!-- 定义时间变量 -->
+           value="value"/>          <!-- 指定时间值。时间单位是1/10秒 -->
+    变量：
+#1    8.<setvar>元素：对执行<go>、<prev>、<refresh>等任务时要用的变量进行赋值。
+    <setvar name="name"             <!-- 变量名 -->
+            value="value"/>         <!-- 变量值 -->
+#1    三、锚链接
+#1    9.<anchor>元素：锚定一个任务到一个格式化文本串上，通常被称作“链接”（link）。
+    <anchor title="label">          <!-- 该标签用来简单描述链接内容 -->
+       task                         <!-- 必须是一个任务元素。它可以是<go>、<prev>、<refresh> -->
+       text                         <!-- 指定链接点内容 -->
+    </anchor>
+#1    10.<a>元素：定义了一个锚（Anchor）。
+    <a title="label">               <!-- 该标签用来简单描述链接内容 -->
+       task                         <!-- 必须是一个任务元素。它可以是<go>、<prev>、<refresh> -->
+       text                         <!-- 指定链接点内容 -->
+    </a>
+#1    四、事件
+#1    11.<do>元素：定义用户界面上的元素（比如功能键、图形按钮等）可执行的任务。
+    <do type="type"        <!-- 定义触发机制。该值可以为accept、delete、help、options、prev、unknown、reset -->
+        label="label"                <!-- 定义任务标签。字数一般最好控制在6个字符以内 -->
+        name="name"                  <!-- 定义<do>元素绑定的事件名 -->
+        optional="boolean">          <!-- 定义是否要浏览器忽略该元素 -->
+    task                   <!-- 此处必须绑定要执行的任务。它可以是<go>、<prev>、<noop>、<refresh> -->
+    </do>
+#1    12.<onevent>元素：定义某个内部事件产生时要执行的任务。
+    <onevent type="type">  <!-- 定义触发事件，它可以是<onpick>.<onenterforward>.<onenterbackward>.<ontimer> -->
+       task                <!-- 定义事件触发后执行的任务。它可以是<go>、<prev>、<noop>、<refresh> -->
+    </onevent>
+#1    五、任务
+#1    13.<go>元素：定义要打开的特定URL地址。
+    <go href="url"                   <!-- 指定URL地址 -->
+        sendreferer="boolean"        <!-- 定义是否要把此时的卡片组URL地址一同传送出去。用于安全控制目的， -->
+        method="method"              <!-- 定义HTTP递交方式。属性值可以为get、post -->
+        accept-charset="charset">    <!-- 定义你的应用能处理的字符编码方式。缺省字符集是UTF-8。 -->
+      content                        <!-- 指定<go>元素要用的变量。这是个可选项 -->
+    </go>
+#1    14.<postfield>元素：定义要跟随<go>元素URL请求一起传到HTTP服务器上的变量和变量值。
+    <postfield name="name"           <!-- 定义传送变量 -->
+               value="value"/>       <!-- 定义name属性定义的变量的变量值 -->
+#1    15.<prev>元素：定义返回导航到历史记录栈中的前一个URL地址，即返回到前页。
+    <prev>
+       content                       <!-- 指定前页要用的变量。这是个可选项 -->
+    </prev>
+#1    16.<noop>元素：指示设备不做任何操作。
+    <noop/>
+#1    17.<refresh>元素：刷新指定的变量。
+    <refresh>
+       content                       <!-- 指定要刷新的变量，至少要有1个 -->
+    </refresh>
+#1    六、图象
+#1    18.<img>元素：定义行内图像显示。
+     <img alt="text"                  <!-- 定义不可装载图像的替换文本 -->
+         src="url"                   <!-- 定义要显示图像的URL地址 -->
+         localsrc="icon"             <!-- 指定替换图像。该图像一般放在ROM中，该属性优先级高于src属性 -->
+         align="alignment"           <!-- 定义图像对齐方式。属性值可以是top、middle、bottom -->
+         height="n"                  <!-- 定义图像高度 -->
+         width="n"                   <!-- 定义图像宽度 -->
+         vspace="n"                  <!-- 定义图像周围的垂直空距 -->
+         hspace="n"/>                <!-- 定义图像周围的水平空距 -->
+#1    七、用户输入
+#1    19.<input>元素：定义一个用于用户文本输入控件。
+    <input name="variable"           <!-- 定义录入文本存放变量-->
+           title="label"             <!-- 定义输入项的简要描述标签-->
+           type="type"               <!-- 定义录入文本显示方式。属性值可为text、password（密码方式）-->
+           value="value"             <!-- 定义name属性定义的变量的缺省值 -->
+           format="specifier"        <!-- 定义用户录入数据的匹配格式 -->
+           emptyok="boolean"         <!-- 定义是否允许录入项为空 -->
+           size="n"                  <!-- 定义文本录入区的宽度 -->
+           maxlength="n"             <!-- 定义用户可输入文本的最大字符数 -->
+           tabindex="n"/>            <!-- 定义控件中输入项的遍历次序 -->
+#1    20.<select>元素：定义一个选项选择的表单控件。
+    <select title="label"            <!-- 定义表单控件描述标签 -->
+            multiple="boolean"       <!-- 定义是否允许用户选择多个选项 -->
+            name="variable"          <!-- 定义了被用户选择的选项值的存放变量 -->
+            value="default"          <!-- 定义name属性定义的变量的缺省值 -->
+            iname="index_var"        <!-- 定义被选择的选项索引值存放变量。索引值按选项的排列次序从1开始编号 -->
+            ivalue="default"         <!-- 定义iname属性定义的变量的缺省索引值 -->
+            tabindex="n">            <!-- 定义选项遍历次序 -->
+       content
+    </select>
+#1    21.<option>元素：定义<select>菜单中的菜单选项。
+    <option title="label"          <!-- 定义选项描述标签 -->
+            value="value"          <!-- 定义选项的选项值，若被选中，则该值将是<select>元素中name属性的变量值 -->
+            onpick="url">          <!-- 定义选项被选中使要打开的URL地址 -->
+       content
+    </option>
+#1    22.<optgroup>元素：定义一个<select>菜单内的选项组，至少要包含一个<option>元素来定义实际的选项。
+    <optgroup title="label">       <!-- 定义一个选项组的简要描述标签 -->
+       content
+    </optgroup>
+#1    23.<fieldset>元素：定义一个表单控件组，通过把关联控件的分组，可使表单更易管理。
+    <fieldset title="label">       <!-- 定义对控件组的一个简要描述的标签 -->
+       content
+    </fieldset>
+#1    八、版面和文本格式
+#1    24.<b>元素：定义粗体（bold）文本。
+    <b>
+       text
+    </b>
+#1    25.<big>元素：定义大字体。
+    <big>
+        text
+    </big>
+#1    26.<br>元素：定义一个对行的强行中断。
+    <br/>
+#1    27.<em>元素：规定对其指定的内容给予强调显示，一般以斜体字形式显示。
+    <em>
+        text
+    </em>
+#1    28.<i>元素：定义文本以斜体字显示。
+    <i>
+       text
+    </i>
+#1    29.<p>元素：定义一个段。
+    <p align="alignment"         <!-- 定义段内容显示时的水平对齐方式。属性值可以是left、right、center -->
+       mode="wrapmode">          <!-- 定义文本卷字模式.属性值可以是wrap、nowrap -->
+       content
+    </p>
+#1    30.<small>元素：定义文本以小字体显示。
+    <small>
+        text
+    </small>
+#1    31.<strong>元素：规定对其指定的内容给予特别强调显示，一般以粗体字形式显示。
+    <strong>
+        text
+    </strong>
+#1    32.<table>元素：定义一个表格。
+    <table align="alignment"       <!-- 定义文本在列中的水平对齐方式。属性值可以是left、right、center -->
+           title="label"           <!-- 定义表格标签 -->
+           columns="n"/>           <!-- 定义每行的列数.注:该属性必须要有，不能却上缺省. -->
+#1    33.<td>元素：定义表格中的一个数据单元格。
+    <td>content</td>
+#1    34.<tr>元素：定义一个表格行。
+    <tr>
+       <td>content</td>
+    </tr>
+#1    35.<u>元素：规定显示文本时加下划线。
+    <u>
+       text
+    </u>
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

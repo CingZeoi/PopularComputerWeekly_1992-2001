@@ -1,0 +1,779 @@
+中西文MS-DOS6.2简明使用指南
+
+
+1994-01-07
+
+        一、概述
+        二、中西文MS-DOS6.2的安装与启动
+        三、中西文MS-DOS6.2命令速查和联机帮助
+        四、新增实用程序的使用
+        五、释放常规内存
+        六、配置系统
+        七、中文版PDOS(6.20)的使用
+        一、概述
+        (一)MS-DOS6.2新增功能特点
+        微软公司于1993年3月推出的MS-DOS6.0，包含了17项新增功能和5项增强特色,从而吸引了大量微机用户去使用它。当用户正领略当今最先进的DOS版本时,权威的Infoworld测试中心在对这个DOS版本测试后公布的一份报告中指出:经测试,装有DoubleSpace压缩功能的MS-DOS6.0可能会破坏PC机上的数据,而这一问题只是在使用几周后才会出现。
+        我们在实际应用中,也发现在Windows下可执行文件__KRNL386.EXE,USER.EXE等受到损坏。这些问题集中起来说往往是读错误,出错后提示“CVF(压缩卷文件)被破坏”。经过分析，这些问题的主要原因是“文件被交叉连接”和“DoubleSpace驱动程序受到损坏”。
+        对以上沸沸扬扬的评论,Microsoft公司坚持不能确认DOS6.0中可证实的一些缺点。但又根据用户要求,在1993年11月20日公布了DOS6.2，在DOS6.2版中彻底解决了数据讹误问题。新颁布的DOS6.2最重要的一点是确保数据的完整性,并以此出发,增加了对数据保护的一些新的和强制性的特征，DOS6.2同时也保留了DOS6.0的所有功能。
+        (1)MS-DOS6.2的新特征
+        MS-DOS6.2的新特征之一是增加了诊断实用程序(ScanDISK),该程序扫描磁盘表面,如果可能的话做出标记,它自动将坏道中的数据搬至正常的磁道中，并修复硬盘损坏的区段，最为突出的一点是，所有由ScanDISK做出的改动均可根据用户的要求还原。实用程序将防止在损坏的区段上书写压缩的文件数据。
+        MS-DOS6.2中包含“双保护”技术__即监控存储器中存放的双空间数据结构完整性的技术。“双保护”可以检验查明一些错误的应用程序,防止一些程序(如KNRL386.EXE)将数据写到同一存储区,避免产生“文件交叉连接”等错误,它将该存储区讹误追踪存储到在压缩文件卷中的文件的代码。
+        MS-DOS6.2带有在机器启动时，可略过DoubleSpace的功能，这有利于更多发现故障(troubleshooting)解决问题，以及可提供更多的内存给其它应用程序。
+        MS-DOS6.2还带有拟在MS-DOS7.0中推出的一些新特征,包括不必启动双空间和交互引导设施即可执行完全引导的能力;DOS6.0引导设施仅让用户步进通过CONFIG.SYS文件，而DOS6.2扩展了这种能力，使得AUTOEXEC.BAT和其他批处理文件也能步进，这大大增强了交互式引导的能力，它可以更多发现故障解决问题。
+        (2)DOS6.2的新特色
+        ①DoubleSpace的增强
+        在DOS6.2中对DoubleSpace的增强包括：内嵌的DoubleGuard技术，在系统启动后，它能自动地充当用户数据变动的监护者，当系统要更改缓冲记忆区的数据时，DoubleGuard会核对系统内的数据，若核对无误，倍增盘内的资料才会被改动，从而实现了对DoubleSpace盘数据的保护，应当注意的是:使用DoubleGuard会牺牲系统2％左右的速度，用户如不想牺牲这一点点速度，也可在DoubleSpace菜单下关闭此功能；ScanDISK技术，它是一种新的硬盘维护工具，可发现并修复压缩的和非压缩的驱动器上的问题，以帮助硬盘和存储于其中的文件处于良好的状态。DOS6.2中的DoubleSpace技术采用“双保护”技术,一项保护技术是对DoubleSpace内嵌了DoubleGuard技术,DoubleGuard自动为用户提供保护，它是通过在向用户磁盘写数据之前检验数据的完整性来保护临界(CRITICAL)数据，DoubleGuard默认在工作状态，但您可以在内存中将它关闭，另外一项保护技术是ScanDISK中的SurfaceScan功能，它用来在压缩硬盘时对硬盘先行扫描，这样可以避免DoubleSpace压缩盘时把数据放在未被发现的扇区。“双保护”技术可以确保数据的安全，新的DoubleSpace管理器提供一个解压缩的选项给用户,使其易于解除压缩了一个DoubleSpace驱动器。
+        新的DoubleSpace具有更小的内存占用量的特征，仅占33K，而DOS6.0是43K。且可全部驻留在上端内存区或高端内存区，把更多的常规内存区留给应用程序。
+        增强了自动安装的功能，DoubleSpace可自动地在DOS和MicrosoftWindows操作系统下读取压缩的可移动媒体。
+        ②安全性特性的增强
+        MS-DOS6.2中新增了ScanDISK，可保护、诊断和修复非压缩驱动器上和已压缩驱动器上的错误。欲了解更多ScanDISK的相关信息，只要在DOS命令提示符下键入help Scandisk，并回车即可。ScanDISK保存了其修理的记录，使用户可以取消它所做的任何改动。在运行DoubleSpace前，先运行ScanDISK以检查用户磁盘在进行压缩前的可靠性。
+        新的内存测试技术:当用户启动计算机时，DOS扩展内存管理程序自动地测试系统内存，以检测不再可靠的内存芯片。
+        拷贝重写时的保护:对诸如Move，Copy和XCopy命令要求用户在以相同名字将一文件写向另一文件之前进行确认，这有助于防止对用户数据文件的不经意的删除。
+        ③SmartDrive及CD-ROM性能
+        SmartDrive的增强：Setup使用最保守的、由系统默认的方式设置的SmartDrive以尽可能提供最高程度的安全性，用户在使用时应小心，因为现有的高速缓冲存储器实用程序不能把刚接收的数据写到磁盘上。用户应等待到PC机书写完信息后1-2秒的空闲时间为止。当用户准备关机，在把高速缓冲的数据书写到磁盘以前，当前的版本可把用户返回到C:提示符。如果用户此时关机，则可能丢失在高速缓冲存储器上的数据，而留在盘上的文件可能是不完整的。
+        CD-ROM性能SmartDrive给CD-ROM驱动器添加高速缓冲以加快CD-ROM的操作速度。
+        ④更强的发现故障(troubleshooting)解决问题的能力,新的解决问题的能力更易于识别系统配置中或批文件程序的问题。
+        ⑤DISKCOPY命令的增强:现在的DISKCOPY命令把硬盘作为临时存储区使用，这使得拷贝既快又容易。
+        (二)DOS6.2的三种版本
+        为最好地满足DOS用户的需要，Microsoft推出了三种版本的DOS6.2。DOS6.2 Step-Up适用于现在的DOS6.0用户；DOS6.2 Upgrade适用于DOS2.11及以上版本的用户；DOS6.2 Upgrade For Dummies是针对想要得到直接安装指导的大多数用户。
+        DOS6.2 Upgrade版本高密3.5"发行盘由三张软盘组成，高密5.25"发行盘由四张软盘组成。
+        (三)中文版DOS6.2的新特征及其增强特色
+        (1)安全特征与改进
+        扩展内存管理程序HIMEM在启动计算机时自动地测试系统的内存。此项测试可识别内存芯片是否可靠(不可靠的内存会导致系统的不稳定或数据丢失)。若不打算进行此项测试，可在启动HIMEM时加开关/NOTEST。
+        Setup目前将SMARTDrive缺省地配置为一个只读的缓存(cache)。即使允许写入式缓存，只有当SMARTDrive将其缓存写到磁盘后，MS-DOS才显示提示符。这防止了内存中的数据被保存前，计算机被关闭。
+        <MOVE>，<COPY>和<XCOPY>命令在覆盖原有的同名文件之前让你先行确认(但是，当命令从批文件中发出时，这些命令在覆盖文件之前并不进行确认)。
+        (2)易用性与其它改进
+        SMARTDrive支持对CD-ROM驱动器进行缓存处理。MSCDEX程序必须先于SMARTDrive装入，此功能方能启动。在命令提示符下键入SMARTDRV，就可检查SMARTDrive是否缓冲CD-ROM驱动器。如果SMARTDrive列出了CD-ROM驱动器的字母，则该驱动器已被缓冲。
+        若要单步执行其它批处理文件，可使用<COMMAND/Y>命令。
+        <DISKCOPY>命令可将硬盘用作中介存储区，使得软盘之间的拷贝更快。
+        Microsoft Defragmenter可以更好地利用计算机的扩展内存，因此，它可以处理更大的磁盘以及包含文件及目录数目更多的磁盘，消除其中的碎片。
+        DIR、MEM、CHKDSK和FORMAT命令的输出更易于阅读，在显示大于999的数值时，将包含千位分隔符。例如“1000000空闲字节”，现在显示为“1,000,000空闲字节。”
+        二、中西文MS-DOS6.2的安装与启动
+        (一)新安装MS-DOS6.2
+        在使用MS-DOS操作系统之前，必须先安装系统；由于安装盘上有一些文件是经过压缩处理的，用户不能直接从安装盘运行MS-DOS。
+        1.升级前的准备工作
+        在安装MS-DOS6.2之前，用户必须执行“准备Uninstall盘”中的步骤，并做好某些适合特定用户的禁止步骤。
+        (1)准备Uninstall盘
+        准备一张能用于A驱动器的软盘，这张软盘是新盘或新格式化高密盘(如是360KB,则需要两张软盘)，它是用来保护计算机中的文件。如果Setup不能完成安装MS-DOS6.2，或者新安装的MS-DOS6.2发生问题，这时，使用Uninstall盘便可恢复DOS的以前版本。Uninstall盘是用Setup安装时，Setup程序自动提示创建的恢复安装盘。在Uninstall盘的标签上写上“Uninstall#1”等，以便在使用Uninstall盘时，按提示插入。
+        (2)禁止磁盘高速缓存、删除保护和反病毒程序
+        一些磁盘高速缓存、删除保护和反病毒程序会与Setup发生冲突。如果用户机器的配置文件AUTOEXEC.BAT和CONFIG.SYS中包含有这些启动命令，则要用文本编辑器去除这些启动命令。
+        (3)禁止自动消息
+        在运行Setup之前，禁止任何自动消息服务，诸如下弹出的或打印的通知(它们直接打印在屏幕上)。这些消息服务有碍于Setup的运行。
+        2.旧DOS版本的升级
+        MS-DOS6.2的新用户安装的步骤如下：
+        (1)将MS-DOS6.2安装盘SETUP DISK1插入A驱动器或者B驱动器。
+        (2)重新启动或键入A:SETUP或B:SETUP。
+        (3)按照屏幕提示操作。如果在安装期间遇到有关步骤或选项的问题，可按F1求助。
+        (4)若SETUP要求提供Uninstall盘，就将此盘插入驱动器A。注意：必须用A驱动器，因为SETUP将一些文件拷贝到A盘上的Uninstall盘，这些文件是MS-DOS启动计算机时所必需的。同时，SETUP把以前的DOS文件放在一个名为OLD_DOS.X的目录中。MS-DOS6.2安装好了以后,你确信不要恢复以前版本的DOS时，可以删除它，可在命令行提示符下键入：
+        DELTREEC:\OLD_DOS.*或DELOLDOSC:\OLD_DOS.X
+        3.Anti-Virus,Backup和Undelete的安装
+        另外，用户若要为WINDOWS配置Anti-Virus、Backup和Undelete，则必须按下面步骤操作：
+        (1)将MS-DOS6.2安装盘Setup DISK1插入A驱动器或B驱动器，在命令行提示符下输入命令：A:SETUP/E或B:SETUP/E。如以前是通过将Setup DISK1盘插入驱动器并重新启动Setup的，那么现在可以将Setup DISK1盘插入驱动器A，然后在命令提示符下键入下列命令：
+        A:BUSETUP/E。
+        (2)按屏幕提示操作，SETUP会在Program Manager菜单中创建一个Microsoft Tools子菜单，并为子菜单中的这些程序添加开关，同时将这些程序的图标加入程序管理器中。另外，用户的WINDOWS是3.1版本时，SETUP会向File Manager中的File菜单添加一个Undelete命令；SETUP还会向File Manager中菜单栏添加一个TOOLS菜单，菜单中包含Anti-Virus和Backup的命令。
+        (二)中文版MS-DOS6.2的安装
+        中文版的安装程序用于安装中文版MS-DOS6.2的三个部分：西文版MS-DOS6.2、汉字系统和Workgroup Connection(网络连接)。
+        对于中文版MS-DOS6.2，其安装方法与英文版大同小异，用户可参照以下步骤进行安装。中文版DOS6.2共有十张3.25英寸1.44M软盘，其中五张是西文版MS-DOS6.2的源盘，另外五张是其对应的中文版PDOS6.2源盘，如只加载中文DOS，只需中文版PDOS6.2源盘即可，但这时得不到相应版本的HELP命令汉化功能。所以，最好中西文版本同时安装为好。下面我们仅以中文版DOS6.2为例作一说明(假设西文版DOS6.2已安装完毕)。
+        1.将中文版MS-DOS6.2的第一安装盘插入驱动器B或A，然后键入SETUP即可。
+        2.按<ENTER>键后，出现以下提示画面，如图1所示:
+        ┌─────────────────────────────────┐
+        │Microsoft MS-DOS6.20 Chinese System Setup                         │
+        │━━━━━━━━━━━━━━━━━━━━                          │
+        │     Welcome to Setup.                                            │
+        │The Setup program prepares Chinese System to run on your computer.│
+        │To Setup Chinese System now,Press ENTER.                          │
+        │To quit Setup without installing Chinese System,Press F3.       │
+        │ENTER=Coutinue F3=Exit                                            │
+        └─────────────────────────────────┘
+        图1安装提示画面
+        以上画面提示您，键入<ENTER>键将开始安装中文版DOS6.20；如不想安装则键入F3键。
+        3.键入<ENTER>键将开始安装中文版DOS6.20，出现提示画面如图2所示:
+        ┌────────────────────────────┐
+        │Microsoft MS-DOS6.20 Chinese System Setup               │
+        │━━━━━━━━━━━━━━━━━━━━                │
+        │MS-DOS6.20 Chinese System provides two Setupmethods:  │
+        │                                                        │
+        │Express Setup(recommander)                              │
+        │Express Setup relieson Setup to make decisions,         │
+        │so Setting up Chinese System is quick an deasy.         │
+        │To use Express Setup,Press ENTER.                     │
+        │                                                        │
+        │Custom Setup                                            │
+        │Custom Setup is for experienced computer users whow ant │
+        │to control how Chinese System is setup.                 │
+        │To use Custom Setup,Press C.                          │
+        │                                                        │
+        │ENTER=Express Setup C=Custom Setup F3=Exit              │
+        └────────────────────────────┘
+        图2安装方式选择画面
+        出现安装方式选择画面后，它提示用户选择Express(快速安装)或Custom Setup(常规安装)。通常情况下，可以选用Express(快速安装)，但用户想根据具体情况加以选择时，如要自由设置安装目的路径、显示卡的类型、字体选择、系统文件等，可选用Custom Setup(常规安装)。例如，C盘的空间不足，想将系统装入D盘上。则键入C后，出现图3画面。
+        ┌──────────────────────────┐
+        │Microsoft MS-DOS6.20 Chinese System Setup           │
+        │━━━━━━━━━━━━━━━━━━━━            │
+        │Setup will use the following system settings:       │
+        │━━━━━━━━━━━━━━━━━━━━━━━      │
+        │install path d:\pdos                               │
+        │  the settings are correct                          │
+        │change Path                                         │
+        │Display card=VGA                                    │
+        │install font Song=YES                               │
+        │install font Kai=YES                                │
+        │install font Hei=YES                                │
+        │install font Fang=YES                               │
+        │install system file                                 │
+        │━━━━━━━━━━━━━━━━━━━━━          │
+        │if all thesetting                                   │
+        │To change a setting,press UPARROW or DOWNARROW key  │
+        │untill the setting is selected.Then press ENTER to  │
+        │see alternative.                                  │
+        │                                                    │
+        │ENTER=select F3=Exit                                │
+        └──────────────────────────┘
+        图3配置选择画面
+        我们可以键入P来改变路径，键入S来选择是否安装宋体字等。所有的选择完毕，键入C即可进行安装。
+        4.按提示的顺序，依次插入DOS盘。
+        5.安装完毕，重新启动机器，即可正常使用中文DOS6.2。
+        三、中西文MS-DOS6.2命令速查和联机帮助
+        在使用中西文MS-DOS6.2的任何时侯，如果想查找某条命令的使用详解，在命令行│
+          四、新增实用程序的使用
+        (一)诊断实用程序ScanDISK
+        中西文MS-DOS6.2向用户提供了一个新的实用工具__ScanDISK。它能检查、诊断和修复硬盘(包括压缩盘)、软盘、RAM盘、内存卡上的错误。令人惊喜的是，ScanDISK不仅能修复文件系统的磁盘错误,而且能修复物理性的磁盘错误。ScanDISK修改时，先保留一份它对磁盘所作修改的记录(LOG),允许您随时取消ScanDISK对磁盘所作的改动。DoubleSpace在压缩数据之前,将自动运行ScanDISK来检测磁盘的可靠性。当用户使用CHKDSK/F命令时,系统将自动建议您先运行ScanDISK。
+        1.ScanDISK使用语法
+        (1)对当前驱动器使用ScanDISK,可在DOS命令行键入：
+        ScanDISK
+        (2)要检测一个或更多的驱动器,可使用以下语法:
+        ScanDISK［drive:［drive:…］|/ALL］［/CHECKONLY|/AUTOFIX［/NOSAVE］|/CUSTOM］［/SURFACE］［/MONO］［/NOSUMMARY］
+        (3)要检测一个已拆卸的倍增磁盘压缩卷文件,使用以下语法:
+        ScanDISK volume-name［/CHECKONLY|/AUTOFIX［/NOSAVE］|/CUSTOM］［/MONO］［/NOSUMMARY］
+        (4)要检测某个或多个文件的“碎片”,用以下语法:
+        ScanDISK/FRAGMENT［drive:］［path］filename
+        (5)要取消上次的修复,使用以下语法:
+        ScanDISK/UNDO［undo-drive:］［/MONO］
+        2.参数说明
+        drive:
+        用户欲检测和修复的磁盘驱动器。
+        volume-name
+        已拆卸的压缩卷文件名。这个volume-name须采用［drive:\］DBLSPACE.nnn的形式。
+        ［drive:］［path］filename
+        欲检查“碎片”的文件名,也可使用通配符。
+        undo-drive
+        包含Undo Disk的磁盘驱动器。
+        3.开关项说明
+        /ALL
+        检测和修复所有的本地驱动器。
+        /AUTOFIX
+        自动修复磁盘错误而不对用户进行提示。在缺省状态下,使用此开关时，当ScanDISK发现了丢失簇,会将其找回并以文件的形式存储在根目录下。若用户想删除丢失簇,再加一开关/NOSAVE。注意不能将/AUTOFIX、  /CHECKONLY或/CUSTOM一起使用。
+        /CHECKONLY
+        只检查而不修复磁盘错误。不能与/AUTOFIX或/CUSTOM混用。
+        /CUSTOM
+        按ScanDISK.INI中［Custom］的设置运行ScanDISK,此开关对利用批处理程序运行Scan-DISK比较有用。此开关不能与/AUTOFIX或/CHECKONLY同时使用。
+        /MONO
+        强迫ScanDISK使用单色显示。为了避免在每次运行ScanDISK时都加上此开关,可以在ScanDISK.INI中增加一句DISPLAY=MONO。
+        /NOSAVE
+        指示ScanDISK把找回的丢失簇删除,但该选项必须和/AUTOFIX配合使用。(如果运行ScanDISK加上/AUTOFIX开关项,而省略/NOSAVE开关,ScanDISK将把丢失簇以文件的形式存于根目录下)。
+        /NOSUMMARY
+        阻止ScanDISK在检测完每一个驱动器时，显示一整屏的信息摘要。(这个开关也阻止了ScanDISK发现错误进行修复时提示用户使用UndoDisk)
+        /SURFACE
+        自动进行介质检查。在对非压缩盘进行介质检查期间,ScanDISK将确认被检测盘上的数据能否可靠的读写;对压缩盘,则检查数据能否解压缩。用户可周期性地对磁盘进行介质检查。在缺省状态,ScanDISK检测完文件结构时,会询问您是否进行介质检查,若用户使用了/SURFACE开关,ScanDISK将不再提示而自动进行介质检查。
+        4.ScanDISK的运行步骤
+        (1)对非压缩盘使用ScanDISK
+        例如，在DOS命令行键入ScanDISKC:(C盘为非压缩盘),这时ScanDISK即开始对C盘进行检测，其屏幕显示如图4所示:
+        MicrosoftScanDISK
+        ━━━━━━━━━━━━━━━━━━━━━
+        ScanDISK is now checking the following are as of drive C:
+        Media descriptor
+        File allocation tables
+        Directory structure
+        File system
+        Surfa cescan
+        
+        <Pause><More Info><Exit>
+        ━━━━━━━━━━━━━━━━━━━━━
+        图4 ScanDISK检测非压缩盘
+        ScanDISK检测非压缩盘的文件分配表(FAT)、文件系统结构(寻找丢失的簇,有无交叉连接的文件)、目录树结构、磁盘的物理介质(有无坏簇),给出相应的诊断报告。
+        在缺省状态,ScanDISK检测完文件结构时,会询问用户是否进行介质检查,若用户使用了/SURFACE开关,ScanDISK将不再提示用户而自动进行介质检查。
+        (2)对压缩盘使用ScanDISK
+        在DOS命令行键入ScanDISKD:(假设D盘为压缩盘),这时ScanDISK即开始对D盘进行检测，其屏幕显示如图5所示:
+        Microsoft ScanDISK
+        ━━━━━━━━━━━━━━━━━━━━━
+        Drive D is a DoubleSpace drive.
+        
+        Befor echecking drive D,you should first check its hostdrive,driveI
+        
+        Do you want to check drive I now?
+        ━━━━━━━━━━━━━━━━━━━━━
+        <Yes>  <No>  <More Info>
+        ━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━
+        图5ScanDISK检测压缩盘的主驱
+        对于压缩盘,ScanDISK将首先检测其主盘(HostDrive)。压缩盘实际上并非是一个真正的磁盘驱动器,它是以压缩卷文件(CVF)的形式存在于主盘上,压缩卷文件存储在磁盘根目录区,具有DBLSPACE.000～DBLSPACE.XXX的文件名。主盘是一个未被压缩的磁盘,其上存放着一个或多个压缩卷文件,压缩磁盘上文件的有效性取决于主盘,若主盘发生错误,将导致压缩盘数据的破坏。检测主盘可以解决可能导致压缩盘错误的问题,然后才能有效地处理压缩盘上可能存在的错误。主盘的检测过程同非压缩盘。
+        如我们选择Next Drive，则对压缩盘(例如是D盘)进行检测。
+        ScanDISK可以检测区域如下:
+        倍增磁盘卷标头(MDBPB)、倍增磁盘卷文件结构(MDFAT)、倍增磁盘压缩结构、倍增磁盘卷标署名。
+        在缺省状态,ScanDISK检测完文件结构时,会询问用户是否进行介质检查,若您使用了/SURFACE开关,ScanDISK将不再提示而自动进行介质检查。
+        ScanDISK就检测和修复结果会给出一个记录表(LOG),由此表用户可得到ScanDISK对磁盘所作修改的详细报告。
+        ScanDISK还允许用户建立一个Undo Disk以取消ScanDISK对磁盘所作的修改,Undo Disk通常为软盘,其中存储了ScanDISK对磁盘所作修改的信息。需要注意的是:使用Undo Disk来取消ScanDISK对磁盘所作的修改必须是在Undo Disk建立之后未对磁盘进行修改,否则将可能破坏磁盘结构,最终导致丢失数据。
+        5.使用ScanDISK的注意事项
+        (1)ScanDISK对下列驱动器无效：
+        CD-ROM驱动器、网络驱动器、使用ASSIGN,SUBST和JOIN命令建立的驱动器、使用
+        INTERLNK建立的驱动器。
+        (2)在其它程序运行时使用ScanDISK的禁忌
+        在其它程序运行时不能使用ScanDISK来修复磁盘错误。ScanDISK默认磁盘文件处于原始状态，且在此状态下去检测和修复磁盘错误。在文件使用时,MS-DOS将改变该文件分配表和目录结构,这些变化并不是及时产生的。在运行其它程序时使用ScanDISK,此时文件如处于打开状态,ScanDISK会认为文件分配表和目录结构的改变是数据发生了错误,并加以修改，从而导致数据丢失或讹误。
+        用户既不能在其它程序运行中调用ScanDISK来修复磁盘错误,也不能在WINDOWS或MS-DOS Task Swapper运行时使用ScanDISK修复磁盘。但用户可以使用/CHECKONLY开关项来检测磁盘,而不对发现的错误进行修复。如果在WINDOWS环境中运行ScanDISK可能会检测出不运行WINDOWS时不出现的错误，换句话说，就是不要在WINDOWS环境中运行ScanDISK，否则，会检测出实际并不存在的错误。
+        (3)ScanDISK.INI文件
+        ScanDISK.INI文件是一个文本文件。其中的［Environment］设置将决定ScanDISK的动作，诸如设置为单显或彩显。［Custom］设置决定了使用/Custom开关时的缺省动作。
+        (二)倍增硬盘(DOUBLESPACE)使用技巧
+        1.DOUBLESPACE的核心是LZ(Lempel-Ziv)压缩算法,无论何种数据,都可以压缩到接近理想化的程度。DOUBLESPACE把整个磁盘上的文件和数据压缩到一个文件中,即压缩卷文件(CVF)。磁盘上的文件和数据以往是采用FAT表的方式来管理的,通常可以转换成CVF文件方式,在转换时不必对磁盘重新分区或重新格式化。DOS最大可有255个CVF文件,而每个CVF文件可大到512Mb。
+        (1)主驱和压缩卷文件
+        一个压缩的驱动器并不是一个真正的磁盘驱动器,但使用起来与一个真正的磁盘驱动器并无二致。事实上,压缩驱动器是以一个压缩卷文件(Compressed Volume File)的形式存在于硬盘之上。此文件只读、隐含,具有系统属性。每一个压缩卷文件就是一个压缩驱动器,每个CVF都存放在一个未压缩驱动器上,这个存放CVF的驱动器称作主驱动器(HOSTDRIVE)。几乎所有的压缩卷文件都可存放比它实际占用空间更大的数据。DOUBLESPACE给这个压缩卷文件一个驱动器字母,用户就可作为一个磁盘驱动器来使用它。
+        CVF文件包含了FAT表、根目录、子目录以及存储数据的有关扇区,同时还包含一些附加的数据结构MDFAT,用以优化磁盘空间。CVF的内部数据结构包括MDBPB(Microsoft Double-Space BIOSparameter)、BitFAT、MDFAT、引导扇区、FAT表、根目录区、压缩的文件空间。
+        从BitFAT表中可以查出文件空间的使用情况(1表示已用,0表示空闲);MDFAT表包含了一系列4字节的入口,把每个FAT映射到文件空间的相应扇区上,每个入口包括映射指针和相应簇在压缩前后的长度。CVF文件的FAT表是用来保证兼容性的,DOS并不用它来引导系统。
+        (2)压缩率和压缩自由空间的计算
+        应该指出,各种文件的压缩率不同,如:数据及位图文件压缩率明显高于执行文件。由于压缩以后文件在压缩盘上的存取将采取压缩方式,DOUBLESPACE无法预测未来某个文件的压缩率,只能估算。用户使用中往往发现压缩盘中自由空间的大小与实际使用不符,原因就在于此。
+        用户可以改变压缩率以更精确地估算自由空间,不过这不会影响DOUBLESPACE对文件的真正压缩程度,因为它只改变了DOUBLESPACE估算一个压缩驱动器自由空间的值。
+        2.DOUBLESPACE的安全性
+        在DOS6.2中，DOUBLESPACE的安全性是相当令人满意的。DOUBLESPACE可在任意时刻开始,不会丢失数据。每当DOUBLESPACE开始某个不可中断的操作,都要修改AUTOEXEC.BAT，以保证能在被中断后重新获得控制权。同时DOUBLESPACE以一个仔细的次序对硬盘进行操作，确保任意时刻至少有一个数据备份。而且DOUBLESPACE在任意时刻都明确正在进行的操作。在这种情况下,DOUBLESPACE保证即使被中断,也不会丢失数据。另外,系统若被意外启动，CHKDSK和DEFRAG能帮助DOUBLESPACE清除无用数据,恢复文件系统。
+        3.DOUBLESPACE功能的安装
+        DOUBLESPACE功能的安装可以通过在DOS提示符下运行DBLSPACE.EXE来实现。当第一次运行该程序时,系统将自动进入DOUBLESPACE SETUP程序。首先,会调用ScanDisk对欲压缩的磁盘进行检测,可对介质主字码、文件分配表、目录结构、文件系统进行检测。为了避免DOUBLESPACE压缩硬盘时把数据放在未被发现的扇区,ScanDisk提供了SURFACESCAN功能,用来在压缩硬盘时对硬盘先行扫描。然后,再进行DOUBLESPACE的安装。在此运行期间，用户可有两种选择:自动安装(EXPRESS SETUP)和定制安装(CUSTOM SETUP)。若用户需要压缩C驱上的现存文件,且由DOUBLESPACE来自动进行压缩设置,就可选择自动安装;要压缩一个硬盘扩展驱动器或者要使用一个现存驱动器上的剩余空间来创建一个新的压缩驱动器,就选择定制安装。用EXPRESS SETUP进行安装,方便而快捷;采用CUSTOM SETUP则相对复杂些,但用户可拥有更大的自主权,可根据需要来进行压缩配置。
+        (1)自动安装(EXPRESSSETUP)
+        其步骤如下:
+        ①退出所有正在运行的程序,包括WINDOWS和DOSSHELL。
+        ②DOS命令行中键入DBLSPACE。
+        ③DOUBLESPACE显示屏幕提示在EXPRESSSETUP和CUSTOMSETUP中做出选择。
+        ④选择EXPRESS SETUP。
+        此时,DOUBLESPACE将分段压缩C驱,压缩过程所需时间与硬件环境有关。压缩过程中，DOUBLESPACE要检查和校验数据的有效性,因而整个过程安全可靠,不会丢失数据。即使压缩过程遇掉电等偶然事件而非正常退出,也不会造成损失。
+        整个压缩过程,计算机将被重启两次。
+        压缩进行完毕,屏幕上将显示耗时和新驱动器上的自由空间等信息。
+        ⑤退出DOUBLESPACE
+        此时,用户已获得了一个经压缩过的C驱动器,它的容量将比压缩以前增加50%-100%。
+        用户可象安装前一样使用该驱动器,同时硬盘将会保留一个没被压缩的新驱动器,该驱动器用来存放那些必须保持不被压缩的文件,以及重要的系统文件如:IO.SYS,MSDOS.SYS,DBLSPACE.BIN,DBLSPACE.INI和DBLSPACE.000。用户可以使用DIR/A来查看其中的文件。用户对这些文件不要擅自修改和删除,否则可能会丢失C驱上的数据。
+        (2)定制安装(CUSTOM SETUP)
+        ①退出所有正在运行的程序,包括WINDOWS和DOSSHELL。
+        ②DOS命令行中键入DBLSPACE。
+        ③DOUBLE SPACE显示屏幕提示在EXPRESS SETUP和CUSTOM SETUP做出选择。
+        ④按C,选择CUSTOM SETUP
+        屏幕显示在压缩一个现存驱动器(COMPRESS AN EXISTING DRIVE)和创建一个新的空白压缩驱动器(CREAT A NEW EMPTY COMPRESSED DRIVE)中作出选择。
+        ⑤移动光标键选定一种压缩方式。
+        ●压缩一个现存的驱动器
+        系统将列出机器的硬驱(包括逻辑驱动器),用户根据要求挑选一个进行压缩。
+        ●创建一个新的空白压缩驱动器
+        用户要挑选一个为创建新的压缩驱动器而提供自由空间的“源驱”。
+        选择好压缩方式后,DOUBLESPACE将显示一个带有缺省压缩参数值的屏幕。
+        ⑥用户可按需要修改压缩设置,如改变压缩率。
+        ⑦确认压缩设置,继续DBLSPACE的运行,屏幕提示完成全部工作的时间。
+        ⑧按C键,开始压缩过程。
+        DOUBLESPACE将按用户要求执行压缩工作,所需时间与硬件环境和压缩设置有关。压缩过程将检查和校验数据的有效性,非常安全,即使压缩过程遇掉电等偶然事件而非正常退出,也不会丢失数据。
+        压缩过程中,计算机将自动重新启动两次，不要管它。
+        ⑨在DOUBLESPACE压缩完驱动器或释放了空间以后,退出。
+        至此,压缩过程全部完成。
+        4.使用DOUBLESPACE管理压缩驱动器
+        用户使用DBLSPACE.EXE对硬盘进行压缩后,仍可象压缩前一样来使用。同时还扩展了一些未压缩盘所没有的功能,如改变压缩驱动器的规格。
+        用户维护压缩驱动器和修改设置可以有两种方式。一种是在DOS命令行中键入DBLSPACE加上开关项,进行专项维护。另一种是进入DOUBLESPACE程序,它是一个带有菜单的用户接口。以下介绍第二种方式。
+        具体步骤如下:
+        (1)在DOS命令行键入DBLSPACE，进入DOUBLESPACE维护程序(确认硬盘已被压缩过,否则将启动DOUBLESPACE SETUP)。
+        (2)主屏幕列出了现存的压缩驱动器;可以对这些驱动器、压缩扩展驱动器进行管理;或者创建新的压缩驱动器:
+        ●对所选驱动器进行操作,操作项可从主菜单中选取。
+        ●压缩一个现存驱动器。
+        ●增加一个新的压缩驱动器:使用现存驱动器上的自由空间创建一个新的压缩驱动器。
+        下面详细介绍菜单中某些选项的功能。
+        ①驱动菜单,见表1。
+        表1驱动菜单中命令的功能
+        命  令		功   能
+        INFO		显示所选驱动器的有关信息。选择这条命令时,“COMPRESS DRIVE INFORMATION”对话框出现并显示有关驱动器的信息:自由空间和已使用空间、CVF的名称、真正的和估计的压缩比例。也可以通过鼠标双击驱动器的名字或选中驱动器以后按ENTER键来打开显示压缩驱动器信息的对话框。
+        CHANGE SIZE	扩大或减小所选驱动器的规格。与未压缩驱动器不同,压缩驱动器的规格可以改变。如果一个压缩驱动器的主驱动器仍有很多自由空间,该驱动器的规格可以扩大。反之,如果在主驱动器上需要更多的自由空间,可以减小该驱动器的规格。
+        CHANGE RATIO	改变所选驱动器估计压缩的比例。DOUBLESPACE使用这个比例去估算该驱
+        动器的自由空间。如果要存储的文件的压缩比例与当前比例相差甚远,可以改变这个压缩比例。
+        MOUNT		在一个压缩卷文件(CVF)和一个驱动器字母之间建立一个连接,从而能够使用CVF中的文件。DOUBLESPACE通常自动安装CVF,而如果一个CVF是从前拆卸(UNMOUNT)下来的或是位于一张软盘上,用户就需要安装(MOUNT)该CVF。
+        UNMOUNT	打断所选驱动器的CVF和它的驱动器之间的连接。拆卸一个驱动器使它暂时不能被访问。
+        FORMAT		格式化所选压缩驱动器。就象格式化一个未压缩驱动器一样,格式化压缩驱动器将丢失它上面的所有文件和数据。
+        DELETE		删除所选压缩驱动器及相关的CVF。删除一个压缩驱动器将把这个驱动器和它上面的文件全部删掉。
+        EXIT		退出DOUBLESPACE程序。
+        ②工具菜单,见表2。
+        表2工具菜单命令的功能
+        命  令		功    能
+        DEFRAGMENT	整理所选的压缩驱动器。该命令将压缩驱动器的零散自由空间连接为一体。如果打算减小一个压缩驱动器的规格,首先需要使用DEFRAGEMENT命令将驱动器上的自由空间连接起来。
+        CHKDSK		检查所选压缩驱动器结构的有效性。MS-DOS6.2DOUBLESPACE的CHKDSK命令已被ScanDISK代替,功能更强,可用来查找和修复诸如丢失簇或交叉连接等错误,并可对已拆卸的压缩卷文件进行检测。(请在DOS命令行键入ScanDISK)。
+        OPTIONS	显示DOUBLESPACE OPTIONS对话框,用于指定DOUBLESPACE使用的最后一个驱动器字母。也可以指定在启动计算机后可安装的扩展驱动器数。
+        DOUBLESPACE	也可对软盘使用,但如在两台计算机之间使用一张压缩的软盘,这两台机器必须同时使用DOUBLESPACE。有些软件，如中文字处理软件的字库在压缩盘上不能正常工作,建议用户留出一个适当容量的非压缩盘以供这些软件使用。
+        五、释放常规内存
+        在一定的硬件条件下，如何获得最大的可用内存供用户程序运行是非常重要的。中西文DOS6.2实现内存优化的方法是运行MemMaker内存优化程序，将设备驱动程序和其它驻留程序从常规内存转移到高端内存去。  MemMaker是面向操作者的实用程序，用户可按需要随意配置内存，它使得各种内存管理方案能有机地结合起来，以满足用户各种各样的需求。
+        (一)MEMMAKER的使用
+        MS-DOS6.2为基于386芯片的PC机提供了一个内存管理工具__MemMaker。MemMaker是DOS6.2的一个重要的功能。它先检测你的系统，然后再设置合适的内存驻留程序，并将内存驻留程序装入高端内存。MemMaker将自动完成这些工作，操作者只需坐在旁边观察其操作过程。
+        MemMaker的主要优点是它省掉了用户编辑、保存CONFIG.SYS和AUTOEXEC.BAT的工作以及重新引导系统和测试的步骤，它自动地完成了这些工作。它的缺点是使得内存管理过程神秘莫测。
+        MemMaker命令的使用方法如下:         /batch开关是一个可选项，有了此开关，一切工作自动进行,用户不需要输入任何信息。MemMaker将首先检测你的系统，检查已安装的各种设备驱动程序和内存驻留程序,包括统计CONFIG.SYS安装的设备驱动程序以及AUTOEXEC.BAT所执行的内存驻留程序。MemMaker在批处理方式下运行时，会在屏幕上快速地显示一些信息。而当MemMaker测试各种上端内存配置并试图尽可能多地往UMB中装入设备驱动程序和内存驻留程序时,它可能会两次或多次重新引导PC机；在测试完成后，会回到命令提示符下，这时可使用Mem命令来查看MemMaker自动完成工作后内存的配置情况。
+        如果不带/batch开关，也可使用MemMaker命令一步步地执行，这时它会显示一些信息，提供各种选项，允许操作者选择自己所需的配置方式。这时需要操作者懂得一些基础知识。事实上,这种工作方式只限于有经验的，熟悉自己计算机的配置情况及计算机将要进行工作的用户。例如，如果已知道你的计算机的单色显示内存区(B000至B7FF段)不会被以后任何程序所使用，那么就可以告诉MemMaker让MS-DOS利用这一区域来运行程序。MEMMAKER运行前的准备:
+        ①确认系统的硬件和内存工作正常，同时CONFIG.SYS和AUTOEXEC.BAT文件没有启动任何不必要的程序。
+        ②退出所有正在运行的程序。
+        ③启动经常使用的硬件或内存驻留程序。例如，如果使用网络，则启动网络。
+        1.使用自动设置(Express Setup)运行MEMMAKER
+        (1)在命令行提示符下键入命令:
+        MemMaker
+        MemMaker显示欢迎(Welcome)使用菜单。
+        (2)按ENTER键选择Continue选项
+        MemMaker显示一个屏幕，提示用户在ExpressSetup和CustomSetup之间选择。
+        (3)按ENTER键选择ExpressSetup
+        MemMaker显示一个屏幕，提示用户指出是否使用需要扩充内存的程序。
+        (4)如果没有需要扩充内存的程序，或者无法确认程序是否需要扩充内存，按ENTER键选择NO。如果程序需要扩充内存，按空格键，选择Yes，然后按ENTER键。
+        (5)按ENTER键重新启动计算机
+        在每个设备驱动程序和内存驻留程序启动时，MemMaker通过监视它如何使用内存来决定该程序的内存要求。如果计算机没有正常启动，不要担心，按CTRL+ALT+DEL热启动，或关掉计算机然后再打开。MemMaker将恢复正常。计算机重启动以后，MemMaker使用它收集到的信息为计算机尽可能充分地将设备驱动程序和内存驻留程序装到所提供的UMB中。要选出最优的一种内存配置来，MemMaker也许要考虑上千种可能的方案。即使这样，这个过程也只需占用几秒种，计算结束以后，MemMaker对CONFIG.SYS和AUTOEXEC.BAT文件作了必要的修改，并显示一屏信息，提示用户使用新的配置重新启动计算机。
+        (6)按ENTER键，重启动计算机
+        计算机将按照新的内存配置启动，仔细查看设备驱动程序和其它内存驻留程序显示的启动消息，并记录下任何不正常的消息。计算机重启动以后，MemMaker提示请你指出系统是否工作正常。
+  (7)如果在程序启动时没有看到任何错误提示信息，而且系统看上去工作正常，按ENTER键，选择YES。如果怀疑系统工作不正常，按空格键，选择NO，然后按ENTER键，接下来按照屏幕提示操作。如果工作正常，MemMaker显示结束屏，列出每种类型的内存在运行MemMaker前与后的大小。
+        (8)按ENTER键，退出MemMaker。
+        注意:MemMaker在修改CONFIG.SYS和AUTOEXEC.BAT文件时，将加入一些新的命令或修改已有的命令。例如，MemMaker可能会在EMM386.EXE命令行上增加或修改一些开关(switch)。MemMaker也将修改某些device命令为devicehigh，并为这些devicehigh命令增加开关。在AUTOEXEC.BAT文件中，MemMaker把loadhigh命令加到某些命令的开头，并且也可能给这些loadhigh命令加一些开关。
+        2.使用自定义(Custom Setup)运行MEMMAKER
+        一般来说，采用Express Setup方式可以成功地将用户系统的内存进行最优化分配。然而，在某些情况下，使用自定义(Custom Setup)可以释放更多的常规内存。以下列出在什么情况下可使用自定义(Custom Setup)方式：
+        ①采用EGA或VGA(但不能是SuperVGA)显示器，选择自定义(Custom Setup)然后对“Use Monochrome region(B000-B7FF) for running programs?”(“给正在运行的程序使用单色显示区吗?”的提问，回答NO(不)。
+        ②如果不在Windows下运行基于MS-DOS的应用程序，选择自定义(CustomSetup)然后对“Optimize upper memory for use with windows?”“为使用Windows优化上端内存吗?”的提问，回答NO(不)。
+        ③如果一个设备驱动程序或其它程序已经在MemMaker运行前使系统出错(导致系统不回显)，选择CustomSetup，然后对“SpecifywhichdriversandTSRstoincludein
+        Optimization”“指定哪些驱动程序和TSR被优化?”的提问，回答YES(可以增加某些驱动程序或TSR程序的名字到MemMaker.INF文件中，使得这些程序永远不受到优化处理?MemMaker.INF文件与MemMaker.exe文件位于同一目录下，更详细的信息，请打开MemMaker.INF文件，阅读其中的说明”)
+        使用自定义(CustomSetup)的步骤：
+        (1)在命令行提示符下键入命令:MemMaker
+        MemMaker显示欢迎使用菜单
+        (2)按ENTER键选择Continue选项
+        MemMaker显示一个屏幕，提示用户在Express和Custom Setup之间选择。
+        (3)按SPACEBAR键选择Custom Setup，然后按ENTER键。
+        MemMaker显示一个屏幕，提示用户指出是否使用需要扩充内存的程序
+        (4)如果没有需要扩充内存的程序，按空格键。或者无法确认程序是否使用扩充内存，按ENTER键选择YES。有关该屏更详细的说明，按F1键。
+        这时出现“Advanced Options”屏幕。该屏幕上的参数决定如何去配置计算机的内存。
+        (5)根据需要改变“Advanced Options(高级选项)”一屏的参数设置。
+        要改变一个选项的值，按UPARROW或DOWN ARROW键直到该选项内的YES或NO显示为高亮度。然后按空格键改变设置。对每一个选项，按F1键可以寻求帮助。
+        切记要仔细检查，参数也许会改变当前的配置。
+        (6)修改完参数后，按ENTER键继续。
+        如果使用WINDOWS，MEMMAKER会提供更多的信息。
+        MemMaker显示一屏指示用户可以重新启动计算机。
+        (7)按ENTER键，重新启动计算机。
+        在每个设备驱动程序和内存驻留程序启动时，MemMaker通过监视它如何分配内存来决定程序的内存要求。如果计算机启动不正常,不必担心:按CTRL+ALT+DEL热启动,或关掉计算机重新启动。MemMaker会恢复正常。
+        计算机重启动以后,MemMaker使用它收集的信息为计算机设计出最优的内存配置。MemMaker尽可能充分地将设备驱动程序和内存驻留程序装到所提供的UMB中。要选出最有效的一种内存配置来，MemMaker也许要考虑几千种可能的方案。尽管如此,这个过程也只需占用几秒钟。
+        当MemMaker计算结束后，MemMaker对CONFIG.SYS和AUTOEXEC.BAT文件作一些必要的修改，然后显示一屏信息，声明它已准备用新的配置来启动计算机。
+        (8)按ENTER键，用新的配置重新启动计算机。
+        计算机按照新的内存配置启动时，请仔细查看设备驱动程序和其他内存驻留程序显示的启动消息，并记录下任何不正常的消息。
+        计算机重新启动以后，MemMaker显示一屏信息，提示用户指出系统是否工作正常
+        (9)如果在程序启动时没有看到任何错误消息，而且系统看上去工作正常，按ENTER键选择YES。如果系统以后出现异常,可以恢复MemMaker的改动。
+        如果怀疑系统工作不正常，按空格键选择NO，然后按ENTER。接下来按照屏幕上提示操作。如果用户指示计算机工作正常，MemMaker显示一个结束屏,列出各种类型的内存在运行MemMaker前和后的大小。
+        (10)按ENTER键，退出MemMaker。
+        注意:MemMaker在修改CONFIG.SYS和AUTOEXEC.BAT文件时，可能增加一些新命令或者编辑已有的命令。例如，MemMaker可能会在EMM386.EXE命令行上增加或修改一些开关(switch)。MemMaker还可能把某些device命令修改为devicehigh命令并为这些devicehigh命令增加一些开关。在AUTOEXEC.BAT文件中，MemMaker把loadhigh命令加到某些命令的开头，并且也可能给这些loadhigh命令加一些开关。
+        3.撤消MEMMAKER的修改
+        MemMaker通过编辑CONFIG.SYS和AUTOEXC.BAT文件(有时包括Windows的SYSTEM.INI文件)中的命令，来改变系统内存配置。在改变这些文件前，MemMaker对每一个文件都做了相应的备份。
+        如果优化过程中碰到问题，可以使用MemMaker的undo(取消)功能，它能恢复以前版本的CONFIG.SYS,AUTOEXC.BAT和SYSTEM.INI文件，从而撤消MemMaker的修改。
+        即使退出MemMaker以后，也可以撤消它的改动，完成MemMaker后,如果发现系统在新的内存配置下工作不正常,就需要进行恢复工作。撤消修改以后,用户可以重新运行
+        MemMaker,使用CustomSetup选项指定不同的参数,以避免同样问题的出现。
+        撤消MemMaker修改的步骤:
+        (1)退出正在运行的程序。
+        (2)在命令提示符下键入下列命令启动MemMaker:
+        MemMaker/undo
+        这时出现提示您恢复原始系统文件和退出MemMaker的屏幕。
+        (3)要恢复原来的配置文件，请按ENTER键。MemMaker显示一个确认屏幕。
+        (4)如果屏幕上显示MemMaker已经恢复初启文件，则按ENTER键重启动计算机。
+        在最近一次运行MemMaker以后，重新编辑过CONFIG.SYS,AUTOEXEC.BAT和SYSTEM.INI文件，MemMaker将提示用备份文件替换初启文件，以前的修改将全部丢失,要恢复最初的版本，按Y键，然后按下ENTER键以使用原来配置重启计算机。
+        (二)精确调整内存配置
+        运行MemMaker以后，用户可以精确调整内存配置，以释放多余的内存,可使用下列技术:
+        1.再一次运行MemMaker，改变一些内存配置参数，改变MemMaker参数可能释放更多的内存:
+        (1)如果程序都不需要扩充内存，再次运行MemMaker(选择Custom或Expres Setup)，当MemMaker显示一个屏幕提示用户指出是否需要使用扩充内存时，选择NO将取消扩充内存并释放高端内存中的64K空间，如果在选择NO以后程序运行出现问题(例如系统无法启动，或显示诸如"EMS page Frame Not Found"或"Expanded Memory Unvailable"等信息),请再运行MemMaker，并对上述提问回答Yes。
+        (2)如果计算机装有EGA或VGA显示器(但不是SuperVGA显示器)，重新运行MemMaker并选择Custom Setup项，当MemMaker显示："Advanced Opitions"屏幕时,对问题"Use monochrome region(B000-B7FF)for running programs?"("给运行的程序使用单显区域吗?")回答Yes，对该提问回答Yes将另外释放一部分高端内存；如果回答了Yes但随后显示器发生了问题(例如，某个程序无法正确显示),或者在启动Windows时计算机停止回应,请再运行MemMaker，并对上述提问回答NO。
+        (3)如果不在Windows下运行基于DOS的应用程序，应重新运行MemMaker并选择Custom Setup项；当MemMaker显示"Advanced Options"屏幕时,对问题"Optioni zeupper Memory for use with Windows?"("为使用Windows而优化高端内存吗?")回答NO,对该提问回答NO，可以使得在不运行Windows期间，提供给MS-DOS的应用程序更多的内存，如在运行Windows时遇到问题，请重新运行MemMaker，并对该问题回答Yes。
+        2.在CONFIG.SYS和AUTOEXEC.BAT文件中改变设备驱动程序和其它一些程序的顺序:
+        (1)在内存驻留程序被装入高端内存时，绝大多数的情况下，应先装入占用内存多的程序，然后再装入占用内存少的程序，这样会更有效地利用内存。避免程序间的空余太多,从而节省内存。尽管MemMaker尽可能地使设备驱动程序和内存驻留程序充分地利用内存，然而它并不改变这些程序的装入顺序，用户可以改变CONFIG.SYS和AUTOEXEC.BAT文件中命令的顺序来精确调整。当运行MemMaker时，它测算每个设备驱动程序或内存驻留程序的内存需求量,并将这些信息存放在MemMaker.STS文件中，用户可以利用其中信息为CONFIG.SYS和AUTOEXC.BAT文件中的命令规定最优顺序，使用这些命令的顺序是按以下规则确定的:
+        ①在CONFIG.SYS中最先为HIMEM.SYS(如果机器装有扩展内存)，其次是扩充内存管理程序(如果机器使用扩充内存板)，再次是EMM386.EXE(如果计算机装有80386处理器和扩展内存，EMM386内存管理程序支持对高端内存区的访问，如果计算机上没装扩充内存，EMM386还可以使用扩展内存模拟扩充内存)。
+        ②确保HIMEM.SYS和EMM386.EXE命令行出现在所有加载高端内存设备驱动程序或其它程序的命令行之前。
+        ③如果初启文件中包含有启动网络驱动程序或内存驻留程序的命令,不要改变网络命令的相对顺序。
+        (2)优化设备驱动程序和内存驻留程序顺序的步骤:
+        ①将CONFIG.SYS和AUTOEXEC.BAT拷入启动盘，用作备份。
+        ②用文本编辑器打开MEMMAKER.STS文件，在该文件中找到［SizeDate］部分,这部分列出了所有的被CONFIG.SYS和AUTOEXEC.BAT启动的设备驻留程序的内存需求量。
+        ③针对每一个设备驱动程序或内存驻留程序，检查其MaxSize行,它标明该程序启动和运行时需要的内存量。也就是说该程序必须有至少这样大的一块内存才能被正确装入。
+        ④把以上信息打印下来，退出文本编辑器。
+        ⑤打开CONFIG.SYS文件，将使用有较大的MaxSize值的设备驱动程序或内存驻留程序的命令移到那些使用较小的MaxSize值的命令之前，但必须确保HIMEM.SYS和EMM386.EXE命令行出现在上述命令之前，存储修改好的文件并退出。
+        ⑥打开AUTOEXEC.BAT文件，将使用较大的MaxSize值的启动程序的命令移到那些使用较小的MaxSize值的命令之前去，保存好修改过的文件并退出。
+        ⑦重新启动机器，用修改后的CONFIG.SYS和AUTOEXEC.BAT引导系统。
+        ⑧如果系统能正常启动,运行MemMaker,优化修改过的配置文件CONFIG.SYS和AUTOEXEC.BAT。
+        ⑨如果系统无法正常工作，可以用备份恢复原来的系统配置。
+        注意:当运行MS-DOSSETUP程序时，SETUP程序把启动SETVER程序的命令加到CONFIG.SYS文件开头。如果只使用HIMEM和EMM386管理程序，那么可以将SETVER命令移到EMM386.EXE命令之后，使得SETVER可以在高内存区运行。
+        3.从CONFIG.SYS和AUTOEXEC.BAT中删除不必要的设备驱动程序。
+        六、配置系统
+        (一)多配置与交互式引导
+        CONFIG.SYS文件内所编写的所有命令可以分成多个块(Block)，每个块以一个块头(一个由中括号括起来的名字)开始，每个块的内容都由CONFIG.SYS命令组成，用户可以根据需要在起始菜单中选出要MS-DOS执行的配置块。配置块是一个CONFIG.SYS命令的集合，它定义了可以从起始菜单中选择的某一特定配置。
+        1.定义配置块的方法
+        以一个单词(可任意组合)作块名，一个配置块以块头(被中括号括起来的块名)开始。当用户以选定的某种特定的配置启动时，将执行从该配置块到下一个块头间命令。每个配置块可以包含任何CONFIG.SYS命令，也包括下列专门用于配置块命令：
+        (1)SET命令设置环境变量值。使用这个命令，可以给每一个配置设置唯一的环境变量值。
+        (2)INCLUDE命令指示MS-DOS除了执行当前块命令以外，执行另一个配置块中所有命令。可以把所有配置块都需用到的命令放在［common］块中。MS-DOS将对每一种配置都执行［common］块中的命令。可以定义任意多的［common］块；MS-DOS按照它所出现的先后顺序来执行［common］命令。
+        如果CONFIG.SYS文件以一个［common］块结尾，应用程序就可以将命令添加到这个块中，MS-DOS将对所有的配置执行这些命令，即使这个块中不包含任何命令，用户也应该把一个［common］块放在CONFIG.SYS文件的末尾，以便一些应用程序在安装时能自动将某些命令添加入到CONFIG.SYS文件中。
+        注意：如果准备用MemMaker程序优化CONFIG.SYS文件，则应避免使用INCLUDE和［common］块，因为它们会使优化过程变得复杂。
+        2.定义一个多配置CONFIG.SYS文件的大致过程
+        (1)在CONFIG.SYS文件中定义一个起始菜单。计算机在每次启动的时侯，都会显示这个起始菜单和可供选择的配置项；从中选出所需要的配置。
+        (2)在CONFIG.SYS文件中创建几个配置块。
+        (3)要求MS-DOS根据每一个启动配置去执行不同的AUTOEXEC.BAT命令。要实现这一点，需要使用IF和GOTO等批处理命令在AUTOEXEC.BAT文件中创建条件分支。
+        3.使用多配置的实例
+        例子1：定义多种配置
+        ［MENU］
+        MENUITEM=NO1,GOTO----DOS
+        MENUITEM=NO2,GOTO----WPS
+        MENUITEM=NO3,GOTO----WINDOWS
+        MENUCOLOR=15,1
+        MENUDEFAULT=NO1,5
+        ［NO1］
+        BUFFERS=20
+        FILES=30
+        DEVICE=C:\MSDOS\HIMEM.SYS
+        DOS=HIGH
+        DEVICE=C:\MSDOS\SETVER.EXE
+        ［NO2］
+        BUFFERS=15
+        FILES=20
+        DEVICE=C:\MSDOS\HIMEM.SYS
+        DOS=HIGH
+        ［NO3］
+        DEVICE=C:\MSDOS\HIMEM.SYS
+        BUFFERS=20
+        FILES=40
+        DOS=HIGH
+        第一配置块［menu］定义在起始菜单中将要显示的选项。这个起始菜单包括NO1、NO2、NO3三项。每个菜单选项指示一个不同的配置块。计算机用上述CONFIG.SYS文件启动时，将显示下列菜单：
+        MS-DOS6.2 Startup Menu
+        ━━━━━━━━━━━━━━
+        1.NO1
+        2.NO2
+        3.NO3
+        ENTER a choice:1  Time remaining:05
+        F5=Bypass startup files  F8=confirm each line of CONFIG.SYS and AUTOEXEC.BAT［N］
+        HIMEM is testing extended memory...done
+        说明：
+        (1)本例利用MENUDEFAULT命令设置菜单，如果使用者未于设定的退出时间5秒内选择某块时，将按MENUDEFAULT命令设置的配置块为缺省配置，本例中则默认执行NO1块。
+        (2)当显示菜单时，会显示当前剩余时间。
+        (3)MENUCOLOR命令设置文字颜色为15(亮白)，背景颜色为1(兰)。
+        (4)选择相应的配置块可以键入相应的数字或用方向键移动光标到相应的配置块，再按ENTER键选中。
+        例子2：使用［common］块
+        下例CONFIG.SYS文件定义了两个配置块，并包括几条为两个块所共用的命令：
+        ［menu］
+        menuitem=Steve
+        menuitem=User
+        ［common］
+        dos=high
+        buffers=15
+        device=c:\msdos\himem.sys
+        ［steve］
+        files=20
+        device=c:\msdos\emm386.exe2048
+        ［User］
+        files=40
+        device=c:\net\network.sys
+        ［common］
+        这个CONFIG.SYS文件定义了两个配置块Steve和User。对于用户选择这两个配置块中的任一个，MS-DOS都执行在第一个［common］块中的三条命令：
+        DOS=high
+        buffers=15
+        device=c:\msdos\himem.sys。
+        该［common］块放在前边，是因为它包含有关于HIMEM.SYS的命令，而这条命令必须在其它命令前被装入。Steve将使用一个需要扩展内存的桌面印刷程序，因此他的配置包括了一条关于EMM386的命令，他不使用网络。User使用的网络，而不是桌面印刷系统。他的配置用于启动网络驱动器。文件末端的［common］块用于存放安装新应用程序时添加的命令。
+        例子3：使用INCLUDE命令
+        可以将另一个配置块的内容包括到当前块中，这个命令指定了另一个配置块的名字。INCLUDE命令只能在配置块中被使用。
+        下列CONFIG.SYS文件定义了几个配置块，并使用INCLUDE命令将［WINDOWS］和［NETWORK］块包括在［WINNET］中:
+        ［MENU］
+        MENUITEM=WINDOWS,CONFIG URE FOR WINDOWS
+        MENUITEM=NETWORK,START THE NETWORK
+        MENUITEM=WINNET,CONFIG URE FOR WINDOWS AND START THE NETWORK
+        ［COMMON］
+        FILES=40
+        BUFFERS=20
+        DEVICE=C:\MSDOS\HIMEM.SYS
+        DOS=HIGH
+        ［NETWORK］
+        DEVICE=C:\NET\NETWORK.SYS
+        SET PATH=C:\MSDOS;C:\NETWORK
+        LASTDRIVE=Z
+        ［WINDOWS］
+        DEVICE=C：\DOS\EMM386.EXE
+        SET PATH=C：\WINDOWS；C：\MS-DOS
+        ［WINNET］
+        INCLUDE=WINDOWS
+        INCLUDE=NETWORK
+        SETPATH=C:\WINDOWS;C:\NETWORK;C:\MSDOS
+        ［COMMON］
+        这个CONFIG.SYS文件包括三个配置块:WINDOWS,NETWORK和WINNET。［WINNET］配置块还包括了［windows］和［NETWORK］配置块中的命令，另外还有它自己的PATH命令。第一个[COMMON]块包括为所有配置所通用的命令。最后一个［COMMON］块当前为空，用于存放安装新应用程序时需要装到CONFIG.SYS文件的命令。\[1592301]\[1592311]
+        3.交互式引导
+        MS-DOS6.2可创建一个名为CONFIG的环境变量，让它等于从启动菜单上所对应配置块的名字，这样，在AUTOEXEC.BAT中也一样可以建立配置块了。当启动DOS时，若按功能键F8，则进入交互式引导如果用户在使用上发现问题，并猜测与CONFIG.SYS或AUTOEXEC.BAT文件有关，可临时略过这两个文件。
+        (1)启动计算机，在计算机启动以后，MS-DOS显示下列文字:
+        StartingMS-DOS...
+        (2)当屏幕上显示出上述文字时，按下F5键或SHIFT键。
+        MS-DOSisbypassingyourCONFIG.SYSandAUTOEXEC.BATfiles.
+        计算机将以一种基本配置启动，从而取代用户通常所设置。这样，系统的一些部分也许就不会象从前一样运行。例如：
+        ①DOS也许找不到COMMAND.COM文件。如果发生这种情况，DOS在启动时显示消息“bad or missing command interpreter”，它提示用户指明COMMAND.COM在盘上的位置，然后按下ENTER键。
+        ②MS-DOS将不装入可安装的设备驱动程序。因此，任何一个需要可安装的设备驱动程序支持设备将不能工作。例如，鼠标器将不能工作。而且，那些需要扩展或扩充内存的程序也将不能运行，因为MS-DOS没有装入扩展或扩充内存管理程序。
+        ③MS-DOS将把环境变量设为缺省值。命令提示符也许跟以前显示的不一样；它将显示当
+        前驱动器和目录。查找路径将设为包含MS-DOS文件的目录。使用任何不在这个目录下或当前目录下的命令或文件时，都需要敲入完整的路径和文件名。
+        如果用户在使用中发现问题，并怀疑与某一条CONFIG.SYS命令有关，可以让MS-DOS在启动时提示用户确认每一条命令。
+        (1)启动计算机。在计算机启动以后，MS-DOS显示下列文字：
+        StartingMS-DOS...
+        (2)当上述文字出现在屏幕上时，按下F8键。
+        MS-DOS将显示下列文字：
+        MS-DOS will prompt you to confirm each line of CONFIG.SYS and AUTOEXEC.BAT
+        MS-DOS将逐条显示CONFIG.SYS文件中的命令，并紧跟一个提示符进行提问。例如，当MS-DOS执行到DOS=HIGH命令时，它会显示下列提示信息：
+        DOS=HIGH［Y,N］?
+        要执行当前命令，就按下Y(代表Yes)键。要略过这条命令，就按下N(代表No)键。要执行剩余的启动命令，按Esc键即可，要略过剩余的启动命令，则按下F5键。
+        (3)当MS-DOS处理完CONFIG.SYS文件中的命令时提示Process AUTOEXEC.BAT［Y,N］?
+        如要逐条执行批处理命令按下Y键。要完全略过AUTOEXEC.BAT，则按下N键。
+        (4)应注意，当CONFIG.SYS文件中包含附加命令SWITCHES=/N时，则按F5或F8键时，并不产生上述F5或F8键的作用。
+        (二)MS-DOS6.2多配置系统高级用法的实现
+        下面介绍使用MemMaker及中西文MS-DOS6.2提供的一些系统配置工具去优化AUTOEXEC.BAT和CONFIG.SYS文件，其要点如下：
+        1.我们知道绝大多数程序的运行是使用常规内存，如果一个程序因为内存不够而溢出，多数是因为缺乏足够的常规内存。释放常规内存的方法有：
+        (1)运行MemMaker将设备驱动程序和其它驻留程序从常规内存转移到上端内存去。
+        (2)使用扩展内存，在高端内存区(HMA)运行MS-DOS，从而不必占用常规内存。
+        (3)选用多配置CONFIG.SYS和AUTOEXEC.BAT文件，使它们不启动不必要的驻留程序。
+        2.对于象SUPER-CCDOS6.0F这样不能使用扩展内存的系统，可作为一个配置块来无恙，定义的方法如下：
+        (1)先定义一个起始菜单，以后计算机每次启动时都显示它，供用户选择。
+        (2)一个配置块以块头(以中括号括起来的名字)开始，每个块的内容都由用户选择的CONFIG.SYS命令组成。
+        3.多配置高级用法具体实现步骤：
+        (1)首先按自己的需要，对所有不使用EMM386.EXE的命令，编辑好AUTOEXEC.BAT和CONFIG.SYS。
+        (2)重新启动机器，反复运行MemMaker，得到内存配置最优化时的AUTOEXEC.BAT和CONFIG.SYS。
+        (3)将AUTOEXEC.BAT和CONFIG.SYS更名。
+        (4)对所有可以使用EMM386.EXE的命令编辑生成AUTOEXEC.BAT和CONFIG.SYS。
+        (5)重新启动机器，反复运行MemMaker，得到内存配置最优化时的AUTOEXEC.BAT和CONFIG.SYS。
+        (6)MS-DOS6.2能在单个CONFIG.SYS定义多种不同的系统配置，可选用其中任一种启动计算机。我们可将③和⑤得到的文件合并编辑成新的AUTOEXEC.BAT和CONFIG.SYS，这样获得的系统配置即可满足用户的各种需要。
+        4.多配置实现的CONFIG.SYS
+        CONFIG.SYS文件的内容如下:
+        ［MENU］
+        MENUITEM=WPS6.0F
+        MENUITEM=EMM&WINDOWS
+        MENUCOLOR=15,1
+        MENUDEFAULT=WPS,5
+        ［WPS6.0F］
+        DEVICE=C:\MSDOS\HIMEM.SYS/INT15=512
+        BUFFERS=5,0
+        FILES=30
+        DOS=UMB
+        DEVICEHIGH/L:2,44592=C:\MSDOS\DBLSPACE.SYS/MOVE
+        BREAK=ON
+        ［EMM&WINDOWS］
+        DEVICE=C:\MSDOS\HIMEM.SYS
+        DEVICE=C:\MSDOS\EMM386.EXERAM
+        BUFFERS=9,0
+        FILES=30
+        DOS=UMB
+        FCBS=4,0
+        DEVICEHIGH/L:1,12048=C:\MSDOS\SETVER.EXE
+        DOS=HIGH
+        DEVICEHIGH/L:2,44592=C:\MSDOS\DBLSPACE.SYS/MOVE
+        BREAK=ON
+        5.针对多种配置修改AUTOEXEC.BAT文件
+        系统启动时自动执行AUTOEXEC.BAT文件，但对多配置的系统，就需要启动不同文件，这时AUTOEXEC.BAT文件中根据具有选中配置块名的环境变量CONFIG，利用goto命令使AUTOEXEC.BAT执行不同的命令集。其构成规则为：
+        (1)在所有要求DOS执行的通用命令之后加入goto％config％。
+        (2)给AUTOEXEC.BAT增加标号，这些标号应该和CONFIG.SYS文件中相应的配置名称相匹配。如相应于［WPS6.0F］的配置为:WPS6.0F，在相应的每种配置命令组之后，加入命令:gotoend，在:end以后出现的所有命令在任何配置均被执行。
+        针对上面的CONFIG.SYS和构成规则可得到相应AUTOEXEC.BAT：
+        @ECHO OFF
+        DOSKEY
+        LH/L:1,63088 C:\MSDOS\VSAFE
+        SET TEMP=C:\TEMP
+        GO TO％CONFIG％
+        :WPS6.0F
+        LH/L:0;1,42384/S C:\MSDOS\SMARTDRV1024512
+        PATH C:\MSDOS;D:\PCTOOLS;E:\FOX
+        GOTOEND
+        :EMM&WINDOWS
+        PATH C:\MSDOS;D:\WINDOWS;E:\BC\BIN;D:\PCTOOLS;D:\CSTAR
+        GOTO END
+        :END
+        CLS
+        PROMPT$P$G
+        如果用户使用中发现问题，怀疑与系统配置文件有关时，可按F5键或SHIFT键完全略过AUTOEXEC.BAT和CONFIG.SYS命令；也可以按F8键，MS-DOS将逐条确认每一条CONFIG.SYS命，回答Y则执行该命令，回答N则略过，如要执行所有的剩余命令则敲ESC键，而略过剩余命令则按F5键。用户每次修改AUTOEXEC.BAT和CONFIG.SYS命令后，应再次运行MemMaker以优化内存。
+        6.实现MS-DOS6.2多配置系统高级用法的关键在于：
+        (1)必须把MemMaker和多配置系统结合起来使用。
+        (2)CHOICE与多配置结合使用，使配置更加容易。
+        (3)启动时，在配置存在问题时，F5键略过系统配置非常有用。
+        (4)启动时，按F8键进入交互式引导下，每次DOS单步运行CONFIG.SYS，由用户确定是否执行该步命令，最后还询问用户是否跳过AUTOEXEC.BAT，它能帮助用户确认TSR或设备驱动程序中的问题。
+        七、中文版PDOS(6.2)的使用
+        (一)汉字系统的原理及应用
+        PDOS(6.2)采用了符合中华人民共和国GB-2312标准的汉字技术，提供了DBCS(双字节内核Double Byte Character Set)。此外，PDOS(6.2)操作系统还向用户和开发人员提供了一套完整的中文操作系统界面(Chinese System Interface)。
+        1.汉字系统的构成
+        (1)PDOS(6.2)内核所支持的DBCS
+        ①在PDOS(6.2)下，所有的DOS命令和实用程序都能识别DBCS字符，因此当一个DBCS系列的第二个字符满足DOS分隔符的条件时，是不会产生错误分解的。
+        ②分解的项(如文件说明)可以包含DBCS字符。
+        ③以前单字节版本所用的分隔符才会当作分隔符来识别。可以识别DBCS表示的空白。
+        ④在DBCS字符中，不会产生折叠。
+        ⑤使用SORT时，每个DBCS字符被当作两个SBCS字符对待。
+        ⑥文件说明和卷标中可以包含DBCS字符。在文件名的前8个字符中和文件扩展名中，不能使用DBCS字符打头。
+        (2)提示信息的处理
+        Command.com和Help.com的信息翻译成了中文字符，这种信息将支持两种语言__英语和中文。
+        (3)代码系统
+        PDOS(6.2)的内码是GB-2312-80。GB-2312-80代码系统定义双字节的汉字编码，分别由区(行,第一字节的值__0a0h)和值(列,第二字节的值__0a0h)组成。编码范围是第一字节与第二字节都从0a0h到0feh。每个区内有94个汉字，代码页数936。
+        01～10区(第一字节为0a1h～0aah):全角字符,包含全角ASCII码字符。
+        11～15区(第一字节为0abh～0afh):空。
+        16～55区(第一字节为0b0h～0d8h):一级汉字，以拼音顺序排列。
+        56～87区(第一字节为0d9h～0f8h):二级汉字，按笔划顺序排列。
+        一级汉字加上二级汉字，共有6763个汉字。
+        88～94区(第一字节为0f8h～0feh):空。
+        2.汉字系统的输入输出
+        在PDOS6.2中，为用户提供了汉字输入输出功能。汉字系统是作为DOS环境下的系统驱动程序来实现的。为帮助用户运行英文应用程序，用户可使用一个切换开关来回地切换，以便得到最佳的汉字输入输出。切换程序的约定如下：
+        ①半个汉字显示，半个汉字不能显示在一行的最后，应移到下一行。
+        ②光标调整，在汉字字符位置上的任何光标移动，退格或删除，都按双字节处理。
+        ③画线代码控制，自动地判断从0b1h至0d1h之间的画线代码。这些代码位于GB码中。
+        这样做的目的是为了用真正的画线码字符代替汉字。
+        (1)汉字系统的内核
+        汉字系统的内核初始化汉字系统所用的各个参数，管理每个已安装或未安装的驱动程序，解释应用程序和汉字之间的CSI。在系统引导时，如果在CONFIG.SYS中指定驱动程序名(默认为PBIOS.SYS)，汉字系统就会自动加载。
+        由于CSI是一个开放的结构，因此很容易往系统中加挂IME/字体/打印机驱动程序。用户或开发厂家，也可以很容易地使用他们自己的显示器/打印机监控程序。汉字系统的内核能动态地管理驱动程序/监视程序的安装或撤消。
+        (2)显示器驱动程序
+        即VGA和Hercules，表3描述了它们的特点。
+        表3显示模式特点
+        	VGA(640×480)		Hercules(640×480)
+        每行中的字符为16×18	每行中的字符为16×15
+        显示一个状态?       (带两条空线)		(无空线)
+                       文字区为0线至449线	文字区为0线至374线
+        状态区为463线至479线	状态区为382线至397
+        
+        每行中的字符为16×7	每行中的字符为16×14
+        显示三个状态行     (带一条空线)		    (无空线)
+         文字区为0线至424线      文字区为0线至374线
+        状态区为428线至479线    状态区为355线至397线
+        因为有些应用程序可能含有DAS(DirectAccessScreen直接访问屏幕)的代码，因而要直接访问显示内存，并且因汉字系统的显示器驱动程序用图形模式来模拟PCBIOS里的文本模式，所以显示器驱动程序应使用定时中断来解释和维护DAS里文本缓冲区。每个显示器驱动程序的DAS显示内存布局如下:
+        ①至少带有512KRAM的VGA:
+        位平面3
+        位平面2
+        位平面1
+        A000H___位平面0
+        VARM
+        
+        (640×480)/8=38400字节
+        A9600H_____
+        B0000H__________
+        B8000H__________
+        文本缓冲区    8页
+        BF000H__________
+        ②至少带有256KRAM的VGA:
+        位平面3
+        位平面2
+        位平面1
+        A000H/B000H__位平面0
+        VARM
+        (640×480)/8=38400字节
+        A7F80H/B7F80H_________
+        A8000H/B8000H_________
+        文本缓冲区    6页
+        AE980H/BE980H_________
+        VARM
+        AFFFFH/BFFFFH_________
+        ③Hercules，640×400模式，图形和文本并存:
+        B0000H__________
+        文本缓冲区
+        B8000H__________
+        图形缓冲区
+        BFFFFH__________
+        (3)键盘驱动程序
+        键盘驱动程序是在CSI规范基础上开发的，以提供绝大多数流行的输入方法。由于CSI是一个开放的结构规范，因此IME供应者可以很容易地在系统中加挂他们自己的输入方法驱动程序。键盘驱动程序还提供了一个通用输入方法，或称表输入方法，用户可很容易地用它往系统中加挂新输入方法。
+        用户只需提供一个表文件，说明GB码与输入键码之间的对应关系。此表可由任何文件编辑器生成，然后使用DICTMANT实用程序将此表转换成系统能读的格式，用户便可往系统中添加一种输入方法。
+        当然，所有的键盘驱动程序都有某些智能功能，以帮助用户更快更容易地输入一个汉字。
+        这些功能是：
+        ①词或短语，一次可输入一个词或短语。
+        ②联想，可以自动地得到关联的词或短语。
+        ③自动判定，可以不用按键，就能在已按的键基础上，得到一个完整的词或短语。
+        ④可调整性，可根据使用频度调整词或短语的顺序。
+        (4)字体驱动程序
+        字体驱动程序有两种，一种是位图字体驱动程序，它可处理用于显示的16×16点阵汉字位图型字体,以及用于打印的四种24×24点阵的位图型字体(宋、仿宋、黑和楷)。各种ASCII码的8×16点阵的位图型字体取自原始的PCBIOS。另一种是可变倍字体驱动程序，此驱动程序处理四种汉字的可变倍字体。可变倍大小的范围是从24×24至2047×2047。此驱动程序同时还提供在CSI里的定义的属性。
+        (5)打印机驱动程序
+        中文版里的打印机驱动程序包括:一个支持点阵打印机LQ-1600K的驱动程序，一个支持彩色打印机CR-3240的驱动程序，两个支持激光打印机HP Laser JetⅢ的驱动程序。
+        (6)打印监视程序
+        应用程序可通过调用打印机驱动程序来打印出带有CSI中所定义属性的汉字。通常它们往打印机驱动程序中所写的文本序列都能打印出所希望的汉字效果
+        3.汉字系统的软硬件需求
+        (1)汉字系统支持网络
+        中文版PDOS(6.2)支持Microsoft WC、Microsoft Lan Manager和Novell Netware。
+        (2)Windows DOSBOX的支持
+        在Windows下DOS块会自动支持汉字，所有的DOS应用程序在DOS块下都可很正常地运行。
+        在某些方面可能有些限制，如在DOS块中的滚动速度较慢。在Windows里得不到DOS块中的字型。
+        (3)系统需求
+        硬件要求286以上的机器，至少1M内存，VGA或Herculers显示卡及监视器，1.2M和1.44M软驱等。         (二)汉字系统接口__CSI
+        CSI是汉字系统输入输出接口规范(Chinese System I/O Interface Specification)的缩写。CSI定义了应用程序与简体中文系统之间的应用程序接口。它由五个模块组成：系统程序模块、字符组合模块、状态行更新模块、字体/图案模块和打印机命令模块。
+        图6集中描述了CSI与应用程序及系统BIOS之间的相互关系。CSI是系统BIOS的一个扩展。一旦用户从键盘调用汉字系统时，它就会要求系统的BIOS来读取一个汉字字符，在CSI中，输入方法功能开始工作。当合成一个汉字时，系统BIOS就将它返回给用户。在系统BIOS提供基本功能来控制外部I/O设备时，CSI将利用这些基本功能调用来满足汉字系统的需要。应用程序除了通过INT10H，INT16H，INT17H调用CSI功能，也可以由各模块进入点调，这保证在INT10H、INT16H、INT17H被拦截后，应用程序仍使用CSI功能。
+        图7清楚地表明了用户在使用INT中断向量调用时，系统根据AH寄存器值，决定此调用是由PCBIOS功能或是由CSI功能处理。对于外部的I/O设备，CSI将把控制交给系统BIOS。
+        (三)PDOS的使用及实用程序
+        1.PDOS的使用
+        PDOS(6.2)安装时，自动在CONFIG.SYS文件中指定了驱动程序名及其所在的路径，默认为PBIOS.SYS，这样在系统启动时自动加载汉字系统。在汉字系统启动后，应根据自己的需要启动\PDOS目录下的PDOS.BAT，该文件的内容如下：
+        D:\PDOS>TYPEPDOS.BAT
+        hzkbd       		;通用字典输入法
+        instdict guobiao	;安装国标输入法
+        instdict shanpin	;安装双拼输入法
+        instdict quwei	;安装区位输入法
+        instdict pinyin	;安装拼音输入法
+        ctrlpan		;系统控制台程序
+        该批处理程序主要安装各种汉字输入方法，系统控制台程序ctrlpan在直接键入命令时安装，命令提示符下键入ctrlpan/d时，移去系统控制台程序。
+        这时系统的热键配置如下所示：
+        中/英文模式切换  	__"Ctrl+Esc"
+        中/英文输入法切换	__"Ctrl+Space"
+        输入法往前切换	__"Ctrl+右Shift"
+        输入法往后切换	__"Ctrl+左Shift"
+        全角/半角切换	__"Shift+Space"
+        2.INSTDIC的使用
+        INSTDIC的作用是往系统中安装IME字典，是中文版DOS输入法安装程序之一。其使用方法如下：
+        使用方法:INSTDICT<字典文件名>［<选择键>］
+        其中:<选择键>为可选项
+        <字典文件名>为该输入方法的数据文件名,缺省后缀为.tbl
+        <选择键>为选择该输入方法使用的按键
+        例如:安装"拼音"(文件名为pinyin)输入法
+        文件在c:\dos目录下,选择键为Alt+F2
+        INSTDICTc:\dos\pinyin.tbla_f2
+        注意：即使文件在当前目录下也必须输全路径文件名。
+        又如，对10.3.1中提到的PDOS.BAT程序，可以改为：
+        hzkbd
+        instdictd:\pdos\guobiao.tbla_f2
+        instdictd:\pdos\shanpin.tbla_f3
+        instdictd:\pdos\quwei.tbla_f5
+        instdictd:\pdos\pinyin.tbla_f4
+        ctrlpan
+        则运行PDOS.BAT后，可以用ALT+F2键选择国标输入方式，用ALT+F3键选择双拼输入方式，用ALT+F4键选择拼音输入方式，用ALT+F5键选择区位输入方式，这些热键的选择可以按规则任意调整。
+        3.DICTMAN的使用
+        DICTMAN.EXE是表输入方法维护IME字典。其用法较为简单，在此就不赘述。
+        4.FONTMAKE的使用
+        FONTMAKE.EXE是字库维护程序，可对CHS16.FON、ASC12×24.FON、CHA24.FON、CHS24.FON、CHK24.FON、CHH24.FON、CHF24.FON进行维护。其功能键为：
+        F1帮助				F2调字	
+        SHIFT+F1转换字库		SHIFT+F2字体复原	
+        F3存字				F4主辅视窗交换	
+        SHIFT+F3剪块(CUT)		SHIFT+F4复制块	
+        F5复制辅视窗			F6块标记开关	
+        SHIFT+F5(主/块)反相		SHIFT+F6(主/块)填充	
+        F7字体旋转			F8贴块(PASTE)	
+        SHIFT+F7(主/块)镜象		SHIFT+F8(主/块)清除	
+        F9加行列移动			F10退出	
+        SHIFT+F9减行列移动
+        ↑↓→←键:		移动光标		
+        SHIFT+↑↓→←:	移动光标，画线/擦除		
+        PgUp:			前一字符		PgDn:后一字符	
+        Ctrl+Pgup:		前一字符		Ctrl+PgDn:最后字符	
+        Home:			移动光标到左上角	END:移动光标到右上角	
+        空格:			点反相	回车键:重画	
+        ESC:			退出
+        5.OLFNTMAK的使用
+        OLFNTMAK.EXE是一个可变倍的字体造字程序，其功能键为：
+        Alt+F:		文件管理	=或+:			处理下一个轮廓	
+        Alt+E:		编辑轮廓	-:			处理上一个轮廓	
+        Alt+O:		选择轮廓	Page Down:		选择上一个控制点	
+        Alt+H:		使用说明	Page Up:		选择下一个控制点	
+        Alt+F4:	退出键头键:	移动控制点		
+        Insert:	增加控制点	回车键:		选中菜单项或执行编辑功能	
+        Delete:	删除控制点	Shift+=或+:		还原下一个轮廓	
+        Alt+L:		直线Shift+-:	还原上一个轮廓	
+        Alt+S:		向前平滑	Shift+PageDown:	快速选择上一个控制点	
+        Alt+I:		向后平滑	Shift+PageUp:		快速选择下一个控制点	
+        Alt+A:		双向平滑	Shift+键头键:		快速移动控制点	
+        Alt+R:		恢复			
+        d/D:		删除轮廓			
+        s/S:		存储轮廓			
+        a/A:		增加轮廓			
+        m:		背景切换
+        6.CCSETUP的使用
+        CCSETUP.EXE是用于设置系统参数，包括键盘状态参数、显示风格参数和打印机控制参数。新设置的参数在重新引导后才起作用。在命令提示行下键入CCSETUP后，出现如图8所示的画面:
+        ┌──────────────────────────┐
+        │Microsoft MS-DOS 6.20中文系统设置程序               │
+        │───────────────────              │
+        │ 安装程序将用于面的系统设备                         │
+        │┌────────────────────────┐│
+        ││以下设置均正确：                                ││
+        ││                                                ││
+        ││提    示    区：字母选键(三行)                  ││
+        ││显示字库容量  ：一级字库                        ││
+        ││输入风格参数  ：联想(ON)非码元全角态(OFF)       ││
+        ││显示风格参数  ：......                          ││
+        ││打印风格参数  ：字号=五号字  字距=0  行距=0 ....││
+        ││打印字库缓存  ：64K字节                         ││
+        │└────────────────────────┘│
+        │ 如果所有设置均正确，按回车(ENTER)键                │
+        │                                                    │
+        │ENTER=选择  F3=退出                                 │
+        └──────────────────────────┘
+        用户可根据需要，进行相应的设置，例如：选择设置打印风格参数，按ENTER键后，弹出一选择字号、字距、行距、字体、双向、表格连续、旁通等栏目。如打印时，要输出连续的表格来，则将表格连续栏置为ON，这样打印出来表格的栏线就是连续不断的了，设置完毕，在"以下设置均正确"栏用<ENTER>键加以确认。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

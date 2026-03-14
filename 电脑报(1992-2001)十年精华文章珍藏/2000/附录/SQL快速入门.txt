@@ -1,0 +1,326 @@
+SQL快速入门
+
+陈吉
+2000年 第53期 
+
+#1    一、SQL数据库简介
+    SQL是Structured Quevy Language（结构化查询语言）的缩写。SQL是专为数据库而建立的操作命令集，是一种功能齐全的数据库语言。在使用它时，只需要发出“做什么”的命令，“怎么做”是不用使用者考虑的。SQL功能强大、简单易学、使用方便，已经成为了数据库操作的基础，并且现在几乎所有的数据库均支持SQL。
+#1    二、SQL数据库数据体系结构
+    SQL数据库的数据体系结构基本上是三级结构，但使用术语与传统关系模型术语不同。在SQL中，关系模式（模式）称为“基本表”（base table）；存储模式（内模式）称为“存储文件”（stored file）；子模式（外模式）称为“视图”（view）；元组称为“行”（row）；属性称为“列”（column）。名称对称如^00100009a^：
+#1    三、SQL语言的组成
+    在正式学习SQL语言之前，首先让我们对SQL语言有一个基本认识，介绍一下SQL语言的组成：
+    1.一个SQL数据库是表（Table）的集合，它由一个或多个SQL模式定义。
+    2.一个SQL表由行集构成，一行是列的序列（集合），每列与行对应一个数据项。
+    3.一个表或者是一个基本表或者是一个视图。基本表是实际存储在数据库的表，而视图是由若干基本表或其他视图构成的表的定义。
+    4.一个基本表可以跨一个或多个存储文件，一个存储文件也可存放一个或多个基本表。每个存储文件与外部存储上一个物理文件对应。
+    5.用户可以用SQL语句对视图和基本表进行查询等操作。在用户角度来看，视图和基本表是一样的，没有区别，都是关系（表格）。
+    6.SQL用户可以是应用程序，也可以是终端用户。SQL语句可嵌入在宿主语言的程序中使用，宿主语言有FORTRAN，COBOL，PASCAL，PL/I，C和Ada语言等。SQL用户也能作为独立的用户接口，供交互环境下的终端用户使用。
+#1    四、对数据库进行操作
+    SQL包括了所有对数据库的操作，主要是由4个部分组成：
+    1.数据定义：这一部分又称为“SQL  DDL”，定义数据库的逻辑结构，包括定义数据库、基本表、视图和索引4部分。
+    2.数据操纵：这一部分又称为“SQL  DML”，其中包括数据查询和数据更新两大类操作，其中数据更新又包括插入、删除和更新三种操作。
+    3.数据控制：对用户访问数据的控制有基本表和视图的授权、完整性规则的描述，事务控制语句等。
+    4.嵌入式SQL语言的使用规定：规定SQL语句在宿主语言的程序中使用的规则。
+    下面我们将分别介绍：
+#1    （一）数据定义
+    SQL数据定义功能包括定义数据库、基本表、索引和视图。
+    首先，让我们了解一下SQL所提供的基本数据类型：（如^00100009b^）
+    1.数据库的建立与删除
+    （1）建立数据库：数据库是一个包括了多个基本表的数据集，其语句格式为：
+    CREATE   DATABASE  <数据库名>  ［其它参数］
+    其中，<数据库名>在系统中必须是唯一的，不能重复，不然将导致数据存取失误。［其它参数］因具体数据库实现系统不同而异。
+    例：要建立项目管理数据库（xmmanage），其语句应为：
+    CREATE   DATABASE  xmmanage
+    （2） 数据库的删除：将数据库及其全部内容从系统中删除。
+    其语句格式为：DROP   DATABASE  <数据库名>
+    例：删除项目管理数据库（xmmanage），其语句应为：
+    DROP   DATABASE  xmmanage
+    2.基本表的定义及变更
+    本身独立存在的表称为基本表，在SQL语言中一个关系唯一对应一个基本表。基本表的定义指建立基本关系模式，而变更则是指对数据库中已存在的基本表进行删除与修改。
+    （1）基本表的定义：基本表是非导出关系，其定义涉及表名、列名及数据类型等，其语句格式为：
+    CREATE   TABLE［<数据库名>.］<表名>
+    （<列名>   数据类型  ［缺省值］  ［NOT  NULL / NULL］
+    ［，<列名>   数据类型  ［缺省值］  ［NOT  NULL / NULL］］......
+    ［，UNIQUE  （列名［，列名］......）］
+    ［，PRIMARY   KEY（列名）］
+    ［，FOREIGN   KEY（列名［，列名］......）REFERENCE <表名>（列名［，列名］......）］
+    ［，CHECK（条件）］  ［其它参数］）
+    其中，〈数据库名〉.］指出将新建立的表存放于该数据库中；
+    新建的表由两部分组成：其一为表和一组列名，其二是实际存放的数据（即可在定义表的同时，直接存放数据到表中）；
+    列名为用户自定义的易于理解的名称，列名中不能使用空格；
+    数据类型为上面所介绍的几种标准数据类型；
+    ［NOT  NULL/NULL］指出该列是否允许存放空值，SQL语言支持空值的概念，所谓空值是“不知道”或“无意义”的值，值得注意的是数据“0”和空格都不是空值，系统一般默认允许为空值，所以当不允许为空值时，必须明确使用NOT  NULL；
+    ［，UNIQUE］将列按照其规定的顺序进行排列，如不指定排列顺序，则按列的定义顺序排列；
+    ［PRIMARY   KEY］用于指定表的主键（即关系中的主属性），实体完整性约束条件规定：主键必须是唯一的，非空的；
+    ［，FOREIGN  KEY  （列名［，列名］......）  REFERENCE<表名>（列名［，列名］......）］是用于指定外键参照完整性约束条件，FOREIGN  KEY指定相关列为外键，其参照对象为另外一个表的指定列，即使用REFERENCE引入的外表中的列，当不指定外表列名时，系统将默认其列名与参照键的列名相同，要注意的是：使用外键时必须使用参照，另外数据的外键参照完整性约束条件规定：外键的值要么与相对应的主键相同，要么为空值（具体由实现系统不同而异）
+    ［，CHECK］用于使用指定条件对存入表中的数据进行检查，以确定其合法性，提高数据的安全性。
+    例：要建立一个学生情况表（student）
+    CREATE  TABLE  student  //创建基本表student
+    （st_class  CHAR（8），// 定义列st_class班级，数据类型为8位定长字符串
+    st_no  CHAR（10）  NOT  NULL，//定义列st_no学号，类型为10位定长字符串，非空
+    st_name  CHAR（8） NOT  NULL，//定义列st_name姓名，类型为8位定长字符串，非空
+    st_sex CHAR（2），//定义列st_sex性别，类型为2位定长字符串
+    st_age SMALLINT，//定义列st_age年龄，类型为短整型
+    PRIMARY  KEY （st_no））//定义st_no学号为主键。
+    例：要建立课程设置表（subject）
+    CREATE  TABLE  subject//创建基本表subject
+    （su_no  CHAR（4） NOT  NULL，// 定义列su_no课号，类型为4位定长字符串，非空
+    su_subject CHAR（20） NOT  NULL，// 定义列su_subject课程名，类型为20位定长字符串，非空
+    su_credit  INTEGER，// 定义列su_credit学分，类型为长整数
+    su_period  INTEGER，//定义列su_period学时，类型为长整数
+    su_preno CHAR（4），//定义列su_preno先修课号，类型为4位定长字符串
+    PRIMARY  KEY（su_no））//定义su_no课号为主键。
+    例：要建立学生选课表（score）
+    CREATE TABLE score  //创建基本表score
+    （st_no  CHAR（10），//定义列st_no学号，类型为10位定长字符串
+    su_no  CHAR（4），//定义列su_no课号，类型为4位定长字符串
+    sc_score  INTEGER  NULL，//定义列sc_score，类型为长整形，可以为空值
+    FOREIGN  KEY （st_no） REFERENCE  student，//从表student中引入参照外键st_no，以确保本表与表student的关联与同步
+    FOREIGN  KEY （suno） REFERENCE  subject）//从表subject中引入参照外键su_no，以确保本表与表subject的关联与同步
+    （2）基本表的删除：用以从数据库中删除一个基本表及其全部内容，其语句格式为：
+    DROP TABLE［<数据库名>.］表名
+    例如：将上面建立的表都删除
+    DROP TABLE  student，subject，score
+    （3）基本表的修改：在基本表建立并使用一段时间后，可能需要根据实际要求对基本表的结构进行修改，即增加新的属性或删除属性。
+    增加属性的语句格式为：
+    ALTER TABLE ［<数据库名>.］表名 ADD
+    （<列名> 数据类型 ［缺省值］ ［NOT  NULL / NULL］
+    ［，<列名> 数据类型［缺省值］［NOT  NULL / NULL］］......
+    ［，UNIQUE （列名［，列名］......）］
+    ［，PRIMARY  KEY（列名）］
+    ［，FOREIGN  KEY（列名［，列名］......） REFERENCE  <表名>（列名［，列名］......）］
+    ［，CHECK（条件）］［其它参数］）
+    例如：在基本表student中加入列stborn出生日期，数据类型为DATE，且不能为空值
+    ALTER  TABLE  student  ADD  （stborn  DATE  NOT  NULL）
+    删除属性的语句格式为：
+    ALTER  TABLE  ［<数据库名>.］表名  DROP
+    （ <列名>  数据类型 ［缺省值］［NOT  NULL / NULL］
+    ［，<列名>  数据类型 ［缺省值］［NOT  NULL / NULL］］......）
+    例如：将基本表student中的列st_age删除
+    ALTER  TABLE student  DROP （st_age）
+    3.视图定义与删除
+    在SQL中，视图是外模式一级数据结构的基本单位。它是从一个或几个基本表中导出的表，是从现有基本表中抽取若干子集组成用户的“专用表”。这种构造方式必须使用SQL中的SELECT语句来实现。在定义一个视图时，只是把其定义存放在系统的数据中，而并不直接存储视图对应的数据，直到用户使用视图时才去求得对应的数据。
+    （1）视图的定义：定义视图可以使用CREATE  VIEW语句实现，其语句格式为：
+    CREATE  VIEW  视图名 AS SELECT语句
+    从一个基本表中导出视图：
+    例：从基本表student中导出只包括女学生情况的视图
+    CREATE  VIEW  WOMANVIEW  AS //创建一个视图WOMANVIEW
+    SELECT  st_class，st_no，st_name，st_age //选择列st_class，st_no，st_name，st_age显示
+    FROM  student //从基本表student引入
+    WHERE st_sex=‘女’//引入条件为性别为“女”，注意字符变量都使用单引号引用
+    从多个基本表中导出视图：
+    例如：从基本表student和score中导出只包括女学生且分数在60分以上的视图
+    CREATEVIEW  WOMAN_SCORE  AS //定义视图WOMANSCORE
+    SELECT  student.st_class，student.st_no，student.st_name，student.st_age，score.sc_score //有选择性显示相关列
+    FROM  student.score //从基本表student和score中引入
+    WHERE  student.st_sex=‘女’AND   score.sc_score>=60  AND  student.st_no=score.st_no  //选择条件：性别为“女” 且分数在60分以上。并使用st_no将两表联系起来。
+    以后如果进行这一视图的应用，则只需使用语句
+    SELECT * FROM WOMAN_SCORE //其中“*”为通配符，代表所有元素
+    （2）视图的删除：用于删除已不再使用的视图，其语句格式如下：
+    DROP  VIEW  视图名
+    例：将上面建立的WOMAN_SCORE视图删除
+    DROP  VIEW  WOMAN_SCORE
+    4.索引的定义与删除
+    索引属于物理存储概念，而不是逻辑的概念。在SQL中抛弃了索引概念，直接使用主键概念。值得一提的是，有些关系DBMS同时包括索引机制和主键机制，这里我们推荐使用主键机制，因为它对系统资源占用较低且效率较高。
+    （1）索引的定义：索引是建立在基本表之上的，其语句格式为：
+    CREATE ［UNIQUE］ INDEX  索引名  ON
+    ［<数据库名>.］表名（列名 ［ASC/DESC］［，列名 ［ASC/DESC］］......）
+    这里，保留字UNIQUE表示基本表中的索引值不允许重复，若缺省则表示索引值在表中允许重复；DESC表示按索引键降序排列，若缺省或ASC表示升序排列。
+    例：对基本表student中的st_no和st_age建立索引，分别为升序与降序，且索引值不允许重复
+    CREATE  UNIQUE  INDEX  STINDEX  ON//创建索引STINDEX
+    student（st_no ASC，st_age DESC）//对student中的st_no和st_age建立索引
+    （2）索引的删除：
+    DROP  INDEX  索引名
+    例：删除上面建立的索引STINDEX
+    DROP  INDEX  STINDEX
+#1    （二）数据查询
+    SQL是一种查询功能很强的语言，只要是数据库存在的数据，总能通过适当的方法将它从数据库中查找出来。SQL中的查询语句只有一个：SELECT，它可与其它语句配合完成所有的查询功能。SELECT语句的完整语法，可以有6个子句。完整的语法如下：
+    SELECT  目标表的列名或列表达式集合
+    FROM 基本表或（和）视图集合
+   ［WHERE条件表达式］
+   ［GROUP BY列名集合
+   ［HAVING组条件表达式］］
+   ［ORDER BY列名［集合］…］
+    整个语句的语义如下：从FROM子句中列出的表中，选择满足WHERE子句中给出的条件表达式的元组，然后按GROUPBY子句（分组子句）中指定列的值分组，再提取满足HAVING子句中组条件表达式的那些组，按SELECT子句给出的列名或列表达式求值输出。ORDER子句（排序子句）是对输出的目标表进行重新排序，并可附加说明ASC（升序）或DESC（降序）排列。
+    在WHERE子句中的条件表达式F中可出现下列操作符和运算函数：
+    算术比较运算符：<，<=，>，>=，=，<>。
+    逻辑运算符：AND，OR，NOT。
+    集合运算符：UNION（并），INTERSECT（交），EXCEPT（差）。
+    集合成员资格运算符：IN，NOT  IN
+    谓词：EXISTS（存在量词），ALL，SOME，UNIQUE。
+    聚合函数：AVG（平均值），MIN（最小值），MAX（最大值），SUM（和），COUNT（计数）。
+    F中运算对象还可以是另一个SELECT语句，即SELECT语句可以嵌套。
+    上面只是列出了WHERE子句中可出现的几种主要操作，由于WHERE子句中的条件表达式可以很复杂，因此SELECT句型能表达的语义远比其数学原形要复杂得多。
+    下面，我们以上面所建立的三个基本表为例，演示一下SELECT的应用：
+    1.无条件查询
+    例：找出所有学生的的选课情况
+    SELECT st_no，su_no
+    FROM score
+    例：找出所有学生的情况
+    SELECT*
+    FROM student
+    “*”为通配符，表示查找FROM中所指出关系的所有属性的值。
+    2.条件查询
+    条件查询即带有WHERE子句的查询，所要查询的对象必须满足WHERE子句给出的条件。
+    例：找出任何一门课成绩在70以上的学生情况、课号及分数
+    SELECT UNIQUE student.st_class，student.st_no，student.st_name，student.st_sex，student.st_age，score.su_no，score.score
+    FROM student，score
+    WHERE score.score>=70 AND score.stno=student.st_no
+    这里使用UNIQUE是不从查询结果集中去掉重复行，如果使用DISTINCT则会去掉重复行。另外逻辑运算符的优先顺序为NOT→AND→OR。
+    例：找出课程号为c02的，考试成绩不及格的学生
+    SELECT st_no
+    FROM score
+    WHERE su_no=‘c02’AND score<60
+    3.排序查询
+    排序查询是指将查询结果按指定属性的升序（ASC）或降序（DESC）排列，由ORDER BY子句指明。
+    例：查找不及格的课程，并将结果按课程号从大到小排列
+    SELECT UNIQUE su_no
+    FROM score
+    WHERE score<60
+    ORDER BY su_no DESC
+    4.嵌套查询
+    嵌套查询是指WHERE子句中又包含SELECT子句，它用于较复杂的跨多个基本表查询的情况。
+    例：查找课程编号为c03且课程成绩在80分以上的学生的学号、姓名
+    SELECT st_no，st_name
+    FROM  student
+    WHERE stno IN （SELECT  st_no
+                    FROM   score
+                    WHERE  su_no=‘c03’ AND score>80 ）
+    这里需要明确的是：当查询涉及多个基本表时用嵌套查询逐次求解层次分明，具有结构程序设计特点。在嵌套查询中，IN是常用到的谓词。若用户能确切知道内层查询返回的是单值，那么也可用算术比较运算符表示用户的要求。
+    5.计算查询
+    计算查询是指通过系统提供的特定函数（聚合函数）在语句中的直接使用而获得某些只有经过计算才能得到的结果。常用的函数有：
+    COUNT（*）    计算元组的个数
+    COUNT（列名） 对某一列中的值计算个数
+    SUM（列名）   求某一列值的总和（此列值是数值型）
+    AVG（列名）   求某一列值的平均值（此列值是数值型）
+    MAX（列名）   求某一列值中的最大值
+    MIN（列名）   求某一列值中的最小值
+    例：求男学生的总人数和平均年龄
+    SELECT COUNT（*），AVG（st_age）
+    FROM student
+    WHERE st_sex=‘男’
+    例：统计选修了课程的学生的人数
+    SELECT COUNT（DISTINCT st_no）
+    FROM score
+    注意：这里一定要加入DISTINCT，因为有的学生可能选修了多门课程，但统计时只能按1人统计，所以要使用DISTINCT进行过滤。
+#1    （三） 数据更新
+    数据更新包括数据插入、删除和修改操作。它们分别由INSERT语句，DELETE语句及UPDATE语句完成。这些操作都可在任何基本表上进行，但在视图上有所限制。其中，当视图是由单个基本表导出时，可进行插入和修改操作，但不能进行删除操作；当视图是从多个基本表中导出时，上述三种操作都不能进行。
+    1.数据插入
+    将数据插入SQL的基本表有两种方式：一种是单元组的插入，另一种是多元组的插入。
+    单元组的插入：向基本表score中插入一个成绩元组（100002，c02，95），可使用以下语句：
+    INSERT INTO score（st_no，su_no，score） VALUES（‘100002’，‘c02’，95）
+    由此，可以给出单元组的插入语句格式：
+    INSERT INTO表名（列名1［，列名2］…） VALUES（列值1［，列值2］…）
+    其中，列名序列为要插入值的列名集合，列值序列为要插入的对应值。若插入的是一个表的全部列值，则列名可以省略不写如上面的（st_no，su_no，score）可以省去；若插入的是表的部分列值，则必须列出相应列名，此时，该关系中未列出的列名取空值。
+    多元组的插入：这是一种把SELECT语句查询结果插入到某个已知的基本表中的方法。
+    例如：需要在表score中求出每个学生的平均成绩，并保留在某个表中。此时可以先创建一个新的基本表stu_avggrade，再用INSERT语句把表score中求得的每一个学生的平均成绩（用SELECT求得）插入至stu_avggrade中。
+    CREATE TABLE stu_avggrade
+    （st_no  CHAR（10） NOT  NULL，//定义列st_no学号，类型为10位定长字符串，非空
+    age_grade SMALLINT  NOT  NULL ）// 定义列age_grade平均分，类型为短整形，非空
+    INSERT INTO stu_avggrade（st_no，age_grade）
+    SELECT st_no，AVG（score）
+    FROM   score
+    GROUP  BY  st_no //因为要求每一个学生所有课程的平均成绩，必须按学号分组进行计算。
+    2.数据删除
+    SQL的删除操作是指从基本表中删除满足WHERE<条件表达式>的记录。如果没有WHERE子句，则删除表中全部记录，但表结构依然存在。其语句格式为：
+    DELETE  FROM表名［WHERE  条件表达式］
+    下面举例说明：
+    单元组的删除：把学号为100002的学生从表student中删除，可用以下语句：
+    DELETE FROM student
+    WHERE st_no=‘100002’//因为学号为100002的学生在表student中只有一个，所以为单元组的删除
+    多元组的删除：学号为100002的成绩从表score中删除，可用以下语句：
+    DELETE FROM  score
+    WHERE st_no=‘100002’//由于学号为100002的元组在表score中可能有多个，所以为多元组删除
+    带有子查询的删除操作：删除所有不及格的学生记录，可用以下语句
+    DELETE FROM student
+    WHERE st_no IN
+   （SELETE st_no
+    FROM score
+    WHERE score<60）
+    3.数据修改
+    修改语句是按SET子句中的表达式，在指定表中修改满足条件表达式的记录的相应列值。其语句格式如下：
+    UPDATE 表名 SET  列名=列改变值［WHERE  条件表达式］
+    例：把c02的课程名改为英语，可以用下列语句：
+    UPDATE subject
+    SET su_subject=‘英语’
+    WHERE su_no=‘c02’
+    例：将课程成绩达到70分的学生成绩，再提高10%
+    UPDATE score
+    SET score=1.1*score
+    WHERE score>=70
+    SQL的删除语句和修改语句中的WHERE子句用法与SELECT中WHERE子句用法相同。数据的删除和修改操作，实际上要先做SELECT查询操作，然后再把找到的元组删除或修改。
+#1    （四） 数据控制
+    由于数据库管理系统是一个多用户系统，为了控制用户对数据的存取权利，保持数据的共享及完全性，SQL语言提供了一系列的数据控制功能。其中，主要包括安全性控制、完整性控制、事务控制和并发控制。
+    1.安全性控制
+    数据的安全性是指保护数据库，以防非法使用造成数据泄露和破坏。保证数据安全性的主要方法是通过对数据库存取权力的控制来防止非法使用数据库中的数据。即限定不同用户操作不同的数据对象的权限。
+    存取权控制包括权力的授与、检查和撤消。权力授与和撤消命令由数据库管理员或特定应用人员使用。系统在对数据库操作前，先核实相应用户是否有权在相应数据上进行所要求的操作。
+    （1）权力授与：权力授与有数据库管理员专用的授权和用户可用的授权两种形式。数据库管理员专用授权命令格式如下：
+          |CONNECT |
+     GRANT|RESOURCE|TO 用户名［IDENTIFED BY 口令］
+          |DBA     |
+    其中，CONNECT表示数据库管理员允许指定的用户具有连接到数据库的权力，这种授权是针对新用户；RESOURCE表示允许用户建立自己的新关系模式，用户获得CONNECT权力后，必须获得RESOURCE权力才能创建自己的新表；DBA表示数据库管理员将自己的特权授与指定的用户。若要同时授与某用户上述三种授权中的多种权力，则必须通过三个相应的GRANT命令指定。
+    另外，具有CONNECT和RESOURCE授权的用户可以建立自己的表，并在自己建立的表和视图上具有查询、插入、修改和删除的权力。但通常不能使用其他用户的关系，除非能获得其他用户转授给他的相应权力。
+    例：若允许用户SSE连接到数据库并可以建立他自己的关系，则可通过如下命令授与权力：
+    GRANT CONNECT TO SSE INENTIFIED BY BD1928
+    GRANT RESOURCE TO SSE
+    用户可用的授权是指用户将自己拥有的部分或全部权力转授给其他用户的命令形式，其命令格式如下：
+     |SELECT                  |
+     |INSERT                  |
+     |DELETE                  |
+GRANT|UPDATE（列名1[，列名2]…）|ON|表名 |TO|用户名|［WITH GRANT OPTION］
+     |ALTER                   | |视图名|  |PUBLIC|
+     |NDEX                    |
+     |ALL                     |
+
+    若对某一用户同时授与多种操作权力，则操作命令符号可用“，”相隔。
+    PUBLIC 表示将权力授与数据库的所有用户，使用时要注意：
+    任选项WITH  GRANT  OPTION表示接到授权的用户，具有将其所得到的同时权力再转授给其他用户权力。
+    例：如果将表student的查询权授与所有用户，可使用以下命令：
+    GRANT SELECT ON student TO PUBLIC
+    例：若将表subject的插入及修改权力授与用户SSE并使得他具有将这种权力转授他人的权力，则可使用以下命令：
+    GRANT INSERT，UPDATE（su_subject） ON  subject  TO  SSE  WITH  GRANT  OPTION
+    这里，UPDATE后面跟su_subject是指出其所能修改的列。
+    （2）权力回收：权力回收是指回收指定用户原已授与的某些权力。与权力授与命令相匹配，权力回收也有数据库管理员专用和用户可用的两种形式。
+    DBA专用的权力回收命令格式为：
+          |CONNECT |
+    REVOKE|RESOURCE|FROM用户名
+          |DBA     |
+    用户可用的权力回收命令格式为：
+          |SELECT                     |
+          |INSERT                     |
+          |DELETE                     |
+    REVOKE|UPDATE（列名1［，列名2］…） |ON|表名  |FROM |用户名|
+          |ALTER                      |  |视图名|     |PUBLIC|
+          |INDEX                      |
+          |ALL                        |
+    例：回收用户SSE的DBA权力：
+    REVOKE  DBA  FROM  SSE
+    2.完整性控制
+    数据库的完整性是指数据的正确性和相容性，这是数据库理论中的重要概念。完整性控制的主要目的是防止语义上不正确的数据进入数据库。关系系统中的完整性约束条件包括实体完整性、参照完整性和用户定义完整性。而完整性约束条件的定义主要是通过CREATE TABLE语句中的［CHECK］子句来完成。另外，还有一些辅助命令可以进行数据完整性保护。如UNIQUE和NOT NULL，前者用于防止重复值进入数据库，后者用于防止空值。
+    3.事务控制
+    事务是并发控制的基本单位，也是恢复的基本单位。在SQL中支持事务的概念。所谓事务，是用户定义的一个操作序列（集合），这些操作要么都做，要么一个都不做，是一个不可分割的整体。一个事务通常以BEGIN TRANSACTION开始，以COMMIT或ROLLBACK结束。
+    SQL提供了事务提交和事务撤消两种命令：
+    （1）事务提交：事务提交的命令为：
+    COMMIT  ［WORK］
+    事务提交标志着对数据库的某种应用操作成功地完成，所有对数据库的操作都必须作为事务提交给系统时才有效。事务一经提交就不能撤消。
+    （2）事务撤消：事务撤消的命令是：
+    ROLLBACK  ［WORK］
+    事务撤消标志着相应事务对数据库操作失败，因而要撤消对数据库的改变，即要“回滚”到相应事务开始时的状态。
+    当系统非正常结束时（如掉电、系统死机），将自动执行ROLLBACK命令
+    SQL还提供了自动提交事务的机制，其命令为：
+    SET AUTO COMMIT ON
+    其对应的人工工作方式命令为：
+    SET AUTO COMMIT OFF
+    一旦规定了自动提交事务方式，则系统将每条SQL命令视为一个事务，并在命令成功执行完成时自动地完成事务提交。
+    4.并发控制
+    数据库作为共享资源，允许多个用户程序并行地存取数据。当多个用户并行地操作数据库时，需要通过并发控制对它们加以协调、控制，以保证并发操作的正确执行，并保证数据库的一致性。
+    在SQL中，并发控制采用封锁技术实现，当一个事务欲对某个数据对象操作时，可申请对该对象加锁，取得对数据对象的一定控制，以限制其他事务对该对象的操作。其语句格式为：
+                                  |SHARE       |
+    LOCK TABLE 表名（或表名集合）IN |EXCLUSVE    |MODE ［NOWAIT]
+                                  |SHARE UPDATE|
+    其中，表名（或表名集合）中指出封锁对象，若为多个表名，则各个表名间以“，”相隔；任选项NOWAIT表示多个用户要求封锁相同的关系时，后来提出的要求会被立即退回去，否则会等待该资源释放。
+    SHARE表示共享封锁方式；EXCLUSIVE表示独占封锁方式；SHARE  UPDAE表示共享更新封锁方式。其中共享封锁方式允许其他事务读同一数据，但防止其他事务对已封锁的表进行更新，该锁主要防止在表的两次查询之间对该表的改动；共享更新封锁SHARE  UPDATE是一个行封锁机制，它可改善表级封锁的并行性，它能允许并发事务读和修改一个表中的不同的行；独占封锁方式EXCLUSIVE禁止其他事务获得一个共享锁且禁止其他事务执行任何数据操作语句，即一旦某个运行事务对某个数据对象施加了排它锁，则其他任何事务都不能再对该数据对象施加任何方式的锁，只有处于等待状态。如果不想无限等待，则选择NOWAIT。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

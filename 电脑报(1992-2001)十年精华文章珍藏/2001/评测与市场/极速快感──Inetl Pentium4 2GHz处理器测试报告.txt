@@ -1,0 +1,62 @@
+极速快感──Inetl Pentium4 2GHz处理器测试报告
+
+电脑报评测实验室 
+2001年 35期
+
+在个人电脑诞生的第二十个年头里一直作为微处理器的发明者和行业领导者的Intel于2001年8月27日发布有史以来主频最高的微处理——Intel Pentium4 2GHz 处理器。这不仅标志着个人电脑又一个GHz时代的来临，同时也表明了Intel与AMD争夺个人电脑处理器性能之王桂冠的大战已经上演。
+　　#1●Intel Pentium4 2GHz处理器
+　　Intel Pentium4 2GHz 处理器拥有20级超级流水线执行管道（Hyper Pipelined），内置有8KB数据+12KB执行跟踪缓存（Execution Track Cache）的一级缓存和256位256KB全速二级缓存（On-Die Advanced Transfer Cache）。拥有强大的快速执行引擎（Rapid Execution Engine）的算术逻辑单元（ALU），支持MMX+SSE+SSE 2多媒体指令集，全新的144条SIMD指令，可进行两组64位整数/双精度浮点SIMD操作。采用类似QDR（4倍数据率）的技术，以物理100MHz系统总线速率来实现400MHz总线带宽的效果，提供3.2GB/S的数据传输带宽。
+　　这块Intel Pentium4 2GHz 处理器采用了Intel最新的micro PGA-478（简称mPGA-478）封装，在其HIS（整合散热器）封盖上还印有“confidential（机密）”的字样很明显是工程样品。经测试和多方认证，我们发现这款Pentium 4 2GHz处理器仍然了采用现行的Willamette内核，0.18微米的工艺，只是将封装形式改为Intel处理器的未来的主流封装方式——mPGA-478封装，以适应日后更高主频发展的需要。同时我们也被告之，478针脚和423针脚的Pentium4 2GHz处理器目前均已上市，不过都是采用的0.18微米的工艺。而采用新一代的NorthWood内核并使用0.13微米工艺的Pentium4处理器还需要等一两个月时间才能上市。（^35080201a^）
+　　看来423针脚和478针脚这两种Pentium4处理器已经全部正式出台，很明显我们将面临一个Pentium4处理器的过渡期。类似当年Slot和Socket之间的过渡，也许从1.4GHz到2.0GHz之间的全部产品都将出现两个接口的版本。
+　　对于Willamette内核来说，达到2GHz以上的主频并非难事，但其后续性能的提升可能性不大，很难重现前面线性增长的辉煌，因此2GHz左右应该可以算是这个Willamette内核的最佳性能点了。不过NorthWood内核的Pentium4处理器可能不会出Socket 423版本。因此建议在近期选购Pentium4处理器时优先考虑Socket 478接口的版本，以保证日后的升级，因为Socket 478针脚是Intel下一代Pentium4处理器的接口形式。mPGA封装比3层式PGA封装减少了最底层绿色的FR4转接基板，使得管脚引线大幅缩短，并在一定程度上降低线损和信号噪音的产生。同时也新增大量的屏蔽地线，为今后更高主频的CPU提供更加稳定的环境支持。
+　　#1●Intel D850MD主板
+　　Intel的i850芯片组是最早支持Pentium 4的芯片组，由于它使用价格高昂的Rambus RDRAM内存，一直未能让市场接受。虽然目前的Rambus内存价格已经有显著下跌，但是其价格仍然高于DDR内存。Intel一直是全球十大的主板制造商之一，其主板工艺先进，用料精良，因此价格比较高。
+　　Intel的D850MD是目前市面上第一款支持Socket 478 Pentium 4处理器的i850主板。这块D850MD被称为 Intel Desktop Board（桌面主板），表面它是专为桌面系统设计的主板。由于采用Micro-ATX的构架，集成度很高AC’97音效和10/100Mbps以太网卡功能都提供在主板上面，PCI插槽的数量只有3个，CNR插槽也省略掉了。因此后挡板布局和通用的ATX规格不同，Intel在包装中附带了该主板专用的机箱后挡板。这款主板提供的USB接口达到了4个，并且可支持USB2.0规范在PCI插槽前面预留有一块位置用来安装USB2.0控制芯片。主板提供了4根Rubus RDRAM插槽，最高可支持2048MB容量的内存，而且在北桥芯片上安装了一个巨大的散热片并用扣件压在芯片上。
+　　Intel D850MD主板的采用三相电源设计不过并没有按照Intel的Pentium4处理器电源规范那样提供P8电源插座，除了传统的ATX 2.1插头之外，就只有一个4口的辅助电源插头。不过在其他厂家的绝大多数Pentium4处理器主板上，这3个插头对应的插座都有提供的，但是在D850MD上P8电源插座却被省掉了。不过在测试当中，2GHz Pentium4运行稳定，并没有发现什么问题。显然，P8电源插座对于Micro-ATX主板来讲可能不再是必需的。
+　　#1●性能测试
+　　现在Pentium4已经达到了2.0GHz，AMD的Tunderbird目前最高只有1.4GHz，在时钟频率竞赛上显然处于不利的位置。所以我们进行这次测试的目的不仅仅要全面了解Intel Pentium4 2GHz 处理器的性能，同时也想知道AMD是否在性能比赛中已经落后于Intel。
+　　我们将通过测试考查Intel Pentium4 2GHz处理器和AMD Tunderbird 1.33GMHz的整体商业办公应用性能、浮点性能\ D3D和OpenGL游戏性能。测试过程中，两块主板内存外频都设定在133MHz上，Intel Pentium4处理器的外频为100MHzAMD Thunderbird处理器的外频为133MHz。而且BIOS中内存CAS参数都被设定为2.5，Windows的显示频率设定为1024×768@16bit色深，刷新率为85Hz。
+　　我们采用ZD Media的Business Winstone2001、Content Creation Winstone2001和BAPC的SYS MARK2001来对考查处理器在商业办公应用方面的性能。而子系统性能测试方面，我们采用了WinBench99和SiSoft Sandra 2001 Perfessional进行测试。SiSoft Sandra 2001 Perfessional的CPU Dhrystone、FPU Whetstone和处理器多媒体应用测试都是针对处理器的整数性能和浮点性能的测试项目。WinBench99的Business Disk WinMark和High-End Disk WinMark则是考查IDE磁盘子系统性能的测试项目。而Business Graphics WinMark和High-End Graphics WinMark则着重考查处理器与AGP显卡、内存配合表现出来的2D性能。SiSoft Sandra 2001 Perfessional的ALU/Memory Bandwidth和FPU/Memory Bandwidth测试成绩将直接反映出处理器在内存带宽方面的影响。游戏性能则使用了3D Mark2001和Quake3来测试处理器在D3D以及OpenGL游戏下的性能应用表现。
+　　○测试平台配置和驱动程序
+　　内存：Viking PC800 Rambus RDRAM 256MB
+　　主板：Intel D850MD
+　　对比CPU：AMD Tunderbird 1.33GHz（133MHz外频）
+　　对比内存：PC2100 128MB DDR SDRAM×1（CL=2.5）
+　　对比主板：Legend KD7-A
+　　显卡：WinFast GeForce3 64MB DDR SGRAM
+　　硬盘：Maxtor DiamondMax Plus 45 46.1GB
+　　光驱：SONY DDU-1211 12X DVD-ROM
+　　彩显：LG 795FT Puls
+　　驱动软件：
+　　English Windows 98 SE with Direct X 8.0a
+　　nVIDIA Detonator v12.41
+　　Intel i850
+　　Intel（R） Chipset Software Utility v2.80
+　　Intel（R） Ultra ATA Storage Driver v6.1
+　　VIA KT266：
+　　VIA 4 in 1 Service Pack v4.32a
+　　测试软件：
+　　3D Mark 2001
+　　ZD Business Winstone2001v1.0
+　　ZD Content Creation Winstone2001 v1.0
+　　SiSoft Sandra2000 v7.0
+　　SysMark2001 v1.0
+　　WCPU v3.0
+　　Quake3 DEMO001
+　　○商业和办公应用性能测试
+　　对Intel Pentium4 2GHz商业和办公应用性能的测试我们使用了业界常用的Content Creation Winstone2000和Business Winstone 2001。前者强调多任务多进程的运行环境，系统的整体负荷极高，能比较真实反映电脑在商业和办公环境下的操作使用的性能同时也能测试出处理器能力的高低。从测试的情况来看，由于商业应用受磁盘性能限制不小这些处理器的能力都因只跑普通商业应用而被埋没了。因此测试的成绩Pentium4 2GHz只是稍微比Thunderbird 1.33Ghz领先一些。看来在整数运算性能方面，Intel Pentium4和AMD Thunderbird差不多处于同一水平。
+　　SysMark 2001的基准测试主要通过模拟目前最普及的商业办公和Internet内容创作软件中运行的一系列脚本衡量系统的性能好坏。由于它的执行速度要低于Content Creation 2001或者Business Winstone 2001，这减轻了硬盘的压力并且使处理器在决定最终得分时拥有决断的能力强调了CPU和平台之间的搭配性能。
+　　SYSMark 2001的两项测试成绩表明，Pentium4 2GHz比Thunderbird 1.33GHz整体性能表现要好得多因此得分远远高于Thunderbird 1.33GHz。这主要归功于系统总线和RDRAM吞吐能力提供的高带宽使得Intel Pentium42GHz的性能得以充分发挥。
+　　○子系统性能
+　　在WCPUID检测结果中我们可以清楚的看到这两款的前端总线和内存带宽之间的差别Intel Pentium4 2GHz为99.7MHz和398.79MHz，AMD Thunderbird 1.33GHz为133.67MHz和267.34MHz。SiSoft Sandra2001的测试结果比较明显，在ALU/RAM和FPU/RAM系统内存带宽相关的两项中，我们看到，Pentium4 2GHz得分比Thunderbird 1.33GHz得分高出近一倍。这也是Pentium4 2GHz的优势所在因为400MHz的系统总线速度，将来在CPU往更高速发展时，对性能提升起到重要的作用。（^35080201b^）
+　　○D3D和游戏的性能
+　　在D3D和游戏的测试中Intel Pentium4大获全胜。获胜的原因很简单由于其带宽的优势所以在对带宽有很高要求的多媒体方面和内容创作程序中的应用自如发挥出了其强大性能。不过Thunderbird 1.33GHz的成绩也并不示弱。
+　　#1●结论
+　　从目前的测试结果看来并参照市场价格而言，性价比最好的处理器还是AMD的，不过Intel Pentium4处理器的优势正在逐步快速地发挥出来。
+　　目前的Pentium4处理器不仅仅是在处理器频率上面快于AMD Thunderbird处理器，而且在性能上的竞争优势也大大加强了。更重要的是此次Intel发布的2GHz的Willamette内核的最高版本Pentium4处理器启用Socket 478接口，不但可以将Willamette内核的性能发挥到一个最佳的状态，更为日后新一代Pentium4处理器NorthWood内核面世埋下了附笔。
+　　如果将Pentium4处理器的外频速度提升到133MHz并采用Northwood的核心通过P4特有的4倍频技术，系统频率能提升到533MHz。那么Pentium4处理器不仅整体性能和最佳工作频率将又有进一步的提升还能拥更低廉的成本。加上Intel Pentium4处理器本身优秀的散热系统以及即将现身的更高主频的Pentium4处理器这一切都将使得AMD与Intel的之间的斗争更加白热化。（^35080201c^）
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,39 @@
+给网站安个门铃
+
+周少军 
+2001年 9期
+
+    你是否想在你的网站上安个门铃？当网友来到你的网上家园做客时，你家的门铃就会欢快地响起来。通过这个神奇的门铃，你可以和前来做客的网友们聊天吹牛，网友们也可以邀请你与他们交谈，大家的网络即时交流不需要借助第三方聊天工具。通过这个可爱的门铃，你还可以知道来访者以下的一些信息：来访的人数、来访者的IP地址、来访者使用的浏览器类型、来访者正在浏览的网页、来访者浏览过的网页总数、来访者在当前网页停留的时间以及在网站中逗留的时间，这个神奇门铃就是HumanClick。HumanClick是一款共享软件，当前版本2.1 Beta build 2223，文件大小2.44MB，试用期限15天，下载地址http://www.humanclick.com。
+　　#1    一、软件的注册
+　　    HumanClick必须经过注册（为网站申请一个ID号码）才能够使用。软件安装完毕后，紧接着会出现一个注册向导。
+　　    第一步 选择注册的方式：如果你是第一次注册，请选择“First operator registration”项；如果你的站点已经取得了一个ID号码，而你还想为该站点申请另外的一个ID号码，请选择“Additional operator registration”项（一个HumanClick号码只能对应一个站点，如果你需要在不同的机器中使用HumanClick监控同一个网站，必须为该站点另外申请HumanClick号码）。
+　　    第二步（以下是第一次注册的步骤）填写个人信息：输入昵称和E-mail地址。
+　　    第三步 填写站点信息：输入站点的地址（URL）和管理员密码（使用该软件监控站点的密码），其中站点地址必须包含网站首页的文件名，如http://skytime.yeah.net/index.html。
+　　    第四步 选择网络连接方式：拨号上网或者通过局域网联入Internet。
+　　    第五步 完成注册：首先拨号上网，然后选中“My computer in now online”项，点击“下一步” 按钮，很快HumanClick的服务器就会给你分配一个ID号码。注册完毕后，向导会询问你是否添加HumanClick按钮到网页上，此时最好不要马上进行HumanClick按钮的添加，因为这里有些步骤可以离线进行，建议你选择“I will add the HumanClick Button later”项，这样多少能够省些网费。
+　　#1    二、 添加HumanClick按钮
+　　    只有把 HumanClick按钮添加到需要监控的网页上，HumanClick那些迷人的功能才能够生效。点击菜单栏“Tools”下拉菜单中的“Add HumanClick Button”项，弹出HumanClick按钮添加向导，在这里可以选择自动添加或者手工添加。如果你希望在网站的每一个网页中都嵌入HumanClick按钮，也就是说你希望能够随时了解网站中每一个网页访问的情况并可以随时和在任何一个页面中浏览的网友聊天，推荐选择“Automatically embed the HumanClick  Button”项；如果你只希望在网站中为数不多的页面嵌入HumanClick按钮，则推荐选择“Manually embed the HumanClick Button”项。下面分别介绍一下两种嵌入方式。
+　　    1.自动的嵌入方式
+　　    第一步 输入你上传主页的账号和密码。
+　　    第二步 输入站点的URL（包括首页的文件名）以及你网站所在服务器的地址，如中原风个人主页的FTP Host是“grwy.online.ha.cn”。
+　　    第三步 选择按钮的来源，可以进行定制（试用版该功能被禁），也可以直接调用现有的按钮。
+　　    第四步 设置按钮的风格：首先选择按钮所显示的语言，可选的语言包括英语、法语和德语等10种语言，遗憾的是目前的版本还不支持中文。接下来我们选择按钮的类型，这里共有5大类40个小类可供选择。
+　　    第五步 开始进行自动嵌入：拨号上网，选中“Go ahead， Start the embedding process”项，HumanClick便会把所需的HTML标签自动插入网站的所有页面中。
+　　    2.手工嵌入方式
+　　    第一步 选择按钮的来源，该步骤和自动嵌入中的第三步相同。
+　　    第二步 设置按钮的风格，该步骤和自动嵌入中的第四步相同。
+　　    第三步 添加标签到指定的网页：把“Human Click Button” 下的标签（<!-- BEGIN HumanClick Button Code --><table border=＇0＇ cellspacing=＇0＇ cellpadding=＇0＇><tr><td align=＇center＇><a href=＇http://hc2.humanclick.com/hc/1849895/?cmd=file&file=visitorWantsToChat&site=1849895&byhref=1＇ target=＇chat1849895＇ onClick="window.open（＇http://hc2.humanclick.com/hc/1849895/?cmd=file&file=visitorWantsToChat&site=1849895＇，＇chat1849895＇，＇width=419，height=320＇）;return false;"><img src=＇http://hc2.humanclick.com/hc/1849895/?cmd=repstate&site=1849895&category=en;general;set-c&ver=1＇ name=＇hcIcon＇ width=113 height=59 border=0></a></td></tr><tr><td align=＇center＇><a href=＇http://hc2.humanclick.com/hc/1849895/?cmd=PoweredByPage&site=1849895＇ target=＇_top＇><img src=＇http://hc2.humanclick.com/hc/1849895/?cmd=hccredit&site=1849895＇ width=106 height=35 border=0></a></td></tr></table><!-- END HumanClick Button code -->）粘贴到网页中合适的位置（你希望按钮显示在什么地方就把这段代码粘贴到什么地方）； 把“Human Click Monitor” 项下的标签（<!-- BEGIN HumanTag Monitor. DO NOT MOVE! MUST BE PLACED JUST BEFORE THE /BODY TAG --><script language=＇javascript＇ src=＇http://hc2.humanclick.com/hc/1849895/x.js?cmd=file&file=chatScript3&site=1849895&category=en;general;set-c＇> </script><!-- END HumanTag Monitor. DO NOT MOVE! MUST BE PLACED JUST BEFORE THE /BODY TAG -->）粘贴到<BODY>…</BODY>标签的前面，该段代码用于跟踪来访者的行踪。
+　　    第四步 上传主页：使用主页上传软件把添加了HTML代码的网页上传到你的站点，覆盖原来的网页。
+　　    应该说采用自动的嵌入方式和采用手工的嵌入方式各有优缺点。采用自动的嵌入方式方便快捷，但用户必须向HumanClick的服务器提供站点的账号和密码，把这样绝密的信息拱手送人实在是有些不安全；采用手工的嵌入方式虽然效率不高，操作起来也比较麻烦，但不需要我们提供站点的账号和密码，累是累了些，但心里踏实。到此为止，我们的前期准备工作全部完成，接下来就可以与来访的客人进行亲密交流了。
+　　#1    三、软件的使用
+　　    1.来访者与站长聊天
+　　    网页中的代码成功地添加之后，你在网页中就可以看到HumanClick的按钮了。根据你当前的状态是在线、离线或暂时离开，按钮会显示出不同的图形。当你在线时，来访者点击HumanClick按钮，在网页上就会出现一个聊天窗口（^09040401a^1），同时在你的桌面上会弹出一个信息提示框，告诉你××（显示为IP地址）想与你交谈，如果你愿意接受邀请，请点击“是”按钮，否则点击“否”按钮。如果你暂时离开了或者不在线，来访者点击HumanClick按钮，就会出现一个邮件撰写窗口（^09040401b^2），这里的邮件发送功能和网页中常见的E-mail地址链接不同，因为当点击网页中的E-mail链接时会调出默认的E-mail客户端软件，需要通过该软件才能把邮件发出去，而在这里，来访者只须在邮件撰写窗口中把信写好，然后点击“Send”按钮就把可以把信发出去。
+　　    2.站长与来访者聊天
+　　    当有客人来到你的站点时，系统托盘中那个可爱的小铃铛就会响起来。点击小铃铛，弹出HumanClick主窗口（^09040401c^3）。在该窗口中，你可以了解到来访者的详细信息。如果你想与某个来访者交谈，请选中列表框中的来访者，然后点击“Chat”按钮，在网页上马上会出现一个会动的卡通人物（^09040401d^4），这就是你站长大人的化身，来访者只要点击悬浮在卡通人物身边的“Click to chat”，你们就可以进行网络即时聊天了。
+　　#1    四、结语
+　　    应该说HumanClick是一款非常实用的网络交互软件，它为站长和来访者搭起了一座友谊的桥梁。通过HumanClick，来访者能够方便地向站长提出对网站建设的建议，而站长则能够通过与来访者的交流，搜集到对于网站建设极为宝贵的第一手资料。此外，站长通过HumanClick显示出的访客信息，能够了解到自己网站中的哪些网页比较受欢迎，哪些网页不太受欢迎，这样，站长可以根据这些绝对真实的第一手资料及时地调整网站的内容，以满足网友们的需求。尽管HumanClick是一款非常优秀的软件，但它仍有令人不满意的地方，那就是不能够很好地支持中文，用中文和网友聊天，会出现乱码。希望HumanClick早日推出能够支持中文的版本。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

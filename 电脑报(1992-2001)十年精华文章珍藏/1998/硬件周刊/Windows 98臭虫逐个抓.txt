@@ -1,0 +1,40 @@
+Windows 98臭虫逐个抓
+
+陈三公子
+1998年 第42期 09版
+
+    微软毕竟是微软， 虽然Windows98宣传攻势不如Windows95那般凌厉，Windows98仍然迅速地占领了大多数的个人电脑。从三公子的主页上第一次有使用Windows98访客的出现到现在半数以上访客使用Windows98平台，不过短短个把月时间。看来Windows98取代Windows95不过是时间问题了。三公子不由心动，于是也开始准备踏入Windows98的窗槛。
+　　和Windows 95出现时一样，Windows 98带来了不少的新技术新标准，ONNow等新名词一下子出现在网上各个角落。不幸也和当年Windows95初出茅庐时一样，Windows98相当脆弱，对于各类软件硬件方面的问题时有所闻。为了顺利过渡，三公子特地找来了大量资料，搞出了这么一份Windows 98杀虫手册，帮助各位。
+　　好了，开始抓虫子吧！对了，为了让各位能够将BUG消息及时通知小弟，特地申请了一个4MB的邮箱Chen3@188.net，大家可以发到这个信箱或者以前的Chen3@kali.com.cn。
+#1硬件篇
+　　虽然Windows 98的卖点之一是对更多的硬件的直接支持，它自身附带了数目惊人的驱动程序库，大大超过Windows95。然而被抨击得最多的恐怕也是Windows98对硬件的“苛刻”要求了吧。使用Windows 98中的添加新硬件功能时，可能会导致死机，微软认为这是因为98对于部分主板不支持导致的，只有通过升级BIOS解决。
+　　已发现的问题中最大的一个是对于笔记本电脑ACPI的不兼容，许多相关生产厂商在网站上发布了类似声明，其中包括业界巨头Compaq、Dell、Gateway、IBM、和Toshiba。
+　　Compaq: 如果你在Compaq Presario机上升级到Windows 98，那么你将会得到一条信息告诉你在DOS模式下不支持光驱。
+    Dell: 我们的Latitude CP、Latitude Cpi、Latitude XPi CD、Latitude XPiCD MMX、Latitude XPi P133、Latitude LM、Latitude LM MMX能够升级到Windows 98，但是Dell建议你不要这么做。
+　　Gateway:部分的Solo 9100笔记本电脑不能被升级到Windows98，除非将其BIOS升级为最新版本。
+　　IBM: Windows 98对于ACPI的支持存在严重的问题，这个问题直接影响了ThinkPad 600，770E，和770ED型笔记本电脑。
+　　Toshiba: 存在ACPI方面的问题。 使用Toshiba 100CT，305CDS，310C，320CT，320C，330C，490CDT，490XCDT，550CDT，750CDT，750CDM/DVD，和780CDM/DVD笔记本电脑的用户必须等待新版本的BIOS才可以升级。
+　　除了这些大厂商的报告，很多私人用户也指出了不少问题。由于这些私人用户的言论没有经过专门测试，无法保证其准确性，所以这儿三公子就不赘述了，但是留给小弟的一个很强烈的印象是很多硬件问题出在BIOS上，所以安装一份最新版本的BIOS对Windows98来说是非常重要的。如果有可能，小弟推荐各位最好在安装Windows98之前准备所有硬件的最新驱动程序。当然，如果有条件，事先到硬件生产厂商的站点转转，看看他们的信息也可以避免不少麻烦。
+#1软件篇
+　　目前一种比较流行的说法，Windows 98是修复Windows95 BUG后的产品，许多所谓的新特色都曾是在Windows95中出现过。比如大硬盘使用的32位文件分配表在Windows 95 OSR2（Windows 97）中早已出现，而作为卖点之一的网络集成、Active Desktop本是IE4.0的特色之一。据称这次Windows 98修正了近6，000个Windows 95的BUG，可惜的是在解决旧BUG的同时，Windows 98也产生了新的BUG。 
+　　问题一：Windows 98 Beta版本在播放·AVI文件时可能会提示错误信息。 如果你想看·AVI文件的属性，可能会获得如下信息：“EXPLORER caused an exception 03 in module MSVFW32.DLL at <内存地址>。”
+　　解决方法：重新安装Msvideo.dll， Mciavi.drv， 和Dciman.dll文件。具体做法是在Windows 98中重新运行Windows 98安装程序，选择“Copy all the files again”。
+    问题二：如果你在Windows 98中设定超过了300个以上的共享文件夹，那么重新启动电脑后，部分共享文件夹在“资源管理器”和“我的电脑”里会错误显示为普通目录图标，而非一只手的共享目录图标。减少共享文件夹的数量是目前唯一的解决办法。
+    问题三：微软指出，如果你在使用微软兼容ISP/SPX协议的同时运行USETSR.EXE程序，Windows 98可能会停止响应。解决方法是将USETSR.EXE来源软件包Intel LANDESK 2.0升级为2.01版本。 如果升级到Windows 98后动画鼠标无法使用，请检查一下98是否正在使用32位磁盘存取模式。微软承认，如果不使用32位磁盘存取模式将无法使用动画鼠标。你可以在“控制面板”下的“系统”中查看“系统属性”对话框以确认当前的存取模式。
+　　问题四：在使用了IBM OS/2 Boot Manager的电脑上安装Windows98时可以看到错误信息。微软解释说这样做的目的是为了安装程序在重新启动电脑后保证所运行的系统是Windows 98，以完成剩余安装过程。再次激活该分区的方法是使用Windows98附带的FDISK或者是用OS/2启动盘启动电脑，然后使用OS/2自带的FDISK。
+　　问题五：根据Campaq上的一份资料显示，在Windows 98的Accessibility选项中加大字体或者Windows边框的尺寸可能对开始菜单不起作用。Compaq说这个问题存在于任何运行Windows 98的系统中，并且认为微软已经意识到这个问题却不准备修复它。
+　　问题六：如果你从一台使用网络服务器做虚拟内存的Windows 3.x中升级到Windows 98，很可能会在安装时产生错误。安装程序在这类错误发生时自动退出，并且建议使用Scandisk修复错误。不过你也不必麻烦了，ScanDisk不会发现任何错误。这儿有一个启动参数可以解决这个问题：Setup.exe的/is参数指明程序跳过ScanDisk直接进入安装流程，所以键入“Setup.exe /is”命令启动升级过程可以绕开上述错误。
+　　问题七：在Windows 98中使用一些FAX程序时，Adobe ATM字体将不会出现在字体列表中，这些程序包括著名的WinFax， FaxWorks，  和Quick Link 2的旧版本。
+　　问题八：如果你使用的是Toshiba的产品，那么注意检查其中有没有一个Windows 3.1程序FNesse。这个程序会导致 其他程序无法正确地显示在任务栏上。如果遇到了这种情况，三公子有一个应急办法，使用Windows中一直存在的快捷键ALT＋TAB，可以方便地在各个软件之间切换，而使用ALT＋ESC则可以在各个窗口之间切换，包括文件属性等等原本就不出现在任务栏上的对话框。
+　　问题九：Microsoft Exchange Server升级到Windows 98后，Exchange和Microsoft Schedule ＋的高级工具菜单将无法工作，需要重新安装这两个软件才可以解决。
+　　问题十：在升级安装有Microsoft Office 97的Windows95之前，请先安装Office 97 Sercie Release 1，否则你将无法安装这个补丁。上网的朋友可以到http://www.microsoft.com/office/office97/servicerelease/default.asp去获取这个补丁。
+　　问题十一：有扫描仪的朋友注意，在Windows 98上安装Microtek ScanWizard 2.0b7会出错。解决的方法是在WIN.INI中的〖mpatibility〗下添加“DSHELL=0x00400000”，然后重新启动电脑。不过请注意，安装完毕后最好将它删除，以免影响到系统的整体性能。
+　　问题十二：成功升级Windows98后，WordPad和NotePad可能会无法打开文本。微软说可能是因为WIN.INI文件的只读属性造成的，但是只去掉这个属性也没有用，还需要重新安装打印驱动程序。重新安装打印驱动程序方法如下：1）打开“我的电脑”下的“打印机”，然后选中安装的打印机；2）单击鼠标右键菜单中的“属性”打开“属性”对话框；3）选中“详细资料”中的“新驱动程序”即可进入安装驱动程序窗口了。
+　　问题十三：另一个比较突出问题是部分著名软件的旧版本，无法在Windows 98的新版本下正常运行。比如上次介绍的Norton Utilities for Windows 95。不过根据三公子考证，几乎所有的这类不兼容软件都推出了新的兼容版本，所以不再详细报导。这儿也有一个例外，QuarterDeck Clean Sweep系列的Windows垃圾清除工具3.05版本，可以在Windows98中运行得相当平稳，而4.X的却不行。
+#1　　好了，大的虫子抓得差不多了，你的Windows98漂亮清爽多了吧。考虑到中国国情，所以这次放过了Windows 98在网络方面的问题，也放过了许多小虫子，不过你可以放心，微软喜欢发布Service Release版本，你看着，用不着多久你就可以获得更新包，或许不久市面上又会冒出什么新的版本叫Windows 99
+（OSRX版本）。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

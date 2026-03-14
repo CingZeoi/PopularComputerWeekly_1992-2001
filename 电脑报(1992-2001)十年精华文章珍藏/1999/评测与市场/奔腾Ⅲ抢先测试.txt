@@ -1,0 +1,60 @@
+奔腾Ⅲ抢先测试
+
+祝伟、钟建勇
+1999年 第10期 49版
+
+    从去年下半年的处理器论坛开始，Intel公司的下一代CPU Katmai及KNI技术就为大家所关注，上月底（2月26日）Intel公司在北京和美国同时正式发表了450MHz、500MHz的Katmai，并正式命名为Pentium（奔腾）Ⅲ，Pentium Ⅲ作为Intel的新一代拳头产品，同时得到了业界的积极响应，国内包括联想、海信、浪潮和实达在内的著名PC厂商也已经有相应的PC上市，不过零售市场上还很难看到，毕竟其5000多元的售价（450MHz）令绝大多数人望而生畏。我们电脑报评测实验室于日前拿到一颗500MHz的Pentium Ⅲ样品，进行了初步测试，也让大家尝尝鲜，对其性能有个初步的了解。
+#1    Pentium Ⅲ技术规格
+    Pentium Ⅲ基本内核以及二级Cache大小都和Pentium Ⅱ（Deschutes）相同，只是新增加了70条原称为KNI的多媒体指令，现在正式命名为SSE（Streaming SIMD Extensions）——单指令多数据流扩展，这些新的指令让CPU可以对多个数据同时进行浮点运算，有利于提升对3D图形、视频编码/解码以及其他一些大数据量浮点运算密集的应用程序的执行效率，像视频会议、语音识别等应用。（^104901b^）
+    尽管有人说Pentium Ⅲ和Pentium Ⅱ的差异，很像当初 Pentium MMX和Pentium 的差异，Pentium MMX和Pentium采用相同的架构，Pentium MMX只是多了内建的多媒体指令集，而Pentium Ⅲ和Pentium Ⅱ一样都是采用P6架构，Pentium Ⅲ比Pentium Ⅱ多出了SSE指令集，但SSE指令的增加远不只这些，首先，MMX主要是整数运算指令，对浮点运算密集的3D图形处理并无帮助，而且SSE重点在对CPU浮点性能的增强，并且SSE浮点指令集和3Dnow!指令集相比，最大的区别在于SSE新增了8个新的128位矢量寄存器，而3Dnow!的SIMD指令却是使用8个原有的浮点/MMX 64位寄存器，这样SSE可以有一套专有寄存器，从而把模式切换时间缩到最短，同时尽可能平行执行FP浮点运算、MMX以及SIMD指令，从而使大量使用MMX和SIMD指令的应用程序都会从这8个新的寄存器受益。但并不是有Pentium Ⅲ就一定能够加速程序的运行效率，应用程序必须专门使用SSE指令进行编程，也就是说我们目前已有的程序都将得不到Pentium Ⅲ的SSE新指令带来的一点点好处。带有3DNow！指令的K6-2在运行用3DNow！编制的应用程序时性能提升的确比较明显，但是我们也不得不承认到目前为止也没有足够多的程序针对3DNow！优化。如今，Pentium Ⅲ将面临相似的情况，我们只有在运行针对SSE优化过的程序时才能够从新指令集受益，要充分利用Pentium Ⅲ新指令的3D游戏必须在DirectX6.1或者更高版本下运行，否则也不会得到效能的提升。
+    目前Pentium Ⅲ仍然采用Pentium Ⅱ的0.25微米制造工艺，已经推出的有450MHz和500MHz两款，32kB一级Cache，其中16kB用于指令缓冲，16kB用于数据缓冲，二级Cache也是512kB，并且没有像赛扬那样集成到CPU核心芯片内，而是外置在CPU电路板上，以CPU核心频率的一半运行。（^104901a^）
+#1    Intel Pentium Ⅲ 技术规格：
+    ·0.25微米工艺；
+    ·Katmai核心，相当于增加了SSE指令集改善的Deschutes；
+    ·使用Slot 1 插槽；
+    ·512 kB外部二级cache，以CPU核心频率的一半运行，外置CPU电路板上；
+    ·采用SECC2封装；
+    ·SSE浮点SIMD指令，一个通道能够同时处理4个32位单精度浮点数字，可同时运算X86指令、浮点指令和SSE指令；
+    ·2.0V电压 ；
+    ·可以在任何Slot1主板上使用，但主板需要对BIOS进行升级，以便正确识别Pentium Ⅲ和支持正确的微代码升级；
+    ·运行时钟速度450MHz和500 MHz，有可能在2季度推出550 MHz的芯片；
+    ·DirectX 6.1或更高版本支持SSE
+#1    测试样品介绍
+    由于Pentium Ⅲ仍然采用Slot1架构，所以从我们这颗Pentium Ⅲ样品可以看到，其外观和Pentium Ⅱ非常相似，只是采用了改进的Single-Edge-Contact-Cartridge Ⅱ（SECC 2）封装，不像Pentium Ⅱ采用的SECC1封装，将整个CPU以及PCB板完全封装在里面，而SECC2是一块散热片＋风扇和另一块塑料外壳分别紧贴PCB电路板的两边，CPU电路板的外沿都露在外面，你甚至稍微选择一个角度就可以很容易地看到CPU的核心芯片以及二级Cache芯片，从测试过程来看这种封装形式较有利于散热，显然也减少了CPU封装的制造成本。据称Intel新出的Pentium Ⅱ也会使用这样的SECC2封装形式，而我们拿到的Pentium Ⅲ 500样品，其外壳上印的也是Pentium Ⅱ字样，不过这颗样品的确是Pentium Ⅲ500。在CPU外壳上我们可以看到这颗CPU的基本信息，第一行Q818ES中的“ES”表示这颗CPU是工程样品（Engineering Sample），非正式产品。中间一行是该CPU的编号，最后一排的6个数字500512，表示500MHz主频和512kB二级Cache。经测试我们发现这颗500MHz的Pentium Ⅲ已经被锁定在5倍频。哪些主板可以上Pentium Ⅲ由于Pentium Ⅲ仍然使用Slot1插槽，并且是100MHz标准外频，所以现在流行的440BX Slot1主机板以及非Intel芯片组的VIA ApolloPro/ApolloPro Plus芯片组的Slot1主机板，绝大多数仍然能够配合Pentium Ⅲ运行，除了较早期推出的主板由于在倍频方面最高只支持4倍，因而无法支持450MHz、500MHz的Pentium Ⅲ。现在新推出的BX主板、ApolloPro/Plus主板都应该可以正确识别Pentium Ⅲ。这以前的主板则必须升级BIOS，以正确识别Pentium Ⅲ。所以我们可以到各主板厂商的网站上去下载最新的BIOS，目前各大主板厂家都已经将能够识别Pentium Ⅲ的BIOS放到网站上去了。我们这次测试一共使用了四块主机板，DFI钻石的P2XBL、FIC大众的VB-601和VB-601-V、Epox磐英的BX3，其中除了VB-601-V采用的是VIA ApolloPro plus芯片组外，其余三块都是Intel 440BX芯片组的，这四款主机板都正确识别出Pentium Ⅲ，而且运行非常稳定，整个测试过程中没有出现任何异常情况。
+#1    哪些主板可以上PentiumⅢ
+　　由于PentiumⅢ仍然使用Slot1插槽，并且是100MHz标准外频，所以现在流行的440BX Slot1主机板以及非Intel芯片组的VIA ApolloPro/ApolloPro Plus芯片组的Slot1主机板，绝大多数仍然能够配合PentiumⅢ运行，除了较早期推出的主板由于在倍频方面最高只支持4倍，因而无法支持450MHz、500MHz的PentiumⅢ。现在新推出的BX主板、ApolloPro/Plus主板都应该可以正确识别PentiumⅢ。这以前的主板则必须升级BIOS，以正确识别PentiumⅢ。所以我们可以到各主板厂商的网站上去下载最新的BIOS，目前各大主板厂家都已经将能够识别PentiumⅢ的BIOS放到网站上去了。我们这次测试一共使用了四块主机板，DFI钻石的P2XBL、（^104901e^）FIC大众的VB－601和VB－601－V、（^104901d^）Epox磐英的BX3（^104901f^），其中除了VB－601－V采用的是VIA ApolloPro plus芯片组外，其余三块都是Intel 440BX芯片组的，这四款主机板都正确识别出PentiumⅢ，而且运行非常稳定，整个测试过程中没有出现任何异常情况。（^104901c^）
+#1    测试及结果分析
+    我们选取了赛扬300A（批号SL2WM）、Pentium Ⅱ300（批号SL2Q8）、Pentium Ⅱ350（批号SL2SF）三颗CPU和Pentium Ⅲ500一起测试，以检验Pentium Ⅲ的性能。由于需要对各CPU超频使用以产生不同的时钟频率，我们最后只选取了DFI P2XBL上的测试成绩作比较。
+#1    测试环境：
+    ·赛扬300A（批号SL2WM）、Pentium Ⅱ300（批号SL2Q8）、未锁频的Pentium Ⅱ350（批号SL2SF）、Pentium Ⅲ500（ID序列号）
+    ·DFI P2XBL 440BX主机板
+    ·128MB PC100 SDRAM（一条）
+    ·Quantum Fireball EX 12GB硬盘
+    ·YUAN小影霸 RivaTNT 16M SDRAM显卡
+    ·Yamaha724 PCI声卡
+    ·NE2000兼容网卡
+    ·HITACHI DVD-ROM
+    ·Microsoft Windows95OSR2.1、DirectX 6.1
+    据称nVidia TNT 的“Detonator”雷管最新驱动程序支持部分SSE指令，经比较我们发现对于Pentium Ⅱ和Pentium Ⅲ来说，在相同测试项目中“Detonator”雷管驱动程序的测试成绩都明显高于0.48版本驱动程序的成绩，看来并没有充足的理由说明雷管驱动程序的确支持SSE指令，不过在正式测试中我们还是使用了效率更高的“Detonator”雷管驱动程序。
+#1    1.ZD基准测试（^104901i^）
+    ZD Winstone99、ZD Winbench99以及3D Winbench99分别测试系统的整体性能、子系统性能以及D3D性能，不过非常遗憾这三个专业测试软件并不支持SSE指令。由于在100MHz系统频率下未锁频的Pentium Ⅱ350不能稳定地运行在5倍频下，所以我们没有能够得到Pentium Ⅱ500MHz的结果，但从从测试成绩来看，100MHz外频的Pentium Ⅲ500的测试成绩已经非常接近112MHz主频的Pentium Ⅱ504MHz，相信100MHz主频下相同频率的Pentium Ⅲ和Pentium Ⅱ在这三个基准测试软件下的成绩应该非常相似。
+#1    2.3D Mark99 MAX测试（^104901j^）
+    3D Mark99 MAX是3DMark 99的升级版本，Futuremark Corporation公司2月8日才Release出来的（下载网址http://www.3dmark.com），它是一个基于DirectX的3D游戏测试软件，也是目前唯一同时支持SSE指令优化和3DNow!指令优化的BenchMark测试软件。我们惊奇地发现100MHz外频下的Pentium Ⅲ500甚至取得了比112MHz外频Pentium Ⅱ504更好的成绩。看来3D Mark99 MAX对SSE的优化的确让Pentium Ⅲ能够比同频率的Pentium Ⅱ略占优势，但应该指出性能的提升并不明显。
+#1    3.D3D及OpenGL性能测试（^104901k^）
+    我们选择了Turok恐龙猎人、Turok恐龙猎人2和Quake2、Quake3这样的3D浮点运算密集的游戏Demo进行测试，可以直接反映出CPU在实际的游戏环境中的浮点处理能力，尤其Turok2和Quake3都是刚释放的新一代3D游戏的DEMO，Turok2支持D3D，而Quake2支持OpenGL，对显示卡以及CPU的要求都非常高。但这几个游戏都有各自独特的3D引擎，目前都还没有针对SSE指令集进行优化，所以我们从测试结果丝毫看不出相同频率的Pentium Ⅲ和Pentium Ⅱ有什么差异。
+    从整个测试过程我们可以看出，目前真正支持Pentium Ⅲ SSE浮点指令的软件还相当少，在缺乏对SSE指令优化的测试软件的情况下，Pentium Ⅲ的性能表现和同频率的Pentium Ⅱ相当，没有展示出Pentium Ⅲ的优势，即便是声称支持SSE的3D mark99 MAX也没有令Pentium Ⅲ大幅度领先，3D mark99 MAX对SSE指令的优化还不够充分。
+    目前支持SSE浮点指令的软件有：
+    Hwinfo 4.51、CyberLink PowerDVD 1.50、Adobe photo Deluxe家用版3.1、Ulead Video Studio 3.0、Photo Express 2.0、Heavy Gear Ⅱ、Ultraspeed、Powerslide等等。
+#1    4.超频能力
+    500MHz的Pentium Ⅲ，倍频锁定在5倍，要超频只能够超外频，而额定外频已经是100MHz，可以将外频超到103MHz、112MHz、124MHz以及133MHz甚至更高，尽管DFI主板提供了相当丰富的外频，但由于受内存以及PCI、AGP设备的影响，要超上124MHz都不是容易的事，所以对于Pentium Ⅲ来说超频似乎没有太大的实际意义，但对于超频玩家来说，对一颗CPU潜力的挖掘永远是最愉快的，何况即使不超频使用，了解一下Pentium Ⅲ的超频能力并大概预测即将推出的更高频率Pentium Ⅲ性能如何也是必要的。在DFI P2XBL主板上这颗Pentium Ⅲ样品可以非常稳定地运行在103MHz外频515MHz核心频率，但总体性能提升极小；超频到112MHz外频560MHz核心频率，同样非常稳定，顺利地完成了所有的测试项目，再往上超，则不稳定了，应该说Pentium Ⅲ已经表现出不错的超频能力。通过测试我们也看出，即使Pentium Ⅲ500进一步提升到560MHz，核心频率提高了10%，但性能上却只有不到5%的提升。
+    Pentium Ⅲ 550MHz预计在二季度就会上市，并且也于日前率先展示了1000MHz的Pentium Ⅲ。Pentium Ⅲ以450MHz作为起始频率，产品一上市便已经有高达1000MHz的样品，可见Intel的Pentium Ⅲ能够达到的频率范围，其频率上的潜力令人惊叹!这对AMD等其他CPU厂家来说是相当大的压力。
+#1    关于Pentium Ⅲ的序列号
+    最近对Pentium Ⅲ序列号（Serial Number）的争论非常热闹。由于Intel在Pentium Ⅲ的生产过程中，在每一个处理器硅片上都植入了一个固定的序列号，这样通过Internet就能够识别每一个使用Pentium Ⅲ电脑的用户，Intel 声称在芯片中加入序列号是为了给电子商务提供安全校验符，及帮助系统管理员在庞大的网络中跟踪每一台机器的行踪。但更多的人却担心自己的隐私会暴露在网上，用户匿名访问互联网也将不再可能。（^104901g^）
+    解决这一问题的方法有两个，一个是用软件来关闭，像Intel发布的序列号控制软件——CPU number，可以很方便地激活或关掉序列号，我们也试用了这个软件，安装和使用都非常简单，当序列号被关闭后，再开启时必须重新启动电脑才能有效。另外就是各主板厂家表示在新推出的主板中将在BIOS里面提供Pentium Ⅲ序列号开关选项，这样你就可以在BIOS中直接将Pentium Ⅲ的序列号关掉，像我们这次测试的基板FIC VB-601-V（AMI BIOS）和磐英BX3 （Award BIOS），在BIOS中就已经提供了序列号控制开关。不过这两种关闭序列号的方法是否真的就可以完全避免自己的CPU序列号被读取，还需要进一步考验。（^104901h^）
+#1    结  论
+    Pentium Ⅲ作为Intel面向主流市场，取代Pentium Ⅱ的新一代产品，尽管拥有更先进的架构和加强的浮点处理能力，但是从我们的测试来看，与Pentium Ⅱ甚至赛扬A相比，除了提供更高的时钟频率外，其SSE指令集对目前绝大多数应用程序都没有什么性能改进，Pentium Ⅲ成功的关键还在今后各软件厂商对SSE指令集的广泛支持及Pentium Ⅲ更趋合理的价格。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

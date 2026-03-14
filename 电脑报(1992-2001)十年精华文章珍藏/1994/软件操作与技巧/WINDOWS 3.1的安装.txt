@@ -1,0 +1,70 @@
+WINDOWS 3.1的安装
+
+曹国钧
+1994-10-21
+
+        1.运行WINDOWS的最小配置
+        在安装之前，要保证PC系统具有运行WINDOWS3.1所需要的软硬件资源，下面给出运行WINDOWS所需要的最小配置：
+        ▲一台IBM兼容机，该机的处理器必须支持用户所安装的WINDOWS版本。处理器要求是80286以上，且至少要求有1MB的内存，其中至少要有256KB的扩展内存。
+        ▲WINDOWS的应用程序、字库和“Clip art”要使用很大的硬盘空间，因此，硬盘空间至少为80MB才能很好地运行WINDOWS 3.1系统。
+        ▲MS DOS3.1以上版本，最好是MSDOS 5.0以上版本。
+        ▲WINDOWS支持的鼠标定位器。虽然对此并不要求一定有，但有了它以后，可以更为有效地使用WINDOWS的图形接口。
+        ▲若需要使用WINDOWS的Terminal窗口通信软件，则必须安装与Hayes兼容的调制解调器。
+        ▲一只任选的光笔。WINDOWS的应用程序可以使用光笔，而不必在应用程序中指明，如Object Vision等。
+        ▲支持多媒体，可以选用与MPC兼容的CD-ROM系统或带放大器及扬声器的MPC兼容的语音卡，如声霸卡、魔卡(ADLIB)等。
+        为了充分发挥WINDOWS的强大功能，用户的主机应当选用386以上，且带有4MB内存，其中3MB是扩展内存。
+        2.安装前的预处理工作
+        (1)删除硬盘上的不再使用的文件，这样可提高系统运行的效率，尤其是存放临时文件的子目录\TEMP，更应如此。
+        (2)应保证在AUTOEXEC.BAT文件中没有使用DOS的APPEND、JOIN、GRAPHICS、FASTOPEN、PRINT或SHARE.EXE等TSR命令。若在AUTOEXEC.BAT中确实有以上TSR命令，则把它们从AUTOEXEC.BAT中删除或在它们程序行上加上REM，把它们变成注释行。
+        (3)把CONFIG.SYS文件与运行WINDOWS的无关的设备驱动程序删除掉，如删除所有病毒检测程序，CD-ROM驱动程序，语音卡驱动程序或其它无用的驱动程序，还要删除特定的磁盘驱动程序，如SCSIHI.SYS等；对于与WINDOWS能共存的TSR程序的有关信息，可参看WINDOWS的SETUP盘上的SETUP.TXT文档和SETUP.INF文件的和段的内容；在安装时，若在SETUP后面加上/T参数，也能分析当前系统中运行的TSR程序。
+        (4)定义TEMP目录。
+        WINDOWS和许多DOS的应用程序使用临时子目录\TEMP来存储中间数据，在AUTOEXEC.BAT中可加入如下两行满足该要求：
+        SET TEMP+C:\TEMP
+        SET TMP+C:\TEMP
+        (5)用CHKDSK或NDD程序清除丢失的簇。
+        MS WINDOWS或MSDOS使用磁盘的FAT来存储文件信息，使用CHKDSK /F或NORTON的NDD磁盘医生可将硬盘上已丢失的簇收回，以释放硬盘空闲空间。
+        (6)压缩磁盘。
+        为了提高磁盘的操作效率，应对磁盘进行压缩处理，这样可保证磁盘上的文件所用的簇在磁盘上是连续分布的，同时，这也为WINDOWS的386增强模式建立永久性文件提供了保证，因为永久性文件所用的磁盘空间必须由物理上连续的簇构成。用户可采用Norton的SD.EXE或PCTOOLS的COMPRESS.COM程序完成该任务。
+        二、WINDOWS 3.1的安装
+        为了安装WINDOWS 3.1系统，用户应采用新的AUTOEXEC.BAT文件和CONFIG.SYS文件来重新启动DOS系统。把WINDOWS 3.1的第一张安装盘插入软驱A中，键入A：\AEUP，然后，按照屏幕上的提示信息进行安装。在安装过程中，用户只需按F1键，即可行到安装的帮助信息。一旦WINDOWS 3.1安装完毕，就应立即执行WINDOWS的启动文件WIN.COM以检验安装是否成功。
+        在使用WINDOWS 3.1的SETUP安装程序时，将提示用户期望采用快速安装(Express SETUP)，还是常规安装(Custom SETUP)。若采用快速安装，WINDOWS将会自动检测PC硬件各种配置，并根据它检测到的情况来选择安装方式；当WINDOWS无法检测到机器的硬件配 ，则可采用常规安装，此时，SETUP程序将根据用户的指定配置来安装WINDOWS系统。在安装的最后阶段.SETUP将提示用户是否对AUTOEXEC.BAT和CONFIG.SYS进行修改，SETUP将会自动把原来的文件留一个备份。当用户的计算机使用的是OS/2操作系统时，不要让WINDOWS对这两个文件进行修改。
+        三、由WINDOWS 2.0或3.0升级到WINDOWS 3.1的方法
+        1.在WINDOWS 2.0升级为WINDOWS 3.1的问题
+        (1)在WINDOWS 2.0所在子目录中不能直接安装WINDOWS 3.0系统，可在另一个子目录\WIN31中重新安装WINDOWS 3.1系统，然后将WINDOWS 2.0的子目录中的PROGMAN.INI和组文件*.GRP拷入\WIN31中，再修改PROGMAN.INI中组文件的子目录路径。如WINDOWS 2.0中的PROGMAN.INI的内容如下：
+        ［Settings］   && PROGMAIN.EXE的初始化配置
+        ………
+        Order=12764583  &&组窗口出现的顺序
+        ………
+        ［Groups］
+        Group1=D:\WIN20\CMAINGRP.GRP
+        …………
+        Group8=D:\WIN20\VISUALBA.GRP
+        应将PROGMAN.INI中的D:\WIN20改成D:\WIN31，同时，也可在［Groups］最后面新增其它组文件，每增加一个，则［Settings］中的order数值后增加一个与其前面连续的自然数，在该例子中就是从9开始。
+        做完这些工作后，可将WINDOWS 2.0的子目录\WIN20删除，WINDOWS 3.1就可以直接使用WINDOWS 2.0所建立的窗口。
+        (2)若用户一定要在Windows 2.0所在的子目录\WIN20中安装WINDOWS 3.1系统，则必须将\WIN20中的两个文件WIN200.BIN和WIN200.OVL删除，然后在\WIN20中重新安装WINDOWS 3.1系统。
+        2.WINDOWS 3.0升级为WINDOWS 3.1的问题
+        (1)将WINDOWS 3.0备份出来，并保留*.INI，*.GRP等初始化文件，选择将WINDOWS 3.1覆盖WINDOWS 3.0的方法进行安装。在WINDOWS 3.1的第一张盘的SETUP.INI上已被建立，它用来决定安装过程。SETUP.INI是一个文本文件，它由几段组成，每一段都有一个标题，如［WIN.COPY］，在WINDOWS 3.1的安装过程中，这些段的含义如下：
+        (A)列在［WIN.COPY］，［WIN.COPY.NET］，［WIN.COPY.WIN386］和［UPDATE.FILES］中的WINDOWS 3.1系统盘中的文件将被拷贝到原WINDOWS 3.0的子目录\WIN中；
+        (B)列在［DELFILES］中的文件(在\WIN)将被删除；
+        (C)PROGRAM MANAGER程序组将根据［NEW.GROUPS］中的内容重新定义；
+        (D)查询WINDOWS的版本程序WINVER.EXE将被更新。
+        (2)在新的子目录\WIN中安装WINDOWS 3.1系统，原WINDOWS 3.0系统仍存在，用户可将WINDOWS 3.0中的*.GRP和PROGMAN.INI拷贝到WINDOWS 3.1子目录中，并根据本节1(1)的方法修改PROGMAN.INI中子目录路径。
+        四、在DRDOS 6.0中安装WINDOWS 3.1的方法
+        在DRDOS 6.0中直接安接WINDOWS 3.1系统后，重新启动WINDOWS时将显示DOS扩展错，并回到C〉状态。实际上，可采用以下方法能正常安装WINDOWS 3.1系统。
+        (1)制作MS DOS3.30系统盘；
+        (2)将安装了DRDOS 6.0系统的硬盘上的CONFIG.SYS和AUTOEXEC.BAT拷入MSDOS 3.30系统盘中，并用之启动；
+        (3)在A〉状态下向硬盘安装WINDOWS 3.1系统，安装完毕后，再用DRDOS 6.0启动系统，运行WINDOWS 3.1就正常了。
+        五、在安装WINDOWS 3.1过程中错误排除
+        1.SETUP程序总是提示你插入同一张盘片
+        若你已经按照提示要求插入了正确的盘片号而SETUP程序不能辨认，可能以下原因之一造成的：
+        (1)磁盘高速缓冲程序存储程序，如SMARTDRV程序正在对软盘进行高速磁盘缓冲存储。这可将SMARTDRV等程序从CONFIG.SYS或AUTOEXEC.BAT中删除来解决；
+        (2)系统无法接收到你已更换软盘的信息，DOS无法辨别磁盘的改变。这可在CONFIG.SYS中增加DRIVPARM命令，如在A盘中安装1.2M的WINDOWS的盘片，可在CONFIG.SYS中增加如下命令：
+        DRIVPARM=/D:0/F:1
+        2.安装过程中发生磁盘错误信息
+        若WINDOWS 3.1的盘片驱动器是完好的情况下，可能是在AUTOEXEC.BAT中有TSR程序命令，如APPEND.COM或SHARE.EXE程序。
+        3.在SETUP中得到错误信息#S020
+        该问题就发生在一个旧WINDOWS版本上安装WINDOWS 3.1系统，而旧版本所使用的WIN.INI文件太大。这可用编辑器编辑该文件，去掉不必要的程序和字体，使WIN.INI变得小一点，再重新开始安装。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

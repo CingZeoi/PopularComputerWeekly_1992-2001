@@ -1,0 +1,599 @@
+2002实用工具软件大全
+
+高渊文 
+2001年 60期
+
+    用电脑就是用软件，选用适用、好用的软件将给我们操作、使用电脑带来极大的方便。这里，我们就把目前常用的硬件调试与优化、系统加强与维护、图形图像、多媒体、上网冲浪、娱乐学习等各种类的软件中的精品介绍给你，希望对你学习、使用电脑有所帮助。
+　　#1    一、硬件
+　　#2    （一）CPU工具
+　　    · MyCPU
+　　    软件版本：1.13e（免费软件）
+　　    软件大小：46KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://www.seelhofer.ch/mad/download/mycpu113.zip
+　　    CPU性能测试软件，能够测试包括制造商、系列、型号、工作频率、Cache大小等等，资料相当完整。
+　　    · SoftFSB
+　　    软件版本：1.7 final（共享软件）
+　　    软件大小：102KB
+　　    适用平台：Win9x/NT
+　　    编辑评分：*****
+　　    下载地址：http://www.newhua.com.cn/down/sfsb17f.exe
+　　    使用SoftFSB能够使外频及PCI频率实现从66.8（33.4）MHz～153（38.3）MHz多达16种频率选择，而且不受主板跳线的限制。
+　　#2    （二）BIOS工具
+　　    · BIOSWizard
+　　    软件版本：（共享软件）
+　　    软件大小：165KB
+　　    适用平台：Win9x/NT
+　　    编辑评分：****
+　　    下载地址：http://www.unicore.com/bioswiz/
+　　    全方位了解主板信息，包括主板厂商、主板芯片组信息、BIOS版本及更新日期等信息。
+　　    · BiosPwds
+　　    软件版本：1.21（免费软件）
+　　    软件大小：127KB
+　　    适用平台：Win9x/NT
+　　    编辑评分：****
+　　    下载地址：http://www.geocities.com/SiliconValley/Network/1455/biospw12.zip
+　　    轻松获得BIOS密码。
+　　    · 技嘉@BIOS Writer
+　　    软件版本：1.08（免费软件）
+　　    软件大小：439KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.gigabyte.com.tw/home/a_bios.htm
+　　    技嘉的BIOS升级程序，支持Windows下升级主板BIOS，当然也能用于其他品牌主板的BIOS升级。
+　　#2    （三）内存工具
+　　    · CTSPD
+　　    软件版本：0.9.2（共享软件）
+　　    软件大小：756KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：ftp://ftp.heise.de/pub/ct/ctsi/ctspd092.zip
+　　    准确全面地显示内存的SPD信息，有助于辨别真假。
+　　    · WinRamTurbo
+　　    软件版本：Pro 4.20（共享软件）
+　　    软件大小：928KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://winramturbo.com/wrtp42t.zip
+　　    非常不错的内存管理优化软件。
+　　#2    （四）磁盘工具
+　　    · PartitionMagic
+　　    软件版本：7.0
+　　    软件大小：22691KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.powerquest.com/demos/PartitionMagic/ENPartitionMagic7.exe
+　　    非常优秀的硬盘分区工具最新版，可以在Windows下完成多种对分区的操作。
+　　    · VoptMe
+　　    软件版本：6.2
+　　    软件大小：1788 KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.goldenbow.com/download/voptmed.htm
+　　    很好的磁盘整理软件，比Windows内附的磁盘整理程序更为快捷。
+　　#2    （五）显卡工具
+　　    · PowerStrip
+　　    软件版本：3.02（共享软件）
+　　    软件大小：569KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http:// 168.144.101.149/ftp/pstrip.exe
+　　    功能非常强劲的显示卡、屏幕设置工具，包括了显卡超频、优化等一系列实用的功能。
+　　    · RivaTuner
+　　    软件版本：2.0 RC6（共享软件）
+　　    软件大小：566KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.guru3d.com/rivatuner/
+　　    nVIDIA系列显卡最强有力的设置、调整工具。
+　　    · RadeonTweaker
+　　    软件版本：1.1.96 Development（共享软件）
+　　    软件大小：716KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://prdownloads.sourceforge.net/radeontweaker/RadeonTweaker-1.1.96.zip
+　　    ATI的Radeon系列显示卡的优化、微调工具，并且还是开放原始码的。
+　　    · 3Dmark 2001
+　　    软件版本：1.0（共享软件）
+　　    软件大小：38921KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://newhua.infosail.com/down/3DMark2001.exe
+　　    3Dmark 2001是你显卡、整机3D性能系统全面的测试工具。
+　　#2    （六）显示器
+　　    · Nokia Monitor Test
+　　    软件版本：1.0（共享软件）
+　　    软件大小：577KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://file2.mydrivers.com/tools/tweak/Ntest.exe
+　　    很好的显示器测试、助调软件，可以帮助你选购显示器。
+　　#2    （七）光盘工具
+　　    · Nero DriveSpeed
+　　    软件版本：1.5（共享软件）
+　　    软件大小：123KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.cdspeed2000.com/files/NeroDriveSpeed_150.zip
+　　    该软件可以让你设定光驱的读取速度，以便加强光驱的工作效率。
+　　    · Virtual Drive 2000
+　　    软件版本：6.11a（共享软件）
+　　    软件大小：9266KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.farstone.com
+　　    强大的虚拟光驱软件，可以支持多达20个虚拟的光驱。
+　　    · Daemon Tools
+　　    软件版本：2.88（共享软件）
+　　    软件大小：210KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.daemon-tools.com/Scripts/daemon.pl?daemon280.zip
+　　    一款很好的虚拟光驱软件，支持PS光盘虚拟。
+　　    · Nero
+　　    软件版本：5.5.4.0
+　　    软件大小：10956KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.nero.com/Nero5540.exe
+　　    很好的刻录软件，支持各种防欠载技术。
+　　#1    二、系统
+　　#2    （一）系统优化
+　　    · Windows优化大师
+　　    软件版本：4.2（共享软件）
+　　    软件大小：1331KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.wopti.com/down.htm
+　　    能够为你的系统提供全面有效而简便的优化、维护和清理手段，让你的电脑系统始终保持在最佳状态。
+　　    · 超级兔子魔法设置
+　　    软件版本：3.97
+　　    软件大小：2560KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.superrsoft.com/soft/ms397pi.zip
+　　    全面的系统设置优化软件，修改Windows易如反掌。
+　　#2    （二）垃圾清除
+　　    · Safeclean
+　　    软件版本：3.02（共享软件）
+　　    软件大小：1435KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://w1.182.telia.com/~u18202752/sfcln302.zip
+　　    优秀的文件清理软件。它的特点是可以由用户自己定义，修改所要清理的软件，而且不会在没有经用户允许之前删除任何文件，因而有非常高的安全系数。
+　　#2    （三）压缩软件
+　　    · WinZip
+　　    软件版本：8.1（共享软件）
+　　    软件大小：1740KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.winzip.com/betawz.cgi
+　　    一个强大并且易用的压缩实用程序，支持 ZIP、CAB、TAR、GZIP、MIME，以及更多格式的压缩文件。
+　　    · WinRAR
+　　    软件版本：2.90（共享软件）
+　　    软件大小：712KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://209.235.4.116/rar/wrar29b4.exe
+　　    RAR的优点是压缩率大，速度快当设置成最快压缩方式的时候，压缩包比.ZIP小，而速度却与PKZIP不相上下，更可支持非RAR压缩文件。
+　　#2    （四）加密软件
+　　    · EasyCode
+　　    软件版本：3.12.0 标准版（免费软件）
+　　    文件大小：781KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址： ftp://202.113.27.38/incoming/EasyCode/ec3120s.exe
+　　    软件介绍： EasyCode能加密所有类型的文件，是加密工具的理想选择。
+　　#2    （五）数据恢复
+　　    · EasyRecovery
+　　    软件版本：5.11
+　　    软件大小：2884KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://64.29.207.228/freesoftware/erperfus.exe
+　　    非常强大的硬盘数据恢复工具。能够帮你恢复丢失的数据以及重建文件系统。
+　　#2    （六）病毒防治
+　　    · KV3000
+　　    软件版本：46国内版
+　　    软件大小：294KB
+　　    适用平台：DOS/Win9x/Me
+　　    编辑评分：*****
+　　    下载地址：http://www.jiangmin.com.cn/file/kv3000/KV3K46.zip
+　　    功能强大的杀毒工具，和KV300+相比，KV3000在人机界面、功能的设置、杀病毒种类等都有很多改进。
+　　    · 金山毒霸2001
+　　    软件版本：4.25
+　　    软件大小：4485KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.iduba.net/download/iDUBA2001_trial.exe
+　　    金山毒霸2001可查杀超过两万种病毒家族和近百种黑客程序，具备完善实时监控（病毒防火墙）功能，支持多种压缩格式、E-mail、网络查毒，具有功能强大的定时自动查杀功能。
+　　    · 北信源VRV2001
+　　    软件版本：1.0
+　　    软件大小：2787KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.vrv.com.cn/update/vrv2001.exe
+　　    定位法查毒，启发查毒，安全队列等多项杀毒技术，优化查毒引擎。2001版采用独特的文件标记位移法，可以彻底清除系统所有病毒和邮件中的隐患。
+　　#2    （七）其他
+　　    · DirectX
+　　    软件版本：8.1（免费软件）
+　　    软件大小：11799KB
+　　    适用平台：Win9x/Me
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp1.mydown.com/home1/soft31/DX81eng.exe
+　　    微软公司最新的多媒体技术，很多运行于Windows环境的新游戏需要DirectX。
+　　    · Windows Commander
+　　    软件版本：4.54（共享软件）
+　　    文件大小：1330KB
+　　    适用平台：Win9x/NT
+　　    编辑评分：*****
+　　    下载地址：http://soft.cpatch.org/files/wc32v454.exe
+　　    一套极佳的文件管理工具，内含各种压缩与解压缩功能，非常好用。
+　　#1    三、多媒体
+　　#2    （一）图像处理
+　　    · Adobe Photoshop
+　　    软件版本：6.0
+　　    文件大小：42496KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.adobe.com/products/photoshop/tryreg.html
+　　    最著名的图像编辑处理工具。
+　　    · Ulead PhotoImpact
+　　    软件版本：6.0
+　　    文件大小：24449KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.ulead.com/pub/Trial/PI6trial/UPI6ESD_T_E1.exe
+　　    PhotoImpact提供给多媒体时代的专业影像设计者最直觉的创意空间、最方便的制作工具、及最宽广的表达形式。
+　　    · Ulead Photo Express（我行我速）
+　　    软件版本：4.0 英文版
+　　    文件大小：34113KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.ulead.com./pub/Trial/PhotoExpress4/PE4Trial_E.exe
+　　    Ulead Photo Express让你享受相片加工乐趣所需的一切：相片项目、Internet 智慧功能、创造性的效果、相片纠正、像册等等， 全部都在一个易于使用的套装软件中。
+　　    · Macromedia FreeHand
+　　    软件版本：10.0
+　　    文件大小：19210KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://download.macromedia.com/pub/freehand/esd/freehand10-trial.exe
+　　    Macromedia 公司出品的矢量做图软件，绘图功能十分强大。
+　　#2    （二）看图软件
+　　    · ACDSee
+　　    软件版本：4.0（共享软件）
+　　    软件大小：11571KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://files.acdsystems.com/english/acdsee/acdsee.exe
+　　    高性能的看图程序，支持 BMP、GIF、JPG、TGA、TIF 等各种常见的图形文件格式，图片打开速度极快。你还可以直接用它查看动画 GIF。它还可以为你的每一个目录建立一个相册。
+　　    · 豪杰大眼睛
+　　    软件版本：（共享软件）
+　　    软件大小：859KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.herosoft.com/down/down_file/bigeye.zip
+　　    中国第一个国际化图像工具软件。独创超级图网，轻松点击看遍互联，浏览速度快，图像处理简单快捷，支持多种格式，功能强大。
+　　#2    （三）图形捕捉
+　　    · SnagIt
+　　    软件版本：5.22（共享软件）
+　　    软件大小：3373KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.techsmith.com/pub/products/snagit/snagit.exe
+　　    一个强大的屏幕捕捉程序，不仅能捕捉Windows下的屏幕，也能捕捉DOS的屏幕。存盘支持的图形格式也很多。
+　　    · HyperSnapDX
+　　    软件版本：4.11（共享软件）
+　　    软件大小：2485KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.hyperionics.com/downloads/HS4Setup.exe
+　　    HyperSnap提供专业级影像效果，也可让你轻松地抓取屏幕画面。支持抓取使用DirectX技术之游戏画面及DVD，并且采用新的去背景功能让你将抓取后的图形去除不必要的背景。
+　　#2    （四）媒体播放
+　　    · Winamp
+　　    软件版本：3.0（共享软件）
+　　    软件大小：1331KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://download.nullsoft.com/winamp/client/wa3install_build443.exe
+　　    一个非常著名的高保真的音乐播放软件，可以定制界面Skins，支持增强音频视觉和音频效果的Plug-ins。
+　　    · WinDVD 2000
+　　    软件版本：3.0简体中文版
+　　    软件大小：8256KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://206.112.112.157/p005/Chs/WinDVD.exe
+　　    WinDVD是一款功能强大的DVD播放器，它组合了多种标准消费型DVD播放器的功能。
+　　    · PowerDVD
+　　    软件版本：3.0
+　　    软件大小：3219KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://cyberlink-usa.com/english/download/ftpdload/trial/powerdvd30_1116_trial.exe
+　　    PowerDVD能让你的电脑具备播放高品质电影或进行卡拉OK功能，也具有影像截取的功能，并支持多国语言。
+　　    · Microsoft Media Player
+　　    软件版本：7.1简体中文版（免费软件）
+　　    软件大小：10186KB
+　　    适用平台：Win9x/Me
+　　    编辑评分：*****
+　　    下载地址：http://mssjus.www.conxion.com/download/winmediaplayer/wmp71/7.1/w982kme/cn/mp71.exe
+　　    微软新版的媒体播放程序，几乎支持Windows下的所有多媒体文件格式。
+　　    · RealPlayer
+　　    软件版本：9.0（免费软件）
+　　    软件大小：8737KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp1.mydown.com/home2/soft30/rp9.zip
+　　    在网上收听收看实时 Audio、Video 和Flash 的最佳工具。
+　　#2    （五）媒体工具
+　　    · Ulead VideoStudio
+　　    软件版本：5.0
+　　    文件大小：35945KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp2.ulead.com/pub/Trial/VideoStudio5/UVS5TrialEng.exe
+　　    功能强大的Video影像编修工具，可以转换捕捉或录下的画面文件，并提供有超过100种的编制功能与效果。
+　　    · PowerVCR Ⅱ
+　　    软件版本：3.0（共享软件）
+　　    文件大小：8652KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://www.cyberlink-usa.com/ftpdload/trial/powervcr3_0618_Trial.exe
+　　    既能即时压缩又能直接剪辑VCD（MPEG-1）影片的纯软件系统（MPEG Encoder），让个人电脑同时具备录制及编辑影音的功能。
+　　    · RealProducer Plus
+　　    软件版本：8.51（免费软件）
+　　    文件大小：6399KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://gt.onlinedown.net/down/RealSystem_Producer_Plus_8.51_Setup.exe
+　　    由Real公司所出的Real格式文件制作工具，它可将WAV、MOV、AVI、AU、MPEG文件压制成Real影音文件（ra、rm、ram…）。
+　　    · Adobe Premiere
+　　    软件版本：6.0
+　　    文件大小：74137KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.adobe.com/products/premiere/demoreg.html
+　　    强大的视频编辑合成工具。
+　　#1    四、网络
+　　#2    （一）浏览软件
+　　    · Microsoft Internet Explorer
+　　    软件版本：6.0.2（免费软件）
+　　    文件大小：496KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://a142.ms.a.microsoft.com/f/142/1611/2h/download.microsoft.com/download/IE60/fnlrtw/ie6/W98NT42KMe/CN/ie6setup.exe
+　　    新版增加了许多功能，尤其支持DHTML方面增进不少。注意软件需要在线安装。
+　　    · NetCaptor
+　　    软件版本：6.5.0 RC1（共享软件）
+　　    文件大小：675KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://download.netcaptor.com/ncsetup.zip
+　　    方便的多网页浏览器，可以同时打开多个网页，却只使用一个窗口。
+　　    · Netscape
+　　    软件版本：6.1（免费软件）
+　　    文件大小：221KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://home.netscape.com/download/0730101/10004-en-win32-6.1-base-128_qual.html
+　　    新版本除原版本的功能外，加上了网页编辑等。
+　　#2    （二）离线浏览
+　　    · WebZip
+　　    软件版本：4.1.0.680（共享软件）
+　　    软件大小：984KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.spidersoft.com/webzip/webzip410.exe
+　　    WebZip把一个网站下载并压缩到一个单独的 ZIP 文件中，可以帮你将某个站台全部或部份之资料以ZIP格式压缩起来，可供你日后快速浏览这个网站。
+　　    · Teleport Pro
+　　    软件版本：1.29 Build（共享软件）
+　　    软件大小：872KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.tenmax.com/pro12.exe
+　　    Teleport Pro所能做的，不仅仅是离线浏览某个网页，它可以从Internet的任何地方抓回你想要的任何文件。
+　　#2    （三）上传下载
+　　    · CuteFTP
+　　    软件版本：4.2.4 Build（共享软件）
+　　    软件大小：1694KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.cuteftp.com/pub/cuteftp/cuteftp.exe
+　　    使用容易且很受欢迎的FTP软件，下载文件支持续传，可下载或上传整个目录，不会因闲置过久而被站长踢出站台。
+　　    · 网络蚂蚁NetAnts
+　　    软件版本：1.24（免费软件）
+　　    软件大小：851KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.netants.com/download/netants_gb2312.zip
+　　    网络蚂蚁是一个用来下载文件的工具，它进一步扩展了断点续传的功能，可进行多点传输。
+　　    · 网际快车FlashGet（JetCar）
+　　    软件版本：0.96a（免费软件）
+　　    软件大小：1404KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.amazesoft.com/fgf096a.zip
+　　    网际快车通过把一个文件分成几个部分同时下载可以成倍的提高速度。
+　　#2    （四）网页制作
+　　    · Macromedia Dreamweaver
+　　    软件版本：4.01
+　　    软件大小：3039KB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://download.macromedia.com/pub/dreamweaver/updates/win/drm401up.exe
+　　    Dreamweaver是我们比较常用的网页设计和网站管理工具。
+　　    · Macromedia Flash
+　　    软件版本：5.0
+　　    软件大小：18.5MB
+　　    使用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.macromedia.com/software/flash/trial/
+　　    Web动画制作软件。
+　　    · Macromedia Fireworks
+　　    软件版本：4.02
+　　    文件大小：18919KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://download.macromedia.com/pub/fireworks/updates/fw402_update.exe
+　　    真正的网页作图软件。
+　　#2    （五）网上联系
+　　    · ICQ 2000b
+　　    软件版本：4.65（免费软件）
+　　    文件大小：5206KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.icq.com/pub/ICQ_Win95_98_NT4/ICQ2000b/icq2000b.exe
+　　    网上寻呼机。ICQ是一个用户友好的通信程序，它支持在Internet上聊天、发送消息和文件等。
+　　    · QQ 2000b
+　　    软件版本：0710b（免费软件）
+　　    文件大小：2140KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://210.51.121.22/download/qq2000b0710.exe
+　　    在中国使用最广泛的网络聊天工具。
+　　#2    （六）电子邮件
+　　    · FoxMail
+　　    软件版本：4.0 Beta 2（免费软件）
+　　    文件大小：2113KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://fox.foxmail.com.cn/download/fm40b1ch.exe
+　　    是国内著名的Internet电子邮件客户端软件，支持全部的Internet电子邮件功能。
+　　#2    （七）安全反黑
+　　    · 天网防火墙个人版
+　　    软件版本：2.45 Beta（免费软件）
+　　    文件大小：1201KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://61.140.76.130/files/skynet2.45.exe
+　　    天网防火墙个人版是一套给个人电脑使用的网络安全程序，它可以帮你抵挡网络入侵和攻击，防止信息泄露。
+　　    · LockDown Millennium
+　　    软件版本：8.1（免费软件）
+　　    文件大小：2416KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://updates.lockdowncorp.com/lockdownmillennium.exe
+　　    LockDown 2000可以安全保护计算机在未经许可下访问该计算机，这样所有的BO病毒对你无法构成威胁。
+　　#2    （八）上网辅助
+　　    · 仙剑书签
+　　    软件版本：5.09（免费软件）
+　　    文件大小：4167KB
+　　    适用平台：Win9x/Me/NT
+　　    编辑评分：*****
+　　    下载地址：http://ftp.enet.com.cn/pub/network/bookmark/SetupFullxianjianV5.09.exe
+　　    仙剑书签是一款优秀的书签管理软件，装上仙剑书签，你会发现还有如此多的热门网站居然没去看。
+　　#2    （九）网管软件
+　　    · 美萍电脑安全卫士
+　　    软件版本：8.4 标准版
+　　    文件大小：582KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.mpsoft.net/smenu84s.exe
+　　    美萍电脑安全卫士是最实用的网吧、学校机房安全保护、计费管理软件，需要在每台会员机上安装。
+　　    · 美萍网管大师
+　　    软件版本：6.90
+　　    文件大小：395K
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.mpsoft.net/scon69.exe
+　　    “美萍网管大师”软件是配合美萍电脑安全卫士进行网络集中管理而使用的，它集实时计时、计费、计帐于一体，利用一台管理机可远程控制整个网络内的所有计算机。
+　　#1    五、游戏
+　　    · 弈缘围棋
+　　    软件版本：1.81（免费软件）
+　　    文件大小：802KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://littlegrass.idcheck.cc/download/LandOwner.zip
+　　    这是一个集“棋谱管理”和“网上对弈”于一身的围棋软件。
+　　    · 斗地主（人机对战）
+　　    软件版本：1.3（共享软件）
+　　    文件大小：366KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://littlegrass.idcheck.cc/download/LandOwner.zip
+　　    “斗地主”是近来比较流行的一种扑克游戏，有较强娱乐性。
+　　    · 游戏修改至尊FPE 2001
+　　    软件版本：1.6
+　　    文件大小：2357KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://ftp.eware.com.cn/pub/game/gatools/fpe2001trial.zip
+　　    操作简单的游戏修改工具。
+　　    · 金山游侠Ⅲ
+　　    软件版本：体验版
+　　    文件大小：700KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://www.iciba.net/file/KnightShare.exe
+　　    提供基本的游戏数据查找、屏幕截图等功能。
+　　    · Bleem
+　　    软件版本：1.6（共享软件）
+　　    文件大小：1170KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://www.bleem.com/bldlfls/bleem1_6bBETA.exe
+　　    PlayStation的PC机模拟器，新版增加70多个游戏、经过改进的3D引擎、为汽车游戏新设计的控制器以及经过改进的适应更多游戏的速度管理系统。
+　　#1    六、文字办公
+　　#2    （一）文字编辑
+　　    · UltraEdit （32-bit）
+　　    软件版本：8.20a
+　　    文件大小：1170KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ultraedit.com/uedit32i.exe
+　　    大名鼎鼎的超级文本、网页、程序编辑器。
+　　    · EditPro
+　　    软件版本：1.54（共享软件）
+　　    文件大小：914KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.serpik.net/editpro/editpro.zip
+　　    EditPro专门为程序设计及网页设计专业人士所设计的文件编辑软件。
+　　#2    （二）阅读
+　　    · Adobe Acrobat Reader
+　　    软件版本：5.01（免费软件）
+　　    文件大小：8613KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：ftp://ftp.nsysu.edu.tw/cpatch/editor/acrobat/ar501eng.exe
+　　    PDF（Portable Document Format）文件格式是电子发行文档的标准，Adobe Acrobat Reader是一个查看、阅读和打印PDF文件的最佳工具。
+　　    · SSReader超星图书浏览器
+　　    软件版本：3.54（免费软件）
+　　    文件大小：1554KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：****
+　　    下载地址：http://book2.ssreader.com.cn/download/ss354t（0829）.exe
+　　    SSReader是网上数字化图书馆的图书阅览器，通过该软件可以阅读到国家图书馆的庞大书库，囊括文学、计算机、年鉴。
+　　#2    （三）输入法
+　　    · 紫光拼音输入法
+　　    软件版本：2.3（免费软件）
+　　    文件大小：3098KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://202.108.240.211/unispim/files/unispim23.zip
+　　    紫光拼音输入法是一个完全面向用户的，基于汉语拼音的中文字、词及短语输入法。提供全拼和双拼功能，并可以使用拼音的不完整输入（简拼）。
+　　    · 拼音加加
+　　    软件版本：2.204（共享软件）
+　　    文件大小：952KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.6h.com.cn/Download/PyjjSetup.exe
+　　    拼音加加全面继承了各种拼音输入法的长处。它支持全拼、双拼、简拼、声母拼词、立即造词、频度调整、模糊音设置等。
+　　    · 中文之星智能狂拼
+　　    软件版本：II
+　　    文件大小：91775KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.cstar.com.cn/download/cspyhf041.exe
+　　    智能狂拼是由中文之星数码科技有限公司推出的基于 CLM（中文语言模型）技术的整句输入法。
+　　    · 万能五笔
+　　    软件版本：2001简体版（共享软件）
+　　    文件大小：1378KB
+　　    适用平台：Win9x/Me/NT/2000/XP
+　　    编辑评分：*****
+　　    下载地址：http://www.ime2000.com/wnwb21cn.exe
+　　    这是一种创新的中文输入，软件包含多种输入方法，如五笔、拼音、汉译英、英译汉等。全部输入法只在一个输入法窗口里，不需要你来回切换。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

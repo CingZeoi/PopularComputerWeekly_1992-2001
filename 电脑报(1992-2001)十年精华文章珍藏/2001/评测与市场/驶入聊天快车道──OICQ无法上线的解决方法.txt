@@ -1,0 +1,78 @@
+驶入聊天快车道──OICQ无法上线的解决方法
+
+张铎 
+2001年 6期
+
+许多169、教育网、上海热线的用户无法上OICQ，而有的163、吉通用户在网络繁忙时，抱怨OICQ的速度太慢。下面，笔者就针对这些用户的OICQ无法上线的问题，从原理到具体实践，提出一些解决方法，希望能对读者有所帮助。
+　　#1    一、无法上OICQ的原因
+　　我们经常听到TCP/IP和UDP（用户数据报协议）这两个术语，它们都是建立在更低层的IP协议上的两种通讯传输协议。前者是以数据流的形式，将传输数据经分割、打包后，通过两台机器之间建立起的虚电路，进行连续的、双向的、严格保证数据正确性的文件传输协议。而后者是以数据报的形式，对拆分后的数据的先后到达顺序不做要求的文件传输协议。腾讯公司的OICQ就是使用UDP协议进行发送和接收“消息”的。当你的机器安装了OICQ以后，实际上，你既是服务端（Server），又是客户端（Client）。OICQ的工作原理是：当你登录OICQ时，你的OICQ作为Client连接到腾讯公司的主服务器上，当你“看谁在线”时，你的OICQ又一次作为Client，从腾讯的Server上读取在线网友名单。当你和你的OICQ伙伴进行聊天时，如果你和对方的连接比较稳定（能Ping通、有稳定的Echo），你和他的聊天内容都是以UDP的形式，在计算机之间传送。如果你和对方的连接不是很稳定（干脆就Ping不通、或数据断断续续，腾讯公司的sz.tencent.com服务器将为你们的聊天内容进行“中转”。如果你使用了Socks5代理服务器的话，你到腾讯服务器的信息将通过这个Socks5代理进行“中转”。
+　　现在来介绍一下Socks代理的分类。Socks代理分为Socks4、Socks4.3和Socks5三种。由于OICQ只支持Socks5代理，我们就不对前面两种作过多的介绍。Socks5代理又可以分为“使用授权的”和“无须授权的”。简单地说，前者要用户输入用户名和密码，后者则是通常所说的免费的。
+　　目前，腾讯公司的聊天服务器一共有八台，sz.tencent.com、sz1.tencent.com到sz7.tencent.com。大家可以研究一下它们的IP分布，只有sz3.tencent.com是在202.104.*.*这个网段上，其它都在202.96.*.*上。OICQ无法上线的原因在于：你的OICQ作为Client无法和sz系列服务器交换UDP数据报。你可以通过下面的方法验证一下：
+　　在“开始”→“运行”中打入：Ping sz.tencent.com -t看看是不是都出现Request Time Out（请求超时），如果是，表示连接超时了，所以OICQ无法上线。
+　　#1    二、具体解决方法
+　　#2    1. 使用免费的Socks5代理
+　　正如免费的HTTP代理一样，Socks5代理也有时效性。不过好在国内有许多天天更新的个人主页为大家发布免费的Socks5和HTTP代理：
+　　kofp.126.com提供教育网代理
+　　www.zaiyi.com提供教育网代理
+　　dzc.126.com提供169、金桥网、吉通网、教育网、163代理
+　　home.fj.cninfo.net/~liyi/proxy.htm提供169、163代理
+　　vip.6to23.com提供上海热线代理
+　　www.thorryo.h58.net提供上海热线代理
+　　一旦你的免费Socks5代理失灵或速度慢下来，快去上面提到的站点找找新的Socks5吧。每个网站上面都有通过免费Socks5代理上OICQ的配置图解，一看就会。
+　　#2    2. 交替使用免费的Socks5和“使用授权的Socks5代理”
+　　很多“使用授权的Socks5代理”并不是对所有的访问范围都要使用密码校验机制的。也就是说，网管们出于网络安全考虑，只对使用防火墙的用户的某类IP地址访问加以限制，一般是要求提供用户名和口令后，方可使用代理访问。而大多数拨号用户的IP地址不在此访问限制列表之内，所以我们可以先用一个免费的Socks5代理，和腾讯的sz系列服务器建立连接，读取“好友名单”和其他必要的系统信息后，再换成“使用授权的Socks5代理”和OICQ聊友进行聊天。具体操作如下：
+　　（1）通过一个免费的Socks5“上线”，成功的标志是：小企鹅不再出现N/A的闪烁，你的“好友名单”已经从腾讯的服务器上读取完毕。并且，你可以“查看在线网友”。
+　　（2）选择“注册向导”→“网络设置”选项卡，在“使用PROXY SOCKET5防火墙”下面的小方框内填入一个“使用授权的”的Socks5代理的地址和端口号1080。点击“测试”，如果测试通过后，请不要重新“上线”。
+　　（3）继续你的OICQ聊天之旅吧。
+　　这些“使用授权的Socks5代理”请到前面提到的网站中去找。
+　　#2    3. 使用CCProxy或Wingate软件
+　　如果你单位的计算机或某个网友的计算机有固定的IP地址上网，你不妨和他商量一下，能否在他的电脑上安装CCProxy或Wingate软件，这样，只要他开机，你就可以将他的机器作为Socks5代理服务器，上OICQ了。不过，使用CCProxy的话，Socks5的端口号为1080，不能改变，小心那些用ProxyHunter的家伙们把你的IP地址公布出去。如果使用Wingate的话，虽然繁琐一点，但你可以改变你的Socks5的端口，如改成9999，一般的搜索软件是找不到的。
+　　这两款代理服务器软件的具体使用介绍，请详见2001年1月8日《电脑报》E2版上的《两款代理服务器软件的使用》一文。
+　　#2    4. 使用HTTP代理上OICQ
+　　www.totalrc.net是一个提供Access Internet Behind A Firewall（在防火墙后访问互联网）服务的国外网站，简言之，就是通过下载它提供的客户端服务程序Socks2HTTP将你所有的Socks5请求转化为HTTP请求，通过你的HTTP代理，送到www.totalrc.net的80端口（此端口除了提供WWW浏览服务外，还提供了一项TCP→UDP的网关服务。经过www.totalrc.net这个网关，将HTTP请求再还原为Socks5请求，送往目的地）。你的OICQ送出的UDP，本应该直接送往腾讯的sz系列服务器或直接送到你聊友机器的OICQ端口，通过使用Socks2HTTP软件后，你要送出的UDP数据报被Socks2HTTP截获，转化为TCP数据流，通过你指定的HTTP代理，送到www.totalrc.net的80端口，此时TCP又被还原成UDP，又经totalrc.net转发到腾讯的聊天服务器或你聊友的OICQ端口。
+　　SocksCap32则是一款强制应用程序使用Socks 4或5的软件。这样，结合使用Socks2HTTP和SocksCap32软件，你就可以无须在OICQ中设置Socks5而直接用HTTP代理上OICQ了。
+　　具体步骤如下：
+　　（1）下载Socks2HTTP和SocksCap32软件
+　　Socks2HTTP的英文版有一个“总在屏幕前方”的讨厌的广告条，而它的中文汉化版则无此广告条，但中文翻译得很差。下面以英文版为例做介绍。
+　　（2）安装Socks2HTTP
+　　①当安装程序完成文件复制后，会弹出^06080501a^1所示的系统参数配置窗口（如果你不是首次安装请用鼠标右键单击你的任务条右面下角的Socks2HTTP绿色图标，选择Config项）。
+　　②在Proxy Configuration中的Use a proxy server的Address栏中输入你的HTTP代理的地址，在IP Port后面输入你的HTTP代理的端口号。如果你是163用户或者你能在浏览器中快速打开www.totalrc.net，请选择第四项Do not use http proxy（直接连接）。
+　　例如：你找到了一个代理，假如为127.0.0.1端口为8088，请按图示填写。
+　　如果你的HTTP代理要密码，请在Proxy Authentication下面填写用户名和密码即可。
+　　③在Gateway下面的第一个框内填入www.totalrc.net这个地址，在第二个框内填入端口号80。这里所说的Gateway（网关）不同于通常意义上的23号端口的Wingate网关。由于www.totalrc.net这台服务器肩负着WWW服务和TCP→UDP服务，所以负荷很重。实际上，可以将www.totalrc.net换成下列地址：
+　　worker1.totalrc.net
+　　worker2.totalrc.net
+　　worker3.totalrc.net
+　　其中，worker2.totalrc.net只负责TCP→UDP服务，速度当然要快得多。推荐大家使用worker2。
+　　④Security下的Socks是你的计算机的Socks服务的端口号，缺省为1080。如果你不希望其它计算机使用你的Socks5端口，请选中Block out other computer。
+　　⑤如果你对这个软件的工作原理感兴趣，请在Debugging的Log file后面填入一个形如C:\Windows\SocksCVT.TXT的文件名，记录此软件的运行情况，Log Level不用修改。此选项主要用于排错。
+　　⑥点击“完成”。
+　　（3）安装SocksCap32
+　　①待安装程序复制好文件以后，会弹出^06080501b^2所示的窗口。
+　　②在Server的SOCKS Server后面，填入127.0.0.1；在Port中填入1080。其中，127.0.0.1代表你的本地硬盘，不能改动；而1080表示是由Socks2HTTP软件产生的虚拟Socks5服务端的端口号（除非你在Socks2HTTP软件中改变了缺省的端口号，此处也要相应地变化）。
+　　③在Protocol下面，一定要选“SOCKS Version5”和“Resolve all names local”（如^06080501b^2）。因为OICQ只认Socks5代理。
+　　④点击“确定”后完成。
+　　⑤运行SocksCap32软件，单击SocksCap32快捷面板中的New按钮，出现一个标题为New Application Profile的窗口。在Profile Name中输入OICQ，点击Command Line后面的Browse按钮，找到OICQ.EXE文件，并双击。如果你的OICQ没有安装在缺省路径C:\Program Files\Oicq\Oicq.EXE下，请自己手动填写好CommandLine（Oicq.exe的绝对路径）和Working（Oicq.exe的工作目录，即Oicq.exe所在的目录）。点“确定”完成。
+　　⑥如果你嫌⑤的方法太繁琐，请按住Ctrl键，将桌面上的小企鹅图标拖动到SocksCap32的主窗口中，当系统问是否New Application Profile时，点确定即可。^06080501c^3为一个已经添加FoxMail和OICQ的SocksCap32的界面。
+　　（4）启动Socks2HTTP中文版，你的SysTray上会出现一个绿色的小图标。如果SocksCap32没有启动的话，请重新启动。请注意，一定要保证SocksCap32和Socks2HTTP两个软件都在运行。
+　　（5）点击SocksCap32主窗口中的OICQ小企鹅（不是你桌面上的那只！），运行OICQ程序。用这种办法，不用在OICQ的“注册向导”→“网络设置”选项卡中设置任何Socks5代理服务器了。
+　　（6）聊你的天吧！以后，只须先启动Socks2HTTP，再启动SocksCap32，双击其中的小企鹅就可以上OICQ了。
+　　#1    三、HTTP代理的选择技巧
+　　上面介绍的使用HTTP代理上OICQ的成败关键在于你选择的HTTP代理是否与www.totalrc.net有良好的Connect方式或GET/Post方式的连接。为了简单起见，我们利用NetAnts来对代理进行测试。
+　　添加好新的代理后，向蚂蚁添加新任务。由于测试的是该HTTP代理到www.totalrc.net的连接状况，你可以将www.totalrc.net上的任意一个下载文件的连接添加到蚂蚁中去。看看蚂蚁的“示波器”上的情况如何。好的HTTP代理的标志是：“峰”要在保证连续的前提下，尽可能地高，并且为方波。
+　　再测试一下该代理的GET/Post方式的连接情况，按上面的原则测试后，HTTP代理测试完成。在众多的HTTP代理中，必有一款适合你。
+　　#1    四、相关软件的下载地址
+　　Ccproxy v3.0
+　　http://microserver.top263.net
+　　Wingate v4.0
+　　http://www.tencent.com/download/
+　　SocksCap32 英文版和中文汉化补
+　　http://dzc.126.com
+　　Socks2HTTP 中文版和英文版
+　　http://dzc.126.com
+　　希望上面介绍的方法，对读者能有所帮助。欢迎热心的读者和我交流，请发E-mail到我的信箱：kangfu2000@etang.com。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

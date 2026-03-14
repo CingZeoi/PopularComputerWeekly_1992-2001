@@ -1,0 +1,157 @@
+利用ASP访问数据库
+
+刘亮
+2000年 第13期 
+
+　　Active Server Pages（ASP）是服务器端脚本编写环境，使用它可以创建和运行动态、交互的Web服务器应用程序。
+　　ActiveX Data Objects（ADO）是一项容易使用并且可扩展的将数据库访问添加到 Web 页的技术。可以使用ADO去编写紧凑简明的脚本以便连接到Open Database Connectivity （ODBC）兼容的数据库和OLE DB兼容的数据源。
+#1    1.创建ODBC DSN文件
+　　在创建数据库脚本之前，必须提供一条使ADO定位、标识和与数据库通讯的途径。数据库驱动程序使用Data Source Name （DSN）定位和标识特定的ODBC兼容数据库，将信息从 Web应用程序传递给数据库。典型情况下，DSN包含数据库配置、用户安全性和定位信息，且可以获取Windows NT注册表项中或文本文件的表格。
+　　通过ODBC，你可以选择希望创建的DSN的类型：用户、系统 或 文件。用户和系统 DSN存储在Windows NT注册表中。系统DSN允许所有的用户登录到特定的服务器上去访问数据库，而用户DSN使用适当的安全身份证明限制数据库到特定用户的连接。文件DSN 用于从文本文件中获取表格，提供了多用户的访问控制，并且通过复制DSN文件，可以轻易地从一个服务器转移到另一个服务器。由于以上原因，本主题中的示例将使用文件 DSN。
+　　在Windows的“开始”菜单打开“控制面板”，你可以创建基于DSN的文件。双击“ODBC”图标，然后选择“文件DSN”属性页，单击“添加”，选择数据库驱动程序，然后单击“下一步”。再按照后面的提示配置适用于你的数据库软件的DSN。
+#1　　配置Microsoft Access数据库文件DSN
+　　在“创建新数据源”对话框中，从列表框选择“Microsoft Access Driver”，然后单击“下一步”。键入你的DSN文件名，然后单击“下一步”。单击“完成”创建数据源。
+　　在“ODBC Microsoft Access 97 安装程序”对话框中，单击“选择”。选择Microsoft Access数据库文件（＊.mdb），然后单击“确定”。
+　　ASP支持共享文件数据库（Access或FoxPro）作为有效的数据源。尽管在ASP文档中的一些示例使用共享文件数据库，但我们建议只将此类数据库引擎用于开发或有限的配置方案。共享文件数据库可能无法很好地适用于高需求、高质量的Web应用程序的客户－服务器数据库。
+#1　　配置SQL Server数据库文件DSN
+　　注意：如果数据库驻留在远程服务器上，请与服务器管理员联系，获取附加的配置信息；下面的过程使用SQL Server的ODBC默认设置，它可能不适用于你的硬件配置。
+　　在“创建新数据源”对话框中，从列表框中选择“SQL Server”，然后单击“下一步”。键入 DSN 文件的名称，然后单击“下一步”。单击“完成”创建数据源。
+　　键入运行SQL服务程序的服务器的名称、登录ID和密码。
+　　在“创建SQL Server的新数据源”对话框中，在“服务器”列表框中键入包含SQL Server数据库的服务器的名称，然后单击“下一步”。选择验证登录ID的方式。如果要选择SQL服务器验证，请输入一个登录ID和密码，然后单击“下一步”。
+　　在“创建SQL Server的新数据源”对话框中，设置默认数据库、存储过程设置的驱动程序和ANSI标识，然后单击“下一步”。
+　　在对话框（同样名为“创建SQL Server的新数据源”）中，选择一种字符转换方法，然后单击“下一步”。（详细信息，请单击“帮助”。）在下一个对话框（同样名为“创建SQL Server的新数据源”）中，选择登录设置。
+　　注意：典型情况下，你只能使用日志来调试数据库访问。
+　　在“ODBC Microsoft SQL Server 安装程序”对话框中，单击“测试数据源”。如果 DSN 正确创建，“测试结果”对话框将显示出测试成功。
+#1    配置Oracle数据库文件DSN
+　　首先要确保 Oracle 用户软件被正确地安装到要创建 DSN 的计算机上。详细信息，请与服务器管理员联系或参阅数据库软件文档。
+　　在“创建新数据源”对话框中，从列表框中选择“Microsoft ODBC for Oracle”，然后单击“下一步”。键入DSN文件的名称，然后单击“下一步”。单击“完成”创建数据源。输入用户名、密码和服务器名，然后单击“确定”。
+　　注意：DSN 文件用.dsn扩展名，位于\Programs\Common Files\ODBC\Data Sources目录中。有关创建DSN文件的详细信息，请访问Microsoft ODBC Web站点：http://microsoft.com/odbc/。
+#1    2.SQL server 连接和安全信息
+　　如果你正在开发用于连接远程 SQL Server 数据库的 ASP 数据库应用程序，应考虑以下问题：
+　　连接方案——你可以选择TCP/IP套接字和命名管道的方法访问远程的 SQL Server 数据库。当使用命名管道时，因为在建立连接之前，数据库用户必须被 Windows NT 确认，所以对只有适当的 SQL Server 访问身份而在该计算机上没有 Windows NT 用户账号的用户可能会被拒绝访问命名管道。作为一种替代方案，使用 TCP/IP 套接字的连接可直接连接到数据库服务器，而不必通过使用命名管道的中间计算机。因为使用 TCP/IP 套接字连接可直接连接到数据库 server，所以通过 SQL Server 的确认，用户就可以获得访问权，而不必通过 Windows NT 的确认。
+　　注意：在连接到远程数据库时使用TCP/IP套接字可提高性能。
+　　安全性——如果你使用 SQL Server 的 集成 或 混合 安全特性，并且 SQL Server 数据库位于远程服务器上，则不能使用 Windows NT 请求/响应的确认。也就是说，不能将 Windows NT 请求/响应身份证转发到远程计算机上，而只能使用基本身份验证，它根据用户提供的用户名和口令信息进行。
+　　有关这一主题的详细信息，请参阅 http://www.microsoft.com/sqlsupport/上的 Microsoft SQL Server 技术支持主页。
+#1    3.连接数据库
+　　访问数据库信息的第一步是和数据库源建立连接。ADO提供Connection对象，可以使用该对象建立和管理应用程序和ODBC数据库之间的连接。Connection对象具有各种属性和方法，可以使用它们打开和关闭数据库连接，并且发出查询请求来更新信息。
+　　要建立数据库连接，首先应创建Connection对象的实例。例如，下面的脚本创建Connection对象，接着打开数据库连接：
+　　<
+　　′Create a connection object
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　′Open a connection; the string refers to the DSN
+　　cn.Open ″FILEDSN=MyDatabase.dsn″
+　　>
+　　注意：无论在等号“=”之前还是之后，DSN字符串都不能包含空格。
+　　在这种情况下，Connection对象的Open方法引用基于DSN的文件，其中包含关于数据库的位置和配置信息。有关建立连接方法的详细信息，请参阅 Microsoft ActiveX Data Objects （ADO）。
+#1　　用Connection对象执行查询
+　　用Connection对象的Execute方法，你可以发出结构化查询语言 （SQL） 查询数据库源并检索结果。SQL是用于与数据库通讯的工业标准语言，它有许多命令可用来检索和更新信息。下面的脚本使用Connection对象的Execute方法用SQL INSERT命令向表格中发出查询，该命令将数据插入特定的数据库表格。在下面的示例中，脚本将名称Jose Lugo插入Customers数据库表中。
+　　<
+　　′Define file based DSN
+　　strDSN = ″FILEDSN=MyDatabase.dsn″
+　　′Instantiate the Connection object and open a database connection
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.Open strDSN
+　　′Define SQL SELECT statement
+　　strSQL = ″INSERT INTO Customers （FirstName， LastName） VALUES （′Jose′，′Lugo′）″
+　　′Use the Execute method to issue a SQL query to database
+　　cn.Execute（strSQL）
+　　>
+　　除了SQL INSERT命令以外，你也可以使用SQL UPDATE和DELETE命令更改和删除数据库信息。用SQL UPDATE命令，你可以改变数据库表中各字段的值。下面的脚本使用UPDATE命令将Customers表中每个LastName字段为Smith的记录的FirstName字段更改为Jeff。
+　　<
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.Open ″FILEDSN=MyDatabase.dsn″
+　　cn.Execute ″UPDATE Customers SET FirstName = ′Jeff′ WHERE LastName = ′Smith′ ″
+　　>
+　　要想从数据库表中删除特定的记录，可使用SQL DELETE命令。下面的脚本从Customers表中删除所有LastName字段为Smith的行：
+　　<
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.Open ″FILEDSN=MyDatabase.dsn″
+　　cn.Execute ″DELETE FROM Customers WHERE LastName = ′Smith′″
+　　>
+　　注意：在使用SQL DELETE命令时，必须谨慎从事。当使用不带WHERE子句的 DELETE命令时，它将删除表中的所有行。一定要包含SQL WHERE子句来指定要删除的确切行。
+#1　　使用Recordset对象处理结果
+　　尽管Connection对象简化了连接数据库和查询任务，但仍有许多不足之处。确切地说，检索和显示数据库信息的Connection对象不能用于创建脚本；你必须确切知道要对数据库做出的更改，然后才能使用查询实现更改。
+　　对于检索数据、检查结果、更改数据库，ADO提供了Recordset对象。正如它的名称所暗示的那样，Recordset对象有许多你可以使用的特性，根据你的查询限制，检索并且显示一组数据库行，即记录。Recordset对象保持查询返回的记录的位置，允许你一次一项逐步地扫描结果。
+　　根据Recordset对象的指针类型属性设置，你可以滚动和更新记录。数据库指针可以让你在一组记录中定位到特定的项。指针还用于检索和检查记录，然后在这些记录的基础上执行操作。Recordset对象有一些属性，可用于精确地控制指针的行为，提高你检查和更新结果的能力。例如，你可以使用CursorType和CursorLocation属性设置指针的类型，将结果返回给客户端应用程序（结果通常保留在数据库服务器上）并显示其他用户对数据库的最后一次更改。
+#1　　检索记录
+　　一个成功的数据库应用程序都使用Connection对象建立链接并使用Recordset对象处理返回的数据。通过协调两个对象的特定功能，你可以开发出几乎可以执行任何数据处理任务的数据库应用程序。例如，下面的服务器端脚本使用Recordset对象执行SQL SELECT命令。SELECT命令检索一组基于查询限制的信息。查询也包含SQL WHERE子句，用来缩小查询的范围。此例中，WHERE子句将查询限制为Customers数据库表中所有LastName字段为Smith的记录。
+　　<
+　　′Establish a connection with data source
+　　strDSN = ″FILEDSN=MyDatabase.dsn″
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.Open strDSN
+　　′Instantiate a Recordset object
+　　Set rsCustomers = Server.CreateObject（″ADODB.Recordset″）
+　　′Open a recordset using the Open method
+　　′ and use the connection established by the Connection object
+　　strSQL = ″SELECT FirstName， LastName FROM Customers WHERE LastName = ′Smith′ ″
+　　rsCustomers.Open strSQL， cn
+　　Cycle through record set and display the results
+　　′ and increment record position with MoveNext method
+　　Set objFirstName = rsCustomers（″FirstName″）
+　　Set objLastName = rsCustomers（″LastName″）
+　　Do Until rsCustomers.EOF
+　　Response.Write objFirstName ＆ ″ ″ ＆ objLastName ＆ ″<BR>″
+　　rsCustomers.MoveNext
+　　Loop
+　　>
+　　注意：在前面的例子中，用来建立数据库连接的Connection对象和Recordset对象使用该连接从数据库中检索结果。当你需要精确地设置与数据库建立连接所采用的方式时，这个方法是非常有用的。例如，如果你需要在连接尝试失败之前指定等待的时间，则须要使用Connection对象去设置属性。但是，如果你仅仅想使用ADO默认的连接属性建立连接，则应该使用Recordset对象的Open方法去建立链接：
+　　<
+　　strDSN = ″FILEDSN=MyDatabase.dsn″
+　　strSQL = ″SELECT FirstName， LastName FROM Customers WHERE LastName = ′Smith′ ″
+　　Set rsCustomers = Server.CreateObject（″ADODB.Recordset″）
+　　′Open a connection using the Open method
+　　′and use the connection established by the Connection object
+　　rsCustomers.Open strSQL， strDSN
+　　′Cycle through the record set， display the results，
+　　′ and increment record position with MoveNext method
+　　Set objFirstName = rsCustomers（″FirstName″）
+　　Set objLastName = rsCustomers（″LastName″）
+　　Do Until rsCustomers.EOF
+　　Response.Write objFirstName ＆ ″ ″ ＆ objLastName ＆ ″<BR>″
+　　rsCustomers.MoveNext
+　　Loop
+　　>
+　　当使用 Recordset 对象的 Open 方法建立一个连接时，必须使用 Connection 对象去保证连接的安全。
+#1    4.管理数据库连接
+　　设计一个能经得起考验的Web数据库应用程序（例如为几千个客户服务的联机购物应用程序）的最大挑战，在于如何合理地管理数据库连接。打开并且保持数据库连接，即使在没有信息传输时，也会严重耗费数据库服务器的资源并且可能会导致连接性问题。设计良好的Web数据库应用程序将回收数据库连接并能够补偿由于网络堵塞造成的延迟。
+#1　　连接超时
+　　访问量的增加可能使数据库服务器变得十分“笨拙”，使建立数据库连接的时间延长。结果是，过长的连接延时将降低数据库的性能。
+　　用Connection对象的ConnectionTimeout，你可以限制放弃连接尝试并发出错误消息之前应用程序等待的时间。例如，下面的脚本设置ConnectionTimeout属性，在取消连接尝试之前等待20秒：
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.ConnectionTimeout = 20
+　　cn.Open ″FILEDSN=MyDatabase.dsn″
+　　默认的ConnectionTimeout属性是30秒。
+　　注意：在将ConnectionTimeout属性合并到数据库应用程序之前，一定要确保连接提供程序和数据源支持该属性。
+#1　　共享连接
+　　经常建立和中断数据库连接的Web数据库应用程序可能会降低数据库服务器的性能。ASP支持用ODBC 3.5的共享特性有效管理连接。连接共享维持打开的数据库连接并管理不同的用户共享该连接，以维持其性能和减少空闲的连接数。对每一个连接请求，连接池首先确定池中是否存在空闲的连接。如果存在，连接池返回连接而不是建立到数据库的新连接。
+　　如果希望将ODBC驱动程序加入到连接共享中，则必须配置数据库驱动程序并在Windows NT注册表中设置驱动程序的CPTimeout属性。当ODBC断开连接时，连接被存入池中，而不是被断开。CPTimeout属性决定在连接池中的连接保留的时间长度。如果在池中连接保留的时间比CPTimeout设置的时间长，则连接将被关闭并且从池中删除。CPTimeout的默认值是60秒。
+　　你可以通过创建如下设置的注册表键值来有选择地设置CPTimeout的属性，从而启用特定的ODBC数据库驱动程序的连接池：
+　　\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\driver－name\CPTimeout = timeout （REG_SZ， units are in seconds）
+　　例如，下面的键值将SQL Server驱动程序的连接池的超时设置定为180秒（3分钟）。
+　　\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\SQL Server\CPTimeout = 180
+　　注意：默认情况下，通过将CPTimeout设置为60秒，Web服务器将激活SQL Server的连接池。
+#1　　使用跨页连接
+　　尽管你可以通过存储ASP的Application对象的连接重复使用跨页连接，但是，始终使连接保持打开是不必要的，也没有充分利用连接池的优点。如果有许多用户需要连接到同一个ASP数据库应用程序，一个好方法就是：将跨页连接字符串置于ASP的Application对象中，重复使用数据库连接。例如，可以在Global.asa文件的Application_OnStart事件过程中指定连接字符串，如下面的脚本所示：
+　　Application.lock
+　　Application（″ConnectionString″） = ″FILEDSN=MyDatabase.dsn″
+　　Application.unlock
+　　然后，在每一个访问数据库的 ASP 文件中写入：
+　　<OBJECT RUNAT=Server ID=cn PROGID=″ADODB.Connection″> </OBJECT>
+　　要想创建连接对象的实例，请使用以下脚本：
+　　cn.Open Application（″ConnectionString″）
+　　对于打开的连接，可以在页尾写入以下脚本，关闭连接：
+　　cn.Close
+　　在单个用户需要重复使用跨页连接的情况下，使用Session对象连接比使用 Application对象更好。
+#1　　关闭连接
+　　要想更好地使用连接池，就应尽快地关闭数据库连接。默认情况下，当脚本执行完以后，连接将被终止。当不再需要连接时将其关闭，就可以减少对数据库服务器的要求并可以使其他用户能够使用该连接。
+　　可以使用Connection对象的Close方法终止Connection对象和数据库之间的连接。下面的脚本打开连接，然后将其关闭：
+　　</home/postfix/bin/sendmailtrDSN = ″FILEDSN=MyDatabase.dsn″
+　　Set cn = Server.CreateObject（″ADODB.Connection″）
+　　cn.Open
+　　cn.Close
+　　>
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

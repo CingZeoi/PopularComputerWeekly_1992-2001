@@ -1,0 +1,188 @@
+Windows注册表修改实例完全手册（上）
+
+李进 
+2001年 60期
+
+    注册表是Windows操作系统的核心。它实质上是一个庞大的数据库，存放有计算机硬件和全部配置信息、系统和应用软件的初始化信息、应用软件和文档文件的关联关系、硬件设备说明以及各种网络状态信息和数据。可以说计算机上所有针对硬件、软件、网络的操作都是源于注册表的。
+　　    在《电脑报1999年合订本》、《电脑报2000年合订本》中，我们均出现了与Windows操作系统注册表相关的文章。但时过境迁，新的问题导致注册表修改实例的不断增加。本文拟以表格的形式，详细罗列出各种注册表的修改实例，并明确标注其适应的范围，以利于读者速查。
+　　#1    一、Windows XP注册表精解
+　　    Windows XP是微软公司于2001年10月份正式推出的新的Windows操作系统。Windows XP是Windows 2000的后续版本，以Windows 2000核心代码为基础，不仅继承了前者的可靠性和其它的优良性能，而且还加强了Windows Me操作系统的系统回复、媒体播放器、图像获取等新功能，给用户提供了更稳定的运行环境和方便快捷的操作。
+　　    正如上文所述，Windows XP是以Windows 2000核心代码为基础的，也可是完全说成是Windows 2000的一个升级版本，在注册表方面，没有发生太大的改变，注册表仍然是Windows XP的核心部件。
+　　    1．Windows XP注册表的结构
+　　    Windows XP的注册表同样是以树形结构组织的。它由两个注册表子目录树组成：HKEY_LOCAL_MACHINE和HKEY_USERS。但是为了使注册表中的信息更易于查找，Windows XP预定义了五个子目录树。（表^60090104a^1）
+　　    每个根项名均以HKEY_打头，以便向软件开发人员指出这是可以由程序使用的句柄。句柄是一个数值，用来识别资源便于程序进行访问。
+　　    由于注册表是树形结构的，所以我们可以将注册表里的内容分为树枝和树叶。树枝下可以有多个树枝，也可以有多个树叶。这个树枝，我们把它叫做“项”，树叶呢，叫做“值项”。值项包括三部分：值的名称、值的数据类型和值本身。
+　　    下表列出系统定义和使用的值项的数据类型。（表^60090104b^2）
+　　    2．Windows XP注册表编器
+　　    我们知道，注册表内的所有信息都是存放在System.dat、User.dat文件中的，其中System.dat文件包含了所有的硬件信息和软件信息，User.dat包含了用户信息。如果在系统中配置了两个或两个以上的用户，在Windows\Profile\用户名目录中还存放有各个用户的User.dat文件，这些文件都是二进制数据文件，修改注册表实际上就是对上述的三个文件进行修改。但是，我们不能对这些二进制数据文件进行直接修改，而必须要借助于注册表编辑器。注册表编辑器实际上就是我们查看和修改注册表文件的图形界面。
+　　    启动Windows XP注册表编辑器的方法是：单击“开始→运行”，在对话框中输入“regedit”，然后点击“确定”按钮，注册表编辑器就会被运行起来。它的界面和Windows 2000中的注册表编辑器很相似。如^60090104c^1。
+　　    和以前的Windows相比，注册表表编辑器有了一些改变。在“编辑”菜单下，有一个“权限”菜单项，通过它，可以设置各个注册表项对于不同用户的权限。当然，你必须是管理员才可以执行此操作。如^60090104d^2。
+　　    在“查看”菜单中，有一个“显示二进位数据”。通过它，可以方便的查看二进制数据的内容。如^60090104e^3。
+　　    提示：你可能还记得在Windows NT/2000中，还提供了一个32位的注册表编辑器Regedt32.exe，其界面类似于早期Windows的文件管理器。在Windows XP中，虽然仍然提供了Regedt32.exe，但是Regedt32.exe实际上只是一个外壳，真正执行的还是Regedit.exe。也就是说，Windows XP已经抛弃了老版本风格的Regedt32.exe了。
+　　    至于通过注册表编辑器对注册表的操作，如注册表的导入、导出，注册表值项的查找与修改，以及注册表文件的备份与恢复等。限于篇幅本文不在详细讨论，读者可以参看《电脑报1999年合订本》、《电脑报2000年合订本》相关文章。
+　　#1    二、桌面外观的修改实例
+　　    1．全面定制“开始”菜单中的图标（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    “开始”菜单是用户最常使用的，它里面有“程序”、“文档”、“设置”、“搜索”、“帮助”、“运行”和“关机”等几项图标，我们可以通过修改注册表来加以改变。
+　　    首先运行注册表编辑器，进入到注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons。如果该注册表项不存在，则创建它。
+　　    在该注册表项下创建如下表中罗列的字符串类型的值项，并且修改它们的值为新的图标。（表^60090104f^3）
+　　    重新启动计算机，“开始”菜单中的图标就全部换成了新的图标。
+　　    提示：图标可以直接使用可执行文件中的图标。例如“explorer.exe，3”，表示使用explorer.exe文件中的第4个图标。
+　　    2．增加和删除“开始”菜单中的项目
+　　    一般情况下，“开始”菜单中有“程序”、“文档”、“设置”、“搜索”、“帮助”、“运行”和“关机”这几项。通过修改注册表，我们可以将一些不常用的项从“开始”菜单中删除。如果有特殊的目的，例如网吧中的计算机可能不想让使用者使用“开始”菜单中的“控制面板”来随意改变计算机的设置，也可以使用此方法。
+　　    下表中的值项，都位于注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\ CurrentVersion\Policies\Explorer中。（表^60090104g^4）
+　　    3．增加和删除桌面的固定项目（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    一般情况下，桌面上都有“我的电脑”、“网上邻居”、“回收站”、“我的文档”等。通过修改注册表，我们可以不让这些项目显示在桌面上。这对于不希望使用者胡乱操作的场合是有用处的。例如对于网吧中的计算机，就可以将全部的桌面项目隐藏起来，以防止使用者通过“我的电脑”和“网上邻居”等来查看计算机中的文件。
+　　    首先我们需要知道Windows中一些特殊项目（如我的电脑）对应的CLSID。见下表。（表^60090104h^5）
+　　    为了去除某个特殊项，可以进入到注册表项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\NonEnum中，新建一个以该特殊项的CLSID为名称的双字节值项，修改其值为1。创建完值项后，重新启动桌面使改动生效，桌面上特殊项就会不见了。
+　　    除了上面介绍的方法，某些特殊项还有别的方式可以去除：
+　　    （1）不显示“网上邻居”图标
+　　    不在桌面上显示“网上邻居”图标，可以新建一个双字节值项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\Explorer\NoNetHood，修改其值为1。
+　　    （2）不显示“Internet Explorer”图标
+　　    不在桌面上显示“Internet Explorer”图标，可以新建一个双字节值项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\Explorer\NoInternetIcon，修改其值为1。
+　　    （3）不在显示“邻近的计算机”图标（适用于Windows Me/2000/XP）
+　　    不在“网上邻居”中显示“邻近的计算机”图标，可以新建一个双字节值项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\Explorer\NoComputersNearMe，修改其值为1。
+　　    （4）不显示“整个网络”图标（适用于Windows Me/2000/XP）
+　　    不在“网上邻居”中显示“整个网络”图标，可以新建一个双字节值项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\Network\NoEntireNetwork，修改其值为1。
+　　    4．修改桌面项目的图标和提示信息（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    从Windows98开始，用户就可以修改“我的电脑”等项目的图标。但是，Internet Explorer项，以及其他特殊性的图标，Windows没有提供修改的方法。通过注册表，我们不但可以修改这些项目的图标，还可以修改它们的提示信息。
+　　    和上面一样，在修改前，我们首先需要知道这些特殊性的CLSID。
+　　    例如我们将“网上邻居”的图标修改成Explorer，4，并且将其提示信息从“显示网络上的计算机”改变为“此计算机网络由本人维护！！！”，那么需要进行一下的修改：
+　　    首先取得“网上邻居”项的CLSID： {208D2C60-3AEA-1069-A2D7-08002B30309D}。
+　　    进入到注册表项HKEY_CLASSES_ROOT\CLSID\{208D2C60-3AEA-1069-A2D7-08002B30309D}中。
+　　    在字符串值项“DefaultIcon”中，存放了“网上邻居”的图标。在字符串“InfoTip”中，存放了“网上邻居”的提示信息。修改这两个值项的值为欲修改为的值。
+　　    这样，“网上邻居”的图标和提示信息就都被修改了。同理，我们可以修改其他的特殊项。
+　　    5．定制资源管理器的模样
+　　    通过注册表，我们还可以定制Windows中的资源管理器。我们可以让Windows ME/2000的资源管理器的界面和Windows98中的类似，或者禁止用户在资源管理器中创建新的文件夹。
+　　    下表中的值项位于注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer中。（表^60090104i^6）
+　　    下表中的值项位于注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Comdlg32中。（表^60090104j^7）
+　　    6．定制Internet Explorer（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    从Windows 95 OSR2到目前最新的Windows XP，所有的Windows版本都捆绑了Internet Explorer。一般地，Internet Explorer的差别只在于其版本上，而和Windows的版本没有太大的关系。最新的Windows XP捆绑的是IE6.0。
+　　    （1）我的Internet Explorer
+　　    在IE浏览器窗口的标题栏中，显示的格式是“WEB页面标题＋IE浏览器标题”。其中IE浏览器的标题字符串是“Microsoft Internet Explorer”。通过修改注册表，可以更换IE浏览器标题栏的字符串。
+　　    新建一个字符串值项HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\ Main\Window Title（注意有空格），修改其值为你喜欢的文字，例如修改为“我的浏览器”，重新启动IE浏览器，在IE浏览器窗口的标题栏中，显示信息更改成了“我的浏览器”。
+　　    （2）给工具栏选个漂亮的背景
+　　    一般情况下IE浏览器的工具栏是没有背景图案的，通过注册表我们可以给它加上背景图案。
+　　    新建一个字符串值项HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\ToolBar\BackBitmap（或者是BackBitmapIE5），修改其值为某个BMP文件的路径。重新启动IE浏览器后，IE浏览器的工具栏就有了背景图案了。
+　　    提示：IE 3.0和IE 4.0只能使用BackBitmap值项，IE 5.0和IE 6.0可以使用BackBitmap和BackBitmapIE5。如果同时设置了，则值项BackBitmapIE5的定义优先。
+　　    （3）自定义Internet Explorer的菜单显示（适用于IE5以上）
+　　    通过修改注册表，我们还可以自定义Internet Explorer的菜单显示。例如，通过去除掉“查看”菜单中的“源文件”项，以及禁止Internet Explorer中的右键菜单，使用者就无法查看正在浏览的Web页面的源代码了。
+　　    下表的值项位于注册表项HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Restrictions中。默认情况下，这些值项都不存在。（表^60090104k^8）
+　　#1    二、加强Windows系统安全
+　　    在目前这个病毒泛滥，“黑客横行”的网络时代，我们必须有备无患，加强计算机系统的安全。而注册表作为Windows操作系统的核心部分，往往成为病毒和黑客利用的工具。如果使用者缺乏注册表的相关知识，将无法找到病毒的“发源地”，而无法将之清除。另一方面，注册表也起着积极的作用。通过注册表，我们可以进一步加强Windows系统的安全，防止各种非授权的使用，以防止病毒和黑客的入侵。
+　　    1．保护个人信息
+　　    如果你是和别人合用一台计算机，或者你有比较私人的内容需要保护，那么你可以通过注册表来加强对这些私人信息的保护。
+　　    （1）清除本机访问信息
+　　    一般情况下，Windows为了方便使用者，总是将使用者最近访问过的文档、运行过的程序等信息保存下来，我们需要去除掉Windows提供的这种方便。
+　　    下表中的值项，位于注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\Explorer中。（表^60090104l^9）
+　　    （2）清除操作信息
+　　    在我们使用Windows操作系统的过程中，很多操作内容都被存放到了注册表中。例如通过“开始”菜单的“运行”项运行过的程序名称、访问过“网上邻居”中的计算机、访问过计算机上的文件夹等。通过注册表，我们可以手工清除这些信息。（表^60090104m^10）
+　　    （3）加密个人文件夹
+　　    上面讨论的都是清除用户适用计算机时留下的信息。下面我们利用注册表知识，来加密我们的存放了个人信息的文件夹。
+　　    我们知道，如果想隐藏你的文件夹，通过将文件夹的属性设置为“隐藏”是没有用的。用户只需要在资源管理器的“工具”→“文件夹选项”→“查看”对话框中，选择“显示所有的文件和文件夹”项，就可以看到所有隐藏属性的文件夹和文件。有一个小技巧，可以有效的保护你的文件夹。这个技巧就是，用类标识符作为文件夹名的文件扩展名。例如我们想保护文件夹C:\mydata。
+　　    首先在注册表项HKEY_CLASSES_ROOT中找到某个文件类型的CLSID，如MIDI文件的CLSID是{00022603-0000-0000-C000-000000000046}。将文件夹mydata的名称加上{00022603-0000-0000-C000-000000000046}这个文件扩展名，即将C:\mydata的名称修改为“C:\mydata.{00022603-0000-0000-C000-000000000046}”。这时C:\mydata的图标就从文件夹的图标变成了MIDI文件的图标。
+　　    在资源管理器中双击该图标，系统会报告该MIDI文件内容错误，无法播放（系统将文件夹当作MIDI文件处理了），因此用户无法进入C:\mydata，也就无法查看该文件夹下的内容。这样做的好处是，我们可以成功的将我们的私人文件夹伪装成一个普通的MIDI文件。
+　　    惟一能够查看文件夹内容的方法是：在DOS窗口中，使用CD命令进入到该文件夹。
+　　    你可能会说，用户只要将该文件夹的文件扩展名去除，不就可以将保护的文件夹恢复出来了吗？不用担心，用户做不到这一步。即使用户在资源管理器的“工具”→“文件夹选项”→“查看”对话框中，去除对“隐藏已知文件类型的扩展名”选项的选择，使所有的文件都显示出扩展名。在资源管理器中，C:\mydata也不会出现扩展名。这样，用户就无法去除或者更改C:\mydata. {00022603-0000-0000-C000-000000000046}的CLSID部分。
+　　    如果想在资源管理器中正常地查看该文件夹里的内容，可以在DOS窗口中，将该文件夹重新改名为正确的名称。
+　　    该方法结合下面的限制运行程序的方法（限制运行DOS窗口），可以很有效的保护你的文件夹。
+　　    2．限制用户运行的程序（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    （1）禁止用户通过“运行”来运行应用程序
+　　    通过“开始”菜单的“运行”，用户可以输入命令来启动某个程序。对于那些不是EXE为扩展名的程序，也可以直接运行。如果不希望用户随意执行程序，可以将“开始”菜单中的“运行”项去除。
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\Explorer中，新建一个双字节值项NoRun，修改其值为1。
+　　    提示：除了“运行”外，可以在DOS窗口中手工输入命令来启动某个程序。
+　　    （2）禁止用户运行命令解释器和批处理文件（适用于Windows NT/2000/XP）
+　　    通过修改注册表，可以禁止用户使用命令解释器（CMD.exe）和运行批处理文件（BAT文件）。
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Policies\ Microsoft\Windows\System\中，新建一个双字节值项DisableCMD，修改其值为2。则命令解释器和批处理文件都不能够被运行。如果只是禁止命令解释器的运行，而运行批处理文件的运行，则修改DisableCMD的值为1。
+　　    （3）禁止运行指定的程序
+　　    为了安全性起见，我们可能希望有些带有危险性的程序不让用户去运行。这可以通过注册表来实现。例如我们想禁止用户运行记事本（notepad.exe）和计算器（cal.Exe）。
+　　    首先在注册表项HKEY_CURRENT_USER\Software\Microsoft \Windows\CurrentVersion\Policies\Explorer中，新建一个双字节值项DisallowRun，修改其值为1，以允许我们定义禁止允许的程序，然后新建一个注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Explorer\DisallowRun，在其下新建两个字符串值项。第一个值项的名称为1，值为notepad.exe，第二个值项为2，值为calc.exe。如果想禁止更多的程序，可以依次建立名称为3、4等顺序往下排列的值项。修改注册表后立即生效。这时想通过“开始”菜单运行记事本和计算器程序，系统会提示不能进行此操作。
+　　    注意：用户在Windows NT/2000/XP的命令解释器（CMD.exe）窗口中，仍然可以通过输入“notepad.exe”运行记事本。这是因为DisallowRun禁止的只是通过资源管理器Explorer运行的程序，记事本不是通过Explorer启动的，所以就无法禁止了。如果不希望用户可以通过命令解释器运行程序，应该在DisallowRun中将命令解释器（CMD.exe）禁止。另外，此方式还有一个不安全之处，就是如果用户将记事本程序“notepad.exe”更改名称，如改成“note.exe”，用户就可以运行它了。
+　　    （4）只允许运行指定的程序
+　　    为了限制用户运行程序，我们可以指定用户只能运行某些必须的程序。这种方式可以避免用户运行自己携带来的程序，有效地防范病毒地传播。这可以通过注册表来实现。
+　　    首先在注册表项HKEY_CURRENT_USER\Software\Microsoft \Windows\Current Version\Policies\Explorer下新建一个双字节值项RestrictRun ，修改其值为1，以允许我们指定可以运行的程序。
+　　    然后新建一个注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictRun，在其下新建两个字符串值项。第一个值项的名称为1，值为notepad.exe，第二个值项为2，值为calc.exe。如果想允许更多的程序，可以依次建立名称为3、4等顺序往下排列的值项。修改注册表后立即生效。这时想通过“开始”菜单和资源管理器运行其他的程序，系统会提示不能进行此操作。
+　　    提示：如果你没有允许注册表编辑器运行，你会发现你将无法恢复此方法所做的修改，因为无法用注册表编辑器来修改注册表了。在这种情况下，你可以将注册表编辑器程序的名称改变为你允许运行的某个程序的名称，这样你就可以运行起来注册表编辑器了。
+　　    注意：由于此方法的限制性非常大，所以请小心使用，尤其是避免没有允许任何程序运行这种情况。如果出现了这种情况，你将无法将此方法做的设定改变回来，因为你无法修改注册表。惟一的方法就是恢复修改前的注册表备份。
+　　    （5）禁止使用注册表编辑器
+　　    注册表是复杂和危险的，所以我们往往希望用户不要尝试着去修改注册表。通过修改注册表，我们可以禁止用户运行系统提供的两个注册表编辑器，Regedit.exe和Regedt32.exe。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\System\下新建一个双字节值项DisableRegistryTools，修改其值为1。这样，用户就不能启动注册表编辑器了。
+　　    注意：使用此功能要小心，最好作个注册表备份，或者准备一个其他的注册表修改工具。因为你在禁止了注册表编辑器后，就不能再使用该注册表编辑器将值项改回了。
+　　    （6）禁止用户更改口令（适用于Windows NT/200/XP）
+　　    用户在“Windows安全窗口”中（同时按下Ctrl+Alt+Delete键），可以单击“更改密码”来更改用户口令。通过修改注册表，可以禁止用户更改口令。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\System下新建一个双字节值项DisableChangePassword，修改其值为1。这样，“Windows安全窗口”中的“更改密码”按钮变成了灰色不可选状态，用户无法更改口令。
+　　    （7）禁止用户锁定计算机（适用于Windows NT/2000/XP）
+　　    用户在“Windows安全窗口”中，可以单击“锁定计算机”来锁定计算机。通过修改注册表，可以禁止用户锁定计算机。
+　　    在注册表HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\System中新建一个双字节值项DisableLockWorkstation，修改其值为1。这样，“Windows安全窗口”中的“锁定计算机”按钮变成了灰色不可选状态，用户无法锁定计算机。
+　　    （8）禁止用户使用任务管理器（适用于Windows NT/2000/XP）
+　　    用户可以使用“Windows任务管理器”（Taskmgr.exe）来启动和结束本地进程、查看和管理其他计算机上的进程、改变进程的优先级。通过修改注册表，可以禁止用户使用任务管理器。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\CurrentVersion\Policies\System\下新建一个双字节值项DisableTaskMgr，修改其值为1。这样，用户就无法启动任务管理器了。
+　　    3．限制用户可以查看的资源（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    （1）隐藏指定的磁盘驱动器
+　　    如果我们不希望使用者查看某个驱动器的内容，可以在“我的电脑”和资源管理器中将该驱动器的图标隐藏起来。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer中新建一个双字节值项NoDrives。
+　　    该值项共使用了从最低位（第0位）到第25位，共26个字位，分别代表驱动器A到驱动器Z。如果第0位为1，表示不显示驱动器A的图标，第3位为1，表示不显示驱动器D的图标，依此类推。例如我们想“我的电脑”中不显示任何驱动器的图标，可以修改“NoDrives”的值为“03ffffff”（第0位到31位全部为1）。修改后重启桌面使改动生效。
+　　    修改后，不只是“我的电脑”，还包括“网上邻居”、资源管理器，任何标准的“打开”、“保存”文件的对话框，都不会出现指定驱动器的图标。虽然这些驱动器的图标不能出现，但是用户仍然可以访问这些驱动器。例如可以在资源管理器的地址栏中输入驱动器号，或者在DOS窗口中使用命令查看隐藏了的驱动器。
+　　    （2）禁止用户查看指定磁盘驱动器的内容
+　　    如果有一个驱动器中存放了重要的数据，我们不希望使用者查看该驱动器的内容，可以使用此方法来禁止查看该驱动器的内容。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer中新建一个双字节值项NoViewOnDrive。该值项共使用了从最低位（第0位）到第25位，共26个字位，分别代表驱动器A到驱动器Z。如果第0位为1，表示禁止使用驱动器A，第3位为1，表示禁止使用驱动器D，依此类推。例如我们想禁止用户使用软盘驱动器A和B，以及驱动器D，可以修改“NoViewOnDrive”的值为“0000000b”（第0、1、3位的值为1）。修改后需要重启桌面使改动生效。
+　　    这时再进入到“我的电脑”，双击驱动器D，系统会弹出一个消息框，告诉用户不能进行此操作。不只是“我的电脑”，还包括“网上邻居”、资源管理器，任何标准的“打开”、“保存”文件的对话框，都不能对已经禁止的驱动器进行操作，虽然在“我的电脑”和资源管理器中，驱动器D的图标仍然存在。
+　　    提示：该方法只是禁止用户在“我的电脑”和资源管理器中访问受限制的驱动器，应用程序仍然可以访问被禁止的驱动器。
+　　    （3）登录时不显示上次使用者的用户名（适用于Windows NT/2000/XP）
+　　    默认情况下，在用户注册登录时，在用户名栏中显示着上次使用者的用户名。通过修改注册表，我们可以禁止系统显示上次使用者的用户名，以加强安全性。
+　　    在注册表项HKEY_LOCAL_MACHINE\SOFTWARE\ Microsoft\Windows NT\CurrentVersion\Winlogon\中新建一个双字节值项DontDisplayLastUserName，修改其值为1。重新启动机器后，在用户注册画面中，不会显示上次使用者的用户名。
+　　    4．限制用户使用控制面板（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    控制面板提供给用户一个直观的界面来更改Windows的部分参数，使Windows的界面和功能更符合自己的需要。不恰当的使用控制面板，会带来一些问题
+　　    （1）禁用整个控制面板
+　　    在注册表项项HKEY_CURRENT_USER\Software\ Microsoft\Windows\CurrentVersion\Policies\Explorer\中新建一个双字节值项NoControlPanel。值为1表示禁止控制面板的使用，值为0或者值项不存在表示允许用户使用控制面板。
+　　    重启桌面使改动生效后，可以看到，“开始”菜单中“设置”中的“控制面板”项不见了，并且如图试图用别的方式访问“控制面板”中的项目，例如在桌面上单击鼠标右键来访问“显示”，系统会弹出一个消息框，提示用户不能进行此操作。
+　　    （2）去除“控制面板”中的指定项目（适用于Windows 2000/XP）
+　　    有时候我们想去除掉“控制面板”中的某些项目，以防止用户使用它们来进行设置，但是又想允许用户使用“控制面板”中的另外一些项目，这也是可以做到的。
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer\中新建一个双字节值项DisallowCpl，并修改其值为1。然后新建一个注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowCpl，在该项下新建若干个字符串值项，形式为“序号＝控制面板项对应的文件名”。例如想去除控制面板中的“显示”和“系统”两项，可以在该项下新建两个值项“1”和“2”，值分别为“desk.cpl”（显示项对应的文件）和sysdm.cpl（系统项对应的文件）。重启桌面使改动生效。这时再进入到“控制面板”中，可以看到，“显示”项和“系统”项已经不见了。
+　　    （3）指定“控制面板”中显示的项目（适用于Windows 2000/XP）
+　　    如果我们想去除掉“控制面板”中的大部分项目，只允许用户使用几个项目，则可以使用本方法。“控制面板”中只显示用户指定的项目，对于没有指定的项目则不显示。
+　　    在注册表项HKEY_CURRENT_USER\Software\ Microsoft\Windows\Current Version\Policies\Explore\中新建一个双字节值项RestrictCpl，修改其值为1，然后新建一个注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explore\RestrictCpl，在该项下新建若干个字符串（REG_SZ）值项，形式为“序号＝控制面板项对应的文件名”。例如只允许用户使用控制面板中的“显示”和“系统”两项，可以在该项下新建两个值项“1”和“2”，值分别为“desk.cpl”（显示项对应的文件）和sysdm.cpl（系统项对应的文件）。重启桌面使改动生效。这时再进入到“控制面板”中，可以看到，整个控制面板中只有“显示”项和“系统”项。
+　　    注意：使用去除控制面板中的指定项目和指定控制面板中显示的项目都可以定制控制面板中项目的显示，但是这两个方法有可能发生冲突。如果发生冲突，则去除控制面板中的指定项目方法优先。
+　　    （4）去除“系统”中的“设备管理”标签（适用于Windows 9x/Me）
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System中，新建一个双字节的值项NoDevMgrPage，修改其值为1。这时再进入到“控制面板”中的“系统”项，可以看到“设备管理”标签已经不见了。
+　　    （5）去除“系统”中的“硬件配置”标签（适用于Windows 9x/Me）
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System下，新建一个双字节的值项NoConfigPage，修改其值为1。这时再进入到“控制面板”中的“系统”项，可以看到“硬件配置”标签已经不见了。
+　　    （6）去除“系统”中的“性能”标签里的“文件系统”按钮（适用于Windows 9x/Me）
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System下，新建一个双字节的值项NoFileSysPage，修改其值为1。这时再进入到“控制面板”中的“性能”项，可以看到“性能”标签中的“文件系统”按钮已经不见了。
+　　    （7）去除“系统”中的“性能”标签里的“虚拟内存”按钮（适用于Windows 9x/Me）
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System下，新建一个双字节的值项NoVirtMemPage，修改其值为1。这时再进入到“控制面板”中的“性能”项，可以看到“性能”标签中的“虚拟内存”按钮已经不见了。
+　　    （8）禁用“显示”项
+　　    我们可以禁止使用“控制面板”中的显示项。虽然“显示”项仍然出现在“控制面板”中，但是用户不能使用。在注册表项HKEY_CURRENT_USER\ Software\Microsoft\Windows\Current Version\Policies\System\中新建一个双字节值项NoDispCPL，修改其值为1。这时进入“控制面板”，双击“显示”项，系统会出现一个消息框提示用户不可以进行此操作。
+　　    （9）去除“显示”项中的“背景”标签
+　　    在注册表项HKEY_ CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\system\中新建一个双字节值项NoDispBackgr oundPage，修改其值为1。
+　　    （10）禁止“显示”项里的“背景”标签（适用于Windows 2000/XP）
+　　    在注册表项HKEY_ CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop\中新建一个双字节值项NoChangingWallPaper，修改其值为1。
+　　    （11）去除“显示”项中的“屏幕保护程序”标签
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\system\中新建一个双字节值项NoDispScrSavPage，修改其值为1。
+　　    （12）决定屏幕保护程序是否使用密码保护（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Policies\ Microsoft\Windows\Control Panel\Desktop\中新建一个双字节值项ScreenSaverIsSecure，修改其值为1。
+　　    （13）去除“显示”项中的“外观”标签
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\system\中新建一个双字节值项NoDispAppearancePage，修改其值为1。
+　　    （14）去除“显示”项中的“设置”标签
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\system\中新建一个双字节值项NoDispSettingsPage，修改其值为1。
+　　    （15）禁止删除打印机
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Explorer\中新建一个双字节值项NoDeletePrinter，修改其值为1。
+　　    （16）去除“打印机”中的“添加打印机”项
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Explorer\中新建一个双字节值项NoAddPrinter”，修改其值为1。
+　　    （17）禁止“添加打印机向导”中的“浏览网络打印机”项（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Policies\ Microsoft\Windows NT\Printers\Wizard\中新建一个双字节值项Downlevel Browse，修改其值为1。
+　　    如果用户想添加网络打印机，只能输入网络打印机的URL。
+　　    （18）去除“添加/删除”项（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Uninstall\中新建一个字符串值项NoAddRemovePrograms，修改其值为1。
+　　    （19）去除“添加/删除”项中的“更改或删除程序”项（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Uninstall\中新建一个双字节值项NoRemovePage，修改其值为1。
+　　    （20）去除“添加/删除”项中的“添加新程序”项（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Uninstall\中新建一个双字节值项NoAddPage，修改其值为1。
+　　    （21）去除“添加/删除”项中的“添加/删除Windows组件”项（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Uninstall\中新建一个双字节值项NoWindowsSetupPage，修改其值为1。
+　　    （22）去除“添加/删除”项目中“添加新程序”中的“从光盘或软盘添加程序”（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Uninstall\中新建一个双字节值项NoAddFromCDor Floppy，修改其值为1。
+　　    （23）去除“添加/删除”项目中“添加新程序”中的“从Microsoft添加程序”（适用于Windows 2000/XP）
+　　    在注册表项HKEY_CURRENT_USER\Software\Microsoft\ Windows\Current Version\Policies\Uninstall\中新建一个双字节值项NoAddFromInternet，修改其值为1。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

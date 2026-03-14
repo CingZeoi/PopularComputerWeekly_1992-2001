@@ -1,0 +1,103 @@
+Flash5 Action初体验──悠游水泡
+
+吕睿 
+2001年 11期
+
+    Flash5正式版已发布，想必不少人已接触过它。关于它的好处这里就不多说了。下面就随我来用Flash5编写一个水泡的Action程序吧。
+　　    成品效果为在白底的320×240的区域内，只要鼠标一拖动就会拉出一串大小不一的水泡。水泡越浮越大，有些爆开了，有些就消失了。在下面的输入栏中可以调节水泡的数量和上浮速度。
+　　    1.新建一个场景，底色为白色，宽和高分别为320和240，帧数就为默认的12帧。
+　　    2.在工作区中画一个圆（大小不必在意，在Action中可以控制），打开Window/panels/Fill面版，填充刚才画好的圆，色彩只要看上去舒服，过渡自然就可以了。
+　　    3.把圆的边框删除，选取菜单Insert/convert to symbol，在弹出的面板中，将Name设为Gnist1_graph，Behavior设为Movie Clip。完成后将这个组件从场景中删除，以后就能方便地从Liarbry中调用它了。
+　　    4.在场景的左下角用字符工具（Character）在工作区中打上“Number”，换一行再打上“Speed”。
+　　    5.然后在“Number”后面再次用字符工具打上“1”，换回箭头工具，选中字符框“1”，点击鼠标右键，并选择Panels下的Text Options，这时会弹出TextOptions的控制面版。在面板的最上方是一个面板tab，下面一行有个下拉箭头，我们点一下这个箭头并选择Input Text，然后我们在Variable的输入框中输入“m”来把变量名设为m。最后在Max Chars输入框中输入“2”把可输入的字符数限定在两个。接着就用同样的方法在“speed”后建立一个字符框，打上15，变量名为g，如图1（^11040701a^）。
+　　    6.新建一个Movie Clip组件，取名为crack。把先前做好的叫Gnist1_graph的组件从Liarbry中拖入这个新建的组件中，并用Modify/Break Apart命令把它打散。
+　　    7.插入几个关键帧做出一个水泡爆裂的效果，只要像就可以了。别忘了在最后插入一空白关键帧，对它双击调出Action面板，在右边的输入框中写入removeMovieClip（“”），这句话的意思就是让组件把自己删除，也就是水泡爆裂后就自我删除（Flash5的Action面板需要拉宽，否则你是看不见右边的输入框的，点击右上角的箭头可以选择Nomal Mode或Expert Mode，一个是用mouse选择输入action，一个直接输入），如图2（^11040701b^）。
+　　    8.再新建一个Movie Clip组件，取名为Gnist1，把Gnist1_graph的组件拖入这个新建的组件中，鼠标右键单击Gnist1_graph，选择Panels下的Instance。在新弹出的面板中的Name一栏中输入“g”，这样就为组件 Gnist1_graph取了个instance name 叫g。接着双击第一关键帧，写入Action如下：
+　　    gg = /:g;
+　　    设变量gg为主场景下的变量g的值（就是那个deep的字符框）
+　　    setProperty （“g”， _y，getproperty（“g”，_y）-gg）;  
+　　    给MC g的Y坐标赋值为当前的Y坐标减去变量gg的值（现在就是减半15）
+　　    setProperty （“g”， _alpha，getproperty（“g”， _alpha）-3）;  
+　　    设置MC g的透明度为当前的透明度减3
+　　    setProperty （“”， _xscale，（_xscale）+（random（3）））;      
+　　    设置当前MC（即Gnist1）的x缩放为当前的x缩放随机加上0到3中的一个数
+　　    setProperty （“”， _yscale，（_yscale）+（random（3）））;      
+　　    照上句
+　　    opx = getproperty（“g”，_x）;  
+　　    设变量opx为MC g当前的X坐标
+　　    opy = getproperty（“g”，_y）;  
+　　    照上句
+　　    a = getproperty（“g”，_alpha）;  
+　　    照上句
+　　    if （bo == random（8） and a<50 and （opxs+opys）>80） {如果变量bo等于0到8的九个数中随机产生的一个（如果bo为1的话就有1/9的机会条件成立），而且透明度小于50，x和y的缩放大于80就执行
+　　    gotoAndPlay （4）
+　　    跳至并播放第4帧
+　　    }
+　　    写完后在第二帧处插入关键帧，双击写入action如下：
+　　    bo =“1”;
+　　    设变量bo为1
+　　    opxs = _xscale;
+　　    设变量opx为当前MC的x的缩放大小
+　　    opys = _yscale;
+　　    照上句
+　　    if （a<=0） {  
+　　    如果透明度小于0的条件成立，那么执行
+　　    gotoAndStop （3）;  
+　　    跳至并停于第3帧
+　　    } else {
+　　    如条件不成立
+　　    gotoAndPlay （1）;  
+　　    跳至并播放第1帧
+　　    }
+　　    9.写完后在第三帧处插入空白关键帧并写入：removeMovieClip（“”）;。之后我们就要把水泡爆裂的动画加入。在第四帧处插入关键帧，把叫crack的MC在此关键帧中拖入当前MC中，取instance name为w，双击关键帧写入Action如下：
+　　    setProperty （“w”， _x， opx）;  
+　　    setProperty （“w”， _y， opy）;  
+　　    setProperty （“w”， _xscale， opxs）;  
+　　    setProperty （“w”， _yscale， opys）;  
+　　    setProperty （“w”， _alpha， a）;  
+　　    （大家可以参照前面的解释理解）
+　　    10.完成后在第四关键帧后第n-1个帧处插入一空白关键帧（n是叫crack的组件帧数，如果组件 crack有5帧，那就该在第8帧处插入空白关键帧，如^11040701c^3）。双击写入：
+　　    removeMovieClip （“”）;
+　　    11.至此叫Gnist1的组件中的内容全部完成了，我们已有了个会越向上浮就越大，越透明，偶尔会爆裂的水泡。下面要做的就是让mouse能拖出一串水泡。
+　　    12.新建一个组件，取名dg。在其中用字符工具输入bubble，颜色大小可根据自己的喜好而定，后面我们将用它来替换鼠标的样子。回到主场景中，新建一层，把叫dg的MC和名为Gnist1的MC都在新建层上拖入场景，分别取instance name为dg和gnist1。双击新建层的第一关键帧，写入action如下：
+　　    startDrag （“dg”，true，0，240，320，0）;  
+　　    开始拖动MC dg，锁在mouse中央，只能在x:0到320，y:0到240里拖动
+　　    setProperty（“gnist1”，_visible，False）;  
+　　    设置MC gnist1的可见性为不可见
+　　    gx = getproperty（“dg”，_x）;  
+　　    gy = getproperty（“dg”，_y）;  
+　　    以上两句参照前面的解释
+　　    if （gx<>gx1 or gy<>gy1）{   
+　　    判断mouse是否有移动，有就执行
+　　    l = m;
+　　    设变量l为m（就是number的字符框，现在是1）
+　　    while （l>=0）{   
+　　    当l>=0成立时循环执行
+　　    l = l-1;
+　　    Scale = random（25）+5;
+　　    setProperty （“/gnist1”， _x， getproperty（“dg”， _x）+random（3） -random（3）;  
+　　    setProperty （“/gnist1”， _y， getproperty（“dg”， _y）+random（3） -random（3）;
+　　    setProperty （“gnist1”， _visible， True）;  
+　　    setProperty （“/gnist1”， _rotation， random（20）+1）;  
+　　    setProperty （“/gnist1”， _xscale， Scale）;  
+　　    setProperty （“/gnist1”， _yscale， Scale）;  
+　　    n = n+1;
+　　    以上参照先前的解释
+　　    bn = “gnist1”&n;（或写为“gnist1”addn或“gnist1”+n）
+　　    变量bn为gnist11，gnist12……gnist1n
+　　    duplicateMovieClip （“gnist1”， bn， n）;  
+　　    复制MC gnist1直到第n个
+　　    }
+　　    结束循环
+　　    }
+　　    13.写完后在新建层的第二帧处插入关键帧，双击写入action如下：
+　　    gx1 = getproperty（“dg”，_x）;  
+　　    gy1 = getproperty（“dg”，_y）;  
+　　    这是为了判断mouse而设的变量
+　　    14.写完后回到旧的那层，双击那层的第一关键帧，写入：Mouse.hide（）;。这句话的作用就是隐藏鼠标。完成后按F5键增加一帧新帧，以求两层帧数相同。
+　　    好了，大功告成。测试一下影片吧， 是不是很有意境啊！有何问题可以来信qsa@citiz.net。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

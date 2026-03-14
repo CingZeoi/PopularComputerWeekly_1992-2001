@@ -1,0 +1,34 @@
+千禧之谜——记Windows Millennium
+
+郭寒
+2000年 第14期 
+
+　　微软做事有时是很出人意料的，就在1999年末网络上很多人还在为Windows98 SE（Second Edition） 版的版本号而争论不清的时候，另一个Windows家族的产品——Windows Millennium已悄悄地浮出了水面，这个操作系统带给人概念上的混乱与迷惑已远不是Windows98 SE版的版本号之争所能比，从去年底流传的一种说法就可见其端了：“微软在八年来一直秘密埋首开发的一套完美的操作系统，代号为＇千年盛世＇”，那么这个所谓的“千年盛世”，真有这么神秘吗？真是很完美吗？我们就以此为契，逐步揭开笼在Windows Millennium上的面纱吧。
+#1    流传的谬误
+　　谬误一：“微软八年来一直秘密埋首于开发操作系统”。没有任何消息表明微软已在这个操作系统上花费了八年时间，微软于1999年4月正式向公众宣布了这个代号为“Millennium” 的Windows 98的后继产品，并于1999年7月23日发布了第一个版本：Developer Preview 1 （Build 2332），在市面上流传的盗版就是这个开发预览版，版本号为Build 2348。
+    谬误二：“在美国上市三天已超过Windows 98的全年销量”。这更是无稽之谈，直到现在为止Windows Millennium也还只是处于测试阶段，其发布进程大致为：1999年7月23日发布了Developer Preview 1版本；1999年9月24日发布了Beta 1版本；1999年11月24日发布了Beta 2版本；2000年1月21日发布了Beta 2更新版本；2000年2月1日正式更名为“Windows Me”（ 以下均使用此名称） ；2000年3月17日发布Beta 3版本；预计2000年5月26日发布最终版本（据以往的经验来看，这个期限估计还会后拖）。
+　　谬误三：“号称永不死机的纯32位操作系统，彻底抛弃DOS操作界面”、“完全兼容Windows NT”。第一句话里只有后半句是对的，而第二句话更是完全和Windows Me的设计思想相背离，两个不同产品线的东西何谈“兼容”呢？
+　　Windows Me采用的仍是Windows 98的内核，并不像某些人所说的那样是Windows 98和Windows 2000的技术混合产品。Windows Me的设计仍将部分基于DOS内核，也仍将是一个16／32位混合的操作系统。Consumer Windows的下一个版本，代号为“Whistler”，其技术将基于Windows 2000，但这个版本预计要到2001年才会面世。而所谓的“彻底抛弃DOS操作界面”，也只是指Windows Me不再支持16位实模式的DOS方式，而在Windows Me中仍保留有大家都很熟悉的那个“MS－DOS 命令行”，微软之所以这么做也是出于简化操作系统以减轻家庭用户操作难度的考虑。
+　　谬误四：“超越Windows NT的安全性和稳定性”。用过Windows 9x的人都知道，Windows 9x系列从来都不是一个稳定的操作系统，16／32位的混合设计也几乎注定Windows Me不可能在稳定性上赶上全32位设计的Windows NT，而针对家庭用户这一特点更决定了Windows Me没有必要在授权及保密等这类安全问题上下大力气。
+#1    崭新的特性
+　　看清了Windows Me到底是个什么东西，接下来让我们来看看里面有些什么吧：
+　　微软在发布Windows Me的开发消息时提出了Windows Me的新增功能特性将集中在以下四个方面（同时也是Consumer Windows未来发展的着重点） ：
+　　＊ Digital Media and Entertainment（数字媒体和娱乐）: Consumer Windows将使用户能充分体会到这个新领域所带来的美妙之处，可以让用户方便地寻访、播放／浏览和存储它们，同时也将使电脑游戏进入到一个更新的境界中。
+　　＊ Online Experience（在线体验）:用户将能更容易地连上Web站点，找到他们所需的信息，并决定哪些信息才适合家庭里的成员。为了达到这个目标，微软在Windows Me中集成了Internet Explorer的最新版本，IE5.5。
+　　＊ Home Networking（家庭网络）: 由于许多人家里都拥有了两部以上的电脑，家庭网络正在成为现实。Windows Me简化了将家中多部电脑联结起来的步骤，使用户可以共享信息和Internet联结。Windows Me为此提供了一个界面友好的Home Networking Wizard（家庭网络向导）。
+　　＊ It Just Works（永不死机）: 不知道这么译是否恰当，因为Consumer Windows的目标就是要保证用户从开机的那一刻起直到关机，系统都要“＇just works”。为了实现这一点，Windows Me中包含了一种称做“Self－healing”（ 自我诊治） 的功能，同时还提供了更加简洁的程序安装方式和一种所谓“out of the box”（ 跳出盒子？） 的智能帮助系统。
+#1    不断改进
+　　外观上的改进：Windows Me安装界面与安装方式和Window 98几乎没什么两样，但安装完进入系统后，却有点眼熟的感觉（见^14020101a^1），哪里眼熟呢？就是桌面上的那几个图标，和Windows 2000桌面上的几乎是如出一辙。此外，Windows Me开始可以让你定制开始菜单与任务栏的属性了，而这在Windows 98中可是需要通过修改注册表或使用第三方程序才能实现的。另外一点不同的是Windows 98中的“Network Neighborhood”（ 网上邻居），在Windows Me已改名为“My Network Place”，并且其处理网络共享资源的方式也有了变化，它会自动显示出你所处局域网上所有机器的共享资源，这一做法同样也是考虑到家庭用户联网机器数目不多及方便用户管理和浏览。
+　　技术内核的改进：这个改进是须要打上问号的，Windows Me的内核基本上是从Windows 98继承过来的。但有很大不同的一点就是在Windows Me中取消了对DOS实模式的支持，Windows Me甚至根本不加载Autoexec.bat和Config.sys文件中指定的实模式驱动程序和TSR程序。另外一项比较独特的技术是所谓的“Hibernation” （冬眠）关机模式，Windows Me的关机菜单也变得和Windows 2000一样成为下拉选择式的。Hibernation关机有点类似某些主板上的STR（Suspend to RAM） 功能，即将系统当前运行状态（打开的程序、设置等） 保存到硬盘上，然后关机，等下次开机时再从硬盘上将资料读出，使系统回复到你关机前的状态。但是就同Windows 98 SE版在某些机器上不能正常关机一样，现有硬件设备对Hibernation关机的支持情况仍不容乐观。
+　　系统稳定性和排错方面的改进：据说Windows Me 的宣传语就是“ It Just Works ”，而Windows Me中也包含了大量这方面的内容，包括取消实模式、Hibernation关机及复原、对新技术与新设备的支持（如USB存储设备、五键鼠标、Internet键盘、数字相机、驱动程序签名以及EasyPC） 、SFP（System File Protection） 、System Restore、AutoUpdate、改进过的帮助机制及用户更易理解的出错信息等。
+　　 其中比较有意思的是SFP功能，它是Windows 98中SFC（System File Checker系统文件检查） 的替代品。Windows 9x中最让人头疼的一件事就是系统文件，不同的应用程序在安装时，可能会以其自身的更新或更老的版本将原来的覆盖掉，造成其他的程序不能正常运行或是系统不稳定，有人将其形象地称为“.DLL Hell”（DLL文件灾难）。SFP采用跟踪系统文件更迭情况，并将老版本文件备份起来的方式来减轻或消除这一“灾难”。
+　　其他比较实用的功能还有System Restore和AutoUpdate（系统复原、自动更新）。其实已经有第三方软件实现System Restore的功能了（如出品Partition Magic的PowerQuest公司的SecondChance），其思想大致为随时跟踪记录系统的变化情况，以便在系统出现问题时还可以恢复到以前的正常状态（见^14020101b^2），System Restore甚至还带有一个Undo功能，给你一个后悔的机会。AutoUpdate功能呢，则类似于Windows 98 中的Windows Update功能，只不过这个更新功能是自动的，以至于是太过“自动” 了，它会在你上网时自动在后台利用空闲时段检查并下载Windows更新程序，当然，这个功能是很为人所诟病的，尤其是在当前人人都对网络安全很敏感的时候。
+　　数字媒体和娱乐方面的改进：Windows Me在这方面的最大改进表现在对数字相机和扫描仪的支持上，为此Windows Me特意在控制面板中增加了一个“Scanners and Cameras” 文件夹，系统文件夹里也多了一个叫“My Pictures” 的文件夹，甚至连CD播放机也做得豪华了起来 （见^14020101c^3）。
+　　网络方面的改进：家庭网络概念的提出，其实从Windows 98 SE版包含的ICS（InternetConnection Sharing 因特网连接共享） 功能中就可见端倪了，Windows Me在网络连接方面提供了一个叫“Home Networking Wizard” 的向导程序，通过它你可以很容易地建好一个网络连接。Windows Me中集成了最新版的IE5.5，但除了增加打印预览等打印功能及可靠性外，IE5.5和IE5相比并没有太多的改进。
+#1    我们期待着
+　　普通用户仍然不能通过正规渠道得到Windows Me的测试版本，除非你是它的测试用户。据说Windows Me发布时将不会有零售版，而是采用类似Windows 95 OSR2那样的OEM销售方式。关于Windows Me已经有太多的“据说”，神秘的东西难免激起人们欲探其究竟的渴望，提倡“out of the box” 的东西其本身竟“in the box”，微软真是玩猫腻的大家啊。
+　　据说Windows Me现在已经推出了Build 2491版本。让我们等待着吧！
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

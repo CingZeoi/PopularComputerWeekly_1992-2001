@@ -1,0 +1,132 @@
+PowerBuilder问与答
+
+柯建勋 
+2001年 18期
+
+大家好！SYBASE已推出PB8BetaIV版，相对于前几个版本有不少改进。感兴趣的读者可以到http://www.sybase.com/powerbuilder_drp或ftp://reserver3.sybase.com/pub/PB8Beta/public下载或了解相关信息。另外，大家还可到http://pbclub.ok100.net 去提交或解答问题。下面，我们对这段时间，PowerBuilder编程爱好者提出的一些典型问题作出答复。
+　　问题一、如何在PB中实现精确的时间控制（如使用延时控制）？timer函数只能使用一次，idle函数只能是在没有任何键盘和鼠标动作的时候才生效，还有其他函数可以用吗？
+　　答：用API函数Sleep（）可以解决，此函数用于通知操作系统忽略当前进程指定时间数，参数为时间（千分之一秒）。
+　　声明函数：
+　　SUBROUTINE Sleep（uint cMilliSeconds） LIBRARY “KERNEL32.dll”
+　　调用：
+　　Sleep（2000）//延时2秒
+　　PB8中新增了对应的函数：Sleep （seconds）。
+　　问题二、PB中怎样实现在循环时通过点击按钮终止循环？ 就像在VB的循环中用DoEvent实现的一样。
+　　答：这当然要用Yield（）函数了。如：
+　　integer n
+　　//sb_interrupt 是共享变量
+　　sb_interrupt=false
+　　for n=1 to 3000
+　　yield（）
+　　if sb_interrupt then
+　　//sb_interrupt的值在“取消”按钮的Clicked事件中修改为true
+　　MessageBox（“我不干了”，“你真坏！”）
+　　sb_interrupt=false
+　　exit
+　　else
+　　//其它处理，在单行编辑器中显示当前n值
+　　sle_1.text = string（n）
+　　//....
+　　end if
+　　next
+　　问题三、如何关闭打开的DOS窗口？ 如在PB中调用run（*.bat）函数，该函数运行完毕后有一个打开的DOS窗口，怎样在程序中关闭？
+　　答：定义API：
+　　Function ulong FindWindowA（String lpClassName， String lpWindowName） Library “user32.dll”
+　　Function ulong CloseWindow（ulong hwnd ） Library “user32.dll”
+　　脚本：
+　　long ll_Handler
+　　string ls_Class
+　　string ls_title
+　　SetNull（ls_Class）
+　　ls_title = “ms-dos 方式” //DOS窗口标题，根据具体情况改
+　　ll_Handler = FindWindowA（ls_Class， ls_title） 
+　　If ll_Handler <> 0 Then
+　　Send（ll_Handler， 16，0，0）
+　　End If
+　　如用CloseWindow（ll_Handler） 替换Send（ll_Handler，16，0，0） 一句则是将指定标题窗口最小化。
+　　以上方法同样适用于其它类型窗口。以前有网友问过用API函数DestroyWindow，DestroyWindow只适用于关闭PB本身的窗口（对象），不适用于外部窗口，如在一个button的clicked事件中加上：DestroyWindow（handle（parent））则关闭button所在窗口。DestroyWindow的声明格式是：
+　　FUNCTION ulong DestroyWindow（ulong hwnd） LIBRARY “user32.dll”
+　　问题四、数据窗口的多表更新问题：我的数据窗口数据源来自两个表，当修改该数据窗口数据项时，怎样做到两个table都能更新？
+　　答：数据窗口数据源来自两个或两个以上的表，相当于多个表连接建立的一个视图，对于这种数据窗口，PB默认是不能修改的。当然我们可以通过设置它的Update 属性，数据窗口的Update Properties用来设置数据窗口是否可Update、可Update的表、可Update列等，但不能同时设置两个表可更新；所以当修改它的数据项时，不能简单地用dw_1.update（）来更新table，我们可以在程序中设置数据窗口可更新的一个表A（及其可更新列），其他表为不可更新，更新完表A后，再设置另一表B为可更新，表A设置为不可更新，依次类推。
+　　以PowerBuilder7自带的EAS Demo DB V3数据库为例：
+　　1、新建一个数据窗口d_grid_dep_emp，它的Select语句为
+　　SELECT department.dept_id，
+　　department.dept_name，
+　　employee.emp_id，
+　　employee.emp_fname，
+　　employee.emp_lname，
+　　FROM department，employee
+　　WHERE employee.dept_id = department.dept_id
+　　2、设置数据窗口d_grid_dep_emp的属性，将列的taborder改为非0值；并点击菜单Rows→Update Properties，设置此数据窗口Allow Updates，Table to Update设为department，Updateable Columns设为department.dept_id，department.dept_name。
+　　3、在窗口中更新数据窗口按钮的clicked事件编写脚本：
+　　long ll_rtn
+　　// 修改Department表（Department表在第2步已设置为可更新）
+　　ll_rtn = dw_1.update（true， false）
+　　If ll_rtn = 1 then
+　　//关闭对Department表的修改
+　　dw_1.Modify（“department_dept_name.Update = ＇No＇”）
+　　dw_1.Modify（“department_dept_id.Update = ＇No＇”）
+　　dw_1.Modify（“department_dept_id.Key = ＇No＇”）
+　　//设置Employee表成为新的可修改表
+　　dw_1.Modify（“DataWindow.Table.UpdateTable = ＇employee＇”）
+　　dw_1.Modify（“employee_emp_id.Update = ＇Yes＇”）
+　　dw_1.Modify（“employee_emp_fname.Update = ＇Yes＇”）
+　　dw_1.Modify（“employee_emp_lname.Update = ＇Yes＇”）
+　　dw_1.Modify（“employee_emp_id.Key = ＇Yes＇”）
+　　//修改Employee表
+　　ll_rtn = dw_1.Update（）
+　　IF ll_rtn = 1 THEN
+　　COMMIT USING SQLCA;
+　　dw_1.retrieve（）
+　　messagebox（＇提示信息＇，＇更新成功！＇）
+　　ELSE
+　　ROLLBACK USING SQLCA;
+　　MessageBox（＇提示信息＇，＇更新成功！＇）
+　　END IF
+　　//重置修改标志
+　　dw_1.Modify（“department_dept_name.Update = ＇Yes＇”）
+　　dw_1.Modify（“department_dept_id.Update = ＇Yes＇”）
+　　dw_1.Modify（“department_dept_id.Key = ＇Yes＇”）
+　　dw_1.Modify（“DataWindow.Table.UpdateTable = ＇department＇”）
+　　dw_1.Modify（“employee_emp_id.Update = ＇No＇”）
+　　dw_1.Modify（“employee_emp_fname.Update = ＇No＇”）
+　　dw_1.Modify（“employee_emp_lname.Update = ＇No＇”）
+　　dw_1.Modify（“employee_emp_id.Key = ＇No＇”）
+　　ELSE
+　　ROLLBACK USING SQLCA;
+　　MessageBox（＇提示信息＇，＇更新成功！＇）
+　　END IF
+　　我们还可以将以上功能作成一个函数，在必要的时候调用即可。
+　　问题五、如何在非PB窗口中实现键盘按键和鼠标点击动作的检测？有很多屏幕捕捉软件都可以在非本软件窗口中实现热键响应事件。
+　　答：首先调用API函数RegisterHotKey为窗口注册热键。当热键按下后，Windows发送wm_hotkey消息给窗口，这时我们可以在PB窗口的other事件中处理。
+　　定义窗口实例变量：
+　　long atomid
+　　constant integer MOD_ALT= 1//ALT键
+　　constant integer MOD_CONTROL= 2//CTRL键
+　　constant integer MOD_SHIFT= 4//SHIFT键
+　　定义API函数：
+　　FUNCTION Integer GlobalAddAtom（ref string lpString） LIBRARY “kernel32.dll” ALIAS FOR “GlobalAddAtomA”
+　　FUNCTION ulong RegisterHotKey（ulong hwnd，ulong id，ulong fsModifiers，ulong vk） LIBRARY “user32.dll”
+　　在窗口的open事件编写脚本：
+　　//注册热键
+　　long ll_RC
+　　string ls_atomid
+　　ls_atomid = ＇myatomid＇
+　　atomid = GlobalAddAtom（ls_atomid）
+　　//得到惟一的ID，保证不和其他应用程序发生冲突
+　　ll_RC = RegisterHotKey（Handle（this），atomid，MOD_CONTROL， 70）
+　　//注册的热键为Ctrl+F ，70为＇F＇
+　　//如果组合键，可用MOD_CONTROL + MOD_ALT等
+　　if ll_RC = 0 then messagebox（“Error!”，“热键注册错误”）
+　　//热键注册冲突
+　　在窗口的other事件编写脚本：
+　　//处理系统热键
+　　IF wparam = atomid THEN
+　　//处理
+　　messagebox（＇hello＇，＇你好！＇）
+　　END IF
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

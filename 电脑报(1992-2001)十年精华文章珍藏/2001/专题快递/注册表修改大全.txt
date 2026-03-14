@@ -1,0 +1,131 @@
+注册表修改大全
+
+  
+2001年 19期
+
+#1    1 打造开始菜单
+　　#2    提高开始菜单中子菜单的弹出速度
+　　点击“开始→运行”，再输入“regedit”，运行注册表编辑器，打开HKEY_CURRENT_USER\Control Panel\Desktop，从“编辑”菜单中选“新建”串值，串值名取“MenuShowDelay”，回车，再双击这个键值，改动其数值就可调节速度，范围是1到2000，默认是400，数值越小越快。如果改为65535就表示要按键才显示了，此处将键值改为1。关闭注册表编辑器，并重新启动Windows后，你将发现开始菜单中子菜单的显示速度明显提高了。
+　　#2    修改开始菜单栏目
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Explorer，在右边空白处单击鼠标右键，选择“新建→DWORD值”，然后输入名字，就可以进行以下相关操作：
+　　新建键值为“NoClose”，再双击它，修改数据（1为表示取消“关闭系统”，0则相反），可以取消开始菜单中“关闭系统”命令。
+　　新建键值为“NoLogOff”，并双击它，修改它的值（1为隐藏，0则相反），就可以隐藏开始菜单中“注销……”菜单。
+　　新建键值为“NoRun”，双击修改NoRun值（1表示隐藏“运行”，0 则相反）；则能够隐藏开始菜单中“运行”命令。
+　　新建键值为“NoFind”，然后双击“NoFind”键值，在弹出的对话框内的键值框内输入数值（1为隐藏，0则相反），可以隐藏开始菜单中“查找”命令。
+　　新建键值为“NoSetFolders”，然后双击“NoSetFolders”键值，在弹出的对话框的“键值”框内输入数值（1为隐藏，0则相反），就可以隐藏开始菜单中“设置”里的“控制面板和打印机”。
+　　新建键值为“NoFavoritesMenu”，设为1隐藏，为0显示，即可隐藏开始菜单中“收藏夹”命令。
+　　新建键值为“NoSetTaskBar”，并设其值为1隐藏，为0显示，则能禁止使用任务栏。
+　　新建键值为“NoChangeStartMenu”，并设其值为1锁定，0则相反，可以禁止修改“开始”菜单。如果想对所有用户生效，可以在HKEY_USERS\default\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer目录中执行相同操作。
+　　新建键值为“NoRecentDocsMenu”，更改值为1隐藏，为0显示。可以禁止开始菜单中的“文档”选项。不过，你可能又想使电脑中能有文档菜单，只是在关机后才删除它们，那么就得这样：还是原来的那里，新建一个名字叫“ClearRecentDocsOnExit”的DWORD值，同样修改值为1自动删除，为0不删除。如果希望禁止将最近操作过的文档放入文档菜单历史记录，那么就得这样：还是原来的那里，新建一个名字叫“NoRecentDocsHistory”的DWORD值，同样修改值为1禁止。
+　　#1    2 精确定义输入法
+　　#2    更改输入法顺序
+　　打开HKEY_CURRENT_USER\Keyboard Layout\Preload，看看它的下面是不是有1 到5甚至更多，你所有的输入法顺序就是从1往下排的，但你能看到它们的默认值是些16进制的数字，并没有说明是什么输入法，要确定1到5们是代表什么输入法，请单击任务栏的输入法指示器“En”图标，弹出各种输入法，Windows98自带的各个输入法的值如下：英语（美国）：00000409；微软拼音输入法（1.5版）：E00E0804；全拼输入法（版本V4.0）：E0010804；郑码输入法（版本V4.0）：E0030804；智能ABC输入法（版本V4.0）：E0040804。
+　　改变顺序时，并不需要将它们的默认值改来改去，你只要将它们的序号重新命名即可，重新命名时不能命名为已经存在的名字，为此，你得先把已经存在的名字改为一个临时的名字，然后你即可将其它的序号按你想要的名字重新编排。
+　　#2    输入汉字时在汉字后加入空格
+　　打开HKEY_USERS\DEFAULT\Software\Microsoft\Windows\CurrentVersion，可以看到有全拼，微软拼音，英文，智能ABC等等输入法，单击某个输入法的主键，可以看到在右边的窗口中有“插空格”这个DWORD值，其值改为0时表示不添加空格，为1时则表示输入汉字时自动添加一个空格。
+　　#2  更改输入法所使用的字符集
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion下相应输入法子键中的“GB/GBK”值，为1表示选用GB2312字符集，为0表示选用GBK字符集。
+　　#2  在“智能ABC输入法”中调整词频
+　　打开HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion下相应智能ABC输入法子键，可以看到在右边的窗口中有“词频调整”值，将其值改为1时表示可进行词频调整。值为0则不可调整词频。
+　　#1    3 控制、修饰你的桌面
+　　#2    隐藏整个桌面
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Explorer，在右边的窗口中新建一个DWORD值“NoDesktop”，并设其值为1隐藏，0则相反。
+　　#2    锁定桌面
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Explorer，新建一个DWORD值“NoSaveSettings”，值为1锁定桌面。
+　　#2    删除系统托盘中的图标
+　　打开HKEY_LOCAL_MACHINE\SoftWare\Microsoft\Windows\CurrentVersion\Run，在右窗口中删除对应图标的项值。
+　　#2    隐藏“我的电脑”中的驱动器
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Explorer 分支，在此分支下新建一个二进制值“NoDrives”，其缺省键值是0x00000000。NoDrives键值为四个字节，每个字节的每一位就对应于一个盘符（从A到Z），即第一个字节代表了从A到H的八个盘，即01为A、02为B、04为C中，80为H。依此类推，第二个字节代表I到P；第三个字节代表Q到X；第四个字节代表Y和Z。因此，当相应位为1时，则在打开“我的电脑”，就再也看不到对应的盘了。例如，我们要关闭C盘，只须右击 NoDrives键值名，然后从快捷菜单中选“修改”，将其键值改为04000000；若要关闭D盘，就此键值改为 08000000；若要关闭C和D，就将此键值改为0C000000。
+　　说明：虽然我们在“我的电脑”中隐藏了所有的驱动器，但是用户仍可以利用MS-DOS方式访问到各个驱动器，因此，为安全起见，我们还得禁止普通用户使用MS-DOS方式，其操作步骤如下：打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支。在该分支下新建一个主键“WinOldApp”，然后单击“WinOldApp”主键。在右窗格内新建一个DWORD值“Disabled”，然后双击“Disabled”键值，在弹出的对话框的“键值”框内输入1。 为防止用户在重新启动计算机时进入“重新启动计算机切换到MS-DOS方式”，还得在HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支的右窗格中创建一个DWORD键值“NoRealMode”，然后单击“NoRealMode”键值，在弹出的对话框内的键值框输入1。
+　　#2  清理访问“网络邻居”后留下的信息
+　　打开HKEY_CURRENT_USER\Net work\Recent，其中记录了一系列命令操作的信息，包含被访问机器的名字、访问过的应用程序及文件名等，把Recent的子项删除掉。
+　　#2  给你的软件增加声音
+　　即使没有桌面主题，Windows98也能为某些软件的事件发出声音。比如，在清空回收站时就是如此。你还可以为单个的应用程序增加一些声音，打开HKEY_CURRENT_USER\AppEvents\Schemes\Apps，“Apps”下面的.Default就是每种事件所要发出的声音，再下面你能看到的是应用程序的名字，所以你要像这些应用程序一样，为你的软件加一个。对着Apps单击鼠标右键，选择“新建\主键”，输入你的应用程序的名字，不用输入扩展名，然后再在你新建的主键上单击鼠标右键，选择“新建\主键”，输入名字为“Open”，同样再建一个“Close”的主键，关闭注册表编辑器，到控制面板里选择“声音”，你就能在列表中找到你的应用程序，再单击“打开程序”和“关闭程序”，在下面的“浏览”中选择一个声音文件即可。除了有Open和Close 事件，其它事件还有：Default：默认；Maximize：最大化；MenuCommand：菜单命令；MenuPopup：下拉菜单；Minimize：最小化；RestoreDown：还原为小窗口；RestoreUp：还原为大窗口；并不是所有的应用软件都支持所有的声音事件，而在低档机上使用声音，会影响系统的速度。
+　　#2    加快Windows的启动速度
+　　Windows98在启动时能自动加载一些程序，有的程序存放在“开始”菜单中的启动组，一些重要的、无须用户干涉的系统程序，则存放在注册表中。如要加快Windows的启动速度，可适当删除这些程序。在启动组中的程序可以通过任务栏方便的删除。如果程序不在启动组中，则需要通过注册表来删除。方法如下：打开HKEY_LOCAL_MACHINE\SoftWare\Microsoft\Windows\CurrentVersion\Run，选择右边窗口中出现的开机自动执行的程序，删除即可。打开HKEY_LOCAL_MACHINE\SoftWare\Microsoft\Windows\CurrentVersion\RunServices，选择右边窗口中出现的开机自动执行的程序，删除即可。
+　　#2    禁止添加打印机
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows
+　　\CurrentVersion\Policies\Explorer，在右边的窗口中新建一个DWORD值“NoAddPrinter”，并设其值为1禁止添加。
+　　#2    禁止删除打印机
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\Explorer，在右边的窗口中新建一个DWORD值“NoDeletePrinter”，并设其值为1禁止删除。
+　　#2删除“安装卸载”列表中的应用程序
+　　打开HKEY_LOCAL_MACHINE\Software\Microsoft\Windows
+　　\CurrentVersion\Uninstall，选定该子项下希望删除的应用程序子项，按Delete键删除。
+　　#2自动关闭停止响应的程序
+　　打开HKEY_CURRENT_USER\Control Panel\desktop，新增DWORD值“autoendtasks”，为1自动关闭，为0手工关闭。
+　　#2禁用注册表编辑器Regedit
+　　为了防止他人修改你的注册表，可以禁止注册表编辑器Regedit.exe运行。打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System，在右边空白处右击鼠标，新建一个DWORD值，名字取为“DisableRegistryTools”，修改它的值为1。以后，别人、甚至是你都无法再使用regedit.exe，如果要恢复的话，新建一个REG.REG文件：
+　　REGEDIT4
+　　    HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+　　\Policies\System
+　　“DisableRegistryTools”=dword：00000000
+　　执行该文件，就可以恢复了。
+　　#2退出系统时不保存环境设置
+　　在通常情况下，在退出Windows 98时都将保存各种环境设置，以便重启时发生作用。但是在多用户操作环境下，许多用户都可能胡乱地更改系统环境的设置，这将造成系统环境的混乱。为此，可以通过修改注册表，使每次修改的环境设置不发生作用。修改的方法如下：打开HKEY_CURRENT_USER\Software
+　　\Micorosoft\Windows\CurrentVersion\Policies\Explorer分支。右击右窗格，新建一个DWORD值，名字取为“NoSaveSettings”，双击“NoSaveSettings”，然后在“编辑DWORD值”对话框的“键值”框中输入1表示不保存环境的设置，0则相反。
+　　#1    4 增加鼠标右键功能
+　　#2    右击开始菜单关闭计算机
+　　关闭机器是日常使用频率最高的操作之一，下面的设置可以简化关机过程：打开HKEY_CLASSES_ROOT\Directory\shell，新建一主键，命名为“Close”，双击Close子键窗口右面的默认处，并在键值栏内输入“关闭计算机”（它就是在右键快捷菜单中出现的提示信息），如省略此项将在右键菜单中显示主键名称“Close”，用&隔开可定义快捷键，然后再在Close下建立下一级子键“Command”，双击该子键窗口右面的默认处并在键值栏内输入“Rundll32.exe User.exe，ExitWindows”字符串，不用重启系统，直接右击开始菜单选“关闭计算机”就可关闭机器。要重启计算机，新建一主键“Restart”，双击Restart子键窗口右面的默认处并在键值栏内输入“重启计算机”，然后再在Restart下建立下一级子键“Command”，双击该子键窗口右面的默认处并在键值栏内输入“Rundll32.exe User.exe，ExitWindows”字符串。右击开始菜单选“重启计算机”就可重新启动计算机。
+　　#2修改文件的鼠标右键弹出菜单
+　　打开HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers分支。该分支下有主键Winzip（笔者的电脑中装有Winzip），删去后即可发现原来文件的弹出菜单上的Add to Zip不见了。当要在弹出菜单中添加一些可执行文件时（以notepad为例），可进行如下操作：在HKEY_CLASSES_ROOT\*\shell下新建一个名为“XXX”（XXX即是显示于弹出菜单中的文字，这里假设用“用笔记本打开”代替）的主键（需要注意的是如果在HKEY_CLASSES_ROOT\*下没有shell，则需要新建shell主键）。再在XXX下新建名为“Command”的主键，修改其默认的键值为“C:\Windows\Notepad.exe %1”（%1表示该文件不带参数，而只运行笔记本程序）即可。再添加新的菜单项重复上面的步骤。
+　　#2扩展鼠标右键功能
+　　增加“在新窗口中打开”的功能，打开HKEY_LOCAL_MACHINE\Software\CLASSES\Directory\Shell，添加一个新的主键，命名为“Openwindows”，并且设定键值为“在新窗口中打开”，然后在Openwindows下新建一个主键，命名为“Command”，键值栏内填入“explorer.exe %1”。
+　　#2在右键菜单中添加“清空A盘”命令
+　　打开HKEY_CLASSES_ROOT\Drive\shell，添加一个新的主键，命名为“EmptyA”，并且设定键值为“清空A盘”，然后在EmptyA下新建立一个主键，命名为“Command”，键值栏内填入“Deltree.exe/y A:”。
+　　#2增加个MS-DOS 方式
+　　打开HKEY_LOCAL_MACHINE\Software\CLASSES\Directory\shell，添加一个新的主键，命名为“MS-DOS Prompt”，并且设定键值为“MS-DOS Prompt”，然后在MS-DOS Prompt下新建一个主键，命名为“Command”，键值栏内填入“C:\Command.com”。
+　　#1    5 关于控制面板
+　　#2   禁用“控制面板”中“用户和密码”
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System，在右边的窗口中新建DWORD值“NoSecCPL”，值设为1禁止修改。
+　　#2设置“网络”中显示属性
+　　打开HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Policies\Network，可进行以下操作：
+　　在右边空白处单击鼠标右键，新建DWORD值“NoNetSetupSecurityPage”，并设其值为1，则禁止在“网络”中显示“访问控制”属性。
+　　新建键值“NoWorkgroupContents”，并设其值为1，则禁止在“网络”中显示“工作组内容”属性。
+　　新建键值“NoFileSharingControl”，并设其值为1，则禁用“网络”控制面板中“文件与打印机共享”。
+　　#2   设置“系统属性”中的菜单
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System，可进行以下操作：
+　　在右边的窗口中新建一个DWORD值“NoDevMgrPage”，并设其值为1，则禁止在“系统属性”中出现“设备管理器”的菜单。
+　　新建键值“NoConfigPage”，并设其值为1，则禁止在“系统属性”中出现“硬件配置文件”的菜单。
+　　新建键值“NoFileSysPage”，并设其值为1，禁止在“系统属性”中出现“文件系统”的菜单。
+　　#2设置“控制面板”中各种属性
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System，可进行以下操作：
+　　新建键值“NoDispCPL”，并设其值为1，则禁用控制面板的“显示”设置项。
+　　新建键值“NoDispBackgroundPage”，并设其值为1，则禁用控制面板的“显示”设置项中的“背景”选项卡。
+　　新建键值“NoDispScrSavPage”，并设其值为1，则禁用控制面板的“显示”设置项中的“屏幕保护”选项卡。
+　　新建键值“NoDispSettingsPage”，并设其值为1，则禁用控制面板的“显示”设置项中的“Web”、“设置”、“外观”选项卡。
+　　#2改变“安装/卸载”中的列表内容
+　　    在HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall下有许多主键，要删除“安装/卸载”列表中的某条内容，只要删除相对应的主键即可。
+　　#1    关于IE的技巧
+　　#2   更改IE标题栏中文字
+　　在菜单栏的上面就是IE的标题栏。它默认的标题是“Microsoft Internet Explorer”。你可以把它完全改变为你喜欢的标题。方法是：打开HKEY_LOCAL_MACHINE\Software\Microsoft\InternetExplorer\Main，新建一个名为“Window Title”的字符串并赋之你喜欢的任何标题，比如“阿Q的网络世界”。再启动IE，IE的标题栏就会变成你设定的样子。
+　　#2改变下载的路径 
+　　打开HKEY_USERS\.DEFAULT\Software\Microsoft\Internet Explorer，在右边的窗口中新建DWORD值“Download Directory”，并设其值为你想要的下载路径，如“C:\My Documents”。
+　　#2更改IE5.0的安全口令
+　　可以在IE5.0的“Internet选项”对话框的“内容”选项页的“分级审查”框中设置口令，这样，在显示有ActiveX的页面时，总会出现“分级审查不允许查看”的提示信息，然后弹出口令对话框，要求输入监护人口令。如果口令不对，则将停止浏览。但是，如果此口令遗忘了，则无法浏览这些特征的页面。在口令遗忘后，重装IE5.0也无法去掉安全口令。这时只有求助于注册表了。方法是：打开HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies分支，在Policies子键下选择“Ratings”子键，按Del键将其删除，由于Ratings子键下的Key键值数据就是经过加密后的口令，删除了这一项，IE5.0自然就认为没有设置口令了。
+　　#2增加IE的自动识别功能 
+　　IE未包含.cn后缀的自动连接功能，那么能不能对IE的自动匹配功能进行扩充，使之能自动匹配“.com.cn”、“.gov”和“.net”之类的后缀呢？回答是肯定的，方法是：打开HKEY_LOCAL_MACHINE\Software\Microsoft\InternetExplorer\Main\UrlTemplate分支，然后就可以在UrlTemplate分支下看到几个分别名为“1”，“2”……字符串值，其键值分别为“www.%s.com”、“www.%s.org”……等，它们就是用于指定IE自动匹配范围的。广大用户若拟为IE增加新的自动匹配功能，只需在UrlTemplate分支下再新建一个字符串，并将其值设置为“www.%s.com.cn”，然后就能让IE对“.com.cn”后缀进行自动识别。当然还可采用此方法增加IE对“.gov”、“.net”等后缀的自动识别。
+　　#2让IE显示超级链接的完整地址
+　　我们知道，在使用IE浏览某个网页时，只须将鼠标放到某个超级链接的下面，系统就会在状态栏中显示出该超级链接的地址，不过系统默认显示的是相对地址（跟DOS中使用的相对路径差不多），在某些情况下这可能并不能满足广大用户的需要。让IE显示超级链接的完整地址的方法是：打开HKEY_CURRENT_USER\Software\Microsoft\InternetExplorer，在右边的窗口中发现一个名为“Show_FullURL”的Dword值，它就是用于设置是否在IE状态栏上显示完整超级链接地址的，你只须将其由0改为1，IE就会在状态栏上显示出相应超级链接的绝对地址，从而满足广大用户的需要。
+　　#2指定系统默认的邮件客户端软件 
+　　当机器内同时安装了Netscape和IE的邮件客户端软件，想指定其中一个为默认的E-mail程序，则选择HKEY_CLASSESROOT\mailto\shell\open\command主键，双击“默认”，在对话框中输入Netscape或IE的全路径和%1（中间有空格），例如“C:\Program Files\Outlook Express\Msimn.exe”/mailurl:%1或“C:\Program Files\Netscape\Program\Netscape.exe” %1。
+　　#2取消URL地址下的下划线
+　　当你打开一个IE页面时，会发现在超级链接下方有一划线，这主要是让用户更加容易分清超级链接与普通文本的区别。但有时你不希望看到在这些超级链接下有划线，而希望取消它们，这也是非常容易办到的！事实上，IE同时为下划线提供了三种不同的显示状态，它们分别是“始终显示下划线”、“始终不显示下划线”和“将鼠标放到超级链接上面的时候显示下划线”，你完全可根据自己的需要对其加以调整。具体方法是：打开HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main分支，然后就可以看到一个名为“Anchor Underline”的字符串值，它就是用于设置是否显示超级链接的下划线的。当其值为NO时表示始终不显示下划线、为YES时表示始终显示下划线、为HOVER则表示通常不显示下划线，而将鼠标放到相应超级链接下面之后显示下划线，广大用户只需根据自己的需要加以更改即可。
+　　#1    关于WORD的技巧
+　　#2改变Word文档的日期显示方式
+　　当我们在Word文档中插入日期页眉或者页脚时，其日期的显示格式一般为：MM/DD/YYYY。但是，这不符合中国用户的显示习惯。我们希望将25/04/2001改为2001/04/25，则可通过修改注册表改变这种日期的显示方式，其操作步骤如下：打开HKEY_CURRENT_USER\Software\Microsoft\Office\8.0\Word\Options，在右窗口中新建一个字符串值“DateFormat”。将DateFormat的值设为“YYYY.MM.DD”，单击“确定”按钮。这样，下次在Word中插入日期时，一定就是所希望的“2001/04/25”的格式了。
+　　#2在“运行”命令行中直接运行Word 97
+　　在“运行”命令行中直接运行Word 97，实现的方法如下：假设Word 97安装在“C:\ProgramFiles\MicrosoftOffice\Office\”目录中，则其具体实现方法为：打开HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths，在AppPaths下新建名称为“Word.exe”的主键，选择“Word.exe”主键，将其默认值设为“C:\Program Files\Microsoft Office\Office\Winword.exe”；在Word.exe的右窗口新建字符串“Path”，其值为“C:\Program Files\Microsoft Office\Office”。这样，以后就可以在“运行”命令行键入“Word”或“Word.exe”来运行Word 97了。
+　　#2让Word 97的滚动条更“酷”
+　　当你在Word 97中拖动滚动条时，你正在查看的文档不会立即跟着滚动，只是在你释放鼠标按钮时，文档才到达新的位置。这与大部分滚动条的工作方式不同，那些文档是随滚动条一起滚动的。要让Word 97的滚动条立即跟着滚动，方法是：打开HKEY_CURRENT_USER\Software\Microsoft\Office\8.0\Word\Options，在右窗口中新建一个字符串值“LiveScrolling”，在右窗口中双击新的“LiveScrolling”值，在对话框中输入1，点击“确定”即可。
+　　#2启动Word97中的宏病毒保护功能
+　　打开HKEY_CURRENT_USER\Software\Microsoft\Office\8.0\Word\Options，“EnableMacroVirusProtection”的值改为1。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

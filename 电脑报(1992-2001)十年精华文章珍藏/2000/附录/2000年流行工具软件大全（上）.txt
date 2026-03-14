@@ -1,0 +1,332 @@
+2000年流行工具软件大全（上）
+
+江水 涛涛
+2000年 第53期 
+
+    本文收集了2000年最流行的各种PC工具软件：系统工具、媒体工具、图形图像、上网拨号、网络浏览、网络搜索、下载上传、网上联系、代理服务、主页制作、在线存储、杀毒防黑、投资、学习、输入法等十五个大类，三十多个小类共一百余种软件。并分别介绍各软件的功能、主要特点及下载网址，便于读者选用、速查。
+#1    一、系统工具
+#1    （一）磁盘工具
+    ● VOpt99
+    下载地址：http://cleandisk.com/files/V99v431.exe
+    软件版本：V4.31
+    文件大小：1914KB
+    编辑评分：*****
+    硬盘长时间安装软件或者删除文件变得凌乱，这样不仅硬盘存取速度变慢也影响系统效率，VOpt99可将分裂在硬盘上不同扇区的文件快速和安全的重整，帮你节省更多时间。VOpt99支持FAT16和FAT32格式及中文长文件名。
+    ● Norton Speed
+    下载地址：http://www.dowmload.com.cn/
+    软件版本：V5.1完全正式版
+    文件大小：7787KB
+    编辑评分：****+
+    是Norton出品的NT下的磁盘碎片整理程序，速度快、效率高。全新的操作界面，可将分在硬盘上不同磁区的文件快速和安全完整重整、完整最佳化，附有排程设定功能，可以设定时间进行硬盘重整。
+    ● Norton Ghost
+    下载地址：ftp://ftp.symantec.com/misc/americas/sabu/ghost/603/nge603trial.exe
+    软件版本：V6.03
+    文件大小：14.26MB
+    使用平台：DOS，
+    编辑评分：*****
+    硬盘复制软件，支持FAT/FAT32/NTFS分区，可单一分区复制，或者将分区镜像成为一个文件。还有很多功能。
+#1    （二）系统工具
+    ● Windows优化大师
+    下载地址：http://member.shangdu.net/home0/lamb/Wom.zip
+    软件版本：V2.9++
+    文件大小：567KB
+    编辑评分：*****
+    从桌面到网络，从注册表清理到垃圾文件扫除，从黑客搜索到病毒免疫，Windows优化大师都给你全面的解决方案。
+    ● Magic Set（超级兔仔魔法设置）
+    下载地址：http://best.163.com/~superr/soft/ms33.zip
+    软件版本：V3.3 正式版
+    文件大小：1557KB
+    编辑评分：*****
+    魔法设置Magic Set是真正全面的系统设置软件，修改Windows 98易如反掌。特色功能：真正支持OE5；能够在修改系统文件夹的路径时，拷贝或移动文件到新的目录；更高级的鼠标右键菜单修改；密码探测器；高级隐藏功能，能够隐藏开始菜单的程序、收藏夹等项目；以一变三的输入法；网络地址转换；黑客木马程序扫描及清除等。
+    ● 注册终结者
+    下载地址：http://ts-doc.he.cninfo.net/xiaoan1/regend/regend2.7.zip
+    软件版本：V2.7
+    文件大小：954KB
+    编辑评分：****
+    注册终结者是一个系统注册表增强软件。汇集了Windows 98的注册表的多项功能，使你的Windows 98更适合你的需要，有了本软件即使不懂注册表，你也能瞬间成为修改注册表的高手。并且本软件是一个完全免费软件。
+    ● Windows系统医生
+    下载地址：http://member.shangdu.net/home0/lamb/WinDoctor.zip
+    软件版本：V1.1
+    文件大小：241KB
+    编辑评分：****
+    是《Windows优化大师》软件系列的一员，它专门针对Windows 9X/2000设计，可以有效而全面的检查和修复Windows 9x/2000的软件错误，例如：注册表错误检查和修复，磁盘文件错误检查和修复等等。该软件的使用方法非常简单，只需要根据提示进行即可。
+    ● Windows终极加速
+    下载地址：ftp://csw.cnshare.net/pub/csw/superr/winspeed.zip
+    软件版本：V2.9A
+    文件大小：763KB
+    编辑评分：****
+    最全面Windows加速软件，包含：开机加速、自动运行程序加速、屏幕菜单加速、文件、光驱硬盘加速、清除垃圾文件、清除垃圾注册表、上网加速、反安装程序加速等。全自动软件配置系统，性能稳定。
+    ● Norton Utilities 2001
+    下载地址：ftp://ftp.download.com/pub/win95/utilities/Norton_Utilities_200_5.0_61 8.exe
+    软件版本：V5.0.618
+    文件大小：44.82MB
+    编辑评分：*****
+    Norton Utilities 2001是Norton系列中最优秀的产品之一，它为你的系统提供了最强有力的支持。而且其强大的工具包可以为你及时发现问题并解决它，同时还能改善系统的性能。它的工具包主要有“十一个硬件诊断工具”、“磁盘医生”、“系统医生”、“最佳系统优化向导”、“磁盘优化”、“注册表优化和编辑”等。
+#1    （三）升级补丁
+    ● Windows 2000 Service Pack 1中英文版
+    下载地址：http://ftpbj.pconline.com.cn/pub/sp1networkcn.exe
+    软件版本：中英文版
+    文件大小：84.38MB
+    编辑评分：*****
+    包含微件发布Windows 2000以来所有的安全升级和最新的修正程序。它包括更新、系统管理工具、驱动程序以及一些组件。SP1纠正了大量的安装BUG，35个访问错误，5个内存漏洞，12个停止错误等更多已知BUG。增强了Windows 2000的安全性，使系统更健壮。此外该SP1中还包含Outlook Express 5.50.2919.6700，并且还有Outlook 2000安全修正补丁。
+    ● Windows 2000兼容性升级
+    下载地址：http://www.microsoft.com/
+    文件大小：217KB
+    编辑评分：****
+    这是微软发布的为Windows 2000设计的额外应用程序支持且包括为Windows 2000准备的软件兼容性升级。能解决一些家庭、娱乐、游戏应用程序中的小的兼容性问题。
+    ● Windows 98（中文版）System Update Service Pack 1
+    下载地址：ftp://ftp.pchome.net:195/ms/Windows 98SP1.exe
+    软件版本：Service Pack 1
+    文件大小：1256KB
+    编辑评分：*****
+    该Pack是针对Windows 98中网络、安全性和一些常见问题而推出的。
+#1    （四）文件管理器
+    ● Windows Commander
+    下载地址：ftp://ftp.cdrom.com/pub/simtelnet/win95/diskutl/wc32v451.zip
+    软件版本：V4.51
+    文件大小：1216KB
+    编辑评分：*****
+    最强的文件管理软件，对于文件管理与路径的寻找，复制，移动都相当方便。可直接阅读Hex、Binary，或纯文字格式的文件，是类似NC的超强文件管理程序，而且还支持FTP功能。
+    ● 良友
+    下载地址：ftp://csw.cnshare.net/pub/csw/ourbooks/tf_351.exe
+    软件版本：V3.51
+    文件大小：1062KB
+    编辑评分：*****
+    方便地管理你的所有文本形式的电子文档。易于管理、直观好用的仿“资源管理器”的树状目录树，支持文件的拖放，“快速建立标题”。强大的文本处理功能还有许多体贴用户的改进。
+#1    （五）硬件优化
+    ● Windows内存整理
+    下载地址：http://member.shangdu.net/home0/lamb/WinMem.exe
+    软件版本：V1.0
+    文件大小：162KB
+    编辑评分：****
+    它专门针对Windows 9X/2000进行内存碎片整理，整理时需要Windows系统的“Windows Scri pting Host”组件的支持。使用者可以自己调整要整理的内存碎片大小（单位：KB），调整范围的最大值就是系统的实际物理内存大小。
+#1    （六）超频降温
+    ● CPUCool
+    下载地址：http://www.podien.onlinehome.de/CPUCOOL9.ZIP
+    软件版本：V5.2.6
+    文件大小：1328KB
+    编辑评分：****
+    一个可以在Windows 95/98/NT中让CPU降温的程序，其它还包含支持在Windows 95/98/NT最佳化CPU功能（支持AMD、Cyrix、Intel），监视、显示主机版温度、风扇速度和电压（支持Intel、SIS、VIA、ALI等芯片组）。
+    ● MyCPU
+    下载地址：http://www.simtel.net/pub/simtelnet/win95/util/mycpu111.zip
+    软件版本：V1.11
+    文件大小：36KB
+    编辑评分：****
+    MyCPU是个免费又好用的CPU效能测试软件，面对目前市场上众多号称可以“超频”的CPU，只要在MyCPU的测试下就可以立即现出原形。MyCPU能够测试的项目包括制造商、何种系列的CPU、CPU型号、加速技术以及CPU中所使用的L1Cache大小等。
+#1    二、媒体工具
+#1    （一）媒体播放器
+    ● RealPlayer
+    下载地址：http://207.82.221.103/1609558e5aa8965d2802/windows/rp8-standard-setup.exe
+    软件版本：V8.0
+    文件大小：11.50MB
+    编辑评分：*****
+    用RealPlayer可欣赏网上在线音频和视频资料。主要功能包括：支持RealFlash功能；带有目标按纽，只需单击鼠标就可收听新闻和娱乐资讯；近乎CD一样的音频效果；全屏播放图象功能。其他功能包括：内容频道、自动升级功能、SmartStream技术消除了再次缓冲、查找媒介链接、支持MP3格式等。
+    ● 豪杰超级解霸
+    下载地址：http://www.herosoft.com/cn/down/down-file/SETUP.zip
+    软件版本：2000
+    文件大小：26.91MB
+    编辑评分：*****
+    作为国内最受欢迎的软解压软件，超级解霸系列从一开始就依靠其强大的技术优势赢得了广大用户的支持。一直以来，超级解霸在软解压技术上作为行业的领先者走在技术的最前沿。《超级解霸2000》同以前的版本相比，在功能上有了极大的改进，新增了许多新颖实用的功能，而且有许多功能成为豪杰公司的首创技术。
+    ● PowerDVD
+    下载地址：http://cyberlink-usa.com/english/download/ftpdload/powerdvd255trial.exe
+    软件版本：V2.55
+    文件大小：3737KB
+    编辑评分：*****
+    台湾讯连科技所开发的高品质的影音光碟播放程序，能让你的多媒体个人电脑具备播放高品质电影或进行卡拉OK欢唱的功能。能提供高解析度的MPEG-2视讯及细腻的AC-3环绕音效与Video CD的播放功能，也具有影像截取的功能，软体支持多国语言、包括中文。
+    ● Windows Media Player
+    http://www.newhua.com.cn/down/wmp7.exe
+    软件版本：V7.0中英文版
+    文件大小：9320KB
+    编辑评分：*****
+    多媒体播放器，支持MP3、MusicX、AVI以及Windows Media Player 6.0支持的所有格式。
+    ● WinDVD 2000简体中文版
+    下载地址：http://www.intervideo.com
+    软件版本：V2.2简体中文版
+    文件大小：11877KB
+    编辑评分：*****
+    WinDVD是一套跟PowerDVD一样功能的DVD影片播放软件，但WinDVD的操作界面没做到像PowerDVD那样漂亮，虽没有PowerDVD 那样漂亮的操作界面，WinDVD 的操作界面亦不差但功能超越了PowerDVD，有DVD光盘机的使用者不可不换这套软件播放比较看看。
+#1    （二）阅读器
+    ● e-BOOK
+    下载地址：http://member.netease.com/hitone/download/ebook199.exe
+    软件版本：V1.99
+    文件大小：592KB
+    编辑评分：****+
+    e-BOOK电子小说阅读器是用VB5设计的纯32位中文文本文件阅读器，尤其适合于阅读各种文本格式的电子小说文件，它的特点是采用了印刷书籍式的人性化界面，具有内码识别、智能分段、自动翻页、播放音乐、书签、全文检索、目录、书柜、墙纸映射、Skins等多种特色功能，是传统书籍与电子小说的完美结合。
+    ● ReadBook
+    下载地址：http://www.gn.net.cn/readbook/download/RB-Setup.exe
+    软件版本：V1.4
+    文件大小：368KB
+    编辑评分：*****
+    Readbook是一个运行在Windows下，用来阅读文本文件的软件，最适合长时间阅读书籍文件。它短小精悍，仅仅六百多K的体积（压缩后300K），却提供了多种强劲的功能。
+    ● 电子小说阅读器
+    下载地址：http://tale.topcool.net/download/book.zip
+    软件版本：V2.67 Build 2
+    文件大小：715KB
+    编辑评分：****
+    可以阅读一般的TXT、HTML、GB文件，可以进行BIG5码、HTML的转换，智能分段，自动翻页，支持背景MP3播放。根据设置，启动时可以打开上次未看完的文件；可以使用书签标记阅读的地方；对当前文件和书签，采取加粗显示；还有时间显示器；可以制作自己的书库文件；增加了多个快捷键以方便阅读。
+#1    （三）媒体制作
+    ● Windows Media Encoder
+    下载地址：http://msvaus.www.conxion.com/download/winmediatech40/wmenc7/7/w98nt42 kme/en-us/wmencoder.exe
+    软件版本：V7.0
+    文件大小：4184KB
+    编辑评分：*****
+    是一套容易使用，而且功能强大的软件，提供使用者自行录制影像的功能，可以从影像捕捉设备或桌面画面录制，亦提供文件格式转换的功能。
+    ● Cool Edit Pro
+    下载地址：ftp://ftp.syntrillium.com/pub/cep/cep12dmo.exe
+    软件版本：V1.2
+    文件大小：4305KB
+    编辑评分：*****
+    数字声音的制作、编辑软件，功能非常强大，支持多种格式之间的转换。
+    ● 家庭电脑相册制作系统
+    下载地址：http://go.163.com/xiongjingcheng/soft/photo-creat.zip
+    软件版本：普及版
+    文件大小：4222KB
+    编辑评分：*****
+    十分钟，使你成为电脑相册制作大师。利用该软件制作的电脑相册具有图片检索、自动播放等多种功能，并能脱离原电脑相册制作系统独立运行。如果将生成的电脑相册刻录成光盘，更可永久收藏。也可以结合其它各种抓图、VCD播放等软件，制作出游戏、影视精彩画面集锦、风景名胜集锦、百科知识宝典、毕业纪念册等图集。
+#1    （四）光盘刻录
+    ● Nero Burning Rom
+    下载地址：ftp://ftp2.ahead.de/ne5024cx.exe
+    软件版本：V5.0.2.4
+    文件大小：4996KB
+    编辑评分：*****
+    这是一个德国公司出品的光碟刻录程序，支持中文长文件名刻录，也支持ATAPI（IDE）的光盘刻录机，可刻录多种类型的碟片，是一个相当不错的光碟刻录程序。
+    ● DirectCD
+    下载地址：http://webcheckup.adaptec.com/downloadz/dcd25dup.exe
+    软件版本：V2.5d升级版本
+    文件大小：4732KB
+    编辑评分：*****
+    CD刻录工具，把CD-R或CD-RW做为硬盘随时可写，可添加文件，但要以空间为代价换取方便性。
+    ● Apadtec Easy CD Creator
+    下载地址：ftp://ftp.adaptec.com/pub/BBS/easycd/cdc-35c.exe
+    软件版本：V3.xx Upgrade to V3.5c
+    文件大小：4991KB
+    编辑评分：****+
+    非常方便实用的CD-R刻录软件。能够刻录AudioCD，DataCD，BootableCD等格式，并且支持中文文件名。
+#1    （五）多媒体工具
+    ● DVD Speed
+    下载地址：http://users.glo.be/erikd/dvdspeed99-02.zip
+    软件版本：V0.2
+    文件大小：165KB
+    编辑评分：****
+    DVD-ROM性能测试软件，包括测试DVD的转速、寻道时间、音轨抓取质量、CPU占用率等，测试结果以曲线图显示，并可把测试结果保存为文件。
+    ● Mp3toWav
+    下载地址：ftp://csw.cnshare.net/pub/csw/qingyuan/qysoft/mp3towav12.zip
+    软件版本：V1.2
+    文件大小：224KB
+    编辑评分：****
+    这是一个将MP3转换为WAV的工具。其特点是：支持截段转换；快速高效；支持鼠标右键操作；可将MP3文件转换到指定的文件夹；Super Cool的界面，异常豪华；允许所有用户将自己的MP3网站链接加入到程序并随之传播。
+#1    （六）媒体管理
+    ● Dj MP3
+    下载地址：http://irsat.dynip.com/download/djmp3.v4.rc1.zip
+    软件版本：V3.6（4.0 RC 1）
+    文件大小：1009KB
+    编辑评分：****
+    管理你收集众多的MP3文件，支持NAD、WinAMP、Unreal Player、Aries Breathe等播放器，你可将喜欢的MP3制成Playlist让这些播放程序共用，并可按排序播放或随机播放，另外支持ID3的编辑，且可改变界面的颜色与按钮。
+    ● Winamp Database
+    下载地址：http://hjem.get2net.dk/koger/progs/winampdatabase/WinampDatabase150b1.zip
+    软件版本：V1.20
+    文件大小：745KB
+    编辑评分：****
+    将所有的音乐文件建立成一个资料库，藉由资料搜寻与过滤你可以迅速的找到所要找的歌曲。它可以搭配Winamp使用，如果找到要播放的歌曲在光碟中，会有提醒放入CD的信息弹出。并且也可以列出资料库的中的资料。
+#1    三、图形图像
+#1    （一）图像处理
+    1. 2D图形、影像
+    ● Paint Shop Pro
+    下载地址：http://www4.jasc.com/pub/psp700ev.exe
+    软件版本：V7.0
+    文件大小：32.05MB
+    编辑评分：****+
+    可与photoshop媲美的绘图软件。除了支持超过三十个文件格式外，它也提供Layer功能，让你编辑多个Layer后再结合为一，并且可以让每个Layer都拥有不同的特殊效果，使你在编辑上方便许多，修改时也可以仅针对某个Layer进行修改而不必全图重新制作！另外，内建的画面截取功能让你截取任何屏幕画面进行编辑，再利用其多种特殊效果及制作网页用按钮等功能制作专业级的图案。
+    ● PhotoLine 32
+    下载地址：http://www.pl32.com/plbin/pl32.exe
+    软件版本：V7.00
+    文件大小：4594KB
+    编辑评分：*****
+    这是一个强大的图形编辑程序，功能不比Paint Shop Pro差，同样可以向ACDSee一样快速浏览目录下的所有图片。支持Layer，并且内建许多现成的滤镜和特效功能，轻轻松松就能做出令人惊讶的影像效果！
+    ● Adobe Premiere
+    下载地址：ftp://ftp.adobe.com/pub/adobe/magic/premiere/win/5.x/51a.exe
+    软件版本：V5.0
+    文件大小：15.44MB
+    编辑评分：****
+    Adobe Premiere是数码视频编辑的强大工具，以其新的合理化界面和通用高端工具，兼顾了广大视频用户的不同需求，在一个并不昂贵的视频编辑工具箱中，提供了前所未有的生产能力、控制能力和灵活性。
+    ● PhotoDraw
+    下载地址：http://mskyus.www.conxion.com/msdownload/photodraw/2000/en/PDTrial5.cab
+    软件版本：2000
+    文件大小：31266KB
+    编辑评分：****
+    微软最新推出的图像处理软件。
+    2. 3D图形
+    ● Adobe Dimensions
+    下载地址：ftp://ftp.adobe.com/pub/adobe/dimensions/win/3.x/dim3try.exe
+    软件版本：V3.0
+    文件大小：3330KB
+    编辑评分：****+
+    是由Adobe公司开发出来与Photoshop以及Illustrator相搭配的3D绘图软件。它具有如下特性：可以快速地制作出基本的3D图像，将内建的一些3D模型直接加入到3D图像中，再加上一些手动的参数调整，很快就得到一幅栩栩如生的3D图片。其最大好处是与Illustrator等Adobe的软件配合相当好，向量图片可以直接输入使用。
+#1    （二）图像截取
+    ● Flash 32
+    下载地址：http://flash32.free.fr/flash32.zip
+    软件版本：V3.05
+    文件大小：1869KB
+    编辑评分：*****
+    Capture工具可以变得出神入化！Flash 32这个软件不单可捕捉任何形状的画面，更可将捕捉后得图片储存成105种不同格式，甚至将一组连续画面制作成动画，还提供多种Filter方便制作特别效果。
+    ● SnagIt
+    下载地址：ftp://207.179.74.210/pub/snagit/snagit.exe
+    软件版本：V5.1
+    文件大小：2978KB
+    编辑评分：*****
+    一个强大的屏幕捕捉程序，不仅能捕捉Windows下的屏幕，也能捕捉DOS的屏幕。存盘支持的图形格式也很多。
+    ● HyperSnap-DX
+    下载地址：http://members.aol.com/HySnapPro/HySnapP.exe
+    软件版本：V3.63.01
+    文件大小：1161KB
+    编辑评分：*****
+    非常有名的屏幕捕捉工具，除了能捕捉屏幕画面存成多种格式图片之外，还支持DirextX和Glide的捕捉，图片捕捉后还可立即编辑。
+#1    （三）图像浏览工具
+    ● ACDSee
+    下载地址：ftp://ftp.acdsystems.com/pub/english/acdsee/acdsee.exe
+    软件版本：V3.1
+    文件大小：5800KB
+    编辑评分：*****
+    用于图像文件的浏览、管理，并内置编辑功能。支持常用的图像文件格式。
+    ● PicturesToExe
+    下载地址：http://www.wnsoft.com/apr/apr-beta.zip
+    软件版本：V3.10
+    文件大小：744KB
+    编辑评分：****
+    是可用来将图片转成EXE执行文件的工具，包括BMP、JPG、GIF等图片，使用相当容易，除可将单一图片转成EXE执行文件，也可将大量的图片转成EXE执行文件。另外，也可以设定时间以幻灯片方式看图。
+    ● IrfanView
+    下载地址：http://stud1.tuwien.ac.at/e9227474/iview325.exe
+    软件版本：V3.25
+    文件大小：572KB
+    编辑评分：*****
+    它是一个很好用的看图软件，而且它还可以播放CD，以及其他多媒体文件。能支持大多数的文件格式；有缩略图（Thumnails）功能；支待多种多媒体文件；还具备有一些简单的影像处理功能；主画面很精简，不太占用桌面。
+#1    四、上网拨号
+#1    （一）拨号、计时利器
+    ● iWPS.net拔号器
+    下载地址：
+    Windows98适用http://www.iwps.net/download/iwpsdial-for98.zip
+    Windows2000适用http://www.iwps.net/download/iwpsdial-for2000.zip
+    文件大小：1175KB
+    编辑评分：*****
+    iWPS.net是功能最强大的网络拨号器。无需任何设置，在全国30个省市中立刻上网；提高上网速度，节省上网费用；随时监控网络速度，避开上网高峰；提供网络收费清单，选择性价比最高的网络。
+    ● 东方虹
+    下载地点：http://dfh.sunv.com/
+    文件大小：16MB
+    编辑评分：*****
+    东方虹可说是集国内互联网软件之大成之作；其功能全面、完善，囊括了拨号、邮件、浏览、下载、搜索等各项上网常见功能；在设计上处处以实现用户应用目的为基本出发点，在每一项功能的的设计上都力求充分方便和贴近用户，降低上网时间和各种费用成本，提高网民的用网效率。
+    ● 网络伴侣（iCompanion）
+    下载地址：ftp://csw.cnshare.net/pub/csw/onekey/ic202.exe
+    软件版本：V2.02修正版
+    文件大小：433KB
+    编辑评分：*****
+    “网络伴侣”具有拨号管理、计时计费、流量统计、多元搜索、智能提醒、计划任务、声音提示、按月结算报表等多种功能，可以忠实地记录上网情况，极大地方便网上旅程。V1.0正式版中包括拨号功能、多重提醒、时间修正等20项改进，是一个比较完善的版本。
+    ● 话费清单
+    下载地址：http://ftp.maoming.gd.cn/h/rogers/net151.exe
+    软件版本：V1.5.1.0
+    文件大小：547KB
+    编辑评分：*****
+    该版采用流行的Skin界面技术。其功能有：根据网络标准时间校准用户电脑时钟；自动检查多帐户邮箱的新邮件；声音提示功能；对历史记录的手工修正功能；支持ISDN；支持在连结后自动运行用户程序；支持包月制与封顶制结算标准；极强的上网图形分析；可记录并计算国际国内长途电话；不运行话费清单，一样寻找并记录电信记录。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

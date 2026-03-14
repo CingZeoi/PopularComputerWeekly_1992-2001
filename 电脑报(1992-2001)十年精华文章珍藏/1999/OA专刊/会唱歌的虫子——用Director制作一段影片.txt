@@ -1,0 +1,45 @@
+会唱歌的虫子——用Director制作一段影片
+
+门槛工作室
+1999年 第14期 38版
+
+　　这是一段用来播放音乐的影片实例，见^143801a^。在黑色背景上有一行标题“Music Heaven”，下面有一条音乐虫子，在音乐虫子的身上标有1～9的数字，用鼠标单击某个数字，音乐虫子标有这个数字的这段身躯就会以高亮度显示，并会播放相应的一段音乐；在音乐虫子的头部写着“Stop”，用鼠标单击音乐虫子的头部，也会以高亮度显示，并使音乐停止；在音乐虫子的尾部写着“Exit”，用鼠标单击音乐虫子的尾部，也会以高亮度显示，并会退出整个影片。
+　　在实例中使用了Sound通道，即从外部引入音乐文件，在相应的时间播放这些音乐；使用了Tempo通道，用来控制音乐播放的结束；并还使用一些Lingo语句控制各个分镜头的切换以及影片的退出。
+　　下面我们来介绍制作它的步骤：
+#1　　一、创建演员和舞台背景
+    开始:首先创建音乐虫子演员。在Cast Window中的一个空白演员上单击鼠标右键，在弹出的菜单中选中Import选项，然后在弹出的对话框中选中所需的十一幅图片，即音乐虫子的头部、躯干和尾部的所有图片，单击“OK”。然后十一幅图片便自动放入了Cast Window中，见^143801b^。
+　　下一步:创建标题演员，按下“Ctrl＋6”，打开文本编辑窗口Text Window，输入标题“Music Heaven”，选择居中对齐后，再调整文字的字体、大小和颜色。
+　　下一步:创建提示语言框演员，按下“Ctrl＋5”，打开Paint Window窗口，选取黄色，画出两个椭圆形的提示语言框。
+　　下一步:创建提示语言演员，按下“Ctrl＋6”，打开文本编辑窗口Text Window输入提示语言“Stop”，再用同样的方法创建出另一个提示语言“Exit”的演员，关闭Text Window窗口。（这里应确保这两个提示演员不要过大，以是否能放入提示语言框演员为准）
+　　完成:在舞台空白处单击鼠标右键，在弹出的菜单中选择Movie Properties选项。然后在弹出的对话框中，用鼠标按住Stage Color边上的颜色框，拖动鼠标，移至黑色小方框中，由此选定黑色，单击“OK”。（在选定颜色时，一定要按住鼠标左键拖动，直到鼠标箭头移至所需的颜色时再放开鼠标，双击鼠标左键是没有用的）至此我们完成了全部的演员和舞台背景的创建。（为了便于我们调整各个演员在舞台上的位置和大小，我们可以先不将舞台背景设置为黑色，而是在全部影片制作完成之后再做此步骤的操作）
+#1　　二、确定各个分镜头的位置和名称
+    开始:将Score Window中的Marker标识拖动至Frame 1，并在其后输入名称“main”，见^143801c^。（Marker标志即为Score Window中标示通道号码的最上方的倒三角形。此步骤是给Frame 1命名，为将来实现分镜头的连接做准备）
+　　完成:使用同上的方法将Marker标志分别拖动至Frame 5、Frame 10、Frame 15、Frame 20、Frame 25、Frame 30、Frame 35、Frame 40、Frame 45、Frame 50，分别命名为“Exit”、“s1”、“s2”、“s3”、“s4”、“s5”、“s6”、“s7”、“s8”、“s9”，至此分镜头命名就全部完成了。
+#1　　三、制作主画面
+　　开始:将标题文字演员拖动至Score Window中的Channel 1，Frame 1中，并在舞台上调整其位置，在Score Window的Ink选项中选择Bkgnd Transparent选项，见^143801d^。
+　　下一步:将Cast Window中音乐虫子各个部分的演员拖动至Score Window中的Channel 6至Channel 16的Frame 1中，调整它们的位置，保证音乐虫子的连接完整与流畅，见^143801e^。
+　　下一步:将提示语言演员和提示语言框拖动至Score Window中Channel 2至Channel的Frame 1中，并在舞台上调整其位置，确保两个提示语言演员在对应的两个提示语言演员框中。然后在Score Window的Ink选项中选择Bkgnd Transparent选项。
+　　下一步:用鼠标右键在Score Window中Channel 6的Frame 1上单击，选取菜单中的Cast Member Properties选项，在弹出的对话框中选中复选框Highlight When Clicked，单击OK。这样，就可以让这个演员扮演的所有精灵都能够在鼠标按在它们上面的时候高亮显示，见^143801f^。（这里，也可以在Cast Window中找到该演员，然后右键单击鼠标，选择Cast Member Properties）同上对Channel 7至Channel 16进行操作。
+　　下一步:用鼠标右键在Score Window中音乐虫子身体上标有数字1的Frame上单击，选取菜单中的Cast Member Script选项，在弹出的对话框中输入控制语句，见^143801g^。（此语句的作用是当鼠标左键单击此演员后，影片将会跳转至指定的画面，这里我们将会跳转至第一首乐曲所在的画面）
+　　下一步:对在Score Window中音乐虫子身体上的标有数字1的Frame做同上处理。（由于所跳转的目的地不一样，故控制语句中的目标Frame也不一样，应分别使其跳转至对应的乐曲所在的画面）
+　　下一步:用鼠标右键在Score Window中音乐虫子头部的Frame上单击，选取菜单中的Cast Member Script选项，在弹出的对话框中输入控制语句。
+　　完成:用鼠标右键在Score Window中音乐虫子尾部的Frame上单击，选取菜单中的Cast Member Script选项，在弹出的对话框中输入控制语句。至此，主画面的制作就完成了。
+#1　　四、填加跳转控制语句
+　　开始:用鼠标双击Script Channel的Frame 1，在弹出的对话框中输入控制语句。（此步骤是实现在影片播放过程中，无鼠标操作时，反复播放Frame 1的画面，以等待鼠标单击事件的出现）
+    下一步:同上一步操作，用鼠标分别右击Script Channel的Frame 10、Frame 15、Frame 20、Frame 25、Frame 30、Frame 35、Frame 40、Frame 45、Frame 50，在弹出的对话框中输入同上控制语句。
+　　 完成:用鼠标双击Script Channel的Frame 5，在弹出的对话框中输入控制语句。（此步骤是实现在影片播放过程中，当用鼠标单击到音乐虫子的尾部时，退出影片）至此，就添加完成了有关跳转的控制语句。
+#1　　五、设定Tempo特效通道
+　　开始:用鼠标左键双击Tempo特效通道的Frame 10，在弹出的对话框中选取Waiting for Mouseup or Key Press选项，单击OK。（此步操作是控制乐曲的播放，当无鼠标操作时，影片停留在此帧，等待乐曲播放完毕，若有鼠标操作，则立刻退出此帧。在特效通道Tempo中，不仅可以设置影片的播放速度，还可以控制影片在一些帧停留，直到某个事件发生）
+　　“Wait for Mouse Click or Key Press”是让影片停留在这帧，直到有鼠标单击事件之后才继续。
+　　“Wait for End of Sound in Channel 1”是等到第一个声音通道中的声音播放完之后，影片继续。
+　　“Wait for End of Sound in Channel 2”是等到第二个声音通道中的声音播放完之后，影片继续。
+　　“Wait for End of Digital Video in Channel x”是等到数字视频播放完之后，影片继续。
+　　完成:按同上方法对Tempo特效通道中的Frame 15、Frame 20、Frame 25、Frame 30、Frame 35、Frame 40、Frame 45、Frame 50进行操作。至此，就完成了对Tempo特效通道的设定。
+#1　　六、制作各个分镜头和加入乐曲演员
+　　开始:在Score Window中选中Channel 1至Channel 16的Frame 1，将其分别拷贝至Frame 10、Frame 15、Frame 20、Frame 25、Frame 30、Frame 35、Frame 40、Frame 45、Frame 50中的对Channel中。
+　　完成:将Cast Window中的九个乐曲演员分别拖动至Score Window里Sound 1通道的Frame 10、Frame 15、Frame 20、Frame 25、Frame 30、Frame 35、Frame 40、Frame 45、Frame 50中，见^143801h^。至此，我们就完成了全部影片的制作。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

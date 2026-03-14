@@ -1,0 +1,137 @@
+Windows注册表修改实例完全手册（下）
+
+李进 
+2001年 60期
+
+    5．防范黑客攻击（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    注册表中有些参数，设置合适的话可以防范一些黑客技术的攻击。DoS（拒绝服务）攻击是一种常见的黑客攻击方式，其中SYN淹没攻击是DoS中比较常见的。我们在这里给出一个防范SYN攻击的设置方法。
+　　    （1）减小等待SYN-ACK包的时间
+　　    TCP在发送SYN-ACK包后，首先等待3秒钟，如果仍然没有回应，则将时间加大一倍，从3秒增大到6秒，再重发一次SYN-ACK，然后继续等待回应。重发的次数定义在注册表中的一个双字节值项TcpMaxConnectResponseRetransmissions 里，该值项位于注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Services\Tcpip\Parameters中。默认值为3，表示重发次数为3次，先等待3秒后发送一次，然后等待6秒后发送一次，然后等待12秒发送一次，最后等待24秒，如果仍然接收不到回应，不再继续发送SYN-ACK，而是清除此次连接，并释放所有资源。这样总共经过了45秒钟。值为2表示重发次数为2次，总共的耗费时间为21秒，值为1表示重发次数为1次，总共的耗费时间为9秒。0表示不重发SYN-ACK，耗费时间为3秒。耗费时间越短，SYN攻击造成的影响就相应的要小一些。此值项的默认值为3次。如果系统容易受到SYN淹没攻击，可以将此值项修改为2。
+　　    （2）增大NetBT的连接块增加幅度和最大数目
+　　    NetBT（基于TCP/IP的NetBIOS）使用139号TCP端口，一般用在微软网络中，例如文件和打印服务。在建立连接时，如果BetBT发现可用的连接块数目小于2个，会自动的再分配可用连接块。
+　　    NetBT每次增加的连接块的数目定义在注册表中的双字节值项BacklogIncrement中，该值项位于注册表项注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Services\NetBt\Parameters下。默认值为3，最小值为1，最大值位20。增大此值可以在有众多连接时提升性能。每个连接块消耗87个字节。
+　　    NetBT最多可以使用的连接块的数目定义在注册表项中双字节值项MaxConnBackLog中，默认为1000个，最大值可以取到40000个。可以适当的增大此参数的值以允许更多的同时连接。
+　　    （3）配置动态Bakclog（适用于Windows NT/2000/XP）
+　　    对于使用Sockets的Windows服务，如FTP，可以通过配置动态Backlog来提升在网络繁忙时的性能。使用动态Bakclog，系统会预先分配一定的资源用于建立连接，这样就省去了给连接分配资源的时间和CPU消耗。如果需要再增加资源，可以一次性的增加若干个连接所需的资源空间。
+　　    在注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AFD\Parameters中新建下面的双字节值项：
+　　    EnableDynamicBacklog，该值项的默认值为0，表示是否允许动态Backlog。默认值为0。对于网络繁忙或者易遭受SYN攻击的系统，建议设置为1，表示允许动态Backlog。
+　　    MinimumDynamicBacklog，该值项的默认值为0，表示动态Backlog分配的自由连接的最小数目。当自由连接数目低于此数目时，将自动的分配自由连接。默认值为0，对于网络繁忙或者易遭受SYN攻击的系统，建议设置为20。
+　　    MaximumDynamicBacklog，该值项的默认值为0，表示定义最大"准"连接的数目。"准"连接包括自由连接和半连接。对于网络繁忙或者易遭受SYN攻击的系统，应该设置此值，大小取决于内存的多少。一般来说，每32M内存最大可以增加5000个。
+　　    DynamicBacklogGrowthDelta，该值项的默认值为5，表示定义每次增加的自由连接数目。对于网络繁忙或者易遭受SYN攻击的系统，建议设置为10。
+　　    （4）启用SYN淹没攻击保护特性（适用于Windows 2000/XP）
+　　    Windows 2000/XP针对SYN淹没攻击提供了一个叫做SYN淹没攻击保护的特性。当出现了SYN淹没攻击的征兆时，Windows 2000/XP自动降低对那些无法确认的连接请求的响应时间。
+　　    在注册表项HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters中新建下面的双字节值项：
+　　    SynAttackProtect，该值项的默认值为0，表示定义是否允许SYN淹没攻击保护特性。保证该值为1，表示允许启用SYN淹没攻击保护特性。
+　　    TcpMaxConnectResponseRetransmissions，该值项的默认值为3，表示定义了对于连接请求回应包的重发次数。如果该值为1，则SYN淹没攻击不会有效果，但是这样会造成连接请求失败几率的升高。SYN淹没保护特性只有在该值大小大于或等于2时才会被启用。该值的默认值为3。
+　　    以上两个值项定义了是否允许SYN淹没攻击保护。下面三个值项则定义了激活SYN淹没攻击保护特性的条件。当满足下面三个值项定义的条件之一时，系统会自动激活SYN淹没攻击保护。
+　　    TcpMaxHalfOpen，该值项的默认值为100或者500，表示定义了能够处于SYN_RECEIVED状态的TCP连接的数目。由于SYN淹没攻击通常会造成大量的SYN_RECEIVED状态的TCP连接，因此保护特性将该值作为SYN淹没攻击发生的一个征兆。当处于SYN_RECEIVED状态的TCP连接的数目超过该值项的定义时，系统认为SYN淹没攻击发生了，自动启用保护特性。
+　　    对于Windows 2000 Server，该值项默认值为100。对于Windows 2000 Professional，该值项默认值为500。Professional之所以比Server的值高，是因为Professional通常不用作服务器，也就不会受到SYN淹没攻击。
+　　    TcpMaxHalfOpenRetried，该值项的默认值为80或者40，表示定义了在重新发送连接请求后，仍然处于SYN_RECEIVED状态的TCP连接的数目。当这种状态的TCP连接的数目超过该值项的定义时，系统认为SYN淹没攻击发生了，自动启用保护特性。
+　　    对于Windows 2000 Server，该值项默认值为80。对于Windows 2000 Professional，该值项默认值为400。
+　　    TcpMaxPortsExhausted，该值项的默认值为5，表示定义了系统拒绝连接请求的次数。当系统保留的连接端口都被使用掉时，系统将拒绝所有的连接请求。SYN淹没攻击通常会发生这种情况，因此保护特性将该值作为SYN淹没攻击发生的一个征兆。当被拒绝的连接请求的数目超过该值项的定义时，系统认为SYN淹没攻击发生了，自动启用保护特性。
+　　    7．检查Windows启动时的程序（适用范围：Windows 2000/XP）
+　　    在Windows环境下，由于病毒必须获得CPU的控制权，因此很多病毒都需要在Windows启动后，自动地运行起来。另一方面，越来越多的病毒采用了高级语言的形式，象宏病毒，采用的是VB语言，本身不能直接由CPU来执行，必须由相关程序解释执行，因此它们必须在操作系统正常启动后，才能加载自身，进行病毒传播。因此说，很多病毒必须在Windows启动后自动地运行起来，并且是依赖于Windows的自动启动程序的功能。这是这些病毒的一个特点，也是一大弱点。我们可以根据这个特点，分析Windows启动时有那些程序自动运行，通过检查这些程序来防范病毒的侵袭。
+　　    （1）注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services
+　　    该项下存放了Windows NT/2000/XP的服务程序。下面的每一个子项对应于一个服务：
+　　    ImagePath值项存放了该服务的程序文件路径。这些服务都有一个Start值项。值为0，表示由核心装载器装载；值为1，表示由I/O子系统装载。Start值为0和1的，都是非常低级和关键的Windows服务，它们必须正常启动，Windows NT/2000/XP才能继续启动。通常病毒不会将自己放在这里面，因为这时候WindowsNT/2000/XP只装载了核心部分，只有最基本的功能。Start值为2，表示自动启动，值为3，表示手工启动，值为4，表示禁止启动。这三类服务，可以在"控制面板"→"管理工具"→"服务"中查看到。
+　　    我们需要检查的是，那些Start值为2的服务，其对应的程序文件（ImagePath值项定义）是否可疑。
+　　    （2）注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Control\Session Manager
+　　    该项下存放了会话管理器（Smss.exe）的信息。在Windows NT/2000/XP的内核启动阶段，需要启动该项下定义的几个程序。在REG_MULTI_SZ类型的值项BootExecute中，定义了会话管理器装载服务前需要运行的程序。默认值为AutoCheck autochk *和Dfsinit。该默认值表示运行磁盘检查程序，以及启动DFS文件系统的初始化程序。
+　　    我们需要检查的是，值项BootExecute存放的是否是默认的执行文件，是否还定义了其他的执行程序。
+　　    （3）注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Current Version\Winlogon\Userinit
+　　    该值项类型为字符串值，定义了用户注册进入时执行的初始化程序。在用户注册时，注册管理程序（Winlogon）启动该初始化程序，默认值是Userinit.exe。该程序首先运行注册脚本，建立网络连接，然后启动用户界面程序（Explorer.exe）。用户可以替换该初始化程序为自己的初始化程序（当然，病毒也可以做到）。一般地，用户自己的初始化程序可以在处理完自己需要进行的工作后，再调用Userinit.exe程序即可。
+　　    我们需要检查的是，Userinit值项的值是否是Userinit.exe。同时检查\Winnt\System32下的Userinit.exe文件的大小和时间是否是正常的。
+　　    （4）注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Current Version\Winlogon\Shell
+　　    该值项类型为字符串值，定义了用户界面程序，默认值为Explorer.exe。正常情况下，注册管理程序（Winlogon）启动Userinit定义的初始化程序，该初始化程序会启动用户界面程序，因此不需要运行Shell值项定义的程序。如果注册管理程序没有能成功启动Userinit定义的初始化程序，则注册管理程序会过来启动该Shell值项定义的用户界面程序。
+　　    我们需要检查的是， Shell值项的值是否是Explorer.exe。
+　　    （5）注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Current Version\Winlogon\System（适用于Windows NT）
+　　    该值项类型为字符串值，该值项中存放了安全管理器程序，默认值为Lsass.exe。安全管理器就是Windows NT启动时，或者屏幕保护后，要求输入用户和密码的画面。用户可以替换该安全管理器程序。
+　　    我们需要检查的是System值项的值是否是Lsass.exe。
+　　    （6）注册表项HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\ CurrentVersion\Policies\Explorer\Run
+　　    在该项下可以有若干个字符串类型的值项，每个值项的名称从1开始，值为程序或者文档的名称。在用户注册进入Windows时，该项下定义的程序将被启动起来。例如该项下有两个值项，第一个是1，值为Notepad.exe，第二个是2，值为C:\readme.doc，则在用户注册进入Windows 2000时，系统会首先运行起Notepad.exe程序，然后会使用DOC的关联程序打开C:\readme.doc文档。
+　　    我们需要检查的是，如果定义了自动启动程序，则查找该程序是哪个软件对应的，是否为可疑程序。默认情况下，该注册表项下应该为空。
+　　    （7）注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ Policies\Explorer\Run
+　　    该项与HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ Policies\Explorer\Run的作用一样，不同之处在于，由于它位于HKEY_LOCAL_MACHINE下，所以它将应用于所有的用户。在启动顺序上，系统首先启动HKEY_LOCAL_MACHINE下的Run中的程序，再去启动HKEY_CURRENT_USER下Run中的程序。
+　　    （8）注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\ CurrentVersion下的Run、RunOnce、RunEx和RunOnceEx子项（适用于Windows 9x/Me/NT/2000/XP）
+　　    由于是位于HKEY_CURRENT_USER下，因此该项只适用于当前这个用户，不适用于其他的用户。在用户注册进入Windows系统时，自动地运行该项下定义的程序或文档。其中Run子项中定义了每次系统启动时都需要运行的程序，值项类型是字符串值，值项的名称是该运行程序的说明，值项的值是程序的名称；RunOnce子项中定义了只运行一次的程序，在该项下的值项中定义的程序运行起来后，该项下的值项就会被删除掉，这通常用于程序的安装过程；RunEx和RunOnceEx的作用和Run、RunOnce是一样的，是Run、RunOnce的扩充形式。
+　　    （9）注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\ Windows\CurrentVersion下的Run、RunOnce、RunEx和RunOnceEx子项（适用于Windows 9x/Me/NT/2000/XP）
+　　    该项和HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion下的Run、RunOnce、RunEx和RunOnceEx作用一样，不同之处在于，由于它位于HKEY_LOCAL_ MACHINE下，所以它将应用于所有的用户。在启动顺序上，系统首先启动HKEY_LOCAL_MACHINE下定义的启动项目，再去启动HKEY_CURRENT_USER下定义的启动项目。
+　　    我们需要检查的是，对于默认情况以外定义的程序，需要检查其对应的软件。很多软件将自动启动程序放在注册表中的这个位置。例如Norton Antivirus防毒软件，就会在注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\ CurrentVersion\Run下新建一个值项NPS Event Checker，值为C:\PROGRA~1\Navnt\ npscheck.exe。
+　　    下表中列出了默认情况下，Windows系统中Run下的自动运行项目。（表^60090110n^11）
+　　    （10）检查非注册表部分
+　　    首先检查启动文件和磁盘引导扇区。对于Windows 9x/Me，启动文件是启动盘目录下的IO.sys和Command.com文件。同时，还包括Autoexec.bat文件中定义的程序文件，以及Config.sys文件中装载的程序文件。对于Windows NT/2000/XP，启动文件是启动盘目录下的Ntldr，Ntdetect.com、Ntbootdd.sys（如果boot.ini文件使用SCSI语法）、Bootsect.dos（如果使用了多重启动，对应于启动到DOS环境），以及Winnt目录下的Ntoskrnl.exe（核心程序文件）和Hal.dll（硬件抽象层）。
+　　    其次，对于Windows 9x，还需要检查Win.ini文件和System.ini文件。Win.ini文件中的"run="和"load="行，定义了Windows 9x启动时需要装载的程序。
+　　    最后，需要检查"开始"菜单中"程序"中的"启动"程序组，"启动"程序组中存放了Windows正常启动起来后，需要启动的程序。
+　　    8．禁止旧版本的"自动运行"程序列表（适用范围：Windows 2000/XP）
+　　    注册表项HKEY_LOCAL_MACHINE_\Software\Microsoft\Windows\CurrentVersion\Run和HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce下存放的是"自动运行"的程序列表，它们是旧版本的"自动运行"程序列表，在Windows95/98/NT中就已经有了。在注册表中有两个值项，可以禁止这两个旧版本列表起作用，替代它们的是RunEx和RunOnceEx注册表项。
+　　    这两个值项位于注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer下。（表^60090110o^12）
+　　    9．禁止远程访问光盘和软盘（适用范围：Windows NT/2000/XP）
+　　    在C2级别的安全要求中，必须对可移动介质的安全作保护，它要求当本地用户在使用计算机时，光盘和软盘称为本地用户的专有资源，网络上的其他用户，包括系统管理员，都不能够访问光盘和软盘。这是因为此时使用的可移动介质，通常是本地用户私人的，因此不应该给其他人看到。
+　　    下表的值项存放在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon中。（表^60090110p^13）
+　　    10．设定口令的最小长度（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    默认情况下，口令可以设置为空。为了加强安全性，我们可以强行指定口令的最小长度。
+　　    在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Network下，创建二进制类型的值项MinPwdLen，并修改其值为口令的长度，例如6。这样，用户在设定口令时，最少要设定6位的长度。
+　　#1    三、提升Windows系统性能
+　　    通过注册表，我们可以定制Windows的功能，使之更加符合我们的习惯和需求。
+　　    1．定制Windows的登录（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    （1）开机后自动登录
+　　    为了使用Windows NT/2000/XP，我们必须输入一个用户名称和用户口令来登录。在Windows 9x/Me中，如果登录方式设置为"Microsoft网络登录"，在进入Windows时，也需要输入用户名和口令，否则将不能访问网上邻居中的计算机。
+　　    为了方便起见，我们可以将用户名和用户密码存放到注册表中，这样Windows启动时，自动使用注册表中的用户名和用户密码来登录，而不用用户手工输入。
+　　    对于Windows NT/2000/XP，在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon下新建值项。对于Windows 9x/Me，在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows \CurrentVersion\Winlogon下新建值项。下表中详细列出新建的值项。（表^60090110q^14）
+　　    （2）在登录前显示自定义的信息
+　　    我们可以在Windows启动之前显示一些信息，以给用户一些提示或是警告。
+　　    对于WindowsNT/2000/XP，在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon下新建值项。对于Windows 9x/Me，在注册表项HKEY_LOCAL_MACHINE\Software\Microsoft\Windows \CurrentVersion\Winlogon下新建值项。下表中详细列出新建的值项。（表^60090110r^15）
+　　    （3）必须使用有效用户注册（适用于Windows 98）
+　　    在Windows 98中，当出现输入用户名称和密码的画面时，可以单击"取消"按钮，或者按下ESC键，跳过这一步直接进入到Windows中。通过修改注册表，可以禁止这种未授权的使用，而要求只有在Windows98中设置的用户才可以进入。
+　　    在注册表项HKEY_LOCAL_MACHINE\Network\Logon下，新建一个双字节字值项MustBeValidated，修改其值为1。这样，在下次启动时，必须输入有效的用户名和用户密码才可以进入到Windows 98中。
+　　    注意：在Windows 98 SE中，该修改方式不适用。如果设置了该选项，Windows 98 SE将从域服务器上去验证该用户，因为找不到域服务器，因此无法正常登录到Windows 98 SE中。
+　　    （4）启动时不要求输入口令（适用于Windows 9x/Me）
+　　    Windows 9x/Me启动时往往要求输入用户名和口令。如果只是自己使用，虽然可以按ESC键或者"取消"按钮跳过这一步，但还是挺麻烦。
+　　    在作此修改前请首先将网络登录方式改为Windows登录：进入控制面板中的网络项，将"主网络登录"方式改为Windows登录。
+　　    然后将默认用户的密码改为空。将用户的密码设置为空可以采用如下方法：
+　　    方法1：通过修改注册表来更换用户名
+　　    在Windows 9x/Me中，上次使用者的用户名存放在注册表的HKEY_LOCAL_MACHINE\Network\Logon下，名称Username。我们可以将这个用户名修改为一个新的用户名。重新启动后，Windows会认为该用户是新的用户，要求输入用户口令。不要输入口令，直接按"确定"按钮。这样，在下次启动时，就不会要求输入用户名和口令。
+　　    方法2：删除口令文件
+　　    进入到C:\windows目录下。找到该用户的口令文件。如用户名称为lijin，则口令文件为lijin.pwl。删除该文件。重新启动Windows 9x，Windows 9x会认为该用户是新的用户，要求输入用户口令。不要输入口令，直接按"确定"按钮。这样，在下次启动时，就不会要求输入用户名和口令。
+　　    方法3：注册新用户
+　　    首先"开始"菜单中选择"注销"，在出现的注册画面中，使用新的用户名，并且不输入口令，直接按"确定"按钮。Windows会自动生成该用户的信息。在下次启动时，系统会使用新的用户注册进入Windows。
+　　    方法4：修改注册表禁止使用口令文件
+　　    注册表中的一个值项控制着是否使用口令文件（PWL文件）。如果禁止使用口令文件，则Windows启动时不会要求输入口令。在注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\ CurrentVersion\Policies\Network下，新建一个双字节值项DisablePwdCaching，修改其值为1。重新启动Windows后，Windows将不会生成和使用口令文件。即使用户设了口令，在Windows启动时，也不会要求输入用户口令。
+　　    提示：如果在注册表中修改了此项，禁止了口令文件，并且登录方式选择的是"Microsoft网络用户"或者"Netware网络用户"，在Windows 9x/Me启动时，仍然会出现要求输入用户口令的画面，不过即使输入的用户口令不对，也可以进入Windows，只是不能注册到"Microsoft网络"或"Netware网络"上。
+　　    方法5：强迫Windows启动时不进行登录
+　　    默认情况下，只要安装了网络项，或者Windows口令非空，Windows启动时会出现登录注册的画面，要求用户进行注册进入系统。在注册表中有一个值项控制着系统启动时是否进行登录。在注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\ CurrentVersion\Network\Real Mode Net下，新建一个双字节值项autologon。修改其值为0。
+　　    提示：此方法对于Microsoft网络用户登录、Netware网络登录和Windows登录三种登录方式都适用。
+　　    2．加快拨号上网的速度（适用于Windows 9x）
+　　    （1）去除不需要的协议和服务
+　　    选定一个拨号连接，单击右键，可以看该拨号连接的属性。通常通过拨号网络建立一个连接后，该连接绑定了NetBEUI和IPX/SPX兼容协议，并且联系着微软网络，如果该拨号连接只是为了上因特网，则可以将这些不必要的协议和服务去掉，只保留TCP/IP协议，以加快登录速度和传输速度。
+　　    （2）增大串口缓冲和通信速度
+　　    在Windows目录下找到System.ini文件并编辑它，在其[386Enh]这一行下面加入"COM2Buffer=1024"行。如果调制解调器不是安装在串口2，而是安装在串口1，则改为"Com1Buffer=1024"即可。
+　　    在Windows目录下找到Win.ini文件并编辑它，在其[ports]部分找到"COM2:= 9600，n，8，1，x"行，修改为"COM2:=38400，n，8，1，x"。如果调制解调器不是安装在串口2，而是安装在串口1，则修改"COM1:=9600，n，8，1，x"行为"COM1:=38400，n，8，1，x"。
+　　    （3）增大接收缓冲区
+　　    设置调制解调器的属性，将其接收缓冲区调到最大。
+　　    （4）增大系统的文件名和路径的缓冲
+　　    在注册表项HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\FS Templates\Desktop下，新建两个双字节值项。一个是NameCache，定义了存放访问过的文件名的缓冲，建议从32修改为128。一个是PathCache，定义了存放访问过的文件的路径的缓冲，建议从677修改为4096。
+　　    （5）调整拨号网络适配器的TCP/IP参数
+　　    首先进入到注册表项HKEY_LOCAL_MACHINE\Enum\Root\Net下。在该项下有形式为00xx的子项。进入到各个00xx子项下，查找值项DeviceDesc是否为"拨号网络适配器"。如果是，在该子项下还有一个Binding子项，进入该子项，记下该子项下的MSTCP\00xx的值。
+　　    按照上一步找到的MSTCP\00xx值，进入到注册表项HKEY_LOCAL_MACHINE\Enum\Network\MSTCP\00xx下。记下其下值项Driver的值，形式为NetTrans/00xx。
+　　    按照上一步找到的NetTrans/00xx的值，进入到注册表项HKEY_LOCAL_MACHINE\System\ CurrentControlSet\Services\Class\NetTrans\00xx下。修改REG_SZ值项MaxMTU的值从1500到576，因为1500是针对局域网的，而576是Internet上的标准。修改REG_SZ值项MaxMSS的值为536。
+　　    （6）调整TCP/IP协议的参数
+　　    修改下列值项的值（字符串值）。这些值项位于注册表项HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\MSTCP下：
+　　    DefaultRcvWindow，其默认值为8129，该值为接收缓冲区的大小，一般等于Modem的传输速度。可以按如下算法计算．假设Modem速度为28.8K，则传输率为（不考虑数据压缩）28800/9=3200。考虑到DefaultRcvWindow应该是MSS（一般值为536）的整数倍，则应该取值为2680。不考虑Modem的数据压缩，14.4K、28.8K、36.6K和56K应该分别对应于1072、2680、3752、5896。如果考虑到Modem的数据压缩功能，可以再加大20%～50%，但注意，仍然应该为MSS的整数倍。如果Modem速度快，因特网接入线路质量好，可以再适当的加大该值。默认值为8192。
+　　    DefaultTTL，其默认值为32，该值为数据包可以在因特网上存活的时间。加大该值，有利于在繁忙的网络中保持连接。默认值为32，建议修改为255。
+　　    NameSrvQueryTimeout，其默认值为750，该值为域名服务器查询的超时时间。加大该值，有利于连接的建立。默认值为750毫秒。建议修改为3000毫秒。
+　　    3．定制驱动器的自动播放功能（适用范围：Windows 9x/Me/NT/2000/XP）
+　　    Windows提供了自动播放功能。最常见的就是光盘驱动器的自动播放功能。当我们将一张CD光盘放进光盘驱动器中，CD播放器就会自动运行起来，并开始播放该CD。或者在光盘驱动器中放入一张数据盘，如果该光盘的根目录下有一个Autorun.inf文件，这个Autorun.inf文件中定义的程序也会自动地运行起来。
+　　    （1）禁止光盘驱动器的自动播放功能
+　　    在注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Cdrom\下有一个双字节值项AutoRun，修改其值为0，重启计算机。
+　　    （2）定制各个驱动器的自动播放
+　　    我们可以定制各个驱动器的自动播放。例如允许驱动器E的自动播放功能，而禁止其他驱动器的自动播放功能。
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer下。如果想让此修改应用到所有的用户，则应该进入到注册表项HKEY_LOCAL_MACHINE \Software\Microsoft\Windows\Current Version\Policies\ Explorer下。在该项下新建一个双字节值项NoDriveAutoRun。
+　　    该值项的低26位分别代表从A到Z共26个驱动器的自动播放功能。如果该位为1，表示该位对应的驱动器的自动播放功能被禁止，如果该位为0，则该位对应的驱动器的自动播放功能被允许。例如我们只想禁止驱动器C和D的自动播放功能，对于其他驱动器的自动播放功能则想保留，那么我们需要修改NoDriveAutoRun的值为0x0000000c。修改后需要重新启动计算机。
+　　    （3）按驱动器的类型进行定制
+　　    除了按照驱动器盘符来定制外，我们可以按照驱动器的类型来定制各个驱动器的自动播放。
+　　    进入到注册表项HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer下。如果想让此修改应用到所有的用户，则应该进入到注册表项HKEY_LOCAL_MACHINE \Software\Microsoft\Windows\Current Version\Policies\ Explorer下。在该项下新建一个双字节值项NoDriveTypeAutoRun。该值项只使用了最低位的字节。最低位的字节含义如下：（表^60090110s^16）
+　　    这些位为0时，表示允许该种类的驱动器的自动运行特性，为1时，表示禁止该种类驱动器的自动运行特性。默认值为0x95，即第0，2，4，7位为1，表示软盘，网络盘，未知类型盘的自动运行特性被禁止。修改后需要重新启动机器使改动生效。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

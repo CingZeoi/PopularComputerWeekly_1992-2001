@@ -1,0 +1,203 @@
+Windows 95 中的工具软件
+
+肖 峰
+1996-06-28
+
+        ·  磁盘压缩工具软件DrvSpace for Windows 95，使用它可创建、维护压缩盘， 且比MS DOS 6.20、MS DOS 7.0的压缩率高1-2倍左右。
+        ·  磁盘扫描工具软件ScanDisk for Windows 95，使用它可扫描磁盘中的错误。
+        ·  磁盘碎片整理工具软件Defrag for Windows 95，使用它可整理出磁盘中的碎片，从而提高了磁盘运行速度。
+        这些工具软件的使用可按Windows 95中提示操作。
+        除此之外，还有许多的工具软件，下面介绍常用的几种。
+        一、Norton 95
+        随着Windows 95发布，Symantec公司Norton子公司在Norton 8.0基础上推出了全新的Norton 95系列工具软件包，其中共包括Norton Utilities 95(简称 NU  95) 、 Norton Anti-Virus 95(简称NAV 95)和Norton Navigator 三个相对独立的实用程序组件， 作为Windows 95与DOS下的双平台应用程序。
+        (一) Norton System Doctor 32 for Windows 95 的功能与使用
+        NU 95中新增加的32位系统维护医生。它提供了在Windows 95下查看CPU、内存、磁盘、GUI、AC Power、虚拟内存、高速缓存、CMOS电池电力等27 项系统资源的使用情况的监测和发现系统可能出现的问题，远优于Windows 95系统提供的System Monitor(系统监测器)。
+        在安装NU95后，Norton System Doctor 32提供了CPU Used(CPU使用)、C:Free(C: 盘剩余容量)、Unfrag C:(C:盘的碎片)、VM Free(虚拟内存剩余)、GDI Free(GDI资源剩余)、USED Free(USED资源剩余)、Image for Drive C:(C:盘的镜象)、Rescue Readiness(应急盘)等情况图形。可使用Sensor菜单下的Add菜单项添加其它指标使用情况。在每个显示情况图形上按鼠标器右键，则弹出右键菜单，该菜单中含有对应图形的功能选项。
+        另外，使用Utilities菜单，还可以调用NU95 的其它工具， 如 Image32 、 SystemInformation、Rescue、Speed Disk、Norton Disk Doctor、Unerase、Space Wizard等。当系统中出现什么问题时，Norton System Doctor 32将自动调用相应的NU95 工具进行快速处理。
+        (二) Norton Unerase Recycle Bin for Windows 95的功能与使用
+        这是NU95中新增加的32位 Norton 保护箱， 该程序要优于 Windows  95 系统提供的Recycle Bin，它可安全地恢复被删除的文件。
+        该程序通过在磁盘上建立一定的删除文件保护空间(在每个磁盘的\Recycle\NCProtec子目录存放，其占用的空间一般为磁盘容量的10%左右)存放被删除的文件，并提供了文件的三级恢复方法，做到万无一失。
+        注意：Norton Unerase Wizard程序在安装时将增强Windows 95 的“回收站”功能，当在“回收站”上按鼠标器右键，则出现右键菜单。
+        在该右键菜单上增加了“Unerase Wizard”和“Empty Norton Ncprotected files”菜单项。选择“Unerase Wizard”选项，则启动了Norton Unerase Wizard工具。
+        这是一个反删除向导程序，用户只要按照此向导操作就能恢复曾被删除的文件。
+        (三) Norton Disk Doctor 32 for Windows 95 的功能与使用
+        这是NU95引入的全新32位磁盘医生(简称NDD32)。
+        它可在Windows 95环境下，检测与修复系统的分区表、主引导记录、根目录丢失与簇及磁盘表面可能存在的问题。其在检测Cross Linked Files(丢失的链接文件)方面的功能也有所加强，同时系统也提供了在DOS环境下运行并支持长文件名特性的NDD。它们的使用方法完全类似。
+        NDD32启动后，自动选择所有硬盘分区盘符， 可根据需要重新选择要被诊断的分区盘符。在诊断之前，最好先使用Options按钮确定诊断设置项。
+        该画面提供了General(通用)、Appearence(外观 ) 、 Surface  Test( 表面扫描 ) 、Advanced(高级)四个选项卡供用户设置。设置完毕后，按OK按钮返回到主画面。
+        按“Diagnose”按钮，则开始对选定的分区进行诊断操作。
+        一旦出现问题，就可能出现一些提示对话框，要求用户参与确认，如提示\Windows文件夹中出现了错误，希望您作出相应回答。
+        在诊断过程中，若遇到重要的问题需要修正，则NDD32还给用户提供一张UNDO盘(恢复盘)，这样在诊断完成后，若出现系统无法启动等问题时，使用这张UNDO盘进行恢复。 其方法是在NDD32的主画面中选择UNDO按钮，则出现一个对话框，要求用户使用UNDO 盘恢复NDD32修改过的错误。
+        此时，应将UNDO盘插入软盘驱动器中，按Continue按钮，则NDD32将完成恢复工作。
+        (四)Norton Speed Disk 32 for Windows 95 的功能与使用
+        这是NU95第一次引入的32位磁盘加速工具(简称SD32)。它提供了Windows 95系统下磁盘优化及Windows 95下的文件、目录的管理功能。该程序具有很好的兼容性，可支持最新由MS PLUS! for Windows 95提供的磁盘压缩工具Microsoft Drvspace 3，优于 Windows 95提供的Defrag for Windows 95。在SD32中，其优化包括优化Folder(文件夹 ) 和优化File System(文件系统)系统两个方面。在优化过程中， 它可把目录放在前面以方便用户阅读。
+        启动SD32后，将自动选择所有分区盘符，然后选择优化方法：Full  Optiomization(全优化)、Unfragment File Only(仅使文件没有碎片)、Unfragment Free Space( 仅使剩余空间没有碎片)。
+        接着SD32开始根据优化方式进行操作。若在操作过程中出现磁盘方面的错误，则将弹出一个对话框，要求用户运行NDD32先对磁盘进行诊断处理后，再运行SS32。
+        (五)Norton Sysinfo 32 for Windows 95 的功能与使用
+        这是NU95第一次引入的32位系统信息工具(简称SI32)。
+        该工具提供了对机器的系统(System)、显示(Display)、内存(Memory)、驱动器(Disk)、打印机(Printer)、端口(Ports)、多媒体组件(MutilMedia)、网络(Network)等内、 外部设备的配置情况。同时该程序还提供了一个检测机器性能的工具System Benchmark。该工具通过System选项卡中的“Benchmark”按钮启动，则出现BenchMark检测结果界面。
+        (六)Norton Image 32 for Windows 95的功能与使用
+        这是NU95第一次引入的32位磁盘映象保存工具(简称Image32)。
+        该工具通过将磁盘系统的文件及目录信息保存在Image.dat中， 并把它存放到磁盘的最后一簇中。在误格式化后可安全地恢复原有数据。
+        启动Image32后，首先要选择需要保存文件及目录信息的磁盘，然后按Imgae按钮就可保存指定磁盘的文件和目录信息。一旦磁盘出现问题时就可使用该信息文件恢复之。若在选择Options按钮，则出现Options  for  Norton  Image 对话框。 使用该对话框就可对Startup Options框中设置进行选定，如Run on Windows Startup(Windows 启动时就运行Image32)、Create imgae backup file(创建镜象备份文件)等。
+        (七)Norton Rescue 32 for Windows 95的功能与使用
+        这是NU95第一次引入的32位建立应急盘工具(简称Rescue32)。
+        该工具通过对机器CMOS、Boot区、磁盘分区表、文件系统及磁盘修复工具等进行完整备份(同时也提供备份选择)，当系统受到病毒攻击或人为造成的机器瘫痪时可安全地恢复系统。也可有选择地备份系统数据。选择Options按钮，则出现Rescue disk  Options 对话框。在Rescue Items选项卡中选择需要备份文件的选项，同时也可通过选择 Add  NewItem 按钮增加新的备份选项。 在 Formating 选项卡中提供了备份数据盘的格式设置：Full Format each floppy disk( 每张软盘都要完全格式化 ) 、 Quick  format  each floppy disk(每张软盘只需快速格式化)、Use available disk space( 只使用软盘的剩余空间)。
+        (八)Shell Extensions for Windows 95 
+        在NU95工具软件包中，提供了一个名为Shell Extensions(外壳扩展)工具，通过该工具可使NU95与Windows 95融合在一起，安装之后在运行多数Windows 95应用程序的系统菜单中的设置时，会看到画面中增加了一个Norton选项。
+        (九)Norton Navigation  for Windows 95
+        Norton Navigation又可译为诺顿导航器，它是一套替代Windows 95 桌面管理系统的32位增强工具软件。在安装完Norton Navigation后， 将在任务栏右半边增加了诺顿导航器一些控制图标。
+        Norton Navigation主要特点如下：
+        1.相对Windows 95的Explorer，Navigation提供了更为友好的用户界面和功能更为强大的桌面管理系统。
+        2.Navigation设计了一个全新的文件管理器(File Manager)。
+        3.Navigation还提供了全新的极富个性的桌面、控制面板、任务条、下拉菜单和功能极为强大的系统工具，这些工具可直接通过Norton Navigator Control Center启动。
+        (十)Norton Anti-Virus for Windows 95
+        Norton Anti-Virus是一套运行于Windows 95、DOS和从Windows 95切换到DOS 环境三种状态的32位在线病毒检测软件，并提供了Scheduler和Activity Log两个工具。
+        Norton Anti-Virus在安装前首先检测系统是否有病毒，在无病毒环境下安装。在安装结束下，将在任务栏右边显示“ Norton  Anti- Virus  Auto- protect  Enabled(或Disabled)”(诺顿查毒自动保护打开)图标，在该图标上按右键，再选择open， 则打开了该图标。使用Options按钮可对该图标进行设置。
+        Norton Anti-Virus主要特点如下：
+        1.针对Windows 95的特点，新的NAV32设置了极为严密的在线病毒防御功能， 可检测到多达5000种以上的已知病毒(可选择Virus List按钮查看这些病毒特征)，可发现文件中病毒破坏了的文件结构和对内存中可能驻留的未知病毒报警，并建议用户修复或删除。NAV32的Inocuclation(免疫)功能(还可通过Options对话框中的Inocuclation选项卡设置)可对系统的BOOT区和用户指定的组文件或目录提供病毒免疫功能，从而有效地防止未知病毒的入侵。
+        2.NAV通过在磁盘上建立文件对机器的系统主引导记录、分配表、IO.SYS、MSDOS.SYS进行压缩备份并保存在NCDTREE目录下，如发现其被改变时会及时报警。NAV32可在后台运行，并可检查压缩文件中的病毒。在NAV32 for Windows  95 中还提供了一个比 Norton Rescue32(Rescue Disk)功能更强大的系统备份工具。
+        二、Internet访问工具Internet In A Box 2.0
+        1. Internet In A Box 2.0的安装
+        该工具软件的安装安装很简单，整个过程几乎不需要也不能进行人工干预。5 片软盘逐一安装完并重新启动Windows 95后，即生成一个名为“Internet In A Box 2.0 ”的程序组窗口，同时在开始菜单的程序菜单项下面也增加“Internet In A Box 2.0”选项。
+        2. Internet In A Box 2.0 的功能与使用
+        在“Internet In A Box 2”程序组包括了12个图标，其各自的功能概述如下：
+        Quick Tour of “Internet In A Box：ibox2的一个方便快捷的联机教程；
+        Internet Access Phonebook：协助用户选择Internet服务商；
+        Compuserve：联结美国著名在线服务器网络Compuserve的工具；
+        Configuration Utility：ibox2的一个集成的系统设置工具；
+        SPRY ImageView：ibox2的图象浏览器；
+        SPRY Dialer：集成的拨号连接环境；
+        SPRY Mosaic：ibox2的WWW超媒体信息浏览器；
+        SPRY Mail：集成的电子邮件环境；
+        SPRY Gopher：访问Gopher服务器的基于菜单的信息查询环境；
+        SPRY News：网络新闻浏览器；
+        SPRY Telnet：远程登录软件；
+        Network File Manager：远程网络文件管理器。
+        要想顺利地进入Internet，正确地进行系统设置是最关键的一步。打开系统设置工具，可以发现有Software Setup、Current  Configuration 、 Profiles 等三类设置， 其中Software setup设置是关于ibox2 软件包的在线登记注册， Profiles 是在能熟练地使用ibox2后可建立的一些预配置文件。当前设置又可分为两部分，一部分是有关Modem和通信参数的一些设置，另一部分是有关Internet的一些默认主服务器的设置。
+        打开Communications中的Dialer Setup，需要设置的几个重要参数解释如下：
+        Dial Before：如果用户使用的不是外线直拨电话，则需在这里填上0或9，后跟“,”表示暂停以待拨号音。
+        Phone Number：Internet服务商提供的上网电话号码。
+        Your IP Address：用户的IP地址，一般在连通时会由系统自动分配一个。
+        Netmask：如果用户的IP地址由系统动态分配，则填255.255.0.0。
+        Name Server：Interbet服务商的域名服务器(存放Internet服务器地址的服务器)的地址，一般只填一个即可。这一项相当重要，如果无法从服务商那里取得，用户可以以文本方式登录主服务器，键入“nslookup”尝试取得这个地址。
+        Your Host Name：个人拨号用户可填自己的用户名或不填。
+        Domain Name：域名服务器的名称。如果前面填了域名服务器的地址， 则本项也可不填)。
+        Timers：设置拨号连接器的重拨特性和无操作时的自动挂断特性。
+        Interface：本项应设置成“PPP”方式。
+        通信参数设置中其它几项设置说明如下：
+        Login Setup：设置拨号连通后是手工还是自动登录到服务上。 首次连接时应选择手工登录，熟练以后再设定成自动登录。
+        Poer：设置Modem所用的串口及其同计算机之间的通信速度。 如果使用 14400bps 的Modem，则该项可选为19200bps或者38400bps。
+        Modem：设置Modem的型号以及音频或脉冲的拨号方式。如果在Modem 列表中找不到对应的型号，可选为“Hayes”。
+        Custom：有关某种特定的Modem的一些参数设置，一般不予理会。
+        设定了上面这些有关通信的参数，再打开Hosts，设置下面这些有关Internet 服务器的参数。
+        E-mail username：Internet服务商提供的用户名。
+        E-mail password：对应于该用户名的口令(注意要区分大小写)。
+        POP3 E-mail Host：收发电子邮件的服务器名称或地址，一般为所登录的主机名。
+        SMTP Relay Host：基于SMTP协议的电子邮件传送服务器的名称或地址，一般不填。
+        E-mail address：用户的电子邮件地址，由用户名和电子邮件服务器的名称构成，中间用“@”连接，例如，北京某用户的地址是username@public.bta.net.cn。
+        SPRY Mosaic：WWW浏览器的默认起始页，即启动Mosaic时的起点。可随用户的个人喜好而定。
+        SPRY Gopher：默认的Gopher服务器的名称。
+        SPRY News：默认的新闻服务器的名称。
+        完成以上所有这些设置后，就可以着手进行拨号连接了。
+        关闭系统工具，确认Modem已经打开，电话线已正确地连接，然后打开拨号连接器，单击其工具条上的dial图标开始拨号。这里由一点需要说明的是，拨号前规对Modem 进行初始化，如果用户选的是hayes兼容Modem，初始化往往不能通过。这时有两种解决方法：一是打开Modem菜单下的Custom......选项，将初始化串(Initialization String)替换为Modem的使用手册上注明的初始化串，二是跳过初始化过程， 不使用菜单或工具条而直接用AT命令进行拨号。例如，键入命令“atdt02096300”，即可拨入广州的ChinaNet。
+        三、高级图象处理软件 HiJaak95 for Windows 95
+        IMSI公司在1995年针对Windows 95操作系统推出了HiJaak95 for Windows 95。 它全面采用了全新的32位内核进行编写，格式转换算法更加高效，可对几乎所有的主流图象格式提供支持。HiJaak95还新增了图象浏览、 编辑功能， 并集成了功能强大的截图工具。HiJaak95在界面、功能和操作上均较其旧版本有了质的飞跃，已不再是单纯的格式转换工具，而是名副其实的集成化高级图象处理软件了。
+        1. HiJaak95的安装
+        HiJaak95的安装十分简单，运行第一张软盘中的Install.exe，HiJaak95 将启动一个安装向导(Install Wizard)，引导用户完成全部安装过程。
+        HiJaak95的图象显示功能是HiJaak95新增加的一项特色功能，它可以对多达38种格式的图象文件进行浏览，在某些方面甚至超过了专业图象观赏软件。
+        2. HiJaak95的使用
+        要在HiJaak95 下显示图象文件， 首先应单击开始菜单下的 HiJaak95 任务条以激活HiJaak95窗口。然后在HiJaak95窗口下点击File/Open菜单项， 将要观赏的图象文件名填入对话框中，按下OK键就可以在HiJaak95窗口中打开该文件。
+        HiJaak95的图象显示功能还可通过右键菜单来实现，在我的电脑( My  Computer) 或Windows资源管理器(Explorer)中选定图象文件后，单击右键菜单的HiJaak View选项即可。如果用户的Windows 95安装了Quick View应用程序，则在安装了HiJaak95 for  Windows 95后，HiJaak  View将取代了Quick View对图象文件的浏览打开权。
+        HiJaak95除了可对图象文件进行正常显示外，还提供了放缩显示功能：
+        点击View/Zoom In(View/Zoom Out)菜单项，选择2X或4X选项，可对图象进行 2倍或4倍放大(缩小)显示。
+        点击View/Image Only可对图象进行全屏幕显示，使图象充满整个屏幕， HiJaak95 与Windows 95窗口隐藏在后台。
+        若要对图象局部作更为细致的观察，可在HiJaak95窗口中按住鼠标器左键不放， 拖动鼠标器划出一个矩形框后松开，则被矩形框所围的部分将放大到整个HiJaak95窗口，用户还可将已放大的局部继续用矩形再放大。
+        放大或缩小显示完毕后，点击View/Zoom 1 to 1选单就可恢复正常显示状态。
+        此外， 用户若要获取当前图象文件的有关信息，可点击File/Properties，则可获得一份关于图象格式、尺寸、分辨率等的详细报告。
+        HiJaak95的图象格式转换功能可转换的图象格式极为丰富，在HiJaak95窗口中打开需要转换格式的图象文件，然后点击File /Save As菜单项，弹出Save As对话框。在 SaveIn对话框中选择图象文件转换后的存储路径，并将转换后的图象文件名填入File Name 对话框中，默认值为原文件名，然后按下Save As type(转换类型)的下拉按钮，此时可以得到一份HiJaak95支持28种图象格式的详细列表，从表中选择您所需要的图象格式，最后按下Save按钮，该文件即以新的图象格式重新存储。
+        HiJaak95还提供了贴切的目标应用软件(Target Application)格式提示功能，帮助用户为应用软件作出最佳的格式选择。
+        HiJaak95 Capture是HiJaak95中集成的一个功能极强的截图工具，它具有截图方式灵活、图形输出多样化和图象处理功能强大等特性。
+        四、Windows 95下的休闲软件After Dark  for Windows 95
+        After Dark for Windows 95是美国伯克利系统公司于1995年出品的休闲软件， 它的休闲状态可为读者提供许多赏心悦目的画面。
+        1. After Dark的安装
+        单击Windows 95的“开始”按钮，则弹出开始菜单。选择“运行...”菜单命令， 则出现运行对话框。在该对话框的命令行文本框中输入：A:\SETUP，按“确定”按钮，则出现安装画面，然后按提示操作。
+        2. After Dark的使用
+        启动After Dark后，出现该程序的窗口。窗口上方有一块类似广告牌的标题(?!)，紧靠着有一个“ON/OFF”开关及一些“Setup”按钮，中央有一个动画选择栏框， 列出了可供选择的动画名称。左边有一个“DEMO”按钮，下方有一段版权信息，靠右边是一个“?”按钮。
+        标题：鼠标移动到该处后，箭头变成?号，点击后该处变大，可获得一些信息。
+        ON/OFF钮：缺省是ON，表明激活屏幕保护功能。OFF则反之(设置成 OFF 后， 下方的DEMO钮变成淡灰色)。
+        SETUP钮：设置After Dark，主要用来设置延迟时间、声音等选项。
+        动画选择栏框：有多段动画可供选择。
+        DEMO钮：演示选定的动画。演示时会出现一个STOP钮，点击它就会中止演示(还会出现若干控制钮，通过调节可以获得最佳效果)，
+        版权信息：同标题类似，可获得详细的版权信息。
+        ?钮：同上，可获得详细的联机帮助。
+        Afetr Dark程序的动画十分精美，有趣，兼容性好，不会与一般程序发生冲突。
+        另外，该程序的控制项内有一个Utilities选项，主要功能是设置密码。
+        五、MS PLUS! for Windows 95 小工具软件包
+        Microsoft PLUS! for Windows  95 是一个 Windows  95 的功能扩展产品， 相对于Windows 95主要新增了部分系统工具和增强了系统的桌面效果，而且还新增设计了部分方便系统访问Internet的实用程序。由于增强了系统在图形和声音方面的功能，只有具备了486或Pentium的CPU和至少8MB的物理内存才能很好地运行它。其主要的特点有以下几个方面。
+        1. 新增系统维护工具System Agent
+        该工具是一个在后台运行、用于系统监视和系统维护的工具。它将在Windows 95启动时自动调入并一直运行到系统结束。  System   Agent安装时会自动装载Scan   forWindows 95和Disk Defragmenter for Windows 95、 Compression Agent用于定期维护系统。
+        2. MS PLUS!新设计了功能强大的MS Drvspace 3
+        该程序在安装时会自动取代Windows 95的Drvspace，它允许压缩的最大磁盘容量达到2GB，其压缩比远高于普通的Windows 95的压缩工具， 且在维护压缩盘数据的安全性方面也有所增强。
+        3. 新增了Dial up Server工具
+        通过该工具，用户可以很方便地从外面向自己的计算机拨号，使之看起来就象是一台服务器或传真机。
+        4. MS PLUS!新增强了Windows 95系统对Internet网络的启动与访问能力
+        其全新设计的Internet Jumpstart Kits包括Internet Browser、Internet E-mail和Internet News groups，这些程序可很好地使 Windows  95 的 MS  Exchange32 和 MSN(Microsoft Network)组合使用。
+        5. MS PLUS!新增了Desktop Themes
+        该程序为Windows 95提供了12套丰富的桌面和背景素材库，包括声音、墙纸和动态屏幕保护程序等选项，可谓是Icon hear It与After dark for Windows完美地组合。通过该程序组件，用户可方便地建立自己风格的桌面系统，如以科学、自然景物、体育、60年代的美国、旅游或计算机的内部和自己温暖的家等作为桌面，且系统为每个桌面配置了相应的声音，每一个鼠标动作都会使您的音箱产生美妙振动。
+        6. MS PLUS!为Windows 95系统设计了全新的Visual Enhancedments
+        该工具包括了Full Windows Enhancedments和Fonts Smoothing Enhancements等几个部分，系统安装是会自动在控制面板的Display选项中PLUS项。该程序提高了Windows  95系统字体的可读性，改善了大个字体的边缘的平滑度。提高了窗口被拖动时的视觉效果，当移动窗口时移动的是整个窗口而不是一个虚框，当扩大或缩小窗口时，窗口的边框也会随鼠标整体移动。
+        7. MS PLUS!提供了3D Pinball弹珠台游戏
+        该游戏的立体感十分强，声音和色彩设计得也十分出色。
+        六、Windows 95维护工具Cleanw95 for Windows 95
+        在Windows 3.x中安装了应用软件后，若不需要时，可使用Windel或者Uninstaller来进行删除，但是在Windows 95发布以后，这两个程序就显得无能为力了。因此，在安装了若干个不满意的软件后，又得重新安装一次Windows 95，每次都会花去30-45分钟， 而且上次费了大力排好的桌面，又要重新设计了。
+        在BBS下载了Cleanw95后，这个问题彻底解除了。这个只有38KB的小程序， 使用后发现，虽然小但是功能十分强大，它有良好的界面，最重要的是它即使在英文Windows 95下仍可保持一定的中文界面，有大量的中文提示。
+        Cleanw95是打包发行的，在用ARJ一类的解包软件解包后，即可运行Cleanw95， 在初步配置后，就可以使用了。一般地在 C 盘建立一个名为 Clearw95 的工作子目录， 生成Clearw95.cfg文件，该 cfg 文件包括了 Cleanw95 工作时所需要的一些参数， 从此通过Cleanw95安装的程序，都可以方便地收集，删除，再安装了。
+        七、UnInstaller 3.5
+        MicroHelp Uninstaller 3.5 是MicroHelp Utilities for WIndows工具包的一部分，它使得删除Windows中应用程序变得非常容易和安全。
+        Uninstaller 3.5克服了MicroHelp公司另一个产品WinUndelete的缺点(WinDelete 2.0卸载的必须由它安装的应用程序，因此在功能上就有一定的局限性)，它可以分析系统，并提出一个应用程序的最佳方案；它还可以优化系统。
+        1. Uninstaller 3.5的安装
+        从程序管理器中选择文件菜单，从中选择运行命令，则出现运行对话框。 在该对话框中选择浏览按钮，则出现浏览对话框。在该对话框选择Uninstaller 3.5 系统盘及其安装程序文件名。按确定按钮，则选定的安装程序将出现在运行对话框中。此时，在屏幕上出现一个名为“Uninstaller Setup Options”对话框。
+        在“Options Tools”框中显示了选项工具。缺省为全选择。按OK按钮。
+        出现“MicroHelp Uninstaller 3.5 Setup”对话框。
+        该对话框要求在“Install Files TO:”文本框中输入安装目录。缺省为C:\UNI3。输入后按OK按钮。
+        若输入的安装目录不存在，则将出现一个确认提示框。按“Y”则创建它， 否则将返回重新输入安装目录。
+        接着为文件拷贝画面，开始安装。
+        文件拷贝结束后，将出现一提示框，提示UnInstaller 3.5安装过程结束， 并将之增加到程序管理器中，按OK按钮结束安装。
+        打开“MicroHelp Uninstaller 3.5”组窗口，双击“MicroHelp Uninstaller 3”图标，则启动了UnInstaller 3.5。
+        2. UnInstaller 3.5的使用
+        (1) 创建SmartLinks数据库
+        在运行 Uninstaller  3. 5 进行应用程序删除、 系统程序清除等之前， 必须在创建SmartLinks数据库。
+        (2) 拆除应用程序
+        Uninstall the application(拆除应用程序)是Uninstaller  3. 5 的首要功能。 从Uninstall菜单下的Delete Application菜单项，则出现清除应用程序界面。
+        在对话框的左侧选取要清除的应用程序项， 此时右侧最上边的按钮为Analyze(分析)，点取它系统开始分析、并列出该应用程序所涉及到的所有文件。
+        在分析结束后，Analyze按钮自动变为Uninstall按钮。点取它开始拆除应用程序。在拆除前对话框的右侧还有四个核对框：Trial Run(试验运行)，选通它，则Uninstall时直接报告拆除后的结果并不真正删除。BackUp(备份)，选通它运行时将生成一个.UNI后备文件。Confirm all deletions(确认删除)，默认为开， 在每一步删除前是否提示用户确认。Create Report是否生成一个运行报告文件。
+        (3) 删除无用的系统文件
+        System Cleanup(删除无用的系统文件)用于管理Windows系统文件。
+        每次 Windows 启动时都装载了大量的驱动程序， 其中许多程序都是为了同一目的。Cleanup菜单下的Windows  CleanUp可以提示并帮助消除多余的驱动程序， 如没有被使用的显示驱动程序及磁盘上有但并没有被Windows装载的字体资源。
+        (4) 清理Windows的.INI文件
+        INIClean(清理Windows的.INI文件)用于管理Windows的所有.INI文件。
+        从CleanUp菜单下选择INIClean菜单项，则出现清理Windows的.INI文件对话框。
+        可通过选择Sections、Associations等选项卡查看.INI文件，然后对这些.INI文件进行清理。
+        (5) 查找并删除相同的文件
+        机器上许多应用程序都需要使用同一文件，它们在不同的路径下放置了同一文件的拷贝，从而造成磁盘空间的浪费。
+        CleanUp菜单下的Duplicate Find Finder菜单项可以完成这样的工作。选择该菜单项，则出现查找并删除相同的文件对话框。
+        可通过File Extensions、Directories、Size/Date Restriction、Duplicate  Type等选项卡选择相同的文件，然后将它们删除。
+        (6) 查找并删除孤立文件
+        在机器中有些程序已经不和任何Windows程序项发生关联，Cleanup菜单下的 Orphan Finder可以查找到它们，并确认删除它们。
+        (7) 恢复应用程序
+        若在拆除一个应用程序前选通了Backup核实框，则系统将生成.UNI后备文件，可以通过File菜单中的Restore菜单项进行恢复。在使用这一功能之前， 首先要保证应用程序原来所占用的空间不能被其它程序占用。
+        (8) 查询目录占用空间
+        CleanUp菜单下的Disk Data菜单项可以查询到每个磁盘、 每个目录所占用的空间。
+        (9) Uninstaller 3.5的设置
+        可通过File 菜单中的 Reference 菜单项对 Uninstaller  3. 5 进行设置， 则出现Reference对话框。  该对话框有三个选项卡：Reports、BackUp、View，它们可对报告、备份、 查看等进行设置。
+        Reports的设置，包括报告类型(Enable Reporting for)、输出选项(Output options)等。
+        Backup选项的设置，包括备份类型(Enable Backup  for) 、 安全删除 ( Security Delete)、备份文件输出路径(Write Backup files to)。
+        View选项的设置，包括显示方式(Display)、确认选项(Confirmations)等。
+        (10) 卸载 UnInstaller 3.5
+        从MicroHelp Uninstaller 3.5组窗口中选择Uninstall Uninstaller 3选项，则出现卸载UnInstaller 3.5前的提示框。
+        该提示框要求关闭所有应用程序，并重新启动Windows系统。按“是(Y)”按钮，则重新启动Windows系统，再执行该程序，此时将出现输入安装UnInstaller 3.5时的路径对话框。该对话框要求确定Uninstaller 3.5安装路径，并从中选择卸载的文件：Archives(文档)、Backups(备份文件)、Configurations  files(配置文件)。按 OK 按钮， 则完成了Uninstaller 3.5的卸载。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

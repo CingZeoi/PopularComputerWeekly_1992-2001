@@ -1,0 +1,115 @@
+常用文件格式小辞典
+
+韩海涛
+1998年 第52期 36版
+
+    不同的文件，有不同的文件格式，区别这些文件格式常常是文件名的后缀名不同，现统计常用文件后缀名如下，供读者参考和查阅。
+    BAT DOS下的批处理文件。Autoexec.bat为自动批处理文件，它是特殊的批处理文件。
+    EXE 可执行的程序文件，与COM内部结构不相同，最突出是长度没有限制。
+    COM 可执行的二进制代码系统程序文件，特点非常短小精焊，长度有限制。
+    ASM 汇编程序文件为二进制代码文件，可以打个比方，它就像BASIC中的.BAS程序文件一样，为不可执行文件。
+    ASC 代码文件。
+    BAK 备份文件
+    LIB 程序库文件
+    CHK 检查磁盘命令CHKDSK发现的目录或文件分配表中的错误，校正系统后的文件。
+    TMP 临时文件
+    SYS 系统配置文件，最典型的如config.sys，一般可以用EDIT进行编辑。
+    OBJ 目标文件，源程序编译输出的目标代码。
+    OLD 备份文件，一般是一些程序对系统配置修改后将原文件复制一份存储为该文件格式。
+    INI 配置文件，不要以为这个文件只有Windows程序需要，DOS下程序也有不少需要它，如3DS与AutoCAD。
+    INF 安装配置文件，这在WIN95下使用较多。
+    HLP HELP帮助文件，这个文件一定要重视，因为它是你每使用一个新软件的最好的说明书，几乎99%的软件都有这个文件，另外，DOS下的一些帮助放在README以后，帮助便没有了，如UCDOS中的REAME.EXE；有单独DOS的命令，若不知道怎么使用，可以试试以下的命令格式：“DIR?或DIR/?”。
+    DDI 早期映象文件，由DiskDUP IMGDRIVE IMG.EXE展开
+    IMG 这个文件要注意，有时它是一个图象文件，但更多的时候，它是映象文件，在早期光盘上，此文件使用最多，能常用HD-COPY IMG UNIMG都软件进行解压（注：IMG这个软件为什么一闪就没了呢，这个软件需要热键激活，按下Ctrl+Alt+S+D+X），如果要安装的软件压缩文件由和几个IMG分开压缩，那最好用UNIMG将它们全部解压缩，然后安装，它安装时提示你“请插入X序列盘”。
+    ARJ ARJ（ARJ这个以前风眯一时的压缩软件谁人不晓）软件压缩的文件，它的压缩比较高，使用也特方便顺手，只需要“ARJ a -r -v……”
+    RAR 这也是一个压缩文件，传说比ARJ压缩比更高，笔者没有亲手做试验，故不敢下空此结论。
+    ZIP 当前最流行的压缩文件，谁不知道ZIP呀，WINZIP，再也不是DOS下的那个UNZIG或PKZIP了，兼容，向下兼容，从游戏到软件，差不多都是它压缩的了。
+    IMD UCDOS中输法的编码字典文件。
+    PDV UCDOS中的自由表格UCTAB生成的表格文件，它生成的文件可以被WPS调用，也挺方便的。
+    BAS BASIC中的源程序文件，BASIC可为初学者最为熟悉的编辑语言，它的优点笔者就不在累赘了，注意QBASIC与QUICK BASIC和GW BASIC是有区别。
+    C C语言中的源程序文件，它不但造就了我们常常为之日夜奋战的精彩电脑游戏，还创造出UNIX操作系统，有口皆碑的好编程软件。
+    MAK C语言中的工程文件。
+    COB COBOL语言源程序文件。
+    PAS PASCAL语言源程序文件。
+    FOR FORTRAN语言源程序文件。
+    FOX FOXBASE伪编译程序文件，比PRG短小运行速度快。
+    PRG FOXBASE过程程序文件。
+    DBF XBASE数据库文件。
+    IDX FOXBASE中的索引文件。
+    LBL FOXBASE中的标签文件。
+    FRM FOXBASE中的报表格式文件。
+    MEM FOXBASE中的内存变量文件。
+    FMT FOXBASE中的屏幕格式文件。
+    DBT FOXBASE中的数据库文件的辅助文件。
+    DBC 为FOXPRO中的数据库名。
+    PJX Visual FoxPro下的项目文件与辅助文件PJT结合成项目管理管理文件。
+    RTF Rich的文本文件格式。
+    TXT 纯文本文件格式，可以利用TYPE以及EDIT或者记事本等任何字处理程序打开，对它显示编辑。
+    WPS 文档文件，是由著名国产软（WPS）（WORD PROCESSING SYSTEM）生成。由于WPS历经沧桑，经历了WPS1.0 2.2WPS30F WPSNT以及现在的WPS98众多版本，但是没有像WORD一样提供转换程序，一般高版本的WPS可以读出低版本的文件，对于低版本能不能读出高版本的文件，笔者没有一一做出试验，故不敢轻易下结论，只试验过UCDOS下的WPS读不出由WPSNT编辑的文件；另外对于WPS97的文件，你根本就不要用DOS版本去读，百分之百读出来，其实相互转换也不大困难，只要你在存盘时选择以TXT纯文本格式存盘也就不存在什么版本高低了。（WPS97中不要放图片）
+    %A%%B% WPS中的临时文件，注意清除OVL 覆盖文件，如WPS.VOL1。
+    DOC 文档文件，是由软件霸主Micrsoft Word生成，也有一部分是由WORD PERFECT生成，此文件也是版本众多有Wihdows下面的WORD5.0 6.0生成，还有WIN95下WORD7.0 WORD97，它们相互兼容性比较好，高版本可以轻松读取低版本文件，而且高版本也可以以低版本的格式进行存储，有人说WINDOWS中的书写器也能读出DOC，但笔者试验，读取WORD7.0以上的DOC都是一些乱码，而且格式里也注明只能读出DOS版的DOC。
+    PCS 为POWERPOINT中的图象文件，为矢量图形文件。
+    XLS 电子表格EXCEL的格式文件。
+    FNT 为Bezier（贝氏）类型字体的文件。
+    TTF True Type字体文件，是一种轮廓字模，是由Apple和Microsoft合作开发的。Windows3.1下直接支持True Type字模。
+    FOT 是True Type字体文件的资源文件，正因为FOT文件中含有指向TTF的指针。所以我们的字体文件（TTF）才可以放在任何目录下面，而不必提心系统找不到。
+    PFB Adobe TYPE1字体Post Script字模文件，必须使用Adobe Type Manager管理安装使用，它的最大优点是放大时比TTF字幕可靠得多。
+    PS1 为WPS下扩展字库文件，PS2一般为繁体。
+    REC Windows中记录器中的宏命令文件。
+    CRD Windows中的卡版盒文件。
+    PIF Windows中的运行非WINDOWS应用程序建立的一个文件。
+    WRI 文档文件，是由WINDOWS中书写器生成的。
+    DRV 驱动程序文件。
+    VXD 虚拟设备文件
+    GRP Windows程序组文件。
+    ANI WIN95中动画鼠标指针文件。
+    DLL Windows下应用程序中的动态连结库文件。
+    SCR WINDOWS屏幕保护程序文件
+    MP2 MP3 当前最流行的音乐文件，音质可于CD音质媲美，采集率达44.1KHZ，由于它文件格式又非常小，需要一个叫WINAMP的软件和一个叫抓音轨的软件，如果通过声卡直接就能将录音带上的歌曲录制成WAV文件，再转化为MP3，播放时需要硬件配置不是太高。
+    SND 在WIN95下同WAV文件图标大同小异，小喇叭的颜色是绿色，是声音文件的剪辑文件。
+    VOC VOC文件是随声卡一起诞生的一种常见数字声音文件，主要用于DOS程序（特别游戏），VOC与波形文件可方便转换。
+    WAV Windows所使用的标准数字音频文件，也称波形文件，它能够重现各种单声道或立体声的声音，是最常用的声音文件。
+    MID 这个是音乐发烧友最熟悉不过的文件格式，是“乐器数字接口”（Musical lnstrument Digital interface）读作middy“迷笛”。mid文件最受人于睐的是占的空间小，与wav相比不是音乐采样，而是将每个音符记录为一个数字，mid标准规定了各种音调的混合及发音，通过输出装置可以将这些数字重新合成为音乐。它的缺点是有点太电子琴味。
+    RMI CMI CMF（Creative Music File）是mid几个变通格式，它们都同声卡一起诞生，现在一般很少，它们有些可以同mid相互转换，用CMF2MID小软件。
+    PCX 是微机上使用最广泛的图像格式之一，能表现真彩图像。
+    BMP 是Windows所使用的基本位图格式，是小画笔就能轻松创建的文件，另外提醒你BMP有压缩（RLE方法）和非压缩，我们常用是非压缩，bmp还有一个OS/2的版本，与Windows有区别。
+    GIF GIF在网页中占有独一无二的地位，美中不足是颜色最多为（256色）8位，与其它图象文件相比，GIF高人一招，它是唯一可以存储动画的图像格式。
+    PSD PDD位图文件，均为大名鼎鼎的图象大师Adobe Photoshop直接生成的图象文件。
+    CGM（Computer Graphics Metafile） 是压缩的矢量图形文件，WINWORD可以打开。
+    HGL（HP Graphic Language） 是HP公司创建的一种矢量图形语言。
+    WPG （DrawPerfect）矢量文件。
+    TIF 最初用于扫描仪和桌面出版业，TIF程式图像可以是RGB真彩色的。
+    TGA 位图文件，为Targa公司开发的支持8位到32位颜色深度图像文件，结构简单，少有变化，易转换。
+    VDA ICB VST与TGA相似，均为Targa公司开发的位图文件。
+    JPG JPE原是Apple Mac机器上使用的一种图像格式，现在意在PC机上大行其道，由于其压缩比可以调节，而且失真又很小，所以无论是网络上还是图像处理上都是使用很广泛的。
+    PIC 同上，Lotus 1-2-3的图表文件也叫PIC文件，使用时请注意。
+    PCD 是PhotoCD专用存储格式，由于其文件特别大，不得不存在CD-ROM上，但应用特别广。
+    EPS （Encapsulared postScrip）是Adobe System公司的PostScrip页面描述语言的产物，是矢量图形文件。
+    WMF  （Windows MetaFile）是特殊文件，是位图和矢量图混血儿，桌面格式，可以在Windord 与Offices组件中ClipArts最常用的格式可以在WinWord的DRAW中随意拆开编辑。
+    AI  矢量格式，是久负盛名的绘图软件Adobe lllustrator文件格式。
+    CDR 矢量格式，是Corel Draw!标准文件格式。
+    CPT 位图和矢量图都有，是Corel PHOTO-PAINT的文件格式。
+    CDT Corel Draw中的模板文件。
+    CMX Corel Draw展示交换文件。
+    CMV 是Corel MOVE平面动画软件中的动画演示文件。
+    DXF 矢量格式，CAD与3ds玩家可能都知道，是AutoCAD的绘图交换文件。
+    3DS 矢量格式，为3D Studio的动画原始图形文件，含有纹理和光照信息。
+    SHP 矢量格式3DS中的造型文件。
+    CEL 3DS中的贴图文件。
+    MLI 3DS中的材质库。
+    DRW 矢量格式Micrografx Designer使用的绘图文件格式。
+    WPG 矢量/格式，是Word Perfect使用的文件格式。
+    FLI 动画文件，是由AutoDesk公司开发的，只支持320×200×256色模式，它是FLC的老祖宗。
+    FIC 动画文件，是AutoDesk公司开发的，与FLI相比是青出于蓝胜于蓝的产物：文件的分辨率和颜色数都有所提高，它与FLI在Windows中播放需要专用MCI驱动和相应的播放程序APPlay。
+    MMM 动画文件，是MacroMind公司著名多媒体写作软件Director生成的，一般集成在完整的应用程序中，单独出现的文件很少。
+    AVI 视频与音频交错文件（Audio-Video lnter leaved音频-视频交错）它将视频音频交错混合在一起，AVI文件使用的压缩方法好几种，主要使用有损方法，压缩比较高，与FLC和MOV相比，画面质量不太好，在Windows下播放需要安装VIDEO For Windows驱动程序，AVI在多媒体中应用较多广，一般视频采集直接采集的素材便为AVI格式，编辑的它的软件也不少，如Video Pack Adobe Premiere，
+    MPG 视频文件，PC机上的全屏幕活动视频的标准文件，采用MPEG方法进行压缩的全运动视频图像，可于1024×768的分辨率下每秒30帧速率播放128000种颜色和同步CD音质的伴音，是极为理想的视频影像文件
+    DAT 视频影像文件，是Video CD（VCD）或Karaoke CD（卡拉OK CD）基于MPEG压缩方法的一种，注意它同数据文件同名
+    MOV 视频影像，同样采用有损压缩方法，在Windows下必须安装QuickTime程序才能播放，它是从苹果机移植到PC上的，比AVI画面质量要好一些，其实你拿一个AVI文件做一下比较也就不难看出了。
+    HTM 超文本文件，INTERNET网上访问WWW，是在HTM文件的的海洋里冲浪，对于超文本文件，说它是编程，可它也不像编程，现在要建立它，一点也不困难，有关的介绍满天飞，什么HOME PAGE，在WIN98中，OFFICES97都可以方便的创建生成。它还有一些名字叫主页、网，而且还与JAVA关系特密切。Microsoft IE导航者中与NETCAPE航海家都能游览它。
+    NO 这个文件最重，要如SERIAL.NO，记事本、书写器、EDIT都可以打开，当你安装软件时，你可要一定先看看有这个文件没有，通常还有一种格式为（SN.TXT），它就是你安装软件是，你千找万寻的CD—KEY、产品序系号、注册登记号，有的软件更为阴险，安装时不要序列号，确在运行时向你发难了，不过现在不用怕了，这个文件一般放在安装程序第一个子目录中或光盘的根目录下，要是嫌其它文件鱼目混珠的话，用资源管理器搜索好了。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

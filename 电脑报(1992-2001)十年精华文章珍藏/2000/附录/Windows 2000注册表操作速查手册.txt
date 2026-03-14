@@ -1,0 +1,166 @@
+Windows 2000注册表操作速查手册
+
+李进
+2000年 第53期 
+
+    在《电脑报1999年合订本》上册附录中，我们已经对Windows 95/98的注册表作了详尽的讲解。Windows 2000整合了Windows 98和Windows NT的绝大部分优点，是一个完全基于NT技术构建的全新操作系统。要深入了解这个庞大的操作系统，我们必须学习和掌握它的注册表。
+#1    一、Windows 2000注册表的功能和新特性
+#1    （一）Windows 2000注册表的功能
+    注册表是Windows 2000的核心，它实质上是一个庞大的数据库，存放了关于计算机硬件的全部配置信息、系统和应用软件的初始化信息、应用软件和文档文件的关联关系、硬件设备的说明以及各种状态信息和数据，包括Windows 2000操作时不断引用的信息。例如：系统中的硬件资源、硬件信息、分配正在使用的端口、每个用户的配置文件、计算机上安装的应用程序以及每个应用程序可以创建的文档类型等。
+    Windows 2000的注册表是以树形结构组织的，它由两个主键组成：HKEY_LOCAL_MACHINE和HKEY_USERS。但是为了使注册表中的信息更易于查找，Windows 2000注册表编辑器实用程序显示出五个主键，其结构与Windows 95/98注册表类似，所不同的是在Windows 2000的注册表中，已经去除了Windows 95/98中的HKEYDYNDATA主键。
+#1    （二）Windows 2000注册表的新特性
+    在Windows 2000中对HKEY_CLASSES_ROOT主键做了改进。HKEY_CLASSES_ROOT主键与当前注册使用的用户有关，它实际上是HKEY_CURRENT_USER＼SOFTWARE＼Classes和HKEY_LOCAL_MACHINE＼SOFTWARE＼ Classes的交集。如果两者的内容有冲突，则HKEY_CURRENT_USER＼SOFTWARE＼Classes优先。这个新特性在Windows 2000中叫做“单用户类注册”（per-user class registration）。单用户类注册有如下好处：
+    1．同一台计算机上的不同用户可以分别定制不同的Windows 2000
+    例如，用户甲安装了ACDSee图形软件，将BMP文件与ACDSee图形软件建立关联。而用户乙安装了PhotoShop图形软件，将BMP文件与PhotoShop图形软件建立关联，当用户乙双击BMP文件时，会自动调用PhotoShop图形软件，而不会调用用户甲安装的ACDSee图形软件。
+    2．提高了注册表的安全性
+    使用单用户类注册，各个用户有自己的HKEY_CLASSES_ROOT，不再需要通过修改HKEY_LOCAL_MACGINE/SOFTWARE/classes来满足自己的需求，这样系统管理员可以提高HKEY_LOCAL_MACGINE/SOFTWARE/classes的权限，禁止普通用户修改它，而各个用户之间更是不能修改对方的HKEY_CLASSES_ROOT。
+    3．支持漫游类注册
+    在Windows 2000中，提供了一个叫做IntelliMirror的功能。通过在服务器和客户端同时使用IntelliMirror，用户的数据、应用程序和设置在所有的环境中都可以跟随用户漫游，这当然包括了用户的配置文件。当用户登录到域中任意一台运行Windows 2000的计算机时，首先要通过目录服务中的身份验证，身份验证通过后，保存在服务器上的用户配置文件（包括注册表中的HKEY_CLASSES_ROOT）将复制到该计算机上，好像用户在本地计算机登录一样。
+#1    二、Windows 2000注册表的操作
+#1    （一）Windows 2000的用户配置文件
+    默认情况下，大多数配置单元文件（DEFAULT、SAM、SECURITY、SOFTWARE 和 SYSTEM）均存储在%SystemRoot%＼System32＼Config文件夹中。而每个计算机用户的用户配置文件信息（包括Ntuser.dat 和Ntuser.dat.log）的位置，取决于Windows 2000是全新安装还是从Windows 95/98 或Windows NT升级安装。在全新安装以及从Windows 95/98升级安装的情况下，Ntuser.dat 和Ntuser.dat.log文件存储在%SystemDrive%＼Documents and Settings＼username文件夹中。在从Windows NT升级的安装中，Ntuser.dat 和Ntuser.dat.log文件存储在%SystemRroot%＼Profiles＼username文件夹中。
+    Windows 2000注册表中的每个配置单元均与一组标准文件相关联。如^00100003a^表显示运行 Windows 2000 的计算机的标准配置单元和文件。
+    由于注册表是树形结构的，所以可以将注册表里的内容形象地描述为树枝和树叶。树枝下可以有多个树枝，也可以有多个树叶。这个树枝，我们把它叫做“项”，树叶呢，叫做“值项”。值项包括三部分：值的名称、值的数据类型以及值本身。
+    如^00100003b^表列出系统定义和使用的值项的数据类型。
+#1    （二）Windows 2000注册表的备份和恢复
+    在Windows 2000中，注册表包括了计算机软、硬件的重要信息。如果注册表受到破坏，轻者使Windows 2000无法正常启动，重者将导致Windows系统完全崩溃。因此在对注册表进行操作以前，必需对注册表进行备份，当注册表受到损坏时，可以及时恢复注册表，修复Windows 2000系统。
+    对注册表进行操作，需要使用Windows 2000提供的注册表编辑器。运行注册表编辑器的方法是：点击“开始”按钮，指向并单击“运行…”；然后在“打开”框中键入Regedit.exe或Regedt32.exe。就可以打开Windows 2000的注册表编辑器。
+    备份和恢复注册表常用以下几种方法：
+    方法1：使用“注册表编辑器”备份和还原注册表
+    打开“注册表编辑器”，在“注册表编辑器”菜单上，单击“导出注册表文件”。在出现的“导出注册表文件”对话框中键入保存导出文件的位置，然后键入新文件名，单击“保存”按钮，可完全备份注册表。或者在“注册表”菜单上，单击“导入注册表文件”。在出现的“导入注册表文件”对话框中键入需导入文件名，然后单击“打开”按钮，以导入还原备份的注册表。
+    方法2：使用“备份”工具备份和还原注册表
+    Windows 2000提供了一个“备份”实用工具，使用备份工具可以备份和还原Windows 2000注册表。单击选择“开始”中的“程序”、“附件”、“系统工具”可以打开“备份”工具，或者在“运行…”中直接键入“ntbackup”也可以启动“备份”工具。启动“备份”工具后，使用其中的“备份”选项卡和“还原”选项卡来进行注册表的备份或还原。备份或还原注册表与备份或还原其它应用程序类似，请参看相关的文章。
+    方法3：手工备份和恢复注册表文件
+    Windows 2000注册表文件的系统部分存放在“%SystemRoot%＼System32＼Config”文件夹下，与用户有关的配置文件Ntuser.dat和Ntuser.dat.log则存放在“%SystemDrive%＼ Documents and Settings＼用户名”文件夹下。手工备份或恢复，就是将这些注册表文件复制到别的地方保存起来，如果需要恢复，则手工将这些文件复制回来即可。
+    需要注意的是，在Windows 2000正常运行时你不能直接复制这些文件，因为这些注册表文件正在被系统使用。你只能在另外一个系统下进行。如果你的硬盘上同时装有Windows 9X（或者NT4.0），可用Windows 9X/NT4.0启动计算机，然后手工备份Windows 2000的注册表文件。如果你的Windows 2000使用的是NTFS文件系统，那么还要求你用来备份、恢复注册表文件时使用的操作系统支持NTFS文件系统。
+#1    （三）注册表的修改
+    在对注册表进行修改时，常用以下几种操作：
+    1．查找注册表中的字符串、值或注册表项
+    打开“注册表编辑器”，单击“查找”菜单中的“查找”；在“查找目标”对话框中键入需要查找的字符串、值或注册表项，并单击选中“项”、“值”、“数据”和“全字匹配”复选框，然后单击“查找下一个”。需要重复查找时，按F3键。
+    2．在注册表中添加或删除项
+    双击要添加新项的注册表列表，然后单击要在其上放置新项的项；在“编辑”菜单中指向“新建”选择“项”。键入新注册表项的名称，然后按回车键。要删除项，单击要删除的项，在“编辑”菜单上单击“删除”即可。
+    3．在注册表中添加或删除值
+    单击要添加新值的注册表项或值项，在“编辑”菜单中指向“新建”选择要添加的“字符值”、“二进制值”、“双字节值”，键入新值的名称，然后按回车键。在添加值时，值名和数据类型将用默认值保存。单击要删除的值，在“编辑”菜单上单击“删除”即可删除。
+    注意：你可以从注册表中删除注册表的项和值，但是却不能删除预定义项（例如 HKEY_USERS）或是更改预定义项的名称。
+    4．更改注册表中的值
+    在注册表中选择要更改的值，单击“编辑”菜单选择“修改”。在“数值数据”框中，键入该值的新数据，然后单击“确定”按钮。
+    注意：在《电脑报1999年合订本》上册附录中，已经对注册表编辑器的操作作了详尽的介绍，请读者相互参阅。
+#1    （四）更新注册表，使设置生效
+    为了使对注册表的操作生效，需要“重新启动Windows 2000”、“重新启动桌面”或“刷新桌面”来完成。
+    1．重新启动Windows 2000：如果修改了与系统相关的内容，一般都需要重新启动Windows 2000来使设置生效。
+    2．重新启动桌面：在Windows 2000中，同时按下“Ctrl+Alt+DELETE”键，打开“Windows安全”对话框，单击“任务管理器”按钮，在“任务管理器”对话框中单击选择“进程”，在列表中选中“Explorer.exe”，然后单击“结束进程”按钮，“确定”后Windows 2000的桌面就消失了。再次选择“应用程序”，单击“新任务”按钮，在“打开”框中键入“Explorer”，“确定”后Windows 2000桌面又显示出来了。这个新的桌面就已经反映出了在注册表中所作的改动。
+    3．刷新桌面：在桌面上，直接按下F5键，或者使用鼠标右击桌面，在快捷菜单中选择“刷新”命令，桌面会被刷新，使设置生效。
+#1    三、修改注册表定制特殊的Wiodows 2000界面
+    1．修改系统的注册信息
+    在“我的电脑”上单击鼠标右键，选择“属性”，在“常规”选项卡中可以看到注册信息。进入注册表项HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows NT＼ CurrentVersion中，修改字符串（REG＿SZ）值项RegisteredOwner和RegisteredOrganization的值。RegisteredOwner值项存放了个人信息，RegisteredOrganization值项存放着组织单位信息。
+    2．让桌面显示Windows 2000版本号
+    通过修改注册表，可以让桌面在右下角显示出Windows的版本号。修改双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Control Panel＼desktop＼ PaintDesktopVersion的值为1。注销后重新登录以使更改生效。
+    3．定制“开始”按钮
+    如^00100003c^表列出的值项全部位于HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼ CurrentVersion＼Policies＼Explorer注册表项中。默认情况下，这些值项都不存在。
+    4．屏蔽桌面上的特殊项
+    特殊项包括“我的电脑”，“网上邻居”，“回收站”等。
+    （1）新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼Explorer＼NoNetHood，修改其值为1，可以屏蔽掉桌面上的“网上邻居”。
+    （2）新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼Explorer＼NoInternetIcon，修改其值为1，可以屏蔽掉桌面上的“Internet Explorer”。
+    （3）新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼Explorer＼NoNetConnectDisconnect，修改其值为1，可以屏蔽掉桌面上“网上邻居”快捷菜单中的“映射网络驱动器”和“断开网络驱动器”项。
+    （4）新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼Explorer＼NoComputersNearMe，修改其值为1，可以屏蔽掉桌面上“网上邻居”里的“邻近的计算机”项。
+    5．定制资源管理器
+    如^00100003d^表中的值项位于注册表项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼ Current Version＼Policies＼Explorer中。
+    6．定制IE浏览器
+    （1）改变IE浏览器标题栏的内容
+    在IE浏览器窗口的标题栏中，显示的格式是“WEB页面标题＋IE浏览器标题”。通过修改注册表，可以更换IE浏览器标题栏的字符串。新建一个字符串值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Internet Explorer＼ Main＼Window Title（注意有空格），修改其值为你喜欢的文字，重新启动IE浏览器后，在IE浏览器窗口的标题栏中，显示信息已更改成你修改的文字。
+    （2）给IE浏览器的工具栏选择背景图案
+    通常IE浏览器的工具栏是没有背景图案的，通过注册表我们可以给它加上背景图案。新建一个字符串（REG＿SZ）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Internet Explorer＼ToolBar＼BackBitmap（或者是BackBitmapIE5），修改其值为某个BMP文件的路径。重新启动IE浏览器后，IE浏览器的工具栏就有了背景图案。
+    （3）在注册表中还有很多IE浏览器的设置参数，下面列出常用参数以供参考。
+    如^00100003e^表的值项位于注册表项HKEY＿CURRENT＿USER＼Software＼Policies＼Microsoft＼Internet Explorer＼Restrictions中。默认情况下，这些值项都不存在。
+    如^00100003f^表的值项位于注册表项HKEY＿CURRENT＿USER＼Software＼Policies＼Microsoft＼Internet Explorer＼Control Panel下。默认情况下，这些值项都不存在。
+    注意：如果是“屏蔽”，表示该项被去除掉。如果是“禁止”，则表示该项仍然存在，只是不能使用该功能。
+#1    四、修改注册表提高系统的性能及效率
+    1．设定“开始”菜单的“文档”项最大记录数
+    “开始”菜单的“文档”项在默认情况下，可以最多存放15条记录。通过修改注册表，可以设定“文档”中可以存放的记录数。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer＼MaxRecentDocs，修改其值为新的最大记录数。重启桌面使更改生效。
+    注意：修改数值并重启桌面后，“文档”中原先的记录会全部丢失。
+    2．利用Windows 2000启动时自动执行的程序来防范病毒
+    在Windows环境下，由于病毒必须获得CPU的控制权，因此很多病毒都需要在Windows启动后，才能加载并进行传播。因此，很多病毒必须在Windows 2000启动后才能运行起来，并且依赖于Windows 2000的自动启动程序的功能。根据这个特点，分析Windows 2000启动时有那些程序自动运行，通过检查这些程序来防范病毒的侵袭。
+    Windows 2000启动时，能够自动运行起来的程序一般存放在注册表的以下几个地方。
+    （1）HKEY＿LOCAL＿MACHINE＼SYSTEM＼CurrentControlSet＼Services，Windows 2000装载内核后，会在该项下启动和初始化设备驱动程序。这些设备驱动程序服务的Start值为0和1。通常用户不应该更改此部分内容。
+    （2）HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows NT＼Current Version＼Winlogon＼Userinit该值项定义了用户注册时执行的初始化程序。在用户注册时，Winlogon启动该初始化程序，默认值是Userinit.exe。该程序首先运行注册脚本，建立网络连接，然后启动Explorer.exe。用户可以替换该初始化程序为自己的初始化程序。一般地，用户自己的初始化程序可以在处理完需要进行的工作后，再调用Userinit.exe程序。
+    （3）HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows NT＼Current Version＼Winlogon＼Shell该值项定义了用户界面程序，默认值为Explorer.exe。正常情况下，Winlogon启动Userinit定义的初始化程序，该初始化程序会启动用户界面程序，因此不需要运行Shell值项定义的程序。如果Winlogon没有能成功启动Userinit定义的初始化程序，则Winlogon会启动该Shell值项定义的用户界面程序。
+    提示：Windows NT4.0中，字符串值项HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows NT＼CurrentVersion＼Winlogon＼System中存放了安全管理器程序，默认值为lsass.exe，用户可以替换该安全管理器程序。在Windows 2000中，虽然System值项仍然存在，但是已经不使用System值项了。
+    （4）HKEY＿CURRENT＿USER＼SOFTWARE＼Microsoft＼Windows＼CurrentVersion＼ Policies＼Explorer＼Run由于位于HKEY＿CURRENT＿USER下，因此该项只适用于当前用户。在该项下可以有若干个字符串类型的值项，每个值项的名称从1开始，值为应用程序或文档的名称。在用户注册进入Windows 2000时，该项下定义的程序将被启动。例如该项下有两个值项，第一个是1，值为Notepad.exe，第二个是2，值为c:＼readme.doc，在用户注册进入Windows 2000时，系统会首先运行Notepad.exe程序，然后使用DOC的关联程序打开C:＼readme.doc文档。
+    （5）HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows＼Current Version＼Policies＼Explorer＼Run该项和HKEY＿CURRENT＿USER＼SOFTWARE＼Microsoft＼Windows＼CurrentVersion＼ Policies＼Explorer＼Run的作用一样，不同之处在于，由于它位于HKEY＿LOCAL＿MACHINE下，所以它将应用于所有的用户。在启动顺序上，系统首先启动HKEY＿LOCAL＿MACHINE下的Run中的程序，再去启动HKEY＿CURRENT＿USER下Run中的程序。
+    3．启动后自动登录
+    如果是在公用机房等环境下，希望用户不需要输入用户名和用户密码就可以注册进入Windows 2000。在注册表项HKEY＿LOCAL＿MACHINE＼SOFTWARE＼Microsoft＼Windows NT＼Current Version＼Winlogon下创建几个值项。
+    创建一个双字节（REG＿DWORD）值项AutoAdminLogon。值为1表示启用自动登录功能，值为0或值项不存在表示不使用自动登录功能。修改字符串值项DefaultDomainName的值为默认的域名。如果该机器不在域中，则该值项的值为该计算机的名称。修改字符串值项DefaultUserName的值为默认的用户名。修改字符串值项DefaultPassword的值为默认的口令。重新启动使更改生效。
+#1    五、修改注册表提高计算机的安全性
+#1    （一）限制“控制面板”的使用
+    1．屏蔽“控制面板”中的指定项目
+    屏蔽掉“控制面板”中的某些项目，以防止用户进行任意设置。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼ Explorer＼DisallowCpl，修改其值为1。然后新建一个注册表项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer＼ DisallowCpl，在该项下新建若干个字符串（REG＿SZ）值项，形式为“序号＝控制面板项对应的文件名”。如想屏蔽控制面板中的“显示”和“系统”两项，可以在该项下新建两个值项“1”和“2”，值分别为“desk.cpl”（显示项对应的文件）和sysdm.cpl（系统项对应的文件）。重启桌面使更改生效。
+    2．指定“控制面板”中显示的项目
+    在“控制面板”中只显示指定的项目，对于没有指定的项目则不显示。新建一个双字节（REG＿DWORD）类型的值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼Explore＼RestrictCpl，修改其值为1，然后新建一个注册表项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼Current Version＼Policies＼ Explore＼RestrictCpl，在该项下新建若干个字符串（REG＿SZ）值项，形式为“序号＝控制面板项对应的文件名”。如只允许用户使用控制面板中的“显示”和“系统”两项，可以在该项下新建两个值项“1”和“2”，值分别为“desk.cpl”和sysdm.cpl。重启桌面使更改生效。
+    注意：使用“屏蔽控制面板中的指定项目”和“指定控制面板中显示的项目”都可以定制控制面板中项目的显示，但是这两个方法有可能发生冲突。如果发生冲突，则“屏蔽控制面板中的指定项目”方法优先。
+    3．禁用控制面板中的“显示”项
+    禁止使用“控制面板”中的显示项。虽然该项仍然会出现在“控制面板”中，但是却不能使用。新建一个双字节（REG＿DWORD）的值项HKEY＿CURRENT＿USER＼ Software＼Microsoft＼Windows＼Current Version＼Policies＼System＼NoDispCPL，修改其值为1。这时进入“控制面板”，双击“显示”项，系统会出现一个消息框提示用户不可以进行此操作。
+    4．屏蔽“显示”项中的“背景”选项卡
+    通过屏蔽“背景”选项卡，可以避免用户更改桌面的墙纸。新建一个双字节值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼Current Version＼Policies＼system＼NoDispBackgr oundPage，修改其值为1。重启桌面使更改生效。
+    5．禁止“显示”项里的“背景”选项卡
+    通过禁止“显示”项里的“背景”选项卡，“背景”页中的各个按钮和选择项都变成不可选状态，这样用户将无法更改当前的墙纸和背景。新建一个双字节值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼Current Version＼Policies＼ActiveDesktop＼No ChangingWallPaper，修改其值为1。
+    6．屏蔽“显示”项中的“外观”选项卡
+    新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼system＼NoDispAppearancePage，修改其值为1。重启动桌面使更改生效。
+    7．禁止在“打印机”项中删除打印机
+    新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoDeletePrinter，修改其值为1。这时进入“控制面板”，选定一个打印机，单击鼠标右键，选择快捷菜单中的“删除”，系统会弹出一个消息框，提示用户不能进行删除打印机的操作。
+    8．屏蔽“打印机”中的“添加打印机”
+    可以去除“打印机”项中的“添加打印机”，以防止用户任意配置新的打印机。新建一个字符串（REG＿SZ）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoAddPrinter”，修改其值为1。
+    9．屏蔽“添加/删除”项
+    通过“控制面板”中的“添加/删除”项，用户可以安装和卸载Windows 2000的应用程序，还可以添加和删除Windows 2000的功能组件。
+    新建一个字符串（REG＿SZ）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Uninstall＼NoAddRemovePrograms，修改其值为1。这时再进入到“控制面板”中，可以看到“添加/删除”图标不见了。
+    10．屏蔽“添加/删除”项中的“更改或删除程序”选项
+    我们可以屏蔽掉“添加/删除”项中的“更改或删除程序”阻止用户更改或删除程序。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼Uninstall＼NoRemovePage，修改其值为1。刷新桌面使更改生效。
+    11．屏蔽“添加/删除”项中的“添加新程序”
+    可以通过屏蔽掉“添加/删除”项中的“添加新程序”以阻止用户添加新程序。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Uninstall＼NoAddPage，修改其值为1。
+    12．屏蔽“添加/删除”项中的“添加/删除Windows组件”
+    我们可以屏蔽掉“添加/删除”项中的“添加/删除Windows组件”。使用户不能通过“添加/删除”项中的“添加/删除Windows组件”安装新的Windows 2000应用程序。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Uninstall＼NoWindowsSetupPage，修改其值为1。
+    13．屏蔽“添加/删除”项目“添加新程序”中的“从光盘或软盘添加程序”
+    通过“添加/删除”项中的“添加新程序”，用户可以安装新的Windows 2000应用程序。我们可以去除掉“从光盘或软盘添加程序”方式。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼Current Version＼Policies＼Uninstall＼NoAddFromCDor Floppy，修改其值为1。
+#1    （二）限制用户查看和运行应用程序
+    1．屏蔽“开始”按钮中的“运行”
+    可以将“开始”按钮中的“运行”项屏蔽，用户不能随意执行程序。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼Explorer＼NoRun，修改其值为1。重启桌面后，“开始”按钮中的“运行”项就消失了。
+    2．屏蔽指定的磁盘驱动器图标
+    如果不希望用户察看某个驱动器的内容，可以在“我的电脑”和“资源管理器”中将该驱动器的图标隐藏起来。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoDrives。该值项从最低位（第0位）到第25位，共26个字位，分别代表驱动器A到驱动器Z。如果第0位为1，表示不显示驱动器A的图标，第3位为1，表示不显示驱动器D的图标，依此类推。例如在“我的电脑”中不显示任何驱动器的图标，可以修改“NoFrives”的值为“03ffffff”（第0位到31位全部为1）。重启桌面使更改生效。
+    修改后，虽然这些驱动器的图标不能出现，但是用户仍然可以访问这些驱动器。例如可以在资源管理器的地址栏中输入驱动器号，或者在“命令解释器窗口”中使用命令来察看隐藏了的驱动器。
+    3．禁止查看指定磁盘驱动器的内容
+    如果某个磁盘驱动器中存放了重要的数据，不希望用户查看该驱动器的内容，可以使用此方法来禁止察看该驱动器的内容。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoViewOnDrive。该值项从最低位（第0位）到第25位，共26个字位，分别代表驱动器A到驱动器Z。例如我们想禁止用户使用软盘驱动器A和B，以及驱动器D，可以修改“NoViewOnDrive”的值为“0000000b”（第0、1、3位的值为1）。
+    修改后需要重启桌面使更改生效。这时再进入到“我的电脑”，双击驱动器D，系统会弹出一个消息框，告诉用户不能进行此操作。但是应用程序仍然可以访问被禁止的驱动器。被禁止的驱动器图标并没有被删除，仍然出现在“我的电脑”和“资源管理器”中。
+    4．禁止运行命令解释器和批处理文件
+    通过修改注册表，可以禁止用户使用命令解释器（CMD.exe）和运行批处理文件（.bat文件）。新建一个双字节（REG＿DWORD）执行HKEY＿CURRENT＿USER＼Software＼Policies＼ Microsoft＼Windows＼System＼DisableCMD，修改其值为2，命令解释器和批处理文件都不能被运行。修改其值为1，则只是禁止命令解释器的运行。
+    5．禁止使用注册表编辑器
+    修改注册表是复杂和危险的，所以不希望用户去修改注册表。通过修改注册表，可以禁止用户运行系统提供的两个注册表编辑器。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼System＼DisableRegistryTools，修改其值为1。这样，用户就不能启动注册表编辑器了。
+    注意：使用此功能要小心，最好作个注册表备份，或者准备一个其他的注册表修改工具。因为当你禁止使用注册表编辑器后，就不能再使用该注册表编辑器将值项改回了。
+    6．禁止用户更改口令
+    用户在Windows安全窗口中（同时按下Ctrl+Alt+DELETE键）可以单击“更改密码”按钮来更改用户口令。通过修改注册表，可以禁止用户更改口令。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼System＼DisableChangePassword，修改其值为1。这样，Windows安全窗口中的“更改密码”按钮变成了不可选状态，用户无法更改口令。
+    7．禁止用户锁定计算机
+    用户在Windows安全窗口中（同时按下Ctrl+Alt+DELETE键）可以单击“锁定计算机”键，使用户不能够使用计算机，除非键入用户密码解除锁定。通过修改注册表，可以禁止用户锁定计算机。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼Windows＼CurrentVersion＼Policies＼System＼DisableLockWorkstation，修改其值为1。
+    8．禁止用户使用“任务管理器”
+    用户可以使用“任务管理器”对话框来启动和结束本地进程，查看和管理其他计算机上的进程，改变进程的优先级。通过修改注册表，可以禁止用户使用“任务管理器”。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼System＼DisableTaskMgr，修改其值为1。
+#1    （三）保护用户的私人信息
+    1．屏蔽“开始”按钮中的“文档”项
+    “开始”菜单中的“文档”会自动地保存下你最近使用过的文件的名称。可以将“开始”菜单中的“文档”项屏蔽掉，这样别人就无法通过查看“文档”来看到你曾经使用过的文件。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼Explorer＼NoRecentDocsMenu，修改其值为1。重启桌面使更改生效。
+    2．注销时自动清除“开始”菜单的“文档”项内容
+    使用上述方法，虽然能够防止其他人利用“文档”项来查看自己使用过的文件，但是同时自己也不能使用“文档”项。可以利用注册表，让系统在用户使用完计算机后，自动地清除掉“文档”中的内容。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼CurrentVersion＼Policies＼Explorer＼ClearRecentDocsOnExit，修改其值为1。
+    3．隐藏文件夹下的内容
+    如果想隐藏你的文件夹，通过将文件夹的属性设置为“隐藏”是没有用的。只需在文件夹的“查看”菜单中，选择“文件夹选项”单击“查看”选项卡，选择“显示所有的文件和文件夹”项，就可显示出所有具有隐藏属性的文件夹和文件。可以利用类标识符作为文件夹名的文件扩展名。例如我们想保护文件夹c:＼mydata。首先在注册表项HKEY＿CLASSES＿ROOT下找到该文件类型的CLSID，将c:＼mydata的名称修改为“c:＼mydata. {00022603-0000-0000-C000-000000000046}”。此时c:＼mydata的图标就变成了MIDI文件的图标。在资源管理器中双击该图标，系统会报告该MIDI文件内容错误，无法播放（系统将文件夹当做MIDI文件处理了），因此用户无法进入c:＼mydata，也就无法查看该文件夹下的内容。唯一能够查看文件夹内容的方法是：在命令解释器窗口中，使用CD命令进入到该文件夹。
+#1    （四）防止用户更改用户界面
+    1．禁止用户更改“开始”菜单
+    默认情况下，用户对“开始”菜单进行任意操作，可以禁止用户对“开始”菜单进行操作，以确保“开始”菜单不被改变。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoChangeStartMenu，修改其值为1。
+    2．不保存对桌面的更改
+    由于每个人的爱好不同，在使用计算机时都要将桌面重新布置，以满足个人的喜好。通过注册表可以让Windows 2000不保存对桌面所做的任何修改，在重新启动后，桌面会恢复到原先的设置。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoSaveSettings，修改其值为1。
+    3．屏蔽“任务栏”的快捷菜单
+    在“任务栏”的空白区域处单击鼠标右键，可以弹出任务栏的快捷菜单，用户可以通过这个快捷菜单来定制工具栏，如果不希望用户使用“任务栏”的快捷菜单，可以屏蔽掉“任务栏”的快捷菜单。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoTrayContextMenu，修改其值为1。
+    4．禁止改变快速启动栏的内容
+    默认情况下，快速启动栏中存放着几个应用程序的快捷方式，用户可以添加和删除这些快捷方式，通过注册表禁止用户改变快速启动栏的内容。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼Microsoft＼ Windows＼Current Version＼Policies＼Explorer＼NoCloseDragDropBands，修改其值为1。
+    5．指定桌面的墙纸
+    通过注册表，可以让系统为用户指定桌面的墙纸，进入注册表项HKEY＿CURRENT＿USER＼ Software＼Microsoft＼ Windows＼Current Version＼Policies＼system＼。如果想为所有的用户指定墙纸，则进入到注册表项HKEY＿LOCAL＿MACHINE＼Software＼Microsoft＼Windows＼Current Version＼Policies＼system。在该项下新建两个字符串值项。第一个是Wallpaper，值为墙纸文件的路径。路径可以使用UNC格式，如“＼＼computer1＼＼pic1.jpg”。第二个是WallpaperStyle，值为0表示墙纸显示在桌面的正中间，值为1表示墙纸按平铺方式在桌面上显示，值为2表示墙纸按拉伸方式在桌面上显示。修改后重启桌面使更改生效。
+    6．禁止用户关机
+    管理员是不希望用户随意开关计算机的，我们可以禁止用户执行关机操作。新建一个双字节（REG＿DWORD）值项HKEY＿CURRENT＿USER＼Software＼ Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer＼NoClose，修改其值为1。这时，如果用户同时按下Ctrl+Alt+DELETE键启动“Windows安全管理”对话框，可以看到其中的“关机”项已变为不可选状态。重启桌面后，“开始”菜单中的“关机”项也会随之消失。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

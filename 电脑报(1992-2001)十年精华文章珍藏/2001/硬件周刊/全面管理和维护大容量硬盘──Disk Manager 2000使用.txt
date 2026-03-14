@@ -1,0 +1,63 @@
+全面管理和维护大容量硬盘──Disk Manager 2000使用
+
+冯小民 
+2001年 27期
+
+随着硬盘价格的迅速下跌，很多用户都添加了大容量硬盘。但硬盘买来后，面临着两个比较棘手的问题，一是老主权无法正确识别大容量硬盘，二是怎样快速将旧硬盘上的文件复制到新硬盘上或建立多启动系统。为此，笔者今天就向大家推荐Disk  Manager 2000这个全面管理和维护大容量硬盘的好工具。
+　　#1    IDISk MSRSO6r 2000介绍
+　　Disk Manaucr 2000可以避开主板BIOS无法正确识别大容量硬盘的限制（如528MB、540MB、2．IGB、4．ZGB、8．4GB、32GB等），让添加大容量硬盘变得相当容易，而且它也可对硬盘进行全面维护。虽然该软件声称只适用于IBM硬盘，但实际
+　　上它对非IBM的硬盘也能进行分区、格式化、建立多重启动、测试硬盘健康状况等操作。
+　　Disk Manager 2000适用于DOS、OS/2、Win9x/Me/NT 4.0/2000等操作系统，该软件中的DiskManager for DOS更是一个功能全面的硬盘安装和维护工具。disk Manager 2000的一下载地址为http://file2．mydrivers．com/disk/dm_2000．exe，最新版本号是3．10．14版（2001年4月10日发布），下载文件大小为7084K字节。
+　　#1    Disk Manager 2000的用法
+　　#2一、安装新硬盘
+　　1．设定双硬盘的主从跳线（特别是当两块硬盘接在同一根数据线上时），并将数据线和电源线连接好。
+　　2．为了不至于发生金符交错，请在BIOS中将新硬盘类型设为“None”或“NotInstalled”。
+　　3．保存设置后启动系统，进人系统后运行Disk Manager 2000，稍后屏幕会出现提示：“发现一个型号为XXXXXXX的硬盘
+　　连接在Secondary Master（第一个IDE插槽）上，是否让该硬盘供系统使用？”，选择“是”，然后又出现提示：“为了继续完成对指定硬盘的设置， Disk Manager将创建一个手册来帮助你完成安装过程”，单击“下一步”，然后软件将生成安装手册（建议将此手册打印下来以指导后面的安装）再依次单击两次“下一步”，重启系统并在BIOS中修改硬盘类型为“Auto”（如果BIOSHW E 自动侦测硬盘类型功能，建议使用它来检测，但对于BIOS不支持的大容量硬盘，最好一律设为“Auto”）。
+　　4.再次重启机器，系统将自动运行Disk Manager，并计你在“Typical（典型安装）和“Custom（定制安装）”中选择一种安装方法。对于普通用户建议采用典型安装，如果你想研究Disk Manager在安装新硬盘时到底执行了哪些操作，不妨选择定制安装，然后单击“Custom”，再选择“下一步”继续。
+　　5．接下来，你可以在“As Additional Store”（作为一般的数据盘）、“As the Boot Drive，Keeping the old one”（作为启动盘，将原有硬盘作为数据盘）、“‘As the Boot Driye，Removing the old one”（作为启动课，fg去原有硬盘）、“AS the Boot Drive using Boot Manager”（将新旧硬盘都作为启动盘，使用启动管理器来管理启动顺序）中选择一种方式，之后点“下一步”继续。
+　　6.在随后出现“Custom Partitioning”画面中对硬盘进行分区。如果硬盘已经分了区，先要单击“Delete”按钮删除各分区，然后再单击“Set”按钮来创建新分区。此外，单击“Properties”可查看和更改所创建分区类型和每簇的大小（如果每簇尺寸小于文件系统规定的尺寸——比如FAT32要求每簇占据4KB，则在以后进行磁盘扫描时会出现错误），完成后单击“下一步”。
+　　7．Disk Manager将为新硬盘分配盘符，并重新设置光驱盘符，并用新的盘符去更新系统注册表和其它文件信息（比如快捷方式），选中“Update CD-ROM drive letter”（更新光驱盘符），再点“下一步”。
+　　建议：如果你要安装新硬盘或者经常对硬盘进行分区，请将光驱盘符固定为“Z”。
+　　8．经过上述设置后，Disk Manager开始对新硬盘进行安装，并依次进行以下操作:“Installing Dynamlc Drive Overlay”（安装“DynamicDrive medny”工具，没有DDO，一些计算机可能不会正确识别硬盘容量，Disk Manager 2000会自动检测你的系统是否需要安装DDO，若需要则自动安装。如果你的主板BIOS是1997年12月以前的，则添加大于8．4GB的硬盘必须安装DDO）、“Creating and formatting partitions”（创建分区并格式化}、“update CD-ROM drive letter”（更新光驱盘符）”、“Copying  files”（复制文件）、“Enabling Boot Manager”（设置启动管理器）。
+　　在这个过程中，系统会重启几次，然后会自动继续后续操作。在复制文件时将把系统C盘上的数据复制到新硬盘分区上，并设置新硬盘为可启动（前提是在上面第5步操作中选择了“As the Boot drive”选项），建立启动管理器之后就完成了整个操作过程。至此，新硬盘安装完毕。
+　　#2二、维护硬盘
+　　在完成了硬盘的安装之后，运行DISk Manager会自动出现程序的主界面，其中“Setup New Drive”用本完成对“新”硬盘的安装（要重新对已有硬盘进行分区也可使用该功能），过程同上。
+　　单击“Maintenanc。”开始进行硬盘维护：首先选择待维护的硬盘，然后点击“下一步”，在接下来的窗口中选择对该硬盘进行何种操作：
+　　1．要重新分区，请选择“Repartion existing drive”项。
+　　2．选择“Update CD-ROM drive letter”项将修改系统配置以便应用程序正确定位光驱盘符。如果更新后想取消，再次进入该画面选“Undo CD-ROM drive letter  update”项即可。
+　　3、“Copying files”项可完成不同盘之间的文件拷贝，它可将所有的文件从源盘复制到目标盘。与Norton Ghost不同的是，它可以将几个分区的内容拷贝到相同目标盘上（而Ghost只能实现一对一的分区对拷）。
+　　需要说明的是，以下情况将不能完成文件复制：源盘或目标盘是光驱，源盘或目标盘盘符相同，“Copy files”不能分析出源盘的尺寸和艾件目录，目标盘的可用空间小于源盘．此外，如果源盘和目标盘使用的文件系统不同无法复制文件。因此，如果你从FAT32的分区上运行Windows 98，且希望新增的硬除成为启动盘．必须将该硬盘转成FAT32格式（可用分区魔术师Patition Magic）。
+　　另外、使用Windows Me的用户在向一个新硬盘复制文件时可能会收到如下信息：“The selected ‘To’drive is not empty.Files on this drive may be overwritten.Are you sure you want to continue?”（日标硬盘上已有数据，文件将被覆盖，是否继续？），这种现象是正常的，因为Windows Me的“系统还原”功能已在新硬盘上写入了数据。此时单击“Yes”继续即可。
+　　4．“Creat Disk manager diskette”项的作用是创建一张包含有Disk Manager for DOS的启动软盘；“Create Data Advisor diskelt”可以创建数据顾问软盘（包含硬盘测试工具和远程数据恢复软件），强烈建议创建这两种软盘（关于这二种工具的使用见后）！
+　　5.“Run SMARTDefender”：目前的硬盘几乎都采用了Self-Monitoring，Analysis and Reporting Technology（S.M.A.R.T，自监测、分析和报告）技术，SMARTDefender就利用这种技术来检查硬盘的健康状况，使用前必须在BIOS中打开硬盘的S.M.A.R.T支持；如“SMARTDefender”选项变灰，则说明需要使用最新的补丁来更新操作系统（可访问ww.microsoft.com去寻找）；运行SMARTDefender并选择希望测试的硬盘后，会出现三个选项“Return SMARTStatus”（返回S.M.A.R.T状态信息）、“Status”（返回S.M.A.R.T状态信息）、Short SMART Test（进行短时间的测试）、“Extended SMART Test”（进行短时间的测试）“Extended SMART Test“（扩展S.M.A.R.T测试）。若运行程序、打开文件等操作时硬盘经常出现较严重的问题（比如发出异常的响声）就需要运行“Extended SMART Test”。测试结果中如果显示了除“OK”以外的其它信息，表明硬盘问题较严重，此时请尽快备份数据以防不测。不论何时，如听到硬盘发出奇怪的声响或磨擦声，请立即关机，继续操作可能会导致硬盘数据不可恢复或者造成硬盘永久损坏。
+　　#1    Disk Manager for DOS的用法
+　　使用Disk Manager for DOS，可在DOS下轻松完成对新硬盘的安装。它可处理硬盘的几乎所有问题。使用方法如下：用上面第4步创建的Disk Manager for DOS的启动软盘启动计算机，启动后选择要执行的程序——IBM DFT V2.10和Disk Manager for DOSV 9.55。
+　　#2一、硬盘适应性测试
+　　在启动后出现的菜单中选择I将进入IBM Drive Fitness Test（硬盘适应性测试），同意最终用户许可协议后开始检测系统中挂接的硬盘并出现列表（注意：系统中必须接有IBM硬盘，不论该盘是否要处理，否则根本不能使用它来完成对新硬盘的安装和维护），从列表中选择要操作的任何硬盘，进入主界面，点“Quick Test”或“Advanced Test”可对硬盘进行不同的测试。单击“Quick test”→“Start”按钮后，将依次进行“Basic Test”（基本测试）→“Interface Test”（接口测试）→“Analyzing Media”（分析磁盘介质）→“Seek Test（寻道测试）→“SMART Self Test”（测试SMART状态），测试完毕用代码报告结果同时写入日志文件（返回的代码请参见软件的帮助），测试中鼠标会屏蔽，要终止测试可随时按ESC键。
+　　“Advanced Test”与“Quick Test”相比，在“Interface Test”之后将进行“Analyzing SMART”测试再进入“Analyzing Media”，且“Analyzing Media”过程较长。
+　　另外，在“Fitness Test”菜单下，“Exerciser”选项将选进行“Advanced Test”，然后用随机数据在设定的时间内（最少30分钟）模拟硬盘处于非正常情况下的状态，以检查硬盘是否会出现问题，建议新硬盘最好进行此项测试。在“Utilities”菜单下，“Erase Boot Sector”用于清除硬盘的主引导记录（如果硬盘的主引导记录损坏将导致系统不能启动且不能对硬盘进行读写，重装操作系统也很难修复这种问题，此时就需要清除它并重新分区再重装系统），它支持IDE接口和SCSI接口的IBM的硬盘；“Erase Disk”将向硬盘的每个扇区填入空白数据，当硬盘介质有问题时可以尝试用它来修复，不过仍然需要IBM的硬盘才支持；“ATA Function”中的“Smart Operation”可设定是否启用S.M.A.R.T。
+　　#2二、安装和维护硬盘
+　　Disk Manager for DOS提供了两种硬盘安装方法：
+　　1．“Easy Disk Installation”（简单安装）
+　　选择计划安装的操作系统，再选要安装的硬盘，设定是否将第一个分区设成可启动分区（对于主板支持多硬盘启动的用户，最好选择“YES”，以后只要在BIOS中更改启动顺序即可从不同盘启动），然后按“ALT+C”开始对硬盘进行分区和格式化，重启计算机后就可在此硬盘上安装操作系统了（方法是：进入Disk Manager 2000中选择“Copying Files”命令，或者用启动软盘引导后再从光驱上安装系统）。这种安装方法只能把硬盘分成一个区。
+　　2．“Advanced Options”（高级选项）
+　　在这个选项下，可实现以下功能：
+　　（1）“Advanced Disk Installtion”：它允许自定义分区尺寸，并且允许将一个大于8．4GB的分区作为启动分区。操作过程如下：选择要安装的硬盘→选择要安装的操作系统→是否将硬盘分区成FAT32格式→是否允许第一分区可启动→选择分区方案，这里有三种方案可选：方案A将全部空间作为一个分区（笔者用20GB新硬盘作实验顺利通过）；方案B将硬盘分成四个区，其中前三个容量相同，方案C允许自行设定分区数，在此选择方案B→按“ALT+C”→设置是否快速分区和格式化（耗时较短，建议使用）→选择是否用默认的簇尺寸→确认，然后依次进行校验数据区、校验BIOS支持、写入FAT、创建目录结构等操作，完成后硬盘即可使用。
+　　（2）“Maintenance Options”这个选项主要完成一些维护性操作。其中“Dynamic Drive Overlay”可以安装DDO驱动到硬盘以便越过BIOS不能识别大容量硬盘的限制，“Master Boot Record”可以重写主引导记录或用备份来还原，“Windows3．x Drivers”可以为使用Win3．x的用户安装32位磁盘存取驱动程序ONTRACKW．386，因为Win3．x本身并不能识别FAT32格式的分区，安装“ONTRACKD．SYS Driver”可使DOS 6．xx、Win3．x支持容量超过8．4GB的硬盘，“Utilities”下的“Zero Fill Drive”允许向硬盘填入空白数据使之变成“全新”的盘，“Low Level Format”则完成对硬盘的低级格式化。
+　　#1Data Advisor的用法
+　　Data Advisor 作为硬盘诊断工具，是Disk Manager 2000 的一个组件，它可以快速评估硬盘的健康状况、标识潜在的问题、扫描系统中的病毒、内存错误以及其它可能导致数据丢失的磁盘错误。它使用一张自启动磁盘来完成，即使在Windows已崩溃的情况下也能正常完成检测。
+　　用在前面创建的Data Advisor 软盘启动系统，“Data  Advisor”中将出现两个组件：
+　　1．“Data Advisor Diagnostic”：该组件首先要求确认已识别出的硬盘，之后依次进行“Quick Function Test”（快速测试）、“Smart Status Check”（检验SMART 状态）、“Complete  Surface  Scan”（磁盘表面测试）、“File Structure Test”（测试文件结构，逐个扇区进行）、“System Memory Test”（测试系统内存）等步骤，完成后将测试结构写入报告中。可用“View Diagnostic Report File”查看。
+　　2．“Remote Data Recovery”：如果所有的物理测试都通过，“Data Advisor”允许通过Modem连接到 Ontrack 公司进行Remote Data Recovery（远程数据恢复），Ontrack公司网站上的维护引擎将为恢复丢失的数据提供帮助，多数数据丢失问题（包括被病毒破坏或者文件结构损坏所引起的问题）都可以通过Remote Data Recovery 来得到解决。
+　　#1注意事项
+　　1． 在安装DDO时，BIOS或查毒软件可能会认为有引导扇区病毒从而出现错误提示，因为在安装DDO时将修改引导扇区以便正常工作，建议安装前终止查毒软件的运行和关闭BIOS的病毒检测功能。
+　　2．由于Windows 2000不支持将一个大于34GB的分区格式化成FAT32，如要用Disk Manager 2000来添加一个大于34GB的硬盘必须将该硬盘的各个分区限制在34GB以内，如果实在要创建一个大于34GB的FAT32分区，可以使用Disk Manager for DOS 来对它进行分区和格式化，并使之成为启动盘。然后在Disk Manager 2000的“Maintenance”菜单下选择“Copy Files”将文件复制到新硬盘上。
+　　3．如果添加新硬盘后在启动时系统发生死锁，请按以下步骤解决：
+　　首先检查硬盘信号线是否正确连接，尤其注意是否符合“1 脚规则”（即数据线上的第一个针脚应对应硬盘的第一个针脚），然后检查BIOS版本，如果BIOS版本是Award 4．51版的（该版本对硬盘容量的限制是33．8GB）而新硬盘容量在33．8GB以上，则应当从主板生产商处升级BIOS。另一种解决方案就是使用Disk Manager for DOS，它将使硬盘的全部空间可用，主要步骤如下：重启计算机并进入BIOS，将新硬盘的类型设为“None”或“Not Installed”并保存，插入Disk Manager启动软盘重新启动，在主菜单中，选择“（A）dvanced  Options”选项，依次选择“（M）aintenance ”→“（U）tilities”，再选择新硬盘，选择“Set Drive Size”，依照屏幕的提示设置硬盘的尺寸即可。结束尺寸设置以后再次进入BIOS设置，将新硬盘类型设为“AUTO”，保存后重新启动，从Disk Manager FOR DOS的主菜单中选择“（E）asy Disk Installation”或者“（A）dvanced  OPTIONS”→“（A）dvanced Disk Installation ”，按屏幕提示完成对硬盘的分区及格式化。
+　　编后：关于硬盘维护的其它方法，请大家参阅《电脑报》2001年第6期《专题快递》版块和本期C13版《电脑医院》栏目。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

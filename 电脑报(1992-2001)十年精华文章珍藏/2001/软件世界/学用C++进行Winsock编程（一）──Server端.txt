@@ -1,0 +1,198 @@
+学用C++进行Winsock编程（一）──Server端
+
+ 朱小华 
+2001年 8期
+
+    编者按：在2001年《电脑报》第1期的《学用C++进行Winsock编程──Client端》（以下简称《Client端》）已经跟大家讲述了客户端编程的基本内容，现在接着向大家介绍服务器端。
+　　    其实客户端与服务器端的内容差不多，不过还是有区别的。这里先向大家讲述基本的编程步骤，最后再给出一个多线程的端口扫描器，其功能是扫描本机开放了哪些端口（包括TCP和UDP）。
+　　    1. 调用WSAStartup，这一步与客户端没有区别；
+　　    2.调用Socket或WSASocket创建套接字，这一步与客户端没有区别（这里更正《Client端》的一个错误：当用socket函数创建套接字失败时，函数返回INVALID_SOCKET，而不是返回SOCKET_ERROR。不过到现在为止，我还没碰到过创建套接字失败的情况，当其它函数失败时一般返回SOCKET_ERROR!）；
+　　    3. 调用bind函数与一个本地名字（用端口和IP地址来描述）作绑定，bind函数的第一个参数是要对其进行绑定的套接字描述符，第二个参数是一个sockaddr类型的指针，其内容对一些本地信息进行了描述，第三个参数是sockaddr结构的大小。bind函数调用失败则返回SOCKET_ERROR。
+　　    示例代码如下：
+　　    SOCKET sk;
+　　    sockaddr_in sock;
+　　    unsinged long ulLocalip;//假设ulLocalip是本地IP地址，至于怎么获取本地IP，在最后的例子里会给出；
+　　    ……（省略创建套接字等）
+　　    sock.sin_family=AF_INET;
+　　    sock.sin_addr.s_addr=ulLocalip;
+　　    sock.sin_port=htons（12345）;//表示所用的端口
+　　    if（bind（sk，（sockaddr*）&sock，sizeof（sock））==SOCKET_ERROR）
+　　    {
+　　    //错误处理
+　　    }
+　　    4.调用listen函数对连接请求进行侦听，示例代码如下：
+　　    listen函数的第一个参数是要侦听的套接字，第二个参数是最大侦听数，举个例子，如果设为5（在Winsock1.1中，最大值为5），那么如果同时有6个连接请求，那么第6个连接请求将被抛弃。listen函数调用失败则返回SOCKET_ERROR。
+　　    示例代码如下：
+　　    if（listen（sk，5）==SOCKET_ERROR）
+　　    {
+　　    //错误处理
+　　    }
+　　    5.调用accept、WSAAccept函数接受连接请求，建立连接。
+　　    accept函数的第一个参数是要在其上建立连接的套接字，第二个参数是一个sockaddr结构的地址，该结构用于存放对方的一些信息，如IP地址、端口等，第三个参数是一个int类型的指针，用于返回第二个参数的大小。如果是阻塞模式的套接字，accept函数调用成功会返回一个新的套接字描述符，以后针对该连接的数据收发都在该套接字描述符上进行，原来的套接字可以继续侦听，然后用accept建立连接，也就是说一个服务器端的套接字可以与很多客户端建立连接。accept调用失败则返回INVALID_SOCKET。至于非阻塞模式的套接字，请参见本文最后的补充说明！
+　　    SOCKET sk，newsk;
+　　    sockaddr_in sock，
+　　    sockin;
+　　    int socklen=sizeof（sock）;
+　　    ……（省略创建套接字sk，绑定sk，侦听sk）
+　　    newsk=accept（sk，（sockaddr*）&sockin，&socklen）;
+　　    if（newsk==INVALID_SOCKET）
+　　    {
+　　    //错误处理
+　　    }
+　　    6. 收发数据：
+　　    与客户端差不多，不过收发数据所用的套接字为accept，返回的套接字（在这里是newsk），而不是原先用socket创建的套接字（在这里是sk）。
+　　    7. 关闭套接字，用closesocket函数；
+　　    8. 撤消DLL引用，用WSACleanup（）函数；
+　　    下面给出一个多线程端口扫描器，其功能是扫描本机开放了哪些端口（大家可能都听说过端口攻击这个名词，现在有很多黑客软件，它们的原理就是利用你的机器上所开放的端口对你进行端口攻击），这是利用bind函数来实现的，原理是：bind函数的功能是将套接字描述符与一个本地名字（用端口和IP地址来描述）作绑定，如果该名字已被使用，那么对bind函数的调用将返回SOCKET_ERROR，并且WSAGetLastError（）将返回WSAEADDRINUSE。这个例子对TCP和UDP端口都进行了绑定测试。注意：对UDP的绑定可能不会有效果，之所以给出，只为表示TCP与UDP的绑定过程没什么区别。
+　　    //SourceCode in C++Builder5
+　　    #include <vcl.h>
+　　    #include <winsock.h>
+　　    #include <stdio.h>
+　　    #pragma hdrstop
+　　    #include "Unit1.h"
+　　    #pragma package（smart_init）
+　　    #pragma resource "*.dfm"
+　　    /*创建一个自定义结构*/
+　　    typedef struct g_bport
+　　    {
+　　    unsigned long LocalIp;//网络字节顺序
+　　    unsigned short sPort;//本地字节顺序
+　　    unsigned short ePort//本地字节顺序
+　　    char szMutex[52];//用于存放互斥体名
+　　    char szLogFile[26];//用于存放结果文件名
+　　    bool isTcp;//是TCP还是UDP
+　　    unsigned long Result;//用于返回扫描结果
+　　    int Index;//第几个线程
+　　    }*PG_BPORT;
+　　    #define THREADNUM 10 //线程数
+　　    char MutexName[]="LocalPortScan-Bcbhua-Love-GZW-V1.0";//互斥体名，互斥体，用于保证线程安全！
+　　    TForLover *ForLover;//这是窗体
+　　    g_bport gbport[THREADNUM*2]; //用于传递参数，TCP前半，UDP后半
+　　    HANDLE handleThread[THREADNUM*2];//用于存放线程句柄，TCP前半，UDP后半
+　　    /*以下是线程函数*/
+　　    DWORD WINAPI BPort（LPVOID lp）
+　　    {
+　　    PG_BPORT bport=（PG_BPORT）lp;
+　　    unsigned short nowPort=bport->sPort-1;
+　　    sockaddr_in sock;
+　　    int socklen=sizeof（sock）;
+　　    HANDLE hdMutex=OpenMutex（MUTEX_ALL_ACCESS，false，bport->szMutex）;
+　　    SOCKET sk;
+　　    FILE *fp;
+　　    int iType=bport->isTcp?SOCK_STREAM:SOCK_DGRAM;
+　　    char szType[4];
+　　    if（bport->isTcp）
+　　    strcpy（szType，"TCP"）;
+　　    else
+　　    strcpy（szType，"UDP"）;
+　　    char szLog[42];
+　　    sk=socket（AF_INET，iType，0）;
+　　    sock.sin_family =AF_INET;
+　　    sock.sin_addr.s_addr =bport->LocalIp ;
+　　    while（nowPort<bport->ePort）
+　　    {
+　　    sock.sin_port =htons（++nowPort）;
+　　    /*如果调用bind函数失败，并且WSAGetLastError函数的返回值为WSAEADDRINUSE，通常情况下表明该端口已被使用，也就是说已开放*/
+　　    if（（bind（sk，（sockaddr*）&sock，socklen）==SOCKET_ERROR）&&（WSAGetLastError（）
+　　==WSAEAD  DRINUSE））
+　　    {
+　　    wsprintf（szLog，
+　　    "线程%d发现本机IP:%s开放%s端口:%d\r\n"，bport->Index，inet_ntoa（sock.sin_addr），szT
+　　    ype，nowPort）;
+　　    WaitForSingleObject（hdMutex，INFINITE）;
+　　    fp=fopen（bport->szLogFile，"a"）;
+　　    fwrite（szLog，sizeof（char），strlen（szLog），fp）;
+　　    fclose（fp）;
+　　    bport->Result++;
+　　    ReleaseMutex（hdMutex）;
+　　    }
+　　    closesocket（sk）;
+　　    sk=socket（AF_INET，iType，0）;
+　　    }
+　　    closesocket（sk）;
+　　    CloseHandle（hdMutex）;
+　　    return 1;
+　　    }
+　　    /*窗体的构造函数*/
+　　    _fastcall TForLover::TForLover（TComponent* Owner）
+　　    :TForm（Owner）
+　　    {WSADATA wsaData;
+　　    if（WSAStartup（0x101，&wsaData））{
+　　    ShowMessage（"无效的Winsock版本!"）;}}
+　　    /*单击按纽*//*创建线程*/
+　　    void _fastcall TForLover::BtStartClick（TObject*Sender）
+　　    {HANDLE handleMutex=CreateMutex（NULL，false，MutexName）;
+　　    try
+　　    {DWORD dwThreadId，
+　　    dwThreadCode;
+　　    int startPort=ForLover->edSPort->Text.ToInt（）-1，
+　　    endPort=ForLover->edEPort->Text.ToInt（），
+　　    iPart，j，aliveThread;
+　　    unsigned long LOCALIP，
+　　    Result=0;
+　　    char szName[256];
+　　    hostent *host;
+　　    in_addr inaddr;
+　　    BtStart->Enabled =false;
+　　    /*以下用于获取本机IP地址*/
+　　    gethostname（szName，255）;
+　　    host=gethostbyname（szName）;
+　　    if（host）
+　　    LOCALIP=*（（unsigned long*）host->h_addr_list[0]）;
+　　    else
+　　    ShowMessage（"获取本机IP失败!"）;
+　　    inaddr.s_addr=LOCALIP;
+　　    /*用inet_ntoa将本机IP转为点分法表示，并将其设为窗体的标题，AnsiString是C++Builder的一个类，其功能相当于VC的CString，VB的StringCaption=AnsiString"扫描本机IP："）+inet_ntoa（inaddr）;Application->ProcessMessages（）是C++Builder特有的一个函数，不是标准的C++函数，其作用相当于VB的DoEvents函数*/
+　　    Application->ProcessMessages（）;
+　　    iPart=（endPort-startPort）/THREADNUM;
+　　    ZeroMemory（gbport，sizeof（g_bport）*THREADNUM*2）;
+　　    /*以下填充用于TCP扫描的结构*/
+　　    for（j=0;j<THREADNUM;j++）
+　　    {gbport[j].isTcp=true;
+　　    gbport[j].sPort=iPart*j+startPort+1;
+　　    if（j==（THREADNUM-1））
+　　    gbport[j].ePort=endPort;
+　　    else
+　　    gbport[j].ePort=iPart*（j+1）+startPort;}
+　　    /*以下填充用于UDP扫描的结构*/
+　　    for（j=THREADNUM;j<THREADNUM*2;j++）
+　　    {gbport[j].isTcp=false;
+　　    gbport[j].sPort=iPart*（j-THREADNUM）+startPort+1;
+　　    if（j==（THREADNUM*2-1））
+　　    gbport[j].ePort=endPort;
+　　    else
+　　    gbport[j].ePort=iPart*（j-THREADNUM+1）+startPort;}
+　　    for（j=0;j<THREADNUM*2;j++）
+　　    {strcpy（gbport[j].szMutex，MutexName）;
+　　    strcpy（gbport[j].szLogFile，ForLover->edLog->Text.c_str（））;
+　　    gbport[j].LocalIp=LOCALIP;
+　　    gbport[j].Index=j+1;
+　　    handleThread[j]=CreateThread（NULL，0，BPort，（LPVOID）&gbport[j]，0，&dwThreadId）;}       /*监视是否所有线程都已完成*/
+　　    while（1）
+　　    {aliveThread=THREADNUM*2;
+　　    for（j=0;j<THREADNUM*2;j++）
+　　    {GetExitCodeThread（handleThread[j]，&dwThreadCode）;
+　　    if（dwThreadCode!=STILL_ACTIVE）aliveThread--;}
+　　    if（aliveThread==0）break;
+　　    Sleep（5000）;}
+　　    for（j=0;j<THREADNUM*2;j++）
+　　    {Result+=gbport[j].Result;//统计结果
+　　    CloseHandle（handleThread[j]）;//关闭句柄}
+　　    wsprintf（szName，"扫描已完成!共发现%d个目标!请查看结果文件!"，Result）;
+　　    ShowMessage（AnsiString（szName））;}
+　　    catch（...）{MessageBox（Handle，"错误"，"警告"，MB_OK）;}
+　　    CloseHandle（handleMutex）;
+　　    BtStart->Enabled =true;}
+　　    //退出窗体时卸载DLL
+　　    void _fastcall TForLover::FormDestroy（TObject *Sender）
+　　    {WSACleanup（）;}
+　　    这个例子与《Client端》里给出的例子都是针对只有一个IP地址的机器的，对于那些有多个IP地址的机器来说，要针对每个IP地址都进行相应扫描。
+　　    补充说明：
+　　    一、对socket/WSASocket，bind，listen这些函数来说是没有阻塞与非阻塞的区别的，无论阻塞模式还是非阻塞模式，函数调用皆是马上返回，成功即成功，失败即失败。在阻塞模式下对connect/WSAConnect、accept/WSAAccept、recv/WSARecv、send/WSASend的调用都是等到调用请求完成再返回的，也就是说，如果调用请求未处理完，调用所在的线程将处于“挂起”状态，如果程序只有一个线程或者调用发生在程序的用户界面线程，也就成了通常说的程序没有响应。调用完成，函数将返回相应的调用结果。如果套接字是非阻塞模式的，那么对connect/WSAConnect、accept/WSAAccept、recv/WSARecv、send/WSASend函数的调用会马上返回，如果调用成功，那么将返回相应的成功结果；如果调用函数返回SOCKET_ERROR（accept函数是返回INVALID_SOCKET），并且WSAGetLastError（）返回WSAEWOULDBLOCK，其涵义不意味Winsock错误，而是表示调用请求无法马上完成，程序应作其它相应处理。用ioctlsocket函数可以对套接字的模式进行控制或者针对套接字成功调用WSAAsyncSelect函数后套接字将自动成为非阻塞模式。由于篇幅所限，这里不再深入探讨。
+　　    二、在Client端的示例即远程端口扫描中，由于采用的是阻塞模式的套接字，所以虽然采用了多线程，但是效率还是很低的，建议利用WSAAsyncSelect函数改为Winsock特有的非阻塞的消息模式，这样无需多线程就能达到很高的效率。该函数的功能可以用一句话来概括：指定的套接字上发生指定的网络事件时，指定的窗口收到指定的消息。限于篇幅，不再详细介绍，不过强烈建议掌握该函数的用法。如果有时间的话，小弟会写一个比较完整的说明放到主页（LoveBcb.yeah.net或go.163.com/~bcbandvb/nindex.htm）上，或者在合适的地方公开我写的“网络时代”的源代码，该程序就是利用了WSAAsyncSelect这种I/O模式，效率很高！大家可以去小弟的主页上下载试用该程序！目前主页上有“极速寻呼”的源代码，里面有一个GSocket类，用的是阻塞模式，大家可以先看看。
+　　    三、在Server端的示例即本机端口扫描，其实扫描结果不是很精确，如不能判断TCP139端口等。其实也可以用Client端的示例来精确扫描本地主机，只要在目标主机中输入本机IP即可。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

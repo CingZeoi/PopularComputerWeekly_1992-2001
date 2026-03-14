@@ -1,0 +1,64 @@
+K6-Ⅲ是不是超级杀手
+
+郑曰松、钟建勇
+1999年 第14期 51版
+
+    AMD的K6-2在1998年打了个漂亮的翻身仗，采用3D Now！技术的K6-2 CPU在零售市场极为畅销，到1999年一月AMD在美国台式机零售市场的占有率首次超过Intel。不过随着Intel赛扬CPU的降价，K6-2的价格优势锐减，而且在超频之风盛行的亚太地区，K6-2的竞争力更是受到极大影响。正在人们为AMD担心的时候，AMD率先推出了第六代微处理器K6-III。（^145101a^）
+    我们电脑报评测室在拿到K6-III CPU后，立即进行了系统全面的测试，下面把测试结果报告大家。
+    K6-Ⅲ依然基于K6-2的CXT核心（即K6-2 380和400的较新核心），但和K6-2的最大不同，就是K6-Ⅲ内部整合了256KB的L2 Cache。虽然这对于Intel的CPU来说并不新奇，但AMD家族的CPU却是首次在内部加入L2 Cache。在过去很长一段时间里，AMD系列CPU的L2 Cache都放在主板上，其运行速度只能在66MHz到100MHz之间，要和核心速度远远高得多的CPU交流，效果自然大打折扣！比较一下，虽然Intel的Pentium II和刚发布的Pentium III有512KB的L2 Cache，比K6-III多一倍，但由于它们的L2 Cache只能运行在一半核心速度的频率之下，所以效率并不见得比K6-III来得高！
+#1    K6-III的创新技术
+    1、由于内置了256KB二级Cache，K6-III的晶体管集成度由K6-2的930万个猛增到2130万个，目前仍然采用技术上成熟的0.25微米工艺制造，芯片面积由K6-2的81mm2增加到118mm2，核心电压2.4V。
+    2、在内部集成了256KB的L2 Cache。个人电脑一直依靠两层结构的高速缓存，内置于硅片中央的称为一级（L1）高速缓存，而二级高速缓存可以外置于主板上（如兼容K6-2的主板），也可以内置于处理器芯片（如P II，Celeron A）。以前的K6-2虽然主频可以从300MHz提高到450MHz，但同P II相比，其二级缓存却仅能以100MHz的频率运行，所以性能提高不大。K6-III却不然，内部集成的L2 Cache在核心频率下工作，完全不受外部总线的限制。
+    同Celeron A的128KB L2 Cache相比，K6-III集成的256KB L2 Cache整整大了一倍，这大出来的部分又有什么优势呢？中央处理器首先在L1 Cache里搜寻数据，如果L1 Cache中没有需要的数据，再到L2 Cache里去搜寻，如果在L2 Cache中还没有，就到主存储器里去搜寻。L2 Cache较大可以存储更多数据，极大地提高命中率，这样中央处理器访问速度较慢的主存储器的机会就大大减少，系统整体性能自然会有较大提高。
+    3、多端口内置式高速缓存设计，可以确保一级、二级缓存能够同时进行64位的读写操作。两极缓存可以在一个周期里同时进行64位的读写操作，较无端口设计存取速度更快，中央核心单元可以同时进入两级缓存进行存取，使系统数据传输效率更高。
+    4、4信道关联型二级高速缓存设计，能更好的优化管理数据，提高效率。
+    5、Trilevel高速缓存设计，包括：一个全速64KB一级（L1）高速缓存（AMD-K6系列处理器的标准配置）、一个内部全速背侧256KB二级（L2）高速缓存、运行于100MHz外部总线的Super7主板上可选外部三级（L3）高速缓存，较同频的Intel的Pentium II快一个速度等级，不但提高缓存容量，而且还提供更高的带宽。以前的100MHz外频外置式Cache支持800Mbps的带宽，而K6-Ⅲ 450以450MHz运行的内置式二级缓存可支持3600Mbps的带宽，由于采用可同时读写操作的双端口设计，总带宽提高到7200Mbps，较100MHz的外置式Cache带宽提高九倍。
+    6、原来Super7主板上的L2 Cache自然成为三级缓存，容量从512KB～2MB，运行在100MHz外频下，其与L1、L2的强劲组合把高速缓存的性能发挥到极限。
+#1    K6-III系统升级简单
+    K6-III不仅核心与K6-2的一样，外观也一模一样，针脚仍然是与Socket 7兼容的321针，从理论上来说，现在的Socket 7主板都可以支持K6-III。从我们拿到的K6-III 400样品看，K6-III既没有锁倍频，也可以运行66MHz外频。不过，K6-III的核心电压由K6-2的2.2V改为2.4V。
+    在AMD网站上刊登出了经过AMD认证，能够完全支持K6-III的Super7主机板（网址http://www1.amd.com/K6/k6mbl/）：
+    AOpen AX59PRO、Asus P5A、Asus P5A-VM、BCM/GVC VP1541、Biostar M5ALC、ECS P5VP-A＋、FIC PA-2013、Gigabyte GA-5AX、Iwill XA100 Plus需要说明的是，并不是只有上述主板才能够上K6-III，其他Super7主板只要提供以下条件就具备支持K6-III的能力：
+    ·提供2.4V的电压
+    ·提供10A的电流
+    具备以上电压电流的主板，只要进行简单的BIOS升级以支持“CXT”内核，正确识别K6-III，否则即使可以运行K6-III，主板也会将它识别为K6-2。
+#1    评测结果
+    我们将K6-III 400与同频率的K6-2、Pentium II以及Pentium II450进行了比较测试。 测试配置：
+    ·CPU：AMD的K6-2（300Mhz超频至400Mhz），K6-III（400Mhz），Pentium II（266Mhz超频至400Mhz），Pentium II（300Mhz超频至450Mhz）。
+    主板：大众FIC PA-2013（2MB Cache）
+    内存：128MB的PC100 DIMM内存条一根
+    硬盘：Maxtor 9100D8金钻 10G硬盘
+    显卡：Riva TNT（16M SDRAM）
+    声卡：Creative SoundBlaster16 ISA
+    网卡：NE2000兼容网卡
+    CD-ROM：SONY 5× DVD-ROM
+    操作平台：Windows95OSR2.1、Microsoft DirectX6.1
+#1    一、整数性能异常强劲
+    ·K6-III的整数性能在K6-2的基础上进一步提升
+    强劲的整数性能一直是AMD K6系列CPU引以自豪的，从K6开始到K6-2，其整数性能就一直非常接近相同频率的Pentium MMX和Pentium II。在以整数运算为重点的主流商业应用中，像字处理、电子表格、数据库、浏览器、电子出版等，都极大地依赖CPU的高速缓存，尽管与K6-2相比K6-III在内核上并没有变动，也没有增加任何新的指令，但加入256KB二级高速缓存后形成的三级缓存结构的确让K6-III的整数性能增强不少。在反映实际商业应用环境下整数性能的基准测试ZD Business Winstone98和Winstone99中，K6-III 400比相同频率的K6-2性能提高了10%以上。而在基于处理器系统的测试ZD Winbench98/99 CPU Mark32中，由于该测试主要反映处理器、高速缓存、内存以及它们之间的通道所组成的处理器子系统处理32位代码的能力，使K6-III 400的整数性能显得更强悍，甚至比相同频率的K6-2高出50%！
+    ·K6-III的整数性能已经超过Pentium II、赛扬甚至Pentium III
+    如果说K6-2的整数性能仅仅是接近Pentium II，这次K6-III居然超过了Pentium II。从ZD Business Winstone98/99我们可以看出K6-III 400的整数性能已经超过同频率的Pentium II 5%以上，甚至在分数上超过了Pentium II 450。在以往的测试中我们知道，带128KB二级Cache的赛扬，整数性能与同频率的Pentium II相当，而上次对Pentium III的测试中我们也看到Pentium III在整数性能上，与Pentium II相比毫无改进，看来K6-III的整数性能已经略领先于Intel的Pentium II、赛扬甚至Pentium III。（^145101b^）
+#1    二、浮点性能有所进步
+    ·ZD Winbench98/99和ZD 3DWinbench99基准测试
+    由于浮点运算对三级Cache的依赖性远远不及整数运算强，从ZD Winbench98/99 FPU Winmark和ZD 3D Winbench99的成绩来看，K6-III只比同频率的K6-2提升了5%左右，与Pentium II仍然有不小的差距。由于ZD Winbench98/99 FPU Winmark测试并没有利用到AMD的3Dnow！指令，所以K6-III的成绩不佳，只有同频率Pentium II的2/3，而ZD 3D Winbench99是基于Direct3D的，我们采用了支持3Dnow！的DirectX6.1，K6-III与Pentium II的差距有所减小。（^145101c^）
+    ·3D Mark99 MAX游戏3D性能和MultimediaMark99多媒体性能测试
+    3Dmark99MAX以及MultimediaMark99都是由世界著名的3D及多媒体测试软件公司Futuremark Corporation开发的，前者是基于游戏引擎，模拟游戏真实环境来测试系统的3D加速性能，重点在游戏3D性能，我们使用的3DMark99 MAX是今年2月才发行的最新版本，不仅需要DirectX6.1支持，而且针对AMD的K6-2、K6-III 3Dnow！指令以及Pentium III的SSE指令进行了优化。Multimedia Mark99则重点测试系统的多媒体处理性能，包括MPEG-1 Video Encoding视频编码、MPEG-1 Video Playback视频回放、Image Processing图形处理以及Audio Effects音效四大方面的性能。
+    与ZD基准测试的情况相似，K6-III只比同频率的K6-2有5%左右的性能提升，而和Pentium II相比，其MPEG1视频编码、回放以及图形处理、音效等多媒体性能都基本上达到了同频率Pentium II 90%的性能，而在针对3Dnow！优化过的CPU 3D Mark测试项上，K6-III 400更是远远超过Pentium II 400，甚至Pentium II450。看来在多媒体性能上K6-III已经进一步缩小了和Pentium II的差距。（^145101d^）
+    ·游戏测试
+    K6-Ⅲ在游戏中的实际表现就比较复杂了。比相同频率的K6-2提高了10～20%，在Turok2、Quake2以及Sin等大负荷浮点运算的游戏中尤其明显。不过，与相同频率的Pentium II相比就另当别论了，对于Turok、Turok2、Incoming这样的基于Direct3D的游戏，K6-III的性能表现不仅受支持3Dnow！优化的DirectX6.1的影响，还受游戏自身引擎的影响，不过成绩都还比较理想，基本上达到了同频率Pentium II 90%的速度。而在基于OpenGL的游戏Quake2和Sin中，尽管我们在Quake2中使用了专门针对3Dnow！优化的驱动程序，但成绩仍然比较差，只有Pentium II 70～80%的速度。
+    ·聚焦3Dnow！
+    对于AMD来说，从K6-2开始到现在推出的K6-III，3Dnow！指令的应用一直是争论的焦点。如果要高效利用强大的3Dnow！指令，绝大多数应用程序尤其是游戏要么是针对3Dnow！指令集进行设计，要么是仅仅通过API应用程序接口来支持3Dnow！，而已经发行的软件通过打补丁来支持3Dnow！则非常少见了，目前笔者知道的只有两种游戏可以做到：一种是以Quake2引擎为核心的游戏，这样的游戏原来根本不支持3Dnow！，但通过增加支持3Dnow！的驱动程序，对Quake2引擎的rendering渲染引擎进行3Dnow！优化，不过这主要是软件rendering，而且对Voodoo类（Voodoo、Voodoo2、Banshee）显卡更有效。这类游戏有：Blood2、Heretic Ⅱ、NFL Blitz、Shogo、Speed Boat Attack、Team Apache以及Quake2、Half Life、Sin原罪。另一类则是已经支持3Dnow！，不久将有补丁来进一步改善、增强，使游戏更流畅。这类游戏多半是基于Unreal，因为Unreal当初支持3Dnow！时非常仓促，所以对3Dnow！仅仅是局部的使用。使用补丁则可以让这些已经完成的游戏对3Dnow！的支持尽可能地加强。由于Unreal设计之初为将来3Dnow！指令的应用留下了接口，所以增加补丁后几乎可以与原程序融为一体。（^145101f^）
+    Unreal类游戏还有：Deus_Ex、Duke Nukem Forever、Hired Guns、Klingon Honor Guard、Navy SEALS、TNN Outdoors Pro Hunting、Unreal、Werewolf: The Apocalypse、Wheel of Time。
+    从Quake2的测试我们可以非常清楚地看到3Dnow！指令对K6-III性能的影响。在TNT显卡运行时，当使用支持3Dnow！的OpenGL驱动程序（3Dnow！OpenGL）后，Quake2的几个测试Demo都比标准OpenGL驱动程序（Default OpenGL）快了2～3帧。一旦使用Voodoo2来测试，在标准OpenGL驱动程序下速度比TNT还略低，但换用3Dnow！3DfxGL后 K6-III的成绩剧增，提高了50%！，远远超过同频率的Pentium II，甚至Pentium II450。
+#1    三、三级高速缓存对K6-III性能的影响
+    ·不同容量三级缓存对K6-III性能的影响
+    目前支持K6-III的Super7主机板，除了芯片组有VIA MVP3和Ali Aliddin V之分外，最大的差异便在板载三级Cache的容量，绝大多数主板尤其是较早推出的Super7主板通常都采用512KB高速缓存，而目前已经有越来越多的主板采用1MB的三级Cache，甚至有公司推出了2MB三级Cache的主机板，像我们这次测试的基板——FIC大众PA-2013就提供了2MB的高速缓存（采用VIA MVP3芯片组）。为了弄清楚不同容量三级缓存对K6-III性能的影响程度，我们还选择了1MB缓存的磐英EPOX EP-MVP3G主机板（采用VIA MVP3芯片组）以及另外一款畅销的512 KB缓存Super7主机板（采用的是Ali Aliddin V芯片组）。由于三块主机板在芯片组上不尽相同，而且在设计和制造工艺上也各有特色，对测试成绩也会造成轻微影响，所以测试结果仅供参考。从测试成绩来看，K6-III在拥有2MB高速缓存的PA-2013上发挥最出色。随着三级高速缓存的逐渐减少，K6-III在其他两块主板上的整数性能表现逐渐降低。当我们将PA-2013的高速缓存关掉后，其商用Winstone99性能急速下降，降幅达10%。不过令人惊异的是关掉主板三级高速缓存后（K6-III实际上又恢复到K6-2时的二级缓存结构），其商用Winstone99分值仍然超过了K6-2 400。这是因为K6-III的二级缓存是256KB并且与CPU核心速度同步的CPU背侧Cache。K6-2的二级缓存却是主板上的缓存，尽管容量更大，但由于只能够以系统总线频率运作（这时是100MHz，K6-III 400的二级缓存却以400MHz运作），所以在商业应用性能上却输给了关掉三级Cache的K6-III。在Quake2的测试中仍然如此，由此可见K6-III二级高速Cache架构的高效率。（^145101e^）
+    ·不同频率三级缓存对K6-III性能的影响
+    如果改变总线频率，直接受到影响的便是以总线频率运作的主板高速缓存，而K6-III背侧二级缓存由于是以CPU的核心频率运作，其频率并不受影响。如果将总线频率降到66MHz，要产生400MHz核心频率，需要主机板提供6倍频（66MHz×6=396MHz），非常遗憾我们的测试基板并没有提供如此高的倍频（最高到5.5），所以我们为了使CPU在66MHz和100MHz总线频率下以相同的核心频率运作，只得将核心频率降到300MHz来测试，让系统分别以66MHz×4.5、100MHz×3=300MHz核心频率运作，并测试了ZD BusinessWinstone99和Quake2 BenchMark，从测试结果我们可以看到，当三级高速缓存从100MHz降到66MHz时，Quake2的速度下降了2到3帧，有5%～10%的性能下降，在主流商业应用中也会有约5%的性能下降。（^145101g^）
+#1    四、超频性能及价格
+    K6-III的超频性能一般，这块K6-III 400超频到450MHz后，可以进入Windows，但并不能稳定运行。看来K6-III在超频性能上并没有多大的想象空间，价格是AMD的成功之本，K6-III也不例外。单片零售价格大约在2000多元，在低价风潮全球流行的今天，这一价格对于普通用户不太有吸引力，相信产品正式上市后，价格肯定会迅速下降。目前，散装K6-III 400已经在我国台湾省上市，相信内地很快也会买得到，盒装K6-III 400可能要到五月份才能上市。
+    从测试情况来看，三级Cache的采用的确令K6-III比K6-2在性能上有了较大飞跃，尤其是在主流商业应用方面，与Super 7主板的良好兼容性又使它成为Super 7用户升级的最佳选择。随着众多3D应用厂商对3Dnow!的进一步支持，相信K6-III对3D应用领域的吸引力会进一步增强，成为高档PC的又一理想配置。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

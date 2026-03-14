@@ -1,0 +1,70 @@
+“G”Hz时代──INTEL、AMD GHz处理器全面对比测试
+
+钟建勇 
+2001年 17期
+
+#2     AMD Athlon1.33GHz和INTEL Pentium 4 1.7GHz处理器相继发表
+　　随着2000年3月6、8日AMD和INTEL分别发表第一款1GHz处理器──1GHz Athlon、1GHz PentiumⅢ，标志着电脑处理器正式突破1000MHz，开始迈进“G”Hz时代。随后INTEL和AMD不断推出更高频率的处理器，在速度之王上展开了最为激烈的竞赛。在数月之前AMD还以1.2GHz的Athlon超越INTEL的1.5GHz Pentium4处理器，成为性能王者。今年3月23日AMD又率先推出1.33GHz Athlon，继续保持CPU性能上的领先角色。INTEL也不甘示弱，随后于4月23日提前发表了Pentium4 1.7GHz处理器，在处理器速度上继续和AMD拉开差距。这些都使我们真正感受到“G”Hz时代的降临。
+　　#2     GHz处理器大降价，“G”Hz时代真正到来
+　　而真正使“G”Hz时代成为现实的则是INTEL和AMD对处理器的大降价，尤其是1GHz以上频率的大降价。从2001年以来两家处理器大厂已经先后进行了多次降价，在业界引起轩然大波，先是3月初INTEL和AMD先后降低高端CPU价格，AMD处理器的降幅大约在20%左右。调整后每1000片1.2GHz的外频为266MHz的Athlon售价为294美元。然后是4月15日INTEL与AMD纷纷降低各款CPU售价，据实际统计INTEL平均CPU的降幅为16%，AMD的平均降幅为12.8%，以Pentium4 1.3GHz来说，单颗CPU的价格约在2300元上下，与PentiumⅢ 1GHz的2000元相差的幅度更加拉近。而AMD调整的CPU价格，则重点在Athlon 1GHz以上的产品，包括Athlon 1GHz、1.1GHz、1.2GHz、1.3GHz，其中Athlon 1GHz降低10.5%、Athlon 1.1GHz降低15.4%、Athlon 1.2GHz降低9.8%、Athlon 1.3GHz降低15.8%。而且有消息传出，INTEL为了使Pentium4在今年下半年成为市场主流的计划实现，4月29日还将有更大的动作，这次新推出的1.7GHz Pentium4千颗采购价将降到350美元，折合人民币3000元，而1.5GHz 产品从519美元降价至256美元（降价率约为51%），1.4GHz产品从375美元降价至193美元（降价率约为49%），1.3GHz产品从268美元降价至193美元（降价率约为28%）。降价幅度之大可见INTEL的决心。INTEL目前将主要精力全部投入到Pentium4的量产上，并预测2001年底推出的高性能台式电脑的半数以上将采用Pentium4微处理器。这些都显示“G”Hz时代真正到来。从INTEL的产品周期来看，2001年底前，PentiumⅢ 1GHz以上的CPU大概只剩下两三款，更高速度的产品将全部由Pentium4所取代。目前市场上达到1GHz的处理器已经异常丰富，包括
+　　    AMD系列Athlon T-bird──1GHz/200MHz、Athlon T-bird 1.0GHz/266MHz、Athlon T-bird 1.1GHz/200MHz、Athlon T-bird 1.13GHz/266MHz、Athlon T-bird 1.2GHz/200MHz、Athlon T-bird 1.2GHz/266MHz 	
+　　    INTEL系列 P3-1000/100MHz、P3-1000/133MHz、Pentium4-1.3GHz/400MHz、 Pentium4-1.4GHz/400MHz、Pentium4-1.5GHz/400MHz、Pentium4-1.3GHz/400MHz
+　　而且降价后1GHz Athlon才1200元人民币左右，已经开始扮演主流CPU角色。
+　　#2     GHz处理器全面对比测试
+　　为了迎接“G”Hz时代的真正到来，全面考察这些GHz处理器的性能，尤其是借AMD Athlon1.33GHz、INTEL Pentium4 1.7GHz处理器发布之机，考察AMD是否还能够保持性能王者的地位，我们特意组织了这次GHz处理器全面测试。测试样品不可能把所有1GHz以上CPU找齐，所以我们选择了几款最具代表性的产品，包括1GHz PentiumⅢ、1.3GHz Pentium4、1.5GHz Pentium4、1.33GHz Athlon266、1GHz Athlon200，比较遗憾的是1.7GHz Pentium4目前国内还没有样品，所以我们只得以1.5GHz超频到1.6GHz，基本上可以推算出1.7GHz Pentium4的性能。可能有读者会问，Athlon最高频率是1.33GHz，而INTEL Pentium4达到了1.7GHz，从频率上看INTEL足足领先了400MHz，这种非相同频率的比较是否显得不公平。其实自从Pentium4推出我们就不得不改变CPU性能比较的观念了，因为相同频率的Pentium4性能经测试已经证明不及Athlon，而且INTEL正是采用以更高频率的Pentium4与Athlon较量，要不然INTEL为什么没有在1.5GHz之后推1.6GHz，而是直接到1.7GHz，那种与AMD争性能之王的心态昭然若揭。
+　　测试平台1──AMD Athlon平台（^17080201a^）
+　　CPU：1.33GHz Athlon/266、1GHz Athlon/200
+　　主板：微星MSI K7T266 Pro-R KT266主板（VIA 4.29v四合一补丁）
+　　内存：HY PC2100 DDR内存（CL=2）
+　　测试平台2──INTEL Pentium4平台（^17080201b^）
+　　CPU：1.3GHz Pentium4、1.5GHz Pentium4、1.6GHz Pentium4（overclock）
+　　主板：微星MSI MS6339 850主板（INTEL 8xx-INF Update Utility2.80.010a、ATA6.10.011）
+　　内存：三星256MB RAMBUS（128MB×2）
+　　测试平台3──INTEL PentiumⅢ平台
+　　CPU：1GHz PentiumⅢ（133外频）
+　　主板：硕泰克SL-65EP i815EP主板（INTEL 8xx-INF Update Utility2.80.010a、ATA6.10.011）
+　　内存：256MB PC133 SDRAM（CL=2）
+　　三个平台的其他配件完全相同，包括：
+　　显示卡：耕昇  GeForce2 Ultra 64MB DDR（Driver 雷管11.0公版）
+　　硬盘：IBM Deskstar 75GXP DTLA-307015
+　　DVD-ROM：12X DVD-ROM
+　　网卡：INTEL 10M/100M PCI
+　　显示器：ACER 77G 17英寸纯平CRT显示器
+　　操作系统：微软Windows98SE、DirectX8.0A
+　　#21.办公及商用性能
+　　ZD Media的Business Winstone2001和Content Creation Winstone 2001都是系统级的基于实际应用的测试软件，只是前者着重测试电脑在运行日常主流办公软件时的系统性能，而后者对系统要求更加苛刻，着重测试系统在进行图形多媒体创作，以及WEB创建方面表现出来的性能，Business Winstone2001和Content Creation Winstone 2001的测试我们都进行了5遍测试并最后得出最终结果。而SYSmark2000也是一个传统的系统整体性能专业测试软件，测试成绩与Business Winstone2001反映的情况更接近。（^17080201c^）
+　　Athlon 1.33GHz的SYSmark2000成绩领先非常明显，达到236，而Pentium4 1.5GHz超频到1.6GHz也只跑出197的成绩，只相当于1GHz的PentiumⅢ和Athlon的成绩，即使是1.7GHz Pentium4也不会超过210。而且Business Winstone2001的测试结果也基本反映了这样的情况，看来在运行主流办公软件时，Pentium4的性能的确有些令人失望，Athlon性能上的优势非常明显，1.33GHz的Athlon基本上可以领先1.7GHz Pentium4 15%-20%，而1GHz 100MHz外频的的Athlon就基本上可以达到1.5GHz Pentium4的水平。Pentium4这样的表现跟普通商用软件并没有针对Pentium4优化过，没有发挥出Pentium4的优良架构有关。不过基于高端商务应用的Content Creation Winstone2001的测试结果则有所改变，1.5GHz的Pentium4超频到1.6GHz后取得性能最高分49.3，已经稍微领先1.33GHz的Athlon，而且如果使用SYSmark2001和WebMark2001进行测试也可以看到这样的趋势，不过相同频率的Athlon还是会超出Pentium4不少。（^17080201d^）
+　　#22.处理器级性能测试
+　　基于处理器级的测试我们主要运用ZDmedia的WinBench99 Processor Benchmark和SiSoft Sandra 2001 Perfessional，需要指出的是WinBench99发表时间已经比较早，均没有针对Athlon和Pentium4进行优化，也就是说新CPU加入的像SEE2指令集并不会被WinBench99用到，而SiSoft Sandra 2001 Perfessional则比较好地针对Athlon和Pentium4进行了优化，可以比较充分地测试Athlon的3Dnow！和Pentium4的SEE2指令集。从测试情况来，只要是相同的CPU，基本上是处理器频率提高多少，测试成绩就成比列地提高多少，非常准确。（^17080201e^）
+　　多媒体指令multi media Benmark部分的测试Integer SEE2/Integer MMX Enh和Floating-Point SSE2/Floating-Point 3DNvow ! Enh，Athlon都全面领先，1.33GHz的Athlon可以超出1.7GHz Pentium4 10%以上。而且CPU整数性能SiSoft Sandra 2001 CPU Dhrystone、WinBench99 CPU Mark99测试，Athlon领先更加明显，提升幅度更达到15%以上。不过浮点性能部分就比较奇怪了，WinBench99测试出来Athlon遥遥领先，但SiSoft Sandra 2001 FPU Whetstone测试出来Pentium4又领先不少。（^17080201f^）
+　　另外我们也可以发现与Pentium4配合的双通道RDRAM内存表现出来的性能的确优异，这不仅反映出Pentium4的内存子系统提供了更高的带宽，同时Pentium4本身对内存高带宽的利用也非常充分，回过头来看Athlon DDR系统，尽管Athlon的PC2100 DDR SDRAM理论上提供了2倍于PC133 SDRAM的带宽，但实际上CPU似乎并没有充分利用到它的高带宽。（^17080201g^）
+　　#23. 3D游戏性能
+　　为了真正反映CPU的性能差异，3D游戏性能的测试我们只进行了最低分辨率的测试，因为对于3D加速卡来说，往往在低分辨率下会表现出CPU处理上的瓶颈，测试结果才能真正反映CPU处理性能的差异，而随着分辨率提高CPU瓶颈效应逐渐缓解并向3D加速卡瓶颈方向转移，当分辨率达到1024×768@32位色深以上后，即使是不同频率的CPU，但测试性能会几乎完全一样。
+　　● Quake3
+　　Quake3可以说是最能够发挥Pentium4效能的一款传统OpenGL游戏，这主要是因为Quake3是一款对内存带宽依赖性极大的游戏，在我们选定的运行模式下Pentium4 1.7GHz可以达到200fps，高出1.33GHz Athlon15%以上，不过分辨率提高到1024×768后差别明显缩小，同时须要指出的是如果频率相同，Athlon完全可以和Pentium4打成平手，甚至超越Pentium4。（^17080201h^）
+　　● MDK2
+　　在另一款传统OpenGL游戏MDK2中，Pentium4一下子暗淡了很多，性能远远不及Athlon，两者的表现基本上和Quake3中的表现相反。
+　　● Glmark
+　　Glmark是最近才发表的OpenGL测试Benchmark软件，可以更好地考验Athlon和Pentium4的性能，从Athlon和Pentium4在Quake3、MDK2中跑出近200fps，而Glmark中却只能够跑出不到100fps就可以窥见一斑。在Glmark的测试中我们基本上可以看出目前最快的Athlon和Pentium4基本上打成平手，不过相同频率情况下，Athlon还是会领先不少。
+　　● 3D Mark2000和3D Mark2001
+　　从3D Mark2000和3D Mark2001的测试来看，1.5GHz Pentium4超频到1.6GHz后，已经和1.33GHz Athlon缩小差距，而且随着分辨率提高，Pentium4的高内存总线带宽的优势将发挥出来，进一步缩小与Athlon的差距，甚至超过Athlon。
+　　另外我们在Unreal Tournament、Evolva、Expendable几款游戏测试中进一步验证了Athlon的明显优势，看来对于3D游戏来说，Athlon更加适合。
+　　#24.专业3D应用性能
+　　专业3D设计方面的性能表现，我们采用目前业界公认的SPECviewperf 6.1.2专业测试软件进行测试。其独特之处是应用OpenGL驱动的方式实时渲染Viewport 并作出可视化结果。这种专业3D设计和普通游戏最大的区别是，3D游戏强调尽量快的fps帧数情况下渲染出绚丽真实的游戏画面，所以往往采用相对较少的三角形（多边形），一般在数万水平，并采用大块的纹理来覆盖，并且用到一些特殊视觉效果，而这些在专业3D应用中却用不上，专业3D应用强调与真实物体的逼真性，所以往往采用庞大的三角形数以逼真再现实物的每一个细节，三角形数量通常在数十万以上。SPECviewperf 6.1.2的几个测试建模项目主要受处理器的FPU性能以及内存带宽影响，像Awadvs-04、DX_06两个应用需要大量的CPU运算，所以Athlon的性能优势就表现出来，而在Pro_07、MedMCAD_01、ProCDRS-03需要高内存总线带宽和高性能ALU的测试项目，Pentium4表现更耀眼。另外我们在PHOTOSHOP和3D Studio MAX实际使用中还是发现Athlon性能更加出色。
+　　#25.视频处理性能
+　　从Video2000的测试我们的确看到Pentium4的在视频处理上的优势，这也印证了INTEL当初发布Pentium4时所宣称的Pentium4是一款视频处理性能非常优秀的CPU。（^17080201i^）
+　　#1结  语
+　　总的来说，以目前最高频率的Athlon1.33GHz和Pentium4 1.7GHz做比较，在主流商务办公应用中，Athlon优势非常明显，不过在基于WEB创作这样的高端商务应用中，Pentium4的性能得到比较好的发挥，已经缩小了和Athlon的差距，甚至在部分测试中稍微领先，但若以相同频率的Athlon与Pentium4比较，则Athlon优势更明显。而在目前的3D游戏中，Pentium4除了Quake3能够超过Athlon外，绝大多数游戏都被Athlon拔得头筹，显然Athlon更适合游戏玩家。Athlon在专业设计领域的大多数应用中表现更优异。不过在视频处理领域Pentium4还是占有优势。而且随着应用软件设计商不断针对Pentium4处理器进行优化，在未来的软件中Pentium4的被动局面应该会得到逐渐改善。
+　　#1展  望
+　　#21.Athlon和Pentium4的前景分析
+　　●Athlon的性能优势和性价比优势令Pentium4非常被动
+　　就性能而言Athlon的优势已经得到大家认可，而且性价比相对较高，而Pentium4所采用的RDRAM目前仍然售价居高不下，与之搭配的也只有售价较高的i850主板，而且i850主板还对机箱、电源有特殊的要求，这些都使Pentium4的推广显得困难重重，需要INTEL付出更大的代价，拿出更大力量才能够扭转这样的局面。
+　　●Pentium4封装pin脚的改变为INTEL带来更多不利因素
+　　根据INTEL的计划今年第三季度就会将Pentium4的引脚由目前的423pin转向478pin，这种封装结构的改变必然导致目前购机用户的观望以及已经购买Pentium4的用户以后升级造成不便。尽管INTEL承诺2001年第三季推出不同制程的P4处理器并不代表现有产品线会退出市场，423pin和478pin处理器将会并存，但到时候究竟是否如INTEL承诺，实在有些担心。
+　　#22. P4的机会
+　　迫于市场的压力，INTEL已经在着手开发与P4配合支持SDRAM和DDR-SDRAM的主板芯片组。相信这些芯片组推出后会改变INTEL P4的被动局面。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

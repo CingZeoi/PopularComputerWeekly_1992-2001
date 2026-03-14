@@ -1,0 +1,88 @@
+手把手教你做Flash网页（下）
+
+高杲 
+2001年 14期
+
+#1    Flash周边软件介绍
+　　    Flash的周边辅助软件可谓丰富多彩，它们对Flash技术的扩展起到了非常大的作用。在这里笔者只是给大家介绍十款精彩的周边软件。
+　　#2    1.DeFlash
+　　    下载地址：http://flash.xiloo.com/download/software/DeFlash13.exe
+　　#2    2.SWF Browser
+　　    这个小工具可以将受保护的Flash动画（SWF）解保护，方便你在Flash环境中Import（导入）。
+　　    下载地址：http://flash.xiloo.com/download/software/SWFBrowser293.EXE
+　　#2    3.SreenWeaver 2.03
+　　    一个SWF文件浏览器，与Deflash相比，不同处是在于它不但可以解除受保护的SWF动画，还可以用它来提取出SWF中的声音、图像、文件结构等，还可以把SWF制作成为屏幕保护，使用Swfbrowser有时候出现死机的现象，建议你先使用DeFlash把动画破解再来提取其中的元素。
+　　    下载地址：http://flash.xiloo.com/download/software/sw203b_eg_c.zip
+　　#2    4.Illustrate! 5.0 for 3DS MAX 3
+　　    功能最强大的Flash屏保制作工具，与Swfbrowser来自同一公司。
+　　    下载地址：http://flash.xiloo.com/download/software/Illustrate5.0.zip
+　　#2    5.Swift 3D 1.0
+　　    一款3DS MAX3的插件，可以将3D模型直接渲染为SWF或AI格式，使得3D Flash的制作更加高效、简单。
+　　    下载地址：http://flash.xiloo.com/download/software/swift3d.zip
+　　    Flash 3D制作工具。注意：Swift3D渲染速度很慢，请低配置（主频<400MHz，内存<128M）或使用Win98的朋友做好心理准备，好像与Win Me有冲突。
+　　#2    6.SwiffCANVAS 1.0
+　　    下载地址：http://flash.xiloo.com/download/software/SwiffCANVAS_10.EXE
+　　#2    7.Swish1.52
+　　    将Flash projector（*.exe）再次加工的好东东：可以自定义文件图标、除掉讨厌的Flash窗口、播放时禁止屏保等等。这下用Flash做的Demo也可以上cd-rom了，也许会有人误以为是使用Director做的。
+　　    下载地址：http://flash.xiloo.com/download/software/swish152.zip
+　　    上面7款软件，或是操作简单，或是以前《电脑报》上有过介绍，这里就不再介绍了。接下来为大家介绍的是三款比较新的辅助软件，它们分别是：“Flash工程文件转换软件exe2swf”、“Flash脚本浏览器ASV”、“以及音量表生成工具Flashamp”。
+　　    生成数据文件的数字在Flash的脚本中可以依靠数组来加以调用，具体的应用在这里就不讲了，有兴趣的朋友可以到一些专业的Flash教学站点上下载相应的源代码，一看就会明白的。
+　　    下载地址：http://flash.xiloo.com/download/software/Flashamp.zip
+　　#2    8.exe2swf
+　　    这个软件可以将已编译的Flash动画执行文件*.exe转为*.swf文件，使用起来挺方便的，而且该软件只有162KB，安装过程与普通软件一样。软件安装完后，别的就不用管了，直接用鼠标选中要转换的Flash文件，然后点击右键，右键菜单上的第二项“convert Flash exe to swf”就是用来把exe文件转换成swf文件的，选择完后，出现一个对话框，给转换后的文件起一个名字就可以了，是不是很简单呀！
+　　    下载地址：http://flash.xiloo.com/download/software/exe2swf.zip
+　　#2    9.Action Script Viewer
+　　    ASV英文全称为Action Script Viewer，从名字上就可以看出它是干什么的了。它可以查看已编译好的Flash动画文档中的脚本文件，工作界面如^14040701a^。
+　　    其实ASV不仅仅能够查看脚本，他还可以单独的播放一个SWF动画中的一个MC或者是一个按钮，还有一个Frame（帧）上各个层，以及层上的符号。它的使用也非常方便，打开一个SWF文件后，有脚本的Frame（帧）或者MC它会用一个眼睛的图标表示，用鼠标点击相应的图标，就会在程序界面下部的脚本显示框中显示该Frame（帧）或者是MC上相应的脚本。如果想要浏览一个MC的动画或者是一个按钮，可以选中相应的元素后，按F5键就可以做到了。要提醒各位的是：ASV的功能非常强大，使用者还是不要把他用到商业用途上，去破解别人的动画中脚本，那来自己用，如果是用来学习的话倒是可取的。
+　　    ASV 1.5版本只支持Flash4的脚本，最新的2.0版本支持Flash5的脚本。
+　　    下载地址：http://flash.xiloo.com/download/asv15.exe
+　　#2    10.FlashAmp
+　　    FlashAmp这个软件那可COOL了！用户可以用它把一段音乐或者声音生成一个直观的音量表数据文件，该数据文件说白了就是一组数字，表示了这段声音文件输入到Flash中后分布到各个Frame（帧）上的音量，是不是很直观？你要问这些数字有什么用呀？用处可大了，你可以把它用在Flash的MTV中，可以形象的表示出当前音量的大小，可是同步的哦！用过Winamp的你想必应该会很明白吧。具体制作过程非常简单，如^14040701b^。
+　　    操作共需八步：第1步，点击红色的问号按钮，选择要处理的声音文件。然后的2到7步按照程序默认就可以了，需要指出的是第4步的15表示动画所设置的每秒的帧数，第5步的100表示生成数值的范围。第8步就是程序通过分析所选定的声音文件生成一个音量数据文件，如^14040701c^。
+　　#1    Flash  FAQ（常见问题回答）16例
+　　    以下是在Flash动画制作过程中经常碰到的一些问题，在这里整理出来是为了给初学者学习提供方便。
+　　    Q：如何使按钮上的激发事件成为一个动态的效果
+　　    A：可以在Over或者Down时间上加入一个MC
+　　    Q：如何快速对齐不同帧上的符号或者是物体
+　　    A：可以使用Inspector“Ctrl+Alt+I”，直接输入坐标，也可以使用“Ctrl+K”，可以使好多个符号或者是物体按照一定的方式对齐，前者更精确些可以调整它的宽度和高度还有坐标，后者比较迅速！
+　　    Q：Flash自带的Generator是用来做什么的呀？
+　　    A：Macromedia Generator是一种可以动态地把文字，图形和声音组合起来建立丰富的媒体内容，并可以把最终结果变成一种动画或者静态的格式的Web服务器产物应用程序。它可以将Flash功能发挥到极致，非常好。做实时天气预报，报表走向，是动态的数据+动态的动画，只是好像这样的服务器费用比较高，国内很少见到。
+　　    Q：Modify菜单下的instance为什么有时变成不可点击状态，请问如何才能再次激活它？
+　　    A：你所选的元素必须是一个符号才可以，否则是不行的。
+　　    Q：我做的Flash影片加入到网页上，它老是循环播放，如何让它不循环呢？
+　　    A：在最后一帧上加入脚本stop（）就可以了。
+　　    Q：如何判断一个浏览器安装了Flash插件？
+　　    A：在DW4中，使用Behavior中的check plugin就可以了，直接加入代码。
+　　    Q：MC、FS到底代表什么意思？
+　　    A：MC=Movie Clip。动画片段。FS=Fscommand，是Flash的一个非常重要的一个命令集合。
+　　    Q：能否加快我的Flash 动画的播放速度呢？
+　　    A：可以的。只要你在主菜单Modify\Movies（修改\影片），加大Frame rate（影格速度）的值便可，Flash默认的值是12。
+　　    Q：如何把一个FLA文件输出成和SWF一样的GIF文件？
+　　    A：先在Publish settings\format\Gif image（发布设置\格式\GIF影像），并对其进行相应的设置之后，用Publish（发布）功能便可输出GIF文件。如果FLA文件中含有MC，那么GIF文件中将不会包含MC中的动画，而将只将MC的第一帧转化为一个GIF片段处理，并且你所使用的脚本都将不会生效。如果你觉得输出质量不好，可以用Gif Animator软件修改。
+　　    Q：如何把一个圆画得更圆？
+　　    A：用画圆工具的时候，可以按住Shift键就可以了。
+　　    Q：如何调整场景播放的顺序？
+　　    A：可以在当前场景工作区点击右键，选择scene，然后在对话框中进行排序就可以了
+　　    Q：如何把一个SWF动画文件生成一个EXE可执行文件？
+　　    A：在Flash Player中的File\Create Projector就可以生成一个EXE文件了，但是他要比原来的SWF文件大200K到300K。
+　　    Q：Flash的动画背景可以是透明的吗？如何设置？
+　　    A：当然可以，在发布设定中的HTML栏中有一项是窗口模式，选透明的窗口一项就可以了。若是在HTML中引用Flash可在HTML文件中的前加上下面的语句: <param name=“WMODE” value=“transparent”>。不过透明只能在IE中可以，在NC中便失效了。
+　　    Q：请问哪种格式（后缀）为矢量图？请问用哪个软件可以浏览这些矢量图？
+　　    A：*.ai *.eps *.wmf *.cdr，其中前面三种可以在Flash中直接引用。CDR格式需转换成前三种格式方可引用。如果你安装了CorelDRAW 便可以在资源管理器中直接预览CDR格式的图形。其他格式的文件，目前还没有软件能够像ACDSee浏览普通图片一样大量浏览。
+　　    Q：如何禁止菜单、Zoom In（Out）功能，如何完成双击SWF文件时直接全屏？
+　　    A：在第一帧中输入下面命令：
+　　    全屏→FS Command （“fullscreen”，true）
+　　    禁止缩放→FS Command （“allowscale”，False）（即使使用了ctrl+f，也不会放大）
+　　    禁止菜单→FS Command （“showmenu”，False）
+　　    执行文件→FS Command （“exec”，name.exe）执行同一目录的可执行文件name.exe
+　　    快速退出→FS Command （“quit”）关闭Flash Player
+　　    Q：国内有哪些地方提供矢量图库和音效？
+　　    A：音效：http://wav.126.com （老牌的音效站点）
+　　    http://www.soundamerica.com/ （国外著名的音效站点）
+　　    综合类：www.newflash.com
+　　    本系列至此已全部结束，希望对初学者学习Flash有所帮助，如果有问题请与我联系，我的E-mail是:g-gao@163.net。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

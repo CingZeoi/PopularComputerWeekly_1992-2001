@@ -1,0 +1,128 @@
+计算机的重要数据备份方法
+
+张孟凯
+1998年 第49期 07版
+
+　　 计算机数据的安全与保护越来越重要。假如你已经历过由于磁盘损坏或是系统崩溃而导致重要数据的丢失，那么你一定开始注重备份文件了。假如你是个幸运儿，还没有丢失过任何数据，现在也应该开始你的备份工作了。
+#1　　一、备份什么？
+　　不是所有的文件均需备份。拷贝整个硬盘既浪费时间又使用大量软盘。笔者认为，只需备份那些不可恢复的文件，对提高工作效率及节约磁盘空间将大有益处。自己建立和修改的所有文件均需备份，它们包括：
+　　1.文件和数据
+　　所有存储在My Documents （我的文档）或Personal Folders （个人文件夹）中的文件以及其它为了工作方便建立的文件夹中的文件。只有你才知道是哪些文件以及它们被放在了哪里。
+　　2.E－mail信息
+　　假如你使用Microsoft Outlook Messaging and Collaboration Client 或 Microsoft Exchange 作为 E－mail 软件，E－mail的全部信息、任务和日期数据都存放在（.pst）文件中。如果使用Outlook Express则每个邮件均放在信息文件（.mbx）和索引文件（.idx）中；例如：Inbox.mbx和Inbox.idx，中文版为：收件箱.mbx和收件箱.idx。
+　　3.地址簿
+　　姓名地址表也许是最重要的备份项目之一。所需的联系地址表存放在地址簿文件（.pab）中。通常在Exchange文件夹。
+　　4.收藏夹
+　　以微软的IE浏览器为例，每个酷爱站点是以一个个Internet快捷文件方式存放在Favorites文件夹中。Favorites文件夹一般位于Windows文件夹下，在Favorites文件夹中可能有一个或多个子文件夹，这里的文件都不大，它们的备份只需简单地将要备份的文件或包含要备份的子文件夹拷贝到备份盘即可。
+　　5.系统设置
+　　桌面背景设置，快捷方式，文件夹属性等等。也许还有某些你喜好的程序选项和特性的备份。在系统需要重新建立时会节省时间，提高工作效率。如果操作系统为Windows95或Windows98，系统设置均保存在Window注册文件中。软件和硬件的系统配置也在里面。为了保护用户注册及设定，备份文件：
+　　User.dat
+　　system.dat
+　　config.sys
+　　autoexec.bat
+　　win.ini
+　　system.ini
+以及CD－ROM的驱动程序。这些文件一般可在Windows文件夹中找到。将这些文件拷贝到应急启动盘的一个文件夹中。应急启动盘是安装Windows 95系统时创建的。如果你在安装Windows95时没有创建应急启动盘，建议你现在就创建一张应急启动盘：
+　　【1】将一张空盘插入驱动器A。
+　　【2】在“开始”（Start）菜单，指向“设置”（Settings），单击“控制面板”（Control Panel）。
+　　【3】在“控制面板”中，双击“安装/删除程序”（Add/Remove Programs）图标。
+　　【4】在“启动盘” （Startup Disk）卡片，单击“创建启动盘”（Creat Disk），然后按屏幕提示操作即可。
+　　6.模板
+　　如果已在Microsoft Office或WPS 97中创建了用户模板、字典、论文以及其它需要备份的项目，Microsoft Word 将模板保存在Normal.dat文件中（包括缺省字体和纸张大小）。Normal.dat文件应该在/Program Files/Office/Templates文件夹，除非你已经改变了该文件的路径。而WPS 97 的模板文件（.wpt）存放在/WPS97/Templates文件夹。
+#1　　二、无须备份的文件
+　　许多文件无须备份。如果你保存有如下程序或系统的原盘或安装盘：
+　　＊Windows 95
+　　＊各种应用程序，包括缺省字体
+　　＊字体
+　　＊各种硬件驱动程序
+#1　　三、什么时候备份
+　　什么时候备份文件和数据是以个人喜好而定，首先要回答的问题是“你可以丢失多少数据？”。如果一年备份一次，一整年有价值的文件和数据都处于危险境地。每天都做备份，就不会丢失超过一天的工作。是选择重新录入还是做好备份，完全由你来决定。在下述特殊情况下，笔者建议你做好备份：
+　　＊在整理硬盘碎片或维修硬盘之前，需做好备份工作。
+　　＊系统正常运行时，备份系统文件和系统设置。
+　　＊当修改了系统设置和添加/删除硬件之后，备份系统设置。
+#1　　四、备份方式
+　　不同级别的备份方式，提供不同的安全保证。究竟采取何种级别的备份方式，视数据的重要程度而定。在下面介绍的三级备份中，笔者建议将重要的数据和文件备份到软盘或可移动硬盘。
+　　1.正在进行中的工作之备份，最简单的方法就是经常做存盘操作。这样可以有效防止因突然停电或因急事而突然离开忘记存盘造成的工作损失。许多软件有自动存盘的功能。微软的Word每隔几分钟就存盘一次（本功能特性的设定可从菜单工具栏的选项中单击保存卡片）。WPS 97在这方面做得更好，即使突然停电数据也不会丢失。
+　　2.大多数磁盘错误会引起文件的损坏。为防止重要文件的损坏而无法补救，可将文件简单地拷贝到同一磁盘不同的文件夹。如BACKUPS子文件夹。某些程序可以设定自动备份功能（如：可设定Word在每次打开一个文件时对前一文件创建一个备份文件）。
+　　3.作为最高级保护，将文件备份至软盘或可移动硬盘。如果觉得某些软盘或硬盘不十分保险可备份两份。这样可以防止因计算机被盗，硬盘损坏等造成的数据损失。
+　　最后谈一下Windows95的备份功能的使用。Windows95的内置备份功能使得备份重要文件或整个硬盘更加容易。在备份应用程序中包括许多特性可供选择，既方便又快捷。开始备份文件：在“开始”菜单指向“程序”，“附件”，再指向“系统工具”，然后单击“备份”。如果电脑中找不到“备份”工具，可在“开始”菜单，指向“设置”，单击“控制面板”，双击“添加/删除程序”，选中“安装Windows”卡片，按Windows提示进行安装“备份”功能即可。
+　　下面为备份Windows系统配置的批处理程序，供大家做备份时参考。随时可修改此批处理文件增加或减少要备份的文件。
+　　@rem WINBKUPS : by Mr. Mengkai Zhang  09/28/98
+　　@rem A BAT to backup Windows configuration files. 
+　　@rem Requires a directory named BKUPS be created under C:\WINDOWS
+　　@rem Echo not turned off to allow certain commands to be seen.
+　　@rem WINBKUPS : by Mr. Mengkai Zhang 09/28/98 : added ％1 to allow for RESTORE.
+　　@if ％winbootdir％! == !  WFWBKUPS ％1
+　　@if not ％1! == ! goto RESTORE 
+　　xcopy c:\windows\＊.ini c:\windows\bkups
+　　xcopy c:\windows\＊.grp c:\windows\bkups
+　　xcopy c:\windows\＊.pif c:\windows\bkups
+　　xcopy c:\windows\＊.dat c:\windows\bkups
+　　xcopy c:\windows\＊.pwl c:\windows\bkups
+　　::xcopy c:\windows\＊.cal c:\windows\bkups
+　　::xcopy c:\windows\＊.reg c:\windows\bkups
+　　@attrib －s －h －r c:\windows\bkups\user.dat
+　　@attrib －s －h －r c:\windows\bkups\system.dat
+　　@attrib －s －hc:\windows\user.dat
+　　@attrib －s －hc:\windows\system.dat
+　　xcopy c:\windows\user.dat c:\windows\bkups
+　　xcopy c:\windows\system.dat c:\windows\bkups
+　　@attrib ＋s ＋hc:\windows\user.dat
+　　@attrib ＋s ＋hc:\windows\system.dat
+　　@goto END
+　　:RESTORE
+　　@echo.
+　　@echo Recommend this function be run from a DOS prompt，
+　　@echo NOT a DOS window.
+　　@echo. 
+　　@if ％1! == restore! goto ALL
+　　@if ％1! == RESTORE! goto ALL
+　　@if ％1! == system!  goto SYSTEM
+　　@if ％1! == SYSTEM!  goto SYSTEM
+　　@if ％1! == base!goto SYSTEM
+　　@if ％1! == BASE!goto SYSTEM
+　　@if not exist c:\windows\bkups\％1 goto ERROR
+　　:ONE
+　　@attrib －s －h －r c:\windows\user.dat
+　　@attrib －s －h －r c:\windows\system.dat
+　　xcopy c:\windows\bkups\％1c:\windows
+　　@attrib ＋s ＋h ＋r c:\windows\user.dat
+　　@attrib ＋s ＋h ＋r c:\windows\system.dat
+　　@goto MSG
+　　:SYSTEM
+　　@attrib －s －h －r c:\windows\user.dat
+　　@attrib －s －h －r c:\windows\system.dat
+　　xcopy c:\windows\bkups\win.inic:\windows
+　x　xcopy c:\windows\bkups\system.ini c:\windows
+　　xcopy c:\windows\bkups\system.dat c:\windows
+　　xcopy c:\windows\bkups\user.dat   c:\windows
+　　@attrib ＋s ＋h ＋r c:\windows\user.dat
+　　@attrib ＋s ＋h ＋r c:\windows\system.dat
+　　@goto MSG
+　　:ALL
+　　@attrib －s －h －r c:\windows\user.dat
+　　@attrib －s －h －r c:\windows\system.dat
+　　xcopy c:\windows\bkups\＊.＊   c:\windows
+　　@attrib ＋s ＋h ＋r c:\windows\user.dat
+　　@attrib ＋s ＋h ＋r c:\windows\system.dat
+　　:MSG
+　　@echo off
+　　echo.
+　　echo Restore complete. Reboot Your Computer. 
+　　echo.
+　　goto END
+　　:ERROR
+　　@echo off
+　　echo.
+　　echo ％1 not found in c:\windows\bkups.
+　　echo ％1 not restored.  Run aborted.
+　　:END
+　　@echo off
+　　echo.
+　　echo WINBKUPS has finished.
+　　echo.
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

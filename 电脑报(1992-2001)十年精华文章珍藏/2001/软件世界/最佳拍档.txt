@@ -1,0 +1,53 @@
+最佳拍档
+
+Zhou 
+2001年 16期
+
+#1编者按：
+　　在刚讲过“绘画大师Illustrator 9.0”之后，就有很多的读者来信问了很多有关Illustrator和Photoshop程序之间转换的问题。在电脑普及的今天，仅靠一种程序来完成某一项工作，很多时候显得有些力不从心了，特别是美术设计工作者，常常要运用几种软件，在程序中频繁地切换。如果是一个电脑设计高手，他能在多个程序中穿梭自如，明白操作的每一步会是一个什么样的效果，将各种软件的长处运用得恰到好处。然而作为初学者，往往是心有余而力不足。在程序之间的转换是一件很麻烦的事。下面就Photoshop与Illustrator之间的转换做一定的讲解。前面说了Photoshop与Illustrator同为Adobe的姊妹篇，一个长于位图的处理，一个长于矢量的处理，它们之间的转换自然有许多技巧。
+　　#1    一、将图像Photoshop引入到Illustrator中的技巧
+　　一般将Photoshop中的图像引入到Illustrator中有如下几种原因：
+　　1.为了给图片描绘轮廓来完成矢量的图片，许多设计工作者都是在纸上设计好草图，然后扫描到Photoshop中，将草图处理干净后，在Illustrator中进行轮廓线描，然后加入色彩、文本和各种效果。
+　　2.增加文本内容。虽然在Photoshop中能够对文本进行编辑修改，但却是有限的，在Photoshop 6.0的版本中对这点做了很大的改进。但对设计高手而言，一般图片的文本编辑不在Photoshop中完成，除非是做一些特殊的字体效果，那是Photoshop的强项。不在Photoshop中编辑文本是因为在Photoshop中的文本看起来比较粗糙，而Illustrator中的文本打印出来则比较平滑。一般将图片放到Illustrator中进行文本布局安排是许多设计工作者习惯用法。
+　　知道了为什么要将图片放到Illustrator中进行处理的原因后，下面我们就看看将图片从Photoshop中放到Illustrator中的方法，及一些技巧。
+　　#2何种方式、何种格式更适合你？
+　　一般要在Illustrator打开Photoshop中的图像，要么以解析打开，要么以文件放入文档中，这两种方式有点让读者混淆。究竟以何种方式好，这要看用户决定Photoshop中的什么文件格式最适合自己的最终图像。
+　　在Illustrator中可以放置或解析Photoshop保存的任何格式。在Illustrator中解析一幅图像，选择File文件/Open打开；放置一幅图像则选择File文件/Place置入。
+　　1.文件类型：
+　　Illustrator虽然接受Photoshop中所有文件格式，但不同的文件格式最终的结果也是不一样的。如使用TIF或EPS文件来放置或解析到Illustrator中。TIF文件可被嵌入或链接到Illustrator文件中。EPS文件也会随同文件一起输出到打印机。EPS文件也可嵌入或链接，不过EPS文件优点在于DCS（桌面分色的缩写）保存格式。DCS分别保存四个色片，和仅做显示第5号文件。四个分色及CMYK（青、品红、黄和黑），这里所保存的第5号文件是四色片中的一个组合，仅作预览用。这是使用来自Photoshop的高分辨率文件时的预览方式。其缺点是文件比TIFF格式文件大。
+　　如果决定了放置图像，那么用户文件可视作被链接了，就是说原始的的TIF或EPS文件必须随同最终文件一起输出到打印机。放置的文件只能作变形处理。（如放缩、旋转、反射、修剪）。放置文件不能用Photoshop中的任何滤镜。
+　　解析文件是将原始文件，嵌入到Illustrator格式中，因而原始文件不需要与最终文件一同输出。正是由于这种嵌入功能因而许多人选择这种解析式文件，还有另一个原因就是解析式文件，可以应用Photoshop中的各种变形处理滤镜。
+　　2.分辨率
+　　在基于位图处理的软件中，图片的分辨率是很重要的，而在矢量的软件中是不需要担心图片的分辨率的，有关位图和矢量的关系在《电脑报》13期中讲过了，所以在Photoshop中要放置图片到Illustrator中时就要考虑图片的分辨率了。当在Photoshop中拖动一幅图片到Illustrator中时，分辨率将受限于屏幕或72dpi（每英寸的点数）。在Illustrator中的文件是与分辨率无关的，它是随着打印机的分辨率来打印的。而Photoshop中文件在打印之前则必须设置文件的分辨率。如果在Illustrator中使用Photoshop中的文件则必须保证是你所需要的分辨率。而在Photoshop中图像的分辨率将是由用户打印机的线条屏幕决定。一个值得遵循的原则是将线条屏幕值加倍取得图像的dpi分辨率。用这种方法，在移入到Illustrator之前，便以正确的分辨率扫描处理，尽管在Illustrator中是与分辨率无关，但从Photoshop中引入的低质量的图像的打印质量也是很低的。
+　　#2如何将图像引入Illustrator
+　　从Photoshop引入图片到Illustrator中有很多中方法。最为常见的是直接打开，不过有经验的用户多是采用拷贝和粘贴。拷贝与粘贴能够保持在Photoshop中的分辨率或dpi。还有就是直接拖放。虽然方法有很多种但结果是有差别的。下面我就将几种方法一一讲解。
+　　1.直接打开
+　　直接打开不用多说，在Photoshop中保存后，在Illustrator中点击菜单下的File下的Open就可以打开了。
+　　2.拷贝和粘贴
+　　拷贝和粘贴是很多程序之间最常用的方法了，几乎绝大多数的程序都实用。操作方法为，选择Photoshop中的一幅图或部分图，点Edit菜单下的Copy（或按“Ctrl+C”快捷键），然后在Illustrator中点击Edit菜单下的Paste（或按“Ctrl+V”快捷键）。
+　　3. 拖放操作
+　　拖放是页面到页面或程序到程序之间的一种很好的操作方式。操作方法为，选择Photoshop中的一幅图或部分，用鼠标点着它不放直接拖到Illustrator中。
+　　拷贝和粘贴与拖放的差别是，当拷贝一幅图片是，它必须要进入剪贴板。执行这个程序需要更多的时间。但图片会保持原来的分辨率，拖放后图片会改变为原来的屏幕分辨率或72dpi。
+　　#2如何使用Photoshop文件
+　　1.剪切路径
+　　剪切路径是Photoshop和Illustrator之间经常使用的方法。它是指在Photoshop中只将图像"剪"到路径之内，而没有真正的对文件进行切割，剪切路径是屏蔽用户不想要的部分只显示需要的部分。
+　　2.使用来自Photoshop的路径与区域选择
+　　在Photoshop绘制的任何矢量路径都可以在Illustrator中使用。只需要简单的拷贝并粘贴该路径到Illustrator中即可用。不支持路径拖放，故只有用拷贝并粘贴。例如在一个颜色单一的图片上选择一个比较复杂的路径，我们用Photoshop中的魔术棒选取后然后拷贝并粘贴到Photoshop中就可以了。
+　　#1    二、从Illustrator到Photoshop的技术
+　　前面是讨论了从Photoshop到Illustrator中的一些技术，由于Photoshop的卓越魅力成了当今使用率最高的图形图像处理软件，然而许多人更习惯用Illustrator提供草稿在Photoshop进行后期的处理，不光是Illustrator能这样和Photoshop配合，其他很多的软件都能这样与Photishop配合，平面、三维动画，Photoshop都是它们的好帮手。下面我们就看Illustrator到Photoshop有那些技术。
+　　#2如何在Photoshop中使用Illustrator文件？
+　　将图像从Photoshop引入Illustrator中，要比从Illustrator文件引入到Photoshop中容易得多。首先不必考虑太多的事情。如何保存Illustrator文件只有三种选择：Acrobat PDF、Illustrator和Illustrator EPS。其次，由于Illustrator是基于矢量的，光栅图像的分辨率将依赖于与用户，将向其引入Illustrator文件的Photoshop文件的分辨率，用户可在Photoshop中拖放、拷贝并粘贴，或是简单地打开一个Illustrator文件。
+　　Photoshop可以打开Illustrator中的三种文件，当打开时将出现一个Rasterize Genenic EPS Format对话框。这个对话框是要你选择将要打开的普通EPS文件的大小、分辨率和模式，还可以选择图像去掉阶梯（anti-aliased）和比例限制。这意味着用户是在Rasterize对话框中设定分辨率的。在Illustrator图像进入Photoshop中之前你必须选择分辨率。前面说了Photoshop是由分辨率来决定打印的，而Illustrator是随打印机的分辨率来打印的，如你的打印机是600dpi那么在Illustrator打印出来的也就是600dpi，你的打印机是700dpi那么打印出来的就是700dpi。
+　　1. 向Photoshop引入文件
+　　同样从Illustrator向Photoshop中引入文件有三种方式，直接打开、拷贝并粘贴和拖放。其中拷贝并粘贴是最常用的方法。当用户直接打开时，前面讲了会出现一个对话框，需要你进行设置。当你拖放文件时它不会受分辨率的限制。具体的使用方法和前面的从Photoshop到Illustrator中的方法一样，就不详述。
+　　2. 为矢量文件增添文字特效
+　　在Illustrator中处理文本比Photoshop强得多。当要给文本加上特殊的效果和一些特技，你可就是Photoshop的强项了，许多的设计爱好者往往在Illustrator中完成原始的设计后，一些重要的文字效果是在Photoshop中进行处理的。虽然在Illustrator9的版本中也增强了文字的特殊效果，还是没有在Photoshop中来得快和方便。
+　　#2如何使用Illustrator文件
+　　1. 使用来自Illustrator中的路径
+　　在Illustrator中创建的路径或矢量都可应用到Photoshop中，在Photoshop中用Pen（钢笔工具）创建路径很费时也比较麻烦。在Illustrator中可以利用其他的画图辅助工具的便利，如Ellipse、Rectangle、Star、Polygon、Brush及Pencil等工具，可以创造复杂的路径，然后拷贝并粘贴到Photoshop中。Photoshop中的Path选项使用户能为选择区域保存路径，而不必采用通道Path调色板的麻烦。通过Path调色板弹出式菜单的Make Selection选项，用户可以轻松地对路径进行区域选择，反之亦然。当路径拷贝到Photoshop中以后，用户可以保存这些路径。在Photoshop中也可把轮廓垂直文本作一条路径，往上面贴图像。除了文本之外，在Illustrator中也可仅使用两个命令便生成形状如螺旋线等复杂的路径。
+　　2.在Photoshop中使用调色功能和滤镜。
+　　一般有经验的用户都是在Illustrator中完成原始的创作后，然后在Photoshop中进行色调调整，和作一些滤镜的效果。关于Photoshop中的色调调整在《电脑报》第7期的B12版《让你更靓丽--图片处理的一般技术》里面有详细的讲解，关于Photoshop中的滤镜，是一个万花筒，在2000年的阿飙专线--滤镜之旅也有详细的介绍，今后我们也将做一些新的滤镜介绍。
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,41 @@
+多系统管理的利器──System Commander 2000
+
+  
+2001年 28期
+
+作为一个外挂的应用程序，System Commander 2000的功能当然要强大得多。它可以说是目前做得最好的多操作系统引导工具。在这里我们就来重点了解一下它的使用。
+　　System Commander 2000的安装非常简单，虽然这个工具是一个在纯DOS环境下使用的工具，但是它的安装程序可在Windows环境下运行，直接运行Setup．exe程序，即可轻松实现软件的安装。此外，在软件的安装过程中，程序会建议用户创建它提供的机器启动引导盘（如图^28060107a^1）。该引导盘包括“Utility Disk 1”和“Restart Disk 2”两张，前者包括了管理硬盘分区的程序文件，以及备份文件，后者包括了有关当前系统的引导信息，操作过程中由于断电或复位而导致的引导失败可使用这个备份记录恢复机器的引导记录。
+　　安装结束后，机器会重新启动。这时，System Commander 2000会自动扫描当前机器的磁盘分区信息和引导信息，并对其进行备份，然后根据当前信息创建机器引导启动菜单“OS Selection Menu”（图^28060107b^2）。在这个菜单中程序不仅提供了系统启动引导菜单，而且直接提供了一个界面，其菜单条中的“OS Wizard”表示激活程序的操作系统安装向导OS Wizard。“Setup”表示设置程序的运行方式，其中包括了数个设置项目，如设置启动菜单的默认引导项和自动启动延时、设置是否允许使用鼠标、设置用户登录口令、设置程序可以控制的引导系统文件存放位置、设置对启动引导菜单中的项目排序及添加/删除菜单项、设置启动菜单项的描述文字与显示图标。在机器引导启动菜单“OS Selection Menu”界面下，如果选择第一个启动菜单项，可引导机器启动到未安装程序时的操作系统。对于Windows系统而言，另外的两个菜单项分别是启动到DOS环境下及使用软盘启动。
+　　#1设置启动引导菜单
+　　System Commander安装引导系统后，会自动设置接管机器的启动并设置相应的启动菜单，但是如果你认为暂时不需要使用它提供的功能，可将其中止，具体方法是：首先切换到纯DOS环境下，切换到程序的安装目录，在命令行下键入“scin.exe”并击回车键确定，此时程序会提供一个菜单，其中包括如下内容：
+　　Installation Notes：程序的安装说明。
+　　Disable or Remove System Commander：暂停或删除System Commander。
+　　Enable/Update System Commander：恢复暂停或更新System Commander。
+　　Special Options：特殊功能菜单。
+　　Troubleshooting：疑难解答。
+　　V Communications Info：程序的出品者V Communications公司信息。
+　　Program exit：退出程序。
+　　选择第二个菜单项，程序会给出一个关联界面，其中提供了三个菜单项（如图^28060107c^3），其中“Temporarily Disable System Commander” 表示暂停使用程序引导系统菜单，“Remove System Commander”表示删除程序，“Return to main menu”表示返回上一界面。直接选择第一个菜单项，然后单击回车键确定即可。在此提醒你一点，由于System Commander会自动记忆最后一次机器引导记录，所以当禁止程序的启动引导后，系统将默认使用最后一次引导进入的操作系统作为机器当前使用的操作系统。所以在使用该项功能之前，应该首先设置好机器的引导操作系统。
+　　如果需要恢复暂停使用的System Commander，界面中的第二个菜单项“Enable/Update System Commander”（图^28060107d^4）其中的“Enable System Commander”表示恢复使用程序，“Update files from download”表示使用下载的升级文件更新当前的软件。移动光标到第一个菜单项上击回车键确认即可。
+　　#1Special Options菜单
+　　移动光标到“Special Options”菜单项上击回车键，程序会给出关联的设置界面，在该界面中提供的菜单项（图^28060107e^）包括：
+　　Make Utility Diskettes：创建程序的多操作系统引导盘。
+　　Change MultiFAT Option：更改多分区引导设置，在其关联界面中包括了“Install MultiFAT Option”（安装多分区管理功能）和“Skip MultiFAT Support”（跳过多分区管理支持）两个项目。如果选择前者，程序会给出一个关联界面，其中提供了“Use Existing Group”（使用当前的启动配置菜单）和“Delete Current Group”（删除当前的启动配置菜单）。
+　　Specify Non-Compressed Boot Drive：指定非压缩驱动器。在其关联界面中只有一个设置项目“Enter Boot Drive Letter C to Z And Press Enter”，在其中选择硬盘中的非压缩分区，此后单击回车键确定。
+　　Alter Current Boot Record Serial Number：更改当前引导纪录序列号。
+　　Restore Boot Record：恢复硬盘的引导纪录。
+　　Diagnostic Checks：硬盘引导纪录诊断。在其关联界面中提供了硬盘分区表检测（Partition Checks）、引导扇区检测（Boot Record Checks）、文件存取校验（File Access Verification）、引导区病毒检测（Virus Detection）、返回上级菜单界面（Return to Prior Menu）等菜单项。
+　　Transfer System Advanced SYS：使用程序提供的系统传送工具从软盘传送引导系统到硬盘分区C，可支持的操作系统包括DOS和WIN9X。在其关联菜单中提供了“Automatic Transfer”（自动传送）、“Prompted Transfer”（提示确认传送）两个菜单项。
+　　Main Menu：返回程序主菜单界面。
+　　    由于以上各项功能菜单都是单步操作，非常简单，具体步骤在此就不再给出了。
+　　#1OS Wizard管理操作系统的安装
+　　重新引导系统启动并出现引导菜单时，按下“Alt”键选择“OS Wizard”项，并单击回车键确定，激活该项功能的运行界面。图（^28060107f^）中所示的程序界面类似WIN9X的界面布局，在“OS Wizard”对话框中提供了三个复选框，其中“New installation”表示安装新的操作系统，“Reinstall existing OS， same version”表示重新安装机器中已安装的某个操作系统，“Install new version on top of old version”表示安装当前机器中安装的某个操作系统的更新版本。如果是安装新系统，当安装完成后，程序会给出一个选择界面，其中包括“Together with other OSes”和“Isolate by itself”两个复选框，对于常见的系统，一般选择前者即可。此时程序也会自动在机器启动菜单中创建相应的启动菜单。
+　　在此需要说明的是，关于安装新的操作系统，程序会给出分类选择界面，如果你安装的操作系统没有在界面菜单中给出，可选择“Show all OSes”项，并在关联界面中选择。
+　　#1分区管理及操作记录恢复
+　　OS Wizard提供了一项名为“Advanced Partitioning”的功能，该项功能允许你创建、删除、复制、移动、格式化硬盘分区，甚至重新定义分区容量。它也可以很好地支持重定义WIN NT/2000和Linux的分区容量，这些功能与著名的Partition Magic提供的功能类似。此外，程序还提供了一个NTFS到FAT/FAT32的转换器，不过需要到www.v-com.com下载。
+　　如果需要使用程序提供的硬盘分区管理功能，可单击OS Wizard界面中的“Start”按钮，从关联的菜单中选择“Partitioning”命令，程序会给出一个关联界面（图^28060107g^），界面左边给出了当前硬盘选择按钮以及创建分区（Create）、重定义分区容量（Resize）、移动分区（Move）和复制分区（Copy）四个按钮，界面右边给出的是当前系统硬盘的分区状况图示。除此功能外，在程序界面中的“Tools”和“Advanced”菜单项中还提供了相应的硬盘分区管理命令，而且更加详细，如果需要，那么直接选择就可以了。在“Tools”菜单项中有一个“Validate”命令，通过它可以检测硬盘的引导区、FAT表、目录与文件结构及丢失的簇等。
+　　System Commander 2000提供的BackStep Wizard程序可以自动记录下任何针对硬盘分区和操作系统安装所发生的硬盘分区信息变化，当你需要将指定的操作系统从机器中删除时，单击OS Wizard界面中的“Start”按钮，并从其菜单中选择“BackStep Wizard”命令启动它，此时程序会自动扫描硬盘分区变化并给出相应的分区变化信息，选择需要恢复的项目之后单击“Undo”按钮即可恢复该项操作对系统引导记录的改变，操作非常简单。在此提醒你一点，这项操作会导致部分硬盘分区（需要删除的分区）中的全部文件丢失，所以使用前应该备份其中有用的信息。
+　　说到这里，硬盘分区对于你来说应该是再也没有什么秘密了。不过有一点，系统分区无论在什么时候都是非常关键的，没有绝对的把握，最好把数据备份个几遍，小心驶得万年船，古训总是没错的。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

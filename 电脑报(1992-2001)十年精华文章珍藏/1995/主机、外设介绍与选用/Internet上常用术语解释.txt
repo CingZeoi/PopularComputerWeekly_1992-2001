@@ -1,0 +1,377 @@
+Internet上常用术语解释
+
+李祥兴
+1995-01-06
+
+        地址。Internet上连接的计算机都有自己的地址。地址可以是字符串，也可以是一串数字，两者之间可互换。参见IP Address和Internet Number。
+        Anonymous FTP
+        匿名FTP。以"anonymous"或"guest"连接远程计算机并传送文件回用户计算机的过程。即用户不需要帐号或口令，就能访问文件资源。 参见FTP。
+        ANON-FTP
+        参见Anonymous FTP。
+        ANSI
+        (1) ANSI 美国国家标准局。 (2) ANSI 光标控制代码集。最初在 VT100终端使用，许多在线服务也使用该代码来增强字符的传送。如使用ESC键加其它字符移动光标、改变颜色和显示模式等。 
+        Archie
+        Internet上的一种信息寻找工具。Archie服务器运行Archie软件，定期从全球收集文件及检查它所连接的FTP存储点，自动记录新文件目录和删除已不存在的文件。服务器接到用户的FTP文件查询请求后，给出查找结果，包括满足要求的文件列表及文件的存储点名称等。Archie对于查找共享软件是很有用的。进入Archie可以通过电子邮件(E-mail)，也可以通过远程登录( telnet)。下列是一些主要的Archie 服务器地址。
+        archie.au                         139.130.4.6 (澳大利亚)
+        archie.mcgill.ca                  132.206.44.21 (加拿大)
+        archie.th-darmstadt               130.83.128.111 (德国)
+        archie.cs.huji.ac.il              132.65.6.15 (以色列)
+        archie.kuis.kyoto-u.ac.jp         130.54.20.1 (日本)
+        archie.sogang.ac.kr               163.239.1.11 (韩国)
+        archie.nz                         130.195.9.4 (新西兰)
+        archie.ncu.edu.tw                 140.115.19.24 (台湾)
+        archie.doc.ic.ac.uk               146.169.11.3 (英国) 
+        archie.rutgers.edu                128.6.18.15 (美国)
+        Archie server
+        Archie服务器。由Internet上的某些系统提供的基于E-mail的文件传送服务器。
+        ASCII
+        美国标准信息交换代码(The American Standard Code for Information Interchange)。 制定这套7标准位代码的目的是使各种数据处理设备之间得以兼容。 ASCII码在微机上很常用。标准ASCII字符集由128个十进制数组成，从0到127，分别定义为字母、数字、标点符号及常用的特殊字符。 扩展ASCII字符集也由128个数组成，从128到255，分别表示附加的特殊的、数学的、图形的及外文字符。
+        ASCII download
+        提取无格式ASCII文本 。这种方式通常无错误自动校正，由XON/XOFF流程控制管理。
+        Asynchronous transfer
+        异步传送。两台计算机之间的串行通讯中，信号的传送间隔不规则时称为异步。数据传送时，以一个开始位开始，一个停止位结束。异步传送通过开始位和停止位来决定信息的开始和结束，不需要其他记时设备。 ATM
+        异步传输模式。是一种结合线路交换和分组交换两种技术优点的新的传输方式，由ISDN (综合业务数字网)和宽带ISDN衍生而成，于1989年产生。被CCITT确定为传输语言、数据、电视及多媒体的新工具。ATM的传输速率一般可达Gbps级。
+        Autodial
+        自动拨号。
+        Baud
+        波特。衡量每秒钟发出的离散信号单元(如位)数目的单位。位/秒 (bps) 表示每秒钟发出的二进制数的个数。bps和波特率(baud rate)之间有不同，但两者经常混淆。例如说调制解调器发送速率是2400波特是不正确的，正确的说法是2400bps。波特率和 bps 都是表示一帧内发送的位的速率，但帧之间的时间间隔是不同的，因而波特率和 bps 都不能正确地表示信息传送的速度。
+        BBS
+        公告板系统(Bulletin Board System)。 参见Bulletin Board. 
+        Bell
+        美国产的老式调制解调器的标准频率单位。如标准 300 bps 称为 Bell 103，标准1200 bps 全双工称为Bell 212A。老式标准的调制解调器在这样的速度下通常不能与 CCITT 标准的调制解调器通讯。
+        Big5
+        台湾制定的计算机使用汉字的代码规则。 Big5代码有多种形态。最常用的是 ET Big5 (倚天) 和HKU Big5 (香港大学) 。ET Big5文件只能在倚天操作系统下读写。
+        Binary
+        二进制。二进制体系只有 1和0两个数。只要有足够多的位，1和0的组合可以表示任意数字，还可以表示开关(on/off)、真假(true/false)和是否(yes/no)。
+        Bits
+        位。指二进制数字的位。位是最小的信息单位，计算机的所有文字和数据都是由位构成。
+        
+        bps
+        位/秒(bits per second)。 即每秒钟发出的二进制数的个数，表示一帧内发送的位的速率。由于帧之间的时间间隔是不同的，因而bps不能正确地表示信息传送的实际速度。但通常可以用bps除以10来大致估计cps(字符数/秒)，即2400bps大约相当于240cps。
+        Boolean
+        布尔代数。以英国数学家 George Booles的代数理论为基础建立的一套搜寻算法。在线数据库服务中使用布尔代数中的AND、 OR和NOT等运算符，可帮助用户快速查询到想要的数据资料。
+        Bounce
+        电子邮件传送过程中出现错误时返回的一小段邮件。
+        Browse
+        浏览。在屏幕上阅读数据文件(有时还可进行编辑)。
+        Bulletin board
+        公告板。一台计算机(通常是微机)构成的接收传呼，提供在线服务的系统，又称为公告板系统(BBS)，BBS能让用户之间通讯及交换文件，有的还能提供其他服务 (如新闻、数据库查询、在线购物等)。
+        Carrier
+        载波。即未载有信号时调制解调器发出的声波，它有固定的频率和波幅。通过调制(调频或调幅)，可使之带有信息。
+        CDDI
+        铜线分布式数据接口(Copper  Distributed  Data  Interface)。是FDDI的一种变型。
+        
+        Character
+        字符。包括字母、数字及其它可打印的符号和代码。 
+        CCITT
+        国际电报电话咨询委员会(The Consultative Committee for International Telephony and  Telegraphy.)是联合国组织的一个国际咨询机构，成员包括电话、电报、邮政、科学、贸易组织和私人公司。CCITT是国际电讯联盟( ITU)的一部分，总部设在瑞士日内瓦。CCITT对国际通讯提出建议，这些建议通常会成为标准。它还对接口、调制解调器和数据网络提出建议。分组交换网络中使用的 X.25 协议最初就是由CCITT建议的。有关CCITT的文件可从ITU获得。要了解CCITT的更多情况，查看@itu.arcom.ch或 bautista@itu.arcom.ch 。
+        CJK
+        中日韩(China-Japan_Korea)中文大字符集。三国联合制定的中文字符标准。
+        COM port
+        通讯口。即数据传输的通道。计算机一般有四个通讯口， COM1, COM2, COM3和COM4。这些都是串行接口，通常用调制解调器在电话线上建立与其他设备的通讯联系，也可用于向串行打印机发送数据或者连接串行鼠标。 
+        Compress
+        (1) 压缩数据以节省空间；(2) Internet上的压缩函数。压缩文件通常以.Z(或.ZIP)为扩展名(但有的压缩文件取其它扩展名)。数据存档及压缩处理后可形成类似 filename.tar.z 这样的文件。
+        Conference
+        会议。也称为SIG (特别兴趣小组)、 Forum(论坛)、 RoundTable(圆桌)、 Echo(反响)等等。指的是公告板或在线服务中设置的一个小区域。大多数会议都有自己的数据库、文件库以及公告板。会议集中于特定的专题，如政治、游戏、多媒体及产品技术支持等。
+        Connect time
+        连接时间。即用户与在线服务连接的时间。商业网络中通常根据连接时间来收费。
+        CPS
+        每秒字符数(Characters per second)。 参见bps。
+        Data
+        数据。任何计算机可读的信息。包括二进制、十进制、十六进制数、整形数、文字等数据类型。数据在计算机内部是以二进制方式处理的。
+        Database
+        数据库。是一种高度结构化的文件 。包含了某一特定领域的大量信息。许多在线服务的数据库允许用户以全文或摘要信息的形式对数据库进行查询。
+        DCE/DTE
+        数据通信设备/数据终端设备(Data Communications Equipment/Data Terminal Equipment)。与RS232 接口相连的设备要么是DCE (如调制解调器或打印机)，要么是DTE (如计算机或终端)。DTE是数据的源和最终目的地。DCE组成数据传输的通道。
+        Default
+        缺省值。当程序出现多种选择时，用户不做选择，程序会取预先设定值。这些预先设定值就是缺省值。通讯程序中的波特率、奇偶校验等通常会有缺省值。
+        Demos
+        演示。一些图文声并茂的小段程序文件，通常只有五六分钟长，也称为简介(Intros)。可通过 Ftp从 ftp.uwp.edu 地址的 /pub/msdos/demos 目录取得例子。
+        Discussion list
+        用户组。参见Mailing list.
+        DNS
+        域名系统(Domain Name System )。Internet上电子邮件使用的地址系统。它由一系列不同层次的域名构成，域名之间用点号(.)隔开，从左到右，层次逐级提高。例如 nic.ddn.mil. 
+        Doors
+        许多公告板系统提供的一种服务。用户利用它可以脱离主(远程)系统而运用一些独立的程序，如游戏和数据库等。
+        Downloading
+        下载。文件从在线服务器(向下)传送到用户计算机的过程。
+        DTR
+        数据终端就绪(Data Terminal Ready)。一个表明计算机通信状态的电路。当DTR为开( ON )时，调制解调器被告知计算机已准备好，可以通信。当 DTR为关(OFF)，调制解调器通常会断开连接。
+        Duplex
+        
+        双工。数据传送的方式。当设为半双工(HALF DUPLEX)时，你的计算机既显示你键入的字符，也显示调制解调器的回响，结果就像这样 ‘bbee lliikkee tthhiiss'。出现字符的重复。当设为全双工(FULL DUPLEX )时，你键入的字符不显示，只显示系统回响的字符。
+        ECHO
+        (1)回音。 收到数据后，接收设备返回的信息，以告知发送设备数据已被正确接收。
+        (2)在 FidoNet网中专指该网络的交互会议系统(类似于论坛、会议等)。
+        EIA
+        美国电子工业协会(Electronic Industry Association)。是电子制造商的代表，它为各种电子元器件的电气性能、规格尺寸、连接方法、测试方法等制定了标准，也指定了DCE连接的接口标准、电子设备的封装规范等数百个标准，包括了与网络和通信有关的标准。
+        Email
+        电子邮件( Electronic Mail)。
+        FAQ
+        Internet常见问题(Frequently Asked Questions)的简称。Usenet 网的 news.announce.newusers 目录上，每四到六周会公布一次 FAQ文档。
+        FDDI
+        光纤分布式数据接口(Fiber  Distributed  Data  Interface)是目前高速网络中最成熟的商品化技术。是一个标准的高带宽数据传输网络，具有100MB/S的传输速率。在高速主干网中有优越的容错性能和可扩展能力。由美国ANSI于1982年制定的网络标准。是目前唯一有统一标准的高速100MB/S的局域网(城域网)。
+        File server
+        文件服务器。顾名思义，就是给网络上的每一个用户提供文件服务的服务器。文件服务器通常是计算机与数据管理软件及大容量硬盘驱动器的组合体。
+        File transfer
+        文件传送。指网络上从一台计算机拷贝文件到另一台计算机。
+        Finger
+        一个可直接连接 Internet的工具软件。 Finger 在进行在线交谈的准备工作时非常有用。
+        Flame
+        相当于“煽动”。由于对某人的强烈不满而在会议(论坛等)上收集并散发消息进行人身攻击。煽动有时是很麻烦的，煽动者有时会被会议(论坛)驱逐。
+        Fractal
+        分形。建立图像使用的一种数学算法，是模糊数学的一个分支。用于高质量图像的压缩和解压缩，分形压缩的图像文件所占空间很小。
+        FTP
+        (1)文件传送协议 (File Transfer Protocol)。 (2)Internet上远程计算机与本地计算机进行文件发送和接收的软件系统 。 FTP 使用户可与许多远程计算机相连，以匿名或用户名方式，传送文件到用户的计算机。用FTP，可以列文件目录、收取文件，但不能浏览菜单、发电子邮件和数据库查询。
+        Full duplex
+        全双工。表示计算机与终端之间可同时进行双向数据传送。
+        Full-text database
+        全文数据库。包含一整篇文章、书的一整章或一整本书的数据库。全文数据库的内容不仅仅是摘要信息(如索引、参考文献等)，而是全部。
+        FYI
+        用户信息(For Your Information)的简称，是 Internet的RFC(网络工作文件)的子集。
+        
+        Gateway
+        网关。具有路径选择和协议转换的功能，可以看成路由器的一种。用于连接两个以上的在线服务网络(彼此间采用的通信协议可以不同)，这样一个网络的用户可以访问另一个网络。网关在 OSI模型的第四至第七层工作。
+        Gopher
+        是一个帮助检索Internet上的在线资源的工具之一。由美国明尼苏达大学开发。它提供的菜单访问方式可以有效地浏览网络资源、新闻记录或访问信息，而不需要知道这些信息存放的节点及必要的程序变化等等。它可将用户的请求自动转换成FTP或Telnet命令。在菜单的引导下，用户可对Internet上的远程信息系统进行访问，用户只要有Gopher就可访问任何一个Gopher服务器。很多大学和图书馆都有Gopher服务器，供Internet上的用户使用。目前已有3000多个可访问的Gopher。
+        GuoBiao
+        国标。中国大陆制定的计算机使用汉字的代码规则(内码)，也简称为GB。要了解详情，可发电子邮件到LISTSERV@UGA.BITNET，邮件中包含下列命令∶GET PC HELP  (PC 用户)、GET MAC HELP(Macintosh 用户)或 GET CXTERM HELP (X Windows 用户)。
+        Half duplex
+        半双工。指数据的传送可双向进行，但每次只能在一个方向上进行。
+        Ham
+        业余无线电爱好者。
+        Handle
+        电子公告板或在线服务的实时交谈中，当你不用真名时，用Handle作为化名。
+        Header
+        (1)电子邮件头。电子邮件的开始部分，通常是发件人、日期、时间等。(2) 在分组交换网中，数据包的导引部分。包含数据源、目的地址、错误校验和其他值。
+        Host
+        泛指直接连接在网络上但不作为服务器的计算机。
+        HTTP
+        超文本传送协议(HyperText Transmission  Protocol)。是用于在 Internet上传送超文本文件的传送协议。
+        Hytelnet
+        (1) Internet网络上的一种服务。(2)MS-DOS 的一个驻留内存的工具。它即时给出Internet上和进入的库目录、Free-Nets、 Campus 、Gophers, WAIS以及其他网络提供的服务信息。通过ftp进入access.usask.ca地址的 /pub/hytelnet/pc/ 目录可获得该软件。文件名为 hytelnxx.zip，其中 xx 是版本号。
+        IEC
+        国际电工技术委员会(International Electrotechnical Commission)。
+        IEEE
+        美国电气与电子工程师学会。是一个国际性的学术组织，范围涉及电气和电子工程的各个领域，它制定的标准有数百个之多，与网络有关的标准是IEEE std 802类。
+        Internet
+        Internet起源于1961年美国国防部建立的计算机网络ARPA网。Internet上使用TCP/IP通信协议。到1994年7月，与Internet相连的国家和地区已达154个，包括中国，与Internet相连的网络达4.1万个，联网计算机达380万台，用户3500万人。这些数字还在以惊人的速度继续增长。通过Internet，可进行全球的电子邮件通讯，查询和检索各种信息(如教育、科研、旅游、娱乐、购物、健康咨询等)，参加各类信息小组的讨论，刊登广告，进行公司和项目的跨国管理等等。
+        Internet number
+        Internet号。参见IP Address
+        IP 
+        网间协议(Internet Protocol)。在不同网络之间提供相同的平台。 要了解详情，给service@nic.ddn.mil 地址发信息(主题: RFC 791 )。
+        IP Address
+        IP地址。Internet上的每台电脑都有一个唯一地址。这个地址就叫 Internet号或 IP 地址。通常IP地址由四组数字组成，彼此用点号 (‘.')分隔，例如 129.133.10.10。前两个或三个数表示系统所在的网络，称为子网。如 129.133表示美国Wesleyan大学子网。
+        IRC
+        实时线上交谈(Internet Relay Chat)。一个很别致的服务系统。它允许一群人实时线上交谈。系统内分成很多频道(像无线电通信一样)。
+        ISDN
+        综合业务数字网(Integrated  Services  Digital  Network)。是一种世界范围的电信网。它以数字传输和数字交换技术为基础，用于满足用户对于语音、文本、图形和视频传输的要求。1984年由CCITT提出标准协议。
+        IS
+        信息系统(Information System)。常见的有MIS(管理信息系统)和GIS(地理信息系统)等。
+        ISO
+        国际标准化组织(The International Organization for Standardization)。是世界上最大的国际性标准化专门机构，专门从事编写和宣传工业以及贸易的技术标准。它是在自愿的原则上建立的非谈判性的组织，从1946年开始活动。虽然它是非官方组织，但70％的ISO成员来自政府的标准化机构，包括美国的ANSI(美国国家标准局)。ISO还是Internet 网络标准的协调机构。
+        ITU
+        国际电信联盟(International Telecommunications Union)。是几个主要的制定国际通信标准的国际组织之一。原由三个部分组成∶国际电报电话咨询委员会(CCITT)、国际无线电咨询委员会(CCIR)和国际频率登记委员会(IFRB)。1993年国际电联进行了改组，由电信标准部门(TSS)、无线电通信部门(RS)和通信发展部门(TDS)取代了原CCITT、CCIR和IFRB。
+        JIS
+        一种日本工业标准代码(Japanese Industry Standard Code)，规定了计算机中使用日文字符(假名)的标准。较新的版本是 Shift JIS。
+        Jughead
+        Internet上的一种交互服务。
+        JVArcServ
+        FidoNet网上的文档服务器。后成为 Internet上 Archie服务的模型。
+        KB
+        千字节(Kilobyte)。数据长度单位。1KB表示1024字符的信息。
+        Kbits
+        1千位。
+        Kermit
+        微机和主机架大型计算机文件传输协议，由哥伦比亚大学研制。有共用版和商业版两种。 完整的Kermit 协议手册和源程序可从 Kermit Distribution, (212) 854-3703   Columbia University Center for Computing Activities 612 West 115 Street,  New York, NY 10025 得到。
+        Knowbot
+        智能机器人(Knowledge Robot)的简称。指能利用智能计算机软件自动从分布式数据库中查询和收集数据的智能机器或服务系统。
+        LAN
+        局域网(Local Area Network)。服务范围在数平方公里以内的数据网络。
+        LAP-M
+        调制解调器链路接入协议方式(Link Access Procedure for Modems )。是 CCITT为调制解调器的调制和错误控制制定的一个标准。是 CCITT V.42 协议的基础。
+        Library
+        库。在线服务中相关数据库或数据文件的集合。
+        List
+        微机上的一个文件阅读程序。 
+        LISTSERV
+        是Internet上流行的用户之间交流信息的形式。电子论坛利用电子邮件的存储转发功能，发送一封电子邮件给论坛电子邮件服务器，服务器就会自动送一份拷贝到兴趣小组的每个用户的对象中。LISTSERV 最初是为 BITNET/EARN网络设计的。
+        LOOKFOR 
+        一个方便快速的文本查询共享软件。
+        Lurking
+        旁听。在用户组( mailing list)、会议或 Usenet 新闻网等的讨论中，不发言而只是作为听众参与。
+        MAILBASE
+        类似于 LISTSERV的一种软件。
+        Mail Gateway
+        邮件网关。联结两个或多个电子邮件系统并使得它们之间得以通讯的机器。
+        Mailing list
+        用户组。 是Internet上有组织的讨论小组，由一个中心计算机通过E-mail来组织小组的讨论。给小组的任何一个成员的地址发送消息，该消息自动发送到小组的所有成员，小组成员的任何回答也同样传送到小组的所有成员的地址，这样构成一个讨论小组(参见LISTSERV) 。
+        Mail path
+        邮路。一系列机器名，指导电子邮件从一用户到另一用户。
+        Mail server
+        邮件服务程序。根据用户发出的电子邮件的要求分发文件或信息。
+        MHS
+        消息处理系统(Message  Handling System)，又称电子邮件系统。是计算机技术和通信技术相结合的电子消息业务系统，是包括信函、电报、传真、语音、图像函件在内的以存储-转发方式工作的新一代业务总和系统。通过通信网络把用户的各类消息分别存储在各自的信箱或直接投递给接受用户。对于存储在信箱内的消息，用户可在合适的时间，通过信箱网络在不同的地点开启信箱获取消息。MHS基于CCITT于1984年提出的X.400建议。
+        MNP
+        微机网络协议(Microcom Networking Protocol)。一个差错控制和数据压缩的专用标准。
+        Modem
+        调制解调器。是调制器(Modulator)和解调器(DEModulator)的合成。调制器将计算机数字信号转变成模拟信号以便在电话线路上传送，解调器则在接收端将模拟信号转换回数字信号。调制解调器的类型很多，大多数都能处理拨号和电话应答。调制解调器的数据传送速率通常用波特率来表示。
+        Moderator
+        主持。管理用户组(Mail list)和消息小组的人或小组。 主持有责任决定哪类邮件传送给用户组。
+        Mosaic
+        基于窗口环境的浏览Internet资源并获取信息的多媒体工具。与基于文本的Gopher不同，它能够显示格式化的文档、嵌入的图形图像，播放声音，视频及显示其他的链接文档。
+        MUD
+        Multi-User Dungeon的简称，是一个基于文本的多用户虚拟现实游戏。
+        Netfind
+        Internet上的目录服务。通过机构名称或地址可查询到每个机构(网络)的有关资料。要了解更多的信息，可发电子邮件到 LISTSERV@brownvm.brown.edu，邮件中文中含 “GET NETFIND HELP”。
+        Netiquette
+        礼貌(etiquel)的双关语，指在网络中行为要得当。
+        Network
+        网络。即连接不同地点的计算机系统进行数据通讯的系统。
+        NIC
+        网络信息中心(Network Information Center)。是网络的最高管理机构，负责向申请地址的组织分配网络地址，然后各组织对本地网络的主机进行主机号的分配。
+        NREN
+        美国国家研究和教育网(The National Research和Education Network) 
+        NUA
+        网络用户地址(Network User Address)。
+        NUI
+        网络用户识别(Network User Identification)。是进入商业性分组交换网络的依据，包括用户名、密码等。
+        Offline
+        脱线。即在线(Online)的反义词。指计算机不与在线服务(如Internet)直接相连。
+        Offline Reader
+        脱线阅读器。使在线服务的文件和邮件处理更容易也更便宜的一类软件。 脱线阅读器与在线服务(如 BBS)连接时以压缩文件形式接受电子邮件，之后与在线服务断开(脱线)，这时用户感觉仍连接在网上。当用户读完信件并写好回信后，脱线阅读器将回信(可以包含离开网络服务或下载文件的命令信息)变成压缩数据包，用脱线阅读器的通讯模块(也可用其他通讯程序)上载 (发出)。这样可减少用户与网络的连接时间。最常见的一种脱线阅读器是 QMail door。
+        Online
+        在线。指直接连接在远程计算机的中心处理单元上。比如，在线数据库指的是网上用户可以直接进入的数据库。
+        OSI
+        开放系统互连(Open System Interconnection)。全称为"开放系统互连基本参考模型"。是ISO为使不同的计算机和网络能够互相连接而设计的一系列协议。该体系力图成为网络连接的国际标准。
+        OZCIS
+        基于DOS的一个程序。使用该程序可自动进入 CompuServe在线服务。该程序对个人用户免费，可与Ozarks West Software、 14150 Gleneagle Drive、 Colorado Springs、CO 80921、U.S.A. 联系。
+        Packet
+        (1) 包。调制解调器发送的一个字节的信息；
+        (2) 组。在文件传送协议下传送的一组字节。
+        PDN
+        分组数据网(Packet data networks)，也称为分组交换网 (Packet Switching Networks)。 是一种能提供长距离的计算机通信的增值网。用户通过本地节点就可进入远程计算机。PDN使用高速数字链路(地面线路或卫星线路)同步方式传输分组数据，遵循 X.25 协议。
+        Packet switching
+        分组交换。以分组的形式在网络上传递数据。需要传送的数据被分成若干个数据组，每组有一个唯一的标识(ID)并带有目的地址。这样，数据组可通过不同的路径到达目的地，然后根据数据组ID来重新组装成原数据。
+        PC
+        个人电脑(Personal Computer)。
+        Postmaster
+        邮局局长。 Internet上负责处理电子邮件问题，回答用户提问和有关情况的人。
+        Prompt
+        提示符。与计算机交互对话时，计算机通常会给出一些特别的符号，等待用户的命令，
+        
+        这些符号就叫提示符。不同的系统有不同的提示符。典型的提示符有∶
+        ?              !
+        WHAT NOW?      (Read) next letter -ulrik 
+        1>             System News - 5000> 
+        Enter #, <H>elp, or <CR> to continue?
+        Action ==> (Inbox)Command:
+        Enter command or <RETURN> -->
+        Protocol
+        协议。关于信息格式及信息交换规则的正式描述。包括底层协议(如机器接口、字节在介质中的传输方式等)和高层协议(文件传送方式等)。
+        Proxy Server
+        防火墙的一种，代理服务器通过替换不安全的系统子程序调用来提供额外的安全性。
+        ProYam
+        一个功能强大的通讯软件。
+        PSS
+        英国远程通讯分组交换网(British Telecom's Packet Switch Stream)，是一个基于 X.25的分组数据网络。
+        PTT
+        邮政电报电话(Postal Telegraph  and  Telephone)。在一些国家通常是垄断的。
+        QWK
+        Qwikmail。 BBS上常见的一种脱线信息文件格式。由 QMail Door软件发送。
+        RFC
+        Internet的网络工作文件(Internet's Request for Comments document)。是Internet研究与发展委员会的工作记录。
+        RIP
+        远程图像协议(Remote Imaging Protocol)。也称为RIPscrip。公告板的图像协议是为了有效地进行图像传送。
+        Router
+        路由器。具有网络层功能的产品。它能进行路径选择和网络表生成。常用于连接两个以上的局域网或广域网。
+        Script files
+        剧本文件。由一系列命令构成的使通讯程序能自动执行指定的一系列任务的文件(类似于MS-DOS的批处理文件和宏)。
+        Sendmail
+        UNIX系统里最常使用的消息传送程序。这个程序为基于E-mail通信的简单邮件传送协议提供后端消息路由选择和处理。
+        Server
+        服务器。资源提供者(例如文件服务器和名称服务器等)。
+        SHTTP
+        安全超文本传送协议。在一些安全规划中用来进行数据加密的一种方法。参见HTTP。
+        SIG
+        特别兴趣小组(Special Interest Group )。
+        SLIP/PPP
+        基于异步通信方式的串行线Internet协议(SLIP)/点到点协议(PPP)，是一种接入Internet网络的方式，是拨号方式的增强型连接。其硬件与拨号方式一样，但是不运行终端仿真软件，而是运行SLIP/PPP软件。这样可使用高速MODEM，在标准的电话线上，建立一种完全的Internet连接。SLIP/PPP使标准电话线呈现出专线的连接特性，这样用户可在计算机上运行IP软件，使自己的计算机机如同Internet主机一样(尽管运行速度低些)。SLIP软件允许用户将FTP文件直接下载到自己的个人计算机，并且可以使用图形检索方式。
+        SNA
+        系统网络体系结构(System Network Architecture)。 一种 IBM 产品。
+        Snail mail
+        蜗牛邮政。对一些国家的国际邮政(速度慢)嘲讽的称谓。
+        SNMP
+        简单网络管理协议(Simple Network Management P)。是TCP/IP的一部分，它为本地和远端的网络设备管理提供了一个标准化途径，是分布式环境中的集中化管理的重要组成部分。它公布于1990年。标准全名是IAB  RFC 1157 SNMP。它用于诊断不同厂商生产的网络产品。
+        String search
+        字串查询。数据库的一种查询方法。
+        Sysop
+        系统操作员( System Operator)。负责系统的维护并给用户帮助。
+        System
+        用于在线服务或公告板的电脑及相连设备的统称。
+        Talk
+        Internet 上的一个命令。可调出 IRC(实时线上交谈)，一对一方式进行。
+        .TAR or .tar
+        文件扩展名。表示Unix的文档文件，通常是压缩形式。TAR文件中包含文件和目录，通常也包括了子目录结构。DOS环境下的解压缩工具有 ExTAR 和TAR4DOS。可从 ftp.uu.net地址的 systems/ibmpc/msdos/simtel20/filutl 目录下获得。
+        TAPCIS
+        一个自动进入CompuServe的程序。 用户用它可以阅读并回复个人电子邮件、阅读论坛消息及下载文件。该程序的联系地址∶ Support Group, Inc., Lake Technology Park, McHenry, MD 21541, U.S.A。 或者TAPCIS 论坛的 Internet mail: 74020.10@compuserve.com。 
+        TCP/IP
+        传输控制协议/网间协议(Transmission Control Protocol/Internet Protocol.) 。
+        
+        是多台相同或不同计算机进行信息交换的一组通讯协议。 TCP/IP的准确名称应该是Internet协议族，TCP和IP分别是其中的两个协议，TCP/IP协议族包括许多协议，如APP(地址分辨协议，Address Resolution Protocol)、IP(网间协议，Internet Protocol.)、ICMP(网间控制信息协议，Internet Control Message Protocol)、TCP(传输控制协议，Transmission Control Protocol)、UDP(用户数据报协议，User datagram Protocol)、RIP(路由选择信息协议，Routing Information Protocol)和SNMP(简单网络管理协议，Simple Network Management Protocol)等。TCP/IP是美国国防部(DOD)七十年代为其ARPANET广域网开发的网络协议和标准。TCP/IP不是国际标准，却是既成事实标准，它不属于任何厂商所有。TCP/IP 支持远程登录(telnet)、文件传送 (FTP)和电子邮件(SMTP)等服务。 
+        Telnet
+        Internet上的一个程序。 该程序让用户进行远程登录并运行远程计算机上的软件，就象用户终端直接连接在远程计算机上一样。使用telnet，可浏览目录、阅读文本文件、使用 gopher服务及查询在线数据库。有时，还可进行交互游戏，与其它用户交谈，但Telnet通常不能下载文件或列文件目录。 仅以E-mail方式进入 Internet的用户不能获得Telnet服务。要Telnet 某个远程计算机，首先要知道该计算机的地址。可以是文字地址(如 vm1.nodak.edu)也可以是数字地址(如 134.129.111.1)。要在远程计算机上登录，首先必须成为该系统的合法用户，一旦登录成功，用户便可实时使用远程计算机对外开放的所有资源。
+        
+        Terminal emulator
+        终端仿真器。使计算机仿真成终端的程序。
+        TRICKLE
+        Internet上的一组服务器。它们通过电子邮件提供 SimTel 共享软件和公共软件服务。服务器的地址包括∶
+        TRICKLE@TREARN.BITNET   (土耳其)
+        TRICKLE@TAUNIVM.BITNET(以色列)
+        TRICKLE@IMIPOLI.BITNET (意大利)
+        TRICKLE@DB0FUB11.BITNET(德国)
+        TRICKLE@AWIWUW11.BITNET(奥地利)
+        TRICKLE@UNALCOL.BITNET(哥伦比亚)
+        要了解详情及查找最新的 TRICKLE 服务器地址，可向上述地址查询(使用"/HELP"命令)。
+        TTY
+        电传打字机( TELETYPE)。一种文字终端(电子的或机械的)，也称为哑终端。
+        TTY mode
+        电传打字机模式。此时只能包含可打印字符、换行、回车和退格。
+        Unix
+        一种支持多用户和多任务的操作系统。
+        Uploading
+        
+        上载。文件从用户磁盘(向上)传送到并储存在在线服务器的过程。
+        Usenet
+        一个全球公告板系统。又称电子新闻。
+        UTP
+        无屏蔽双绞线(Unmasked Twister Pair)。
+        UUCP
+        Unix 拷贝协议(Unix to Unix Copy)。包含了Unix计算机上文件拷贝的一系列命令及文件集，是Unix 网络的基础。
+        Veronica
+        Internet上基于gopher的一种服务项目。
+        WAIS
+        广域信息服务器(Wide Area Information Servers)。是一个分布式系统，它将数据和信息分布在许多计算机上， 而不是将他们存在一处。用户可用自己计算机上的WAIS 客户机软件查询多个WAIS 数据库。WAIS服务器对来自客户的查询请求进行处理，然后给客户发回一个这些查询请求的待执行表，待查询表给出与查询请求相匹配的所有文件目录，用户可以从中选择需要发回的文件。目前有数百个WAIS数据库。WAIS 可进行全文检索，也可根据关键字在文件内部进行查找。而Gopher和Archie 只能根据题目或简介来检索。
+        WAN
+        广域网(Wide Area Network.)
+        The ‘whatis' database
+        包含网络名称、共用软件包、数据库等Internet信息的数据库。
+        Whois
+        专门用于查询保存在网络信息中心(NIC)的有关Internet域名、网络、主机及人名的软件。 例如，可用Whois来查询已注册的网络研究人员的地址，给出姓名(或者是姓名的一部分)，就可查出需要的研究人员的公司名称、地址、电话和电子邮件地址等信息。
+        WWW
+        全球信息网(World Wide Web)。是一个基于超文本方式的信息检索工具，提供一种友好三信息查询接口。它将Internet网上的所有数据都作为超级文本，即文档不仅可以以传统的线性方式进行组织，也可以交叉地通过关键字进行搜索；在一个文档中只要选取一个关键字，就可以进入与关键字链接的另一个文档，这个文档既可以在同一台机器上，也可以在其他的Internet服务器上。WWW除了可以浏览传统的文本信息外，还可以显示与文本内容相关的图像、影视、声音等信息。WWW是当今Internet上使用最广的一种服务。
+        WYSIWYG
+        所见即所得(What You See is What You Get.)
+        X.25
+        一种CCITT标准通讯协议。是国际上分组数据网(PDN)上使用的一种协议。制定于1976年，用于定义同步传输的数据包。是应用极广的广域网分组交换模式，大多公众数据网都采用这个标准。 
+        X.400
+        CCITT和ISO的电子邮件标准。
+        X.500
+        
+        CCITT和ISO的电子目录服务标准。
+        .Z  or .ZIP
+        常见的压缩文件的扩展名。参见Compress.
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

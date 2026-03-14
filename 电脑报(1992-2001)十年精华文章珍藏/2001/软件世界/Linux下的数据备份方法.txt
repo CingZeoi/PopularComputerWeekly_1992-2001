@@ -1,0 +1,100 @@
+Linux下的数据备份方法
+
+吴俊宏 
+2001年 15期
+
+    Linux作为新一代网络操作系统，在服务器方面的应用越来越广泛。作为专门的网络服务器，一个重要功能就是对服务器数据进行备份，以确保数据的安全。本文将介绍在Linux系统下一些常用的数据备份方法。
+　　#1    1.本机上数据的手工备份
+　　    Linux系统上配有功能强大的tar命令，可以灵活地备份数据。tar最初是为了制作磁带备份而设计的（把文件和目录备份到磁带中，然后从磁带中提取或恢复文件）。当然，现在我们可以使用tar来备份数据到任何存储介质上。tar非常易于使用稳定可靠，而且在任何Linux系统上都有这个命令。因此是最经常使用的备份工具。
+　　    使用tar命令备份数据的格式如下：
+　　    $ tar  cvf  backup.tar  /home/html
+　　    上述命令是将/home/html 目录下的所有文件打包成tar文件backup.tar。cvf是tar的命令参数。c代表创建一个档案文件，v代表显示每个备份的文件名字，f表示tar创建的档案文件名是后面的backup.tar，/home/html代表tar要备份的文件或和目录名。
+　　    使用tar命令恢复数据的格式如下：
+　　    $ tar  xvf  backup.tar
+　　    上述命令将备份文件backup.tar恢复到当前目录下。
+　　    通常情况下，tar对文件进行备份的时候并不对文件进行压缩，因此备份文件的尺寸非常大。使用如下的命令，将使tar在备份结束以后，自动使用gzip命令对备份文件进行压缩，得到一个相应的gz文件。
+　　    $ tar  zcvf  backup.tar  /home/html
+　　    这样，我们可以得到两个文件，backup.tar和backup.tar.gz。backup.tar.gz是压缩的备份文件。
+　　#1    2.本机数据的自动备份
+　　    使用上述命令，我们可以手工备份数据，但是每天定时做这些操作可能比较繁琐。
+　　    当然，Linux为我们提供了强大的工具来进行自动备份。这就是cron。cron是一个后台进程，一旦启动，将根据自己的配置文件定时地执行任务。我们可以编写一个shell脚本文件来进行文件备份，然后让cron定时地启动这个脚本文件来对数据进行备份。
+　　    例如，我们每天备份/home/html目录下的所有的文件到/backup_xxxx目录下，xxxx代表备份的日期。这个工作，可以编写一个如下的shell脚本backup.sh来进行：
+　　    #!/bin/sh
+　　    cd /
+　　    year=｀date +%Y｀
+　　    month=｀date +%m｀
+　　    day=｀date +%d｀
+　　    now=$year-$month-$day
+　　    mkdir /backup_$now
+　　    tar zcvf /backup_$now/backup.tar /home/html
+　　    这个脚本在备份数据的时候，自动读取系统日期，然后以系统当前的日期建立一个新的目录，将备份的数据打包压缩放在这个目录中。
+　　    我们可以在系统中通过执行：$sh backup.sh，完成备份工作。如果键入：$chmod +x backup.sh，可以将backup.sh设置为可运行。这样，我们就可以直接通过键入$./backup.sh来运行备份脚本文件了。
+　　    一般情况下，我们希望在系统负载不是最大的时候来进行数据备份。通常，我们可以选择每天的凌晨3：00来进行数据备份（这段时间，你的服务器访问的人数应该最少吧？）。把一切工作交给cron吧。
+　　    cron启动以后，它检查/var/spool/cron/crontabs/目录中的配置文件来找到所要执行的任务和执行任务的时间，依据这些设定在规定的时间执行规定的任务。这个任务配置文件可以由crontab -e命令来编辑。
+　　    其格式为每行代表一个任务和规定的执行时间。每行由6个域组成：
+　　    分钟 小时 每月的天 月 星期 命令
+　　    上述6个域之间用空格或Tab分开，其中：
+　　    分钟：分钟域，值的范围是0到59
+　　    小时：小时域，值的范围是0到23
+　　    每月的天：日期，值的范围是1到31
+　　    月份：月份，值的范围是1到12
+　　    星期：星期，值的范围是0到6，星期日值为0
+　　    命令：所要运行的命令
+　　    特别的，如果一个域是*，表明命令可以在该域所有可能的取值范围内执行。如果一个域是由连字符隔开的两个数字，表明命令可以在两个数字之间的范围内执行（包括起止两个数字本身）。如果一个域是由逗号隔开的一系列值组成的，表明命令可以在这些值组成的范围内执行。
+　　    现在，我们编写一个文件，用以在每天的凌晨3：00启动备份shell程序。键入：$crontab -e 命令，然后输入：
+　　    0 3  *  *  *  backup.sh
+　　    输入完成后，存盘退出。键入$corntab -l来检查刚才的输入是否正确。
+　　    好了，这样只要Linux服务器不关机，每天凌晨3：00，cron都会自动启动backup.sh脚本来对数据进行备份的。你就可以高枕无忧了。
+　　#1    3. 双机自动备份
+　　    对于一个专业的网管人员来说，千万不要把所有的数据都存放在一台计算机上。不然，一旦这台计算机的硬盘坏了，那么一切就完了。
+　　    所以双机备份（不是双机热备份，双机热备份是双机实时地备份数据，那可不是一件简单的事情）是商业服务器数据安全的基本要求。我们这里的双机备份是双机定时地备份文件，而不是实时的。
+　　    要实现双机备份，你可以先在单机上备份所有的文件以后，然后再把备份文件传输到其它的机器上。但是这样可能比较麻烦，而且有不足之处。例如，这样作对于不需要备份的文件也要在网络上传输，会造成带宽的浪费。
+　　    当然Linux为我们提供了更好的办法，这就是使用Mirror。Mirror是个由Perl（Practical  Extraction　and　Report　Language）所写的程序，它利用ftp将不同机器间的文件和整个目录进行复制。Mirror的重要特性就是在ftp之前会比较文件的日期和大小，避免不需要备份的文件被ftp传输，而且还支持压缩传输。
+　　    Mirror的下载地址为：
+　　    http://www.asiacharts.com/dl.asp?id=736或ftp://sunsite.org.uk/packages/mirror/mirror.tar.gz
+　　    运行tar zxvf mirror.tar.gz解压文件。然后运行perl install.pl安装mirror。安装后，修改mirror.default配置文件。这一文件中包括远端主机（remote site）名称或IP地址、备份文件存放路径、登录名称、登录密码，本地（local）主机名称或IP地址、需要备份的目录、是否将资料压缩、使用何种压缩程式、以及完成备份后Mirror将用mail通知谁等等设定。
+　　    我修改后的mirror.default配置文件例子为：
+　　    # ...
+　　    package=defaults
+　　    # The LOCAL hostname - if not the same as ｀hostname｀
+　　    # （I advertise the name sunsite.org.uk but the machine is
+　　    #  really swallow.sunsite.org.uk.）
+　　    hostname=192.168.0.119	本机的IP地址或者是域名
+　　    # Keep all local_dirs relative to here
+　　    local_dir=/home/html/  本机上要备份文件存放的目录
+　　    # The local_dir must exist FIRST
+　　    #local_dir_check=true
+　　    remote_password=ilovelinux  远端机器上的ftp口令
+　　    mail_to=love@263.net  备份完成后邮件通知的地址
+　　    # Don＇t mirror file modes.  Set all dirs/files to these
+　　    dir_mode=0755
+　　    file_mode=0444
+　　    # By defaults files are owned by root.zero
+　　    user=0
+　　    group=0
+　　    # # Keep a log file in each updated directory
+　　    # update_log=.mirror
+　　    update_log=
+　　    # Don＇t overwrite my mirror log with the remote one.
+　　    # Don＇t pull back any of their mirror temporary files.
+　　    # nor any FSP or gopher files...
+　　    # ....
+　　    # ....
+　　    注意，在设置文件中，hostname、local_dir、remote_password、mail_to必须设置，其它的可以不设置。
+　　    接下来，编辑一个文件，在这个文件中设置要备份的远程主机的域名或者是地址，远程主机上的要备份的文件所在的目录和备份的文件存放在本地主机上的目录位置。
+　　    例如文件名为backup.mir，其内容为：
+　　    package=<backup of my site>
+　　    comment=<this is a dem!>
+　　    site=192.168.0.1
+　　    # where to start pulling files back from
+　　    remote_dir=/home/html
+　　    # where to put the files on your machine
+　　    local_dir=/home/backup/html
+　　    # If you are under Wind*ws then use a line like this instead
+　　    #  local_dir=c:\tmp\mirror
+　　    运行 mirror -d backup.mir，执行备份任务。当然，我们同样可以将mirror的执行任务放在cron里面执行，这样可以实现双机的自动备份。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

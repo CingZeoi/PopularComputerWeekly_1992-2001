@@ -1,0 +1,55 @@
+GHz风暴
+
+  
+2001年 38期
+
+处理器的GHz时代来临啦！
+　　2001年8月21日，AMD发布了基于新的Mongrn 核心的Duron 1GHz处理器；紧跟着Intel于2001年9月初发布了1GHz的Celeron处理器。这样一来，市面上的主流处理器主频已经全面迈入了1GHz的门槛。先不管这么高主频的处理器对电脑性能究竟有多大的提升，单纯从技术的角度来看，就有许多可圈可点之处，像我们这次拿到的AMD Duron 1GHz处理器一样。因为这些新特性直接影响未来的处理器的发展进程。
+　　#1●新Mongrn核心
+　　（^38080202a^）
+　　与先前的Duron采用的Spitfire核心不同，新Duron 1GHz采用了由AMD新一代Athlon Palomino核心的精简版Morgan。Morgan核心仍然使用的是当前0.18微米制造工艺，而且配置的Cache也同老Duron一样，L1 cache为128KB，L2 Cache为64KB，L2 Cache仍然只有Athlon的四分之一。而其竞争对手Intel Pentium Ⅲ的L1 cache为32KB，L2 Cache为256KB，Celeron的L1 cache为32KB，L2 Cache为128KB。Morgan沿袭AMD EV6的DDR总线。由于与老 Duron一样只有100MHz外频，因此Morgan在200MHz DDR总线下，其系统带宽最大为1.6GB/s，远远小于Athlon 266MHz DDR的2.1GB/s带宽。而目前的Intel Pentium Ⅲ 133MHz外频时带宽为1.06GB/s，Celeron 100 MHz外频时带宽为800MB/s。新Duron 1GHz的晶体管数目由原来的2500万个增加到了2518万个晶体管，比老Duron 多增加18万个。而处理器核心缩小为106mm2，并且形状也有所改变。以前的老Duron的Spitfire核心从正面看上去是一个扁平的矩形，而新Duron的Morgan核心从正面看上去则是一个长瘦的矩形。看上去Morgan核心的设计有点类似AMD新的Athlon 4的设计风格。而且这样的改进也使Duron新增加了硬件自动预取数据功能和最新的3DNow！专业版指令集。
+　　硬件自动预取数据功能是指预先判断处理器将进行哪些数据的处理并提前将这部分数据装载进Cache中，它对某些程序的应用优化有较好的表现。3DNow！专业版指令集则是AMD针对Intel的SSE（单指令多资料扩充功能）指令集而设计的，它完全兼容Intel的SSE指令集，它不仅新增了52条新指令，而且可以让新Duron对Intel Pentium Ⅲ处理器优化的应用程序的处理加快不少。这样一来，AMD处理器的兼容性、性价比又一次得到大大的提升，与Intel抗衡的实力也得到进一步的加强。这对于广大的使用者来说无疑是一个不错的好消息。
+　　AMD在Morgan核心设计中特别注意了发热量的问题，而且还增加了导热两级真空管，以加强散热能力。这样的设计有效降低了Duron的发热量。不过和Intel的处理器比起来，温度还是高一些，但是至少比先前的AMD处理器要好了许多。
+　　新Duron 1GHz的核心电压为1.75V电压。这一点让人感到迷惑不解，要知道Athlon 4的核心电压将会降到1.4V，而且在1.6V下，新Duron 1GHz一样能够正常工作，我们怀疑这样的设计主要是为了保证新Duron 1GHz的向下兼容性，而且主板制造商只需要修改主板的BIOS便能很轻松支持它。事实上很多SocketA主板最新的BIOS已经提供对Morgan核心的新Duron的支持了，能够正确的识别出来。这样保证了Morgan核心的新Duron的新特性将被操作系统和相关软件识别到并在实际应用中发挥相应的效能。（^38080202b^）
+　　#1●性能测试
+　　对于AMD而言，Morgan核心的新Duron无疑是相当关键的一个产品，不仅仅它在主频上达到了1GHz，而且新的核心和新增的功能将能使目前AMD在中低端市场与Intel的较量中处于比较有利的位置。我们使用了Duron 800MHz和Athlon 1GHz 作为对比测试的处理器，为了能够比较明显的看出各个处理器之间的性能差异，我们将处理器的外频都设定为100MHz，DDR内存外频设定为133MHz。
+　　○测试平台配置和驱动程序
+　　CPU：AMD Athlon TB 1GHz AMD Duron 800MHz
+　　内存：PC2100 128MB DDR SDRAM×1（CL=2）
+　　显卡：GigaByte GeForce2 GTS 32MB DDR SGRAM
+　　硬盘：Maxtor DiamondMax Plus 45 46.1GB
+　　光驱：SONY DDU-1211 12X DVD-ROM
+　　彩显：LG 795FT Puls
+　　驱动软件：
+　　English Windows 98 SE with Direct X 8.0a
+　　VIA 4 in 1 Service Pack v4.33a
+　　nVIDIA Detonator v12.41
+　　测试软件：
+　　3D Mark 2001
+　　ZD Business Winstone2001v1.0
+　　ZD Content Creation Winstone2001 v1.0
+　　ZD WinBench99 V1.1
+　　Quake3 DEMO001
+　　SiSoft Sandra2000 v7.0
+　　SysMark2000 v1.0
+　　Video2000
+　　○办公及商用性能
+　　ZD Media的Business Winstone2001和Content Creation Winstone 2001都是商业办公应用的测试软件。而SYSmark2000也是一个传统的系统整体性能专业测试软件，测试成绩与Business Winstone2001反映的情况更接近。
+　　Business Winstone2001和Content Creation Winstone 2001的测试结果都是Athlon 1GHz取得胜利。不过Duron 1GHz在Content Creation Winstone 2001的测试成绩非常接近Athlon 1GHz，看来新增加了对Intel SEE兼容的3DNow！专业版指令集之后，使得Duron 1GHz多媒体性能大大提升。
+　　SysMark 2001的基准测试主要通过模拟目前最普及的商业办公和Internet内容创作软件中运行的一系列脚本衡量系统的性能好坏。它强调处理器和平台之间的搭配协调性能。处理器的性能能够决定最终结果得分的好坏。测试结果表明，Athlon 1GHz是优胜者，整体性能表现要明显好于Duron 1GHz和Duron 800MHz。相反，Duron 1GHz和Duron 800MHz的成绩相差不大，综合性能非常接近。
+　　○处理器性能测试
+　　处理器的测试我们主要运用ZD media的WinBench99和SiSoft Sandra 2001 Perfessional，由于WinBench99发表时间比较早，因此没有针对Athlon和Duron进行优化，也就是说新Duron加入的像3DNow！专业版指令集并不会被WinBench99用到，而SiSoft Sandra 2001 Perfessional则比较好地针对Athlon和Duron进行了优化，可以比较充分地测试3DNow！指令集。
+　　WinBench99的测试结果表明，只要是相同类型的CPU，基本上是处理器频率提高多少，测试成绩就成比列地提高多少，这点非常明显。而在SiSoft Sandra 2001 的CPU整数测试中，Duron 1GHz的成绩与Athlon TB 1GHz接近甚至得分一样。这难道是受主频的影响？而在浮点测试部分，Duron 1GHz成绩要优于Athlon TB 1GHz。我们猜测这是由于新核心的功劳，当然也包括最新的3DNow！专业版指令集对SSE的完全兼容。另外我们也发现与Druron配合的双通道DDR DRAM内存尽管在理论上提供了两倍于PC133 SDRAM的带宽，但实际上CPU似乎并没有充分利用到高带宽。
+　　○3D游戏性能
+　　Quake3是一款传统OpenGL游戏，这主要是因为Quake3是一款对内存带宽依赖性极大的游戏，在我们选定的运行模式下可以看出这三款处理器的测试成绩相差不大。需要指出的是由于频率相同，Duron 1GHz几乎完全可以和Athlon TB 1GHz打成平手。从3D Mark2001的测试来看，Morgan核心新Duron 1GHz的性能与Athlon TB 1GHz之间仍然存在一定的差距，但是这种差别已经要小于与Duron 800MHz之间的差异，看来新的Morgan核心性能要优于老的Spitfire核心。
+　　○专业3D应用性能
+　　SPECviewperf 6.1.2的几个测试建模项目主要受处理器的FPU性能以及内存带宽影响，像Awadvs-04、DX_06两个应用需要大量的CPU运算，所以Morgan核心新Duron 1GHz的性能优势就表现出来，而在Pro_07、MedMCAD_01、ProCDRS-03需要高内存总线带宽和高性能ALU的测试项目，性能非常接近Athlon TB 1GHz。
+　　○视频处理性能
+　　Video2000的测试结果让我们感到惊讶，再重复了几次测试以后，我们不得不相信，Morgan核心的新Duron 1GHz在视频处理方面能力非常强大，所以取得了非常明显的优异成绩。其VideoMark1908分的成绩远远高出Athlon TB 1GHz 271分之多，而且Quality和Performance的成绩也是非常不错的。我们相信这要归功于新增的3DNow！专业版指令集，它对Intel的SSE指令集的完全兼容，大大优化和增强了Morgan核心的新Duron在视频方面的处理能力。从而改变了人们认为AMD的视频处理方面一向比较薄弱的印象。
+　　#1●结论
+　　毫无疑问，新Duron 1GHz不仅仅是作为Duron GHz处理器的里程碑出现，更重要的是它所具有的新特性，如高效能的Morgan核心、完全兼容Intel的SSE指令集的3DNow！专业版指令集、增强降热用的导热两极真空管……这些特性能够让Duron的生命力得到有效的延长。在采用新的Morgan核心之后，Duron 1GHz在处理性能和散热方面均要强于老的Spitfire核心的Duron。我们猜想，要不是L2 Cache的容量较小，性能可能超过目前采用Tunderbird核心的Athlon1GHz处理器。
+　　（^38080202c^）
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

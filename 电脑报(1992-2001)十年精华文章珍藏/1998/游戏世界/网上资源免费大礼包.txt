@@ -1,0 +1,312 @@
+网上资源免费大礼包
+
+吴江宏
+1998年 第38期 28版
+
+#1免费信箱
+　　你可登录以下网站申请自己的免费信箱。
+　　●金陵热线：http://www.990.net （POP3：990.net）
+　　●润讯台：http://www.cm.com.cn （如果你有润讯台的寻呼机，它能将E－mail发到寻呼机上）
+　　●明日环球网：http://brightsun.hr.hl.cn 
+    （POP3：bright－sun.hr.hl.cn）
+　　●广州163：http://www.163.net  （POP3：163.net）
+　　●北京263：http://freemail.263.net  
+    （POP3：263.net）
+　　●126：http://www.126.com （转信信箱）
+　　●天丽鸟：http://www.telekbird.com.cn  
+    （POP3：10.103.68.57 （169）telekbird.com.cn（163））
+　　●智邦生活网：http://www.acclife.com.tw 
+　　●软体新乐园：http://www.shareware.com.tw
+　　●Amex Mail：http://www.amexmail.com 
+　　●Free Mail：http://freemail.everperfect.com 
+　　●Net Address：http://netaddress.usa.net  
+    （POP3：pop.netaddress.com）
+　　●GiCom2000：http://www.gicom2000.com  
+    （POP3：202.96.35.29）
+　　●Soft Home：http://www.softhome.net  
+    （POP3：pop.softhome.net）
+　　●小菊：http://mail.tonghua.com.cn  
+　　●华人网：http://www.taipeinet.net
+　　●凯利信箱：http://www.kali.com.cn
+　　●188：http://www.188.com
+　　●亚洲焦点：http://www.focus－asia.com
+　　●雅虎信箱：http://mail.yahoo.com
+　　●白象文化：http://www.catv.com.tw
+　　●隹能企业：http://203.69.238.7
+　　●联合公告：http://w2.unitednet.org
+　　●iname：http://www.iname.com
+    ●Big Foot：http://www.bigfoot.com 
+　　●Start World：http://www.startworld.com
+　　●Juno：http://www.juno.com
+　　●Star Mail：http://www.starmail.com
+　　●Emails：http://www.emails.com
+　　●Soft Home：http://www.softhome.net
+　　●AdValVas：http://www.advalvas.be
+　　●AltaVista：http://altavista.iname.com
+　　●Alloy Mail：http://www.alloymail.com
+　　●Post One：http://www.post1.com
+　　●Hot Mail：http://www.hotmail.com
+　　●Mail City：http://www.mailcity.com
+　　●Mail Excite!：http://www.mailexcite.com
+　　●Net Forward：http://www.netforward.com
+　　●Rocket Mail：http://www.rocketmail.com
+　　●Brave Net：http://www.bravenet.com
+　　●Spin：http://www.spin.de
+　　●Who Where：http://www.whowhere.com
+　　●Angel Fire：http://www.angelfire.com
+　　●TriPod：http://www.tripod.com
+#1免费贺卡
+　　节日里送给朋友一张电子贺卡，又不花钱，何乐而不为呢!
+　　●Card Master：http://www.cardmaster.com 
+　　●Micro Grafx：http://www.micrografx.com 
+　　●香港贺卡中心：http://www.hknet.com
+　　●泉州卡片屋：http://qzdcb.fz.fj.cn
+　　●中经网贺卡：http://203.207.195.73
+　　●东方贺卡：http://www.nease.net/～eastart/card.htm
+　　●中山大学贺卡：http://www.nsysu.edu.tw/lee/card
+　　●韵言传送：http://galaxy.conneti.com
+　　●网路寄真情：http://www.ficnet.net.tw
+　　●D2 卡片制作室：http://www.infobahn.com.tw/～kun/card/card.htm
+　　●有情世界——圣诞卡速递：http://netra.wow.net.tw/～g65617
+　　●圣诞寄情：http://www.eastnet.net.tw
+　　●萌网寄情：http://monet.pu.edu.tw
+　　●网际便利邮局：http://www.tem.nctu.edu.tw:1995
+　　●大观园邮局：http://205.158.7.130
+　　●Seed Net 线上圣诞卡快递：http://www.seed.net.tw
+　　●Greeting Card Central：http://www.taiwanese.com
+　　●Awesome Cyber Card：http://www.marlo.com
+　　●Happy Holiday：http://www.azstarnet.com/public/holiday/holiday.html
+　　●Preview Trave1 Postcard：http://www.vacations.com
+　　●Digital Postcard：http://members.aol.com
+　　●American Greetings：http://www.americangreetings.com
+　　●Warner Bros Webcard：http://www.warnerbros.com
+　　●Park：http://www.the－park.com
+　　●Virtual Present：http://www.virtualpresents.com
+#1免费杂志
+　　订阅杂志不仅不要钱，而且可及时看到每期最新杂志（详情请见《电脑报》第9、10两期18、19版上的“中文Mailing List大展播”一文）。订阅方法很简单，只需按如下格式，向相关地址发一封E－mail即可。
+　　●上海热线电脑信箱
+　　地址：listserv@city.online.sh.cn
+　　标题：（空）
+　　内容：subscribe net
+　　●深沪股市行情
+　　地址：majordomo@shell.cninfo.co.cn
+　　标题：（空）
+　　内容：subscribe quotation
+　　●网路热闻
+　　地址：herb@ms2.hinet.net
+　　标题：subscribe netkiss
+　　内容：（空）
+　　●南方电子报
+　　地址：mailto:sccid－request@www.south.nsysu.edu.tw
+　　标题：subscribe
+　　内容：（空）
+　　●枫华园（GB）
+　　地址：listserv@cunews.carleton.ca
+　　标题：（空）
+　　内容：subscribe fhy－gb <你的英文名>
+#1免费发传真
+　　通过这些网址或传真邮件地址，你可以免费向全世界发图文传真。
+　　●深圳热线：http://www.szonline.com.cn 目前仅支持北京、成都、深圳等地
+　　●TPC.INT：http://www.tpc.int 支持美国、加拿大部分地区、其他国家
+　　●荷兰传真：按如下格式向对方发E－mail：Hansje.Blinker.31206999999@E－FAX.nci.nl ，传真内容< 70行，时间：周一至周五18：00——08：00、周末
+　　●瑞典大学网络：如要给传真号码为12345678的瑞典朋友VOO发传真，则可按如下格式发E_mail：
+　　　VOO@F012345678.fax.sunet.se 
+　　●菲律宾：http://www.msuiit.edu.ph/fax.html
+　　●科威特：可按如下格式发E－mail:
+　　　To：fax@kuwait.net
+　　　Subject：7位数传真号码
+　　　Body：<传真内容>
+　　●新西兰：http://www.actrix.gen.nz/biz/faxmail/faxmail.htm
+　　●如欲向新西兰其他地区及邻近国家发传真，则须先发E－mail预约：system@codewks.nacjack.gen.nz
+　　然后再按如下格式发传真：
+　　To：faxline@codewks.nacjack.gen.nz
+　　Subject：（空）
+　　Body：
+　　　　To:收件人姓名
+　　　　Phone:收件人传真号码
+　　　　Date:日/月/年
+　　　　Time:hh.mm（24小时制）
+　　　　Mode:Fine（清晰度）
+　　　　<传真内容>
+　　●新加坡http://www.focus－asia.com
+　　　（并提供新加坡传呼机呼叫服务）
+　　●台湾http://fax.sinica.edu.tw 
+　　　（发传真到台湾的使用说明请浏览网站http://www.digicor.com.tw/wwwfax.html ）
+#1免费主页
+　　想在网上安家的朋友不妨登录以下的免费主页网站。
+　　●网易空间：http://www.nease.net/n－space （全国最大主页网站，20MB空间，FTP，申请困难）
+　　●“963”教：http://www.963.net
+　　●自贡在线：http://www.zg169.net
+　　●三峡热线：http://yc－dev.hb.cninfo.net （10MB，FTP）
+　　●润讯台：http://www.cm.com.cn
+　　●保定热线：http://www.baoding.cn.net （20MB，FTP）
+　　●网虫之家：http://home.hn.cninfo.net
+　　●广东中山：http://www.zhongshan.gd.cn
+　　●广州飞华：http://sw.gznet.com
+　　●广州飞捷：http://fjwww.guangzhou.gd.cn （22MB，FTP，免费CGI支持）
+　　●碧海银沙：http://www.zhanjiang.gd.cn （空间不限，FTP）
+　　●惠州：http://www.huizhou.gd.cn
+　　●珠海：http://www.zhuhai.gd.cn （FTP）
+　　●江门：http://www.jiangmen.gd.cn
+　　●水泊梁山：http://home.jxbcd.net.cn
+　　●西部掠影：http://www.xjwlptt.net.cn
+　　●金陵热线：http://www.nj－online.nj.js.cn
+　　●浙江信息：http://person.zj.cninfo.net
+　　●江苏电信：http://202.102.15.149
+　　●苏州：http://www.sz.js.cn
+　　●常州：http://www.cz.js.cn （2MB，FTP）
+　　●连云港：http://www.lyg.js.cn
+　　●南通：http://www.nt.js.cn
+　　●无锡：http://www.wx.js.cn
+　　●徐州：http://www.xz.js.cn （2MB，FTP）
+　　●深圳之窗：http://www.szptt.net.cn
+　　●桂林：http://www.glptt.gx.cn
+　　●郑州：http://www.zz.ha.cn
+　　●晋江电信：http://www.jjpt.net.cn
+　　●南宁电信：http://www2.nn.gx.cn
+　　●中网空间：http://www.netchina.com.cn
+　　●瀛海威：http://www.ihw.com.cn
+　　●点将家欢乐网中王：http://www.dcc－ring.com.tw
+　　●天府热线：http://www.tanfo.com （10MB）
+　　●个人天地：http://202.103.160.60
+　　●太阳城：http://linux.cqi.com.cn
+　　●大中国：http://www.greatchina.com  （20MB，FTP）
+　　●新丝路：http://www.wl.xj.cn
+　　●无锡阿福台：http://www2.wx.js.cn
+　　●网帆：http://homepage.infoworld.sh.cn   （20MB，FTP）
+　　●鸿志：http://www.hongzhi.com （空间不限，FTP）
+　　●泰德集团：
+      http://www.tidegroup.com
+　　●Cyber City（香港）：
+      http://www.cybercity.hko.net （FTP）
+　　●Taco City（台湾）：
+      http://www.taconet.com.tw （FTP）
+　　●Hap Link：
+      http://www.haplink.com.cn
+　　●GF：http://home.gf.com.cn
+　　●Hyper Mart：http://www.hypermart.net
+　　●Free Nation：http://www.freenation.com
+　　●Span Home：http://www.home.ch
+　　●Yada：http://www.yada.com
+　　●Free Yellow：http://www.freeyellow.com
+　　●Geo City：http://www.geocities.com
+　　●Geo City日文版：http://www.geocities.co.jp
+　　●Web Village：http://www.webvillage.com.sg
+　　●YI：http://www.yi.com
+　　●Fortune City：http://www.fortunecity.com
+　　●Chez：http://www.chez.com
+　　●Naz：http://www.naz.com
+　　●Xoom：http://members.xoom.com
+　　●Express Page：http://www.expage.com
+　　●TriPod：http://www.tripod.com
+　　●Cyber Mail：http://www.cybermail.net
+　　●Bip：http://www.concept.se
+　　●Free Town：http://www.freetown.com
+　　●Earth On Line：http://www.earthonline.net 
+#1免费软件
+　　以下是供你免费下载软件的好地方。
+　　●浙江Z_File：
+	http://video.zj.cninfo.net/zfiles
+　　●Tucows网易镜像：
+	http://www2.nease.net
+　　●Tucows上海镜像：
+	http://tucows.infoworld.sh.cn
+　　●Tucows：http://www.tucows.com
+　　●Jumbo：http://www.jumbo.com
+　　●Share Ware：
+	http://www.shareware.com
+　　●Download：http://www.download.com
+　　●File Dudes：
+	http://www.filedudes.com
+　　●Free Ware：http://www.freeware.com
+　　●WIN95：http://www.windows95.com
+#1免费域名
+　　如果你的个人主页域名又长又难记，可登录到以下网站获得简单易记的主页域名。
+　　●Yeah：http://my.yeah.net
+　　●广东湛江：http://www.zhanjiang.gd.cn
+　　●嘉星好名：http://www.kstar.com
+　　●河南信息：http://home.hn.cninfo.net
+　　●RichWin：http://www.srsnet.com
+　　●Start World：http://www.startworld.com
+　　●TriPod：http://www.tripod.com
+　　●Page Free：http://202.97.227.188
+　　●Come To：http://come.to
+　　●Visit Web：http://visitweb.com
+　　●Monolith：http://www.ml.org
+　　●Freenix：http://www.eu.org
+　　●Bounce To：http://bounce.to
+　　●Jump To：http://www.jump.to
+　　●Name Is：http://www.name.is
+　　●Pak：http://pak.org
+#1免费聊天室
+     想为你的个人主页加上一个聊天室，请访问以下网站。
+　　●The Quantum Leap Chat：
+	http://www.webchatting.com
+　　●Chat Planet：
+	http://www.chatplanet.com
+　　●Be seen：http://beseen.com
+#1免费注册主页
+　　做完主页后，可以通过这些站点向众多的搜索引擎免费注册。
+　　●Get Hits：http://www.gethits.com
+　　●Submit All：http://www.submitall.com
+　　●Post Master 2：
+	http://www.postmaster2.com
+　　●Submit It：http://www.submitit.com
+　　　（在20个搜索引擎注册）
+　　●Add Me：http://www.addme.com
+　　　（在34个搜索引擎注册）
+　　●Register It：
+	http://www.register－it.com/free
+　　　（在16个搜索引擎注册）
+　　●Broad Caster：
+	http://www.broadcaster.co.uk
+　　　（在200个搜索引擎注册）
+　　●Web Promote：
+	http://www.webpromote.net
+　　　（在34个搜索引擎注册）
+　　●Free Submit ：
+	http://speedy.freesubmit.com
+　　　（在数十个搜索引擎注册）
+　　●Inter King：http://interking.com/kc
+	　（在数十个搜索引擎注册）
+#1免费CGI（公用网关接口）
+	免费的CGI，让你的个人主页增色不少。
+	●CGI Free：http://www.cgi－free.com
+	●Free CGI by WebCom：http://www.webcom.se
+	●Terminal Productions：http://www.terminalp.com
+	●Server：http://server.com （提供留言簿和个人信息助理）
+	●CGI Resouce Index：http://www.cgi－resources.com （500多种CGI及相关资源）
+	●Matt＇s Script Archive：http://worldwidemart.com （基于UNIX系统的CGI Script）
+#1免费留言簿
+    想为你的个人主页装个留言簿，请到以下网站。
+　　●广州网易：http://www.nease.net （需申请主页）
+　　●Geo Cities：http://www.geocities.com （需申请主页）
+　　●Spin：http://www.spin.de （多语言支持）
+　　●Guest Book：http://rcrs2.rmrc.gov.tw
+　　●Dream Book：http://www.dreambook.com
+　　●LPage：http://www.lpage.com （全球最多的免费留言簿，有许多免费的CGI）
+#1免费广告
+    做广告不花钱？这还是头一回听说， 不过去了下面的站点，你就相信了！
+　　●酷中国：http://www.coolchina.com
+　　●网盟宣传：http://www.webunion.com（主页互换广告） 
+　　●供需热线：http://www.sdh1.com
+　　●中国资源：http://www.sinosource.com
+　　●华连广告：http://www.ualberta.ca （主页互换广告）
+　　●经贸信息：http://www.bjccidd.com
+　　●东方明珠：http://www.opchina.com
+　　●中国黄页：http://china.pages.com.cn
+　　●国际商务速递：http://www.see.online.sh.cn
+　　●中国商务电视信息网：http://168.160.224.45/cctv/hotline.html
+　　●悠游香港：http://rona.goyoyo.com.hk
+　　●Link Exchange：http://www.linkexchange.com （主页互换广告）
+　　●Net－on＇s Banner：http://www.net－on.com （主页互换广告）
+　　●Banner Swap：http://www.bannerswap.com （主页互换广告）
+　　●Free Banner：http://www.1－2－free.com （主页互换广告）
+　　●Web Ads Express：http://www.webadsexpress.com （主页互换广告）
+　　●Common Wealth：http://commonwealth.riddler.com （主页互换广告）
+　　●Smart Clicks：http://www.smartclicks.com （主页互换广告）
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

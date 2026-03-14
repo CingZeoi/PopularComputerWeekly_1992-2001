@@ -1,0 +1,347 @@
+AutoCAD Release 12.0新增命令使用讲座
+
+曾刚
+1994-01-14
+
+        
+        一、ASEADDROW命令
+        ASEADDROW命令用于建立并增加一个行到表中。启动该命令在下拉式菜单上的选择路径为：
+        “File\ASE\Row\Add...”
+        格式：ASEADDROW
+        加入一个新的行可采取下列步骤:
+        ●在纵列块中选择纵列，选中的纵列将变成高亮度的。
+        ●按下＜RETURN＞键。
+        ●在编辑窗中为高亮度的纵列给出新的值
+        ●按下＜RETURN＞键。
+        ●在列表窗中选择下一个纵列名字(如果有超过一个被列的纵列话)。
+        ●对每一个纵列在列表窗中重复步骤2--5。如果必要可使用卷动轴编辑余下的纵列值。
+        ●选择“OK”按钮以接受新的数据，或者是“CANCEL”取消所有新的输入。
+        当读者打算增加新的行至当前的表时，只需拾取“OK”按钮就成了。读者在对话窗完成所有的输入操作后，或者在命令线上每一行操作后，ASE将做类型检查。新增加的行将被设置成当前行。
+        当每一个关键的纵列提示给出新的值时，读者应给出其新的值。
+        
+        二、ASECLOSEDB命令
+        该命令用于选择关闭任何一个已打开的数据库 ，包括当前的数据库。
+        命令格式：ASECLOSEDB
+        命令启动后一个对话窗将弹出。读者可以关闭在对话窗中列出的任何一个数据库。可以用来关闭一个当前数据库的方法如下，读者可以任何的选择一个：
+        ●拾取“OK”按钮，或者按下＜RETURN＞键。
+        ●在被配属的数据库列表中拾取选择：列表窗并按下＜RETURN＞键。
+        ●在数据库编辑窗选择输入数据库名，并且按下＜RETURN＞键或拾取“OK”按钮。
+        当读者选择一种方法来做了以后，ASE显示一个确认对话窗。读者可在这里选择“YES”或“NO”，即关闭和不关闭。
+        
+        三、ASEDELLINK命令
+        该命令撤除数据库与实体的连接联系。读者可以从图形中选择实体来删除其联系。它不影响在数据库中的非图形数据，仅作用于它们的联系。
+        注意：使用这个命令应当心删除后是不可恢复的。
+        格式：ASEDELLINK
+        ALL/dBms/Database/Table/＜Row＞：
+        Select object：
+        对第一行提示的合法响应与解释如下：
+        ●All       删除与所选择的实体的所有连接：
+        ●dBms      删除所有选择实体与当前DBMS之间连接：
+        ●Table     删除所有选择实体与当前表之间的连接；
+        ●Database  删除所有选择实体与当前数据库之间的连接;
+        ●Row       删除所有选择实体与当前行之间的连接：
+        在所有的选择情况之下实体仍然保留在图形上，除非它是用ASEMAKEDA建立的可见属性实体才将被撤走。
+        随后，读者将被提示选择自己要删除连接的实体。读者选择完后还需要在对话窗中或命令线上确认是否真的要删除所选择的实体与数据库的连接。
+        
+        四、ASEDELROW命令
+        ASEDELROW命令用于从当前表中删除当前行。这将使所有与行相联系的连接和可显示的属性从控制数据库中撤走。
+        格式：ASEDELROW
+        注意：如果存在多个行使用相同的关键值，ASEDELROW将完全删除这些行。
+        在对话窗中选择“YES”将删除当前行，“NO”则取消该命令并关闭对话窗。在dBASE ⅢPLUS中ASEDELROW仅对删除做出标识而让它们不在表中出现。这样多次删除后将产生磁盘空间的浪费，解决这个问题只需在DBMS下使用“ASCK”命令就行了。?
+        
+        五、ASEEDITLINK命令
+        ASEEDITLINK命令用于编辑数据库与单个实体相联系的链。
+        格式：ASEEDITLINK
+        ALL/dBms/Database/Table/<Row>：
+        Select object：
+        读者必须首先从第一行提示为编辑选择联系的范围，如果一个实体有超过一个行、表、数据库或DBMS，在调用该命令之前读者必须做好当前被要求的DBMS、数据库、表。如果被选择的实体仅有一行连接，同时它也是当前的行，则没有必要调用该命令。另外，编辑一种可显示的属性链以更新屏幕，应对编辑的链给出新的属性值。随后，ASE将提示选择所要编辑链的实体。读者选择完后即可开始做编辑工作了。
+        如果实体存在链，则这些链将在对话窗口显示出来，如果所选择的实体存在超过一个的链，用户可以在链的列表中用户选择好了链并拾取“Proceed”按钮后，一个类似于ASESETROW的对话窗将弹出。读者选择“Key”或者“Search”，编辑链关键值(Edit Link Key Valuse)对话窗将弹出。如果用户选择“Serach”，则应在标准编辑窗(Criteria edit)中给出其搜索标准。并拾取搜索按钮或按下<RETURN>键。
+        
+        六、ASEEDITROW命令
+        ASEEDITROW命令用于在表中编辑当前行。
+        格式：ASEEDITROW
+        注意：如果存在多个有相同的关键值的行，ASEEDITROW将用所编辑的行的值以相同的关键值更新所有行。
+        ASE在编辑行(Edit Row)的对话窗中显示当前行。读者在这里可以从列表窗中选择要编辑的纵列，按下<RETURN>键后为被选择的纵列给出新的值。(再按下<RETURN>键可以在列表窗与编辑窗之间切换窗口)接下来可以拾取下一个纵列名(如果列出的纵列名超过一个的话)，重复上述步骤(读者如果有必要地话使用卷动轴显示比对话窗中更多的纵列值)。选择“OK”按钮接受新的数据，“CANCEL”取消所有新的指定。
+        当读者处在命令线的如下提示时：
+        Enter Value for <column name 1>or.for null<<column value>>：
+        Enter Value for <column name n>or.for null<<column value>>：
+        可对每个所要编辑的纵列值给出新的值。按下“RETURN”键后，ASE将用编辑的数据更新表中的行
+        ?
+        七、ASEERASEALL命令
+        该命令关闭所有打开的数据库，并且卸除所装载的驱动文件。它也在控制表中参考删除DBMS，以及从屏幕上删除所有的链和可见的属性。该命令不能用于中止ASE，只能清除所操纵的表。
+        警告:这命令的结果将是从控制数据库中永久性的丢失数据。用户一旦启动该命令就不能中止其执行。
+        格式:ASEERASEALL
+        在提示下回答“Y”清除所操纵的数据库，“NO”取消命令。
+        
+        八、ASEERASEDB命令
+        ASEERASEDB命令从控制数据库中参考擦除数据库。
+        警告:这命令将从所操纵的数据库中永久性的丢失数据。一旦启动它，就不能取消其执行。
+        格式:ASEERASEDB
+        对话窗项目
+        用户可以使用下列方式中的一种在数据库列表中擦除任何一个所列出的数据库。
+        ●当用户选择擦除的数据库为高亮度时拾取“OK”按钮或按下〈RETURN〉键。
+        ●直接在数据库列表窗中键入所要擦除的库名，并且按下〈RETURN〉键。
+        ●在数据库的列表窗中双重剪切指定擦除。
+        ●在编辑窗中给出数据库名，并且按下〈RETURN〉键或拾取“OK”按钮。
+        然后一个确认对话窗将弹出，选择“YES”按钮擦除,“NO”不作任何更改。
+        命令线上的提示为:
+        Enter name of datadase or ?for list <current>:
+        Erase <datadase name> from control table?:
+        读者可给出数据库名字并按下〈RETURN〉键。如果用户给出一个“?”来请求一个数据库的列表，仅有当前的DBMS所连接的数据库出现。用户可以对提示以空响应来不改变数据库的状态，这样当前的数据库仍然存在而不会被其他数据库切换。
+        
+        九、ASEERASEDBMS 命令
+        该命令关闭所有与指定的DBMS相联系的数据库，并且清除DBMS。
+        格式：ASEERASEDBMS
+        警告：这命令将从控制数据库中永久性地丢失数据。一旦启动它，就不能取消其执行。
+        在对话窗中为擦除列出了DBMS所用的驱动器。如果已经装入了一个驱动器，当前驱动器名即为该驱动器名。读者可以用下列方法中的一个来擦除这个列表中的任何一个DBMS：
+        ●当用户选择擦除的DBMS为高亮度时拾取“OK”按钮或按下〈RETURN〉键。
+        ●直接在DBMS驱动器列表中键入所要擦除的DBMS驱动器，并且按下〈RETURN〉键。
+        ●在DBMS驱动器列表中双重剪切指定。
+        ●在驱动器编辑窗中给出DBMS名，并且按下〈RETURN〉键或拾取“OK”按钮。
+        
+        十、ASEERASETABLE 命令
+        该命令从控制数据库中擦除指定的表，同时所有与该表相联系的链也将被擦除。
+        格式：ASEERASETABLE
+        警告：这命令将从控制数据库中永久性的丢失数据。一旦启动它，就不能取消其执行。
+        在对话窗中读者可用以下方式之一来擦除一个表：
+        ●当用户选择擦除的表为高亮度时拾取“OK”按钮或按下〈RETURN〉键。
+        ●直接在表的列表窗中键入所要擦除的库名，并且按下〈RETURN〉键。
+        ●在表的列表窗中双重剪切辑指定擦除。
+        ●在编辑窗中给出表名，并且按下〈RETURN〉键或拾取“OK”按钮。
+        然后一个确认对话窗将弹出，选择“YES”按钮擦除。
+        命令线上的提示为：
+        Enter name of table or?for list <current>：
+        Erase <table name> from control table?：
+        读者在这里可给出所要擦除的表名，并且按下〈RETRUN〉键。也可以给出一个问号“?”来请求列出所有那些与当前数据库相联系的表。对于一个关于确定的提示可以输入“Y”，给予擦除，“N”不做任何更改。?
+        
+        十一、ASEEXPORT 命令
+        ASEEXPORT命令用于确定对数据库的输出连接信息，一旦这些信息被输出，读者即可使用输出文件来得到外部报告。ASEEXPORT可以建立以SDF(以空格划出界限的格式)，或者CDF(以逗号划出界限的格式)或者是现用的数据库(dBASE的DBF，等等……)格式的文本文件。
+        格式：ASEEXPORT
+        Select object:
+        All/dBms/Database/<table>:
+        Name of file for <DBMS/database/table>:
+        SDF/CDF/<NATIVE>:
+        对第一个提示的响应就是读者选择所要输出的带有连接信息的实体。对下一个提示的响应可选择如下的项目：
+        ●All     对被选择的实体输出所有的链信息。
+        ●dBms    输出所有与DBMS所联系的被选择实体的链。
+        ●Database输出所有与数据库所联系的被选择的实体的链。
+        ●Table   输出所有与表所联系的被选择的实体的链。
+        最后两个提示将对每一个与实体相连接的表做反复提示。
+        响应第三提示读者需要为所输出的文件指出文件名。响应第四个提示将为输出文件指定其格式。
+        
+        十二、ASEINIT  命令
+        ASEINIT命令用于初始化ASE。
+        格式：ASEINIT
+        Active DBMS is <dbms name>
+        Active database is <database name>
+        Enter username:
+        Enter password:
+        如果当前的图包括控制数据库(使用ASETERM命令通过ACADASE层来建立的)，即使是没有请求用户名和口令所有提示都将显示出来。如果在控制数据库中的参考DBMS或者数据库不能被打开，ASE将向读者报告一个错误信息。如果读者的数据库不需要用户名与口令，按下<RETURN>来响应那些提示。用户名与口令不存储在控制数据库中。
+        如果读者从文件下拉式菜单中选择“ASE\Initialize”，或在屏幕菜单上拾取“ASE\initASE”，该命令将自动地装载ASE，并且执行它。
+        如果读者在命令线上启动ASE，则必须在命令线上输入：
+        (XLoad "ase")
+        (Load "ase")
+        ASEINIT
+        
+        十三、ASEMAKEDA命令
+        ASEMAKEDA命令用于建立一个当前行的可见属性。该命令向屏幕写上读者从当前行选择的文本段。注意：一个可见的属性不牵扯除自己以外的任其它实体。读者必须在图形中放置可中见属性在实体周围才能获得更多地图形含义。
+        格式：ASEMAKEDA
+        Justify/Style/<Start point>:
+        Height<.2>
+        Rotation<0>
+        提示的第一行如同AutoCAD的“TEXT”命令的提示，用于放置和显示可见的文本。所有可选项与提示解释如下：
+        ●Strat point  这是大多数情况下的使用选择。用于将文字的基线向左对齐至读者给定的点。
+        ●Justify      用于将文字与某一行对齐，读者选择这个项目后，AutoCAD将提示给出所要对齐的那一行文字。
+        ●Style        用于更换一个新的文字格式。
+        ●Height       用所选择的绘图单位对可见属性的文字实体指定高度。
+        ●Rotation     用于指定文字显示的角度。
+        在对话盒子中的列表窗里显示有纵列的名字。DA Columns列表窗将把读者所选择的纵列名称作为可见属性文本以高亮度的显示。移动光标可选择显示其余的纵列名中的按钮与功能解释如下：
+        在图形屏幕上出现的可见属性文本，将由读者所给定的起始点、格式，高度，以及旋转角度来锁定。
+        
+        十四、ASEMAKELINK命令
+        前面我们多处提到过“链”，ASEMAKELINK命令用于连接所选择的实体与当前的行，其结果就是产生读者所要的“链”，以便让自己能真正地使用ASE功能。该命令把一个或者多个所选择的实体与当前行相连接。实体与当前的行相连接时将不以任何方法来对实体做改变。然而却增加了“智能”至实体中，让读者能选择实体，并观察或者编辑与它连接的行，甚至还可以使用非图形信息选择实体，或者为一个报告输出所连接的实体。
+        为了有效地使用该命令，读者首先要使用ASESETROW命令把连接实体的行设置为当前行。然后使用ASEMAKELINK命令来选择所要连接的实体与那个相关的行相连接。必要时应重复ASESETROW_ASEMAKELINK这个过程。ASE所提供的ASEQLINK命令可用来加速这个过程的执行。
+        格式：ASEMAKELINK
+        Select objects:
+        选择好了所要与当前行连接的实体，就建立好了链。
+        
+        十五、ASEMAKEREP命 令
+        ASEMAKEREP命令用建立一个报告。它使用DBMS的报告或任何其它的报告方式从一个数据库中为读者建立一个报告。启动该命令的下拉式菜单路径为：“File\ASE\Utility\Make Report”，屏幕菜单为：“ASE\Utility\Report；”。
+        格式：ASEMAKEREP
+        读者在使用DBASE Ⅲ PLUS建立一个报告时，可事先建立一个DBASE3＋下的.PRG文件。使用ASEMAKEREP命令运行该程序则按下面所示键入：
+        DBASE *.PRG
+        使用R&R关系报告书写器建立一个报告时可以在两种方式下运行，即INTERACTIVE和RUNTIME这两种方式。在第一方式下运行R&R应输入：RR。在后一个方式下应输入：RRUNTIME JOBSPEC 3 2 1 10。
+        对话窗中的操作为：
+        ●在执行窗(Execute Box)给出数据库报告建立程序的名称。
+        ●拾取执行(Execute)按钮，运行读者给出的命令。
+        ●打开文本屏障方式，读者将看到所建立报告的输出。
+        
+        十六、ASEPOST命令
+        ASEPOST命令用于使图形与数据库同步。即解决数据库和图之间有冲突的问题。该命令不以任何方法改变实体。如果读者从AutoCAD外部对数据库的行实行删除操作，对与任何一个链所对应的行均是无效的。而从AutoCAD图形中删除实体，对与任何一个链所对应的实体也是无效的。
+        格式：ASEPOST
+        Fix/〈Report〉：
+        读者可以选择修复(Fix)冲突或者仅仅是报告他们(系统默认选项〈Report〉)。
+        第一项用于对在控制数据库中一个链的非存在实体做检验。其行将以AutoCAD的SAVE、END命令的执行而从控制数据库中撤走，而报告则在ASEPOST命令执行期间完成。同时撤走不再合法的链，使得图形与数据库同步。
+        第二项用于检查在表中存在而在图形中却存在的关键值，存在的关键值将在同步期间给予报告。
+        
+        十七、ASEQEDIT命令
+        ASEQEDIT命令用于设置和编辑当前行。它能对实体所连接的属性做快速编辑和设置。启动该命令的下拉式菜单路径为：“File\ASE\Quick Edit...”，屏幕菜单为：“ASE\Q-EDIT；”。
+        格式：ASEQEDIT
+        Select object：
+        读者在此应对所要编辑的行选择连接实体。如果所选择的实体没有链存在，ASE将显示信息：
+        Not links found
+        Key values/Search criteria/<Select object>：
+        这时读者需要为ASESETROW命令的使用选择第二行中的一个选项来设置行，从而建立起链信息；或者给出搜索条件以及重新选择实体。如果读者选择的实体具有双重链，屏幕将揭示选择做为当前行的链。
+        
+        十八、ASEQLINK命令
+        ASEQLINK命令用于快速设置当前行。并且把它与所选择的实行连接起来。该命令使得ASESETROW--ASEMAKELINK这两个命令结合的执行过程自动化。这个过程选择行，并且在一个有效的命令中把那个行与实体相连接。该命令使用ASESETROW命令中设置当前行时的相同的选择项。一旦当前的行被设置，命令将揭示读者选择所要连接的实体。启动该命令的下接式菜单路径为：“File\ASE\Quick Link...”，屏幕菜单为：“ASE\Q-LINK；”。
+        格式：ASEQLINK
+        Key values/Search criteria/<Select object>：
+        其响应同上。?
+        
+        十九、ASEQMAKEDA命令
+        ASEQMAKEDA命令用于设置一个行与它的可见属性。该命令从当前行建立一个可见的属性。它结合ASESETROW/图形，允许读者为一个已经与实体相连接的行产生一个可见的属性。如果读者选择的实体具有多个链，ASE将提示读者为所要产生的可见属性的行选择一个链。启动该命令的下拉式菜单路径为：“File\ASE\Quick Make DA...”屏幕菜单为：“ASE\Q_MK DA；”。
+        格式：ASEQMAKEDA
+        Select object:
+        如果所选择的实体没有链存在，ASE将显示信息：
+        No links found
+        Key values/Search criteria/〈Select object〉：
+        其响应同上。
+        
+        二十、ASEQVIEW命令
+        ASEQVIEW用于设置与观察当前行。该命令让读者能快速地观察与一个实体所连接的属性。它使得ASESETROW/图形--ASEVIEWROW两命令结合的执行过程自动化。如果读者要观察一个非当前行，但却是在图形中与一实体相连接的就可以使用这个命令。启动该命令的下拉菜单路径为：“File\ASE\Quick View...”，屏幕菜单为：“ASE\Q_VIEW；”。
+        格式：ASEQVIEW
+        Select object：
+        如果所选择的实体没有链存在，ASE将显示信息：
+        No links found
+        Key values/Search criteria/〈Select object〉：
+        其响应同前。
+        
+        二十一、ASERELOADDA命令
+        ASERELOADDA命令用于重新装入生成可见属性。该命令让读者用外部数据库的当前数据更新可见属性。一般地来说，在读者已经编辑过一个行为自己建立一个可见属性后，读者才想使用这个命令。如果DBMS、数据库、表、行不再是可使用的了，其错误将被报告，并且其值将变成“*”号。如果表，或者行、DBMS、数据库再一次变得可以使用，施以ASERELOADDA命令将重新保存其文本值。该命令对当前缺省值没有任何影响。
+        启动该命令的下拉菜单路径为：“File\ASE\Reload DA”，屏幕菜单为：“ASE\RELD DA;”。
+        格式：
+        ASERELOADDA
+        
+        二十二、ASESELECT命令
+        ASESELECT命令用于选择实体图形或者文本。
+        启动该命令的下拉式菜单路径为：“File\ASE\Select”，屏幕菜单为：“ASE\SELECT；”。
+        格式：ASESELECT
+        Export/<SelectoinSet>:
+        Union/Subtract/<Intersection>:
+        Graphical/<Textual>:
+        对第一个提示的合法响应如下：
+        ●Export        输出至满足实体搜索标准的一个外部文件
+        ●Selection Set 读者可将该选择集用于“Select”命令的“P”选项。
+        对第二个提示的合法响应为：
+        ●Intersection  在搜索标准中对所选择的图形实体用键建立所有非图形数据的选择集。
+        ●Subtraction   选择图形或文本。
+        ●Union         用所有被选择的图形实体结合所有的非图形搜索标准建立选择集。
+        对第三提示的响应应首先定义其选择集。其选择结果将影响子域操作。合法的响应为：
+        ●Graphical     在绘图中提示读者选择实体。
+        ●Textual       提示读者给出搜索标准(如：model="louge cat")。
+        对于下面的提示必须给出搜索标准：
+        Enter search criteria for<DBMS/dataBase/Table>:
+        当选择了与行匹配的搜索标准所连接的实体，即可在AutoCAD的"Select"命令的"Previous"选项下将它用于Auto CAD的编辑命令：MOVE、COPY、DELET、CHANGE。
+        
+        二十三、ASESETDB命令
+        用于设置当前数据库名称。
+        格式：ASESETDB
+        如果没有任何当前DBMS设置，该命令将调用ASESERDBMS命令，并且在此之前提示读者给出数据库名称。
+        ●在对话窗口中如果没有任何数据库配属于当前的图形，则数据库列表窗将为空。
+        ●如果在列表窗中没有任何数据库被配属于当前的DRMS，则给出其当前的数据库，并且随即将初始化为高亮度的显示出来。
+        ●如果数据库没在前面设置，ASE将提示用户和口令。
+        对于命令线上的提示，给出“?”屏幕将转为文本方式，从而让读者能看到所请示的数据库列表。注意仅是那些在当前DBMS可用的数据库才会被列出。读者可以用一个空响应不改变数据库的设置状态来回答提示。
+        
+        二十四、ASESETDBMS
+        用于设置当前数据库类型。启动该命令的下拉式菜单路径为：“File \ASE \SETDBMS...”，屏幕菜单为：“ASE\SET\DBMS：”。
+        格式：ASESETDBMS
+        命令启动后，一个DBMS状态将按其名称列表显示出来，这些DBMS可以是当前的，被装入的或者是被配属的。一个当前的DBMS是被装入和运行中的一个；一个被装入的DBMS是装入内存中的一个，但不是当前的：一个被配属的DBMS是一个保存在控制数据库中，但是在当前的图形对话期间还没有被装载的。
+        如果用“?”回答提示，屏幕将转向文本方式以便显示列表。如果有当前的DBMS(仅有一个存在)或者有已装载的DBMS存在，这时均将给予显示出来。可用一个空响应不做任何改变的返回。
+        
+        二十五、ASESETROW命令
+        ASESETROW命令用于在当前表中设置当前行。许多的ASE命令要用它来指定仅在当前行上进行操作。启动该命令的下拉式菜单路径为：“file\ASE\Set Row...”，屏幕菜单为：“ASE\Set Row；”。
+        格式：ASESETROW
+        有三种方法可以用来设置行：
+        ●在图形中拾取一个已经与行相连接的实体。
+        ●使用通过SQL WHERE子句定义的行确定的搜索标准。
+        ●通过指定关键值。
+        当使用搜索或者图形方法，读者能从所选择的多个行中进行选择。如果仅选择一个行，其行的选择将是自动的，同时一条信息也将显示出来。当使用关键值选择行时读者仅能选择一个行。为了设置一个行，将不得不首先设置DBMS、数据库、以及表。在读者选择一个行之前，ASE将自动提示读者遗漏的信息。
+        
+        二十六、ASESETTABLE命令
+        ASESTTABLE命令用于设置当前表的名称。
+        格式：ASESETTABLE
+        如果读者所给出的表名称先前没有设置，ASE将提示给出关键纵列名。图形所配属的表将在配属表(Attaced Table)列表窗中显示。当前表在“Table”窗中被列出。可以用下列两种方法中的一个来产生一个可配属于当前图形的表。
+        ●在窗口中的任意一个表上做双重剪辑。
+        ●拾取“Table”窗口，输入新的表名称。
+        如果当前没有任何表设置，在“Table”窗口中只能简单地输入表名称。按下<RETURN>键，或者拾取“OK”按钮将设置表。拾取“Cancel”按钮将取消该命令
+        
+        二十七、ASESQLED命令
+        ASESQLED命令用于执行SQL语句。这里提供了两种方式来执行该命令：即使用命令线与对话窗和包含SQL语句的文本文件。读者在使用该命令之前应阅读《ASE参考手册》附录A中关于驱动器部分的内容。各种数据库驱动系统处理数据的类型是不同的，这样使用相同的SQL语句可能有不同的结果。
+        格式：ASESQLED
+        SQL句法规则和限制
+        ●字符型的值必须括在单引号中；
+        ●所有数据库纵列值的给出将是有限制的，其大、小写字母必须与它在数据库中出现的情况相符。但纵列值大\小写均可。
+        ●SQL与ASE均禁止使用SQL的关键字作标识符。
+        读者可以在对话窗或在命令线上为数据库输入任何合法的SQL语句，ASESQLED允许仅仅在当前的数据库上操作。
+        在对话窗中使用单一语句的方法有如下两种：
+        ●在SQL编辑窗中输入一个SQL语名：
+        ●选择“Execite”按钮执行其命令，或者“Cancel”按钮取消其输入。
+        注意：SQL的“DELETE”语句与“Delete”按钮是不相同的。前者从表撤走行，但是不撤走被联系的链。
+        如果读者选择“Histore”按钮来替换输入命令，“Histore of SQL Statement”对话窗将弹出，读者可以在所显示的已执行过的命令窗中做双重剪切，而命令将被放置SQL编辑对话窗中来提示读者，按下< RETURN >键将执行该显示命令。
+        使用用于执行SQL语句的文本文件可拾取“File”按钮。然后“SQL Filename”对话窗将弹出。这样就可以在这里选择执行文件。
+        在命令线上可将屏幕转换为文本方式，以便能看到输出的SQL语句。ASE首先显示的是如下提示：
+        Enter SQL command file name or none：
+        这里应输入一个包含SQL语句的可执行的文件名。如果SQL语句返回一个选择集，其执行的结果将显示在屏上。给出一个空呼应则引用SQL编辑器提示符：SQL>。
+        
+        二十七、ASETERM命令
+        ASETERM命令用于终止ASE。该命令的使用将关闭所有的数据库和还原不用了的驱动系统。
+        缺省时，经由ASETERM命令终止连接的数据库无须处理SQL COMMIT语句。所有AutoDESK公司所提供的驱动系统器在关闭一个打开的数据库时均执行COMMIT语句。如果读者正工作在当前的数据库上，则在结束对话之前COMMIT语句被请求。如果ASE还没有被终止，当读者结束绘图工作时COMMIT将自动地执行。
+        在对话与命令线提示：Save control database and terminate ASE?时，对话窗中选择“OK”将关闭数据库，“NO”取消该命令并且结束对话。命令线上用“Yes”给予响应将关闭数据库，“NO”则取消命令。
+        
+        二十八、ASETERMDBMS命令
+        ASETERMDBMS命令用于有选择地终止DBMS。该命令让读者能关闭任何已装载的DBMS，包括当前的DBMS。这对于释放被非激活的DBMS所占用的内存空间很有用。启动该命令的下拉式菜单路径为：“File\ASE\Utility\TermDBMS...；”屏幕菜单为：“ASE\Utility\TERMDBMS；”。
+        格式：ASETERMDBMS
+        可以用下列方法之一来关闭当前的DBMS：
+        ●如果所选择的表名是高亮度的时，拾取“OK”按钮或按下< RETURN >键。
+        ●拾取表中的项目并按下< RETURN >键。
+        ●在列表窗中做双重剪切。
+        ●拾取表编辑窗，输入表名称并按下< RETURN >键或拾取“OK”按钮。
+        使用上述方法之一后，ASE将弹出确认对话窗。选择“YES”将终止DBMS，“NO”则不影响DBMS。
+        
+        二十九、ASEVIEWLINK命令
+        ASEVIEWLINK命令用于观察所选择的实体的链。该命令将显示所有被动选择实体的链。启动该命令的下拉式菜单路径为：“File\ASE\Link\VIEW：”。
+        对话窗项目选择要观察其链信息的实体后，“View Link”对话窗将弹出。如果所选择的实体有多于一个的链，可以使用所面的按钮在列表窗中卷动：Preious、Next、First、Last。如果仅有一个链可以使用，这些按钮均无效。假如读者选择一个可见属性，它的纵列值将出现在DA纵列表中。当读者观察完链的信息后可拾取“OK”按钮返回。
+        格式：ASEVIEWLINK
+        Select object：
+        选择要观察其链信息的实体后屏幕将转为文本方式，以便能看见所选实体的链信息。所显示的链将按它们在当前表中顺序出现。
+        
+        三十一、ASEVIEWROW命令
+        ASEVIEWROW命令用于在表中观察当前的行。该命令让读者能观察到当前的行。如果COMDDIA变量被设置为“0”，可改变屏幕为文本方式来显示所选择的实体链信息。对其它的方式，则用一个对话窗来显示行。启动该命令的下拉式菜单路径为：“File\ASE\Row\View…”
+        屏幕菜单为：“ASE\ROW\VIEW;”
+        格式：ASEVIEWROW
+        在对话窗中ASE使用"View Row"窗口来显示当前行的信息。当读者观察完毕，可拾取“OK”按钮或按下〈RETURN〉键。在命令线上可将改变屏幕为文本方式来显示所选择的实体的链信息。
+        关于AutoCAD缩写:
+        ADS AutoCAD Development System	AutoCAD开发系统
+        AME Advanced Modeling Extension	高级造型扩展
+        ASE AutoCAD SQL Extension		AutoCAD SQL扩展
+        ASI AutoCAD SQL Interface		AutoCAD SQL界面
+        BIS Building Information System	信息建立系统
+        BOM Bill Of Material			材料清单
+        CDF Comma Delimited Format		逗号分界格式
+        CAD Computer Aided Design		计算机辅助设计
+        CAM Computer Aided Manufacturing	计算机辅助制造
+        CIMS Computer Integrated Manufacturing计算机集成制造系统
+        CMP Command Menu Program		命令菜单程序
+        DA Displayable Attribute		可见属性
+        DBMS Database Management System	数据库管理系统
+        DLD Display List Drivers		显示列表驱动器
+        DLP Display List Processor		显示列表处理器
+        DLG Digital Line Graph		数字线图形
+        DDE Dynamic Data Exchange		动态数据交换
+        FMS Flexible Manufactuing System	柔性制造系统
+        GIS Geographic Information System	地理信息系统
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

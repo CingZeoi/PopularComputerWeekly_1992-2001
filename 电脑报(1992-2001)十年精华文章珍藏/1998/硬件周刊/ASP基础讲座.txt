@@ -1,0 +1,160 @@
+ASP基础讲座
+
+李文武
+1998年 第46期 15版
+
+　　Active Server Pages （ASP，动态网页）是微软公司推出的一种用以取代CGI（通用网关接口，Common Gateway Interface）的技术。微软发布Win98时，同时推出了PWS4.0（个人WEB服务器，可在Win98光盘里的ADD－ONS目录里找到），它本身支持对ASP2.0的解释执行，所以大家不用去找免费的服务器就可以体验一下ASP的简单和方便了。
+　　简单讲，ASP是位于服务器端的脚本运行环境，通过这种环境，用户可以创建和运行动态的交互式 Web 服务器应用程序，如交互式的动态网页，包括使用 HTML 表单收集和处理信息，上传与下载等等，就像用户在使用自己的CGI程序一样。但是他比CGI简单。更重要的是，ASP使用的ActiveX技术基于开放设计环境，用户可以自己定义和制作组件加入其中，使自己的动态网页几乎具有无限的扩充能力，这是传统的CGI等程序所远远不及的地方。使用ASP还有个好处，就在于ASP可利用ADO（Active Data Object，微软的一种新的数据访问模型，类似于DAO）方便地访问数据库，从而使得开发基于WWW的应用系统成为可能。
+#1　　如何使用ASP？ 
+　　还是让我们以一个例子来说明吧。我看到许多讲语言的书上都是以“Hello World”作为第一个例子，那么，就让我们也向世界问一声好吧。
+　　第一步：打开一个文本编辑器（比如，Notepad），输入以下代码：
+　　<％ For i=3 To 7 ％> 
+　　<FONT SIZE=<％=i ％>> 
+　　Hello World!<BR> 
+　　<％ Next ％> 
+　　然后以文件名Hello.asp存盘。由于.asp文件要由服务器端的ASP环境来解释，所以——
+　　第二步：你必须将它放在WWW服务器的目录下。在安装了PWS的Win98系统里，缺省路径是c:Wroot，你也可以自己建一个子目录，比如“asp”。
+　　第三步：打开浏览器，输入 http://yourservername/asp/Hello.asp，浏览器上立即显示“Hello World”，就这么简单。
+　　现在，让我们回过头来分析一下上面的脚本，你会发现同HTML脚本比较，它多了两个符号<％和％>，这就是ASP的定界符，他将一般的HTML脚本同ASP代码分隔开来，中间的代码就是ASP“语言”，大家一定已经看到，他的语法跟Visual Basic差不多。ASP的脚本语言可以是任何Script语言，不过你得提供相应的引擎。ASP本身支持VBScript 和JavaScript，可以由你决定使用哪一种。你只需在使用ASP脚本前用一句<Script LANGUAGE=“VBScript” RUNAT=“Server”>或者<ScriptLANGUAGE=“JavaScript” RUNAT=“Server”>就行了。缺省语言是VBScript，微软的嘛。
+　　那么，asp的执行是怎样一个过程呢？当你从浏览器输入了.asp文件的地址后，浏览器就将这个URL请求发给服务器，如果服务器上装了ASP，他一看到是.asp后缀名，就调用ASP。ASP读出相应.asp文件，解释并执行命令后，将结果回传给WWW服务器，然后，WWW服务器再把结果发给浏览器。浏览器看到的是执行结果，他根本不知道.asp文件是怎么回事，因此，使用ASP不必考虑浏览器的差异。
+　　用户提交ASP文件过程见^461501a^
+#1　　让ASP与Form一起工作
+　　我们说ASP的目的是能让用户与页面之间交换信息，那么，怎样得到用户输入的这些信息呢?当然是用Form（表单）。不论是CGI、IDC、JAVA，还是其他的什么技术，都是通过嵌在WWW页面中的Form来让浏览器的用户输入信息，然后由Form执行提交动作，把数据传给服务器，服务器再把数据传给CGI或是其他的什么程序。既然Form如此重要，那么这次就让我们来看一看在ASP中，怎样获得用户在Form中输入的数据，同时，我们还将学到ASP是怎样将结果返回到WWW页面的。
+　　首先，我们建立一个Form，他的HTML代码如下:
+　　<HEAD><TITLE>定单</TITLE></HEAD>
+　　<BODY>
+　　<H2>定单Form例子</H2>
+　　<P>请向我们提供以下信息，然后单击“提交”:
+　　<FORM METHOD=“POST” ACTION=“response.asp”>
+　　<P>姓: <INPUT NAME=“fname” SIZE=“48”>
+　　<P>名: <INPUT NAME=“lname” SIZE=“48”>
+　　<P>称呼: <INPUT NAME=“title” TYPE=RADIO VALUE=“先生”>先生
+　　<INPUT NAME=“title” TYPE=RADIO VALUE=“女士”>女士
+　　<P><INPUT TYPE=SUBMIT VALUE=“提交”><INPUT TYPE=RESET VALUE=“清除”>
+　　</FORM>
+　　</BODY>
+　　这个表单是一个简单的定单例子，它接收用户输入的姓名，称呼，然后用POST方法将数据提交。我们知道，在HTML中表单（Form）提交数据常有两种方法，一种是GET，一种是POST。对于GET提交的数据，WWW服务器将把数据放在环境变量QUERY_STRING中；对于POST方法，数据被送到WWW服务器的STDOUT中，然后CGI从自己的STDIN中读取。使用传统的CGI方法，用户必须自己编程来处理这些数据。可是在ASP中，采用了面向对象的思想，所有从浏览器传来的数据都被封装进了对象Request中。Request有方法Form和Querystring，分别返回用POST方法和GET方法提交的数据。我们要得到表单提交的数据，只需用Request.Form（“表单域名”） 或Request.Querystring（“查询参数名”） 就可以了。
+　　好了，接下来就让我们建立.asp文件Response.asp来处理上面的表单提交的数据吧，这里，我们只是简单地将用户提交的数据返回给用户。
+　　<％Title=Request.Form（“title”） 
+　　LastName=Request.Form（“lname”）
+　　If Title=“先生” Then ％>
+　　<％=LastName ％> 先生
+　　<％ ElseIf Title=“女士” Then ％>
+　　<％= LastName ％> 女士
+　　<％ Else ＆>
+　　<％=Request.Form（“fname”） ＆ “ ” ＆ LastName ％>
+　　<％ End If ％>
+　　上面这段代码有些难懂吧， 我们来分析一下它吧.首先，他的开头和结尾都和普通的HTML代码没有什么两样，关键是中间.如果略去定界符<％和％>，然后在前面没有东西的等号前加上‘Print’ ，它就变成了:
+　　Title=Request.Form（“title”）
+　　LastName=Request.Form（“lname”）
+　　If Title=“先生” Then
+　　print  LastName 先生
+　　  ElseIf  Title=“女士” Then
+　　print LastName 女士
+　　  Else
+　　print Request.Form（“fname”）＆“ ”＆ LastName
+　　End If
+　　这是不是VB?很简单吧?ASP就是应用这种方法，将用户自己编写的程序链入HTML中，使动态网页得以实现。
+　　有一点说明的是，.asp文件中，不在定界符之内的字符，当成普通的HTML解释，如上面没加定界符的“先生”，“女士”等，由服务器自己解释并显示。.asp自己的输出用一个等号加上对象名来实现（当然，ASP的代码在定界符之内）.如上面的<％=LastName％>。其实，在.asp文件中，任何对象要作用到定界符之外就要用这种形式:<％=对象名％>。
+　　上面我们学了用ASP处理用POST方法提交的数据，那么，对于用GET方法提交的数据，又怎样处理呢?其实，处理都是一样的，只不过取得表单数据的方法不同罢了，比如我们要取得“title”的值，就用:
+　　Request.Querystring（“title”）
+　　大家一定要注意，用什么方法调用的.asp文件，就应当用相应的方法接收查询数据。不过，不管他是用什么方法提交的，你也可以一律： Request（“title”）（系统将自行选择解释方案，只是在执行时速度会受到影响）。
+　　当我们需要同浏览器交互的时候，有时少不了数据库。因为只有用数据库才可能大量、快速地处理信息。使用ASP不仅意味着你可以读取Access和SQL Server的数据库，同时也意味着你可以读取其它ODBC（Open Database Connect，开放式数据库互联）兼容的数据库。为了在ASP中访问数据库，我们将接触一个新名词——ADO（Active Data Object，活动数据对象）。
+　　ADO是一种操作Microsoft所支持的数据库的方法，有些类似于以前在VB中听说过的DAO（Data Access Object，数据访问对象）和RDO（Remote Data Object，远程数据对象）。在ASP中，ADO可以看作是一个服务器组件（Server Component），更简单点说，是一系列的对象，应用这些功能强大的对象，即可轻松完成对数据库复杂的操作。在这里我们所要学的是使用这些对象的方法，具体的操作步骤可以归纳为以下几步：
+　　（一）创建数据库源名（DSN）
+　　（二）创建数据库链接（Connection）
+　　（三）创建数据对象
+　　（四）操作数据库
+　　（五）关闭数据对象和链接
+　　下面具体叙述每一步的作法：
+#1　　一、创建数据源名
+　　用ODBC时，经常见到DSN这个名词，它究竟是什么，有什么重要作用呢？DSN（Date  Source Name）即数据源名称。我们知道，ODBC是一种访问数据库的方法，只要系统中有相应的ODBC驱动程序，任何程序就可以通过ODBC操纵驱动程序的数据库。比如我们系统中有Access的ODBC驱动程序，那么即使我们没有Access软件，也可以在我们的程序（如VB编的）中间对一个Access的MDB数据库加、删、改记录。而且我们根本不用知道这个数据库是放在哪里的。我们只要写出SQL语句，ODBC驱动程序就会帮我们做一切事情。我们在给ODBC驱动程序传SQL指令时，即是用DSN来告诉它到底操作的是哪一个数据库。如果数据库的平台变了，比如我们改用了SQL Server的数据库，只要其中表的结构没变，我们就不用改写我们的程序，只要重新在系统中配置DSN就行了。由此可见，DSN是应用程序和数据库之间的桥梁，要通过ODBC访问数据库，前提就是我们必须配置好DSN（即架好桥梁）。一个DSN必须包含一些信息：
+　　DSN的名字：就是给这座桥取个名字，当程序访问数据库时，给系统传的就是这个名字，而不是数据库的实际名称。 
+　　ODBC驱动程序类型：只有指出驱动程序类型，在我们操作数据库时，系统才会知道调哪个ODBC驱动程序来服务。 
+　　数据库：你必须指定这座桥到底连接的是哪个数据库，但不同的数据库系统，指定数据库名字的方法有些不同。
+　　这座桥是架在系统之中的，所以WIN95（NT）提供了一个工具来完成这件事，即是控制面板中的32 BIT ODBC，共有三类，即用户DSN、系统DSN、文件DSN。我们一般就用系统DSN，因为这样可以让所有在该系统上操作的人都能使用这个DSN。
+　　打开Windows的“控制面板”，找到图标“32位ODBC）”（有一些系统上叫“ODBC”、“32bit ODBC”），双击，出现（如^461501b^）对话框，选中标签“系统DSN”，点击“新建”，选驱动程序为Microsoft Access MDB，单击“完成”，弹出对话框（如^461501c^），输出“Data Source Name”为“dsn1”，单击“OK”，再单击“选择数据库”，选中你要使用的数据库，例如“C:\b1.mdb”，这样就OK了。以后我们就用“dsn1”来访问数据库“c:\b1.mdb”，而不直接用文件名“C:\b1.mdb”，这样做的好处是，一旦我们改变了文件名或存放地，就不用再一个一个地修改程序中所有该数据库的名称，而只需修改DSN中的配置就可以了。
+#1　　二、创数据库链接（Connection）
+　　用过VB的人都知道，DAO中有链接（Connection），RDO中有odo Connection。链接用以保持一些关于正在访问的数据的一些状态信息，以及链接者信息。ASP文件中如果要访问数据，必须首先创建与数据库的链接，其语法如下：
+　　set Mconn=Server createObject（“ADOBD.CONNECTION”）
+　　这条语句创建了链接对象mConn，接下来：
+　　mConn.Open “dsn1”，“vsername”，“password”
+　　这条语句打开链接，用到了DSN，本例为“dsn1”。其后的两个参数分别是访问数据库的用户名和口令，为可选参数。
+　　注意：必须有以上两个小步骤，因为链接对象的创建与打开是两回事，只有打开了才真正可以用。
+#1　　三、创建数据对象（Record Set）
+　　ADO中的数据对象通常保存的是查询结果。Record Set是ADO中最复杂的对象，有许多属性和方法，灵活运用，可以达到许多好的效果。与DAO中的一样，Record Set保存的是一行行的记录，并标有一个当前记录。以下是创建方法：
+　　Set Record Set=mConn.Execute（sqtStr）
+　　这条语句创建并打开了对象Record Set，其中mCon是先前创建的链接对象，sqtStr是一个串，代表一条标准的SQL语句，例如：
+　　sqlStr=“SELECT ＊ FROM tab1”
+　　Set Record Set=mConn.Exe cute（sqlStr）
+　　这条语句执行后，对象Record Set中就保存了表tab1中的所有记录。在ASP文件中如何引用返回结果，本文将在文末给出一个实例说明。
+#1　　四、操作数据库
+　　刚才我们通过调用链接对象的Execute方法来将查询结果返回给一个数据对象。我们说Execute方法的参数是一个标准的SQL语句串，所以我们可以利用它方便地执行数据插入、修改、删除等操作，例如：
+　　sqlStr=“INSERT INTO tab1 VALUES（1，2）”
+　　mConn.Execute（sqlStr）
+　　/执行插入操作
+　　sqlStr=“UPDATE tab1 SET field1=3”
+　　mConn.Execute（sqlStr）
+　　/执行修改操作
+　　五、关闭数据对象和链接对象
+　　在使用了ADO对象之后，一定要记住关闭它，因为它使用了一定的服务器资源。通过调用方法close实现关闭，然后再释放它。
+　　Record Set.close
+　　Set Record Set=Nothing
+　　/关闭创建的数据对象
+　　mConn.close
+　　Set mConn=Nothing
+　　/关闭创建的链接对象
+　　至此，我们已给出了用ASP访问数据库的全过程，包括创建数据源－创建链接－创建数据对象－操作数据对象－关闭并释放。这其间由于应用面向对象思想，应该说所有操作都比较简单，用户需要注意的仅是对数据结构的了解，亦要清楚当前所操作的对象是什么，有什么属性，等等。只要对这些有了清醒的认识，再加上ASP的强大功能，在网络上应用你自己的数据库，就再也不是什么难事了！
+　　本文最后给出一个例子，这是基于数据库的ASP留言簿程序，数据库结构如下：
+　　guestbook.mdb
+　　表lyb:
+　　xm char（100）， ly char（255） ， sj datetime
+　　文件guestbook.asp:
+　　<html>
+　　<head>
+　　<title>lyb</title>
+　　</head>
+　　<body bgcolor=“＃ccccf0”>
+　　<p>留言簿</p>
+　　<form METHOD=“POST” action=“guestbook.asp”>
+　　<input type=“hidden” name=“task” value=“insert”>
+　　<p>姓名:<input TYPE=“text” SIZE=“20” NAME=“xm”></p>
+　　<p>留言:</p>
+　　<p><textarea ROWS=“5” COLS=“80” NAME=“ly”></textarea></p>
+　　<p><input TYPE=“submit” VALUE=“记入留言簿” NAME=“B1”><input TYPE=“reset”
+　　VALUE=“复原” NAME=“B2”></p>
+　　</form>
+　　<％
+　　Set conn = Server.CreateObject（“ADODB.Connection”）
+　　conn.Open “lybdsn”，“”，“” 
+　　If Request（“task”）=“insert” then
+　　xm=Request（“xm”）
+　　sj = Date（）
+　　sj = sj ＆ “ ” ＆ Hour（Time（）） ＆ “:” ＆ Minute（Time（））
+　　If Request（“ly”）=“” then 
+　　Response.write（“留言不能不输吧”）
+　　Response.end
+　　else
+　　ly=Request（“ly”）
+　　end if 
+　　sql=“INSERT INTO lyb （xm，sj，ly） VALUES （＇” ＆ xm ＆ “＇，＇” ＆ sj ＆ “＇，＇” ＆ ly ＆ “＇） ”
+　　conn.execute sql
+　　End If
+　　sql = “SELECT ＊ FROM lyb ORDER BY sj DESC”
+　　Set rs = conn.Execute（sql） ％>
+　　<％ On Error Resume Next
+　　rs.MoveFirst
+　　do while Not rs.eof ％>
+　　<hr>
+　　姓名:<％=Server.HTMLEncode（rs.Fields（“xm”）.Value）％><br>
+　　留于:<％=Server.HTMLEncode（rs.Fields（“sj”）.Value）％><br>
+　　留言:<％=Server.HTMLEncode（rs.Fields（“ly”）.Value）％>
+　　<％ rs.MoveNext
+　　loop ％>
+　　</body>
+　　</html>
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

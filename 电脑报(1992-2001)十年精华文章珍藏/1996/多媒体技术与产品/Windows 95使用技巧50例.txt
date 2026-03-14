@@ -1,0 +1,171 @@
+Windows 95使用技巧50例
+
+
+1996-09-13
+
+        单击某一磁盘后，按数字区的*键。
+        二、快速查看文件“属性”
+        对你想要查看的文件或文件夹作Alt+鼠标左键双击。
+        三、直接删除文件
+        对文件或文件夹(Folder)作Shift+Del，可以使文件不送入资源回收桶(Recycle Bin)就直接被删除。
+        四、使“自动播放”暂时失效
+        放入CD后按住Shift即可。
+        五、加快备份速度
+        当你使用Windows 95的备份程序时，如果将其最小化，速度可以提高15%～25%。
+        六、快速打开日历
+        对toolbar的“时间”作双击。
+        七、删除Windows 95
+        有两个方法可以删除Windows 95：
+        1.使用Uninstall程序：
+        如果在安装Windows 95时生成了启动软盘(Startup Disk)，软盘上会有一个Uninstall程序，运行它可以删除Windows 95。
+        2.在DOS下删除Windows 95：
+        a.用DOS(V6.0、V6.2、V6.22皆可)软盘启动。
+        b.执行sys c:。
+        c.删除Windows 95及其所有子目录。
+        d.删除根目录中安装Windows 95生成的文件。
+        八、在DOS状态下使用长文件名
+        给长文件名加上引号。
+        例如：c:\>dir "cool Windows utilities"
+        c:\>dir "cool Windows utilities" \easy
+        九、快速清除文件
+        建立一个捷径：
+        a.用notepad写一个批处理如下：
+        echo y|del \Windows\recent\*.*
+        b.把这个文件存到你确定好的目录下。
+        c.在桌面上对这个文件建立一个捷径。
+        d.查看这个捷径的内容。
+        e.翻到“捷径”，找到“执行”，选最小化。
+        f.单击“OK”，下次要清除文件对此捷径双击即可。
+        十、在桌面(Desktop)上留言
+        用Wordpad写下留言后，用鼠标框起来，拖到桌面上放手就可以了。
+        十一、厌倦图形界面了吗?想进入dos再打Win进Windows窗口吗?
+        在msdos.sys中加入这一行BootGUI=0
+        十二、加速你的光驱，不管你的光驱速度是多少都适用
+        a.右键单击“我的电脑”/内容/效能/档案系统/cd-rom
+        b.把cache开到最大，光驱速度一律调 到“四倍或更快”据说，这能让单倍速光驱“起死回生，健步如飞!”
+        十三、在Windows 95中使用Windows 3.x的用户界面
+        打开“资源管理器”，在Windows95目录下找到Progman.exe，双击执行它，现在你可以看到熟悉的界面了，你可以把它作成一个捷径放到桌面上。
+        十四、如果你在Windows 95中建立了带有长文件名的文件，后来又删除了Windoes 95，可是在DOS环境下怎么也删除不了该文件，有什么办法呢?
+        可以用Norton的Diskedit编辑该文件所在磁盘，将其改为8.3(数件名8个字符，扩展名3个字符)形式文件名后，该文件即可被删除。
+        十五、用Pctools等工具在Windows 95下修改.EXE等文件时不成功(如修改文件属性)。
+        以DOS方式重启动，使用LOCK X:[Drive name]命令后即可修改，修改后UNLOCK X:[Drive name]。
+        十六、增加你的常规内存：DOS 7.0有几个新命令可以节约更多的常规内存，如FILESHIGH，BUFFERSHIGH，FCBSHIGH，STACKSHIGH，LASTDRIVEHIGH等，可以将以前只能在常规内存中使用的命令放到高端(UMB)中去，赶紧试一下吧!
+        十七、节省你的硬盘空间：Windows 95的“回收站”为了暂时保存被删除的文件，在硬盘上预留了百分之十的空间。如你的硬盘有1GB，那么“回收站”将占有100MB的空间。你可以将缺省值改为百分之五来节省磁盘空间。单击“回收站”，选“属性”，将滑杆调到百分之五处即可。
+        十八、如果你使用了16位的磁盘优化程序，再进入Windows 95时会出现什么情况?打开 Start发现以前的程序都不见了!怎么办呢?
+        重启动进入DOS状态，删除Windows95下的startm-1目录。
+        有两个办法可以恢复Start菜单：
+        a.左键单击“我的电脑”，执行“资源管理器”，进入Windows 95目录，双击后缀为.grp的文件来自动将其转换成Windows 95 文件夹。
+        b.通过带/m参数运行GRPCONV命令显示一对话框，在该对话框内可选择转换组。
+        十八、建立新文件的一种方法：用鼠标右键点击桌面或文件夹，在弹出的菜单中用鼠标左键点击NEW，然后在列出的清单中选择一个要建立的文件种类。
+        十九、对文件进行拷贝或移动操作时，请直接用鼠标右键点击该文件，在弹出的菜单中选择合适的命令。
+        二十、当使用SAVE AS命令储存文件时，可以建立一个新文件夹来储存这个文件。方法如下：用鼠标右键点击对话框，再用鼠标左键点击NEW、FOLDER，双击新文件夹名以打开它，然后就可以将该文件储存起来。
+        二十一、删除文件时，用鼠标点击DELETE(或按DELETE键)的同时按住SHIFT键，就可以将文件立即删除而不移入回收箱(RECYCLE BIN)中。
+        二十二、文件操作的快捷键：按BACKSPACE键可显示上一级文件夹；按CTRL+A键可选中一个文件夹下的所有文件；按F5键可更新列出的清单内容。
+        二十三、如果忘了刚才将文件移到了哪里或将文件改了名后又想恢复原名，可以在EDIT菜单中点击UNDO(或按ALT+BACKSPACE键)。
+        二十四、在Windows 95的DOS提示符下想显示目录(文件夹)时，只要输入“START .”或“START ..”，就会在桌面(DESKTOP)上出现一个显示目录的文件夹。
+        二十五、可以用鼠标点击程序组图标的方法来运行Windows应用程序，也可以在DOS方式下直接输入文件名(或在文件名前加START)来运行，当然可以在命令行上加上需要的参数。用START命令还可以直接打开文本文件，如START README.TXT。
+        二十六、有时可能会因为DOS方式的属性设置不对而打不开DOS窗口，这时可修改COMMAND.PIF文件或找到COMMAND.COM修改属性。
+        二十七、在DOS 6.x中，“”代表当前目录，“”代表父目录，在Windows 95中新增了两个目录表示法“”和“”，代表更上一级的目录，如当前目录为C:\WINDOWS\SYSTEM\VMM32，输入“CD ....”就会进到根目录下。
+        二十八、在DOS应用程序窗口中激活工具条(TOOLBAR)，就可以通过用鼠标点击的方法从Windows应用程序向DOS应用程序进行COPY、CUT和PASTE操作了
+        二十八、在Windows 95下进行某些操作后，在START按钮的DOCUMENTS菜单下有时会多出一些菜单内容来，这些内容有时显得有点多余，但用通常方法不能将之删除。可以采用下述方法达到目的：
+        1.点击START钮，点击SETTINGS，再点击TASKBAR。
+        2.点击START MENU PROGRAMS，再点击CLEAR。
+        二十九、隐藏任务条的方法：
+        1.用鼠标右键点击START钮，再用左键点击PROPERTIES。
+        2.点击TASKBAR OPTIONS，再点击AUTO HIDE。
+        如此设置后，任务条将自动隐藏，只有当鼠标移近时才自动出现。
+        三十、有些显示卡只有Windows 3.1的驱动程序而无Windows 95的驱动程序，如海洋公司的VL-VGA-1000显示卡在Windows 95下安装Windows 3.1的驱动程序后并没有出现设置显示模式的程序组，这时可以通过以下两种方法将Windows 3.1的程序组转换为Windows 95的程序组：
+        1.用鼠标双击GRP文件将之自动转换为Windows 95的文件夹。
+        2.带参数运行GRPCONV /M，在对话框中选择要转换的程序组文件。
+        三十一、可以通过MOUSEKEYS用数字小键盘上的光标键来代替鼠标，方法如下：
+        1.在CONTROL PANEL中双击ACCESSIBILITY OPTIONS图标。
+        2.点击MOUSE，再点击USE MOUSEKEYS。
+        三十二、如果在安装Windows 95时忘了制作一个紧急启动盘，不用担心，在安装完成后可再制作一个，方法如下：
+        1.在CONTROL PANEL中双击ADD/REMOVE PROGRAMS图标。
+        2.点击STARTUP DISK
+        三十三、在任务条最右侧有时钟信息和一个喇叭图标，单击这个喇叭就可以打开音量主控程序，双击这个图标就打开了所有音量控制程序(包括WAVE、CD AUDIO、SYNTHESIZER等)。通常情况下任务条是始终可见的，如此就可以在任何时候方便地调节音量大小了。如果任务条中无喇叭图标，可按下列步骤设置：
+        1.在CONTROL PANEL中，双击MULTIMEDIA图标。
+        2.点击AUDIO，选择SHOW VOLUME CONTROL ON THE TASKBAR。
+        三十四、可以为CD-ROM设置适当大小的缓存，方法如下：
+        1.在CONTROL PANEL中双击SYSTEM图标。
+        2.点击PERFORMANCE。
+        3.点击FILE SYSTEM，点击CD-ROM，就可在SUPPLEMENTAL CACHESIZE中调节缓存的大小了。
+        三十五、通常在WINDOWS95启动时会有一段动听的音乐，而在其它事件发生时(如打开文件、关闭窗口、覆盖文件、退出等)不一定会有声音发生，可以为这些事件加入自己喜欢的声音，方法如下：
+        1.在CONTROL PANEL中双击SOUNDS图标。
+        2.在列出的清单中选择要加声音的事件，再为之配上适当的声音文件即可。
+        三十六、“发送”的使用!!!!!!!真的很好用!
+        a.在正常状况下，你只能发送到A：，B：，fax,mail
+        b.但是你可以在Windows\SendTo这个文件夹里放入捷径来加强
+        c.我现在放了“垃圾桶”，"notepad","LviewPro"都很方便
+        d.但是如果你要更复杂的呢?例如做出下例的结构：
+        我的朋友们→朋友一
+        →朋友二
+        →朋友三
+        →朋友N
+        e.这也简单，首先建一个文件夹命名为“我的朋友们”，在里面放下各号朋友文件夹的捷径，最后把这个“我的们”文件夹放入"Sendto"文件夹就可以了!
+        三十七、<ComputerName>,然后单击“开始查找”，查找程序将在整个工作组中搜索并显示查找结果。
+        三十六、“发送”的使用
+        a.在正常状况下，你只能发送到A：，B：，fax,mail
+        b.但是你可以在Windows\SendTo这个文件夹里放入捷径来加强
+        c.我现在放了“垃圾桶”，“notepad”，“LviewPro”都很方便
+        d.但是如果你要更复杂的呢?例如做出下列的结构：
+        我的朋友们→朋友一
+        →朋友二
+        →朋友二
+        →朋友N
+        e.这也简单，首先建一个文件夹命名为“我的朋友们”，在里面放下各号朋友文件夹的捷径，最后把这个“我的朋友们”文件夹放入“Sendto”文件夹就可以了!
+        三十七、利用查找程序查找网络上的其他计算机：如果你的微机安装了Windows 95的网络组件并且连接到网络上，可以利用这项功能来查找同一网上的其他微机。选择开始/查找/计算机，在“名称框”中键入你要查找的微机名称，格式为\\<ComputerName>，然后单击“开始查找”，查找程序将在整个工作组中搜索并显示查找结果。
+        三十八、快速重启Windows 95：关机时选重新启动，在按下“是”的同时记得按shift可以跳开热启动的动作，省掉了自检等费时的步骤。
+        三十九、改变关机画面：记得以前可以改变开机画面吧?现在也可以改变关机画面了!logow.sys是等待关机，logos.sy是最后难看的“您可以安全关机”，都是bmp文件，快试试吧!原图是320x400，256色，但是最后Windows 95会把它放宽170%，所以你可以先准备一张544x400的图，再把这张图resize成320x400，再rename一下文件名就可以啦!(只能256色)而且最好注意一下调色盘(Color Palette)的问题。
+        四十、判断.exe用了哪些.dll?：对应用程序右键单击，选“快速查看”。
+        笔者注：快速查看(QuickView)必须另外安装，方法如下：
+        a.控制台/新增或删除程序/Windows 95安装程序/附属应用程序/详细资料
+        b.选取“快速查看(QuickView)”方块，确认。
+        四十一、微软专用键盘使用
+        a.Win+R="执行"
+        b.Win+M=全部窗口最小化
+        c.Shift-Win+M=取消全部窗口最小化
+        d.Win+F1=Help
+        e.Win+E=资源管理器
+        f.Win+F=“寻找”
+        g.CTRL+Win+F=显示“寻找：电脑”
+        h.Win+TAB=切换工作列的程序
+        i.Win+BREAK=显示系统内容
+        四十二、三键鼠标可以模拟Logitech鼠标的Double click
+        用Logitech鼠标的朋友们可能早就习惯用中键代替Double click转到95以后或许系统抓不到您的Logitech鼠标，或者您用的不是Logitech鼠标，但也是三颗“牙齿”的鼠标都可以使用下面这个方法
+        a.执行 regedit
+        b./HKEY_LOCAL_MACHINE/Software/Logitech/MouseWare/CurrentVersion/SerialV/0000
+        c.设定DoubleClick为001
+        四十三、使用ppp/slip连接的网友是不需要“网络邻居”这东西的
+        a.执行在Win-95 cd-rom的admin/apptools/poledit.exe
+        b.档案/开启登录/本机使用者/shell/限制/选取 “隐藏网络邻居”选框
+        c.选择“OK”，并存
+        四十四、在dos窗口状态下得到最大的内存：
+        在system.ini的[386enh]一节中设LocalLoadHigh=1即可
+        四十五、增强付程序的兼容：对付一些Win 3.1的程序你可以打开/Windows/system底下MKCOMPAT.EXE这个程序来做设定让它兼容。
+        四十六、关闭窗口动画(对速度较慢的电脑相当有用!)
+        a.执行:regedit
+        b.打开HKEY-CURRENT-USER
+        c.打开Control Panel
+        d.打开Desktop
+        e.双击WindoMetrics
+        f.右键单击窗口右栏，出现“新增”，选“字符串”，命名为MinAnimate
+        g.双击这个东东，出现调整栏
+        h.设定值=0，重启Windows 95(如定为1就复原)
+        四十七、HP打印机或者使用模拟HP的打印机会印出PJL码，解决办法：
+        a.把Windows\system底下的Lpt.vxd更名成Lpt.old
+        b.把Windows 95 cd-rom中Drivers\Printer\Lpt\Lpt.vxd拷进Windows\system
+        c.重开Windows 95
+        对开这个Lpt.vxd档的信息，请阅读Windows 95 cd-rom中Drivers\Printer\Lpt\readme.txt
+        四十八、在Windows 95中，Start菜单的Documents(文档)中，记录了用户最近打开的至多15个文件，某些情况下，为了保密我们并不希望别人知道我们做了什么，需要随时将这些记录删除掉，可通过如下方法清除：
+        1.选择Start(开始)\Settings(设置)\taskbar…(任务条)可弹出卡片式的对话框Taskbar properties(任务条特性)，也可以通过鼠标右键单击任务条空白处弹出同样的对话框。
+        2.选择Start Menu Programs(开始菜单程序)卡片；
+        3.在卡片上部Documents Menu(文档菜单)中，单击Clear(清除)按钮；
+        4.单击卡片底部Ok(确定)按钮返回。
+        四十九、找回Windows 95程序组的文件夹
+        程序组的文件失掉了，手工建立很麻烦，且不好归类。对此，只需在任务栏空白处单击鼠标右键，点取属性一项，添加一个恢复文件夹的快捷程序，再单击浏览，打在Windows95所在目录中的GRPCONV.EXE，最后单击下一步完成。这样，任务栏就增加了一个快捷方式GRPCONV的图标，点它一下，程序组的文件夹就恢复了，下次使用很方便。
+        五十、如果电脑中的文件太多，做文件备份时，可用一个硬盘作备份硬盘，并通过Windows 95的即插即用功能自动检测到这第二个硬盘，备份结束后，在控制面板口找到对硬盘管理一项，删除第二个硬盘，确定后关机取下备份盘，再启动Windows95，一切正常。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

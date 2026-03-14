@@ -1,0 +1,592 @@
+CGI编程手册
+
+孙艰
+1999年 第52期 01版
+
+#1一、认识CGI
+    在Internet中，许多网站为访问者提供了一些交互式的网页，你可以与网站所有者或者其他访问者进行信息传递、在线交谈甚至玩游戏。而这些功能由一种叫CGI的接口提供支持，通过编制特定程序完成这些特定的任务。
+    CGI ，中文叫通用网关接口，是一个信息服务器对外信息服务的标准接口。也就是说，CGI 是为提供在超文本HTML文件编写时，可以结合其它外部程序语言，让使用者能够通过浏览器将使用者的数据输入到文件里，然后通过HTTPd或CERN服务器处理后，转呈于其他用户察看或者记录至服务器的数据库里的接口。
+    所有的 CGI程序必须在服务器上执行，而执行的结果才传回到访问者的浏览器中，所以 CGI程序是快速和安全的。
+    1.CGI和Perl    
+    能够通过 CGI执行的“语言”很多，包括Shell Script、Visual Basic、C/C++、Perl 等等。但Perl语言具有对字符串与数据剖析很强的处理能力，尤其是利用关联性数组来作为 CGI应用程序剖析输入数据串，在网络的数据处理上占有绝对的优势。
+    Perl（Practical Extraction and Report Language）的设计者Larry Wall以实用作为第一优先，使Perl容易使用，有效率，并且完整。Perl提取了流行语言C，C++，Shell Script，sed，awk中的精华，并且它原始的目的是用来取代UNIX上的sed/awk与script的组合，用来汇集整理信息，产生报表的一个工具程序语言，所以Perl在UNIX上的性能不容怀疑。而通过版本的改进，可以说Perl可以做任何事情!
+    Perl是一个直译式的语言，你可以通过普通的文本编辑器编制程序，不需要做任何的编译就能通过浏览器直接执行。
+    2.Perl可以做什么    
+    Perl具有处理字符串的强大功能，Perl 5.0版本中还增加了面向对象的用法、增加了对字符串的处理能力，可以把一个文件或者数据库当成一个字符串来处理，不受数据的大小限制而只受存储器的大小限制，能够处理 DBM时间格式的数据，也能处理二进制数据等等。因而，不难想象Perl所能做到的事情。
+    更重要的是Perl能够在UNIX、Windows NT、Windows 95、DOS、linux、FreeBSD、OS2、Macitosh等系统中使用，这给你编制、转移、升级程序带来极大的方便。
+    3.CGI运行条件    
+    要运行一个 CGI程序，你必须具备一个 Web服务器，并且让这个服务器能够执行你编译了的程序（ C/C++等）或者让一个可靠运行的解析程序去解析你的程序（Perl等解析程序）。
+    如果你使用Perl作为你的编程语言，在程序中，你必须声明你的Perl解析程序的绝对地址，以便在你的程序执行函数时能找到正确的地方解析。Perl规定，程序的第一行用来指明Perl解析程序的执行路径:
+    #!/usr/bin/perl  或者
+    #!/usr/local/bin/perl5
+    在你编制完成一个Perl程序后，一定要把程序的属性改为每个人都能读取和执行 （改为755），这样你的程序才能被访问者执行。如果你是租用或者是申请的免费空间，一定要用 ASCII方式上传Perl程序。
+    一般情下，为了保证你的程序安全，Perl要求放到 cgi-bin目录下面，并且目录的属性也要改为 755。有关文件和目录的属性问题，可以参考有关UNIX的书籍。
+#1二、建立运行CGI的环境
+    用任何语言开发程序都需要一个开发调试环境，本章将为你能编制、运行、调试 CGI做准备工作。
+    1.在Windows 9x建立自己的Perl调试环境
+    第一章已经提到，要运行 CGI必须要有一个 Web服务器或者再加个解析程序。本文将使用WebSite 1.1和Perl For Win32程序建立一个在Windows 9x下面的Perl调试环境。
+    （1）建立Web服务器
+    第一步、安装Web服务器软件
+    使用WebSite 1.1建立服务器的理由是这个服务器很小，只有4MB，并且安装、配置都很容易。我不支持你使用Windwos 9x下自带的个人Web服务器，这个服务器在支持 CGI的一些高级特性方面存在问题，也不建议你安装WebSite 2.0等高版本，因为WebSite 1.1对于你调试 CGI程序已经足够了。
+    为保险起见，请在安装这个Web服务器前，关闭你其它的服务器和下网!安装WebSite 1.1的时候，会问你几个问题，首先会询问你Websit的安装路径（Destination Directory），这个路径就是你服务器的主要路径，你在选择了后，会出现^520108a^1的根目录路径和定义主索引文件名。如果你定义了Web root为d:＼WebSite＼htdocs，那么你以后要用到的Web服务器的根目录就是这样，你的服务器的根的绝对路径也就是这个路径。在Index doc中，你定义的 index.*表示通过浏览器访问你的服务器的时候，如果没有指明HTML文件名，那就去找index.html、index.htm等文件。一般情况下，你无需修改它们。
+    在进入服务器运行模式（Server Run Mode）的设置时，你不需要修改，直接选择进入主机域名（Host＇s Domain Name ）设置。在调试环境中，你最好不要输入域名，而直接输入一个IP地址，这里我们输入127.0.0.1后进入下一步。
+    请按提示输入管理员的邮件地址。这个地址其实在调试过程中没有多大的用处，只是在你调试出现错误后，会显示这个邮件地址，通过这个邮件地址以找到系统管理员，其实你现在就是系统管理员。
+    第二步、运行WebSite 1.1
+    相信你已经安装了TCP/IP协议在你的系统中，如果没有安装，请参考系统说明进行安装。你不需要修改你原来的设置，直接启动这个服务器，然后在你的浏览器中输入:http://127.0.0.1。如果一切正常，会出现WebSite的介绍页面，Reload后记数器的数值将会改变!如果没有出现WebSite的介绍页面，你可以试试输入：http://localhost。如果不出WebSite的介绍页面，说明你的TCP/IP配置有问题。一般是你配置的IP不在一个段上。
+    （2）安装Perl解析程序
+    现在你已经有了一个自己的Web 服务器，为了调试Perl程序，我们来安装一个Perl解析器。
+    这里我向大家推荐一个很不错的Windows下的Perl解释程序，这个程序你可以到:http://www.perl.com/CPAN-local/ports/win95/Standard/x86/perl5.00402-bindist04-bc.zip下载。不要小看这个文件5.9MB的容量，它安装后需要20MB的空间。
+    第一步、安装
+    安装这个程序其实再简单不过了，用WinZip解开到一临时目录后，在DOS下面进入临时目录，然后执行Install命令，安装过程中会出现一些提问。如果你想使用更多的功能，你需要先安装Borland C++的编译器。
+    首先，安装程序会询问你把Perl解析器安装到系统中的那个目录，然后询问你是不是已经有了C++的编译器，如果你回答y，会询问你的C++编译器是不是Borland C++ 5.x版本、你的编译器的目录位置、编译器包含文件位置和编译器库文件位置，请根据你机器的情况进行设置。
+    安装程序会继续询问你是不是需要安装HTML说明文档，安装的位置等信息，然后你回答Proceed为y后，程序会自动安装直到安装结束。
+    第二步、配置Perl
+    要让Perl解析器能够在系统中正常运行，你需要对Perl进行配置。在Windows中单击［开始］→［运行］→输入winfile回车，运行winfile。然后在winfile中选择［文件］→［关联］关联后缀为.pl和.cgi的程序到你的Perl解析器。
+    现在你需要把Perl安装目录（例如:d:＼perl）增加到系统文件autoexec.bat中的路径行中: path=c:＼perl。最后重新启动你的计算机。
+    （3）试试结果
+    现在你的Windows已经支持WWW服务和能够解析执行Perl了，让我们试试看:在你的d:＼WebSite＼htdocs目录下面建立一个text目录，在这个目录中放置text.cgi文件，其内容为:
+    #!/usr/bin/perl
+    #这是一个测试程序，它将在你的浏览器中打印出［测试］
+    print “Content-type:text/htmm＼n＼n”；
+    print “测试＼n”；
+    程序注释:
+    第一行：告诉服务器，这个程序需要用Perl解析器来解析执行，并且Perl解析程序是放在路径为/usr/bin/perl的地方。
+   ［注意］由于我们是在Windows 95下面执行这个程序，而我们在上节中已经关联了后缀为 pl和cgi的程序到我们安装的Perl解析程序。所以，这一行你可以去掉。为了使这个程序能在UNIX上执行，这一行我们还是加到了程序中。
+    在UNIX中，Perl的解析程序不一定放到/usr/bin/perl这个路径下面，所以你需要在UNIX下面要运行Perl程序时，要知道这个路径，办法是通过TelNet连接你的站点，然后输入命令:
+    which perl   或者    which perl5
+    执行这个命令的结果会返回Perl所在的路径。
+    第二行：在Perl中规定，任何程序除第一行的#是通知服务器Perl执行路径外，在程序任何位置出现的#和#后面的信息均被认为是对程序的注释。所以，这一行是一个注释行，它会被Perl解析器忽略。注释也可以放在一行程序代码的后面，例如:
+    print “测试＼n”； #执行print打印出［测试］两个字
+    第三行：告诉Perl程序使用HTML格式产生输出。
+    ［注意］①必须使用两个＼n换行符；②最后的；符号必须有，Perl语言规定每一个命令或者函数结束后面都要有“；”。
+    如果你希望以文本方式产生输出，你可以用:
+    print “Content-type:text/plain＼n＼n”；
+    如果你希望以图形方式产生输出，你可以用:
+    print “Content-type: image/x-xbitmap＼n＼n”；
+    第四行：这一行执行print命令打印出［测试］。并且加上一个换行符。
+    现在看看你的浏览器中能不能显示［测试］，如果不能，请你按照（1）和（2）重新再安装一次。打开你的浏览器，输入:http://127.0.0.1/test/test.cgi:
+    如果你得到［测试］的显示，恭喜你!你现在可以开始在你的Windows下调试Perl程序了。
+    2.在Linux下面安装 CGI环境    
+    现在我们在Linux下面配置一个 CGI环境，由于Linux的安装很多书籍上都有介绍，这里我们只对网络和 CGI进行介绍。我使用了两台微机进行网络配置，一台专门安装RedHat 6.0，另外一台通过配置Windows，把网络建立起来。
+    第一步、安装Linux
+    在安装 Linux过程中，要求你配置网络的时候，在网卡中选择你自己的兼容网卡，然后对 TCP/IP进行配置，选择［Static IP address］静态IP地址，在出现的［Configure TCP/IP］画面中输入下面的项目:
+    IP adderss : 213.213.213.199
+    Netmask: 255.255.255.0
+    Default geteway: 213.213.213.198
+    Primary nameserver : 选择缺省
+    在［configure Netword］中输入:
+    Domain name: yourname.org
+    Host name: redhat.yourname.org
+    后面两项为空。
+    如果你已经安装了Linux，你可以在提示符下面运行linuxconf对网络进行配置。
+    ［注意］在安装过程中请在［Components to install］中选择Web Server。
+    第二步、配置Web服务器
+    用root登陆到你的Linux上，建立一个新的用户并且给这个用户一个口令，然后把你的/home目录所有权交给这个用户:
+    ［root@redhat /］# cd / # 进入根目录
+    ［root@redhat /］# adduser boysss # 增加一“boysss”用户
+    ［root@redhat /］# passwd boysss# 为这个用户设置口令
+    ［root@redhat /］# chown boysss -r home/ # 把home目录使用权交给用户
+    然后修改/etc/httpd/conf/httpd.conf文件以配置Web服务器，其中修改:
+    # ServerName 213.213.213.199
+    修改/etc/httpd/conf/access.conf:
+        <Directory /home/httpd/cgi-bin>
+        AllowOverride All
+        Options Indexes Includes ExecCGI
+        </Directory>
+    修改/etc/httpd/conf/srm.conf:
+        # To use CGI scripts:
+        AddHandler cgi-script .cgi .pl
+        # To use server - parsed HTML file
+        AddType text/html .shtml .html .htm
+    第三步、配置Windows 9x登录Linux
+    进入控制面板中的［网络］，为你的网卡配置TCP/IP，在“TCP/IP属性”设置屏下选择“IP地址”选项卡，选中“指定IP地址（S）”选项，在“IP地址”中输入213.213.213.190，在“子网掩码”中输入255.255.255.0。进入DOS下，执行ping命令查看网络连接情况，并确认连通网络。
+    打开你的FTP软件，按在第二步配置Web服务器时设置的用户名和口令，配置好你的FTP登录设置（^520108b^2），然后确定能够FTP上网。
+    打开你的Telnet软件，配置你的Telnet功能，并且确认你能够联系到你的Linux主机。
+    打开你的浏览器，在URL地址栏中输入:213.213.213.199，你将可以看到Apache服务已经建立（^520108c^3）。
+#1三、安装自己的程序    
+    现在我们就开始进行程序设计。由于篇幅有限，本文将分两章分别教会大家对 CGI程序进行安装和简单的设计。首先我们来安装一个程序。
+    任何你能在网上下载的 CGI程序都有一个安装说明，不论这个说明是单独放在一个说明文件（例如readme.txt）或者放在程序内部。而且如果你的英语还过得去，你不难配置这个程序以适应你的系统安装运行。
+    本章就以一个简单的程序进行分析，并且让你能在各种不同的系统上都能使用这个程序或者其它你下载回来的程序。
+    下面的Perl程序代码将完成一个简单的功能：在你的服务器上的一个目录中建立一个文本文件，并且记录一些数据到这个文本文件中，然后在屏幕上显示出“欢迎”字样。
+    1.Perl程序代码    
+    #!/usr/bin/perl
+    # 文件名:test_perl.cgi
+    $path=“/home/httpd/cgi-bin/”；
+    $filename = “$path”.“aaa.txt”；
+    print “Content-type:text/html＼n＼n”；
+    open （FILE，“>>$filename”）；
+    print FILE “网名:boysss”；
+    print FILE “|”；
+    print FILE “网站:http://www.7761.com＼n”；
+    close（FILE）；
+    print “欢迎＼n”；
+    安装该程序    
+    这个程序的安装和配置很简单，你只要把$path和$filename设置正确就会运行。
+    $path是绝对路径，它在程序中的作用是指明现在程序要读写的目录，也就是大家在DOS、Windows 9x系统中见到的目录位置，在DOS下面，如果我们需要拷贝一个文件到另外一个目录，那么就应该执行:
+    copy file.txt d:＼copy＼myfile＼file.txt
+    就是把当前目录中的文件file.txt拷贝了d盘的目录copy＼myfile中，并且文件名字为file.txt。在这里，d:＼copy＼myfile＼就是绝对路径，也就是磁盘为绝对位置。
+    在UNIX等系统中，磁盘位置的表示方法与DOS下面不一样，它没有盘符，只有路径，如果同样拷贝一个文件，看起来象这样:cp file.txt /home/uu/file.txt就是把当前目录中file.txt文件拷贝到目录/home/uu/中，这个/home/uu/也就是绝对路径。
+    因此，如果在UNIX、Linux等系统中，对上面程序中的$path路径的设置就应该为:$path=“/home/httpd/cgi-bin/”；它说明需要在/home/httpd/cgi-bin/目录中进行读写等操作。
+    如果在Windows 9x中，就应该写为:$path=“d:/WebSite/htdocs/test/”；它说明我们需要在d:/WebSite/htdocs/test/进行操作。
+    在UNIX、Linux等系统中要知道绝对路径的位置，可以FTP登录到你的服务器，进入相应的目录后，看看远端的目录显示。
+    然后我们来设置$filename，也就是我们需要记录的的文件名，它通过Perl中的字符连接符号.来连接路径和文件名，所以，现在$filename的值就应该是:/home/httpd/cgi-bin/aaa.txt。
+    好了，现在我们修改好程序后，把它以ASCII方式上传到cgi-bin目录中，然后修改属性为755，最后在浏览器中输入:
+    http://213.213.213.199/cgi-bin/test_perl.cgi
+    2.C/C++程序代码    
+    这个C 程序中有很多标准的程序块，在本例中有的程序块没有使用到。
+    /* 文件名:test_c.c */
+    # include <stdio.h>
+    # include <stdlib.h>
+    # include <time.h>
+    # include <string.h>
+    typedef struct {
+        char *name；
+        char *val；
+    }input；
+    char *ReadStdin（FILE *f，char stop，int *len）；
+    void AddToSpace（char *str）；
+    void Convert（char *url）；
+    char *ReadData（char *line，char stop）；
+    main （int argc，char *argv［］）
+    {
+        input inputs［10000］；
+        register int i，m=0；
+        int len；
+        int *buffer；
+        int data，num，size；
+        time_t Ourtime；
+        FILE *fp，*fopen（）；
+        fp=fopen（“/home/httpd/cgi-bin/aaa.txt”，“a”）；
+        fputs （“网名:boysss”，fp）；
+        fputs （“|”，fp）；
+        fputs （“网站:http://www.7761.com＼n”，fp）；
+        fclose（fp）；
+        printf（“Content-type:text/html%c%c”，10，10）；
+        printf （“欢迎”）；
+    }
+    char *ReadStdin（FILE *f，char stop，int *len）
+    {
+        int wsize；
+        char *word；
+        int x；
+        wsize=102400；
+        x=0；
+        word=（char *）malloc（sizeof（char） *（wsize+1））；
+    while（1）
+    {
+        word［x］=（char）fgetc（f）；
+        if（x==wsize）
+        {
+          word［x+1］=‘＼0’；
+          wsize+=102400；
+          word=（char *）realloc（word，sizeof（char） 
+              * （wsize+1））； 
+        }
+        --（ *len）；
+        if（（word［x］==stop） || （feof（f）） || （!（ *len））） 
+        {
+        if（word［x］!=stop）x++；
+               word［x］=‘＼0’；
+               return word；
+        }
+        ++x；
+    }
+    }
+    char ConvertToHex（char *change）
+    {
+      register char hexdigit；
+      hexdigit=（change［0］>=‘A’?（（change［0］&0xdf）-‘A’）
+        +10:（change［0］-‘0’））；
+      hexdigit*=16；
+      hexdigit+=（change［1］>=‘A’?（（change［1］&0xdf）-‘A’）
+        +10:（change［1］-‘0’））；
+      return （hexdigit）；
+    }
+    char *ReadData（char *line，char stop）
+    {
+      int i=0，j；
+      char *word=（char *）malloc（sizeof（char） 
+       *（strlen（line）+1））；
+      for（i=0；（（line［i］）&&（line［i］!=stop））；i++）
+        word［i］=line［i］；
+        word［i］=‘＼0’；
+        if（line［i］）++i；
+        j=0；
+        while（line［j++］=line［i++］）；
+        return word；
+    }
+    void Convert（char *data）
+    {
+        register int i，j；
+        for（i=0，j=0；data［j］；++i，++j）{
+        if（data［i］=data［j］==‘%’） {
+          data［i］=ConvertToHex（&data［j+1］）；
+            j+=2；
+        }
+    }
+        data［i］=‘＼0’；
+    }
+    void AddToSpace（char *str）
+    {
+        register int i；
+        for（i=0；str［i］；i++）
+        if（str［i］==‘+’）
+          str［i］=‘ ’；
+    }
+    安装该程序    
+    这个程序唯一要修改的地方就是:
+    fp=fopen（“/home/httpd/cgi-bin/aaa.txt”，“a”）；
+    中的/home/httpd/cgi-bin/aaa.txt这个绝对路径，同样改为你自己的绝对路径、上传。为使这个程序能够运行，我们需要编译这个程序，用你的Telnet工具登录到你的服务器，并且进入程序所在的目录，然后编译:
+    ［root@redhat /］# cd /home/httpd/cgi-bin  # 进入目录
+    ［root@redhat /cgi-bin］# gcc -o test_c.cgi test.c
+    最后，在浏览器中执行这个程序（^520108d^4）。
+    到这里，你已经会使用网络工具（FTP、Telnet）来安装 CGI程序了，在下面一章里，我们以Perl为例，开始学习CGI的编程。
+#1四、用Perl编制CGI程序    
+    编制一个 CGI程序并不困难，特别是使用Perl来编制。本章将通过一个功能比较完善的留言板程序向大家介绍Perl编制 CGI程序。
+    1.提出需要    
+    有需要，才有程序! 现在我们需要一个留言板程序，让它能够完成下面的要求:
+    （1）字段自己可以定制
+    （2）留言到记录文件中
+    2.分析需要及编制程序    
+    有了需要后，再来分析一下怎么才能实现这些功能:
+    （1）字段可以自己定制
+    你可以找到很多留言板的免费程序，但是它们那古板的录入项目让你讨厌。现在我们提出一个可以随时增加和删除留言项目的留言板方案，来看看怎么用程序来实现。
+    首先，我们定义一个文本文件，这个文件中存放一些留言板能够用到的和我们能够想到的字段。我们把这个文件名字定为 field.txt，格式为:
+字段名称|英文名称|字段类型|是否使用|检查内容
+姓名    |Name    |TEXT    |Yes     |Yes
+电子邮件|E_Mail  |TEXT    |Yes     |@
+主页地址|URL     |TEXT    |Yes     |http://
+性别    |Gender  |SELECT  |Yes     |男，女
+城市    |City    |SELECT  |Yes     |FILE=city.txt
+留言内容|Content |TEXTAREA|Yes     |FILE=Filtate.txt
+    说明：字段名称中为中文显示到留言板的页面上的文字；英文名称是程序需要使用的名称，请用字母、数字和下划线；字段类型代表本字段在留言提交表单Form中的类型，请参考HTML手册；是否使用代表本字段在留言中是不是需要用户填写；检查内容中 Yes表示必须输入、其它的字符串表示在输入的过程中必须包含这一字符串；如果字段类型为SELECT（选择），在检查内容中有两种选择方式: ①通过，号直接给出选择项目，②通过FILE=文件名给出一个专门用于选择的文件，这在选择项目特别多的时候使用；如果字段类型为TEXTAREA你可以在检查内容中加一个简单的文本FILE=filtate.txt来过滤坏字。在检查内容中FILE=文件名，其中文件内容格式定为:
+        内容1
+        内容2
+        ...
+        内容n
+    每一行一个选择或者坏字，每行必须有硬回车。
+    下面，我们就来完成这个程序（名称:user_add_from.cgi）:
+    #!/usr/bin/perl
+    # 定义标准HTML输出格式
+    print “Content-type: text/html＼n＼n”；
+    # 以只读方式打开留言板字段定义数据库field.txt
+    open （FIELD，“</home/httpd/cgi-bin/guestbook/sysdata/field.txt”）；
+        # 把字段数据中的内容以行的方式读到数组@all-field中
+        @all_field = <FIELD>；
+    # 关闭文件
+    close （FILED）；
+    # 首先，定义留言表单头
+    $output_html = qq～
+       <form action=http://213.213.213.199/cgi-bin/guestbook/add_guestbook.cgi met  hod=“post”>～；
+     # 对数组@all_field进行循环，逐一找出每一个字段
+     # 然后根据字段的设置产生HTML代码
+     foreach $one_field（@all_field） {
+      # 把每一个字段根据分隔符号|转换成为一个新
+      # 的数组，以便对字段进行分析和利用
+      @fields = split（/＼|/，$one_field）；
+      # 如果本字段的第4个项目为Yes，也就是需要
+      # 用户在留言的时候对它进行输入，我们进行显示
+       # 注意字段号从0开始计算，所以这里为$fields［3］
+      if （$fields［3］ eq “Yes”） {
+      # 执行显示准备过程，其返回的HTML放到
+      # 变量$output_html中
+      $output_html .= &get_html；
+      }
+    }
+    #最后，加上提交按钮，并且结束表单。
+    $output_html .= qq～
+      <input type=“submit” value=“给我留言”>
+      <input type=“reset”>
+      </form>～；
+   # 当把所有的显示字段内容准备好后，就执行
+   # disp_html 过程把它们显示出来，从而完成本程序要
+   # 求的显示出一个留言HTML表单让用户留言。也就是完
+   # 成了添加留言功能。
+      &disp_html；
+      # 下面是get_html过程，它完成根据字段数据库的内容
+      # 产生一个HTML代码，然后通过disp_html显示出来。
+      sub get_html {
+      # 先对$out清空，防止老数据重复
+      $out = “”；
+      # 下面判断留言的FORM类型，以便
+      # 产生相应的HTML代码
+      if （$fields［2］ eq “TEXT”） {
+           # 产生HTML代码
+           $out .= qq～$fields［0］:<input type=$fields［2］ name=$fields［1］><br>～；
+           }elsif （$fields［2］ eq “TEXTAREA”） {
+            # 如果类型为TEXTAREA，产生表框
+            $out .= qq～$fields［0］<br>
+            <TEXTAREA NAME=$fields［1］ ROWS=6 COLS=45 WRAP=“VIRTUAL”>～
+       }elsif （$fields［2］ eq “SELECT”） {
+            # 判断SELECT中的两种给出选择的方式
+            if （$fields［4］=~/＼，/） {
+            # 如果选择中有，号就把选择用，号分开放到数组@select中
+          @select = split（/＼，/，$fields［4］）；
+            }elsif（$fields［4］=~/＼=/） {
+            # 如果选择中有=号就读出文件名
+            （$temp，$select_filename） = split（/＼=/，$fields［4］）；
+            # 然后打开这个选择文件，把内容读到数组@select中
+       open （ONE_F，“</home/httpd/cgi-bin/guestbook/sysdata/$select_filename”）；
+                       @select = <ONE_F>；
+                close（ONE_F）；
+                  }else{
+                        # 不然说明字段数据库设置错误
+                        print “错误的字段数据库＼n”；
+                        exit；
+                  }
+                  # 对@select进行循环，产生所有的选择项目
+                  $out .= qq～$fields［0］:<select name=$fields［1］>～；
+                  foreach （@select） {
+                        $out .= qq～<optipn value=$_>$_～；
+                  }
+                  $out .= qq～</select><br>~；
+            }else{
+                  # 不然说明字段数据库设置错误
+                  print “错误的字段数据库＼n”；
+                  exit；
+            }
+            # 返回建立好了的HTML代码
+            return $out；
+    }
+      # 下面是 disp_html过程，该程序将通过一个你事先可以
+      # 定义的HTML文件来产生一个HTML输出，其输出的
+      # HTML文件会通过$output_html具体值改变，这是很多
+      # 页面产生程序（例如新闻程序）的原型。
+      sub disp_html {
+   open（TEMPLATE，“</home/httpd/cgi-bin/guestbook/template/guestbook.htmlt”）；
+            # 先打开模板文件，这个模板文件在适当的
+            # 位置有一个变量 $HTML_OUTPUT 我们开始
+            # 下面的程序把我们已经产生了的HTML代码
+            # 替换进去，然后打印出来，就产生了新的页面
+            while （<TEMPLATE>）{
+                  # 利用这个循环，我们把模板文件
+                  # 中的所有内容放到变量$template
+                  $template .= $_；
+            }
+            close（TEMPLATE）；
+            # 然后我们把变量$template中的内容凡是有
+            # $HTML_OUTPUT的地方替换成$template...
+            $template =～ s/＼$HTML_OUTPUT/$output_html/g；
+            # 最后输出到屏幕
+            print $template；
+      }
+    下面就来安装这个程序并且运行它。
+    第一步、建立HTML模板（文件名:guestbook.htmlt）
+    <HTML>
+    <HEAD> 
+      <TITLE>测试留言板</TITLE>
+      </HEAD>
+      <BODY BGCOLOR=“#FFFFFF”>
+      $HTML_OUTPUT
+      </BODY>
+      </HTML>
+    大家可以看到，这个文件与HTML文件格式完全一样。只是我们在其中插入了一个变量$HTML_OUTPUT。
+    第二步、安装程序
+    根据我们在user_add_from.cgi中的设置，现在我们用FTP连接到服务器上，建立相应的目录和上传相应的文件，下图中括号中的数字是文件或者目录的属性:
+     /home/httpd/cgi-bin/guestbook   （755）
+          |
+          ------user_add_from.cgi   （755）
+          |
+          ------sysdata（目录）       （777）
+          |      |
+          |      -----field.txt       （666）
+          |      |
+          |      --city.txt        （666）
+          |      |
+          |      --filtate.txt     （666）
+          |
+          ------data（目录）          （777）
+          |      |
+          |      --guestbook.txt   （666）
+          |
+          ------template（目录）
+                 |
+                 -guestbook.htmlt （666）
+    第三步、运行这个程序（^520108e^5）
+    在浏览器中输入:
+    http://213.213.213.199/cgi-bin/guestbook/user_add_from.cgi
+    （2）留言到记录文件中
+    很多留言板直接把留言记录放到HTML文件中，这样会让浏览记录不好管理。为了能够删除留言，把留言记录放到一个文本数据库中，同时在显示留言的时候，也从这个数据库中调出数据立即产生一个页面供访问者查看。这里，需要两个程序，一个是当留言者提交留言后的记录程序（程序名称:add_guestbook.cgi），一个是显示留言的程序（程序名称: view_guestbook.cgi）。
+    下面就来编制这两个程序。
+    ①add_guestbook.cgi
+      #!/usr/bin/perl
+      # 读/home/httpd/cgi-bin/guestbook/lib/中的cgi-lib.pl库
+      require “/home/httpd/cgi-bin/guestbook/lib/cgi-lib.pl”；
+      # 执行cgi-lib.pl库中ReadParse过程来解析字串，从而获
+      # 得程序参数
+      &ReadParse；
+      # 定义标准HTML输出格式
+      print “Content-type: text/html＼n＼n”；
+      # 以只读方式打开留言板字段定义数据库field.txt
+      open （FIELD，“</home/httpd/cgi-bin/guestbook/sysdata/field.txt”）；
+       # 把字段数据中的内容以行的方式读到数组@all-field中
+        @all_field = <FIELD>；
+      # 关闭文件
+      close （FILED）；
+      #对数组@all_field进行循环，逐一找出每一个字段
+      foreach $one_field（@all_field） {
+        # 把每一个字段根据分隔符号|转换成为一个新
+        # 的数组，以便对字段进行分析和利用
+       @fields = split（/＼|/，$one_field）；
+       # 如果本字段的第4个项目为Yes，也就是需要
+        # 用户在留言的时候对它进行输入，进行显示
+        # 注意字段号从0开始计算，所以这里为$fields［3］
+        if （$fields［3］ eq “Yes”） {
+            # 如果本字段是要求用户录入的字段
+        # 就判断是不是本字段是不是必须输
+        # 入，并且根据我们的设置去判断和过滤输入
+        if （$fields［4］ eq “Yes”）{
+              # 如果必须输入，就判断用户
+              # 是不是已经输入了内容，如果没有，就显示错误
+              if （!$in{$fields［1］}） {
+                    print “$fields［1］必须输入＼n”；
+                    exit；
+                    }
+              }elsif（（$fields［4］） 
+                    && （$fields［4］ ne “Yes”）
+                    && （$fields［4］!~/＼=/）
+                    && （$fields［4］!~/＼，/））{
+                    # 不然如果对输入有要求，但是要求在输入
+                    # 中必须包括定义了的字符，下面的程序就
+                    # 来判断输入中是不是已经满足了设定的输入要求
+                    if （$in{$fields［1］}!~/$fields［4］/）{
+                          print “$fields［1］输入错误＼n”；
+                          exit；
+              }elsif（（$fields［4］=~/＼=/） && （$fields［4］=~/filtate/））{
+                    # 如果设置中包括了=号和filtate文件，说
+                    # 明程序需要读外部数据库对输入进行过滤
+           open （FIT，“</home/httpd/cgi-bin/guestbook/sysdata/filtate.txt”）；
+                          @all_fit = <FIT>；
+                    close（FIT）；
+                    # 开始过滤
+                    foreach $one_fit（@all_fit） {
+                          $one_fit=~s/＼n//g；
+                          if （$in{$fields［1］}=~/$one_fit/） {
+                                # 如果输入中包括了需要过滤
+                                # 的字，就打印错误信息，并退出程序
+                                print “$fields［1］输入错误＼n”；
+                                exit；
+                              }
+                        }
+                  }
+            }
+      }
+      # 程序能够执行到这里，说明用户输入的留言所有的
+      # 内容均符合设置要求，因此下面程序执行记录本次
+      # 留言数据到我们的留言数据库中。
+      # 首先准备本次留言数据的格式，这个格式我们使用
+      # 分隔符 |来分隔字段，为了保证在不允许一个字段
+      # 输入后数据库格式保持一致，我们记录不允许的字
+      # 段为空。
+      $line = “”；  # 清空
+      foreach $one_field（@all_field） {
+            @fields = split（/＼|/，$one_field）；
+            $line .= “$in{$fields［1］}”.“|”；
+      }
+      # 清除记录中所有的换行符，以保证每一个留言占用
+      # 数据库的一行
+      $line=~s/＼n//g；
+      # 在最后增加一个换行符，以保证本次留言记录能够换行
+      $p_line = “$line＼n”；
+      # 以添加方式打开留言记录数据库，打印记录本次留言
+      open （GUEST，“>>/home/httpd/cgi-bin/guestbook/data/guestbook.txt”）；
+            print GUEST $p_line；
+      close（GUEST）；
+      # 下面显示一个 URL让留言者能够返回到留言主画面
+      # 也就是返回显示留言的程序中去。
+      $back = qq～
+            <a href=http://213.213.213.199/cgi-bin/guestbook/view_guestbook.cgi>
+            返回</a>～；
+      print $back；
+      exit；
+    ②view_guestbook.cgi
+    限于篇幅，这个程序没有去控制分页显示，只是简单的从留言数据库中读出每条留言记录，然后全部显示出来。
+    #!/usr/bin/perl
+    # 读/home/httpd/cgi-bin/guestbook/lib/中的cgi-lib.pl库
+    require “/home/httpd/cgi-bin/guestbook/lib/cgi-lib.pl”；
+    # 执行cgi-lib.pl库中ReadParse过程来解析字串，从而获
+    # 得程序参数
+    &ReadParse；
+    # 定义标准HTML输出格式
+    print “Content-type: text/html＼n＼n”；
+    # 以只读方式打开留言板字段定义数据库field.txt
+    open （FIELD，“</home/httpd/cgi-bin/guestbook/sysdata/field.txt”）；
+        # 把字段数据中的内容以行的方式读到
+        # 数组@all_field中
+        @all_field = <FIELD>；
+    # 关闭文件
+    close （FILED）；
+    # 现在对数组@all_field进行循环，逐一找出每一个字段并产生一个关联数组，关联方式为字段排号→中文字段名字
+    # 先定义字段排号初始值
+    $i = 0；
+    foreach $one_field（@all_field） {
+        # 把每一个字段根据分隔符号|转换成为一个新
+        # 的数组，以便我字段进行分析和利用
+        @fields = split（/＼|/，$one_field）；
+        # 把中文字段名称俯值给关联数组$arr
+        $arr{$i} = $fields［0］；
+        # 关联数组的键值改变（递增1）
+        $i++；
+    }
+    # 本例中，我们得到的关联数组为:
+    # $arr{‘0’} = 姓名
+    # $arr{‘1’} = 电子邮件
+    # $arr{‘2’} = 主页地址
+    # $arr{‘3’} = 性别
+    # $arr{‘4’} = 城市
+    # $arr{‘5’} = 留言内容
+    # 下面我们开始从留言数据库中读出数据
+    open （GUEST，“</home/httpd/cgi-bin/guestbook/data/guestbook.txt”）；
+        @guestbook = <GUEST>；
+    close（GUEST）；
+    # 然后我们循环产生留言HTML代码段
+    # 先对输出进行清空
+    $output_html = “”；
+    foreach （@guestbook） {
+        # 把读出的每条留言数据分割开成为新的数组
+        @one_guest = split（/＼|/，$_）；
+        # 定义排号初始值
+        $i = 0；
+        # 对字段进行循环
+        foreach $one_field（@one_guest） {
+              $output_html .= qq～$arr{$i}:$one_field<br>~；
+              $i++；
+        }
+        # 每一个留言记录显示完毕后，增加一个分隔线
+        $output_html .= qq～<hr>～；
+    }
+    # 执行显示过程，显示出留言
+    &disp_html；
+    exit；
+    # 下面是 disp_html过程，这个程序将通过一个你事先可以
+    # 定义的HTML文件来产生一个新的HTML输出，其输出的
+    # HTML文件会通过$output_html具体值改变，这是很多
+    # 页面产生程序（例如新闻程序）的原型。
+    sub disp_html {
+      open（TEMPLATE，“</home/httpd/cgi-bin/guestbook/template/guestbook.htmlt”）；
+        # 先打开模板文件，这个模板文件在适当的
+        # 位置有一个变量 $HTML_OUTPUT 我们开始
+        # 下面的程序把我们已经产生了的HTML代码
+        # 替换进去，然后打印出来，就产生了新的页面
+        while （<TEMPLATE>）{
+              # 利用这个循环，我们把模板文件
+                # 中的所有内容放到变量$template中...
+                $template .= $_；
+          }
+    close（TEMPLATE）；
+    # 然后我们把变量$template中的内容凡是有
+    # $HTML_OUTPUT的地方替换成$template...
+        $template =～s/＼$HTML_OUTPUT/$output_html/g；
+        # 最后输出到屏幕
+        print $template；
+    }
+    下面我们就来安装这个程序并且运行它。
+    同上，把这两个文件传到目录/home/httpd/cgi-bin/guestbook里，修改属性为755，给自己留几个言试试，最后在浏览器中输入:http://213.213.213.199/cgi-bin/guestbook/view_guestbook.cgi
+    查看一下留言情况（^520108f^6）。
+    作者主页：http://www.7761.com
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

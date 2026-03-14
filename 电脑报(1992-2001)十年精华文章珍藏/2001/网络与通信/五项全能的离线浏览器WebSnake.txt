@@ -1,0 +1,38 @@
+五项全能的离线浏览器WebSnake
+
+周建军 
+2001年 31期
+
+WebSnake是一款非常优秀、非常实用的离线浏览器，软件运行、下载设置灵活而且速度极快。除了离线浏览外，它还有制作网站镜像、查找网站上的E-mail地址、查看网站地图和查询下载文件四项功能，所以WebSnake被称为五项全能的离线浏览器。
+　　#1    一、下载和安装
+　　WebSnake为共享软件，不注册可以免费使用30天。我们可以到中国下载（http://www.download.com.cn/）下载这款软件的1.23版本，也可以到我的主页http://azhou.myrice.com/下载，大小为1891KB。软件的安装非常简单，只须运行下载的程序，然后一路“Next”即可完成安装。
+　　#1    二、软件的设置
+　　软件运行时，会先弹出一个包括五种专家方案的窗口，按“取消”按钮进入主窗口，使用主菜单“View”下的“Options”命令进行设置。可以看到，Options窗口由6个标签页组成：
+　　●“General”：如果系统中默认的浏览器是Netscape，就选中“Identify WebSnake as Netscape Navigator”；如果是IE，则选择“Identify WebSnake as Internet Explorer”，并在后面输入相应的版本号。使用“Maximum number of download threads”设置下载时的最大线程数，软件默认值为10。在“Startup”下选择软件的启动选项：“Open the last active Session at start”是在启动时打开上一次的会话，“Launch WebSnake New Project wizard at start”是在启动时打开WebSnake的项目向导。我们可根据自己的需要进行选择。
+　　●“Transfer”：设置下载的参数。在“e-mail”里输入E-mail地址作为FTP匿名用户登录时的用户密码，然后在下面的“Receive bytes”、“Send bytes”里设置接收和发送缓存大小，下面的连接重试、接收错误时长（Receive timeout）、发送错误时长（Send timeout）等几个数值一般使用默认值即可，如果网络不佳，可以把“Receive timeout”、“Send timeout”两个值设置得稍大一些。
+　　●“Firewall”：设置代理服务器。如果在防火墙后或者需要使用代理服务器才能连接网络，需要在这里选中“Use Firewall”，然后在下面的“HTTP”和“FTP”中分别输入代理服务器地址和端口号，并在“Firewall Type”中选择一款合适的防火墙类型。
+　　至于其他标签页内的选项，我们使用其默认设置即可。
+　　#1    三、软件的使用
+　　1.离线浏览：这是WebSnake提供的一个最主要的功能，它能把我们指定的网站按要求全部或部分高速下载到本地，供我们离线浏览。
+　　软件启动时，会给出五个专家方案供我们选择（如图），（^31040404a^）选中第一项“Snake a copy of a website for off-line”（下载网站供离线浏览），按“下一步”后在“Starting”里输入我们要下载的网站地址，并在下面的“Project”里起一个项目名称，按“下一步”，如果我们需要账号和密码才能访问该网站，需要选中“Yes!”前面的复选框，然后在下面输入账号和密码；按“下一步”设置下载深度和停止条件，下载深度（Limit the number of levels snake）默认值为3，停止条件默认为硬盘空间小于10MB则自动停止；再按“下一步”有三个选项：马上运行该项目、暂不运行该项目、进行高级设置。如果我们下载所有文件，选择第一个后按下“完成”按钮就可以进行下载了，否则选择第三项进行高级设置。在高级设置窗口中有七个标签页。
+　　●“General”：在这里我们可以对网站地址、项目名称和下载深度进行修改。
+　　●“Limits”：设置下载范围。有四个选项：“Stay within qualified domin”，举个例子说，如果我们在前面的网站地址中输入了“www.yahoo.com”，则适用范围是“*.yahoo.com”，相对而言其范围要比我们输入的地址大得多；“Stay within current server”，则下载范围是www.yahoo.com整个服务器；“Stay within starting address/url”，则范围仅为http://www.yahoo.com所指向的URL地址（这也是默认值）；“Follow all links found”，则是下载该网站上所有超级链接指向的内容，除非特别需要，不要选择这项。下面还有一个复选框“Do not explore paths that contain this”，表示如果选中这个复选框，则以它后面文字框中开头的目录将不被下载，这个选项一般用于设置过滤网站上的临时目录用，或者过滤我们不想下载的目录。
+　　●“Filters”：设置自动停止条件。共有五个选项：“Stop project if downloaded files”（下载的文件总量大小超过设定值即停止）；“Stop project if space left on drive is less”（磁盘空间小于设定值即停止下载）；“Stop project if number of downloaded”（下载文件数目超过设定值即停止下载）；“Stop project if number of HTML files ”（下载的超文本文件数量超过设定值即停止下载）；“Do not download fiiles whose size exceeds”（不下载大小超过设定值的文件）。我们可以根据自己的需要进行设置。
+　　●“Filetypes”：设置下载的文件类型，有图片（Images）、文本（Text Files）、影像（Video）、声音（Audio）、和其他类型（Other）几种。对于未知类型的文件，可以通过“Download all unknown file type”复选框来确定是否下载。
+　　●“Schedule”：设置定时完成设置的任务。
+　　●“Password”：修改或设置登录网站的口令。我们可以在“User”和“Password”里分别输入账号和口令，还可以对需要口令访问的内容进行设置，选择“Ignore and continure for other”是忽略这个连接而继续后面的工作；“Prompt for user and password”是提示用户输入账号和口令；“Stop project”是如果遇到需要输入口令的地方就停止下载。
+　　●“Linking”：设置如何处理超文本文件中的超链接，如果没有特殊要求，使用其默认设置即可。
+　　在设定完成之后，我们就可以下载该网站了。选中该项目后，按下工具栏上的“Snake”按钮，或者使用主菜单“Project”下的“Snake Now!”命令，即可将网站上我们设定的内容高速下载下来，如果中间我们想停止下载，可以随时按下“Cancel”按钮将其停止。
+　　下载完成之后，双击右侧的网页文件，或者按下“Folder”按钮，可以打开网站下载保存在磁盘上的目录进行浏览。
+　　2.网站镜像：在五个专家方案中选择第二项“Snake a mirrored copy of a website including directory structure”（包括目录结构的网站镜像）。网站镜像的使用方法与离线浏览的方法大致相同，也需要建立项目、保存项目名、设置下载深度等，下载的内容也可离线浏览，但与离线浏览不同的地方在于它把网站上的文件原原本本按照网站上的目录格式进行保存，而离线浏览则把所有的文件都保存在一个目录之中。制作网站镜像的好处在于我们能够掌握网站的结构，对于网站设计者和维护者来说更加实用一些。
+　　3.收集E-mail：对于收集E-mail的用户来说，WebSnake也是一款非常优秀的工具，它能够收集目标网站上所有网页中包括的电子邮件地址，并且能够把收集到的地址输出到文本文件中。
+　　我们可以在五个专家方案中选择第三项“Snake e-mail address from a web（从网站收集E-mail地址）”；然后输入网站地址和项目名称，再输入搜索深度和设置停止条件，按“完成”按钮即可收集该网站上的E-mail地址。收集到的邮件地址我们可以全选后右击，选择“Export E-mail”将它导出。
+　　4.网站地图：如果我们想掌握某个网站各个网页之间的关系，可以使用WebSnake的这项功能，在五个专家方案中选择第四项“Creat a set map of web”（创建网站地图），然后按照提示输入网站名称、项目名称，按“完成”按钮即可得到该网站的地图。
+　　5.文件搜索和下载：这项功能对于我们来说也非常实用，它可以按照我们指定的条件从网站上下载符合条件的文件。我们只须在五个专家方案中选择最后一项“Search and retrieve files from a website”（从网站搜索和检索文件），按照提示输入网站名和项目名称，运行后即可得到该网站上符合条件的文件。
+　　WebSnake提供的功能很多，也很实用，整个软件操作起来也非常简单，如果你具有一定的英文水平，按照说明可很快地掌握这款软件的使用方法。
+　　
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

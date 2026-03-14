@@ -1,0 +1,117 @@
+Linux内核解读入门
+
+焦俊
+2000年 第47期 
+
+　　很多Linux 爱好者对内核很感兴趣却无从下手，本文旨在介绍一种解读Linux内核源码的入门方法，而不是讲解Linux复杂的内核机制。
+　　1．核心源程序的文件组织
+　　（1）Linux核心源程序通常都安装在/usr/src/Linux下，而且它有一个非常简单的编号约定：任何偶数的核心（中间数字）如：2.0.30都是一个稳定的发行的核心，而任何奇数的核心如：2.1.42都是一个开发中的核心。
+　　本文基于稳定的2.2.5源代码，第二部分的实现平台为Redhat Linux 6.0。
+　　（2）核心源程序的文件按树形结构进行组织，在源程序树的最上层你会看到这样一些目录：
+　　arch：arch子目录包括了所有和体系结构相关的核心代码。它的每一个子目录都代表一种支持的体系结构，例如i386就是关于Intel CPU及与之相兼容体系结构的子目录。PC机一般都基于此目录；
+　　include：include子目录包括编译核心所需要的大部分头文件。与平台无关的头文件在include/linux子目录下，与Intel CPU相关的头文件在include/asm－i386子目录下，而include/scsi目录则是有关SCSI设备的头文件目录；
+　　init：这个目录包含核心的初始化代码（注：不是系统的引导代码），包含两个文件main.c和Version.c，这是研究核心如何工作的一个非常好的起点；
+　　Mm：这个目录包括所有独立于CPU 体系结构的内存管理代码，如页式存储管理内存的分配和释放等，而和体系结构相关的内存管理代码则位于arch/＊/mm/，例如arch/i386/mm/Fault.c；
+　　Kernel：主要的核心代码，此目录下的文件实现了大多数Linux系统的内核函数，其中最重要的文件当属sched.c，同样，和体系结构相关的代码在arch/＊/kernel中；
+　　Drivers：放置系统所有的设备驱动程序；每种驱动程序又各占用一个子目录，如/block下为块设备驱动程序，比如ide（ide.c）。如果你希望查看所有可能包含文件系统的设备是如何初始化的，你可以看drivers/block/genhd.c中的device_setup（）函数。它不仅初始化硬盘，也初始化网络，因为安装nfs文件系统的时候需要使用网络。
+　　其他目录如Lib：放置核心的库代码；Net：核心与网络相关的代码；Ipc：包含核心的进程间通信的代码；Fs：所有的文件系统代码和各种类型的文件操作代码，它的每一个子目录支持一个文件系统，例如fat和ext2、Scripts，此目录包含用于配置核心的脚本文件等。
+　　一般在每个目录下都有一个.depend 文件和一个Makefile 文件，这两个文件都是编译时使用的辅助文件，仔细阅读这两个文件对弄清各个文件之间的联系和依托关系很有帮助，而且在有的目录下还有Readme 文件，它是对该目录下的文件的一些说明，同样有利于我们对内核源码的理解。
+　　2．解读实战：为你的内核增加一个系统调用
+    虽然Linux 的内核源码用树形结构组织得非常合理、科学，把与功能相关联的文件都放在同一个子目录下，这样使得程序更具可读性。然而，Linux 的内核源码实在是太大而且非常复杂，即便采用了很合理的文件组织方法，在不同目录下的文件之间还是有很多的关联，分析核心的一部分代码通常要查看其他的几个相关的文件，而且可能这些文件还不在同一个子目录下。
+　　下面举一个具体的内核分析实例，希望能通过这个实例，使读者对Linux 的内核组织有些具体的认识，读者从中也可以学到一些对内核的分析方法。
+    以下即为分析实例：
+    （1）操作平台
+    硬件：CPU Intel Pentium II；
+    软件：Redhat Linux 6.0，内核版本2.2.5
+    （2）相关内核源代码分析
+    ①系统的引导和初始化：Linux 系统的引导有好几种方式，常见的有Lilo、Loadin引导和Linux的自举引导（bootsect－loader），而后者所对应源程序为arch/i386/boot/bootsect.S，它为实模式的汇编程序，限于篇幅在此不做分析。无论是哪种引导方式，最后都要跳转到arch/i386/Kernel/setup.S。setup.S主要是进行实模式下的初始化，为系统进入保护模式做准备。此后，系统执行arch/i386/kernel/head.S （对经压缩后存放的内核要先执行arch/i386/boot/compressed/head.S）；head.S 中定义的一段汇编程序setup_idt，它负责建立一张256项的idt表（Interrupt Descriptor Table），此表保存着所有自陷和中断的入口地址，其中包括系统调用总控程序system_call 的入口地址。当然，除此之外，head.S还要做一些其他的初始化工作。
+    ②系统初始化后运行的第一个内核程序asmlinkage void __init start_kernel（void） 定义在/usr/src/linux/init/main.c中，它通过调用usr/src/linux/arch/i386/kernel/traps.c 中的一个函数void __init trap_init（void） 把各个自陷和中断服务程序的入口地址设置到idt表中，其中系统调用总控程序system_cal就是中断服务程序之一；void __init trap_init（void）函数则通过调用一个宏set_system_gate（SYSCALL_VECTOR，＆system_call），把系统调用总控程序的入口挂在中断0x80上。
+    其中SYSCALL_VECTR是定义在/usr/src/linux/arch/i386/kernel/irq.h中的一个常量0x80，而system_call 即为中断总控程序的入口地址，中断总控程序用汇编语言定义在/usr/src/linux/arch/i386/kernel/entry.S中。
+    ③中断总控程序主要负责保存处理机执行系统调用前的状态，检验当前调用是否合法，并根据系统调用向量，使处理机跳转到保存在sys_call_table 表中的相应系统服务例程的入口，从系统服务例程返回后恢复处理机状态退回用户程序。
+    而系统调用向量则定义在/usr/src/linux/include/asm－386/unistd.h 中，sys_call_table 表定义在/usr/src/linux/arch/i386/kernel/entry.S 中，同时在/usr/src/linux/include/asm－386/unistd.h 中也定义了系统调用的用户编程接口。
+    ④由此可见，Linux的系统调用也像DOS系统的int 21h中断服务，大把0x80中断作为总的入口，然后转到保存在sys_call_table表中的各种中断服务例程的入口地址，提供各种不同的中断服务。
+　　提供上源代码分析可知，要增加一个系统调用就必须在sys_call_table表中增加一项，并在其中保存好自己的系统服务例程的入口地址，然后重新编译内核，当然，系统服务例程是必不可少的。
+    由此可知，在此版Linux内核源程序<2.2.5>中，与系统调用相关的源程序文件就包括以下这些：
+    ＊ arch/i386/boot/bootsect.S
+    ＊ rch/i386/Kernel/setup.S
+    ＊ rch/i386/boot/compressed/head.S
+    ＊ rch/i386/kernel/head.S
+    ＊ nit/main.c
+    ＊ rch/i386/kernel/traps.c
+    ＊ rch/i386/kernel/entry.S
+    ＊ rch/i386/kernel/irq.h
+    ＊ nclude/asm－386/unistd.h
+　　当然，这只是涉及到的几个主要文件。而事实上，增加系统调用真正要修改的文件只有include/asm－386/unistd.h 和arch/i386/kernel/entry.S两个。
+    （3）源码的修改
+    ①kernel/sys.c中增加系统服务例程如下：
+    asmlinkage int sys_addtotal（int numdata）
+    { int i=0，enddata=0;
+       while（i<=numdata）
+       enddata+=i++;
+       return enddata; }
+    该函数有一个int 型入口参数numdata ， 并返回从0 到numdata 的累加值，然而也可以把系统服务例程放在一个自己定义的文件或其他文件中，只是要在相应文件中作必要的说明。
+    ②把smlinkage int sys_addtotal（ int） 的入口地址加到sys_call_table表中。
+    arch/i386/kernel/entry.S 中的最后几行源代码修改前为:
+    .long SYMBOL_NAME（sys_sendfile）
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams1 */
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams2 */
+    .long SYMBOL_NAME（sys_vfork） /* 190 */
+    .rept NR_syscalls-190
+    .long SYMBOL_NAME（sys_ni_syscall）
+    .endr
+    修改后为:
+    .long SYMBOL_NAME（sys_sendfile）
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams1 */
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams2 */
+    .long SYMBOL_NAME（sys_vfork） /* 190 */
+    /* add by I */
+    .long SYMBOL_NAME（sys_addtotal）
+    .rept NR_syscalls-191
+    .long SYMBOL_NAME（sys_ni_syscall）
+    .endr
+    ③把增加的sys_call_table 表项所对应的向量，在include/asm-386/unistd.h 中进行必要申明，以供用户进程和其他系统进程查询或调用。
+    增加后的部分/usr/src/linux/include/asm-386/unistd.h 文件如下:
+    #define __NR_sendfile 187
+    #define __NR_getpmsg 188
+    #define __NR_putpmsg 189
+    #define __NR_vfork 190
+    /* add by I */
+    #define __NR_addtotal 191
+    ④测试程序（test.c）如下:
+    #include
+    #include
+    _syscall1（int，addtotal，int， num）
+    main（）
+    {  int i，j;
+      do
+    printf（\"Please input a numbern\"）;
+    while（scanf（\"%d\"，&i）==EOF）;
+    if（（j=addtotal（i））==-1）
+    printf（\"Error occurred in syscall-addtotal（），n\"）;
+    printf（\"Total from 0 to %d is %d n\"，i，j）; }
+    对修改后的新的内核进行编译，并引导它作为新的操作系统，运行几个程序后可以发现一切正常；在新的系统下对测试程序进行编译（注：由于原内核并未提供此系统调用，所以只有在编译后的新内核下，此测试程序才可能被编译通过），运行情况如下：
+    $gcc .test test.c
+    $./test
+    Please input a number
+    36
+    Total from 0 to 36 is 666
+    修改成功后对相关源码进一步分析可知，在此版本的内核中，从/usr/src/linux/arch/i386/kernel/entry.S 文件中对sys_call_table 表的设置可以看出，有好几个系统调用的服务例程都是定义在/usr/src/linux/kernel/sys.c 中的同一个函数：
+    asmlinkage int sys_ni_syscall（void）
+    {  return -ENOSYS; }
+    例如第188项和第189项就是如此：
+    .long SYMBOL_NAME（sys_sendfile）
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams1 */
+    .long SYMBOL_NAME（sys_ni_syscall） /* streams2 */
+    .long SYMBOL_NAME（sys_vfork） /* 190 */
+    而这两项在文件/usr/src/linux/include/asm-386/unistd.h 中却申明如下：
+    #define __NR_sendfile 187
+    #define __NR_getpmsg 188 /* some people actually want streams */
+    #define __NR_putpmsg 189 /* some people actually want streams */
+    #define __NR_vfork 190
+    由此可见，在此版本的内核源代码中，由于asmlinkage int sys_ni_syscall（void） 函数并不进行任何操作，所以包括getpmsg， putpmsg 在内的好几个系统调用都是不进行任何操作的，即有待扩充的空调用；但它们却仍然占用着sys_call_table表项，估计这是设计者们为了方便扩充系统调用而安排的，所以只需增加相应服务例程（如增加服务例程getmsg或putpmsg），就可以达到增加系统调用的作用。
+    3．结束语
+    要完全解读庞大复杂的Linux内核，一篇文章远远不能介绍清楚，而且与系统调用相关的代码也只是内核中极其微小的一部分，重要的是方法，掌握好的分析方法，所以上述分析只是起个引导作用，而真正的分析还有待读者自己的努力。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

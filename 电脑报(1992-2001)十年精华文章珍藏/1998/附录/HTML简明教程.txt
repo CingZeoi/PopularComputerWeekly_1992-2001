@@ -1,0 +1,189 @@
+HTML简明教程
+
+奚晓霞
+1998年 第52期 17版
+
+#1    一、HTML语言简介
+    HTML语言是超文本标记语言的缩写。它是一种描述文档结构的语言，而不能描述实际的表现形式。HTML语言使用描述性的标记符（称为标记码）来指明文档的不同内容。标记码是区分文本各个组成部分的分界符，用来把HTML文档划分成不同的逻辑部分（或结构），如段落、标题和表格等。标记码描述了文档的结构，它向浏览器提供该文档的格式化信息，以传送文档的外观特征。
+    用HTML语言写的页面是普通的文本文档，不含任何与平台和程序相关的信息，它们可以被任何文本编辑器读取。HTML文档包含两种信息：一是页面本身的文本；二是表示页面元素、结构、格式和其它超文本链接的HTML标签。 
+    HTML语言的标记码很多，这里简单介绍常用的标记码。
+#1    二、HTML语言中的常用标记码
+    看一个简单的例子：
+    <HTML>
+    <HEAD>
+    <TITLE> 网页标题 </TITLE>
+    </HEAD>
+    <BODY  BGCOLOR=“#FFFFDC”>
+    <P> 这里是HTML文件的正文 </p>
+    </BODY>
+    </HTML>
+    可以看出，HTML 的标记码是由成对的标记组成，其中<HTML>、<HEAD>、<TITLE>和<BODY>对是每一个 HTML 文件必须包含的。有些标记不要求成对，如：<P>不要求</P>。
+    常用标记码的含义为：
+    <HTML>：通知浏览器该文件含有HTML标记码。文件扩展名 .htm 起同样的作用。
+    <HEAD>：文件头，是HTML文件第一部分的起始。
+    <TITLE>：文件名，将显示在浏览器的窗口。
+    <BODY>：是HTML文件的第二部分，也是最大的部分，它包含了文件的内容。
+    <BODY>元素可以确定整个文件的背景色、前景色等基本属性。
+    <BODY>的语法为：
+    <BODY ［BGCOLOR|TEXT|LINK|ALINK|VLINK|BACKGROUND］> 
+    OBJECTS
+    </BODY>
+    BGCOLOR：HTML的背景色。
+    TEXT：指定HTML文件中文字色彩属性。
+    LINK：指定HTML文件中待链接超链接对象色彩属性。
+    ALINK：指定HTML文件中链接中超链接对象色彩属性。
+    VLINK：指定HTML文件中已链接超链接对象色彩属性。
+    BAKGROUND：指定HTML背景图形。
+    例如：
+    <HTML>
+    <BODY BGCOLOR=“FF0000” TEXT=“#000000” LINK=“0000FF” BACKGROUND=“TEST.GIF”>
+    </BODY>
+    </HTML>
+    各属性的参数值可以是用英文描述的颜色如RED、BLUE、YELLOW等，也可以是RGB值，共6位，每种颜色两位从00到FF。如红色可以表示为“ff0000”，蓝色可以表示为”0000ff”等。某些HTML编辑器允许客户直接从颜色表中选取。
+#1    1.设置标题
+    每一个网页都应该有一个标题，因此首先你应该输入：
+    <TITLE> 自己的网页标题 </TITLE>
+    这段文字将显示在浏览器的标题栏中。用户可以把它加入书签，以便能迅速返回该文档。<TITLE>文本一定要有明确的意义，不要过于模糊。
+#1    2.添加标题与段落
+    下列标记码可加入到<BODY>与<／BODY>之间。
+    标题：<H1>......<H6>。在HTML中有六种标题，<H1>是最大的标题，<H6>是最小的标题。
+    例如：<H1> 一级标题 </H1>
+    <H2> 二级标题 </H2>
+    <H3> 三级标题 </H3>
+    <H4> 四级标题 </H4>
+    如果要设置正文段落，则使用<P></P>，中间存放所有的文字、图像和超级链接等。
+    例如：<P> 第一个段落 </P>
+    <P> 第二个段落</P>
+    如果要强调某个单词，可以使用粗体字标题<B></B>或强调标签<EM></EM>
+    例如：<P>访客<EM>注意</EM>的问题</P>
+#1    3.设置超级链接
+    创建超级链接（Hyperlink）是HTML语言中的一个重要部分。一个超级链接又称作锚，它唯一地指向另一个Web信息页，超级链接如同把Gopher中可触发的菜单项融于正文之中，因此超级链接更具有上下文的含义。由于一个Web信息页是用URL（统一资源定位器）来唯一标识的，URL的一般格式为：
+    访问方式://服务器域名/路径及文件名。
+    其中访问方式可有HTTP、FTP、TELNET、GOPHER、WAIS、NEWS、MAILTO、FILE等等。随着访问方式的不同，冒号后面的参数格式也会不同，下面是一些URL的例子：
+    http://linux.cqi.com.cn/person/szj98/index.htm
+    ftp:// ftp.microsoft.com
+    mailto：szj98@yahoo.com
+    file:///c|/image/cpcw.jpg
+    HTML中的一个超级链接由两部分组成：一部分是可被显示在Web浏览器中的超链文本及图像，当用户在它上面点击鼠标时，就触发了此超链接；另一部分就是用以描述当超级链接被触发后要链结到何处的URL信息。因而超链接标记的格式为:
+    <A HREF=“URL信息”>超级链接文本及图像</A>
+    其中超链文本被浏览器用一种特殊颜色并带下划线的字体醒目地显示出来，并且用户鼠标进入其区域时会变成手的形状，表示此处可以被触发。属性HREF表明了超级链接被触发后所指向的URL。例如：<A HREF=“http://linux.cqi.com.cn/person/szj98/index.htm”>我的主页</A>
+    在HTML中还可使用相对URL来代替绝对URL。例如要指向的另一HTML文件在同一目录下，只需简单地写为：
+    <AHREF=“self.htm”>自我介绍</A>
+    如要指向上两级目录下的文件，可以这样写：
+    <AHREF=“../../topic.htm”>返回到顶级</A>
+    通常超级链接只指向一个文件的头部，若要指向一个文件内的某一特定位置，就要用到超级链接标记的另一个属性NAME，其格式如下：
+    <A NAME=“超链名”>超链文本及图像</A>
+    这里的超级链接文本并不被浏览器特殊显示，也不能被触发，它仅仅表示一个被指向的目的地，而超级链接名就是这一目的地的名字。当要引用这一目的地时，只需把“#超链名”添加到HREF中就可以了。例如，在一个文件中有一部分内容是说明，可以先在说明标题上定义一个超链名：
+    <H2><A NAME=“说明”>说明/A></H2>
+    这样，你就可以在同一文件的其它处创建一个超链来指向说明部分：
+    请注意看<A HREF=“#说明”>说明</A>。
+    当用户一旦触发超级链接，就显示其内容。当然，如果想在其它文件里引用此说明，只需加上适当的URL信息就可以了。
+#1    4.设置图像
+    目前有以下几种图像的格式能被Web浏览器直接解释：GIF格式（.GIF文件，支持256色）；X位图格式（.XBM文件，黑白图像）；JPEG格式（.JPG、.JPEG文件，支持RGB色）。对于段落中的图像，你还可以利用ALIGN属性定义图与文本行的对齐方式，其属性值可取TOP（与文本行顶部对齐）、MIDDLE（中间对齐）、BOTTOM（底部对齐，默认值）、LEFT（将此图显示在窗口左方）、RIGHT（将此图显示在窗口右方）。例如：用<IMG>来表示网页中的一幅图像。
+    <H2><IMG ALIGN=MIDDLE SRC=“kdx.gif”> This text line is middle-align.</H2>
+    如果让图像单独占一块区域，不要忘了在图像标记的前后加上<P>或<BR>标记：
+    <P><IMG SRC=“kdx.gif”><P>This image is stand al one with the text.<P>
+    例如在网页中插入一个名字为“kdx.jpg”的图像，图像宽度为100个像素，高为120个像素：
+    <IMG SRC=“kdx.jpg”WIDTH=“100” HEIGHT=“120”>
+    如果不想用户看到网页中的图像，必须设置一段文字替换，来说明改图像的作用：
+    <IMG SRC=“kdx.jpg”WIDTH=“100”HEIGHT=“120”ALT=“苦丁香”>
+    还可以在图像上设置超级链接，其标记为<A></A>。
+    〈A HREF=http://www.lilacsoft.com/>
+    <IMGSRC=“kdx.jpg”WIDTH=“100”HEIGHT=“120”ALT=“苦丁香”></A>
+    Web浏览器在超链接图的四周画一个边框，以示可被触发。若想去掉这个框只需在<IMG>中加上属性BORDER=0就可以了。如果你满意图像的原始尺寸，可以用属性WIDTH和HEIGHT分别重新定义图像的宽度和高度，属性值为用整数表示的屏幕像素点的个数。
+#1    5.声音和视频
+    Web浏览器自身不能解释声音和视频文件，但它能通过其它辅助工具的帮助来播放声音和视像文件。一般声音文件带有.WAV、.AU、.SND等文件扩展名，而视频文件带有.AVI、.MPG等文件扩展名。要播放这些文件，就必须把这些文件作为一个超链接中的URL信息。当用户触发这一超链时，Web浏览器发现自己无法解释这类文件，就在辅助工具表中启动相应的程序来播放它们。例如：
+    <H2><A HREF=“cinema.avi”>这是一段电影</A>.</H2>
+    用户触发这段的超级链接后，Web浏览器立即启动默认的网络视频播放工具程序，如mplayer程序来播放cinema.avi视像文件。
+#1    6.列表结构和预编排结构
+    列表（list）结构和预编排（Preformatted）结构都是一种具有段落性质的独立块状结构，也就是说，它们与标题（Heading）结构一样，能自成一段，仿佛在这些结构的尾部加上了一个<P>标记。
+    （1）列表（list）结构
+    列表（list）结构也是HTML文档中的一个基本结构。一共有三种类型的列表，它们是：
+    ·无次序列表（Unordered list）：<UL>列表项</UL>
+    ·有次序列表（Ordered list）：<OL>列表项</OL>
+    ·定义表（Definitionlist）：<DL>列表项</DL>
+    前两种列表的表 项（list item）用单标记<LI>表示。Web浏览器会在<UL>型列表的每个表项前加一个小园点或小方块，在<OL>型列表的每个表项前加一个整数，例如：
+    <UL><LI>First UL item
+    <UL><LI>First sub-UL item
+    <LI>Second sub-UL item</UL>
+    <LI>Second UL item</UL>
+    <OL><LI>First OL item
+    <LI>Second OL item</OL>
+    定义表的每一项是由两对标记<DT></DT>和<DD></DD>构成的，其中一对<DT>标记中是被定义项的名称，而一对<DD>标记中是具体定义的内容。定义表常用于文档中的词汇表、术语表等，例如：
+    <DL>
+    <DT>First word</DT>
+    <DD>Here is the explain of the first word.
+    <DT>Second word</DT>
+    <DD>Here is the explain of the second word.
+    </DL>
+    （2）预编排（Preformatted）结构
+    除了列表结构以外，HTML还提供了一种非常有用的预编排（Preformatted）结构，利用它可以使信息完全依照源文件中的编排格式，一模一样地在浏览器中显示出来。它的语法格式为：
+    <PRE>预编排信息</PRE>
+    因此，只需要将一对<PRE>标记中的“预编排信息”，按照你所喜欢的格式预先编排好就可以了。
+#1    7.表格
+    表格的表示为：<TABLE>表 格 内 容</TABLE>
+    定义表格标题：<CAPTION...> 标题内容 </CAPTION>
+    定义表格列：<TR ..> 表格列内容</TR>
+    定义表头资料：<TH..>表头内容</TH>
+    定义表格内容：<TD..>表格内容</TD>
+    这样一对<TABLE>标记是一个Table结构的最外层，它主要包括三个重要属性。一个是用来表示表格边框粗细程度的属性BORDER，属性值取整数，如果省略BORDER属性，则表示不加边框。另一个是用来表示表格宽度的属性WIDTH，其属性可取相对值（由一对“”号括起来的百分数，表示相对于充满窗口的百分比），也可取绝对值（用整数表示的屏幕像素点的个数，如WIDTH=300），缺省值是“100%”。还有一个属性是CELLPADDING，用来表示每个表项单元的内容与表格边框之间所空开的距离，用屏幕像素点为单位，缺省值是0。
+    <CAPTION>表格名称</CAPTION>，在一对<CAPTION>标记中是这张表格的名称信息，它通常被
+    Web浏览器显示在表格上方的中央部位。
+    <TR>表格当前行的内容，单标记<TR>表示一个新的表格行（Table Row）的开始。单标记<TH>和<TD>都表示在表格的当前行里产生一个新的表项单元。其中，<TH>表示一个表项标题（TableHeader）单元，而<TD>表示一个表项数据（TableData）单元。Web浏览器一般把<TH>中的文本用粗体表示。每个表项单元（<TH>或<TD>）都可带有表示横向对齐方式的属性ALIGN，属性的取值范围主要有LEFT，CENTER，RIGHT等，其中<TH>的缺省值是ALIGN=CENTER，<TD>的缺省值是ALIGN=LEFT。
+    另外，还有表示纵向对齐方式的属性VALIGN，属性的取值范围主要有TOP，MIDDLE，BOTTOM等，其中<TH>和<TD>的缺省值都是VALIGN=MIDDLE。表项单元的一个重要特征就是可以进行横向及纵向地扩展，从而结合成一个大的表项单元。这是通过属性COLSPAN（按列横向结合）及ROWSPAN（按行纵向结合）来表示的，属性值取整数，表示结合几个基本表项单元。
+    如<THCOLSPAN=2>Average，就表示Average这个表项标题单元要按列横向地将2个基本表项单元结合在一起。如果要在表格中显示一个空项，也必须写上一个表项单元的标记，来表示占据一定的空间，如<THROWSPAN=2>后面无任何表项标题的内容，其显示效果是空白块。另一个值得注意的问题是每一行中的表项单元总是从左到右地依次排列，并跳过已经被上一行ROWSPAN结合掉的基本表项单元。如上例中的<TH>height本应在第2行，第1列的位置，但由于此单元已经被上一行结合掉，因而只能顺延到第2行，第2列的位置。
+    Table通常是由一个表格名称再加上一行或多行的表格内容所构成的块状结构。表格的每一行内又由一个或多个表项单元组成，并且表项单元还可以按照行或列的方式结合在一起，成为一个大的表项单 元。例如：<HTML><HEAD><TITLE>HTML 表格实例</TITLE>
+    </HEAD>
+    <BODY>
+    <H3>表格实例</H3>
+    <TABLE BORDER=2 CELLSPACING=4 CELLPADDING=10>
+    <CAPTION>表格实例</CAPTION>
+    <TR>
+    <TH ROWSPAN=6>备注</TH>
+    <TH COLSPAN=5>英语成绩</TH>
+    </TR>
+    <TR>
+    <TH ROWSPAN=6><A HREF=“mailto:abc@yahoo.com”><img align=top src=“fill.gif”></A></TH>
+    </TR>
+    <TR><TD>80</TD><TD>90</TD></TR>
+    <TR><TD>85</TD><TD>93</TD></TR>
+    </TABLE>
+    </BODY>
+    </HTML>
+    最后浏览时将得到完美的表格。
+#1    8.表单
+    表单（Form）是实现交互功能的主要方式，用户一般通过表单向CGI提交信息。表单的语法如下：
+    <FORM METHOD=“ ...” ACTION=“”>
+    <INPUT TYPE=“...” NAME=“...>
+    </FORM>
+    表单的输入域有以下几种：
+    提交（SUBMIT）：这是每个FROM都有的。在浏览器中这是一个按钮，表示开始提交信息，激活服务器端的CGI程序。
+    文本（TEXT）：这是文本输入域，用户在通过它输入信息。
+    单选按钮（RADIO）：类似与Windows中的单选按钮。
+    CHECKBOX：多选按钮。
+    另外还有选择列表：SELECTION语法如下：
+    <SELECT NAME=“...”>
+    <OPTION> .....
+    <OPTION>...
+    ....
+    </SELECT>
+    下面给出一个简单的实例：
+    <HTML>
+    <HEAD>
+    <TITLE>西南师范大学教工电话查询</TITLE>
+    </HEAD>
+    <BODY BACKGROUND=“../image/back.gif”>
+    <PRE>
+    <FORM METHOD=POST ACTION=“http://202.202.96.33/cgi-bin/perl_dh” TARGET=“_top”>
+    <B>姓名： </B><INPUT NAME=“xm” TYPE=text SIZE=8>
+    <B>电话： </B><INPUT NAME=“dh” TYPE=text SIZE=8>
+    <INPUT NAME=“ok” TYPE=submit VALUE=“ 确认 ”> <INPUT NAME=“cancel” TYPE=reset VALUE=“重置条件”>
+    </FORM>
+    </PRE>
+    </BODY>
+    </HTML>FL）
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

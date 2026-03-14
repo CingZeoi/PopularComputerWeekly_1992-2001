@@ -1,0 +1,65 @@
+Iframe标签的使用及实例剖析
+
+黑眼圈的猪 
+2001年 52期
+
+Iframe标签强大的功能也越来越受到广大网页爱好者的注意和重视。并使用它来开发出了很多巧妙的页面特效。下面让我们来一起把它看清楚。
+　　#1Iframe标签：
+　　提起Iframe标签，可能你还不熟悉或者仅仅是听说过，不过，说起Frame标签就相信你不会陌生了。Frame标签即帧标签，我们所说的多帧结构就是在一个浏览器窗口中通过使用Frame标签来分割浏览器窗口以显示多个HTML文件。这样，我们就可以将页面的静态部分做成一个HTML页面放在一个分帧中（例如：网页的导航部分），而将需要改变的部分做成另外一个HTML页面放在另一个分帧中（例如：文字显示部分），从而实现雷同的东西一次下载后就不再下载，而只下载那些内容有变化区域的网页内容，已达到加快网页下载速度的目的，如^52040701a^1所示。
+　　使用Frame标签很容易实现左右或是上下的分割，但是当我们只是要分割页面的中心部分时，使用Frame标签就会很复杂。这时候Iframe标签的优势就显示出来了。
+　　Iframe标签又称为“浮动帧标签”。其最大的特点是你可以将它排放到页面得任意位置，可以将一个HTML文档嵌入在一个HTML中显示。一个形象的比喻即“画中画电视。同时，Iframe标签调用的又是一个真正的HTML页面。拥有HTML页面应有的所有属性。而且理论上一个HTML页面中可以排放无数个Iframe标签
+　　Iframe标签的使用格式是：
+　　<Iframe src="URL"  Parameter></iframe>
+　　src：文件的路径，既可是HTML文件，也可以是文本、图片、ASP等；这里我们暂称为URL。
+　　Parameter：控制Iframe显示的所有属性，直接影响到页面的显示效果。Parameter 包括很多具体属性，下表为大家介绍一下几个常用到的属性。
+　　Parameter（参数）
+　　效果描述
+　　ALIGN= BOTTOM ｜ LEFT ｜ MIDDLE ｜ RIGHT ｜ TOP
+　　控制Iframe 在对齐方式。类似table。依次为底对齐、左对齐、居中、右对齐、顶对齐。
+　　FRAMEBORDER=NO ｜ YES ｜ 0 ｜ 1
+　　控制Iframe页面显示时外围的边框宽度。具体见^52040701b2^2。
+　　HEIGHT=n；WIDTH=n
+　　控制Iframe页面显示时的高度和宽度。n可以是百分比60%或是具体数值60
+　　Scrolling= AUTO ｜ NO ｜ YES
+　　当SRC的指定的HTML文件在指定的区域不显不完时，滚动选项，如果设置为NO，则不出现滚动条；如为Auto：则自动出现滚动条；如为Yes，则显示滚动条，无论页面是否超过显示区域大小。
+　　ID=n
+　　Iframe在页面中指定的标示。主要是在使用脚本语言时提供访问标示。n是你自己指定的字符串如：blueidea
+　　Iframe实例效果及剖析
+　　好了。了解了上面一大堆理论后，我们开始动手使用上面介绍的Iframe的属性和功能配合DW制作可拖动Iframe滚动。
+　　#1制作原理
+　　实际上，Iframe滚动栏是通过改变Iframe内html页面（a.htm）相对于Iframe的上下位置来实现滚动的。首先指定Iframe的ID或Name为IframeScrollWindow，通过IframeScrollWindow.document.body.scrollLeft和 IframeScrollWindow.document.body.scrollTop访问a.htm的位置。然后使用setInterval（）函数每隔指定的时间改变a.htm的位置。进而实现a.htm的滚动。
+　　#1制作方法
+　　准备一张图片。最好是做成背景透明的gif格式图片，这样窗口就可以是任意形状。上面这幅是我用photoshop做的，你可以发挥你的个性做出各种怪异的形状也可以，但要保证有以下几个部分：1.iframe显示区，矩形；2.控制按钮：向上滚动、向下滚动。
+　　图片准备好了以后，就可以打开Dw开始做了。
+　　Ctrl+N新建一个页面，在菜单里选择Insert-Layer插入一个层，将它的名称（layerId）改为dragwin，在属性面板里设置它overflow属性为hidden，调整layer的宽和高以适应图片的大小。然后在层内插入前面准备好的背景图，如^52040701b^3。
+　　接下来的步骤很关键，也最容易出错。所以请大家看仔细了。
+　　1.先将光标定位到层（dragwin）内，定位光标到层内的方法是：将鼠标移动到层的范围内，当鼠标形状变为I（文字输入）的时候，单击鼠标左键。定位光标后，在dw菜单中选择Insert-Layer，注意要从菜单中插入层，而不是通过object面板来插入。因为这个层是用来放置iframe的，它的位置要跟随主层背景一起移动。将这个层的名称改为showwin， 如^52040701c^4，并调整他的位置大小，使它正好覆盖住背景图的iframe显示区域。然后再showwin里面插入一个width=100% height=100% border=0的表格。
+　　2.在table内加入Iframe代码如下
+　　<iframe  name=IframeScrollWindow marginwidth=0 framespacing=0 src=" a.htm" frameborder=0 noResize  scrolling=no height=100% width=100% vspale="0"></iframe>
+　　加入方法可以先打开dw的代码编辑器，使用鼠标点击table的td部分，dw会自动在代码编辑器中选定相应的位置。你只需要将上面的代码加入到<td></td>之间就可以嵌入iframe了，如^52040701d^5所示。注意：在这段代码中，src调用的是“a.htm”。这个a.htm并没有实际的意义，它只是暂时用来代替你要调用的页面。比如说，如果你的信息页面是news.htm，那么你需要把a.htm改为news.htm就可以在滚动栏里看到news.htm的内容了。但是你需要注意下面几点：需要在news.htm的页面代码<body>中加入topmargin=0，leftmargin=0如<body bgcolor=”#ffffff”  topmargin=0 leftmargin=0>；<body>中的bgcolor=”#ffffff”我习惯上是等于iFrame边框，也就是你做的滚动栏的颜色，以保持与这个滚动栏的色彩一致。当然，你可以设置为任何喜欢的颜色；调整news.htm页面宽度（<table width=123 border=0>）和Iframe内容显示区的宽度一致。以保证所有的信息都可以看到。
+　　按F2打开layer面板，检查一下各层的关系是否如^52040701e^6所示。
+　　如果图层关系正确，那么我们开始加拖动效果。反之，请仔细按照上面的步骤检查你的问题出在哪里。
+　　打开行为behavior面板，点击左上角的“+”号，选择draglayer（拖动菜单），并在弹出的窗口中确定指定的图层为dragwin.，如^52040701f^7所示，然后修改触发动作为onDragStrat（开始拖动），如^52040701g^8所示。
+　　好了。到目前为止。你已经拥有了一个可以拖动的信息栏，但是还不能滚动。下面我们把控制滚动的js代码加到页面中来。
+　　首先，把下面的代码拷贝到页面代码的<head></head>中间。
+　　<SCRIPT>
+　　function movstar（a，time）{
+　　movx=setInterval（"mov（"+a+"）"，10） //设定每个10/1000秒执行mov（）一次。
+　　}
+　　function movover（）{
+　　clearInterval（movx）  //清除movstar（）指令
+　　}
+　　function mov（a）
+　　scrollx=IframeScrollWindow.document.body.scrollLeft //访问a.htm的左边位置。
+　　scrolly=IframeScrollWindow.document.body.scrollTop //访问a.htm的上边位置。
+　　scrolly=scrolly+a //设定每次改变的大小a，a是用户指定的数值
+　　IframeScrollWindow.window.scroll（scrollx，scrolly） //使用scroll（） 函数将a.htm移动到指定位置
+　　}
+　　</SCRIPT>
+　　然后，我们来设置滚动的控制。点击图片，在图片上的向上滚动按钮的位置添加一个热区，并在页面代码的<area..>部分加入onMouseUp=movover（）;movstar（-1，20） onMouseDown=movover（）;movstar（-3，2）onMouseOver=movstar（-1，20）; onMouseOut=movover（）;，然后重复在上面的步骤，给向下滚动的按钮也加上一个热区，并加入onMouseUp=movover（）;movstar（1，20）; onMouseDown=movover（）;movstar（3，2） onMouseOver=movstar（1，20）; onMouseOut=movover（）;如^52040701h^9所示。
+　　ok，终于大功告成了。一个可拖动Iframe滚动信息栏已经诞生了。保存测试一下效果吧。
+　　备注：如果你在使用时发现iframe部分的内容不能完全显示出来。你需要调整被调用页面的宽度。
+　　Netscape浏览器6.0以下版本不支持Iframe标签，故本效果会出错。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

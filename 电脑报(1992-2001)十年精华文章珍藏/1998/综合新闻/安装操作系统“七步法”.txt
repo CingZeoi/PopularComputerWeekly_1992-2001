@@ -1,0 +1,158 @@
+安装操作系统“七步法”
+
+彭建五、蔡启方
+1998年 第08期 07版
+
+#1第一步：对硬盘重新分区
+　　硬盘分区是使用DOS系统的FDISK命令来完成的。
+#1　　一、分区前的准备
+　　在进行硬盘分区之前，先要准备一张能够在A驱启动电脑的系统盘，该系统盘应含有以下2个文件：
+　　FDISK.EXE　　　  硬盘分区程序
+　　FORMAT.COM　　 磁盘格式化程序
+　　确信BIOS CMOS中“BOOT SEQUENCE（启动顺序）”参数为“A，C”。放入启动盘，开机，至屏幕出现A：\>，此时即完成硬盘分区前的准备工作。
+#1　　二、删除硬盘原有的分区
+　　（一）在盘符A：\>下键入：FDISK
+　　屏幕显示FDISK命令主菜单（FDISK Options）：
+　　FDISK Options
+　　Current fixed disk drive:1
+　　  1.Create DOS partition or Logical DOS Drive
+　　  2.Set active partition
+　　  3.Delete partition or Logical DOS Drive
+　　  4.Display partition information
+　　Enter choice:[1]
+　　Press Esc to exit FDISK
+　　（二）选择3，删除原有的全部分区。
+　　屏幕显示删除分区菜单：
+　　Choose one of the follwing:
+　　  1.Delete Primary DOS Partition
+　　  2.Delete Extended DOS Partition
+　　  3.Delete Logical DOS Drive（s） in the Extended DOS Partition
+　　  4.Delete Non－DOS Partition
+　　Enter choice:[ ]
+　　删除硬盘分区的规则是：删除非DOS分区→删除逻辑分区→删除扩展分区→删除基本分区，因此删除必须严格按照4→3→2→1的顺序进行。
+#1　　三、建立新的硬盘分区
+　　目前1G以上的硬盘一般设2－3个分区，各个分区的大小及安装内容完全可以自行决定。在FDISK命令主菜单中选择1，回车，建立DOS分区；
+　　屏幕显示建立分区菜单：
+　　Choose one of the following:
+　　  1.Create Primary DOS Partition
+　　  2.Create Extended DOS Partition
+　　  3.Create Logical DOS Drives in the Extended DOS Partition
+　　Enter choice:[1]
+　　Press Esc to return to FDISK Options
+　　建立硬盘分区的规则是：建立基本分区→建立扩展分区→再分成1～X个逻辑驱动器。因此建立分区必须严格按照1→2→3的顺序进行。
+　　（一）建立基本DOS分区
+　　选择建立 菜单中的1，回车。
+　　屏幕显示：
+　　Do you wish to use the maximum available size for a Primary DOS Partition
+　　and make the Partition active（Y／N）……[Y]
+　　系统提问是否将硬盘的全部容量划分为基本分区，即C区?
+　　1.如果打算整个硬盘只设1个区，即将所有空间全部给基本DOS分区（C盘），则选择Y，回车。
+　　2.如果要将硬盘分为几个区，就只能将部分硬盘分给基本DOS分区，因此必须选择N，回车。
+　　屏幕显示：
+　　Totally disk space is X Mbytes （1Mbytes=1048576 bytes）
+　　Maximum space available for Partition is X Mbytes （100％）
+　　Enter Partition size in Mbytes or percent of disk space （％）
+　　 to create a Primary DOS Partition……：[ ]
+　　 No Partition defined
+　　系统显示硬盘总容量，同时提问基本DOS分区即C区分为多大?键入拟给C区的容量数值（设为X1）或占用总容量的％（设为Y1％），[]中的数字就会自动改为输入数字，回车，屏幕显示重新分区后的C区信息：
+　Partition Status　 Type 　Volume Label Mbytes　 System　 Usage
+　C：1  　　　　PRI DOS   　　　　　    X1　 UNKNOWN  Y1％
+　Primary DOS Partition created
+　　表示基本DOS分区已经建立好，按Esc键返回到FDISK命令主菜单。
+　　（二）建立扩展DOS分区和逻辑驱动器
+　　选择FDISK命令主菜单中的1，回车，屏幕显示建立分区菜单，再选择其中的2，回车。屏幕显示已分出基本DOS分区后的当前硬盘信息：
+　　Totally disk space is X Mbytes
+　　Maximum space available for Partition is X－X1 Mbytes （100％－Y1％）
+　　Enter Partition size in Mbytes or percent of disk
+　　Space （％） to create a Extended DOS Partition……[X－X1]
+　　No Partition defined
+　　系统提示硬盘剩余X－X1兆字节可以定义为扩展DOS分区。因为硬盘上只能有1个基本分区和1个扩展分区，所以如果不想使用非DOS分区，则应按回车键确认将建立基本分区之后的所有剩余硬盘空间全部作为扩展分区（注意此时不能更改[]内的硬盘空间剩余字节数，如果将剩余空间数值改小，就会损失部分硬盘空间）。
+　　回车，屏幕显示在扩展DOS分区中建立逻辑驱动器的提示：
+　　Totally Extended DOS Partition size is X－X1 Mbytes 
+　　Maximum space available for Logical drives is X－X1 Mbytes （100％）
+　　Enter Logical drives size in Mbytes or percent of disk space（％） ……：[]
+　　系统询问在扩展分区中如何划分逻辑驱动器，如只设1个逻辑驱动器（D盘），则直接回车，如想分成多个逻辑驱动器，则输入拟给D盘（第一逻辑驱动器）的硬盘容量数值（X1），回车。
+　　屏幕显示已分成的D盘信息（内容与上表基本相同），表示逻辑D盘已经建立，剩余空间将给逻辑E盘，输入拟给E盘（第二逻辑驱动器）的容量数值（X3），回车……
+　　全部硬盘容量分配完毕后，屏幕显示扩展分区中所有逻辑驱动器的信息；
+　　Drv   Volume Label   Mbytes  　 System    Usage
+　　D:               　　　X2      UNKNOWN  Y2％ 
+　　E:                    　  X3      UNKNOWN  Y3％
+　　All available space in the Extended DOS Partition is assigned to logical drives
+　　按Esc键返回FDISK命令主菜单，系统用闪动的“Warning”提示还必须设置活动分区。
+　　（三）建立活动分区
+　　选择FDISK命令主菜单中的2，回车：
+　　屏幕显示建立活动分区菜单：
+Partition   Status       Type      Volume Label    Mbytes     　System      Usage
+C：1 　　　　　　PRI DOS　　                    X1       UNKNOWN    Y1％
+   2 　　　　　　EXT DOS      　               X－X1    UNKNOWN   X－Y1％
+Totally disk space is X Mbytes
+Enter the number of the partition you want to make active……[ ]
+　　在空格[]内键入1：这时只能键入1，即将基本DOS分区设置为活动分区，回车，屏幕显示已设置好的活动分区信息：
+Partition   Status    Type    Volume Label   　 Mbytes  　   System 　  Usage
+C：1          A     PRI DOS                      　  X1       UNKNOWN    Y1％
+   2            　  EXT DOS                     　X－X1    UNKNOWN   X－Y1％
+Totally disk space is X Mbytes
+Partition 1 make active
+　　Status（状态）项下出现A，表示基本分区已被激活，按Esc键返回FDISK命令主菜单。再按Esc键，退出FDISK命令，屏幕显示将重新启动电脑。此时DOS系统盘或MS－DOS6.22系统安装盘中的1号盘应在A驱中。电脑重新启动，待出现盘符A：\>，即宣告硬盘重新分区结束。
+#1第二步：对硬盘进行高级格式化
+　　对硬盘进行高级格式化的操作是使用DOS系统的FORMAT（格式化磁盘）命令来完成的。
+#1　　一、格式化C盘
+　　在盘符A：\>后键入FORMAT C：／U／S
+　　FORMAT命令后加“／S”开头项是为了使格式化后的C盘成为启动盘，此项是必不可少的!否则格式化后的硬盘将无法用来启动电脑。
+#1　　二、格式化D、E、……盘
+　　在A：\>下再分别输入FORMAT D：／U；FORMAT E：／U……对D、E……盘进行格式化，此时注意不要加“／S”开关项。
+　　对硬盘的各个分区格式化后，从A驱中取出DOS系统盘或MS－DOS6.221号盘（Disk1），按下Ctrl＋Alt＋Del重新启动，电脑即从C盘引导DOS系统，最后屏幕显示C：\>提示符，说明硬盘的格式化已经完成。
+#1第三步：安装操作系统前的准备
+　　主要是对BIOS CMOS参数进行必要的设置，禁止反病毒程序、电源管理程序等，以使操作系统软件的安装能够顺利完成。
+　　进入BIOS CMOS参数设置，将“BIOS FEATURES SETUP”中的“Virus Warning”项设为“Disabled”；再将“POWER MANAGEMENT SETUP”中的“Power Management”项设为“Disabled”，保存并退出BIOS CMOS设置。
+#1第四步：安装MS－DOS 6.22
+　　MS－DOS 6.22安装盘一般为3张软盘，将1号盘（Disk 1）插入A驱，按下Ctrl＋Alt＋Del键重新启动电脑。
+　　系统开始执行安装程序，自动检测硬件配置，出现安装提示：
+　　To setup MS－DOS now，press ENTER.
+　　To learn more about Setup before continuing，press F1.
+　　To quit Setup without installing MS－DOS，press F3.
+　　按回车键后，出现安装确认提示：
+　　Exit Setup （recommended）.
+　　Continue Setup and replace your current version of DOS.
+　　将高亮条移至第二项，回车，MS－DOS 6.22的安装正式开始。
+　　出现日期、时间设置提示，直接回车确认。
+　　屏幕显示安装DOS系统的盘符及目录名提示：C：\DOS，直接回车确认。
+　　系统开始安装，出现进度条。
+　　在安装过程中，对屏幕出现的提示，如果不知道如何回答，可按F1获取帮助，或者干脆直接按回车键，选择DOS 6.22安装程序以高亮条形式表示的默认值选项，直到3张安装盘运行结束，屏幕显示提示：
+　　Remove disks from all floppy disk drives，and then press ENTER
+　　从A驱中取出第3张安装盘，回车。
+　　屏幕显示最后一条安装提示，其中有：
+　　To restart your computer with MS－DOS 6.22 press ENTER.
+　　根据提示按下回车键，电脑即使用已经安装完毕的MS－DOS 6.22系统重新启动电脑，并自动建立Config.sys和Autoexec.bat文件，最后出现C：\>提示符，至此，MS－DOS 6.22安装全部结束。
+#1第五步：安装光驱驱动程序
+　　将光驱自带的安装盘插入A驱，在C:\>提示符后键入A：回车。
+　　再在A:\>提示符下键入：INSTALL（或SETUP）回车。
+　　此时光驱安装盘中的安装程序自动运行，屏幕显示安装光驱驱动程序的盘符及目录名提示，直接回车后屏幕显示安装进度，系统将光驱的驱动程序和MS－DOS的配置文件MSCDEX.EXE复制到硬盘。
+　　在出现安装成功提示后，再次回车，系统退回到A:\>盘符下，此时需要取出软盘，按Ctrl＋Alt＋Del键重新热启动系统即自动修改由MS－DOS 6.22建立的Config.sys文件和Autoexec.bat文件，并自动定义光驱符号，最后屏幕显示光驱驱动程序的版本号和光驱安装后的状态信息，表示光驱驱动程序已经安装成功，光驱可以正常使用。
+#1第六步：安装Windows 95
+#1　　一、安装前的准备
+　　（一）确保光驱能够正常使用。
+　　（二）确保硬盘没有错误：使用SCANDISK／ALL（分析和修复所有磁盘）命令扫描检测硬盘的完整性，并修正错误。
+　　（三）确保硬盘没有文件碎片：运行DEFRAG [盘符号]／F（压缩文件碎片优化磁盘）命令对每个硬盘分区空间进行整理，消除磁盘碎片，重新优化整个硬盘，以利Windows 95的顺利安装。
+　　（四）准备1张已格式化的空白软盘，用于制作Windows 95启动盘。
+　　（五）打开所有外设和多媒体配件，如打印机、扫描仪、声卡等。
+#1　　二、正式安装
+　　（一）将装有Windows 95的光盘放入光驱；
+　　（二）在DOS系统提示符C：\>下，改变当前路径至光驱（设为F盘）。
+　　（三）运行Windows 95安装程序Setup.exe，即在F：\>盘符下，键入：SETUP。安装程序即自动开始运行，并顺序显示全中文的安装Windows 95对话框和安装前导，按照提示进行操作 可顺利完成整个安装工作。
+　　（四）安装向导要求输入姓名、公司名时，同时按下Ctrl＋空格键即可调出汉字输入法进行汉字输入，按Ctrl＋Shift是可在各种汉字输入法中进行切换。
+　　（五）Windows 95安装完毕后，系统会要求重新启动电脑，并首次运行Windows 95以进行电脑的初次设置和环境配置，最后出现Windows 95的对话框，表明Windows 95的安装工作到此全部结束，可以正常使用。
+　　（六）安装Windows 97的特殊问题
+　　Windows 97的安装方法与Windows 95完全相同，但应注意以下几点：
+　　1.Windows 97不提供升级安装功能，只要电脑中有任一版本的Windows存在就拒绝安装，所以必须删除原有的旧版Windows才能安装。
+　　2.Windows 97必须安装在硬盘的一个独立分区中。
+　　3.Windows 97不支持DOS和Windows 97双重引导。如在Windows 97启动后按了F4键， 下次就不能从硬盘启动Windows 97，这时需将Windows 97的启动盘插入A驱重新启动，然后键入命令：SYS C：回车，即可恢复。
+　　4.Windows 97改正了Windows 95中的许多缺点，因此完全可以放弃Windows 3.X和DOS 6.22，而只安装和使用Windows 97。
+#1第七步：恢复BIOS CMOS参数设置中被关闭的功能
+　　基本操作系统全部安装完毕后，需要恢复BIOS CMOS参数设置中被关闭的功能，即将禁止反病毒程序、电源管理程序等重新设置为允许（Enabled），其过程与“第三步：安装操作系统前的准备”相同，在进入CMOS参数设置后，将相应的项目由禁止（Disabled）修改为允许（Enabled）即可。
+　　至此，操作系统的安装全部结束，电脑完全可以投入正常使用。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

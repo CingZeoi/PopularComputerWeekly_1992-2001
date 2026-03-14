@@ -1,0 +1,129 @@
+中高档微机CMOS参数的优化设置
+
+何宗琦
+1996-10-11
+
+        在中高档微机CMOS参数设置中，有一类设置称为芯片组设置：Chipset Setup或Chipset Features Setup。这类设置将根据选用的芯片组具体设定芯片组内部的工作参数。此类设置至关重要，如设置不当将影响机器的工作性能，甚至造成死机。但是这类设置又涉及到很多较深入的理论知识，如果不理解各项参数的确切含义，有可能造成设置错误。为此，不少主板的BIOS设置程序对其中一些至关重要的参数采用了自动设置方式，当你不具备有关知识时，可以用自动方式进行设置。
+        由于主板类型繁多，结构方式各异，采用总线方式不同，选用的芯片组性能相差很大，所以各个BIOS设置程序所设定的Chipset Setup参数有很大的区别。从目前看到的Chipset Setup参数来看，大致可分为以下几个方面：
+        ·AT总线时钟
+        ·DRAM及SRAM(Cache)读写周期定时或等待状态
+        ·非Cache区的起始地址和尺寸
+        ·刷新方式
+        ·PCI总线参数
+        ·IDE参数
+        ·主板内接口设置
+        ·其它
+        下面介绍各种参数的基本概念及设置方法。
+        1.AT总线时钟(AT BUS CLOCK)
+        总线时钟是指主板和扩展槽上连接的外设的工作频率。各种外设品牌繁多，速度各不相同，当总线时钟设置不当时，会引起系统不能正常工作。一般来说，在新装机器和更换了外设适配卡后都应重设本参数。如果对板卡性能不甚了解，最好从较低频率开始设置，逐步调高，使之保持最佳性能。例如：其设定值可以是CLK/3、CLK/4、CLK/5、CLK/6、CLK/8等。为了保证系统工作正常，也可采用自动设置或安全设置，这时由BIOS自动设定的参数较为保守，如不满意，可再由人工修改设定。
+        2.DRAM及SRAM读写周期定时或等待状态
+        此类参数主要用于设定RAM读写周期中的等待状态个数。在CPU速度和RAM存取速度不能匹配时，在一个标准的读写周期内CPU往往不能完成对RAM的读写，必须在周期内插入等待状态。CPU速度越快，即CPU时钟频率越高，DRAM存取速度越低，所要求插入的等待状态的个数也越多。这是由于CPU时钟频率越高，在该频率下基本总线周期时间必然更短，使RAM的速度跟不上，所以不在基本周期内插入等待状态就不能完成读写任务。
+        具体设置参数为：
+        ·Memory Read(Write) Wait State
+        内存读(写)等待状态
+        ·Cache Read(Write) Wait State
+        Cache读(写)等待状态
+        但也有的主板设置参数为：
+        ·DRAM Read(Write) Timing
+        DRAM读(写)定时
+        ·SRAM Read(Write) Timing
+        SRAM读(写)定时
+        具体的设定值有的主板手册上已给出。如：
+        ·0WS(零等待，即不插入等待状态)
+        ·1WS(插入1个等待状态，1个等待状态等于1个CPU CLK周期)
+        ·2WS(插入2个等待状态)
+        也有的BIOS设定值为：
+        Slow/Normal/Faster/Fastest(慢/正常/快/最快)
+        或为：2111/3111/3222/4222。
+        在具体设置时，如对RAM参数不了解，可采用自动设置或安全设置。如用手动设置，可先选择较为保守可靠的值，再逐步提高。
+        3.非Cache区的起始地址和尺寸
+        具有高速缓存系统(Cache)的微机，同一数据可能同时存在两份，一份在主存中，另一份在Cache内。因此必须保持两项数据一致，即一个被修改之后，另一个也必须同样被修改，这样才能使处理器的存取数据不出现错误。当CPU对Cache中的数据作修改时，也将通过一定的方式(直写式、缓冲直写式或回写式)改写主存RAM中的相应数据。但是RAM中的数据也可以是由其它设备(如DMA)直接写入的，如某一RAM数据在存入Cache之后，又被其它设备改写，将仍然造成两份数据不一致。解决这个问题的方法之一就是建立非Cache内存区，或称为不可进入高速缓存的内存区。该区域中的数据不受高速缓存控制器的控制。因此，每当对该区域地址范围存取时，CPU必须直接存取主存储器，该区域也可供其它设备存取，从而保证了数据的一致性。
+        ·Non-Cacheable Block Size(不可缓冲块尺寸)
+        ·Non-Cacheable Block Base(不可缓冲块基地址)
+        只要设定好上述基地址(首地址)和尺寸大小就可确定非Cache区域的范围了。
+        有些系统也允许设置系统BIOS为可存入Cache的区域(System BIOS Cacheable)以及显示BIOS为可存入Cache的区域(Video BIOS Cacheable)。这样将更提高系统的性能。但前提条件是允许(Enabled)Video BIOS和System BIOS进入Shadow RAM，以及有较大的Cache尺寸。
+        4.刷新方式
+        中高档微机可选择两种刷新方式：正常刷新和隐含刷新。在隐含刷新(Hidden Referesh)方式下，由于代码和数据已在Cache中具有一份拷贝，而Cache本身是静态存储器，所以无须再作动态刷新，系统控制器因此不产生总线请求信号。在此期间，CPU将继续执行当前程序，因而提高了系统的性能。本参数为：
+        ·Hidden Referesh
+        其设定值为Enabled/Disabled(允许/禁止隐含刷新)。但是必须注意的是，如安装了4MB以上的RAM，则不能使用隐含刷新方式。
+        在有的BIOS中，还可对刷新速度作设置，其参数为：
+        ·Slow Referesh
+        当设定值为Enabled时，表示平均刷新周期为64μs，如设定值为Disabled时刷新周期为16μs。一般应选取为Disabled。
+        5.PCI总线参数
+        本类参数都是与PCI总线有关的参数，主要包含以下几个：
+        ·PCI Slot IRQ   设置PCI插槽中断请求号。本参数值可由系统自动设定或由用户设定。
+        ·CPU to PCI Write Buffer   设置CPU向PCI写缓冲器，设定值为Enabled/Disabled(允许/禁止)。
+        ·Byte Merge   设置字节合并。PCI总线是32位总线，因此应把8位字节或16位字节合并为32位双字节。本参数即用于设置是否允许按字节方式合并。设定值为Enabled/Disabled。
+        ·PCI IDE Trigger Type   设置PCI IDE接口的触发方式。可设定为Edge(脉冲沿触发)或Level(电平触发)。
+        6.IDE参数
+        有一些IDE相关参数也放在Chipset Setup内。例如：
+        ·Primary IDE IRQ Connect to   设置与主IDE设备中断请求连接的中断控制器。
+        ·Secondary IDE IRQ Connect to   设置与第二IDE设备中断请求连接的中断控制器。
+        其它还有一些IDE参数已在前两期介绍IDE参数设置中说明，这里不再重复。
+        7.主板内接口设置
+        此类参数主要有：
+        ·Onboard FDC Control   设置是否允许使用主板上的软盘驱动器控制器。
+        ·Onboard Serial Port   设置各串行接口地址。
+        ·Onboard Parallel Port   设置并行接口地址。
+        有的BIOS也把此类设置归类到外设参数设置中。
+        8.其它参数
+        其它参数很多很杂，不同的主板区别很大，下面列出一些供参考。
+        ·8 Bit I/O Recovery Time   在CPU或PCI与ISA总线之间按8位I/O周期传送时增加的恢复延时，可按主板手册给出的值选定。
+        ·16 Bit I/O Recovery Time   意义同上。
+        ·VGA Locate Bus   设置VGA卡使用的总线类型，可设定为ISA或PCI。
+        ·Boot to PnP Operating System   本参数用于设置BIOS对那些PnP即插即用卡作初始化。当选择值为Yes时表示只初始化用于系统引导的PnP卡；如选设定值为No时，表示将对所有的PnP卡作初始化。
+        ·Onboard Printer Mode   设置主板并行接口模式。可设为EPP(Extended Parallel Port扩展并行接口)和ECP(Extended Capabilities Port扩展增强接口)。
+        
+        中高档微机CMOS参数的优化设置(二)
+        电源管理参数设置:
+        在新型微机中普遍采用了电源管理技术。其目的是降低能耗、节约能源，实现绿色电脑功能。
+        节电功能由微处理器和系统两个层次实现。在处理器中，当执行诸如文字处理等非处理器密集任务时，不需要高时钟频率操作。这时降低工作频率可减少功耗，因为速度越快，功耗越大。而当处理器完全不工作时可使之处于休眠模式，使耗电量减至最低。
+        在系统一级的节电技术提供了智能型系统管理，能自动减速、暂停系统部件。如在计算机工作间隙关闭显示器高压电路，使硬盘马达停转、使动态存储器DRAM暂停工作等，从而节约了电能。
+        采用SL电源管理技术的Intel 386SL芯片使用低电源电压，比一般芯片耗电少，而且可通过SMI(系统管理中断)控制电源管理电路来管理微机系统其它部件的电源。随后又制定了多种电源管理标准，如SMM(系统管理模式)、PMU(电源管理单元)、APM(高级电源管理)、EPMI(外部电源管理中断)等。目前很多主板都采用了APM技术。APM(Advanced Power Management)是Microsoft和Intel制定的一种节电标准，它提供了一个接口，允许系统BIOS、操作系统和应用程序进行电源的节能管理。因此，APM支持DOS和Windows实现电源管理功能。对DOS，应在CO
+        NFIG.SYS文件中加入：“DEVICE=C:\DOS\POWER.EXE；对Windows，应运行SETUP.EXE并选择MS-DOS system with APM选项，并在控制板中把Power Management选项改为Advanced即可。
+        电源管理一般有以下几种模式：
+        ·Full-on(Normal) mode正常模式
+        在此模式下，电源是满负荷运行，不能节电。但如果系统由于某种原因暂时停止工作，则电源管理系统中的等待定时器(Standby Timer)开始对初始设定值作倒计时。当例计数值为0时，则转入等待模式(Standby Mode)。定时器的初始值是由用户通过BIOS设置程序设定的。只有当整个微机系统都处于不活动状态时，定时器才开始倒计时，一旦系统出现活动，包括中断IRQ 3～IRQ 15发生，定时器都将中止计时并恢复初值。
+        ·STANDBY mode等待模式
+        在正常模式下，当系统不活动时间超过设定值时便进入本模式。在Standby Mode下，将降低CPU时钟频率。此外，还可由用户设定关闭显示器屏幕(黑屏)和断开硬盘驱动器电源。进入本模式后，另一个定时器__挂起定时器(Suspend Timer)开始对初始设定值作倒计时，一旦超时则转入挂起模式(Suspend Mode)。
+        ·SUSPEND mode挂起模式
+        进入本模式后，CPU时钟停止且系统处于休眠状态。也可由用户设定关闭显示器和硬盘等外设电源。
+        在有些系统BIOS中，如Award BIOS，还有一种DOZE(打盹) mode。在这种模式下，CPU和微机系统都将在正常频率的二分之一下工作。
+        在BIOS设置程序中与电源管理有关的参数有以下几类：
+        1.Power Management Mode设置电源管理模式。
+        本参数用于设置是否允许电源管理功能，设定值为Enabled/Disabled。如禁止本功能，则有关其它参数也不再有效。
+        2.设定等待定时器初始值，不同的BIOS的写法不同，如：
+        Standby Mode Timeout
+        Full on to Standby Timeout Value
+        Standby Mode
+        但含义是相同的，设定值为30秒至2小时，也可设为Disabled，即禁止使用。
+        3.设定挂起定时器初始值，不同BIOS版本的写法有：
+        Suspend Mode Timeout
+        Standby To Suspend Timeout Value
+        Suspend Mode
+        设定值与等待定时器相同。
+        4.IDE设备断电模式。
+        本参数用以设置IDE设备在什么电源模式下断开电源。不同的BIOS的写法不同，如：
+        IDE Drive Powerdown in
+        Power Down HDD In
+        设定值有以下几种：
+        Disabled   禁止本功能
+        Stand by   等待超时断电
+        Suspend    挂起超时断电
+        5.显示器断电模式。
+        本参数用以设置显示器在什么电源模式下断电。写法有：
+        Video Powerdown in
+        Power Down VGA In
+        设定值与IDE断电模式相同。
+        例如，设等待定时为30秒，设挂起定时为1分。如设显示器断电模式为Standby，则30秒内系统无操作则断电；如设断电模式为Suspend，则需1分30秒内系统无操作，才断开电源。
+        6.Video Off Method设置显示器断电方式。
+        显示器断电方式有两种，一种是只关闭屏幕显示，称为黑屏(Screen blank)。另一种方式不仅关闭屏幕显示，而且还断开从VGA显示卡传到显示器的水平同步(H-SYNC)和垂直同步(V-SYNC)信号，从而关闭显示器大部分电路的电源，当然，只有符合能源之星标准的绿色显示器才有这种功能。
+        设定值对不同版本也不相同。如：
+        Blank Screen/Suspend   黑屏
+        V/H SYN+Blank/Off   黑屏并断开V/H SYN信号
+        7.设置事件活动状态。
+        本参数用于设置键盘、硬盘、各类中断的活动状态对电源模式的影响。设定值为Disabled和Enabled。当设为Disabled时，表示禁止该事件产生影响，就是说，即使该事件被激活也不能在SUSPEND模式下唤醒系统。而设为Enabled时，允许该事件被激活时可唤醒系统工作。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

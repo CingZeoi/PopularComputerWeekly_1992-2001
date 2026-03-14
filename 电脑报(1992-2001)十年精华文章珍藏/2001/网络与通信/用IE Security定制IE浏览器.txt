@@ -1,0 +1,56 @@
+用IE Security定制IE浏览器
+
+李革新 
+2001年 42期
+
+当你的计算机供多个用户使用时，你能根据各用户的实际情况，因人而异地屏蔽IE的部分功能吗？你能为每个用户配置各自的安全区域吗？你还能规定用户禁止/允许访问某些网站吗？
+　　使用Internet Explorer Security Pro 3.1（以下简称IE Security）工具，可以很好地解决上述问题，利用它可以为多个用户定制各自所需IE浏览器的各种界面。该工具在支持多用户操作的同时，还提供口令保护设置。IE Security主要有三大作用：IE设置、配置安全区域和Web 侦察。该软件可到http://www.mybestsoft.com下载，文件大小：614KB，运行在Windows 9x/Me环境，并要求IE版本为5.5或更高。
+　　#1    一、 安装
+　　在安装之前关闭所有Windows窗口和IE浏览器，将下载文件解压到一个临时文件夹并执行setup.exe文件。
+　　#1    二、 卸载
+　　用以下步骤可卸载IE Security：
+　　从“开始”菜单中选择“设置/控制面板”，打开“添加/删除”程序，选择“Internet Explorer Security”项，并单击“添加/删除”按钮。或者，采用下如办法：从“开始”菜单中选择“程序/IE Security/Uninstall IE Security”，也能自动完成卸载任务。
+　　#1    三、 为指定的用户设置IE
+　　从“开始”菜单中选择“程序/IE Security/IE Security”选项，出现IE Security窗口（^42040404a^1）。首先，从“Select User”列表框中选择一个准备接受IE Security限制的用户。在图1中，IE Security包括三个类目：Internet Explorer Settings、Security Zones和Web Spy。其中，“Internet Explorer Settings”类目主要用于限制使用IE的部分功能。
+　　    1.选定“favorities”项，在右端的窗口中，若选取出现的两个复选项，则对指定的用户来说，IE的收藏功能将受到限制。这两个复选项分别是：
+　　    ●Disable“Add -Favorite dialog”：使添加到收藏夹对话框失效，即工具栏中的“收藏”按钮无效，阻止用户向收藏夹添加新的内容。
+　　●Disable“Make available offline”option  on “Add-Favorite” dialog：使“添加到收藏夹”对话框中的“允许脱机使用”按钮无效。
+　　2.选定“Menu Options”项，在右端窗口出现10个复选项，这十个复选项涉及到文件菜单，文件菜单的子命令，查看菜单下的“源文件”和“全屏”子命令，工具菜单下的“Internet选项”子命令等。管理员可根据实际情况对各用户进行相应限制，屏蔽个别菜单及菜单下的部分子命令。
+　　3.选定“IE Option Tabs”项，该项用来设置“Internet选项”对话框，可让常规、安全、内容、连接、程序和高级标签消失或者标签下的按钮无效。这里只对“连接”标签进行限制，其余标签的限制操作与此类似。
+　　选定“IE Option Tabs”子类目下的“Connections tab”项，在右端窗口将有三个复选项供用户选取，它们分别是：
+　　Disable the “Connections”Tab on the “Internet Options”：选取此项，在IE窗口中，打开工具菜单下的“Internet 选项”时，可以发现在“Internet 选项”对话框中原有的“连接”标签已经消失。Disable the“Connections Wizard”option：选取此复选项，但不选取Disable the “Connections”Tab on the “Internet Options”复选项时，“Internet 选项”的“连接”标签对话框中，“建立连接”按钮无效，图2（^42040404b^）中，呈暗淡的并用椭圆形标记的按钮即为无效按钮，指定的用户将无法使用Internet 连接向导。
+　　Disable the “Connection Settings”option：选取此项，但不选取Disable the “Connections”Tab on the “Internet Options”复选项时，“Internet 选项”的“连接”标签对话框中，“添加”按钮和“局域网设置”按钮均无效（参见图2），指定的用户将无法建立“拨号连接”，也不能打开“局域网（LAN）设置”对话框。
+　　4.在Internet Explorer Settings类目下，“Miscellaneous”子类目包括三个项目，它们分别是：
+　　Screen Options：可以设置屏幕，包括设置工具栏背景、更改IE动画图标，注意，图标的实际尺寸不宜太大，否则影响界面的美观。
+　　Directories：可设置文件夹。
+　　Pages：设置页面。
+　　此处只对文件夹的设置作简单介绍：
+　　选定“Directories”项，出现^42040404c^3所示的界面，其中：
+　　Set Cache Directory：设置缓存目录路径，默认值为C:\windows\temporary Internet Files。
+　　Set History Directory：设置历史目录，默认值为c:\windows\profiles\用户名\History。其中，用户名为用户登录Microsoft网络的用户名，正是受到IE限制的用户名。
+　　Set Favorities Directoy：设置收藏目录，其默认值为c:\windows\favorities，此处建议更名，避免与其他用户共用同一个收藏夹。如图中为c:\windows\lgx-favorities，其中，lgx-favorities表示正接受限制的用户为lgx的收藏目录。Lgx-favorities将由系统自动创建。
+　　Set Cookies Directories：设置Cookies目录，其默认值为：c:\windows\profiles\用户名\Cookies。
+　　Set Download Directory：设置下载目录，其默认值为：c:\windows\desktop，建议对此路径更名，为集中管理从网络上下载的软件，最好的办法是创建一个文件夹来集中存放它们。图中表明：在windows桌面上创建“下载”文件夹，以保存下载的软件资源。注，此处所涉及的下载是指在IE浏览器窗口右单击鼠标，选择“目录另存为”命令的操作。
+　　Set Save Directory：设置保存Web页目录，其默认值为“我的文档”。此处的保存是指在IE窗口中选择文件菜单下的“保存”或“另存为”命令的操作。
+　　在你设置完上述限制之后，从“文件”菜单中选择“保存”命令，或直接Internet Explorer Security Pro窗口中，单击工具栏上的“保存”按钮，保存上述设置。
+　　#1    四、配置安全区域
+　　IE包含五个预先确定的区域：Internet、本地Intranet、受限站点、限制站点和我的电脑。为了更好地管理安全区域，你可向五个区域中添加或删除Web 站点。我们以向受限站点区域添加Web站点为例，介绍具体操作方法。
+　　首先选定“Security Zones”类目下的“受限站点”项目，出现如图4所示的窗口。单击“Add new URL to the security zone”下拉列表框，选定可能会损坏你的计算机或数据的Web 站点，当然如果你记得这类Web站点的URL值，那么你也可直接输入到“Add new URL to the security zone“列表框，然后，单击”Add new”按钮，受限站点的URL值将出现在“URL list”列表框中。
+　　如果有一天，你想取消某一受限站点，那么你可在URL list列表框中选定欲取消的受限站点的URL项，然后单击“Delete”按钮即可。
+　　需要注意的是，此修改仅对当前用户有效，如果想为其他用户添加或删除Web站点，你应该重新启动计算机并以该用户身份登录。对安全区域的所有修改都将自动保存，没有必要使用“文件/保存”命令来保存安全区域的修改值。
+　　#1    五、Web 侦察
+　　“Web Spy”是IE安全工具的一个重要特征，它可以控制用户能浏览访问的或不能浏览访问的Web站点，其中Web站点可以采用组进行集中管理。选定“Web Spy” 类目，出现^42040404d^4所示的界面。
+　　在“Create new Web Spy group”文本框中输入Web Spy的组名，单击“Create new”按钮，新的组名将出现在“Group list”列表框。欲删除某一组，须事先选定组，然后单击“Delete”按钮。（^42040404e^5）
+　　为了让某一个Web Spy组能管理某些Web站点的URL值，可单击“Edit URLs List”按钮，在随后出现的界面中，单击“Add new Web site to the URLs list of the current Group”下拉列表框，选定欲加入到当前组的某个Web站点的URL，然后单击“Add new”按钮。欲从组中删除某一URL，可事先选定它，再单击“Delete”按钮。
+　　接下来可以为每个Web Spy组设置不同的策略，具体方法是：在“Group list”列表框中选定某组，然后在“Group Policy”框中进行组策略的定义。
+　　当选取“Disallow all Web sites”项时，可以禁止用户浏览Web站点。其中，选定“For URLs in the list”单选项时，禁止用户访问的站点是该组中所有的Web站点；当选定时，禁止用户访问的站点为该组之外（即不在组中列出的）所有Web站点。
+　　选取“Log user activity for Web sites”复选项时，用户非法访问那此被禁止浏览的Web站点的行为将被记录到日志中。此时用户应定义该日志文件的名字。该日志文件默认存放在c:\Program Files\IE Security文件夹中，并且可用记事本打开，其内容主要是非法访问的时间（用年月日表示）和非法访问某站点的URL值。
+　　Web Spy组策略的定义很有实际意义。举个例子：对于未成年的中、小学生来说，家长或老师不仅可以指定孩子或学生浏览哪些网站，而且还能够禁止他们访问哪些网站。可以把不利于他们学习的，有损于身心健康的网站的URL值加入到一个Web Spy组中，并选中“For URLs in the list”单选项。然后，把有利于增长知识的，指导他们健康成长的网站的URL值加入到另一个Web Spy组中，并选中“For URLs out of the list”单选项。作为家长和老师，可以经常打开你定义的日志文件，看一看他们在上网过程中，是否企图访问被禁止浏览的网站，从而Spy（侦察）他们的上网的行为。
+　　选取“Kill pop-up windows”复选项，将适用于所有的组，它可避免那些令人讨厌的弹出式窗口不断地被显示。
+　　为保存Web Spy的修改值，需执行“文件/保存”命令。
+　　最后，还要提醒大家，为了阻止任何人改变IE Security程序的设置和随意地卸载，建议大家使用管理员口令，在Internet Explorer Security Pro窗口，单击“Edit”菜单，选择“Administrator＇s Password”，在出现的Administrator Password对话框中，输入口令，单击“OK”按钮即可。此口令应妥善保存，因为每次执行或卸载IE Security时，均需要提供密码。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

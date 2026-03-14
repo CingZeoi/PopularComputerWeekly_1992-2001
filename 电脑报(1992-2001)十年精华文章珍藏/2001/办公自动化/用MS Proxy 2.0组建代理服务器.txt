@@ -1,0 +1,51 @@
+用MS Proxy 2.0组建代理服务器
+
+涂永善  汪新毅 
+2001年 11期
+
+    MS Proxy 2.0是微软为企业级用户访问Internet提供的代理服务器解决方案。系统管理员可以通过MS Proxy Server向内部网络用户提供Internet共享账户、访问控制等服务。对内联网用户来说，MS Proxy Server还是一个高速缓存服务器及安全有效的网络防火墙。本文将向用户简要介绍运用MS Proxy 2.0组建代理服务器的一般安装及配置。由于MS Proxy 2.0的功能很多，不可能一一详述，在此对用户使用比较多的Web Proxy与WinSock Proxy两项服务做一简要介绍。
+　　#1    一、MS Proxy Server的安装
+　　#2    1.MS Proxy Server对服务器的要求
+　　    （1）服务器必须配置两块网卡或一块网卡、一个Modem（也可以为ISDN之类的设备） ，其中一块网卡对应用户的内部网络，IP地址用户可以根据需求任意定义。另一块网卡或Moden、ISDN等设备对外连入Internet，对外的设备必须根据要求定义Internet的真实IP地址，或者由ISP为用户动态分配一个Internet真实IP地址。
+　　    （2）MS Proxy 2.0代理服务器必须在Windows NT或Windows 2000操作系统中运行，在Windows NT Server 4.0操作系统上安装时，必须安装3.0或更高版本的IIS（Internet Information Server），在操作系统上还必须打上Windows NT Server 4.0Service Pack 3.0或以上版本的补丁。
+　　#2    2.MS Proxy 2.0代理服务器软件的安装
+　　    MS Proxy 2.0主要是由三项服务组成，它们分别为：Web Proxy Server、WinSock Proxy Server、Socks Proxy Server。在Windows NT 4.0下的安装过程如下：
+　　    （1）整个安装过程比较简单，执行安装程序setup.exe后，根据提示设置安装路径，然后按“Installation Options”旁的“安装按钮”。
+　　    （2）接着弹出安装选项框，用户可以根据自己的需求选择，一般用户可以选择“Continue”缺省安装即可。
+　　    （3）定义代理服务器缓冲区的大小（如图1）（^11050401a^）。必须选择一个NTFS分区来设定缓存。在“Maximum Size（MB）”中输入缓存大小，按“Set”，设置完毕按“OK”。
+　　    （4）建立内部网络地址LAT（Local Address Table） 表。如果是以代理服务器作为局域网的出口，地址就是局域网的IP地址范围，这样就可确定内部网络的虚拟地址，代理服务器则以此表确定内部网络与外部网络的界限，否则由用户自行定义地址范围。在左边“Edit”框的“From”与“To”中输入起始地址与结束地址，按“Add”，如图2（^11050401b^）所示。单击“OK”继续。
+　　    （5）设置WinSock Proxy客户安装环境，当客户从代理服务器安装WinSock Proxy客户端程序时，安装程序将自动用这里的配置选项来设置WinSock Proxy客户端程序。客户的安装方式有：“Computer name”、“IP address”和“Manual”三种，按“Properties”键，选择“Do not use proxy for the following IP Address”复选框，可以添加禁止使用代理服务器的IP地址或地址范围。一般用户在安装时可以选择“IP address”，其它设置使用缺省设置，上述设置项在安装完以后，还可以在管理界面中重新设置。按“OK”继续。
+　　    （6）设置访问控制。设置该选项可以提高系统的安全性，限制NT域用户对Internet服务协议的控制。用户可以直接使用缺省设置，选“OK”继续即可，然后安装程序将自动执行拷贝文件，系统重新启动WWW服务之类的操作，安装完毕。
+　　    如果用户要在Windows 2000上安装MS Proxy 2.0，则必须先到微软站点去下载一个针对Windows 2000的MS Proxy 2.0安装补丁，然后运行该补丁并安装MS Proxy 2.0代理服务器。
+　　#1    二、MS Proxy Server的管理
+　　#2    1.在Web Proxy Server中为用户授权
+　　    MS Proxy 2.0的每一个代理服务都必须授权，只有合法用户才有权使用各种代理服务。因此必须为使用代理服务的用户分配许可权限。
+　　    （1）为使用代理服务的用户分配Web Proxy使用权限。在IIS的管理控制界面中选中Web Proxy Server并按鼠标右键，点“属性”进入Web Proxy Server管理界面，如图3（^11050401c^）所示。
+　　    （2）在Web Proxy Server管理界面中按“Permission”进入“用户访问权限管理”界面，如图4（^11050401d^）。
+　　    （3）选中“Enable access control”允许设置访问权限，然后从“Protocel” 的边框中选择要为用户开放的协议，其中有WWW、FTP及Gopher三种服务。按“Edit”键，进入权限设置对话框。
+　　    （4）单击“添加”弹出添加用户及组对话框，添加用户（如果添加的用户较多，则可以采取组方式来简化管理。在Windows NT“域用户管理器”中按职能为用户建立不同的工作组，并赋予相应的权限，也可在添加用户时直接添加工作组，从而减少许多重复工作来简化操作），然后“确定”。
+　　    （5）重复上述步骤，可以在不同的协议（FTP，Gopher）里添加用户，开放用户的访问许可权。
+　　#2    2.在WinSock Proxy Server中为用户授权
+　　    在MS Proxy 2.0中，WinSock Proxy Server和Web Proxy Server为用户提供的一些功能是相同的（例如都可以为用户提供WWW、FTP服务）。因此，必须针对每一项具体的功能或协议为用户开放Internet访问权限。WinSock Proxy Server中支持的访问控制协议有HTTP，DNS，Telnet，SMTP，POP3和ICQ等，另外管理员还可以根据一些网络软件的需求来添加相应的协议。下面以开放OICQ通讯协议为例，说明如何在WinSock Proxy Server中为代理用户开放OICQ的寻呼服务。
+　　    （1）WinSock Proxy Server为用户开放访问权限的步骤与Web Proxy差不多，也是在IIS的管理控制界面中选中WinSock Proxy Server，并按鼠标右键，点“属性”进入WinSock Proxy Server管理界面，按上面的“Protocols”进入访问控制协议管理对话框（如图5所示）（^11050401e^）。
+　　    （2）添加协议按“Add”，在“Protocol name”处加入“OICQ”，在“Port”处写入“8000”，在“Type”下面先选中“TCP”与“Inbound”，按边上的“Add”键，这时可以看到在“Port ranges for subsequent connections”标题的下面框中加入了一行“0 TCP Inbound”定义协议的输入端口范围，再重复上述操作依次添加“0 TCP Outbound”，“0 UDP Inbound”和“0 UDP Outbound”三部分参数（如图6）（^11050401f^），完成添加按“OK”。
+　　    （3）为用户开放OICQ访问控制权限。选中“Permissions”，在“Enable access control”处打上钩，下拉“Protocel”选项，选择要为用户开放的协议“OICQ”，然后按“Edit”键开始添加用户，其它操作与Web Proxy Server中的开放权限步骤完全相同，这里不再重复。如果要为用户开放其它Internet访问权限，如：FTP、POP3、SMTP、Telnet、DNS等，则同样在“Protocel”选项中选中协议，其它步骤与上相同。
+　　    当然也可在“Permissions”中的“Unlimitet Access”里添加用户，被授权用户便能享受WinSock Proxy Server中的所有协议，并且不受任何限制，其中也包括上面定义的OICQ。
+　　#2    3.在Web Proxy Server中的访问站点控制
+　　    在Internet中有大量违法信息及站点，要限制或禁止对这些站点的访问，可在Web Proxy Server中设置禁访的IP地址或域名来解决。设置步骤如下：
+　　    （1）从IIS进入Web Proxy Server管理界面，按“Security”进入安全设置，选项“Domain Filter”后弹出用户Internet访问的域管理对话框，要对某些站点进行过滤，应选“Enables Filtering”，这时过滤模式有允许“Granted”和禁访“Denied”两种。如果限制代理用户只能访问域名后缀是“cn”的站点，则可选禁访模式“Denied”，即先针对所有站点禁止访问，然后按“Add”去添加允许访问的站点。
+　　    （2）进入站点添加方式对话框后，添加方式有域名过滤“Domain”、单一IP地址过滤“Single Computer”及一组IP地址过滤“Group of Computer”三种方式，本例选择域过滤“Domain”方式，并填入“cn”，若还要开放其它的站点，如“首都在线263.net”或其它站点的域名，则可仿照上面的步骤，加入“263.net”之类的域名后缀或IP地址段便可。
+　　    另外两种过滤方式为：单一IP地址过滤“Single Computer”（必须输入要限制访问计算机的IP地址）和一组IP地址过滤 “Group of Computer”（这时需要用户输入禁访的IP地址与子网掩码）。
+　　    上述操作完成后按“确定”，返回到域过滤对话框，这时在“Except to those listed below”表中就加入了允许访问的站点地址或域名，除了表中显示的站点外，其余站点代理用户不能访问。
+　　    （3）若是先选择允许“Granted”，再添加过滤的域名、IP地址或一组IP地址，则过滤方式与前述正好相反，在“Except to those listed below”表中显示的是禁止访问的站点地址或域名，除上表中指定的站点以外，用户还可以访问其它所有Internet站点。
+　　    （4）一切设置完后，按“确定”退出，用户访问站点设置完毕。
+　　#2    4.Web服务器的反向代理功能
+　　    当网络用户用Web服务器在Internet上发布信息时，会将自己内部网络暴露给外部网络，这就存在安全上的隐患。由于代理服务器是一种应用层的防火墙，它可以阻止Internet上的非法信息对服务器的侵入与破坏。
+　　    在MS Proxy 2.0的Web服务器反向代理功能中，它允许将本地的Web服务器放在内部局域网上，当有从外部网络来的访问请求时，代理服务器将这些80端口上的Web连接请求，转到内部相应的Web服务器上去。如果局域网里有多个Web服务器，代理服务器就会根据所请求的URL目录决定转到哪台Web服务器上。设置Web服务器反向代理步骤如下：
+　　    （1）从IIS进入Web Proxy Server管理界面，按“Publishing”进入反向代理设置对话框。
+　　    （2）选中“Enable Web publishing”。下面有三种选项，缺省的是“discarded”，它表示不允许从本机的Web服务器上发布信息，也不允许外部网络用户透过代理访问内部网Web服务器的信息。点中“sent to the local web server”则表示允许从本机的Web服务器上发布信息，而“sent to another web server”则表示外部网络的Web请求转到内网指定的Web服务器上去，在空白处填入指定的Web服务器地址及端口号，如果用户的在内网中有不止一个Web服务器，则可按“Add”和“Default Mapping”来添加相应的Web服务器路径，并做相应的地址映射就可实现内部网络用户进行Web发布的请求。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

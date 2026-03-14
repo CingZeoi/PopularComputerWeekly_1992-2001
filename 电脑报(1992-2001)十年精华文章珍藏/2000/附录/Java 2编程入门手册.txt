@@ -1,0 +1,350 @@
+Java 2编程入门手册
+
+宋庭新
+2000年 第53期 
+
+    1995年，SUN MicroSystem公司开发的Java编程语言闯入Internet，并随即成为最热门的话题。经过近5年的发展，Java技术逐渐变得稳定和可靠，它正日益成为客户机、数据库和其它服务器之间进行通信的“中间件”。Java之所以受到众人瞩目，源于其强大的移植能力，多线程处理和连网能力，这也是Java的魅力所在。目前，Java开发包的版本已发展到JDK1.2.2，我们常说的Java2是平台，包括JDK1.2.2。
+#1    一、Java起步
+    1.Java的特点
+    Java主要用来编写网络应用程序，如电子商务平台，网上股票交易系统等。这是由它的平台无关性、安全性等特点决定的。具体说来，Java包括如下特点：
+    （1）简单。这是和C++比较而言的，由于Java是从C++中衍生并改进的，它省略了C++中一些罕见的、难以理解和极易混淆的特性。如：Java没有指针、头文件、复杂数据结构、友元、虚拟基础类等，Java不支持goto，无需人工操作内存进行内存释放等。
+    （2）可移植性。Java程序只需编写一次，便可运行于Windows/NT，Unix，Solaris等操作系统。
+    （3）面向对象。Java是面向对象程序设计语言，其所有功能均是通过“对象点取方法”的方式实现。
+    （4）解释型。Java程序经过编译后，生成字节码，然后经过JVM（Java虚拟机）的解释才能运行。但它并不是如QBasic语言的纯粹解释型语言。
+    （5）分布式。具强大的网络编程能力，如Java可很容易地打开一个Socket网络连接，可用来编写CGI脚本，以及Applet（小应用程序）和Servlet（服务器小应用程序）。
+    （6）健壮性。由于Java没有指针，有效地避免了内存的出错，程序不易崩溃。
+    （7）多线程。Java的多线程编程比其它语言更加容易实现。
+    （8）安全。Java是目前最安全的一种程序设计语言，各种安全机制有效地避免了网络黑客的进攻。
+    （9）动态性。Java与不断发展的工作环境有很好的相容性，可将新代码随时加入到一个正在运行的程序，可以很容易的向类文件中添加新方法和新实例变量。
+    （10）中性结构。Java编译器生成的是一种中性的对象文本格式，只要对方安装了Java运行时间库，可在很多处理器中执行，而同计算机体系无关。
+    2.Java虚拟机JVM
+    Java虚拟机是通过软件模拟的方式来提供了各种硬件平台规范。Java程序之所以与平台无关，正是因为通过了不同平台的JVM的解释。一般Java开发包和WEB浏览器都提供和支持JVM。
+    3.垃圾回收机制Garbage Collection
+    不需要编写任何额外的代码，Java的垃圾回收机制就能自动检查和回收不再需要的内存。有效的避免了内存冲突和程序崩溃，这是Java语言的一大优点。
+    4.Java开发包JDK（Java Development Kit）
+    要编译和运行Java程序，必须安装JDK。最新版本的JDK1.2.2可从SUN公司的站点www.sun.com免费下载，安装后约有129M左右。在x:＼jdk1.2.2目录下，可以看到＼bin，＼docs等子目录，其中＼bin存放Java编译、运行的各种工具，＼docs存放Java基本类库的的API文档，打开该目录下的index.html文件，即可查阅Java中所有的类及其成员。
+    5.Java程序的运行方法
+    在安装JDK后，有以下几种方法可运行Java程序：
+    （1）方法1
+    ①配置autoexec.bat文件：
+    path=c:＼jdk1.2.2＼bin
+    set classpath=.;x:＼jdk1.2.2
+    ②用记事本等文本编辑器编辑Java源文件，存盘文件名为xxxx.java， 其中xxxx必须是源文件中的公共类名。
+    注意：Java程序是严格区分大小写字母的，在Java应用程序中，有且仅有一个公共类，且类名首字母必须大写。
+    ③在MS－DOS方式下，
+    编译Java程序：javac  xxxx.java
+    运行Java程序：java  xxxx
+    （2）方法2
+    使用EditPlus2或TextPad等文本编辑器，在其“工具”菜单栏配置好Java编译及运行工具后，可直接在这些编辑器中运行Java程序。
+    （3）方法3
+    使用JBuilder等可视化的集成开发调试环境。
+    本文推荐初学者使用第二种方法，即使用EditPlus2作为Java的编写及运行工具。
+    6.经典的HelloWorld.java程序
+    源代码如下：
+    public class HelloWorld{
+    public static void main（String args［］）{
+    System.out.println（"Hello World!"）;
+    }
+    }
+    说明：HelloWorld―公共类名；
+    main（）―主方法，java应用程序的入口；
+    String args［］―main（）方法的参数为字符串数组；
+    void―主方法的返回值；
+    staitic―主方法为静态方法；
+    public―主方法的访问权限为公共范围；
+    System―java基础类库中的一个类，位于java.lang包中；
+    out―System类的静态成员；
+    println（）―显示文本的方法。
+#1    二、Java的标识符、关键字和数据类型
+    1.标识符
+    （1）注释
+    //        单行注释；
+    /*        */ 多行注释；
+    /**/      文档注释；
+    （2）标识符
+    包括a－z和A－Z五十二个英文字母，0-9十个数字及下划线“_"和“$”。注意数字不能作为首字符，关键字不能作为标识符。
+    2.关键字（见^53100027a^表）
+    注意：Java关键字全部小写；const、goto是Java保留字，在程序中不能使用。
+    3.数据类型
+    （1）基本类型
+    包括boolean、char、byte、short、int、long、float、double八种数据类型。
+    如：  int i；//声明一个整型变量i。
+    （2）引用类型
+    包括对象和数组两种类型。
+    如：Date mybirthday；//声明一个Date型变量mybirthday。
+#1    三、表达式与流程控制
+    1.表达式
+    （1）变量及其作用域
+    变量按存在的位置可分为成员变量和方法变量（或叫自动变量），例如：
+    class A{
+    int  i;  //成员变量，作用域：整个类的内部。
+    void m（）{
+    float f;  //方法变量，作用域：该方法的内部。
+        }
+    }
+    （2）初始化变量
+    方法变量定义在方法体内部，在方法执行时被创建，方法退出时被破坏，其占用的内存被垃圾回收机制自动回收。方法变量在使用前必须赋初值。而类的成员变量可以隐式初始化，即成员变量若不赋初值，将隐式初始化成默认值。各种数据类型的默认初始值见^53100027b^表：
+    （3）逻辑运算符“＆＆”与“||”的短路行为
+    例如：
+    String s＝null；
+    if（（s!=null）＆＆（s.length（）>5））{
+    //do something with s
+    }
+    在上例中，由于＆＆左边的表达式（s!=null）为false，所以，对其右边的表达式（s.length（）>5）将不作判断，即使s.length（）会导致NullPointerException。
+    短路行为会给程序带来隐患，应特别注意。
+    （4）字符串连接符“＋”
+    例如：String s1=“First”；
+    String s2=“and Second”；
+    String s=s1+s2；
+    结果为：s＝“First and Second”
+    （5）移位运算符（对二进制数进行）
+    <<   左移运算符；如：1001<<2得：0100
+    >>   带符号右移运算符；如：1001>>2得：1110
+    >>>  不带符号右移运算符；如：1001>>>2得：0010
+    2.流程控制
+    （1）程序分支
+    ①if（）｛｝
+    else if｛｝
+    else｛｝
+    ②switch（表达式０）｛
+    case 表达式1：语句；break；
+    case 表达式2：语句；break；
+    default：语句；
+    ｝
+    （2）程序循环
+    ①while（）｛｝
+    ②for（）｛｝
+    ③do{}while（）
+#1    四、数组
+    1.一维数组
+    数组的声明和创建，如：int i＝new int［5］
+    数组元素初始化，如：i［0］=3；i［1］=5；
+    或：int i［］={0，1，2，3，4}；
+    Date d［］={today，yesterday，tomorrow}；
+    2.多维数组
+    声明和创建，如：int i［］［］=new int［2］［3］;
+    int ［］i［］=new int［2］［］;
+    int ［］［］i=new int［2］［］;
+    或：int i［］［］=new int{{1，0，0}，{1，1，0}};
+    注意：数组的元素相当于类的成员变量，可隐式初始化；多维数组在创建时必须指明第1维大小，其它维可动态创建。
+#1    五、对象和类
+    通俗地讲，类是对具有相同特征的一类事物的抽象描述，而对象是类的实例。这正如模具与铸件，人类与张三的关系一样。
+    1.类的定义
+    ［访问权限］ ［修饰符］class 类名 ［extends 超类名］ ［implements 接口列表］｛类体｝
+    其中，［ ］内表示可选项；
+    访问权限包括：public     公共类；
+                （default）  一般类；
+    修饰符包括：final        终态类，表明该类不能有子类；
+                abstract     抽象类；
+    超类：即该类的父类；在Java中，只允许允许用extends实现单继承。
+    接口：用一个类来反映两个或更多的父类，需用到接口。
+    2.方法定义
+    ［访问权限］ ［修饰符］ 返回值 方法名（［参数列表］） ［throws 异常列表］｛［方法体］｝
+    其中：
+   ［ ］内表示可选项；
+    访问权限包括：public     该方法在所有类中都能访问；
+                  protected  在同一个包内和该类的所有子类中都能访问；
+                 （default） 在同一个包内可以访问；
+                  private    只能在本类中访问。
+    修饰符包括：static       静态方法，表明该方法无需创建类实例就可直接使用；
+                final        终态方法，表明该方法不能被覆盖；
+                abstract     抽象方法，表明该方法无方法体；
+                synchronized 线程同步方法。
+    3.类的封装
+    public class MyDate｛ //声明公共类MyDate
+    int  day；//声明成员变量
+    int  month；
+    int  year；
+    public void addDay（）｛ //创建方法addDay（）
+    //方法体代码
+    ｝
+    ｝
+    MyDate d＝new MyDate（）； //创建MyDate类的一个实例对象d
+    d.addDay（）； //实例对象d点取（调用）addDay（）方法
+    4.方法重载
+    在同一个类中，有时出现多个方法名相同的方法，称为方法重载。方法重载时，参数列表必须不同。在调用重载的方法时，根据传入不同类型和个数的参数，由系统自动选择调用不同的方法。例如：
+    class Print｛
+    public void println（int  i）{...}
+    public void println（float  f）{...}
+    public void println（String  s）{...}
+    ｝
+    5.构造函数
+    在Java中，构造函数是特殊的方法，函数名必须和类名一致，且没有返回值，用new关键字调用，其主要目的是构建与初始化对象。格式如下：
+    ［访问权限］ 类名 （［参数列表］） ［throws 异常列表］{［函数值］}
+    例如：class Date｛
+    public Date（int x，int y，int d）｛...｝//构造函数
+    Date d=new Date（2001，1，1）; //调用构造函数
+    ｝
+    在上例中，若不定义构造函数，则缺省的构造函数为public Date（）{}。
+    6.继承
+    继承是面向对象编程语言的一个重要特征，在Java中，用extends表示继承，如：
+    class Person extends Mammal
+    其中，Person表示子类，Mammal表示父类或超类。
+    继承时，子类可继承父类所有的方法和成员变量（私有成员和构造函数除外），同时子类可扩展父类的方法或拥有自己新的成员变量和方法。
+    7.方法覆盖
+    子类虽然继承了父类的方法，但在子类中可以对父类的方法进行重新改写，这称为方法覆盖。例如：
+    class Mammal{
+    void walk（）｛...｝
+    ｝
+    class Person extends Mammal｛
+    void walk（）｛...｝ //子类中的walk（）方法覆盖了父类中的walk（）方法
+    ｝
+    注意：方法覆盖时，子类方法与父类方法必须具有相同的方法名，返回值类型和参数列表，子类方法的访问权限不能小于父类中的该方法。
+    8.多态性
+    多态是面向对象编程语言的另一个重要特征，Java通过方法重载和方法覆盖来实现多态。通过方法重载，一个类中可以有多个具有相同名字的方法，根据传递给它们不同个数和类型的参数来决定使用哪种方法。这样就大大简化了方法的实现和调用，程序员不需记住很多方法名，只需传入相应的参数即可。对于覆盖或继承的方法，Java运行时根据调用该方法的实例类型来决定选择调用哪个方法。对子类的一个实例，如果子类重写了父类的方法，则运行时调用子类的方法。如果子类继承了父类的方法（未重写），则运行时调用父类的方法。
+    例如：class Employee｛...｝
+    class Manager extends Employee｛
+    Employee e=new Manager（）； //将子类的实例对象赋给父类引用
+    ｝
+    e.addSalary（）； //调用子类Manager的addSalary（）方法，而不是
+    //父类中的该方法
+#1    六、Java的高级语言特性
+    1．static（静态）关键字
+    （1） static成员变量只占据一个存储空间；
+    （2） static方法和static成员变量可以不用创建类实例而直接调用；
+    （3） static方法在覆盖时必须保持static属性。
+    2.final（终态）关键字
+    （1） final方法不能被覆盖；
+    （2） final类没有子类；
+    （3） final变量表示常数。
+    3.abstract（抽象）关键字
+    （1） abstract类不能被实化，只能间接通过子类实化；
+    （2） abstract方法没有方法体，可以通过方法覆盖定义方法体。
+    注意：抽象类中不一定要包含抽象方法，但一旦某个类中包含了abstract方法，则这个类必须声明为abstract类。
+    4.接口interface
+    （1） 接口是一个特殊的抽象类，其内部的方法全是抽象方法；接口的定义如下：
+    ［public］ ［final］ interface 接口名 ［extends 接口列表］｛［接口体］｝
+    （2） 通过实现接口，可以实现多继承；
+    （3） 接口内部的成员变量只能定义成static final；
+    （4） 接口中的方法默认为public，所以在实现一个接口的时候，来自接口的方法必须定义成public，且来自接口的方法必须全部实现，即使有些方法什么也没做。
+    5.内部类
+    一个类可以定义在另一个类的内部，称为内部类。例如：
+    class A｛
+    class B{   } //内部类可嵌套定义
+    ｝
+    class C{
+    void m（）{
+    class D{   } //内部类可在方法体内定义
+    ｝
+    ｝
+    6.封装类
+    作用：将八种基本数据类型作为对象看待，从而可以运用对象的方法。这八种基本数据类型对应的封装类如^53100027c^表所示：
+    7.矢量类
+    矢量类是一种类似于数组的对象，它的容量可以自动扩张和收缩，在java.util包内定义。例如：
+    Vector（）；//构建一个空矢量，初始容量为10，容量自动加倍；
+    Vector（20，10）；///构建一个空矢量，初始容量为20，容量增幅为10；
+#1    七、异常处理
+    Java程序在调试运行过程中，常发生异常，从而导致程序终止。除了改正语法错误使程序调试通过，对于一些非语法错误引起的异常，如打开一个并不存在的文件，网络连接失败等，可以通过捕获异常，使程序继续执行。
+    1.抛出异常
+    在Java程序中可以使用throws在方法声明中抛出异常，或在方法体中用throws抛出异常。并且，在调用该方法时，必须进行异常处理。例如：
+    public class A｛
+    public void method（） throws Exception {
+    //code
+    ｝
+    ｝
+    2.捕获异常
+    Java中，用如下代码结构捕获和处理异常：
+    try｛被保护代码｝
+    catch（异常类型）｛异常处理代码｝
+    finally｛终结处理代码｝
+    例如：try｛unsafeMethod（）；
+    code1；
+    ｝catch（Exception e） ｛
+    code2；｝
+    finally｛code3；｝
+    code4；
+    在不发生异常的情况下，code1，code3，code4被执行；
+    在可捕获异常的情况下，code2，code3，code4被执行；
+    在不可捕获异常的情况下，执行code3后，程序终止。
+#1    八、基于图形界面（GUI）的Java程序编制
+    1.Java.awt包
+    通过GUI，用户和程序可以非常方便的进行交互。Java的抽象窗口工具包AWT（abstract window toolkit）中包含了很多的类来支持GUI设计。AWT由java.awt包提供，其中包含了很多的GUI控件，如按钮、菜单、框架以及布局管理器、监听器等。
+    2.容器和控件
+    Java中的容器主要包括Frame，Pannel，Applet等；控件主要包括Button，Checkbox等。控件和容器只能定位在容器内。
+    3.布局管理器
+    为容器添加布局管理器后，控件在容器中的具体位置就由布局管理器来决定。若不对容器指定布局管理器，则容器使用默认布局管理器。如Frame的默认布局管理器为BorderLayout， Panel的默认布局管理器为FlowLayout。
+    Java中包括五种布局管理器：
+    （1）FlowLayout流布局管理器：控件在容器中首尾相结依次排列。
+    （2）BorderLayout边界布局管理器：容器分为东西南北中五个方位，控件可布置在任一方位。
+    （3）GridLatout网格布局管理器：容器被划分为等分网格，控件可布置在任一空格内。
+    （4）CardLayout卡片布局管理器：控件象一叠卡片一样，一次只有一个卡片可见。
+    （5）GridBagLayout网格袋布局管理器：最复杂的布局管理器，它是一个没有任何限制的网格布局。
+    4.AWT事件模型
+    JDK1.2中使用授权事件模型，即控件只对注册了相应监听器的事件作出反应。例如：在一个Button上，只有注册了ActionListener，才会对鼠标事件做出反应，否则，鼠标按在Button上，将没有任何反应。下^53100027d^表是Java中常用的监听器接口及其方法。
+    5.AWT控件库
+    ·Button按钮
+    ·Checkbox复选框
+    ·RadioButton单选框
+    ·Choice下拉列表框
+    ·Canvas画布
+    ·TextField文本域
+    ·TextArea文本区
+    ·Label标签
+    ·List列表框
+    ·Dialog对话框
+    ·FileDialog文件对话框
+    ·ScrollPane滚动板
+    ·Menu菜单
+    6.Swing组件
+    Swing是实现Java GUI的第二代工具包，它建立在AWT的基础上，但比AWT控件更灵活，简便，功能更多，种类更齐全。有关Swing组件的详细信息，可参阅其它相关资料。
+    7.GUI例程：一个完整的TestButton.java程序
+    import java.awt.*;//引入awt包；
+    import java.awt.event.*;
+    public class TestButton implements ActionListener {//实现监听器接口
+    public void go（）{ //定义go（）方法；
+    Button b = new Button（"Press me"）;//创建按钮；
+    Frame f = new Frame（"TestButton"）;//创建框架；
+    f.add（b，BorderLayout.CENTER）; //将按钮加入框架，并置于边//界布局管理器的中央；
+    b.addActionListener（this）; //为按钮注册行为监听器；
+    f.setSize（100，100）; //设置框架的大小为100╳100；
+    f.setVisible（true）; //使框架可见；
+    }
+    public void actionPerformed（ActionEvent e）{ //实现监听器方法；
+    System.out.println（"Button is pressed!"）;
+    }
+    public static void main（String args［］）{ //主方法；
+    TestButton t=new TestButton（）; //实例化TestButton类；
+    t.go（）; //调用go（）方法；
+    }
+    }
+#1    九、Java小应用程序Applet
+    Applet（小应用程序）是嵌套在HTML页面里的一种Java类，它需要通过WEB浏览器的下载并在浏览器中执行。
+    1.Applet方法和生命周期
+    在Applet的生命周期中有4个主要方法：
+    init（）：Applet的入口。在Applet中，可以不显式调用init（），而由程序自动调用，除非要改变，才编写init（）方法；
+    stop（）：当离开当前页面或由原始尺寸变为最小化，调用stop（）方法；
+    start（）：当返回原页面或页面由最小化变为原始尺寸，或者调用完init（）方法后，调用start（）方法；
+    destroy（）：Applet运行完毕，自动调用destroy（）方法。
+    2.Applet的显示
+    Applet在本质上是一个图形，可由下面三个方法显示：
+    paint（）；显示图形；
+    repaint（）；重画图形；
+    update（）；更新图形；
+    3.高级小程序代码
+    getDocumentBase（）；返回当前浏览器HTML页面的URL地址；
+    getCodeBase（）；返回Applet代码的URL地址；
+    getImage（）；打开图像文件；
+    getAudioClip（）；打开声音剪辑；
+    4.Applet例程：“Hello World!”
+    （1）编写HelloWorld.java源代码
+    import  java.awt.*；//引入awt包的所有类库文件；
+    import  java.applet.*；//引入applet包的所有类库文件；
+    public class HelloWorld extends Applet｛//小应用程序必须extends Applet
+    public void paint（Graphics g）｛//系统自动调用绘图方法；
+    g.drawString（“Hello World!，25，25）；//在坐标25，25处输出字符串；
+    ｝
+    ｝
+    （2）将HelloWorld.java编译生成HelloWorld.class文件。
+    （3）编写HTML代码HelloWorld.html
+    <html>
+    <applet>
+    <applet code=HelloWorld.class width=100 height=100>
+    </applet>
+    </html>
+    （4）观看Applet
+    在IE等浏览器中打开HelloWorld.html，即可看到该Applet的运行结果；或者用appletviewer观看，只需在DOS命令行下，输入以下命令即可：
+    appletviewer  HelloWorld.html
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,139 @@
+利用C语言实现图形动画的三种途径
+
+湖北 赵巾巾 董春莉
+1996-04-26
+
+        动画由两个基本部分组成，一是物体相对于屏幕的运动，我们称之为相对屏幕的动画(Screen-relative animation)或屏幕级动画。另一是物体内部的运动，我们称之为相对符号的动画(Symbol-relative animation)或子画面级动画。
+        制作动画的通用原理相当简单：画完一幅图形后，清除它的屏幕显示部分，并在新的位置画第二幅图形。如此交替下去，利用人眼的视觉效应，只要新旧画面交替时间足够短，就会使物体看上去象是在连续运动，从而产生动画效果。
+        我们在用C语言开发软件的过程中，总结出以C语言强大的图形函数为基础实现动画的几种途径。下面所介绍的三种方法，所有程序均用Borland C++编制，并在486机型下运行通过。
+        一、内存映象方式(例程DEMO1.C)
+        1.这种方式的核心是利用了Borland C++的图形库函数getimage()(Turbo C里也有这个函数)来实现动画。即用getimage()函数将屏幕图像保存到内存中，然后抹去屏幕上的旧图像，在新的坐标处用putimage()将内存中的图像重新显示在屏幕上，再使图像消失，然后又在新的坐标处显示…，如此往复直至运动结束。
+        2.程序实现的方法：
+        (1)首先在屏幕上显示一幅图像，用imagesize()确定所要进行动画的矩形区域内的位图像所需要的存储空间大小(字节数)。
+        (2)然后用getimage()将屏幕上该矩形区域内的位图像从屏幕上拷贝到存储区，即形成屏幕上的局部画面在内存中的映像。
+        (3)用bar或putimage(x,y,XOR-PUT)等相关功能的语句，以背景色填充屏幕上的矩形区域，也就是消去图形。
+        (4)利用数值算法计算运动轨迹，即确定图像运动的下一个位置，也就是矩形区域的新坐标。
+        (5)用putimage()将(2)中getimage()保存的图像以(4)中所得到的新的坐标重新显示在屏幕上。
+        (6)判断运动是否结束，否则重复执行(3)-(6)。
+        3.用这种方法实现图形动画是简单易行的且运行速度快。但是该方法仅能实现某个矩形区域相对于整个屏幕的整体动画，不能表现出物体运动的细节，即屏幕级动画。
+        二、图形页面技术(例程DEMO2.C)
+        1.该技术的精髓在于有效地利用了Borland C++的两条重要的页面设置函数：设置图形输入活动页号函数setactivepage()及设置可见页号函数setvisualpage()。
+        图形页实际上是一个虚拟页面，是内存中开辟的一个图形缓冲区。活动图形页可以是当前显示页面，也可以是非显示页面。当用函数setactivepage()选定某一页为活动图形页时，其后所有的图形输出都是针对这一页的，若某种显示模式提供多个图形页，程序就可以将图形输出到一个非显示屏幕上，然后通过调用setvisualpage()将非显示页面设为可见页，快速显示该页中的画面。多个图形页面交替显示的过程如下：
+        在所用的两个页面中，当一个可见页用于前台显示时，另一个关闭页则用于后台绘图。当新的画面绘制好之后，就把两个页面进行转换，原来作为显示用的页面转为后台，绘制新的图形，而在前台显示原先的关闭页。一般可将画面显示顺序作如下安排：第一页用于显示动画过程第1，3，5，……等奇数幅画面，第二页用于显示动画过程第2，4，6，……等偶数幅画面，如此交替显示下去。
+        2.用图形页面技术实现动画的过程与电影胶片的放映极为相似。显而易见，这种方法能够制作相对于整个屏幕和子画面的动画，即子画面级动画。其缺点是要求显示模式的页数至少为2页，需要较大的缓冲区，因而限制了高分辨率模式的使用。
+        三、异或(XOR)方式(例程DEMO3.C)
+        1.XOR的概念
+        在逻辑代数中， XOR被定义为：
+        0 XOR 0=0   1 XOR 0=1
+        0 XOR 1=1   1 XOR 1=0
+        其意义为：若参加运算的两个颜色代码的布尔值相同，则异或结果为0，若参加运算的两个颜色代码的布尔值不同，则异或值为1。
+        2.XOR技术绘图的特点
+        (1)由XOR的定义知，自身异或其值必为零，从颜色角度来说，把一个颜色与它本身按位异或，必得到色码值为0的黑色。
+        (2)由XOR的定义知，0与1异或为1，故任意两种不同的颜色值按位异或，除了与黑色按位异或后仍为原色外，其余情况的结果都变成了不同于这两种颜色的另外一种颜色。所以，用两种颜色值的按位异或来模拟两种颜色的重叠，也就是说，用两个图形(或部分图形)中对应像素值的按位异或来模拟两个图形(或部分图形)的重叠，就可以始终保持它们的可见性，而不用管背景色如何。
+        (3)对任意的a,b都有a xor b xor b=a，即任意一个数与另一个数异或两次就可以还原。在图形绘制中，即是在同一坐标将某个图形绘制两次就使这个图形消失了(变成了背景色)。
+        3.利用XOR技术实现图形动画的过程
+        具备了以上基础，这个过程就变得十分简单了。首先在屏幕上起始坐标处用某种颜色以异或方式画一幅图，即显示第一幅图，然后在相同的坐标处以XOR方式再画一次，即把该幅图抹掉(变成了背景色)，之后计算运动轨迹，在新的坐标处以XOR方式绘制第二幅图，然后再用XOR方式画一次，使画面消失…直到画完最后一幅图。这样每幅画均画了两次，第一次为显示，第二次为抹掉，所不同的是每幅画的坐标可能改变。
+        4.XOR是目前实现画图和擦掉的最快和最好方法，大多数软件都采用了这种方法。
+        例程DEMO1.C   显示一个以阻尼振荡轨迹运行的方块
+        #include<graphics.h>
+        #include<stdlib.h>
+        #include<stdio.h>
+        #include<conio.h>
+        #include<dos.h>
+        int startx,starty,endx,endy;
+        int xmax,ymax;void *arrow;
+        unsigned int size;
+        int main(void)
+        {
+         int gdriver=DETECT,gmode,errorcode;
+         initgraph(&gdriver,&gmode,"c:\\borlandc\\bgi");
+         xmax=getmaxx();
+        ymax=getmaxy();
+         startx=10;starty=10;
+         endx=20;endy=20;
+         setcolor(RED);
+         setfillstyle(0,SOLID-FILL);
+         rectangle(startx,starty,endx,endy);
+         size=imagesize(startx,starty,endx,endy);
+         arrow=malloc(size);
+         getimage(startx,starty,endx,endy,arrow);
+         bar(startx,starty,endx,endy);
+         // putimage(startx,starty,arrow,XOR-PUT);
+         while(startx<xmax&&starty<ymax){
+          putimage(startx,starty,arrow,COPY-PUT);
+          delay(20);
+          putimage(startx,starty,arrow,XOR-PUT);
+          startx+=2;
+          starty+=startx*startx/2000;
+         }
+         closegraph();
+        return 0;
+        }
+        例程DEMO2.C   显示一个沿屏幕对角线运动的方块
+        #include<graphics.h>
+        #include<stdlib.h>
+        #include<stdio.h>
+        #include<conio.h>
+        #include<dos.h>
+        int main(void)
+        {
+         int gdriver=EGA,gmode=EGAHI,errorcode;
+         int maxx,maxy,startx,starty,endx,endy;
+         initgraph(&gdriver,&gmode,"c:\\borlandc\\bgi");
+         maxx=getmaxx();maxy=getmaxy();
+         startx=10;starty=10;endx=20;endy=20;
+         setcolor(RED);
+         do{
+          setactivepage(1);
+          cleardevice();
+          startx+=4;starty+=2;
+          endx=startx+10;endy=starty+10;
+          rectangle(startx,starty,endx,endy);
+          delay(20);
+          setvisualpage(1);
+          setactivepage(0);
+          cleardevice();
+          startx+=4;starty+=2;
+          endx=startx+10;endy=starty+10;
+          rectangle(startx,starty,endx,endy);
+          delay(20);
+          setvisualpage(0);
+         }while(startx<maxx&&starty<maxy);
+         closegraph();
+         return 0;}
+        例程DEMO3.C   显示一个以阻尼振荡轨迹运行的方块
+        #include<graphics.h>
+        #include<stdlib.h>
+        #include<stdio.h>
+        #include<conio.h>
+        #include<dos.h>
+        int main
+        {
+        int gdriver=DETECT,gmode,errorcode;
+         int xmax,ymax;
+         int startx,starty,endx,endy;
+         initgraph(&gdriver,&gmode,"c:\\borlandc\\bgi");
+         xmax=getmaxx();
+         ymax=getmaxy();
+         startx=10;starty=10;
+         endx=20;endy=20;
+         setcolor(yellow);
+         settextstyle( ,HIRZ-DIR,4)
+         outtetxy(100,240,"This is a test animation...");
+         setlinestyle(SOLID-LINE,0,3);
+         setwritemode(XOR-PUT);
+         setcolor(RED);
+         while(startx<xmax&&starty<ymax){
+          rectangle(startx,starty,endx,endy);
+          delay(20);
+          rectangle(startx,starty,endx,endy);
+          startx+=2;starty+=startx*startx/2000;
+          endx=startx+10;endy=starty+10;
+         }
+         closegraph();
+         return 0;}
+        
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

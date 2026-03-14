@@ -1,0 +1,45 @@
+了解Socket7与Slot1
+
+李肖锋
+1998年 第27期 07版
+
+#1Socket x架构的产生
+　　如果从支持486CPU的Socket插座开始算，那么曾经使用过的Socket系列就有Socket3、Socket4、Socket7和Socket8。
+　　Socket插座是Intel的Pentium Ⅱ CPU问世前一直使用的安装插座和接口标准。在这之前的386CPU多数采用焊接方式安装在主板上，但少数采用方形带针脚的PGA方式封装的CPU需采用插座安装在主板上。所以从386时代开始电脑主板上也就出现了被称为Socket的CPU插座。到486时代，CPU插座开始向169脚或238脚的Socket统一，其中169脚的Socket由于安装或拆下CPU都不太方便，所以以后逐渐从主板上消失。而238脚的Socket上有一根小拉杆扳手，使用时扳动拉杆就可以毫无阻力地插、拔CPU，所以也被称为ZIF（零插、拔力）插座。这种238插脚的Socket就是Socket3。从此，Socket3成为Intel 486DX系列CPU的标准插座和接口，其他任何厂家只要按Socket3标准设计CPU的引脚就可以与Intel的CPU完全兼容地安装在各种使用Socket3插座的486主板上。
+　　Socket4、Socket5问世于1993年，当时Intel推出了第一块主频为60/66MHz的586CPU（Pentium）时，该CPU的管脚从486时的169针增加到273针，所以Intel重新设计了安装CPU的Socket插座，这就是Socket4，其特征是320插孔。至于Socket5，则是Intel公司为其P54C系列的Pentium CPU定做的，可以插与P54C管脚兼容的CPU，其特征亦为320孔。此后Intel对其CPU从生产工艺等各方面进行改进，改进后的Pentium不但主频提高到75MHz以上，而且CPU管脚也从273针增加到了296针，Socket5也被改造成为Socket7，插孔也改成321脚，从此以后的Pentium才真正让电脑的“芯”“奔腾”起来。不知出于什么原因，Intel推出Socket7规范时并没有申请专利，各厂家都可以使用，这就造成了Socket7架构主板和Pentium级兼容CPU的充分发展，形成燎原之势。
+　　1995年，Intel公司推出的第一块686芯片——Pentium pro和专用插座Socket8。由于Pentium pro芯片内置256/512KB的L2 Cache，建立了P6（Intel的Pentium pro芯片代号）总线协议和独特的双总线架构（系统内存和L2 Cache总线分离）。由于Pentium pro的管脚增加到387针，所以Intel专门设计了Socket8插座用于安装Pentium pro，鉴于在Socket7上的失误，Intel对P6总线协议和Socket8申请了专利保护。
+　　随着686级CPU技术的不断发展，Intel认为目前的Socket架构与主频越来越快的CPU已不适应，所以重新开发新型的686CPU接口，以图逐渐取代Socket x。不过，据Intel公司的最新消息，Intel公司面向低端市场的赛扬处理器，明年又将采用370脚的Socket架构。如此看来，Socket x架构退出历史舞台还有一段时间。
+#1Slot x架构的由来
+  　Slot x是一种全新型的CPU接口。虽然它也兼容P6系统总线协议，但在技术规范上与Socket x有所不同，在物理结构和形式上也不同。由于各种原因，目前投入使用的Slot x插座还只有Intel的Slot1以及应用于笔记本电脑中的小型Slot1。以后将投入使用的还有Intel用于增强型Pentium Ⅱ的Slot2，以及AMD的尚在研究和开发中用于K7（一种在电路结构和封装形式都类似Pentium Ⅱ的CPU）的Slot A。虽然Slot1、Slot2和Slot A三种Slot槽的外形相似，但三者之间并不兼容，即分别使用这三种Slot x插座的CPU不能互换。
+　　Slot1是1997年随着Intel的Pentium Ⅱ诞生而开发的。Pentium Ⅱ是Intel根据Pentium pro芯片成本高，运行16位程序效率不高的缺点从生产工艺和芯片指令集两方面进行改进后开发出的新型的具有多媒体处理指令集的686级CPU。为了降低生产成本，Intel将原先Pentium pro的芯片内置L2 Cache改为外置，但仍然将CPU芯片和L2 Cache封装在一块电路板上并继续保持Pentium pro双总线架构的特点，由于CPU内核、L2 Cache和必要的支持电路合成后体积较大，所以Pentium Ⅱ采用了单边接触盒的形式封装，并按照P6系统总线协议设计成242引线的专用插座——Slot1，这样不但解决了封装问题而且还能减小其在电脑主板上所占空间。由于Slot1架构在实际应用中效果良好，所以Intel决定在以后推出增强型Pentium Ⅱ（可支持4个以上CPU同时工作，内置L2 Cache增加到1～2MB）时还将同步推出插座引线更多的Slot2。由此看来，Intel抛弃Socket7架构将CPU接口规范向Slot x架构转移的决心已不可更改。
+　　1997年，当Intel推出第一块Pentium Ⅱ和Slot1后，出于在Socket7上的教训，当然也有某些技术因素，Intel立即为Pentium Ⅱ和Slot1申请了专利保护。不仅如此，Intel还同时宣布从1998年4月起逐渐停止对Pentium MMX系列CPU的供货，至于原先的Pentium系列基本上已经停产了。Intel之所以这样做的目的是想凭借自己在CPU领域中的超强实力迫使使用Socket7的Pentium或Pentium MMX系列的兼容CPU尽快退出IT市场。如是这样，Intel就可以让有专利保护的Slot1以及Pentium Ⅱ系列逐步进入各种台式电脑和笔记本电脑，借此击溃AMD和Cyrix等公司在CPU技术和市场占有率上咄咄逼人的挑战，试图永远保持90％以上的CPU市场占有率或最终垄断CPU市场。
+    ^270701a^Intel的PⅡ采用的Slot1架构
+　　面对Intel的如此“绝情”，AMD、Cyrix等公司只有两条路，一是向Intel俯首称臣，购买Slot1的使用权，但从此它们的Pentium Ⅱ兼容CPU将增加生产成本，甚至丧失价格优势而削弱在市场上的竞争能力，最终无法与Intel竞争而被挤垮；另一条路是设法坚守Socket7阵地，争取在IT厂商的广泛支持下改进和发展Socket7，提高技术性能以延长Socket7的使用周期，赢得时间开发自己的新型CPU和接口标准去和Intel继续竞争
+#1Socket7架构的不足
+  　与Slot1相比，Socket7有以下不足：
+#1　　1.系统时钟难以逾越100MHz极限
+　　系统时钟频率也是系统总线频率和CPU的外部时钟频率。在保证电脑软、硬件系统运行稳定的前提下，系统时钟频率越高就能使用更高主频的CPU以提高电脑系统的运行速度；另外电脑发烧友也能充分利用“超外频”方式去提高CPU的运行速度。
+　　由于Socket7插座引脚过于纤细和密集的物理特点，致使Socket7架构的主板理论上最高只能使用100MHz的系统时钟频率，一旦超越100MHz的极限值系统运行状态很难保持稳定，虽然个别主板能突破这一生死频率，但实际运行效果难如人意。所以目前各厂家生产的Socket7架构主板都将100MHz标称为系统时钟的最高频率。
+　　而Slot1的物理特性比Socket7架构优越，所以Slot1架构的电脑主板可以轻松使用100MHz以上的系统时钟频率。
+#1　　2.非Intel产的CPU浮点性能不强
+　　由于目前使用Socket7架构最快的Intel产CPU只有Pentium MMX－233，还面临Intel停止供货的要挟，所以今后Socket7架构只能使用AMD的K6、Cyrix 6x86MX和IDT的C6系列，虽然它们都是Intel的Pentium Ⅱ或Pentium MMX级兼容CPU，商业应用性能（CPU的整数运算速度）也确实能达到或超过Intel同主频的CPU，但它们浮点运算能力却实在无法令人恭维。例如AMD的K6－300的浮点运算能力与Pentium Ⅱ－300相比低了40％，只相当主频为200MHz的Pentium pro。Cyrix 6x86MX的浮点运算能力就更差了，因此AMD K6等兼容型CPU的浮点运算能力不强必定将是一些3D图形处理和3D游戏爱好者今后抛弃Socket7投向Slot1怀抱的重要原因之一。
+#1　　3.Socket x架构限制CPU的发展
+　　Socket7的物理结构特点限制了CPU性能的提高。例如，Pentium Ⅱ使用了物理尺寸比较大的Slot1架构，所以Pentium Ⅱ可以采用体积较大的单边接触盒（尺寸≥130mm×20 mm×55mm）形式封装，这样就可以将能明显提高系统运算速度的512KB L2 Cache和已经具有32KB L1 Cache的CPU（分别制造后）集成在一块电路板上封装，不但可以继续使用Pentium pro式的双总线架构提高CPU的性能而且大大降低CPU的生产成本，提高了在市场上的竞争能力；相反使用Socket7架构的CPU尺寸（封装后的尺寸约为50mm×50mm）一般都比较小，这样Socket7架构的CPU如果要像Pentium Ⅱ那样增加同样容量的L2 Cache只能采用Pentium pro芯片制造方式。笔者个人认为，这样就算技术上可行但生产成本也将大幅度增加，很可能超过Pentium Ⅱ的生产成本。这时Socket7架构不会有价格优势，很难与Slot1架构继续抗衡下去。
+#1Socket7的生命力所在
+  尽管Intel为取代Socket7推出了Slot1，但在今天的市场上，Socket7架构还是有相当的生命力，其原因有三：
+　　1.硬件系统构成性能价格比高
+　　在采用Socket7（AMD K6－300＋AGP＋Intel 440TX主板）和Slot1（Pentium Ⅱ－300＋AGP＋Intel 440BX主板）这两种商业应用性能相近的硬件配置实例时，Socket7架构方案中仅主板和CPU两大器件的投资就将使系统造价比Slot1架构减少了2000元左右。这一点对于不需要进行大量的3D图形处理的单位和个人用户具有极大的吸引力。
+　　2.支持586、686 CPU种类广泛
+　　Slot1架构主板只能使用Intel公司的Pentium Ⅱ系列，但昂贵的Pentium Ⅱ往往使人望而却步。而Socket7架构主板可以使用各种CPU。如Intel的Pentium、Pentium MMX；AMD的K5、K6和K6—2（原命名为K6－3D）；Cyrix的6x86、6x86MX和Centaur 的C6等各类高、低档CPU。特别是低档的K6、6x86MX等兼容CPU与Socket7结合为生产1000美元以下的品牌电脑创造了有利条件，赢得了Compaq等大公司的青睐，这一点踩住了Intel以前不生产低档CPU产品的痛处，扩大了Socket7架构的生存空间。
+     这是张Socket7的照片，看到它的小手柄没有？^270701b^
+　　3.支持100MHz系统总线的芯片组提供了更多的选择
+　　由于Socket7接口标准公开，为产品生产商们创造了使用和改进Socket7的有利条件，尤其是在VIA（威盛）、SIS（矽统）和Ali（扬智）三大兼容（主板）芯片组制造商相继开发出支持新AGP总线和100MHz系统总线的主板芯片组后，更是大大提高Socket7主板的技术性能（此时的Socket7被誉为Super 7），使Socket7完全可以一战。
+#1Socket7大旗能扛多久？
+  　三国时期，如果弱小的蜀国（刘备）不是采用联吴（孙权）抗曹的战略，那么它一定很快就会被强大的魏国（曹操）所灭亡。
+　　在今天20世纪末的CPU接口Socket7和Slot1架构之争中，AMD公司也将面临当年蜀国类似的险境 ，因为它被Intel列为竞争的主要对手。在无法使用Slot1专利的前提下，AMD如果要生存下去，就必须让使用Socket7接口的K6、6x86MX等兼容CPU系列保持一定的市场占有量，只有这样才能使Socket7架构主板继续存在。但要做到这一点仅靠AMD自己显然很困难，它必须联合其它x86兼容CPU厂商共同行动。所以当今年5月AMD推出一种针对K6浮点运算能力弱而改进的K6－2后，迅即向Cyrix和IDT表示可以提供K6－2的技术——3DNow!指令集的使用权。AMD此举目的就是为了联Cyrix这个“吴”以抗Intel那个“曹”。3DNow!指令集由AMD自行开发，其主要作用是能加强CPU对3D图像数据的处理能力。目前，IDT已宣布采用3DNow!，而Cyrix则对3DNow!态度不明；但只要它们还继续生产使用Socket7架构的CPU，那么就可以使Socket7架构的使用周期延续下去。
+　　Intel也看出问题所在，所以它一手挥舞大棒：为削除K6、6x86MX及C6的价格优势向市场推出大量的赛扬（一种被抽去L2 Cache的简装Pentium Ⅱ），想利用赛扬优秀的浮点性能尽量多拉回原Socket7的用户；另一手摇晃“胡萝卜”，向Cyrix暗送秋波，示意在向美国国家半导体公司（Cyrix的母公司）转让Slot1的部分专利后，Cyrix就可以在一定条件下生产与Pentium Ⅱ接口兼容的CPU。一旦Cyrix真的见风易帜，那么AMD就会孤掌难鸣，Socket7架构大旗可能会加速倒下。因此，在Socket7与Slot1架构之争中，Intel和AMD、Cyrix“三国四方”之间的关系发展态势是Socket7架构大旗能打多久的重要因素之一。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

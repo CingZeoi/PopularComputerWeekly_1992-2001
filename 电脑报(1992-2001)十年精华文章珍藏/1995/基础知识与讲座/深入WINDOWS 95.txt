@@ -1,0 +1,80 @@
+深入WINDOWS 95
+
+卢致杰
+1995-12-29
+
+        一、WINDOWS 95的安装、启动及使用
+        WINDOWS 95系统的安装，要求至少一个386DX处理器加4M RAM及40～45M的磁盘剩余空间(但微软公司推荐33MHz的486加8M RAM的配置)，在仔细阅读WINDOWS 95的README.TXT文件和对原有计算机硬盘稍做整理之后(如杀病毒，优化硬盘)，即可开始安装WINDOWS 95了，WINDOWS 95的安装要求原系统中必须有西文WINDOWS 3.1或WINDOWS for Workgroups 3.11的存在，在这个前提下，WINDOWS 95提供两种安装方法：一是在DOS提示符下安装，这种方法安装速度较慢；二是在WINDOWS的File manager中安装，这也是WINDOWS 95推荐的安装方法，这种安装方法速度快，且能提供两种安装类型：
+        1.升级式安装：它将用WINDOWS 95的内容替代WINDOWS 3.1系统，并会将WINDOWS 3.1中全部现存的应用程序自动转化为WINDOWS 95格式，同时将用DOS 7.0取代原有的DOS版本系统，用户不能返回原有DOS版本系统。
+        2.双启动安装：这种安装方法需要用户在选择WINDOWS 95安装路径时选择其它路径，使WINDOWS 95和原有的DOS及WINDOWS 3.1系统并存于一个系统中，这种安装方法可使用户原有的DOS及WINDOWS系统完整保持，且WINDOWS 95也不会将WINDOWS 3.1的应用程序转化为WINDOWS 95格式，但用户要想在WIN95中运行WINDOWS 3.1中的应用程序时则必须重新在WINDOWS 95中安装。如果用户对WINDOWS 95还不是很熟悉的话，最好采用这种方法安装。
+        在选择完类型之后，根据屏幕提示和采用WINDOWS 95的推荐(recommend)选项，用户一般能比较顺利地完成WINDOWS 95的安装。如果用户采用的是双启动安装，则此时计算机中将并存两套启动系统，分别为：
+        1)用DOS 7.0(WINDOWS 95)启动时，启动的相关文件为：
+        IO.SYS
+        MSDOS.SYS
+        COMMAND.COM
+        CONFIG.SYS
+        AUTOEXEC.BAT
+        此时旧版本DOS系统文件保存名为：
+        IO.DOS
+        MSDOS.DOS
+        COMMAND.DOS
+        CONFIG.DOS
+        AUTOEXEC.DOS
+        2)用旧版本DOS启动时，启动的相关文件名同前者，此时WINDOWS 95系统启动文件保存名为：
+        IO.W40
+        MSDOS.W40
+        COMMAND.W40
+        CONFIG.W40
+        AUTOEXEC.W40
+        而对这两套启动系统的切换则是通过WINDOWS 95中的MSDOS.SYS来控制的。在WINDOWS 95中，IO.SYS包含了过去的IO.SYS和MSDOS.SYS的大部分功能，而MSDOS.SYS则发展成为一个配置WINDOWS 95的文本文件。MSDOS.SYS的缺省内容如下所示：
+        [Paths] WinDir=C:\WINDOWS 95
+        WinBootDir=C:\WINDOWS 95
+        HostWinBootDrv=C
+        [Options] Bootmulti=1;  表示系统允许双启动
+        Logo=1;  启动时显示WINDOWS 95标记
+        BootWin=1;  装入MS-DOS 7.0系统；等于0则装入原DOS系统
+        BootGUI=1;  装入MS-DOS 7.0后，自动装入WINDOWS 95
+        BootDelay=2;  启动中按F8有效的等待时间为2秒
+        BootKeys=1;  启动过程不锁键盘
+        DrvSpace=1;  如果有压缩盘则允许使用压缩盘中的压缩文件
+        DoubleBuffer=1;  允许使用“双重缓冲”
+        我们可以通过编辑MSDOS.SYS来控制计算机的启动过程，例如MSDOS.SYS内容如下时：
+        [Paths] WinDir=C:\WIN95
+        WinBootDir=C:\WIN95
+        HostWinBootDrv=C
+        [Options] BootMulti=1
+        BootWin=0
+        BootGDI=1
+        BootDelay=2
+        BootKeys=1
+        则表示计算机采用的是双启动控制，并且只用旧DOS版本及与它相应AUTOEXEC.BAT和CONFIG.SYS来启动计算机。
+        在安装完WINDOWS 95后，在系统提示下即进入第一次启动WINDOWS 95的画面，经过3、4分钟之后，便是WINDOWS 95对计算机硬件的检查(setting up hardware)，这个时候对兼容机来说很容易出现故障，笔者在安装过程中就曾因光驱和CPU类型与WINDOWS 95要求的不同而出现安装失败。一般来说，出现硬件检查失败应仔细阅读硬件检查跟踪文件bootlog.txt和detlog.txt及detcrash.log，必要的话，再次阅读Readme.txt,Setup.txt和Readnow.txt。常见的解决硬件检查失败的办法有：
+        ①关机10秒后再重新开机(不要按CTRL+ALT+DEL)，重复几次，直至问题解决。
+        ②若CPU为Cyrix类型，则应考虑在Autoexec.bat加入x:\Wb160ff.exe，x为存在Wb160ff.exe文件的路径。
+        ③将Autoexec.bat及Config.sys更名。
+        ④查看System.ini，备份之，然后用System.cb取代之再启动。
+        ⑤在F8中选step-by-step configmation启动。
+        ⑥在F8中选保护模式启动，若启动成功，则立即在控制面板(control panel)中双选system图标，然后选performance，再选File system button，最后选TroubleShooting栏，选择其中所有的项后击OK。
+        双启动安装的WINDOWS 95在启动屏幕出现“Starting Windows 95......”时按F8将出现WINDOWS 95的启动菜单。
+        二、WINDOWS 95给我们带来了什么?
+        从体系结构角度看，WINDOWS 95是WINDOWS 3.1自然延续，但WINDOWS 95在许多方面作了重大改进，其中包括：支持32位WINDOWS可执行程序和32位应用程序抢先式多任务；支持多线程应用程序和32位应用程序的独享地址空间；集成了曾由DOS管理的文件I/O功能；提供了一个全新的文件系统，既能与原系统保持兼容性，又能支持长文件名和一个可安装的文件系统管理器，这个管理器具有本地驱动器、CD-ROM和网络驱动器的32位文件系统驱动程序，另外，WINDOWS 95在资源管理、内存寻址、硬件支持等诸方面都作了重大升级：
+        1.现代体系结构：
+        WINDOWS 95采用了四层Intel x86保护模式中的第0层和第3层。第3层中包括了系统虚拟机(system VM)和虚拟DOS机(VDM)。系统虚拟机中包括了为所有WINDOWS程序提供操作系统服务的system service。其中有DLL(动态链接库)；USER，USER32(用来管理窗口)；GDI，GDI32(负责屏幕和打印机的输出)；KERNEL，KERNEL32(用来管理内存、处理器和线程)。
+        第0层中包括了以下两个部分：
+        ①文件管理子系统：其中有支持长文件名的VFAT文件系统驱动程序；替代MSCDEX的光驱驱动程序CDFS；网络重定向器的文件系统驱动程序；实现物理磁盘I/O操作的块I/O子系统及其它的驱动程序。
+        ②虚拟机管理子系统(VMM)：它包含有虚拟设备驱动程序VxD(Virtual device drivers)，它直接面向鼠标、键盘、显示适配器和可编程中断控制器等硬件。
+        整个体系结构属于抢先式多任务调度，并各个运行在独享的地址空间内，彼此不交叉，从而极大地提高了WINDOWS 95系统的可靠性和稳定性。
+        2.16位和32位并存的操作系统
+        在WINDOWS 95中，来自WINDOWS 3.1的16位代码仍然保留在GDI，USER和KERNEL中。KERNEL的大部分已经改写为了32位代码，但几乎GDI的一半和几乎全部的USER代码都还是16位的。这样做既能满足32位应用程序的要求，又能保持与现存应用程序的兼容性。
+        3.新的资源管理方法：
+        我们知道在WINDOWS 3.1中，USER和GDI是在局部堆中占用固定大小的内存(用16位指针访问的64K段内存)；这里面需要保存窗口、菜单、GDI对象，及其它应用程序建立起来的资源。也就是说，在这两个隐含的64K内存堆里面管理着重要的系统功能，当这些资源消耗降至15%～20%以下时，整个系统就有可能崩溃，也就是WINDOWS 3.1中常见的GPF故障。而在WINDOWS 95中，这种状况大有改观，许多数据已经从16位的USER和GDI中解脱出来，重新分配在32位堆中，而32位堆的大小几乎是没有限制的，尽管系统资源依然备案，但耗尽它们的可能性已大大降低，平铺式的32位地址空间及程序关闭后强制释放所占系统资源的设计，极大提高了资源管理的效率和系统稳定性。
+        4.新的VFAT文件系统
+        WINDOWS 95采用了新的文件系统，它将DOS中的FAT系统扩展成为了虚拟文件系统(VFAT)。
+        以前的WINDOWS版本，没有自己的文件系统而依赖于DOS的文件系统，也就是说，使用WINDOWS 3.1要存取数据时，它必须经过DOS的FAT，因而受到文件名必须在八个字符加三个扩展名以内的限制。而WINDOWS 95则一改过去的局限，它支持长达255个字符的长文件名，并保持了与FAT目录的兼容性。另外改进后的VFAT能支持更大容量的硬盘，最高达68GB。
+        5.即插即用(PnP)的硬件支持
+        WINDOWS 95在硬件方面支持plug and play(PnP)，安装了WINDOWS 95的计算机在启动时将自动检查所连设备并自动解决IRQ和端口分配等烦人的工作。也就是说，如果你买了一个新的硬件，你只须将它安装上，然后启动机器，等着使用它就行了。
+        以上这些就是WINDOWS 95带给我们新东西的主要部分。当然，在其他方面，如网络、电子邮件、多媒体等方面，WINDOWS 95同样带给了我们许多新的东西，但由于篇幅所限，不能一一论述。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

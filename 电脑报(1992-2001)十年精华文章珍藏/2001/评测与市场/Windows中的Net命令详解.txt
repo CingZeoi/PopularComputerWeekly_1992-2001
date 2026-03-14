@@ -1,0 +1,144 @@
+Windows中的Net命令详解
+
+敏敏 
+2001年 6期
+
+Windows NT中的Net命令是一个功能强大的工具。在命令行方式执行，它的功能覆盖了NT中大部分重要的管理功能。它可以管理网络环境、各种服务程序的运行和配置、进行用户和登录管理等。Windows98中虽然也有NET命令，但功能却少得多。下面简单的介绍一下NET命令的部分用法：
+　　#1    用户账号管理
+　　#2    1. NET USER
+　　作用:添加或更改用户账号或显示用户账号信息。
+　　格式：net user[username [password｜*][options]][/d omain]
+　　参数：
+　　（1）键入不带参数的net user查看计算机上的用户账号列表。
+　　（2）username添加、删除、更改或查看用户账号名。
+　　（3）password为用户账号分配或更改密码。
+　　（4）*提示输入密码。
+　　（5）/domain在计算机主域的主域控制器中执行操作。
+　　例: net user CHAN  查看CHAN用户现有的账号。
+　　#2    2. NET ACCOUNTS
+　　作用:对整个用户数据库进行管理。
+　　格式:net accounts[/forcelogoff:{minutes｜no}]]/minpwlen:length][/maxpwage{days｜ unlimited}][/minpwage:days][/uniquepw:number][/domain]
+　　参数
+　　（1）键入不带参数的net accounts显示当前密码设置、登录时限及域信息。
+　　（2）/forcelogoff:{minutes｜no}设置当用户账号或有效登录时间的过期时间。
+　　（3）/minpwlen:length设置用户账号密码的最少字符数。
+　　（4）/maxpwage:{days｜unlimited}设置用户账号密码有效的最大天数。
+　　（5）/minpwage:days设置用户必须保持原密码的最小天数。
+　　（6）/uniquepw:number要求用户更改密码时，必须在经过number次后才能重复使用与之相同的密码。
+　　（7）/domain在当前域的主域控制器上执行该操作。
+　　（8）/sync当用于主域控制器时，该命令使域中所有备份域控制器同步。
+　　例：net accounts/option 强行退出时间和口令期限等。
+　　#2    3. NET GROUP
+　　作用：在 Windows NT Server域中添加、显示或更改全局组。
+　　格式：net group groupname{/add[/comment:“text”]｜/delete}[/domain]
+　　参数：
+　　（1）键入不带参数的net group显示服务器名称及服务器的组名称。
+　　（2）groupname要添加、扩展或删除的组。
+　　（3）/comment:“text”为新建组或现有组添加注释。
+　　（4）/domain在当前域的主域控制器中执行该操作，否则在本地计算机上执行操作。
+　　（5）username[...]列表显示要添加到组或从组中删除的一个或多个用户。
+　　（6）/add添加组或在组中添加用户名。
+　　（7）/delete删除组或从组中删除用户名。
+　　例：net group“mail administrators”向组中添加用户。
+　　#2    4.NET LOALGROUP
+　　作用：添加、显示或更改本地组。
+　　格式：net localgroup groupname{/add[/comment:“text”]｜/delete}[/domain]
+　　参数：
+　　（1）键入不带参数的net localgroup显示服务器名称和计算机的本地组名称。
+　　（2）groupname要添加、扩充或删除的本地组名称。
+　　（3）/comment:“text”为新建或现有组添加注释。
+　　（4）/domain在当前域的主域控制器中执行操作，否则仅在本地计算机上执行操作?
+　　（5）name[...]列出要添加到本地组或从本地组中删除的一个或多个用户名或组名。
+　　（6）/add将全局组名或用户名添加到本地组中。
+　　（7）/delete从本地组中删除组名或用户名。
+　　例：
+　　（1）net localgroup domain/add将名为domain的本地组添加到本地用户账号数据库。
+　　（2）net localgroup“baby book”查看baby book局部用户组的成员关系。
+　　#1    有关机器和会话的信息管理
+　　#2    1. NET COMPUTER
+　　作用:在域中增加或删除机器。
+　　格式：net computer \\computername/add｜/del
+　　参数：
+　　（1）\\computername指定要添加到域或从域中删除的计算机。
+　　（2）/add将指定计算机添加到域。
+　　（3）/del将指定计算机从域中删除。
+　　例：net computer \\computer/add将计算机computer添加到登录域。
+　　#2    2. NET CONFIG
+　　作用：了解并修改配置。
+　　格式：net config[service[options]]
+　　参数：
+　　（1）键入不带参数的net config显示可配置服务的列表。
+　　（2）service通过net config命令进行配置的服务（server或workstation）。
+　　（3）options服务的特定选项。
+　　例:net config workstation了解本机的配置信息。
+　　#2    3. NET SESSION
+　　作用：列出或断开本地计算机和与之连接的客户端的会话。
+　　格式：net session[\\computername][/delete]
+　　参数：
+　　（1）键入不带参数的net session显示所有与本地计算机的会话的信息。
+　　（2）\\computername标识要列出或断开会话的计算机。
+　　例：net session \\LORS要显示计算机名为LORS的客户端会话细节。
+　　#1    建立与网络设备的连接
+　　#2    1. NET VIEW
+　　作用查看共享的资源。
+　　格式：net view[\\computername｜/domain[:domainname]]
+　　参数:
+　　（1）键入不带参数的net view显示当前域的计算机列表。
+　　（2）\\computername指定要查看其共享资源的计算机。
+　　（3）/domain[:domainname]指定要查看其可用计算机的域。
+　　例：
+　　（1）net view \\PEOPLE查看PEOPLE的共享资源列表。
+　　（2）net view/domain:MAN查看MAN域中的机器列表。
+　　#2    2. NET USE
+　　作用：连接计算机或断开计算机与共享资源的连接，或显示计算机的连接信息。
+　　格式：net use [devicename｜*][\\computername\sharena me[\volume]][password｜*]][/user：[domainname\]username][[/delete]｜[/persistent：{yes｜no}]]
+　　参数：
+　　（1）键入不带参数的net use列出网络连接。
+　　（2）devicename指定要连接到的资源名称或要断开的设备名称。
+　　（3）\\computername\sharename服务器及共享资源的名称。
+　　例: net use lpt1：\\ted\hp4m连接共享资源。
+　　#2    3. NET SHARE
+　　作用：创建，删除共享的资源。
+　　格式：net share share name=drive:path[/users:number｜/unlimited][/remark:“text”]
+　　参数：
+　　（1）键入不带参数的net share显示本地计算机上所有共享资源的信息。
+　　（2）sharename是共享资源的网络名称。
+　　（3）drive:path指定共享目录的绝对路径。
+　　（4）/users:number设置可同时访问共享资源的最大用户数。
+　　（5）/unlimited不限制同时访问共享资源的用户数。
+　　（6）/remark:“text”添加关于资源的注释，注释文字用引号引住。
+　　例：（1）net share C=c:\max将C:\MAX目录设为共享驱动器C。
+　　#1    发送信息
+　　#2    1. NET NAME
+　　作用：添加或删除消息名。
+　　格式：net name [name [/add｜/delete]]
+　　参数：
+　　（1）键入不带参数的net name列出当前使用的名称。
+　　（2）name指定接收消息的名称。
+　　（3）/add将名称添加到计算机中。
+　　（4）/delete从计算机中删除名称。
+　　#2    2. NET SEND
+　　作用：向网络的其他用户、计算机或通信名发送消息。
+　　格式：net send{name｜*｜/domain[: name]｜/users} message
+　　参数：
+　　（1）name要接收发送消息的用户名、计算机名或通信名。
+　　（2）*将消息发送到组中所有名称。
+　　（3）/domain[:name]将消息发送到计算机域中的所有名称。
+　　（4）/users将消息发送到与服务器连接的所有用户。
+　　（5）message作为消息发送的文本。
+　　例：（1）net send * This is a massage给所有连接到服务器的用户发送关机消息。
+　　例：（1）net send * This is a massage给所有连接到服务器的用户发送关机消息。
+　　#1    帮助
+　　#2    1. NET HELP
+　　作用:在命令提示符下获得帮助。
+　　格式:net help
+　　#2    2. NET HELPMSG
+　　作用:对错误、警告、报警信息进行解释
+　　格式:net helpmsg
+　　例:net helpmsg 2233看到“ERROR 2233”的信息。
+　　如要了解net命令更多的用法，也请用NET HELP及相应的命令来学习。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

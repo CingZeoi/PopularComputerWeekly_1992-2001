@@ -1,0 +1,56 @@
+“镭”霆风暴
+
+电脑报评测实验室  
+2001年 42期
+
+在显卡市场上，大家都不希望看到GeForce3一枝独秀，有竞争才有活力。前不久，传说中的Radeon2终于现身了，北京ATI新产品的发布会上ATI正式将Radeon 8500命名为“镭Ⅲ”，而同期推出的Radeon 7500将命名为“镭Ⅱ”。当然我们后面的文中还是会习惯地称呼Radeon 8500/7500。可以说这一次ATI跟上了节奏，具备了和NVIDIA正面交锋的实力。
+　　#1●镭Ⅱ和镭Ⅲ
+　　高端产品Radeon 8500
+　　Radeon 8500具有很多名称怪异功能强大的创新技术，为了让大家能够深入地了解这个产品，本文将对这些技术做一个简单的回顾和总结：
+　　Truform技术：关于这项技术已经有很多介绍了，简而言之，Truform通过增加更多小三角形来替代原有大三角形的方法来表现更加真实的物体表面，尤其是曲面。它可以应用在任何3D游戏上，无论游戏是新推出的还是旧的。ATI声称此项技术不会降低性能，但在理论上很难令人相信这一点。（^42080202a^）
+　　SmartShader技术：在DirectX8.0中，微软和NVIDIA联手为GeForce3量身定做了一套指令集，如Vertex Shader（顶点光源处理单元）、Pixel Shader（像素光源处理单元），在3Dmark2001中，这两项测试赫然在目，而“Game 4 Nature”这一测试项目更是成为GeForce3和DirectX8.0的招牌。现在终于有第二种产品可以流畅地完成“Game 4 Nature”测试了，它就是Radeon 8500。SmartShader可以实现Vertex Shader、Pixel Shader的效果，并且设计更先进，它使得每个处理单元一次可以接收最多6个纹理（texel）输入，并且可以接收更长的程序指令（每个程序22条指令，而GeForce3为12条）。有关Smartshader的不同可编程像素处理器规格，已经内建在DirectX 8.1当中。如果说DirectX8.0属于GeForce3，那么DirectX 8.1就属于Radeon 8500。
+　　Hyper-Z Ⅱ：Hyper-Z是Radeon的核心技术之一，如今ATI改进了Hyper-Z的算法，进一步节约了显存带宽。尽管Radeon 8500采用的275MHz DDR显存的理论峰值带宽只有 8.8GB/s，但是借助Hyper-Z Ⅱ，Radeon 8500的实际峰值显存带宽可以飙升到12GB/s。
+　　HydraVision技术：这项技术在Radeon VE上就开始采用了，它与Matrox的DualHead和NVIDIA的Twinview并称三大双头显示技术。Radeon 8500是首款支持双显示器的高端3D显示卡，它可以混合使用普通显示器、数字接口液晶显示器以及电视等。
+　　Charisma Engine Ⅱ：它就是Radeon 8500的动力之源──T&L（几何转换与光照处理）引擎。目前大部分的游戏仍然会用到它，因为支持Vertex Shader和Pixel Shader的游戏还很少。Radeon 8500的T&L引擎非常强劲，每秒高达6000万个三角形，超过了GeForce3每秒4000万个多边形的速度
+　　Pixel Tapestry Ⅱ：ATI声称Pixel Tapestry Ⅱ（像素描绘单元）包括4道绘图管线，而且可以在每个周期中处理单个像素中的3个纹理，然而据 Radeon 8500的纹理填充率计算，Radeon 8500每周期单像素下应该只能处理2个纹理，而不像Radeon那样每周期单像素能处理3个纹理，事实上Radeon的3纹理单元设计并不成功，利用率很低，大部分时间都只有2个在工作。（^42080202b^）
+　　#2中档产品Radeon 7500
+　　Radeon 7500于Radeon 8500并不是同一代产品，它的整体架构是基于Radeon的，通过改进生产工艺和PCB设计，达到了Radeon系列前所未有的高运行频率，其核心频率高达290MHz，甚至超过了Radeon 8500，配合4ns的显存（默认工作频率460MHz），将成为ATI针对NVIDIA GeForce2全系列产品的利器。随着传说中的R200、RV200更名为Radeon 8500、Radeon 7500，ATI原有的Radeon系列产品也改变了名称，标准版的Radeon更名为Radeon 7200，原来的Radeon VE更名为Radeon 7000。从ATI的产品编号也可以看出，Radeon 7XXX系列同属于支持DirectX 7.0的产品，Radeon 7500也是如此，因此不要指望它能够在3Dmark2001中与GeForce3一较短长了。（^42080202c^）
+　　#1●性能测试
+　　#2○测试平台配置和驱动程序
+　　CPU：AMD Athlon 1.33GHz
+　　内存：Apacer 256MB PC2100 DDR SDRAM（CL=2）
+　　主板：硕泰克 SL-75DRV2 KT266A Chipset
+　　对比显卡：小影霸G8000 XP GeForce 3
+　　硬盘：Maxtor DiamondMax Plus 45 46.1GB
+　　光驱：SONY DDU-1211 12× DVD-ROM
+　　显示器：LG 795FT Plus
+　　驱动软件：
+　　English Windows 98 SE with Direct X 8.0a
+　　nVIDIA Detonator XP 21.83WHQL版
+　　ATI 4.13.7189官方正式版
+　　VIA 4 in 1 Service Pack 4.34
+　　测试软件：
+　　3D Mark 2001
+　　MDK2
+　　SPEC Viewper v6.1.2
+　　GLMark v1.1
+　　Quake3 DEMO001
+　　测试过程中，主板内存的外频设定为133MHz，CAS参数被设定为2，Windows的显示频率为1024×768×32bit色深，刷新频率为85MHz。（^42080202d^）
+　　#2○3DMark 2000v1.1
+　　在3DMark2001的测试中，我们看到Radeon 8500取得了全面的胜利，在所有的测试分辨率下面，无论是3DMark的综合得分、像素填充率、游戏速度、顶点光源处理单元甚至Game 4 Nature这一测试项目的成绩都明显超过了GeForce3，虽然NVIDA是整合T&L引擎的创始人，不过Radeon 8500的T&L效能明显要胜过GeForce3一大截。这表明了Radeon 8500对DirectX8.0的充分支持，先前NVIDIA“独家垄断”的局面被ATI打破了。相比之下，Radeon 7500由于只支持DirectX7，在3DMark2001里的性能明显逊于支持DirectX8.0的Radeon 8500和GeForce3，成绩排在了最后面。同时我们也发现，Radeon 8500和GeForce3一样，也受到显存带宽的限制，不过其3.6ns的显存在速度上已经领先3.8ns的GeForce3了。而且随着分辨率的提升，Radeon 8500的性能也呈比例下降。在测试中，我们发现Radeon 8500和Radeon 7500的图像品质要明显优于GeForce3，图像的明亮程度、雾化效果处理和远景淡化处理要比GeForce3精细、柔和许多。而且画面色彩饱和度不错，相比之下，GeForce3的画面显得有些呆板、生硬。（^42080202e^）
+　　#2○SPEC Viewper6.1.2
+　　OpenGL应用一直是ATI的弱项，不过这次Radeon 8500声称同GeForce3一样，支持最新的OpenGL 1.3标准。为此我们采用了专业的OpenGL的测试软件SPEC Viewper6.1.2进行测试。SPEC Viewper6.1.2的结果表明经过最新优化的驱动程序的打造，Radeon 8500和Radeon 7500的OpenGL性能得到有效的提升，画面还较为流畅，也没有什么明显的贴图错误。虽然从测试的综合成绩上看目前GeForce3还处于领先的地位，但是Radeon 8500和Radeon 7500的OpenGL性能已经能够满足基本的一些小型的三维动画或建模等工作的需求。（^42080202f^）
+　　#2○Quake3 DEMO001
+　　我们知道，Quake3一向是NVIDIA GeForce3的强项，不过这次是换了Radeon 8500做领头羊。无论何种分辨率，我们可以看到Radeon 8500都取得了优异的成绩，甚至在1600×1200的高分辨率下，32 bit模式中，仍然能够保持100帧以上的流畅速度。600×480分辨率下的速度甚至接近200帧。GeForce3则落在了后边，基本上落后Radeon 8500十几帧，而且随着分辨率的提升速度差距还逐渐加大。Radeon 7500的成绩也落后GeForce3十几帧左右，当然也是随着分辨率的提升速度差距逐渐加大。
+　　#2○MDK2
+　　MDK2也是一款基于OpenGL的游戏，不过有趣的是这次基本上是GeForce3全面获胜取得第一。测试结果表明随着分辨率提升到1280×1024以后，Radeon 8500和GeForce3的性能才开始逐步呈比例下降，而且它们的性能比较接近。相对而言，Radeon 7500性能就要差一个级别了。
+　　#2○GLMark
+　　GLMark是一款新出品的游戏OpenGL测试软件，测试结果反映出来的综合成绩同MDK2一样。GeForce3第一，Radeon 8500第二，Radeon 7500第三。值得注意的是，随着分辨率的提升，GeForce3性能下降幅度非常大，而Radeon 8500和Radeon 7500则小很多，因此到高分辨率时，Radeon 8500的成绩超过了GeForce3。由于在评比场景中有大量的重叠现象（高度复杂景深），而且物体都由后面往前排列，因此这次ATI的隐面移除功能的确有用。相对的NVIDIA z-occlusion culling没发挥什么功用，因为它只要碰到由后往前排列的物体就没辙了。
+　　#1●结论
+　　测试结果表明，Radeon 8500是目前唯一能同NVIDIA GeForce3抗衡的支持DirectX8.0a高档图形卡，Radeon 8500比GeForce3有许多的优势：超高的核心频率、管线数与内存带宽，和许多与其它3D芯片厂有别的亮丽功能，在T&L方面领先，只是OpenGL方面可能还稍逊NVIDIA一些，看来Radeon 8500需要一个更加完善、强大的驱动程序。在驱动程序方面，ATI的表现一直让人不能很满意，Radeon系列产品优秀的设计经常被蹩脚的驱动程序拖了后腿。作为对比，NVIDIA的驱动程序设计就非常成熟和优秀，甚至可以通过驱动程序来弥补自己产品设计上的不足，如果ATI能够拥有NVIDIA的驱动程序开发队伍，Radeon 8500的前途将更加不可限量。
+　　Radeon 7500除了不完全支持DirectX8.0以外，各方面的性能都比较均衡。尽管它不敌GeForce3，但是相对于NVIDIA的中档产品而言，还是具有很强的优势。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

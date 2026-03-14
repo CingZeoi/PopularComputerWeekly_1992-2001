@@ -1,0 +1,77 @@
+NetWare 5技术初探
+
+谭天
+1998年 第52期 17版
+
+#1    1.NetWare 5是什么？
+    NetWare 5是全球最受欢迎的服务器操作系统，是NetWare极为重要的新版本。NetWare 5将使NetWare服务器操作系统的声誉更加显扬，它为异质网路，包括应用程序与互联网，提供优异的管理与控制能力。
+#1    2.Moab是什么？
+    Moab是NetWare 5的代号。
+#1    3.NetWare 5有哪些主要特性？
+    NetWare 5是Novell第一个提供纯IP的操作系统。所谓纯IP是指NetWare 5并不保留以IPX为基础的封装功能（或在Windows NT服务器的环境下，不保留NetBIOS的封装）；NetWare 5也会与前一版本一样，仍持续支持IPX。不过，采用何种协定还是由用户决定。NetWare 5也允许用户轻松、顺利地从IPX转换到IP，它也继续支持混合多种协议环境。此外，NetWare 5将包含以下这些重要的新特性：
+    （1）与Novell Directory Services（NDS目录导引服务）结合的DNS／DHCP公用程序，使IP地址的管理更轻松。
+    （2）第一个推出Java开发平台，协助用户方便地开发以Java为基础的应用程序。
+    （3）存储器保护、虚拟存储器与新的内核，提高应用程序的执行效率和可靠性。
+    （4）新时代储存系统Novell Storage Service，免除了文件系统的限制，也大大改善了可靠性、扩充性及机器性能。
+    （5）Novell Distributed Print Services （NDPS）为革命性的新打印服务，提供双向的智能型打印服务。
+    （6）Z.E.N.work Starter Pack，这套用于桌面系统的Zero Effort Networking（不费力的网络作业）工具组，可从远端管理工作站、传送应用程序，同时也让使用者的问题与管理难题减到最少。
+    （7）Netscape  FastTrack* Server，这套功能强大、便于操作的Web服务器，能建立Web网站，提供intranet解决方案。
+#1    4.在NetWare 5上还能执行IPX吗？
+    绝对行。NetWare 5支持IPX协议或IP协议，也可以同时支持两个协议。它让企业用户能保留原有的应用程序与选择设备投资，且只要合理，这些设备要用多久就用多久。选择权是在客户手中，原本就不该由厂商决定。
+#1    5.Novell会继续支持IPX多久？
+    Novell准备至少再支持IPX一百年。
+#1    6.NetWare 4与NetWare 5有哪些主要差异？ 
+    NetWare 4为建构最佳的网络提供了坚固的基础。Novell的目录导引服务（NDS）首先在NetWare 4出现，为降低网络总体拥有成本（TCO）铺下一条坦途，提供平台独立性、集中化管理以及使用者更易存取网络资源的特性。NetWare 4的IntraNetWare版则提供标准化工具，协助用户在整个公司内部建构强大的内联网（Intranet）。
+    NetWare 5以上述先进功能为基础，将企业网络与全球互联网结合，形成一个安全、高性能、可充分管理的商业网络。NetWare 5提供一个纯IP的解决方案，所谓纯IP是指NetWare 5并不保留以IPX为基础的封装功能（或在Windows NT服务器的环境下，不保留NetBIOS的封装）；NetWare 5也会与前一个版本一样，仍继续支持IPX协议。然而，用户有选择采用何种协议的权利。NetWare 5的用户也可以轻松地从IPX协议转换到IP协议（适用于选择IP协议的用户），也继续支持混合多种协议环境。NetWare 5将推出功能强大的可扩充平台，以开发和实施分布式网络应用程序。总之，NetWare 5在目录执行方案、文件系统、打印服务、Web服务、安全性以及操作系统内核等领域中，提供许多其他的特性及重大的强化功能。NetWare 5特别在下述领域中新增更强的功能： 
+    （1）网络管理与控制
+    强化NDS功能，提供LDAP v3相容性，改善整个广域网络目录服务管理能力的可转移同步功能（transitive sync），及更容易存取文件名的目录（catalog）服务。
+    DNS／DHCP公用程序与目录导引服务NDS整合，大幅节省IP地址的管理时间。
+    新的备份公用程序使网络工作更轻松、更节省时间。
+    新的NLMJ代理程序允许任何以SNMP为基础的控制装置，如ManageWise7、CA UniCenter、HP OpenView、IBM Tivoli、SunNet Manager及其他产品，利用开放的互联网标准管理协议，管理NetWare操作系统。
+    （2）互联网服务
+    为需要更多频宽与单一协议的企业提供纯IP解决方案。NetWare 5之所以能提供纯IP解决方案，是因为在产品中它并不保留以IPX为基础的封装功能（或在Windows NT服务器的环境下，不保留NetBIOS的封装）。不过，NetWare 5充分支持IPX协议，且完全与IPX协议相容。
+    Netscape FastTrack* Server是便于操作的软件，可建立、出版Web文件并提供Web文件服务。
+    LDAP Services for NDS，让使用者能存取intranet或互联网上的NDS及其他目录信息，以便更容易存取更广泛的重要资料。
+    （3）开发与设计应用程序
+    NetWare 5里的Java Virtual Machine （JVM），将会是最具策略性的平台；它协助用户利用Java与Java描述指令，开发与设计新类型的标准化分布式网络应用程序。NetWare也支持Common Object Request Broker Architecture （CORBA） ORB、与VBScript相容的NetBasic解译器、NetWare的JavaBeans、JavaScript与Perl 5。
+    NetWare 5新的操作系统内核，结合了单一处理器杰出的性能与多重处理器内核优异的扩充能力。它包含新的应用程序优先设定（preemption）功能，可让客户设定服务器上所执行应用程序的先后顺序。它也提供几个新的强化功能，如提升容错能力的记忆体保护，增加性能的虚拟记忆体以及除错程序。
+    透过NetWare 5的加密服务，开发业者就不必在产品中放入加密程序代码，而得以节省时间与金钱。而且，开发业者可以向全球销售相同的程式产品。
+    （4）可靠性、扩充性、性能与安全性
+    Novell Storage Services（Novell储存服务）为Novell所发展的次世代储存即存取系统，这个64位的索引式储存系统，打破了现行文件限制与重新安装的次数的限制。
+    Novell Distributed Print Service（Novell分布式打印服务）提高了网络打印的标准。此产品为使用者、打印机与系统管理人员提供智能型双向通讯功能。
+    Secure Authentication Services（安全验证服务）提高了安全性，允许管理人员在NDS内建立Certificate Authority管理领域。此外，NetWare 5内含一个新的内核系统，让管理人员得以查看与记录使用者的存取动作，并修改网络资源。
+    （5）支持Hot Plug PCI与I2O，增强可靠性与性能。
+    总之，NetWare 5以NetWare 4的优势为基础，以更低的成本提供价值更高的服务。
+#1    7.Windows NT 5.0与NetWare 5有哪些主要差异？
+    由于Windows NT 5.0仍然停留在初期使用者测试阶段，发表日期也不确定，因此难以比较Novell产品与Windows NT 5.0。然而，根据现有的信息，可以提供以下结果：
+    NetWare已是最佳的服务器操作系统，而不只是一个通用型操作系统（应用程序服务）。因此，从需要基本网络功能的小公司，到需要全球性网络功能的大型企业，NetWare 5都能运作可靠，并提供可扩充的网络服务管理能力。
+    此外，NetWare 5已经改善存储器管理，也增加了虚拟存储器。微软正在给内核增加越来越多的功能，以便提供NT所需的扩充能力。然而，我们预期设计在内核层的Active Directory程序代码，对早已经常重新开机的平台，会大大地增加它的不稳定性。
+    微软第一次发布的Active Directory的可靠性与扩充性如何，仍然不清楚。目前所了解的是，Active Directory会是仅适用于NT的解决方案，并提供NT网域的向后相容性，这点限制了该产品在继承权限方面的功能。因此，该产品无法使用以例外管理权限的系统管理优点；同时，给予公司的权限，若没有在每个网域给予各部门同样的权限，这些权限并不会自动套用到所有的部门。
+    微软正在将该公司多种管理通用程序整合成一个可自订的控制台，而此设计的功能与Novell的NWAdmin类似。虽然微软预计在NT 5.0中内含ZAK （Zero  Administration  Kit， ZAK）技术，但它并不提供能使网络PC更容易使用（也让PC使用者更有生产力）的桌面系统管理功能。Novell的Z.E.N.works （Zero Effort Networking for users）软件，除能大幅改善桌面系统的管理，让终端使用者不受束缚，发挥个人电脑与网络的最大效益外，也能延伸与强化ZAK技术。
+    此外，微软将开始在NT 5.0上提供保全功能，这与NetWare这些年来由SFT Ⅲ所提供的功能类似。不过，首次的测试显示，NT 5.0的性能远远低于Novell所提供的性能。
+    总而言之，我们相信NetWare 5将继续提供优异的网络管理与控制能力。它可以在开放的互联网标准有效运行，同时还能提供无与伦比的可靠性、扩充性、性能与安全性。而且，NetWare 5将为以Java为基础的内核层应用程式，提供最佳的应用程序开发与设计环境，并使网络的成本维持最低。
+#1    8.NetWare在网络软件市场中是否为领导产品？
+    是的。事实上，这种领导地位根本没有停止过。NetWare的市场占有率（41%），几乎是Windows NT服务器（23%）的两倍，而且每年的销售量都在成长。
+#1    9.什么是Web Server for NetWare 5？ 
+    NetWare 5的使用者可以取用三种Web服务器，全部为Netscape的产品。第一个是Netscape FastTrack* Server for Novell NetWare，NetWare 4与NetWare 5都附有服务器，而且是免费的。不过，这并不包括文件版本控制总体搜寻的管理公用程序，这些功能放在Netscape Enterprise Server for NetWare中。该软件是用户可选购的FastTrack Server升级产品，Novell与Netscape经销商都以1，295美元出售。最后，第三种选择是Netscape Enterprise Pro Server for NetWare，这是企业级服务器加上Oracle关联式数据库，也已经以1，995美元全面供货。
+#1    10.NetWare 5是否解决公元2000年的问题？
+    NetWare 4与NetWare 3.2就已解决公元2000年的问题。
+#1    11.NetWare 5是否支持群体协作？
+    是的。NetWare 5是群体协作解决方案的理想平台。NetWare 5文件系统（NSS）先进的功能，整合性的目录服务，加上NetWare 5维持了NetWare被设计为网络操作平台的传统，这些都使得NetWare 5成为群体技术解决方案的理想操作平台。
+#1    12.NetWare 5如何使开发工作更轻松，并加强应用程式的设计能力？
+    Novell以许多重要的方式强化对应用程序与开发工作的支持。首先，在内核层方面，Novell增加了存储器保护、虚拟存储器，还有一个强大的除错程序。Novell也包含应用程序优先设定（preemption）功能，能够让系统管理人员执行的先后顺序，如有必要可一个程序接桌一个程式执行。Novell公司正与重要的独立软件厂商合作，确保产品推出时，用户能获得需要内核层性能的应用程序资源，如Web服务器及数据库引擎。大部分的应用程序，特别是以Web为基础的应用程序，以Java开发完成，并采用整个业界属于该平台的所有丰富工具及应用程式设计介面。
+    此外，NetWare 5也将推出并支持Common Object Request Broker Architecture （CORBA） ORB、与VBScript相容的NetBasic解译器、JavaBeans for NetWare、JavaScript及Perl 5。 
+#1    13.Novell是否继续支持NLM的开发？ 
+    当然。Novell公司已强化它的结构，且他们所努力结盟的对象，集中在拥有那些需要内核层性能的关键性应用程序的主要厂商。其他所有的独立软件厂商现在都能够同时充分应用Java，以及那些在撰写真正Web程序、跨平台应用程序时，提供所需扩充能力的主要内核层服务。
+#1    14.NetWare 5如何让客户更容易安装？
+    NetWare 5新的图形界面安装程序，是Novell通用安装功能的第一个，它使安装过程更顺利，也建立起一致的外观、感觉与流程。NetWare 5让客户在安装过程中，能享用到Java的跨平台威力及简单易用的图形使用者界面。
+#1    15.在互联网连线方面，NetWare 5提供何种功能？
+    NetWare 5将提供用户端与服务器端的互联网连线元件。这包含了可顺利整合IPX与IP网络区段及应用程序的Novell Migration Gateway、Netscape FastTrack Web服务器、Netscape Communicator用户端与浏览器，以及能实体连结Web的Novell Multiprotocol Router（多重协议路由器）。
+#1    16.NetWare 5是否提供一种与微软产品类似的零管理工具？
+    是的。尽管Novell认为「零管理」这种主张不但是无法达成的目标，也是过度的承诺，但是NetWare 5仍提供了革命性的桌面系统管理工具组，叫做Z.E.N.works （Zero Effort Networking for users）。这套工具组超越了微软的ZAK，且提供了工作站远程安全管理功能，包括应用程序管理、软件分传、软件安装、桌面系统管理及维护、远程诊断及修复。它运用NDS的威力，提供优异的桌面系统管理及控制功能。
+    （参考网地址：http:／／www.novell.com／netware5／）
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

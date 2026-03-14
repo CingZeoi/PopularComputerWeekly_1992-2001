@@ -1,0 +1,489 @@
+国内外医学网址大放送
+
+黄国志
+1998年 第52期 17版
+
+    三年前，北京大学几位学生为抢救生命垂危的同学，在Internet上发了一封求救的电子邮件，得到了全球1000多位医学专家的“网络会诊”，使这位同学的疾病得到及时的诊断及治疗，经过传媒的传播，引起了极大的轰动，使国内越来越多的人认识了Internet。Internet对医学方面的影响变得越来越重要了。本文介绍在Internet上的医学资源及查找方法，并列出了与医学有关的常用网址。
+#1    一、网上的医学资源及查找方法
+#1    1.医学网络搜寻器
+    Internet上与医学有关的内容很多，并且更新的速度很快，几天不上网，内容已经大变样，要记住众多与医学有关的网址，既不可能，也没有必要。查找医学信息最有效的方法是利用医学网络搜寻器进行检索。一般医学网络搜寻器均收集了与医学有关的内容，通过它查找有关的医学信息，既快捷又方便。较著名的医学网络搜寻器有：
+    （1） Medical Matrix
+    网址：http://www.medmatrix.org/index.aspCMedical Matrix的使用方法与其它Internet信息检索工具的使用方法基本相同，有分类检索和关键词检索两种检索方式。它的特点是提供免费Mailing Lists，只要订阅了它的Mailing Lists，即可定期收到网上新增医学节点的通知。
+    （2） HealthAtoZ
+    网址：http://www.healthatoz.com
+    HealthAtoZ 是一个功能强大的Internet医学信息资源搜寻器。它能对与医学有关的信息进行准确、有效地搜寻。它所收集的信息均经过医学专业人员的人工编排，以保证搜寻的准确性及方便性。所收集的内容每周均进行更新。可按分类及关键词的方式进行检索。
+    （3）MedExplorer
+    网址：http://www.medexplorer.com/m－publi.htm
+    检索方法与其它网络搜寻器的方法基本相同，主要提供有关医学新闻及杂志的信息。
+#1    2.免费Medline检索
+    Medline数据库是美国国立医学图书馆MEDLARS系统中规模最大、权威性最高的著名医学文献数据库。众多的医疗结构通过Internet提供免费Medline检索，常用免费Medline检索的网上节点有：
+    （1） Internet Grateful Med Medline Search 
+    网址：http://igm.nlm.nih.gov/index.htm
+    由美国国立医学图书馆提供，是目前应用最广泛的免费Medline检索节点。 C
+    （2） BioMedNet Evaluated Medline 
+    网址：http://biomednet.com/db/medline/index.htm
+    （3）Infotrieve Medline Service Provider 
+    网址：http://www.infotrieve.com/freemedline/index.htm
+    （4） Medscape Medline Search 
+    网址：http://www.medscape.com/misc/formmedlineInfLive.html
+    （5）Avicenna Medical Information Services 
+    网址：http://www.avicenna.com/index.htm
+    （6） Knowledge Finder 
+    网址：http://www.kfinder.com/index.htm
+    （7） Helix Medline Access 
+    网址：http://www.helix.com/index.htm
+    （8）HealthGate Medline 
+    网址：http://www.healthgate.com/HealthGate/MEDLINE/search.shtml
+    （9）Internet Medline Comparison Table at Medical Matrix 
+    网址：http://www.medmatrix.org/info/medlinetable.asp
+    （10） Ovid On Call Medline and Medical Databases 
+    网址：http://preview.ovid.com/libpreview/
+    （11） MD Answers at SilverPlatter 
+    网址：http://php2.silverplatter.com/physicians/
+    （12） Paper Chase Medical Literature Searching 
+    网址：http://enterprise.bih.harvard.edu/paperchase/
+    （13） MedEc Interactive Medline 
+    网址：http://www.medecinteractive.com/
+    （14） Community of Science， Inc.
+    网址：http://muscat.gdb.org/repos/medl/
+#1    3.网络虚拟环境的应用
+    虚拟的网络环境为现代医学的医疗及教学提供极大的方便。远程教学与虚拟图书馆是在Internet上出现的一种新型教学培训及资料查询方式， 受到各界人士，尤其是教育界及科技界的欢迎， 它不但节省大量的人力物力， 而且教学资料翔实， 课程内容丰富，教学手段新颖。很多的医学数据库充分发挥Internet优势， 以多媒体方式提供在线医学继续教育服务及资料查询， 对医师的进修提高及科研工作的开展提供了极大的方便。
+    （1） 美国衣阿华州医科大学虚拟医院
+    网址：http://www.vh.org/
+    它可以通过网络24小时不间断地提供各种医疗信息、资料， 并解答用户提出的各种问题， 同时向实习医师和护士提供远程学习的机会。 在此可查询有关癌症、肺病、卫生保健、儿科、妇科、神经科、骨科、放射科等方面详细资料。
+    （2）多媒体虚拟医学图书馆
+    网址：  http://www.tiac.net/users/jtward/
+    可以键入关键词的方式查找资料，查找结果以目录方式返回， 在需要的目录下点按鼠标， 即可得到相应目录的详细资料。它不但提供文字信息，还提供医学图片及动画等多媒体信息，较传统的图书查找方法更为简洁、迅速、有效。
+    （3）虚拟医学会议
+     网址：http://www.web－xpress.com/athens/intern.html
+    利用Internet的虚拟环境，在网络上召开医学学术交流会，既能节省大量的人力物力，又能达到很好的交流效果。该网址主要介绍拟在Internet上召开的医学学术交流会及时间。
+#1    4.网络医学专业期刊
+    许多专业医学期刊均在网上发布期刊的电子版。电子版期刊较原版期刊早出版1～2个月，且费用低廉（大部分为免费阅读，即使订阅，费用也很低）。较著名的网络医学期刊有：
+    （1）美国医学新闻（AM News）
+    网址：http://www.ama－assn.org/amnews/amnews.htm
+    （2）英国医学杂志（British Medical Journal）
+    网址：http://www.bmj.com/bmj/
+    （3）美国医学会杂志（Journal of the American Medical Association） 
+    网址：http://www.ama－assn.org/
+    （4）网络医学新闻及杂志总汇
+    网址：http://www.cc.emory.edu/WHSCL/medweb.ejs.html
+    此网址收集了超过300种医学杂志的网址，并提供链接。
+#1    5.医学资源的专题讨论组
+    科研人员除了可以充分利用Internet上大量的科技数据库外， 还能利用一种更灵活、 更具导向性的功能——Internet的专题讨论组（Mailing Lists）。 有关医学的专题讨论组众多， 涉及医学各个方面， 而且成员来自不同的国家。 经常参与专题讨论组的讨论， 可开阔研究人员的视野， 随时掌握本领域的最新动向。网络会诊往往选择邮件讨论组的方式进行，将需要会诊的资料发往相关的讨论组，即可进行疑难病例网络会诊。要参加相关医学专题讨论组， 只要向相关讨论组发一封电子邮件， 提出申请， 获批准后就会收到相应专题的电子邮件。 要了解Internet上医学专题讨论组的分组情况， 可以向Listserv@kumchttp.mc.ukans.edu发一封电子邮件， 信的内容写上subscribe MATRIX－L 及使用者名字， 即可收到有关医学专题讨论组的专题目录的电子邮件， 选择感兴趣的讨论组， 申请加入即可。
+#1    二、医学各专业常用网址
+#1    1.解剖学
+    ●解剖教学课件 
+    网址：http://www.rad.washington.edu/AnatomyModuleList.html
+    ＊ 主要收集与四肢关节有关的解剖教学课件 
+    ＊ 课件包含有一般文字描述及X光照片 
+    ●解剖教学内容测试
+    网址：http://ruralnet.mu.wvnet.edu/0u:/ana_quiz/ana_quiz.htm
+    ＊ 包括有胚胎、胸部、头颈、上肢及腹部等解剖部位 
+    ＊ 以多项选择题的方式进行测试
+    ＊ 给出测试的答案及解释 
+    ●数字解剖教学
+    网址：http://www1.biostr.washington.edu/DigitalAnatomist.html 
+    ＊ 交互式人体部位漫游，包含有解剖内容测试、浏览及三维动画演示 
+    ＊ 可作为一个优秀的解剖学教学工具 
+    ＊ 目前仅有胸部及大脑等部位，以后陆续增加解剖部位 
+    ●GLAXO 三维人体解剖
+    网址：http://www.vis.colostate.edu/library/gva/gva.html 
+    ＊ 人体胸部三维几何造型，图像质量高 
+    ＊ 包括有解剖部位的动画、GIF图片及MPEG电影片断 
+    ＊ 由美国卡罗拉多大学与电脑公司联合制作 
+    ●运动系统的解剖
+    网址：http://kayla.wustl.edu/MRIatlas/MRI_atlas.HTML
+    ＊ 主要收集运动系统的MRI照片
+    ＊ 配有简短文字解释 
+#1    2.麻醉学
+    ●麻醉临床手册
+    网址： http://www.anes.ccf.org:8080/lab2.htm 
+    ＊ 多媒体版本的麻醉临床手册，内容不断更新 
+    ＊ 本手册提供对麻醉药物过敏病人的详细处理办法
+    ●有关麻醉 Gopher资源
+    网址： gopher://eja.anes.hscsyr.edu/ 
+    ＊ 收集网上有关麻醉讨论组的地址 
+    ＊ 其它麻醉网络资源的地址 
+    ●麻醉手册
+    网址： http://gasnet.med.yale.edu/Manuals.html
+    ＊ 一本非常有参考价值的在线麻醉手册，该手册中及时报导了有关麻醉方面的最新进展，可下载后打印阅读 
+#1    3.心脏病学
+    ●心脏病指南
+    网址：http://osler.wustl.edu/～murphy/cardiology/compass.html 
+    ＊ 一个非常优秀的心脏病网络资源目录
+    ＊ 提供心脏病专业学术组织的目录 
+    ●心血管病理学
+    网址： http://synapse.uah.ualberta.ca/synapse/000p0057.htm
+    ＊ 为实习医师提供的一个有关心血管病理的简短课程 
+    ●心血管疾病计算机辅助诊断系统
+    网址： http://medg.lcs.mit.edu/ 
+    ＊ 介绍怎样利用计算机对心血管疾病进行辅助诊断 
+    ＊ 有关此方面文章的介绍
+    ●心脏病与健康
+    网址： http://www.hsforum.com/heartsurgery/LearningCtrHSF.html
+    ＊ 介绍心脏病的预防、心脏病人的处理及教育 
+    ●心脏病多媒体教学卡片
+    网址： http://www.med.umich.edu/Irc/cardiax/cardiax.html 
+    ＊ 计算机辅以卡片方式介绍20例心脏病病人 
+    ＊ 课件以交互、问题解答的方式进行 
+    ＊ 卡片包含有文字、图像、声音及动画等多媒体信息 
+    ●在线心电图
+    网址： http://wailer.vahsc.uokhsc.edu/einth－2－rhythms.html
+    ＊ 47种心律失常的心电图介绍 
+    ●心脏病简介
+    网址： http://sln.fi.edu/tfi/preview/heartpreview.html
+    ＊ 以多媒体方式简单介绍心脏的解剖及心脏病预防的有关基础知识 
+    ●高血压病的治疗
+    网址： http://www－med.Stanford.EDU/MedSchool/DGIM/Teaching/Modules/HTN.html 
+    ＊ 解答并介绍有关高血压病的基本知识
+    ＊ 下载后可作为普及高血压病知识的实用手册使用  
+#1    4.皮肤病学
+    ●皮肤病图谱
+    网址： http://www.rrze.uni－erlangen.de:80/docs/FAU/fakultaet/med/kli/derma/
+    ＊ 是一个具有超级链接、查找方便的皮肤病图片数据库 
+    ＊ 配有图片的皮肤病病例教学材料 
+    ＊ 部分图片与相关的文字材料链接 
+    ●皮肤病学网络资源
+    网址： http://www.ucdavis.edu/～huntley
+    ＊ 包括皮肤病的电子杂志、皮肤病研究机构、皮肤病新闻组等目录 
+    ＊ 皮肤肿瘤教学研究项目 
+#1    5.急救医学
+    ●急救医学网络资源
+    网址：http://www.cc.emory.edu/WHSCL/medweb.emergency.html
+    ＊ 急救医学网络资源列表，并提供链结 
+    ●外伤网络资源中心
+    网址： http://rmstewart.uthscsa.edu/ 
+    ＊ 提供与外伤、急救医学有关网络资源节点目录及链结 
+#1    6.内分泌学
+    ●美国糖尿病协会
+    网址： http://www.diabetes.org/ 
+    ＊ 提供糖尿病有关基础知识 
+    ＊ 按糖尿病概念、治疗、营养、性生活、妊娠、并发症等项进行分类介绍
+    ＊ 对有关糖尿病的教学及临床治疗的指导有较大的帮助 
+    ●儿童糖尿病
+     网址： http://www.castleweb.com/diabetes/d_01_000.htm 
+    ＊ 提供有关儿童糖尿病的常用网络节点目录及链结 
+    ＊ 与提供糖尿病相关产品的公司链结，可了解相关产品的情况 
+    ●糖尿病网络
+    网址： http://www.diabetesnet.com/ 
+    ＊ 是一个有关糖尿病的商业网络节点，它提供有关糖尿病的各方面信息 
+    ●在线糖尿病资源
+    网址： http://www.cruzio.com/～mendosa/faq.html
+    ＊ 与糖尿病有关的邮件列表、新闻组、WWW及GOPHER资源地址，有简单的文字解释 
+    ＊ 如果希望通过Internet寻找糖尿病资源，这是个很好的节点 
+    ●糖尿病常见问题及解答
+    网址：http://www.cis.ohio－state.edu/hypertext/faq/usenet/diabetes/top.html
+    ＊ 对医学专业人员及糖尿病患者都是很有参考价值的网络节点 
+    ＊ 全面准确地解答有关胰岛素的问题
+    ＊ 介绍有关糖尿病患者饮食分析的软件设计及使用方法
+#1    7.家庭医学
+    ●家庭医学网络资源
+    网址： http://www.uwo.ca/fammed/resource.html 
+    ＊ 收集网上常用家庭医学网络资源，并提供链接 
+    ●家庭医学实习手册
+    网址： http://indy.radiology.uiowa.edu/Providers/ClinRef/FPHandbook/FPContents.html
+    ＊ 是个优秀的家庭医学节点，提供的信息量大且实用 
+    ＊ 包括有急救、心脏、呼吸、胃肠、血液、骨科、儿科、神经、精神、生殖及五官等疾病的介绍。 
+    ●家庭医学电子杂志
+    网址： http://www.med.ufl.edu/medinfo/pcnews/ 
+    ＊ 定期出版家庭医学电子杂志 
+    ＊ 内容简单实用，对家庭一般疾病的治疗和护理有较大的帮助 
+#1    8.胃肠病学 
+    ●肝脏疾病网络资源
+    网址： http://cpmcnet.columbia.edu/dept/gi/disliv.html 
+    ＊ 收集有关肝脏疾病网络资源，并提供链接 
+    ●胃肠病学网络资源
+     网址：http://cpmcnet.columbia.edu/dept/gi/ 
+    ＊ 收集胃肠病有关网络资源，并提供链接 
+#1    9.内科学
+    ●内科医师手册
+    网址：http://www.ohsu.edu/intindx.html 
+    ＊ 简介内科常见病处理 
+    ＊ 可作为内科实习医师的手册
+    ＊ 在每一种内科病介绍完后，有相关问题的提问及解答
+    ●内科教学
+    网址：http://dgim－www.ucsf.edu 
+    ＊ 收集与内科教学有关的多媒体教学课件 
+    ＊ 有关骨质疏松的研究进展，收有多篇相关论文 
+    ●Yahoo的有关内科学的网络资源
+    网址：http://www.yahoo.com/Health/Medicine/Internal_Medicine/ 
+    ＊ 收集与内科学有关的网络资源，并提供链接 
+#1    10.微生物学
+    ●美国微生物学会
+    网址：http://www.asmusa.org/
+    ＊ 简介美国微生物学会的一般情况
+    ＊ 提供美国微生物学会出版的相关杂志，可在线阅读 
+    ●细菌学在线课程
+    网址： http://www.qmw.ac.uk/～rhbm001/intro.html 
+    ＊ 提供有关细菌学的在线教学课程，所提供课程不但有文字，还有许多图片 
+    ●微生物报道
+    网址： http://falcon.cc.ukans.edu/～jbrown/bugs.html 
+    ＊ 报道有关细菌及病毒研究的新进展 
+    ＊ 出版周期不定，但内容较有参考价值 
+    ●滤过性微生物学网络资源
+    网址：http://www.cc.emory.edu/WHSCL/medweb.microbiology.html 
+    ＊ 收集滤过性微生物学网络资源，并提供链接 
+    ●寄生虫学网络资源
+    网址： http://www.pasteur.fr/Bio/parasito/Parasites.html 
+    ＊ 由法国巴斯德研究所制作及管理的网页 
+    ＊ 提供有关研究的信息 
+#1    11.肾脏病学 
+    ●国际肾脏病学会
+    网址： http://synapse.uah.ualberta.ca/synapse/000p0035.htm
+    ＊ 国际肾脏病学会介绍
+    ＊ 收集国际有关肾脏病研究机构的网址，并提供链接 
+    ＊ 主持多个与器官移植有关的讨论组 
+    ●肾脏病网络资源总汇
+    网址： http://ns.gamewood.net/renalnet.html 
+    ＊ 网络有关肾脏病资源总汇 
+    ＊ 主要是有关肾脏病及器官移植的内容 
+    ＊ 包括有临床、出版物、杂志、组织机构、教学、研究课题等内容 
+#1    12.神经病学
+    ●老年性痴呆网络资源
+    网址： http://werple.mira.net.au/～dhs/ad.html
+    ＊ 收集近5年有关老年性痴呆研究的报告 
+    ＊ 收集与老年性痴呆研究有关的网络资源，并提供链接 
+    ●神经病研究中心
+    网址： http://www2.connectnet.com/users/cns/index.html 
+    ＊ 提供有关神经病学的最新研究结果
+    ＊ 提供有关肌萎缩侧索硬化、多发性硬化、 帕金森氏（Parkinson＇s）病及老年性痴呆的研究课题开展情况
+    ●癫痫治疗中心
+    网址： http://balrog.aecom.yu.edu/epilepsy/ 
+    ＊ 由Albert Einstein 大学医学院制作及管理的一个网络节点 
+    ＊ 提供有关癫痫的常见问题及解答
+    ＊ 收集癫痫有关研究报告供研究人员查询 
+    ●神经病网络资源
+    网址：Neurology http://www.neuro.mcg.edu/ 
+    ＊ 收集网上常用的神经病资源，并提供链接 
+    ＊ 如需要搜寻网络有关神经病的资料，本节点有较大的帮助 
+    ●神经医学科学网络资源
+    网址：http://www.lm.com/～nab 
+    ＊收集神经医学科学网络资源，并提供链接 
+    ●帕金森氏病网络资源
+    网址：http://neuro－chief－e.mgh.harvard.edu/parkinsonsweb/Main/pdmain.html＃m
+    ＊ 有关帕金森氏病的一个优秀网络节点 
+    ＊ 提供电子书《青年人的帕金森氏病》，可下载阅读，详细介绍了有关帕金森氏病的病因、症状、体征及治疗 
+#1    13.妇科学及产科学 
+    ●亚特兰大生殖医学中心
+    网址： http://www.mindspring.com/～mperloe/index.html 
+    ＊ 收集大量与生殖医学有关的文献资料，可供临床、教学及科研查询使用
+    ●乳腺癌信息中心
+    网址： http://nysernet.org/bcic/ 
+    ＊ 有关乳腺癌诊断的资料 
+    ＊ 组织管理乳腺癌邮件讨论组，现有800人参加 
+    ●乳腺疾病教科书
+    网址：http://mystic.biomed.mcgill.ca/MedinfHome/
+    MedInf/Breastcourse/htmltext/home/BreastHome.html 
+    ＊ 提供乳腺疾病多媒体教科书，适合医科大学的学生使用，可下载阅读 
+    ●妇产科肿瘤手册
+    网址：http://gynoncology.obgyn.washington.edu/Documentation/GYN％20Onc％20Handbook.html
+    ＊ 妇产科肿瘤手册的电子文本，可下载使用 
+    ●妇产科手册
+    网址： http://indy.radiology.uiowa.edu/Providers/ClinRef/FPHandbook/07.html
+    ＊ 内容丰富全面，适合家庭医生及实习医生使用 
+#1    14.肿瘤及血液病学 
+    ●脑部肿瘤基础
+    网址： http://132.183.1.64/abta/primer.htm 
+    ＊ 有关脑部肿瘤基础知识的手册 
+    ＊ 手册内收集了大量的大脑及中枢神经系统的图片，对手册的阅读有较大的帮助 
+    ●骨髓移植电子书
+    网址：http://nysernet.org/bcic/bmt/bmt.book/toc.html
+    ＊ 骨髓移植电子书，超文本格式，阅读方便，更新快 
+    ●肿瘤图书馆
+    网址： http://oncolink.upenn.edu/psycho_stuff/block/ 
+    ＊ 收集多本有关肿瘤的电子书，有较大的参考价值 
+    ●乳腺肿瘤
+    网址： http://nysernet.org/bcic 
+    ＊ 有关乳腺肿瘤的优秀网络节点 
+    ＊ 提供有关乳腺肿瘤的预防、诊断、治疗等有关信息 
+    ＊ 组织管理一个有关乳腺肿瘤的邮件讨论组 
+    ●肿瘤网络
+    网址： gopher.nih.gov/11/clin/cancernet 
+    ＊ 由美国国立医学图书馆提供有关肿瘤医学信息的服务 
+    ＊ 可以电子邮件的方式收到相关的资料（英文及西班牙文）
+    ●肝癌研究
+    网址： http://www.rad.unipi.it:7080/works/hcc/presentation－hcc.html 
+    ＊ 应用幻灯、文字、图像及其它手段介绍有关肝癌研究的情况 
+    ＊ 内容包含肝癌的诊断、治疗及追踪
+    ＊ 所有资料对指导临床治疗及教学有较大的参考价值 
+    ●肿瘤网络资源
+    网址： http://cancer.med.upenn.edu 
+    ＊ 收集网上常用有关肿瘤的资源，提供链接 
+    ●癌症患者处理指导
+    网址： http://www.stat.washington.edu/TALARIA/TALARIA.html 
+    ＊ 可作为专业人员处理癌症疼痛患者的参考书 
+    ●癌症患者指导
+    网址：http://asa.ugl.lib.umich.edu/chdocs/cancer/CANCERGUIDE.HTML
+    ＊ 对癌症患者提供在线指导 
+    ＊ 内容包括癌症诊断、治疗及其它服务的指导 
+    ●Sloan－Kettering 癌症中心
+    网址： http://www.ski.mskcc.org/ 
+    ＊ 有关中心的一般情况介绍 
+    ＊ 提供可搜寻的癌症文献数据库 
+    ●远程癌症资源中心
+    网址： http://telescan.nki.nl:80/ 
+    ＊ 远程提供有关癌症研究、治疗及教学的有关资源 
+    ＊ 所有的资料均有英语、西班牙语、法语、德语及意大利语版本 
+#1    15.眼科学
+    ●眼科虚拟图书馆
+    网址： http://vision.arc.nasa.gov/VisionScience/VisionScience.html 
+    ＊ 收集网上有关眼科的节点，并提供链接 
+    ＊ 主要提供有关眼科研究的信息，临床治疗的信息不多
+#1    16.骨科学 
+    ●生物力学资源
+    网址：http://dragon.acadiau.ca/～pbaudin/biomch.html 
+    ＊ 收集网络生物力学资源，并提供链接 
+    ●骨科研究中心
+    网址： http://ortho.cor.ssh.edu/
+    ＊ 介绍有关生物力学及机械假肢的研究情况 
+    ●骨外科杂志
+    网址： http://www.rz.uni－duesseldorf.de/WWW/MedFak/Orthopaedie/journal/ 
+    ＊是美国杜塞尔多夫（Duesseldorf）大学出版的季刊骨外科杂志的电子版，可在线全文阅读 
+    ●骨科资源中心
+    网址： http://www.scoi.com/ 
+    ＊ 收集网络骨科相关节点，并提供链接 
+    ＊ 提供的资料内容丰富，既有文字内容，又有图片、电影等内容，对骨科教学及研究有较大的帮助 
+    ＊ 全面、翔实介绍骨科基础、骨科解剖及关节切除等内容是本节点的特点
+#1    17.耳鼻咽喉学 
+    ●在线耳鼻咽喉学教科书
+    网址：gopher://phil.utmb.edu:70/11/UTMB％20ENT％20Grand％20Rounds/ 
+    ＊ 一本全面、综合介绍有关耳鼻咽喉学的教科书 
+    ＊ 对耳鼻咽喉科的住院医师及实习医师有较大的参考价值 
+    ●听力及平衡研究中心
+    网址： http://www.bme.jhu.edu/labs/chb/index.html 
+    ＊ 提供有关听力方面的研究报道、特殊病例分析、常见问题及解答、治疗等内容 
+#1    18.病理学 
+    ●组织病理学网络资源
+    网址： http://biomed.nus.sg/HIS/HIS.html 
+    ＊ 收集了大量组织学切片图片，包括光学显微镜及电子显微镜的组织切片内容 
+    ＊ 切片图片文件一般为150K～300K， 每一图片配有简单的解释，并有问题及解答，作为教学材料有较大的参考价值 
+    ●病理学虚拟图书馆
+    网址： http://130.219.5.111/ 
+    ＊ 收集相关病理学各种资料，并随时更新 
+    ＊ 提供远程学习模块：每周给出一特殊病例的组织切片图片，要求根据图片进行诊断及回答问题 
+    ●病理学图片资源库
+    网址：http://www－medlib.med.utah.edu/WebPath/webpath.html 
+    ＊ 收集了超过1，500幅病理学图片，按系统及疾病名称分类，查找方便 
+#1    19.儿科学 
+    ●儿童健康论坛
+    网址： http://acy1.digex.net/～vpeds/cf264/cf264.html
+    ＊ 收集与儿童健康有关的网络节点、新闻组及会议信息，并提供链接 
+    ●美国弗吉尼亚（VIRGINIA）大学儿童医疗中心
+    网址： http://galen.med.virginia.edu/～smb4v/cmchome.html
+    ＊ 提供儿科临床治疗的指导
+    ＊ 组织出版杂志《儿科药物治疗通讯》，每月一期，可在线阅读 
+    ●全球儿童健康新闻
+    网址： http://www.gcnet.org/gcnet/gchnr.html
+    ＊ 一本报道有关儿童健康的在线医学杂志 
+    ●全球儿童健康网络资源
+    网址： http://www.gcnet.org/gcnet/ 
+    ＊ 提供与儿童健康有关的在线医学杂志
+    ＊ 提供可进行搜寻的医学数据库
+    ＊ 收集其它与儿童健康有关的网络资源，并进行链接 
+    ●儿科在线医学资源指南
+    网址： http://www.ocsny.com/～mdm/guide.html
+    ＊ 收集与儿科学有关的网络资源，并进行链接 
+    ●儿科特殊病例研究
+    网址： http://galen.med.virginia.edu/～smb4v/casemenu.html 
+    ＊ 收集数例儿科特殊病例进行分析和解答
+    ●儿科交互式数字图书馆
+    网址：http://vumclib.mc.vanderbilt.edu/peds/pidl/ 
+    ＊ 收集儿科及相关学科的资料，对临床治疗及科研有较大的价值 
+    ●儿科兴趣小组
+    网址：http://www.kumc.edu/student/PIG/pig.htm 
+    ＊ 由对儿科感兴趣的医科学生组成的一个在线儿科交互论坛
+    ＊ 同时提供与兴趣小组相关题目网络节点的链接 
+    ●虚拟儿童医院
+    网址： http://indy.radiology.uiowa.edu/VirtualChildHosp/VCHHomePage.html 
+    ＊ 提供儿童常见病的诊断及治疗指导
+    ＊ 在线提供儿童呼吸道疾病治疗的教科书
+#1    20.精神病学 
+    ●美国儿童及青年精神病学会
+    网址： http://www.psych.med.umich.edu/web/aacap/ 
+    ＊ 有关学会的一般情况介绍 
+    ●精神病网络资源指南
+    网址： http://www.users.interport.net/～mpulier/psyjumps.html 
+    ＊ 收集与精神病有关的网络资源，并提供链接
+    ＊ 所有的资源按主题进行分类，查找很方便 
+    ●精神卫生、精神病、心理学网络资源指南
+    网址：http://www.cc.emory.edu/WHSCL/medweb.mentalhealth.html
+    ＊ 收集精神卫生、精神病、心理学网络资源，按不同的主题进行分类，查找较为方便 
+    ●精神病在线杂志
+    网址：http://www.cityscape.co.uk/users/ad88/psych.htm
+    ＊ 在线全文刊登精神病在线杂志的内容（International Journal of Psychiatry online ）
+    ＊ 每期杂志各有重点（如八月份杂志主要刊登精神分裂症的文章 ）
+    ＊ 每期杂志均提供词汇检索 
+#1    21.呼吸科 
+    ●吸烟与健康
+    网址：http://ash.org/ash/ 
+    ＊ 收集吸烟与健康有关的网络资源，并提供链接 
+    ●哮喘与过敏的网络资源 
+    网址：http://www.cco.caltech.edu/～wrean/resources.html
+    ＊ 收集哮喘与过敏的网络资源，并提供链接 
+    ●COPD与哮喘
+    网址：http://osler.med.und.nodak.edu/DIM/curric/copd.html 
+    ＊ 通过病例分析的方式，进行COPD与哮喘关系的教学 
+    ●呼吸道病理
+    网址：http://synapse.uah.ualberta.ca/synapse/000p0075.htm
+    ＊ 包含有大量呼吸道病理切片图片，并有文字解释
+    ＊ 可作为内科医师的教学课程使用
+    ●肺结核网络资源
+    网址：http://www.cpmc.columbia.edu/tbcpp/ 
+    ＊ 收集与肺结核有关的网络资源，并提供链接 
+#1    22.放射科学 
+    ●DICOM
+    网址：http://www.X ray.hmc.psu.edu/icom/dicom_home.html
+    ＊ 有关DICOM（Digital Imaging and Communications in Medicine Standard数字图像通讯的医学标准 ）常见问题解答
+    ●医学图像数据库
+    网址： http://www.shimane－med.ac.jp/IMAGE/Radiology.HTM 
+    ＊ 收集了各类医学图像，可作为临床教学参考用 
+    ●医学数字图像杂志
+    网址：http://www.scar.rad.washington.edu/ScarStuff/JDI.html 
+    ＊ 一本介绍医学数字图像技术的医学专业在线杂志 
+    ●磁共振成像杂志
+    网址： http://micro.ifas.ufl.edu/
+    ＊ 一本介绍磁共振技术及成像原理的在线杂志
+    ●医学图像常见问题及解答
+    网址：http://www.cis.ohio－state.edu/hypertext/faq/usenet/medical－image－faq/top.html
+    ＊ 收集有关医学图像的常见问题及解答
+    ●医学图像网络资源指南
+    网址：http://agora.leeds.ac.uk/comir/resources/links.html
+    ＊ 收集医学图像网络资源，并按地区分类链接
+    ＊ 每一地区（如欧洲、亚洲、美洲等）又按大学、医院、研究机构、政府机构等类别进行分类
+    ＊ 有9个与放射医学有关的新闻组链接 
+    ●运动系统解剖的MRI
+    网址：http://kayla.wustl.edu/MRIatlas/MRI_atlas.HTML 
+    ＊ 收集与运动系统有关的MRI图像
+    ●核磁共振网络资源指南
+    网址：http://micro.ifas.ufl.edu/nmr.html 
+    ＊ 收集核磁共振网络资源，并按分类提供链接
+    ＊ 可作为查找核磁共振网络资料的一个较好的起始站点
+    ●放射医学网络资源
+    网址：http://www.X ray.hmc.psu.edu/home.html 
+    ＊ 提供放射医学实习指导
+    ＊ 提供DICOM有关标准资料
+    ＊ 提供与其它放射医学网络资源的链接
+    ●放射科特殊病例讨论
+     网址：http://www.matmo.army.mil/pages/caseStudies/radiology/radiology.html 
+    ＊ 收集与放射科有关的教学病例，并提供图像 
+    ●北美放射学会
+    网址：http://www.rsna.org/rsnahome.html 
+    ＊ 有关北美放射学会的一般情况介绍
+    ＊ 在线提供北美放射学会主办的放射学有关杂志
+    ＊ 收集与放射学有关的网络资源，并提供链接 
+    ●放射医学教学资源指南
+    网址：http://www.rad.med.umich.edu:80/Guide/ 
+    ＊ 收集放射医学网络资源，并提供链接 
+    ●虚拟医院放射科
+    网址：http://vh.radiology.uiowa.edu/Providers/ProviderDept/InfoByDept.Rad.html 
+    ＊ 提供与放射科有关的临床、教学、科研的指导
+    ＊ 在线提供有关放射科特殊病例讨论，并配有X光图片，图片可放大观察 
+    ●脑部图像库
+    网址：http://count51.med.harvard.edu/AANLIB/home.html
+    ＊ 一个有关脑部CT及MRI的图像库
+    ＊ 包括有正常脑结构、脑血管疾病、脑部感染及大脑萎缩等图像
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

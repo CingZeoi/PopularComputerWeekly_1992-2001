@@ -1,0 +1,33 @@
+抢占办公室
+
+Inside
+1999年 第38期 09版
+
+     包括字处理、电子表格等在内的办公套装软件，一直是软件市场上的重头戏，是相关软件企业的利润来源，素有“软件印钞机”的美称。现在人们一谈起办公套件，想到的就是微软的Word、Excel和Outlook，真是到了“言必称微软”的地步。其实，在微软之外还有一大批同样优秀的办公套件，可以这样说——“微软窗外的天空一样明媚动人”。在这些套件之中，比较有名、市场影响较大的有Corel的WordPerfect Office、Lotus的SmartSuite和刚被业界大腕Sun收购到手的Star Office。随着微软推出Office 2000，这些公司也有了各自的新动作，下面就让我们来先睹为快吧。
+#1     一、老树新枝WordPerfect Office
+     国内知道WordPerfect Office的人不是太多，但是它的东家Corel的大名却是声震寰宇的。它最有名的软件产品是CorelDraw图形制作软件。其实，除了在图形软件领域实力不俗之外，Corel在办公软件领域也算得上是老牌劲旅了。WordPerfect Office这个办公套件的命名是借用了历史悠久的字处理软件WordPerfect的大名。WordPerfect算得上字处理软件中的元老级人物，其历史要比微软的Word长得多。在Word出现之前，WordPerfect一直是字处理软件市场的领头羊。WordPerfect Office是Corel在1996年收购WordPerfect后经过重新包装推出的办公套件，目前最新的版本是Corel WordPerfect Office 2000。
+     WordPerfect Office 2000套件包括以下一些办公软件：字处理软件WordPerfect 9、电子表格软件Quattro Pro 9、多媒体演示软件Corel Presentations 9、日程安排CorelCENTRAL 9以及Paradox 9数据库。在Web发布方面则收罗了Trellix 2和NetPerfect。该套件一共包含了五个不同的发行版本，除了学习版和标准版以外的其他三个版本都捆绑了Dragon System公司的NaturallySpeaking 3.0语音识别引擎。据称，该语音识别引擎的识别率甚至超过了IBM ViaVoice，达到了相当高的水平。
+     WordPerfect Office 2000的WordPerfect 9在兼容Word方面做得相当出色，除了不支持一些Word的小功能之外，它可以轻松地打开和保存6.0及以上版本的Word文档，而不会丢失任何信息。其他的一些改进还包括字体预览、自动滚屏和集成的语音输入功能。Quattro Pro 9虽然有了不小的进步，但是与竞争对手Excel相比，仍然有些力不从心，很多Excel使用了很久的功能在Quattro中还属于空白。
+     和微软的Office 2000一样，WordPerfect Office最大的变化是在对Web的支持上。该版本中提供了两个相关的Web工具：Trellix 2和NetPerfect，可以看出在Web方面Corel还是下了一定的功夫的。使用Trellix 2来进行Web发布不需要任何的HTML基础。Trellix 2强大的链接处理能力使多个页面的导航超链接的生成和维护变得极为容易。Corel提供的另一个工具NetPerfect能够将几乎任何格式的Windows文档发布到Web上去。用户只需要专注于原始文档的编写，而文档的Web发布自有NetPerfect代劳。这不是很方便吗？
+#1     二、蓄势待发的SmartSuite
+     Lotus（莲花）公司多年来在软件业中一直声名显赫，由它推出的Lotus Notes群件产品是办公自动化软件的典范，占据了绝大部分的市场份额。在微软的Excel推出之前，Lotus的电子表格软件Lotus 1－2－3从DOS时代开始就一枝独秀，在相当长的一段时间里几乎就是电子表格软件的代名词。Lotus在被业界老大IBM公司收购以后，背靠“蓝色巨人”，实力更是有增无减。
+     Lotus公司的办公套件叫做Lotus SmartSuite。最近，该套件也推出了“跨世纪”的SmartSuite Millennium Edition。该套件套装了8个创新的应用软件：老牌的电子表格软件Lotus 1－2－3、全新的Web发布软件FastSite、日程活动组织软件Organizer、字处理软件Word Pro、图形演示软件Freelance、Approach数据库、ScreenCam多媒体制作软件以及SmartCenter因特网信息管理器。此外，这个办公套件还集成了IBM著名的ViaVoice语音识别软件。（^380901a^）
+     SmartSuite在继续增强传统的字处理、电子表格和数据库等软件功能的基础上，也加大了对Web的支持力度。SmartSuite的最新成员Lotus FastSite的加入就体现了对Web的重视。顾名思义，Lotus FastSite是一个快速创建和发布Web站点的工具，这个专为桌面用户设计的工具使Internet/Intranet上的发布工作变得十分轻松。它能够自动地将成批现有的SmartSuite或者Microsoft Office文档转换成可以在Web上发布的格式。但是相对于微软套件的那种将Web作为整个办公的核心，各种软件全面支持Web来说，SmartSuite在这个方面就要逊色得多了。
+     SmartSuite Millennium Edition中的Lotus 1－2－3的功能也有了一定的增强，改变主要是针对Web的。利用诸如“Web表格”这样的新特性，你可以非常方便地将基于Web的数据导入你的电子表格中去。
+     SmartSuite的一个亮点是集成了IBM ViaVoice语音识别软件，这样你就能够做到“君子动口不动手”了。通过ViaVoice用户无需键盘就可以在Word Pro字处理软件中输入文档，也能够让1－2－3“听写”电子表格中数据。语音识别的加入将使办公室的工作不再枯燥乏味。 
+#1     三、免费冲击波Star Office 
+     美谚虽有“天下没有免费的午餐”的说法，这句话要是放在迅猛发展的因特网上可就大错特错了。免费搜索引擎和免费电子邮件早已经不是什么新闻了。而今，连往昔被誉为软件公司“摇钱树”的办公套件都开始加入免费的行列。以发明Java语言著称于世的Sun公司就是这个领域的第一个“吃螃蟹者”。
+     Sun在今年8月11日收购了一家办公套件厂商——德国的Star Division公司。Star Division开发的Star Office是与微软Office类似的办公套件，能够在Windows、Linux、Solaris、OS2和Mac OS等很多操作系统平台上运行。Sun希望通过收购该产品与宿敌微软在办公套件领域展开新一轮的“搏杀”。最惊人的是，Star Office的个人版本可以从网上免费下载（该版本已收录在《电脑报配套光盘》1999年第3期中）。看来，这次Sun对微软来了个“以其人之道，还治其人之身”，希望通过免费的Star Office来向微软的Office发起冲击。据最新的消息称，已经有25万人下载了这个65M的套件。
+     Star Office的最大特点是其良好的跨平台性和互操作性。微软的Office套件只能在Windows和Mac OS上运行，而Star Office支持多达5种操作系统平台。在当前流行的Linux操作系统中，Star Office几乎是目前唯一可以获得的办公套件。以下就是Star Office的主要特点：
+     1.与其他办公套件类似，Star Office也包括字处理、电子表格、E－mail、图像处理、Web发布、日程安排、数据库和管理软件等组成部分，是一个高度集成的办公套件。
+     2.Star Office具有同微软Office良好的互操作性，能够透明无缝地存取甚至新建Microsoft Word、Excel或是PowerPoint格式的文件。
+     3.开放的跨平台特性，支持Solaris、Windows 95/98/NT、OS/2和Linux等多种操作系统。
+     4.Star Office提供集成化的内建Web发布功能，可以轻松地完成Web页面的设计和发布。
+     目前，Star Office除了英文版以外，还有法文、德文等一共8个语言的版本可供免费下载使用。令人遗憾的是，目前还没有推出中文版的Star Office。对于那些囊中羞涩无力购买微软套件，或是正在运行Linux的用户来说，不用花钱而又功能完善的Star Office，是一个不错的选择。（^380901b^）
+     以上介绍的这几款办公套件虽然各有特点，也占据了一定的市场份额，但是和微软的Office套件相比，在Web集成度和易用性方面都还存在一定的差距。因为三种套件目前都没有推出各自的中文版，所以对国内用户来讲在使用上更是不太方便。这使我们想到了自己的国产品牌——金山公司的WPS 2000，一个以字处理起家的软件，在它的2000版本里，已经集文字处理、电子表格、多媒体制作、图文排版、图像处理于一身，为成为一个全面、成熟的办公软件迈出了成功的步伐。我们有理由期待国产办公软件的明天会更好。
+      
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

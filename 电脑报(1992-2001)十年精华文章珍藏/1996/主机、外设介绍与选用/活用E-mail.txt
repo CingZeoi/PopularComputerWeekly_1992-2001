@@ -1,0 +1,183 @@
+活用E-mail
+
+·张明伟  刘振宇
+1996-01-05
+
+        
+        ●用E-MAIL实现FTP
+        FTP是“文件传输协议”的英文缩称，是获取远程主机上数据和文件的手段。在INTERNET术语中，这些远程主机也称“地址”。地址中的文件存储在树形目录下，每个目录又从属于特定的主题。
+        如果直接用FTP功能实现对远程主机的访问，必须明确主机的地址，使用用户标识和密码进行登录，然后进入相应的目录，选择自己需要的文件，将其传回本地机上。
+        用E-MAIL实现FTP的过程是相似的，只是它要通过一个专门的FTPMAIL服务器实现对意向地址的访问和文件传输。你要做的只是在E-MAIL中设置一些命令。如果要访问那些热门的FTP地址，用E-MAIL甚至要比直接使用FTP功能更省时、省钱，因为那些地址往往因存储量过大和频繁受访，使得交互响应变得十分迟缓。
+        当然，用E-MAIL完成FTP有个前提，即你要有一些匿名FTP地址(访问这些地址时不需要特定的用户标识和密码)。要获得这些地址，你只要向mail-server@rtfm.mit.edu发一封E-MAIL，并在信体栏(message/note body)输入下列命令：
+        send usenet/news.answers/ftp-list/sitelist/part1
+        send usenet/news.answers/ftp-list/sitelist/part2
+        …
+        send usenet/news.answers/ftp-list/sitelist/part20
+        你就会在你的E-MAIL信箱里收到20个文件，是一份详细的“FTP地址清单”。需要提醒你的是，每个文件要占到60K，如一次性获取这20个文件的话，你的信箱必须有1M以上的空间。可以分几次获取这些文件。
+        另外一个有用的文件是“FTP FREOUENTLY ASKED OUESTIONS”，它包括许多使用FTP服务方面的信息。获取该文件可在上述E-MAIL信体栏增加这样一行命令：
+        send usenet/news.answers/ftp-list/faq
+        有了这些地址，你可以向下面列出的8个INTERNET地址中的任一个发一封E-MAIL：
+        ftpmail@sunsite.unc.edu
+        bitftp@pucc.princeton.edu
+        ftpmail@cencus.gov
+        bitftp@vm.gmd.de
+        ftpmail@ftp.uni-stuttgart.de
+        ftpamil@ftp.luth.se
+        ftpmai@src.doc.ic.ac.uk
+        ftpmail@cs.uow.edu.au
+        在信体栏里输入：
+        open<FTP地址>
+        dir
+        quit
+        然后你就会收到一份在指定地址根目录下的文件和目录清单，如在当前目录下没有你所需要的文件，可再发一封E-MAIL，在原来的dir命令行前插入一行：“chdir<目录名>”，依此类进，直到找到所需文件，要获取文件，只要将dir行改成：
+        “get<文件名>”即可。对文本文件来说，这些命令就够了。但如果是二进制文件(如可执行程序、压缩文件等)，则还必须在get命令前插上一行“binary”命令。
+        例如，你选择了ftpmail@cencus.gov作为你发送E-MAIL实现文件传输的INTERNET地址，针对文本文件和二进制文件，你可在每一封E-MAIL信体栏里分别输入以下命令行：
+        文本文件二进制文件
+        open ftp.spies.com  open oak.oakland.edu
+        chdir Gov/World  chdir SimTe1/msdos/disasm
+        get magna.txt  binary
+        quit  getbubble.zip
+        quit
+        如果传回来的文件内容是一行“begin<数字><文件名>”，加上几行61个字符行，则很可能是个编码的二进制文件(uuencoded bindry file)。那么你得给你的操作系统(Dos、OS/2、Unix或Mac)装一个解码程序(uudecoded program)。
+        下面给大家列出一些其他你或许感兴趣的FTP地址：
+        ocf.berkeley.edu  路径：pub/Library(有关圣经、抒情诗等)
+        ftfm.mit.edu  路径：pub/usenet/news/answers
+        (有关网络新闻的信息
+        oak.oakland.edu  路径：SimTe1/msdos(大型DOS软件库)
+        quartz.rutgers.edu  路径：pub/humor(幽默文件)
+        gatekeeper.dec.com  路径：pub/recipes(烹饪和菜谱方面的信息)
+        
+        ●用E-MAIL实现ARCHIE功能
+        假如你知道一个文件名，但不清楚它藏在哪个FTP地址里；或者你想试试能否通过FTP来获得那些符合某一命名准则的文件，那么你可以使用ARCHIE这个检索工具。
+        ARCHIE服务器可以想像成一个世界上所有匿名FTP地址库，允许你去发现所需的地址和文件名。有时，直接用ARCHIE功能进行检索往往很费时，用E-MAIL来完成ARCHTE检索 反而显得很方便。你只要向下列地址之一发一封E-MAIL，并在正文栏里输入“find<文件名>”命令。
+        archie@archie.doc.ic.ac.uk
+        archie@archie.1uth.se
+        archie@archie.au
+        archie@archie.rutgers.edu
+        archie@archie.sura.net
+        archie@archie.un1.edu
+        archie@archie.kuis.kyoto-u.ac.jp
+        这样你便可找到与你输入的文件名完全一致的文件。如果你只要找文件名中含有你输入的<文件名>的文件，则在“find<文件名>”前插入一行“set search sub”命令。
+        其他常用的ARCHIE命令还有：
+        set maxhits<文件数目>  (限定输出的文件数目，默认值为100)
+        set match_domain usa  (仅限于查询美国的FTP地址)
+        set output_format terse  (以简短的格式输出)
+        完成一次检索后，你就会收到许多相关的地址及其包含的文件/目录。选择你所需要的文件/目录，在下一封E-MAIL中用上一节中介绍的方法获取它们。
+        例如，你想查找一些含有解码文件(uudecode file)的FTP地址，可以给archie@archie.futgers.edn发封E-MAIL，在信体栏中输入以下命令：
+        set match_domain usa
+        set search sub
+        find uudecode
+        现在，你就可以用FTP服务器去向ftp.clarkson.edu地址获得“uudecode.bas”(针对BASIC)、“uudecode.c”(针对C语言)等文件。比如，可给listserv@SimTel.coast.net发一封E-MAIL，在命令行下有选择地输入以下命令：
+        get uudecode.bas
+        get uudecode.c
+        get uudecode.doc
+        
+        ●用E-MAIL实现GOPHER功能
+        GOPHER是个发掘INTERNET资源的出色检索工具。它是个层次结构菜单系统，由指针方式采集各种有用的网络资源。GOPHER可以实现自动远程登录，隐去了诸多命令过程，为用户提供强大的检索能力。
+        直接用GOPHER功能时，需要明确被访的GOPHER地址名称，然后从一系列层次结构菜单导航至所需要的资源，进行阅读或将其下载到自己的主机。
+        用E-MAIL实现GOPHER是借助一个专门的GOPHERMAIL服务器去访问远程地址，并传回所需的菜单、子菜单和文件。你要做的只是在你发的E-MAIL里输入一串命令。
+        主要的GOPHERMAIL服务器的INTERNET地址有：
+        gopher@ucmp1.berke1ey.edu
+        gopher@dsv.su.se
+        gomail@ncc.go.jp
+        gophermail@cr-df.rnp.br
+        gophermail@eunet.cz
+        gopher@earn.net
+        gopher@ftp.technion.ac.il
+        gopher@join.ad.jp
+        gopher@nig.ac.jp
+        当然，如果你知道某个GOPHER地址，你只要在E-MAIL标题栏里(SUBJECT)输入地址，就可以收到该地址下的主菜单。比较有用的GOPHER地址有：
+        cwis.usc.edu
+        gopher.micro.unm.edu
+        english-server.hss.cmu.edu
+        对GOPHERMAIL服务器发回的菜单进行选项时，只需在某一菜单项号前打上“X”，并将原内容返发给GOPHERMIAL服务器，你就会收到该菜单的下一层菜单。有些菜单可进入下一层菜单(菜单项尾有“/”符号)，有些可进入检索(菜单项尾有“?”符号)，有些进入文件(菜单项尾既无“/”也无“?”)。遇到检索类菜单项时，可在项号前打上“X”，在标题栏里输入检索主题词(可用逻辑表达式)，如：
+        document and(historic or government)
+        如果GOPHERMAIL服务器发回的是空白菜单，很可能是它无法联上你指定的主机，你可以过段时间再试试?
+        
+        ●用E-mail实现Veronica功能
+        谈到检索，我们不能不提Veronica，Archie是检索FTP地址的工具，而Veronica是用来检索Gopher空间，根据用户输入的检索关键词(Key Word)，Veronica会列出与检索词匹配的所有Gopher菜单项。
+        用E-mail实现Veronica检索，可以在上节介绍的方式中，选择“Other Gopher and INFO Servers”菜单项，该菜单中很可能就有Veronica的入口。
+        由于Veronica服务器一般十分繁忙，你最好选择多个Veronica服务器，在E-mail标题(Subject)栏里输入检索关键词，这样会增加你尽快获得所需信息的机会。
+        
+        ●用E-mail实现USENET
+        USENET是由5000多个讨论组构成的网络新闻，内容涉及几乎所有可以想像到的话题。为了更好地使用USENET，你必须先阅读一些针对USENET新用户的介绍性文件。这些文件可通过向mail-server@rtfm.mit.edu发一封E-mail获得，并在信体栏里输入：
+        send usenet/news.answers/news-newusers-intro
+        如要得到一份USENET新闻组的清单，可在信体栏里加上：
+        sned usenet/news.answers/active-newsgroups/part1
+        sned usenet/news.answers/active-newsgroups/part2
+        sned usenet/news.answers/alt-hierarchies/part1
+        sned usenet/news.answers/alt-hierarchies/part2
+        如要获取某个新闻组的FAQ(常见问题解答)文件目录，可加上命令：index usenet/<新闻组名〉
+        (注：该命令中，〈新闻组名〉中如出现“-”符应用“”符代替。)
+        如返回的信息中有FAQ文件，你可以用下面的命令获取：
+        send usenet/<新闻组名〉/<FAQ文件名〉
+        一旦你做好了以上的预备工作，你就需要知道怎样通过E-mail来阅读USENET新闻组和向其发布消息。阅读某个新闻组，可以用前面提到的Gophermail服务。
+        如要获取某一新闻组里的最近消息，可以给前面提到过的Gophermail服务器发一封E-mail，在Subject栏里输入get all,并在信体栏里输入：
+        NAME=<新闻组名>
+        TYPE=1
+        FORT=4324
+        PATH=nntp ls <新闻组名〉
+        HOST=pinchy.micro.unm.EDU
+        (你必须用你选定的USENET新闻组名来替代〈新闻组名〉，如alt,answers,biz.com.services,new.newusers.questions等。)
+        如果此法不奏效，你可以试试其他HOST，并将PORT=4324换成
+        PORT=4320。其他HOST有：
+        HOST=phantom.bus.edu
+        HOST=teetot.acusd.edu
+        HOST=infopub.uqam.ca
+        HOST=gopher.ic.ac.uk
+        HOST=info.mcc.ac.uk
+        这些主机往往只提供有限的一些新闻组，因此在找到你所需要的新闻组之前你可能得多试几个。若你要的新闻组不存在，Gophermail服务器就会发回如下信息：
+        "nntp ls〈新闻组名〉"path does not exist
+        如果某一主机不接受外来请求，Gophermail服务器就会发回：
+        Sorry,we don't accept reqests outside compus
+        要是成功的话，Gophermail服务器会发给你一份典型的Gopher菜单，你可以选择菜单上的消息进行阅读。
+        如果你决定向新闻组发布消息，可将你的消息用E-mail发至：
+        〈新闻组名〉 @cs.utexas.edu
+        〈新闻组名〉 @nic.funet.fi
+        〈新闻组名〉 @news.demon.co.uk
+        〈新闻组名〉 @charm.magnus.acs.ohio-state.uk
+        〈新闻组名〉 @undergrad.math.uwaterloo.ca
+        例如：你要向news.newusers.questions新闻组发布消息，可以将消息用E-mail发给下面地址中的任一个：
+        news-newusers-questions@cs.utexas.edu
+        news.newusers.questions@news.demon.co.uk
+        你应取一个合适的标题，并在消息的结尾输入你的真实姓名和E-mail地址。
+        要获得关于如何用关键词搜寻新闻组的文件，可以向netnews@db.stanford.edu发一封E-mail，并在信体栏里输入：
+        HELP
+        
+        ●用E-mail实现WAIS检索
+        WAIS(wide area information service)可以检索500多个索引的数据库，涉及的内容极其广泛。要获得一份完整的WAISmail用户指南，可以向waismail@sunsite.unc.edu发封E-mail，在信体栏里输入：HELP。你还可以向waismail服务器发E-mail来获取一份数据库(或称“资源”)清单，并在信体栏里输入：search xxx xxx
+        收到返回的清单后，你便可选择感兴趣的题材进行下一步骤。现在我们来做个WAIS检索实例。
+        给waismail@sunsite.unc.eud发一封E-mail，在信体栏里输入以下命令：
+        Maxres 10
+        search bush-speeches lips
+        这将要求WAISmail到“bush-speeches(布什的演讲)”数据库去搜寻，然后返回不超过10个含有“lips”的文件。
+        一次成功的检索将会收到一个或多个“DOCid(文件标识)”。这些DOCid确定了匹配文件的位置。要获得一份匹配文件的全部文本内容，可在下封给WAISmail服务器的E-mail的信体栏里原封不动输上收到的相应DOSid。
+        你还可以向gophermail@calvin.edu发封E-mail来获取一份WAIS数据库的清单：在Subject栏里输入get all，在信体栏里输入：
+        TYPE=1
+        NAME=WAIS Databases
+        Path=1/WAISes/Everything
+        Host=gopher-gw.micro.umn.edu
+        Port=70
+        在返回的清单中，选出你感兴趣的主题用E-mail进行检索，在E-mail的SUBJECT栏里输入检索关键词，在信体栏里输入返回的GOPHER菜单中与你的目标数据库相符的部分，例如：
+        TYPE=7+
+        NAME=bush-speeches.src
+        Paht=waissrc:/WAISes/Everything/bush-speeches
+        Host=gopher-gw.micro.umn.edu
+        Port=70
+        然后你很可能就会收到一份返回gophermail菜单，列出了匹配的文件。如想获得这些文件 的全文，只要在返回的gopher菜单上作些选择，有关的文件就会返寄给你。
+        
+        ●用E-mail实现WWW
+        WWW被誉为是Internet导航工具的未来。它是个超文本和多媒体系统，允许你邀游整个网络、读取文件、接收图像的声音。
+        通过一个Agora WWW-mail服务器，你可以用E-mail获取WWW文件。首先你必须知道URL(uniform resource locator)，由一长串以“http”，“gopher”或“ftp”开始的字符行组成，它指明文件的地址。你可以给agora@mail.w3.org或agora@www.undp.org发封E-mail来获得有关文件，在信体栏里输入命令：send <URL>(应该用具体的URL地址来替换〈URL〉)。也可以用deep〈URL〉命令。
+        用E-mail尝试WWW，可向一个Agora服务器发出以下命令：
+        WWW
+        send http://www.w3.org
+        你就会收到Agora帮助文件和“WWW Welcome Page”，包括了你想访问的其他Web文件介绍。
+        也可以从WWWmail服务器那里获得USENET消息，例如使用以下命令：
+        send news:comp.unix.aix(返回网络新闻的最近消息清单)
+        deep news:comp.unix.aix(返回消息清单及内容)
+        另外一个WWWmail服务器的地址是：webmail@curia.ucc.ie它要求的命令格式是：go <URL>
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,198 @@
+免跳线主板BIOS设置手册
+
+谢海洋
+1999年 第53期 01版
+
+
+
+    随着电脑硬件类型的日益多样化，BIOS设置作为最底层、最基本的程序设置，也日渐复杂化。优化BIOS的设置，能避免硬件可能产生的冲突，提高系统的运行效率。目前我们见到的BIOS主要是由四家公司开发，即Award、AMI、Phoenix和MR。
+    随着主板技术的进一步发展，各主板厂商又推出了最新的智能型主板，出现了免跳线这一新技术，使用户无需利用 Jumper 进行硬件切换，直接利用BIOS就可设定 CPU 的外频和倍频，由系统自动检测核心电压以及CPU的温度和风扇的转速等数。最早采用这项技术的主板厂商是升技，其代表作BH6采用的“CPU SOFT MENU”使其风靡一时。后来众多厂商如微星、建基等也纷纷推出了免跳线主板，为用户扩大了选择的范围。这些主板除使用了具备 Clear CMOS （清除 CMOS 数据）等功能的一两个跳线外，真正实现了免跳线，给用户创造了极大的方便。本文将主要以建基 （AOpen） AX6B 所采用的Award BIOS 为例介绍免跳线主板的各项 BIOS 设置， 最后再简要介绍升技和微星两家厂商的免跳线主板的 BIOS 设置。
+#1    一、Award BIOS 各设置项的功能和设置方法详解
+    在各设置项窗口中，通用的功能键简介如下：
+  Esc键：返回主菜单。
+    方向键：选择各选项。
+    “Page Up / Page Down”键或“+/-”键修改各选项值。
+    （Shift）F2键：颜色切换。
+    F1 键：实时帮助。
+    F5 键：在该设置窗口中加载旧设置值。
+    F6 键：在该设置窗口中加载缺省设置值。
+    F7 键：在该设置窗口中加载优化设置值。
+    F9键：语言切换。
+#1    1.STANDARD CMOS SETUP（标准CMOS设置）
+    该设置窗口简单明了，主要设置基本的CMOS参数，有五部分内容：
+    （1）时间：设置日期（系统自动换算星期值）和时间。
+    （2）硬盘参数：设置IDE参数。一般主板提供两个IDE接口，最多可使用四个IDE设备，即Primary Master（第一个!IDE接口主设备，一般接主硬盘）、Primary Slave（第一个IDE接口从设备）、Secondary Master（第二个IDE接口主设备）、Secondary Slave（第二个IDE接口从设备）。有两个参数需要重点说明：
+    “TYPE”用于设定IDE设备的类型，其主要选项包括：None，表示没有安装IDE设备，CD-ROM 或 SCSI 硬盘都可选择此项；Auto，系统自动检测IDE设备的各个参数，非常方便；User，表示由用户按照硬盘的实际参数设置，也可利用主菜单的“IDE HDD AUTO DETECTION（IDE 硬盘自动检测）”选项自动测出硬盘的各种参数。
+    “MODE”相对于硬盘设备而言，主要选项包括：NORMAL（普通模式），只适用于容量在528MB以下的硬盘；LBA（逻辑块地址模式），理论上支持容量达8.4GB的硬盘，现在一般选择该项，若无法识别8.4GB以上容量的硬盘，可以通过在该品牌硬盘的网址上下载工具软件或升级BIOS的方法解决；LARGE（大硬盘模式），支持的最大容量为1GB；AUTO，一般对应于“TYPE”参数的Auto选项，自动选择硬盘的工作模式。
+    其余各参数也都是相对于硬盘而言的，分别为：SIZE（硬盘容量）、CYLS（硬盘柱面数）、HEAD（硬盘磁头数）、PRECOMP（预写补值）、LANDZ（磁头着陆区）、SECTOR（扇区）。这些参数一般无需用户单独设定，利用“IDE硬盘自动检测”功能后系统会自动设置或换算。
+    CD-ROM在Windows 98下是会被自动检测到。
+    （3）软驱：设置软驱（Drive A/B）的容量和种类。
+    （4）Video：设置显卡类型。现一般选择EGA/VGA。
+    （5）Halt On：设置开机自检时异常情况的“挂起”条件。
+    ①No Errors  出现任何错误都不“挂起”。
+    ②All， But Keyboard  除键盘错误外，任何错误都将“挂起”。
+    ③All， But Diskette  除软驱错误外，任何错误都将“挂起”。
+    ④All， But Disk/Key  除软驱和键盘错误外，任何错误都将“挂起”。
+    ⑤All Errors  出现任何错误都将“挂起”。
+#1    2.BIOS FEATURES SETUP（BIOS参数设置）
+    （1）Virus Warning：设置病毒警告功能。如果设置为Enabled，开机时若有病毒改写硬盘引导扇区或分区表，BIOS会给出警告信息，而这一功能的缺点也在于此，也就是任何正常的修改引导扇区或分区表的操作（如安装Windows 95）都会被警告或引起“死机”。随着防病毒软件的普及，这一功能更显得不太重要了，建议设置成Disabled 。
+    （2）External Cache（CPU外部高速缓存）：多能奔腾的CPU使用集成在主板上的二级高速缓存，而PⅡ级CPU内建了512KB的二级高速缓存。为提高系统性能，应设置成Enabled。
+    （3）CPU L2 Cache ECC Checking：设置CPU二级高速缓存自动纠错功能，建议值为Enabled。
+    （4）Quick Power On Self Test（快速上电自检）：设置系统启动时是否进行快速的自检。除非内存工作常不稳定，否则应设置成Enabled，使内存检测只进行一次而跳过第二、三次测试，以缩短系统启动时间。内存自检时可随时按Esc键跳过。
+    （5）Boot Sequence：设置系统启动时的磁盘引导次序，用户可根据情况设定是先用软盘、硬盘还是光驱引导系统。
+    （6）Swap Floppy Drive（交换软驱盘符）：如果电脑安装了两个软驱，在此可设置软驱盘符在DOS环境下的相互转变，即A驱变成B驱，B驱变成A驱。建议值为Disabled。
+    （7）Boot Up Numlock Status（开机时Numlock键的工作状态）：建议值为On。这样开机后小键盘的数字键功能生效；若设置成 Off ，则小键盘的方向键功能生效。
+    （8）Boot Up System Speed（开机时的系统启动速度）：建议值为High。
+    （9）Typematic Rate Setting：设置键盘按下某键后的重复功能。如果设置成Enabled，下面两项有关键盘的功能设置将生效。
+    （10）Typematic Rate （Chars/Sec）：设置键盘输入时的每秒重复率，即按下某键不放，经延时屏幕上出现第二个该字符后每秒重复显示该字符的个数，可选值为6/8/10/12/15/20/24/30。
+    （11）Typematic Relay（Msec）：设置键盘输入延时情况，即按下键盘某键不放，屏幕出现第二个该字符所需的时间，可选值有250/500/750/1000。
+    （12）Security Option：如果用户已经利用主菜单的“PASSWORD SETTING”选项设置了保密口令，则此项将设置该保密口令是在系统启动时生效还是在用户进入BIOS设置时生效。前者选择System，后者选择Setup。当然，设置成System时，想进入BIOS设置也需要该口令。
+    （13）PCI/VGA Palette Snap（调色盘检测）：除非电脑安装了与VGA不兼容的显卡导致屏幕颜色异常，否则建议该项设置成Disabled。
+    （14） OS Select For DRAM>64MB：应设置成Non-OS2。当电脑使用的是OS2操作系统且内存容量超过64MB时才应设置成OS2。
+    （15） Video BIOS Shadow（视频BIOS映射）：应设置成Enabled。这样当系统启动时，会自动将显卡上的BIOS拷贝至Shadow RAM（“影子”内存）中。当系统正常运行需要频繁访问显卡上的 BIOS 时，只需在 Shadow RAM 中读取数据即可，从而缩短了访问时间，提高了运行速度。
+    （16）C8000-CBFFF Shadow至DC000-DFFFF Shadow：如果扩展卡上有ROM并且用户可以查到它们映射的Shadow RAM 地址，可将该项设置成Enabled否则建议设置成Disabled。
+#1    3.CHIPSET FEATURES SETUP（芯片组参数设置）
+    （1）SDRAM CAS Latency ：设置SDRAM的列地址读取（CAS， Column AddressStrobe）后的延时，可选值有2T/3T/Auto，取值决定于总线时钟和SDRAM的速度。内存条质量好可选2T，质量稍差可选3T，建议值为Auto。
+    （2） SDROM RAS# to CAS# Delay：设置SDRAM的行地址读取和列地址读取间的延时，可选值和建议值同上。
+    （3）SDRAM RAS# Precharge：设置行地址读取前的预先充电时间，可选值和建议值同上。SDRAM 读写之前预先充电是为了节省时间，充电时不进行任何操作。
+    （4）DRAM ECC Function：设置内存的自动检测与纠正功能，建议值为Disabled。
+    （5）Video BIOS Cacheable：设置视频BIOS的高速缓存模式，就是将显卡上的BIOS除映射至内存外还映射至高速缓存，以提高显示效果和显示速度，前提是电脑的显卡支持该功能，建议值为Disabled。
+    （6）Video RAM Cacheable：设置显存的高速缓存模式，原理和建议值同上。
+    （7）8 Bit I/O Recovery Time ：设置8位I/O操作的恢复延时，单位为ISAclock，建议使用其缺省值4。若选择NA，表示设置无效。
+    （8）16 Bit I/O Recovery Time：设置16位I/O操作的恢复延时，原理和设置值同上。
+    （9）Memory Hole At 15M-16M：内存中15M-16M这段地址称作内存空洞，本项将设置是否把这部分地址留给老式ISA扩展卡使用，建议值为Disabled。
+    （10） Passive Release：设置PⅡX4E芯片组的被动释放功能，尤其是在使用ISA设备时，应设置成Disabled。
+    （11）Delayed Transaction：设置PⅡX4E芯片组的延迟交换功能。为避免ISA卡的兼容性问题，建议值为Disabled。
+    （12）AGP Aperture Size（MB）：设置AGP需占有多少系统内存，设置值应小于实际内存容量。但有的AGP显卡要求设置值要大于64MB。
+    （13）PentiumⅡ Micro Codes ：设置PⅡ级CPU的微码调整功能，应设置成Enabled。虽然会稍微降低CPU的性能，但可以修复PⅡ级CPU运行时可能产生的异常。
+    AOpen的AX6B主板采用了先进的免跳线技术，在这里可以设置CPU的频率并尝试“超频”，主板会自动检测CPU的电压，此时用户根本无需打开机箱跳线。CPU频率设置详述如下：
+    窗口的右侧部分为“Jumpless Setup（免跳线设置）”菜单，Manufacture Frequency Default的缺省值为233MHz（该缺省值可以用主板配套光盘提供的实用工具 Flash.exe修改）。
+    System Frequency的可选值有233/266/300/333/350/400/450MHz和Manual，供用户根据自己使用的CPU工作频率自行设定或进行“超频”。
+    我们知道，通常所说的CPU的速度，是指CPU的内部工作频率，也就是内部时钟，又称之为“内频”；“外频”是CPU与周边设备交换数据的频率，也就是主板的总线速度，又称作系统时钟；随着CPU速度的逐步提升，外频的速度无法与内频同步，导致了“倍频”技术的出现。其关系为：内频＝外频×倍频。
+    PⅡ级CPU频率一般为：
+  INTEL PentiumⅡ  CPU内频  外频    倍频
+  PentiumⅡ233     233MHz   66MHz   3.5
+  PentiumⅡ266     266MHz   66MHz   4.0
+  PentiumⅡ300     300MHz   66MHz   4.5
+  PentiumⅡ333     333MHz   66MHz   5.0
+  PentiumⅡ350     350MHz   100MHz  3.5
+  PentiumⅡ400     400MHz   100MHz  4.0
+  PentiumⅡ450     450MHz   100MHz  4.5
+    如果用户决定将CPU的内频设置成其它值或“超频”，则可以选定Mamual，此时会拉出CPU外频和倍频的菜单：
+    CPU Clock Frequency（外频）的可选值包括：66.8、68.5、75、83.3、100、103、112和133.3MHz。
+    CPU Clock Ratio（倍频）的可选值包括：1.5、2.0、2.5、3.0、3.5、4.0、4.5、5.0、5.5、6.0、6.5、7.0、7.5和8.0。
+    主板提供的外频和倍频可选值，仅仅是为用户提供了一个选用的范围而已，最终的设置值能否生效，还取决于CPU是否支持用户所选的倍频值以及CPU是否已被生产商“锁频”这两点。当“超频”失败而导致无法开机时，用户不打开机箱也完全能达到这一目的，只需在开机时按住键盘上的Home键就可以重新启动系统。系统会自动将CPU的工作频率设定为PⅡ233MHz，用户再进入BIOS设置即可，实现了真正意义上的免跳线。
+#1    4.POWER MANAGEMENT SETUP（电源管理设置）
+    （1）Power Management（电源管理）：设置电源的工作模式，以决定是否进入节能状态。主要选项为：
+    Disabled  不使用节能模式。
+    User Define  用户自己设置节能模式，即设置下面的Doze Mode、Standby Mode、Suspend Mode 和HDD Power Down各选项。
+    Max Saving  设置最大节能模式，即在无任何操作的情况下，进入上一项要设置的各种节能模式只需要一分钟。
+    Min Saving  设置最小节能模式，即在无任何操作的情况下，进入Doze Mode、Standby Mode和Suspend Mode节能方式需要一小时，进入HDD Power Down 节能方式需要十五分钟。
+    （2）PM Control by APM：设置APM（高级电源管理）对电源的控制，以增强节能功能。如果操作系统为Windows 9X/NT，应设置成Yes。如果“Power Management”设置成Max Saving，更应选择此项。
+    （3）Video Off After：设置在何种状态下关闭显示器，可选值为Doze（休眠）、Suspend（挂起）、Standby（待命）和N/A（不关闭）。前提是将Power Management（电源管理）设置成User Define。建议值为Standby。
+    （4）Doze Mode（休眠模式）：设置系统在无操作状态下进入休眠模式所需的时间，可选值有1分钟/2分钟/4分钟/8分钟/12分钟/20分钟/30分钟/40分钟/1小时/Disabled。
+    （5）Standby Mode（待命模式）：设置系统在进入休眠状态后再进入待命模式所需的时间，可选值同上。进入待命模式后CPU时钟频率降低。
+    （6）Suspend Mode（挂起模式）：设置系统在进入待命状态后再进入挂起模式所需的时间，可选值同上。进入挂起模式后CPU停止工作。
+    （7）HDD Power Down（硬盘停止转动）：设置在没有任何操作的情况下需要多长时间IDE硬盘停止转动，可选值为1-15分钟和Disabled。该项对SCSI硬盘不起作用。
+    （8）Modem Wake Up：设置调制解调器对系统的唤醒功能。
+    （9）Lan Wake Up：如果配备了具有网络唤醒功能的网卡和720mA+5V以上功能的ATX 电源，该项可设置网络对系统的唤醒功能。
+    （10）Suspend Mode Option（挂起模式选择）：设置选择电源挂起模式（Power On Suspend）还是磁盘挂起模式（Suspend to Disk）。前者为传统的绿色型电脑常用的挂起模式，CPU及其它所有设备都停止工作，电源不能关闭，直到键盘、鼠标等唤醒系统；后者独具特色，是AOpen的AX6B主板的先进功能之一，它利用工具软件AOZVHDD将系统的工作状态、内存和屏幕的镜像存储到硬盘中，电源可以关闭，待下次开机时可恢复原工作状态和画面。
+    （11）Throttle Duty Cycle：设置处于挂起模式时的耗电量比，可选值有12.5% / 25.0% / 37.5% / 50.0% / 62.5% / 75.0%，建议值为62.5% 。
+    （12）VGA Active Monitor（VGA活动监测）：设置当用户不使用键盘或鼠标时，VGA的单独活动（如运行大型的程序或看VCD时）是否影响系统进入节能状态。建议值为Disabled ，使VGA单独的活动不影响节能。
+    （13）Power Button Override：设置电源开关功能，只适用于ATX电源。建议使用其缺省值Disabled，按下电源按钮即可直接关机而不进入挂起模式。如果选择Enabled，操作系统的软开关可用于控制开机、关机或进入挂起模式，同时，若按下电源开关按钮多于4秒则直接关机，少于4秒系统则进入挂起模式（前提是上述的“Suspend Mode”设置成Enabled）。   
+    （14）RTC Wake Up Timer：设置电脑自动开机的时间，可分为按日期（By Date）和按星期（By Week）两类，前者设置自动开机的日期和时间，后者设置自动开机的星期和时间，Disabled为禁用此功能。
+    （15）IRQ 8 Clock Event：设置中断8的时钟事件。如果设置成Enabled，中断发生时系统会从挂起状态下自动启动，如果设置成Disabled，系统则不监视中断事件。
+    （16）IRQ［3-7，9-15］，NMI： 设置所指各中断发生时是否终止系统的节能状态，建议值为Enabled。
+    （17）Primary IDE 0：设置第一个IDE主接口有存取要求时是否终止系统及该IDE设备的节能状态。建议值为Disabled。
+    （18）Primary IDE 1：设置第一个IDE从接口有存取要求时是否终止系统及该IDE设备的节能状态。建议值为Disabled。
+    （19）Secondary IDE 0 ：设置第二个 IDE 主接口有存取要求时是否终止系统及该 IDE 设备的节能状态。建议值为 Disabled 。
+    （20） Secondary IDE 1 ：设置第二个 IDE 从接口有存取要求时是否终止系统及该 IDE 设备的节能状态。建议值为 Disabled 。
+    （21） Floppy Disk ： 设置软驱有存取要求时是否终止系统的节能状态，建议值为 Disabled 。
+    （22） Serial Port ： 设置串口有数据交换要求时是否终止系统的节能状态，建议值为 Disabled 。
+    （23） Parallel Port ： 设置并口有数据交换要求时是否终止系统的节能状态，建议值为 Disabled 。
+#1    5.PNP/PCI CONFIGURATION （即插即用和 PCI 设置）
+    （1） PNP OS Installed：设置是否安装了即插即用操作系统。如果操作系统不具有即插即用功能，或者即使有但为了避免中断被自动重新安排，应设置为 No 。反之则应设置为 Yes 。
+    （2） Resources Controlled By ：设置系统资源控制。当设置成 Auto 时，BIOS会自动检测系统资源并给每一个外围设备分配 IRQ （中断）和 DMA 通道。当设置成Manual 时，窗口出现 IRQ 和 DMA 菜单供用户为每一个外围设备分配 IRQ 和 DMA。建议值为 Manual 。
+    （3） Reset Configuration Date ： 设置是否允许系统自动重新分配IRQ、DMA和 I/O 地址。建议设置成 Enabled，尤其是当用户分配 IRQ 或配置系统发生冲突时。
+    （4） IRQ3 - IRQ15 assigned to ：设置 IRQ 资源的使用，前题是上面的设置项“ Resources Controlled By ”设置成 Manual。IRQ3 和 IRQ4 一般设置成 Legacy ISA ，即由非即插即用的 ISA 设备使用，IRQ5 - IRQ15 一般设置成 PCI/ISA PNP，即由有即插即用功能的 PCI 和 ISA 设备使用。多数情况下，分配给各设备的中断资源为 IRQ3（COM2）、IRQ4（COM1）、IRQ5（Network/Sound or Others）、IRQ7（Printer or Others）、IRQ9（Video or Others）、IRQ10（SCSI or Others）、IRQ11（SCSI or Others）、IRQ12（PS/2 Mouse）、IRQ14（IDE1）、IRQ15（IDE2） 。
+    （5） DMA0 - DMA7 assigned to：设置 DMA 资源的使用，一般均设置为 PCI/ISAPnP 。
+    （6） PCI IDE IRQ Map To ：设置 PCI IDE 设备的分配。某些早期的 PCI IDE设备并不完全兼容 PnP ，需要为其指定插槽（PCI-SLOT1 至 PCI-SLOT4）。 建议设置为 Auto ，以便 BIOS 对其自动配置。
+    （7） Primary IDE INT# ：设置第一个 PCI IDE 设备所占用的 INT# ，一般设置为 A 。
+    （8） Secondary IDE INT# ：设置第二个 PCI IDE 设备所占用的 INT# ，一般设置为 B 。
+    （9） Used MEM Base addr ： 为与 PnP 不兼容的 ISA 卡设置起始地址，可选值有 C800/CC00/D000/D400/D800/DC00 。 选择其中任一项，会另外弹出一个与之对应的设置项“ Used MEM Length ”为其设置大小，可选值有 8K/16K/32K/64K 。 本设置项的建议值为 NA 。
+    （10） PCI Slot1 IRQ （Right） - PCI Slot4 IRQ （Left） ： 为每一个 PCI 插槽设置一个中断。建议值为 Auto ，使系统自动分配。
+#1    6.LOAD SETUP DEFAULTS （装载缺省设置值）
+    AOpen 的 AX6B 主板的该项设置与传统的“ LOAD BIOS DEFAULTS ”不同，应引起用户的注意。“ LOAD BIOS DEFAULTS ”不采用那些多数用于提高系统性能的参数，仅仅将 BIOS 各参数设置成厂商设定的缺省值，是最保守的设置，对软硬件的要求较低，不考虑系统的运行效率，只为确保系统的正常运行。而“ LOAD SETUP DEFAULTS”采用了优化的设置，将 BIOS 各参数设置成能较好地发挥系统性能的缺省值，以提高系统的运行速度。如果出现系统运行不稳定的情况，可通过修改主菜单中“ BIOSFEATURES SETUP ”和“ CHIPSET FEATURES SETUP ”的设置值， 选择较低的性能参数来判断问题所在。该项不影响“STANDARD CMOS SETUP ”项的设置。
+#1    7.LOAD TURBO DEFAULTS （装载优化设置值）
+    该项设置采用了比“LOAD SETUP DEFAULTS”更优的参数以进一步提高系统的性能。在芯片组和应用程序不变时， TURBO DEFAULTS 较 SETUP DEFAULTS 性能可提高 3% 至 10%。
+#1    8.INTEGRATED PERIPHERALS （主板集成的外部设备接口设置）
+    （1） IDE HDD Block Mode ：设置 IDE 硬盘的多扇区传输模式。目前容量大于120MB 的硬盘均支持该模式，建议值为 Enabled ，可加快硬盘的传输速度。
+    （2） IDE Primary Master PIO ： 设置第一个 IDE 主接口使用的 PIO 传输模式，可选有 Mode 0/1/2/3/4/Auto ，建议值为 Auto 。
+    （3） IDE Primary Slave PIO ：设置第一个 IDE 从接口使用的 PIO 传输模式，可选值和建议值同上。
+    （4） IDE Secondary Master PIO：设置第二个 IDE 主接口使用的 PIO 传输模式，可选值和建议值同上。
+    （5） IDE Secondary Slave PIO ：设置第二个 IDE 从接口使用的 PIO 传输模式，可选值和建议值同上。
+    （6） IDE Primary Master UDMA ：设置第一个 IDE 主接口是否使用 ULTRA DMA传输模式，建议值为 Auto 。
+    （7） IDE Primary Slave UDMA ：设置第一个 IDE 从接口是否使用 ULTRA DMA传输模式，建议值为 Auto 。
+    （8） IDE Secondary Master UDMA：设置第二个 IDE 主接口是否使用 ULTRA DMA传输模式，建议值为 Auto 。
+    （9） IDE Secondary Slave UDMA ：设置第二个 IDE 从接口是否使用 ULTRA DMA传输模式，建议值为 Auto 。
+    （10） On-Chip Primary PCI IDE ：设置是否允许使用与第一个 PCI IDE 连接的设备，因为现在的主板都集成了 IDE 接口， 建议值为 Enabled ， 它决定了上面的“IDE Primary Master/Slave PIO”选项是否存在。
+    （11） On-Chip Secondary PCI IDE ：设置是否允许使用与第二个 PCI IDE 连接的设备，原理和建议值为同上，它决定了上面的“IDE Secondary Master/Slave PIO”选项是否存在。
+    （12） USB Legancy Support ： 设置 USB 键盘支持。如果没有使用 USB 键盘，应设置成 Disabled 。
+    （13） USB IRQ Released ：设置是否将 IRQ 留给 USB 设备使用。如果用户的电脑使用了 USB 设备，应设置成 Yes ，否则应设置成 No 。
+    （14） Onboard FDC Controller ：设置软驱接口状态，应设置成 Enabled 。
+    （15） Onboard Serial Port 1： 设置 COM1（串口1）的 I/O 地址和中断号，可选值有 Auto、Disabled、3F8/IRQ4、2F8/IRQ3、3E8/IRQ4、2E8/IRQ3。一般 COM1的标准资源配置为 3F8/IRQ4。
+    （16） Onboard Serial Port 2： 设置 COM2（串口2）的 I/O 地址和中断号，可选值同上，一般 COM2 的标准资源配置为 2F8/IRQ3。
+    （17） Onboard Parallel Port ：设置并口的 I/O 地址和中断号，可选值有 Disabled、3BC/IRQ7、378/IRQ7、278/IRQ5 ，一般其标准资源配置为 378/IRQ7 。
+    （18） Parallel Port Mode ：并口的工作模式，可选值有 SPP（标准并口）、EPP（增强型并口）、ECP（扩充功能口）和 ECP+EPP 。 并口工作模式要根据实际连接的设备（如打印机或扫描仪）确定，尤其是笔记本电脑连接打印机出现打印问题时，应考虑修改这里的设置，建议值为 SPP 。
+    （19） ECP Mode Use DMA ：当上一项选定 ECP 或 ECP+EPP 时，会随之弹出本选项，用于设定 ECP 模式使用的 DMA 通道，建议值为 3 。
+    （20） Onboard IR Controller：设置是否使用红外线设备，一般设置 Disabled。如果设置了 Enabled，还需设置其 I/O 地址、工作模式和中断号。
+#1    9.PASSWORD SETTING （口令设置）
+    设置进入 BIOS 程序设置（SETUP）或系统启动（SYSTEM）时的口令。如果原来已经设置了口令，在提示需输入口令时直接按回车键即可消除原口令。
+#1    10.IDE HDD AUTO DETECTION （ IDE 硬盘的自动检测）
+    自动检测 IDE 硬盘的各项参数开将其保存到 CMOS 中。 目前使用的硬盘的各参数都会被自动正确检测到。
+#1    11.SAVE & EXIT SETUP （保存设置值后退出设置程序）
+    保存被修改的各项 BIOS 参数后退出 BIOS设置窗口，功能与在 BIOS 主窗口中按 F10相同。
+#1    12.EXIT WITHOUT SAVING （不保存设置值而退出设置程序）
+    不保存被修改的各项 BIOS 参数而退出 BIOS设置窗口，功能与在 BIOS 主窗口中按ESC键退出相同。
+#1    13.LOAD EEPROM DEFAULTS （装载 EEPROM 中保存的用户设定值）
+    AOpen 的 AX6B 使用了不需电池支持的 EEPROM （电可擦写只读 ROM）。用户可将自己设置的各项 BIOS 参数存入 EEPROM 中。当 CMOS 数据丢失或用户忘记原来的设置参数时，除可使用“ LOAD SETUP DEFAULT ”和“ LOAD TURBO DEFAULT ”外，还可使用此功能装载 EEPROM 中保存的自己的设置值。
+#1    14.SEVE EEPROM DEFAULTS （将用户设定值保存到 EEPROM 中）
+    将用户根据自己的实际情况设置的各 BIOS 参数值保存到 EEPROM 中。
+    各种BIOS 各选项的设置大同小异， 以上介绍供读者参考，望用户能根据自己的需要并参照主板说明书灵活设置。另外，当用户在主板上安装新硬件出现异常时，还要考虑升级 BIOS 。
+#1    二、其它免跳线主板简介
+    目前国内市场免跳线主板并不鲜见，种类和数量正逐步增加，难以一一列举。这里只简要介绍一下现在用户使用较多的两款主板：升技的 BH6 和微星的 MS-6199 。限于篇幅，本文无法对其 BIOS 设置的各选项逐一介绍，现仅将涉及免跳线的部分加以说明。
+#1    1. 升技 BH6 的“!!CPU SOFT MENUⅡ!!”
+    升技是最早推出免跳线技术的主板厂商，它的 BH6 主板（最早为 BX6 主板）采用的 SOFT MENU 技术取代了传统的手工配置硬件的方法， 是免跳线技术的成名作，也是升技的代表作。在其 BIOS 设置主窗口中，选择“!!CPU SOFT MENU Ⅱ!!”，就可进行有关 CPU 的参数设置。
+    （1） CPU Name Is ：根据实际情况设置 CPU 的类型。
+    （2） CPU Operating Speed：设置 CPU 的工作频率（内频），可选值有 233/266/300/333/350/400 。当选择 User Define 时，用户即可自行设定其外频和倍频。
+    （3） Turbo Frequency ：设置 CPU 的增强模式。当用户的 CPU 外频支持增强模式时可设置成 Enabled 以考验 CPU 的稳定性。
+    （4） External Clock ：设置 CPU 的外频。
+    （5） Multiplier Factor ：设置 CPU 的倍频。
+    （6） SEL100/66# Signal ：缺省值的“ High ”为 100MHz ， 缺省值的“ Low ”为 66MHz 。当用户想在 100MHz 的外频上设置较高的倍频时，应设置为 Low 。
+    （7） AGPCLO/CPUCLK ：设置 AGP 的频率是否与 CPU 的外频同步，缺省值为 2/3。如果设置成 1/1 ，是强制其与 CPU 外频同步，可能会导致系统不稳定。
+    （8） Speed Error Hold ：设置当 CPU 频率设定错误时系统是否终止运行，缺省值为 Disabled 。
+    （9） CPU Power Supply ：设置 CPU 的核心电压是使用其缺省值（CPU Default）还是由用户指定（User Define）。当选择 CPU Default 时，系统会自动检测 CPU的类型并为其设置合适的电压，同时在“ Core Voltage ”栏显示电压值；当选择“User Define”时，则需用户在“Cone Voltage”栏中自行设置电压值。建议使用其缺省值。
+#1    2. 微星 MS-6119 主板的免跳线功能
+    微星的 MS-6119  也是一款采用了免跳线技术的主板， 被用户广为使用。 在其 BIOS 设置主窗口中选择“ SPECIAL FEATURES SETUP ”，就可进行 CPU 的各种参数设置并进行系统的自动监视。
+    （1） 在 POST SHOWING 栏中：
+      （a） Chassis Fan Detected  设置是否检测机箱风扇。
+      （b） Power Fan Detected  设置是否检测电源风扇。
+      （c） CPU Fan Detected  设置是否检测 CPU 风扇。
+      （d） Chassis Intrusion Detected  设置是否检测机箱干扰。
+      （e） Voltage Detected  设置是否检测 CPU 外频电压。
+      （f） Vcore Voltage Detected  设置是否检测 CPU 的核心电压。
+      （g） +2.5V～5.0V Voltage Detected 设置是否检测硬件各电压数据。
+    （2） 在 CPU PLUG & PLAY 栏中：
+      （a） CPU Speed  设置 CPU 工作频率。
+      （b） CPU RATIO  设置 CPU 的倍频。
+      （c） CPU Frequency  设置 CPU 的外频。
+    （3） 在 SYSTEM MONITOR 栏中：
+      （a） Chassis/Power/CPU FAN RPM ：显示机箱、电源和 CPU 的风扇转速。
+      （b） System/CPU Temperature ：显示系统和 CPU 的温度。
+      （c） CPU Critical Temp ： 设置 CPU 的警戒温度，当达到用户设定的警戒温度时，会自动降低 CPU 的运行速度。
+      （d） Shutdown Temp ：设置 CPU 过热时系统自动关闭的温度。 该功能只能工作在 Windows 95 操作系统下。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

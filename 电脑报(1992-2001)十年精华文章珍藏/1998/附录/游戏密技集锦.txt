@@ -1,0 +1,665 @@
+游戏密技集锦
+
+天骄创作室
+1998年 第52期 25版
+
+#1    一、《虚幻》（UnReal）
+    ALLAMMO：使所有的枪支弹药增加到999。
+    FLY：进入飞行模式。
+    GHOST：进入穿墙模式。
+    WALK：从飞行/穿墙模式回到正常模式。
+    GOD：进入无敌模式。
+    INVISIBLE：进入隐形模式。
+    KILLPAWNS：瞬间杀死所有怪物。
+    WALK：关掉飞行/穿墙模式。
+    SLOMO #：增/减游戏运行速度，1.0为正常。
+    SUMMON：让你增加一样武器或物品，例如SUMMON EIGHTBALL、SUMMON FLAKCANNON、SUM、MON NALI、SUMMON DISPERSIONPISTOL、SUMMON AUTOMAG、SUMMON STINGER、SUMMON ASMD、SUMMON RAZORJACK、SUMMON GESBIORIFLE、SUMMON RIFLE、SUMMON MINIGUN、SUMMON SKAAR JWARRIOR、SUMMON HEALTH、SUMMON SUPERHEALTH、SUMMON FLASHLIGHT、SUMMON SEARCHLIGHT、SUMMON ARMOR、SUMMON JUMPBOOT SUMMON TRANSLATOR、SUMMON AMPLIFIER。
+    PLAYERSONLY：冻结时间，再输入一次解冻。
+    OPEN MAPNAME：跳至任何地图，只要输入地图名字如“OPEN DIG“。
+    BEHINDVIEW 1：让你进入类似《古墓丽影》（Tomb Raider）的第三人称视角。
+    BEHINDVIEW 0：从第三人称视角恢复正常模式。
+    FLUSH：如果你想使墙壁或怪物的贴图材质变得怪异，试试这条秘技吧。
+#1    二、《幽浮：拦截者》（X-Com： Interceptor）
+    同时按下CTRL和E键，当听到两声“嘀嘀”的响声后便可输入以下秘技：
+    battlecheat：激活战时秘技。
+    canttouchthis：无敌。
+    fillerup：无限射程。
+    knowitall：所有的调查都属于你。
+    quickbase：结束所有在建造中的基地的建造工作。
+    payday：增加金钱。
+#1    三、《盟军敢死队：渗入敌后》（Commandos： Behind Enemy Lines）
+    1.跳关密码
+    第二关：4JJXB；第三关：ZDD1T；第四关：RFF1J；第五关：K4TCG；第六关：MIR4M；第七关：7QVJV；第八关：K99XC；第九关：AAAX1；第十关：JSGPW；第十一关：CMODD；第十二关：JGHD3；第十三关：PUUWW；第十四关：WT348；第十五关：139P0；第十六关：L9IPV；第十七关：5LIMV；第十八关：YJOJG；第十九关：YFCWJ；第二十关：GDKWT。
+    2.运兵秘方
+    你的水兵（Marine/Diver）能够“携带”另两名敢死队员在你的背包内，在潜水时他们不会看见。这意味着一个更安全可靠的运兵方法诞生了。当然这可能本身是游戏的一个BUG。当水兵在水中收起橡皮艇时，另两名敢死队员可以一同进入背包。当成功后，一幅敢死队员的小照片会出现在水兵的背包之上。不过当运送者死掉时，他“携带”的另两名敢死队员也可能会同时一命呜呼。
+#1    四、《死牢战记》（Deathtrap Dungeon）
+    1.跳关秘技
+    编辑游戏目录中“Deathtrap Dungeon＼Asylum”下的一个名为CONFIG.DAT的文件，改变其中的一句内容“PROGRESS 1023”，这样就可以直接玩单机模式中的任何一关。
+    2.限生命
+    在游戏进行中输入“elvis”，生命无限。
+#1    五、《铁血农夫再出击》（Redneck Rampage Rides Again）
+    按住R、D键，再输入以下秘技：
+    hounddog：开启/关闭上帝模式。
+    all：获得所有的枪支、弹药、物品、钥匙。
+    meadow### ：跳关。
+    yerat：显示位置。
+    view：视角模式切换。
+    time：作用未知。
+    unlock：解锁。
+    cluck：作用未知。
+    items：获得所有的物品。
+    rate：显示游戏运行速度。
+    skill# ：提高技巧水平。
+    teachers：“You Were All Wrong!”。
+    moonshine：获得一些月光。
+    critters：切换怪物模式。
+    rafael：“For You Grandpa!”。
+    showmap：显示所有地图。 
+    elvis：切换上帝模式。
+    clip：切换修剪模式。
+    guns：获得所有的枪支。
+    inventory：获得所有的物品。
+    keys：获得所有的钥匙。
+    debug：切换除错模式。
+    joseph：获得电单车。
+    mrbill：对某人施以重创。
+    tony：作用未知。
+    gary：作用未知。
+    rhett：立即死亡。
+    aaron：快速成长模式。
+    nocheat关闭所有秘技。
+    woleslagle：切换醉酒/清醒模式。
+    mikae：获得所有的物品。
+    greg：获得所有的船只。
+    noah：西安市除错信息。
+    arijit：获得船只。
+    donut：获得船只。
+    kfc：小鸡模式。
+    van：作用未知。
+#1    六、《领土》（Dominion）
+    按下ENTER键，然后输入下列秘技，再次按下ENTER键即可使秘技生效。
+    lushee：增加资源。
+    infrared：显示地图。
+    combustion：杀死敌军单位。
+    zipper：快速建造（电脑方也享受同等待遇）。
+#1    七、《深海猎渔》（Deep Sea Trophy Fishing）
+    在游戏进行中输入以下秘技：
+    ds10x：使吸引鱼儿上钩的能力超过正常十倍。
+    dsnobreak：保持阻碍线。
+    dscatchnow：使拥有快速捕鱼的能力。
+    dsbluemarlin：使下一次被抓住的鱼一定是蓝色马林鱼。
+#1    八、《永远的传奇》（Forever Legend）
+    首先到镇北的男人那里花1000圆金子卖一瓶“MORPH Potion”，然后马上喝下它（切勿离开你所在的当前地图）。当Kilgaly变成LINK时，你便可输入以下的秘技。如果你想关闭调出来的秘技功能，只需再次键入相同的秘技。
+    KSLENSBOY：使Kilgaly进入冒泡状态。
+    KSGIVEME：获得最大数量的金钱（65535）。
+    KSLIVEITUP：获得最大数量的HP（65535）。
+    KSBADPOWER：获得最大数量的MP（65535）。
+    KSCHICKEN：在当前地图上不再遭遇随即出现的敌人。
+    KSLIFESUCKS：立即死亡。
+    KSITSTOEASY：游戏结束。
+    KSWOAHBABY：获得最大数量的攻击力（65535）。
+    KSIAMGOD：获得所有的符咒。
+    KSROSHAMBO：试试就知道了。
+    KSWHODIDIT：试试就知道了。
+#1    九、《死亡鬼屋》（House of the Dead）
+    在游戏主画面中，按下CTRL键不放，然后输入以下秘技：
+    SKIDMARX：激活秘技以及编辑状态参数。
+    CREATURE：激活生物试验。
+#1    十、《伊卡洛斯神》（Icarus）
+    在攻击前输入“Baby”，可以将对手一击必杀。
+    在攻击前输入“Waac”，可以使HP/MP不减。
+    输入“Jjun”，可以增加金钱。
+#1    十一、《M.A.X. 2》
+    在游戏中键入以下秘技，不要忘记方括号：
+    ［maxspy］：能够看见所有的敌人（包括动物在内）。
+    ［maxstorage］：获得最大量的原料。
+    ［maxsurvey］：能够看见地图上所有的宝物。
+    ［maxsuper］：单位高光。
+#1    十二、《机甲指挥官》（Mech Commander）
+    1.后勤秘技
+    以下这些秘技是在后勤阶段时输入：
+    poundofflesh：增加1，000，000点资源点数。
+    Rockandrollpeople：除去当前关卡的负重限制。
+    2.关卡秘技
+    以下这些秘技是在关卡进行中输入：
+    CTRL-ALT-W：立即胜利。
+    Osmium：使你的机甲与战车无敌。
+    Lorrie：修补弹药与武器的损坏。
+    Lordbunny：给你无限的、瞬间的火炮攻击，按下“b”键点击鼠标左键确定攻击目标。
+    mineeyeshaveseentheglory：显示完整的地图。
+    deadeye：所有作战单位获得最大炮术技巧。
+    framegraph：显示游戏的运行速度。
+    3.附加秘技
+    在游戏安装后的主目录下，建立一个名为“?? buymechcommander.2”的文件，然后在游戏中有以下秘技可使用：
+    ? lorrie：补足所有弹药。
+    osmiu：打开/关闭上帝模式。
+#1    十三、《猎鸟一族》（Bird Hunter）
+    以下秘技在猎人视角与地图视角同时适用：
+    DGGOLDENEGG：使鸟类外表变得古怪，有些象幽灵。
+    DGLUCKYDUCK：变出好多好多的鸟。
+    以下秘技只有在地图视角中使用：
+    DGBIRDSEYE：在地图中显示出鸟的图标。
+    DGWARP：允许猎人能够“瞬间移动”。
+    以下秘技只有在猎人视角中使用：Only the hunt view：
+    DGEGGSACT：停止枪支抖动。
+    DGFAMINE：使鸟类自己出来寻觅饲养点。
+    DGPREDATOR：调出食肉动物模式。
+    DGSNOWGOOSE：调出气候影响模式。
+#1    十四、《风云之天下会》
+    1.五大神器修改
+    先进入游戏，任存一个进度（最好做备份），然后编辑此进度文件。以下是步惊云物品修改：
+    物品存放的地址  剑的代码数值 各种剑的数量。
+    31942H  24H（十进制数是36），无双剑 31946H
+    3194AH  25H（十进制数是37），英雄剑 3194EH
+    31952H  26H（十进制数是38），火鳞剑 31956H
+    3195AH  27H（十进制数是39），绝世好剑   3195EH
+    31962H  35H（十进制数是53），雪饮刀 3196EH
+    2.步惊云快速升级法
+    当步惊云刚刚长大时会被派出执行杀叛徒的任务，他会和血暗天同行。待一起出了天荫城后一直向南到乾坤庄，再向西来到凤西村，最后向北到达南安镇。再那里用所有的钱买人参和灵芝，接着一直向北到达一处通往后陵的树林。这时会出现一种忍者装扮的敌人，战斗力非常强，与之战斗时步惊云不停的用"翻云覆雨"攻击，而血暗天则不停的用人参和灵芝为步惊云补给，这样几个回合忍者就会败下阵来。每打一个忍者步惊云就会升一级，用不了多久，你就会拥有一个超强步惊云了。
+#1    十五、《彩虹六号》（Rainbow Six ）
+    在游戏中键入“＇”键便可激活欺骗模式，随后键入以下字符得到以下相应效果：
+    TEAMGOD：团队上帝模式。
+    AVATARGOD：单人上帝模式。
+    STUMPY：开启矮胖模式。
+    CLODHOPPER：增大玩家手与足的尺寸。
+    MEGANOGGIN：大头模式。
+    BIGNOGGIN：大头模式。
+    5FINGERDISCOUNT：弹药全满。
+    NOBRAINER：关闭AI。
+    DEBUGKEYS：可以测试操作键。
+    SILENTBUTDEADLY：效果不明。
+    FASTACTIONRESPONSETEAM：效果不明将。
+    TURNPUNCHKICK：将玩家从3D变成2D。
+    1-900：深呼吸。
+    EXPLORE：胜利条件开/关。
+#1    十六、《重返中世纪》（Get Medieval） 
+    在游戏中键入以下字符：
+    mpkfa：上帝模式。
+    mppos：显示全球位置。
+    mpfps：显示游戏画面每秒帧数。
+#1    十七、《外部战争》（Outwars）
+    游戏中键入以下字符：
+    MACLEOD：上帝模式。
+    DIRTYHARRY：无限弹药。
+    BUZZ：滑行翼。
+    FRAMERATE：游戏画面帧数。
+    PHANTOM：使用“F11”和“F12”键侦察怪物情况。
+    GOHOME：重新回到起始位置。
+    THRASHER：在雷达上显示敌人情况。
+    TIMEWARP：移去任务时间。
+    WEAPONCAM：跟随自己射出的弹药。
+    KEYMASTER：增加防御、生命和弹药。
+    JUMPOASIS：跳到“oasis”关卡。
+    JUMPANUBIS：跳到“anubis”关卡。
+    JUMPRAGNAROK：跳到“ragnarok”关卡。
+    JUMPJUGGERNAUT：跳到“juggernaut”关卡。
+    JUMPDEAD：跳到最后一关。
+    BAUMER：效果不明。
+    SHOWALL：效果不明。
+    SNIPSNIP：效果不明。
+    BIGEARS：效果不明。
+    BIGBROTHER：效果不明。
+    WARPME：效果不明。
+#1    十八、《战争重锤：黑暗预兆》（Warhammer： Dark Omen）
+    在主菜单画面键入以下字符“FUDGEISLUSH”激活密技模式，以后在游戏按下以下键：
+    CTRL C&G（三键同时按下，以下也是一样）：增加1000现金。
+    CTRL C&T：减去1000现金。
+    CTRL C&E：增加选中单位的经验。
+    CTRL C&U：使被选中的单位变成打不破。
+    输入以下字符“BRINGEMON”后在战斗中按下以下键：
+    F12：跳过战斗。
+    按下CTRL键：使选中得敌人单位行动不能。
+    在开火时同时按住“K”键：使选中单位的射击精确度达100% 。
+    按下“W”键：增加可用的魔法点数。
+#1    十九、《数字风暴》（Cyberstorm 2）
+    编辑你的STORM.INI文件，在其中加入以下一行：
+    ［Function］ - ［Type This Code］：
+    这样便可以在游戏中增加一个菜单选项并可以使用。选中后在游戏中通过键入相应句子得到相应功能。
+    1.HERC基地中的密技
+    加一条命：I＇ll Buy That For A Credit。
+    加1000条命：Will work for credits。
+    加10000条命：Mo money。
+    加100000条命：Too much wheat。
+    加1000000条命：You may have already won。
+    最大O修复：As Good as it Gets。
+    最大O指挥官（技术、生命、设备）：You da man。
+    最大O设备：Home is where the heart 。
+    最大O底盘：Must have。
+    得到所有的技术：He Who Dies With The Most Toys。
+    回到一般技术状况：It was nice while it lasted。
+    2.战斗中的密技
+    医疗选中的飞行员：Tarsus。
+    修理选中的车辆：It＇s just a flesh wound。
+    恢复选中车辆能量：Feel my wrath。
+    重新组合选中的单位：Go Go Power Ranger。
+    得到丰富的回合制移动力点数：Fly Away。
+    得到丰富的回合制动作点数：Vengeance is mine。
+    我是无法征服得：There can be only one。
+    击败所有敌人：Death to all who oppose us。
+    成为另一名玩家：Freaky Friday。
+#1    二十、《劲量赛艇》（Powerboat Racing）
+    1.过关密码（Password）
+    前面为输入的密码，后面为相应的赛道名称。
+    FAN：Catamarans （Minnow）。
+    DIP：Catamarans （Pike）。
+    URN：Catamarans （Barracuda）。
+    MOP：不能确定结果。
+    ZIP：不能确定结果。
+    EPS：冠军赛模式。
+    PBR：Slalom。
+    PDL：隐藏赛道。
+    HID：不能确定结果。
+    2.密技
+    密技，将你的名字命名为以下名字可得到如下效果：
+    SML：小型赛艇模式。
+    BIG：大头模式。
+    POW：超级引擎模式。
+    FLY：不能确定结果。
+    BAA：为你赛跑。
+    BAD：不能确定结果。
+    BIF：我认为这是一次大碰撞。
+    WIN：总是获得胜利。
+#1    二十一、《盟军敢死队：渗入敌后》（Commandos：Behind the Enemy line） 
+    游戏进行中键入如下字符串“1982GONZO”。如果不行的话，可以试试这个“GONZO1982”来激活密技模式，以后在游戏中同时按下以下键：
+    SHIFT+V：显示敌人的立体视野（也就是敢死队员所曾经走过的路线）。
+    SHIFT+X：瞬间移动到想去的地方 。
+    CTRL+I：无敌 。
+    CTRL+SHIFT+N：完成任务 。
+    CTAL+SHIFT+X：超级恐怖的……怎么形容来着，真不知游戏作者怎么想的，太可怕了，至于到底是什么，大家自己到游戏中一试便知道了。
+#1    二十二、《迫在眉睫》（Incoming）
+    在游戏主菜单画面键入以下字符串“NUMBERONEDACRESTREET”，可以让你看到一个有许多密技可用的包含5个新的关卡的菜单选项，按住SHIFT键并输入：
+    WIREWEWAITING：关闭贴图。
+    WHATSTHEPOINT：让画面变成小圆点。
+    SOLIDASAROCK：刀枪不入。
+    FLATBROKE：关闭阴影。
+    GOURAUD：高兰阴影开启。
+    OLDMACDONALD：保护农场不受跳起的奶牛伤害：-）。
+    FLYMETOTHEMOON：在月球上竞赛。
+    HAVEALL：得到所有的一切。
+    SUPERDAISY：一枪干掉所有的敌人。
+    SUPERSHOOT：超级出击。
+    INVUNERABILITY：金刚不坏。
+    INFINITELIVES：无限生命。
+    INFINITEWEAPONS了：无限武器。
+    以下每按一次功能键都会开启或关闭所对应的密技：
+    F2键：简易射击。
+    F3键：金刚不坏。
+    F4键：无限生命。
+    F5键：无限武器。
+    F6键：漂亮的爆炸。
+    F7键：退出。
+    F8键：存盘。
+    F9键：调进度。
+    F11键：重新开始。
+#1    二十三、M.A.X. 2 
+    1.战役模式游戏密技
+    以下密技对游戏的战役模式有效。
+    编辑Max2.ini文件为以下设置：
+    current_campaign_1_mission=1
+    current_campaign_mission=49
+    last_campaign_played=49
+    这样便可以进行游戏中所有的战役了。
+    2.单人模式游戏密技
+    以下这些密技只对游戏的单人模式有效：
+    ［MAXSPY］：这可以切换让你看见地图上的所有作战单位，哪怕敌人在你的正常视线观察范围之外也不例外。不过你将仍然不可以对视线范围之外的地方目标进行攻击。
+    ［MAXSURVEY］：这可以让你看见地图上所有的材料和金子资源所在地。
+    ［MAXSTORAGE］：这可以让你所有的单位和建筑的身上都装备满材料。
+    ［MAXSUPER］：选中一个单位并使用这一密技，这一单位会升级至它所能达到的最高等级。
+#1    二十四、Nam
+    在游戏中任何时候键入以下字符：
+    NVAGOD：上帝模式。
+    NVACALEB：上帝模式。
+    NVASHOWMAP：显示所有地图。
+    NVABLOOD：得到所有武器。
+    NVUNLOCK：打开所有开关。
+    NVAMATT：录音机开/关。
+    NVACLIP：切换至裁剪模式。
+    NVARATE：改变游戏画面帧数。
+#1    二十五、魔法门VI
+    1.在游戏中按Ｆ，然后按数字键输入：
+    （1）特殊神器（４００－－４２９）
+    ４００－－莫德里德
+    ４０１－－绍
+    ４０２－－克难
+    ４０３－－伊克利巴
+    ４０４－－莫林
+    ４０５－－帕西佛
+    ４０６－－贾拉汉
+    ４０７－－皮里诺
+    ４０８－－维拉里亚
+    ４０９－－亚瑟
+    ４１０－－潘德拉根
+    ４１１－－露稀斯
+    ４１２－－珍妮弗
+    ４１３－－伊格兰尼
+    ４１４－－莫根
+    ４１５－－海德斯
+    ４１６－－阿瑞斯
+    ４１７－－帕希滕
+    ４１８－－克洛诺斯
+    ４１９－－赫克拉斯
+    ４２０－－阿蒂米斯
+    ４２１－－阿波罗
+    ４２２－－宙斯
+    ４２３－－伊杰斯
+    ４２４－－奥丁
+    ４２５－－阿特拉斯
+    ４２６－－赫尔姆斯
+    ４２７－－阿菲洛迪特
+    ４２８－－雅典娜
+    ４２９－－希拉
+    （２）过关特殊物品（４３０－－５８０）
+    ４３０－－皮囊
+    ４３１－－皮囊
+    ４３２－－皮囊
+    ４３３－－时间沙漏
+    ４３４－－圣杯
+    ４３５－－角
+    ４３６－－珠宝
+    ４３７－－月亮石
+    ４３８－－黄宝石
+    ４３９－－红宝石
+    ４４０－－紫水晶
+    ４４１－－绿宝石
+    ４４２－－紫黄宝石
+    ４４３－－太阳石
+    ４４４－－绿宝石
+    ４４５－－蓝宝石
+    ４４６－－第三只眼
+    ４４７－－命运台
+    ４４８－－十字架
+    ４４９－－蜡烛台
+    ４５０－－虎像
+    ４５１－－熊像
+    ４５２－－狼像
+    ４５３－－鹰像
+    ４５４－－龙像
+    ４５５－－龙爪
+    ４５６－－控制块
+    ４５７－－德里克斯的水晶
+    ４５８－－褪色珍珠
+    ４５９－－纯净珍珠
+    ４６０－－玫瑰花
+    ４６１－－坦耐尔之铃
+    ４６２－－坦普的锣
+    ４６３－－马靴
+    ４６４－－埃斯里克的头骨
+    ４６５－－骨头
+    ４６７－－水晶头骨
+    ４６８－－铲
+    ４６９－－锁凿
+    ４７０－－石头
+    ４７１－－鸟身怪兽的羽毛
+    ４７２－－金字塔
+    ４７３－－酒桶
+    ４７４－－蛇蛋
+    ４７５－－美妙钟琴
+    ４７６－－牙齿
+    ４７７－－四叶草
+    ４７８－－长笛
+    ４７９－－竖琴
+    ４８０－－宝石
+    ４８１－－蜘蛛女王的心
+    ４８２－－虎魄
+    ４８３－－神灯
+    ４８４－－苹果
+    ４８５－－羊鸣披风
+    ４８６－－龙塔钥匙
+    ４８７－－加里克实验室钥匙
+    ４８８－－斯纳格秘室的钥匙
+    ４８９－－大耳怪前哨的钥匙
+    ４９０－－钥匙
+    ４９１－－钥匙
+    ４９２－－魔法师的钥匙
+    ４９３－－地图
+    ４９４－－地图
+    ４９５－－地图
+    ４９６－－地图
+    ４９７－－地图
+    ４９８－－斯纳格的战斧
+    ４９９－－卡尔本爵士的盾牌
+    ５００－－消息卷宗
+    ５０１－－消息卷宗
+    ５０２－－消息卷宗
+    ５０３－－消息卷宗
+    ５０４－－消息卷宗
+    ５０５－－消息卷宗
+    ５０６－－消息卷宗
+    ５０７－－消息卷宗
+    ５０８－－消息卷宗
+    ５０９－－消息卷宗
+    ５１０－－消息卷宗
+    ………－－消息卷宗
+    ５４７－－消息卷宗
+    ５４８－－消息卷宗
+    ５４９－－消息卷宗
+    ５５０－－阿尔法记忆水晶
+    ５５１－－贝塔记忆水晶
+    ５５２－－德尔塔记忆水晶
+    ５５３－－伊普斯隆记忆水晶
+    ５５４－－蝙蝠粪袋
+    ５５５－－浴室钥匙
+    ５５６－－贮藏室钥匙
+    ５５７－－宝藏库钥匙
+    ５５８－－秘门钥匙
+    ５５９－－木箱钥匙
+    ５６０－－教派钥匙
+    ５６１－－浴室钥匙
+    ５６２－－贮藏室钥匙
+    ５６３－－宝藏库钥匙
+    ５６４－－军阀钥匙
+    ５６５－－仓库钥匙
+    ５６６－－房间钥匙
+    ５６７－－主教钥匙
+    ５６８－－宝藏库钥匙
+    ５６９－－远距离传输地钥匙
+    ５７０－－蜂房圣地钥匙
+    ５７１－－仓库钥匙
+    ５７２－－房间钥匙
+    ５７３－－圣水庙钥匙
+    ５７４－－火焰之门钥匙
+    ５７５－－后门钥匙
+    ５７６－－圣箱钥匙
+    ５７７－－维兰木箱钥匙
+    ５７８－－下水道钥匙
+    ５７９－－火焰护身符
+    ５８０－－黑暗之神
+    2.在游戏中按Ｊ键，然后按数字键输入：
+    （１）地下城堡（１－－２５）
+    １－－阿拉莫斯城堡
+    ２－－黑摩尔城堡
+    ３－－克里格斯城堡
+    ４－－大耳怪前哨
+    ５－－废庙
+    ６－－阴隐教隐蔽所
+    ７－－烈火爵士的大厅
+    ８－－斯纳格的岩洞
+    ９－－龙骑兵岩洞
+    １０－－银舵前哨
+    １１－－阴隐教
+    １２－－斯纳格的铁矿
+    １３－－龙骑兵城堡
+    １４－－考勒根的豪宅
+    １５－－银舵堡垒
+    １６－－独立碑
+    １７－－疯子埃斯里克的坟墓
+    １８－－冰风堡垒
+    １９－－军阀堡垒
+    ２０－－狼穴
+    ２１－－加里克的炼铁厂
+    ２２－－阿加的实验室
+    ２３－－训龙者的洞穴
+    ２４－－蜂房
+    ２５－－恩洛斯神使
+    （２）十五个地区（２６－－４０）
+    ２６－－甜水镇
+    ２７－－天堂谷
+    ２８－－隐士岛
+    ２９－－克里格斯城堡
+    ３０－－布莱克郡
+    ３１－－飞龙沙漠
+    ３２－－冰冻高原
+    ３３－－自由天堂
+    ３４－－幽灵沼泽
+    ３５－－银湾镇
+    ３６－－布特雷格湾
+    ３７－－铁拳城堡
+    ３８－－魔鬼水域
+    ３９－－浓雾岛
+    ４０－－新索匹格镇
+    3.九大驿站（４８－－５６）
+    ４８－－新索匹格镇驿站
+    ４９－－御道驿站
+    ５０－－自由天堂东部之旅驿站
+    ５１－－自由天堂东部之旅驿站
+    ５２－－黑摩尔之旅驿站
+    ５３－－阿仆杜的廉价之旅驿站
+    ５４－－白帽运输站驿站
+    ５５－－王者快道驿站
+    ５６－－布莱克郡的马车驿站
+    4.无限经验值
+    在布特雷格湾东方的烈火公爵处，完成烈火公爵所交给的任务，再回去找他要报酬，接下来你只要一直按空格键，就可以得到源源不断的经验值，但是此方法在退出该画面之后就无法再次使用。
+    5.无限金钱
+    首先必须找到恩洛斯王国大陆上的十五个方尖塔，这十五个方尖塔分布在大陆上的十五张地图上，每张地图各有一个。当找到所有的方尖塔并解读上面的文字后， 你就可以去寻找位于飞龙沙漠的终极宝藏，在地图西北方有一圈奇怪的石头阵，中间那一块石头就是宝藏所在，打开它可以找到25000金币以及一些高级魔法物品，而宝箱也可以重复拿取。
+    6.高级训练
+    无论你有再高的等级，只要你还能升级，铁拳城堡的训练所都可以为你服务。
+    7.什么都能学
+    在游戏中，因为职业的关系，所以每个角色都有些技能无法学到，像牧师便无法学到剑、斧头的技能。但是好心的工会服务人员向来是睁一只眼闭一只眼的，在工会中时，若他说没有任何可以学的技能时，你只要在原本会列出技能的那个区域内按一按，若听到花钱的声音时，那表示你就学到那位角色不能使用的技能了，而工会人员只会装作什么都没看见。
+#1    二十六、《天旋地转》（Descent：FreeSpace）
+    在游戏中先输入字符串“WWW.VOLITION-INC.COM”，然后按住“~”键并输入以下字符：
+    C：向敌人传送信息。
+    “Shift”键+C：获得对抗所有船只的有效手段。
+    K：杀死目标。
+    “Shift”键+K：破坏目标的次要系统。
+    “Alt”键+K：给己方加10%的破坏力。
+    I：刀枪不入。
+    “Shift”键+I：使攻击目标无敌。
+    O：切换降落方式。
+    W：使己方船只得到无限武器。
+    “Shift”键+W：所有船只得到无限武器，包括己方。
+    G：完成所有的主要任务。
+    “Shift”键+G：完成所有的次要任务。
+    “Alt”键+G：完成所有的奖金任务。
+    9：向前穿过所有的中等攻击武器。
+    “Shift”键+9：向后穿过所有的中等攻击武器。
+    0：向前穿过所有的主要攻击武器。
+    “Shift”键+0：向后穿过所有的主要攻击武器。
+    R：为选中的目标重组装置。
+    注意：如果你使用了密技，那么将不能在任务中得到高的评价。
+#1    二十七、极品飞车Ⅲ 之热力追击（Need for Speed 3：Hot pursue）
+    在游戏中的任何菜单画面输入下列英文，可获得不同的秘技功能如下：
+    madland：未知。
+    rushhour：赛道上将增加很多电脑控制的流动车辆。
+    empire：打开隐藏赛道。
+    elninor：获得性能最好的EL赛车。
+    merc：另一种性能怪异的赛车。
+    gofast：玩家的任意车辆将获得超级引擎。
+    allcars：获得游戏里所有的隐藏赛车。
+    另外，在选择赛车时输入下列字符串，可获得相应非赛车车辆。
+    go01：Miata（非赛车车英文名，下同）。
+    go02：Toyota Landcruiser。
+    go03：Cargo Truck。
+    go04：BMW 5 Series。
+    go05：71 Plymouth Cuda。
+    go06：Ford Pickup with Camper Shell。
+    go07：Jeep Cherokee。
+    go08：Ford Fullsize Van。
+    go09：64/65 Mustang。
+    go10：66 Chevy Pickup。
+    go11：Range Rover。
+    go12：School bus。
+    go13：Taxi - Caprice Classic。
+    go14：Chevy Cargo Van。
+    go15：Volvo Station Wagon。
+    go16：Sedan。
+    go17：Crown Victoria Cop Car。
+    go18：Mitsubishi Eclipse Cop Car。
+    go19：Grand Am Cop Car。
+    go20：Range Rover Cop Car/Ranger Vehicle。
+    go21：Cargo Truck （same as 03）。
+#1    二十八、《人肉盛宴》（Flesh Feast）
+    跳关大法：在游戏中按住键盘左侧的“Shift”、“Ctrl”、“Alt”键和“Home”键，关卡任务便会完成。
+#1    二十九、《魔术师的愤怒》（Rage of Mages）
+    输入以下字符串“#Chicken”激活密技模式，成功后输入以下字符串获得相应密技功能：
+    #modify self +god（或者是 #modify army +god ）：上帝模式。
+    #create gold：给你金子。
+    #killall：杀死所有敌方单位。
+    #pickup all：得到所有的魔法麻袋（但不包括单位之麻袋）。
+    #show map：显示整个地图。
+    #hide map：隐藏地图。
+    #event x：显示现在关卡中单位的对话，X为任何数字。
+#1    三十、《Take No Prisoners》
+    先按下“Shift”键后然后输入以下字符串获得相应密技功能：
+    juggernaut：上帝模式。
+    goldblum：飞行模式。
+    wraith：连续模式。
+    positions：显示你的位置（以X、Y、Z表示）。
+    a_moveme x，y，z：移至相应位置。
+    dir maps：列出所有可用的地图。
+    map x：跳到地图X（X=关卡名字）。
+    spawn x：创造一个物品或怪物。
+    ode to jack：杀死现在关卡中的所有怪物。
+    impulse 911：无限弹药和物品。
+    输入以下字符可得到相应（英文名所表示）物品：
+    w_saber、w_assault_rifle、w_crossbow、w_laser_rifle、w_gauss_gun、w_grenade_launcher、w_rocket_launcher、w_flame_thrower、w_chain_gun、w_plasma_generator、w_ptp_cannon、i_medical_kit、i_flak_jacket、i_body_armor、i_reflectarmor、i_heatshield、i_energyarmor、i_energyshield、i_molotov、i_gas_gren、i_claymore、i_float_disk、i_rocket_net、i_gas_mask、i_laser_sight、i_disk、i_enhancers、i_shuriken、i_implosion、i_fragger、i_radshield、i_ir_goggles、i_stealth、i_grav_belt、i_force_barrier、i_override、i_flare、i_demopack、i_energyshield、i_dome_device、i_dome_crystal。
+#1    三十一、《风之城堡》Castle of the Winds 
+    首先使用魔法箭符咒（magic arrow spell），哪怕魔法值用尽也一直用下去，直到你的最大攻击力点数值上升才停止使用魔法。
+#1    三十二、《战争游戏》（War Games）
+    在游戏的单人游戏模式中按一下“t”键或按下“F1”到“F4”中的任何一键激活密技模式，然后输入以下字符串获得相应密技功能：
+    eyeofgod：允许在低级机器上进行额外的缩放功能。
+    saladtossed：选关。
+    twobyfour：建造单位（例如：twobyfour dragoon）。
+    hermes：加快单位和建筑的建造速度。
+    donkeys：使任何原本发射导弹的单位不再发射导弹，而是吉普车。
+    morningafter：驱散战争中的大雾。
+    gimmiegimmie：即使你没有指挥中心，也可以建造任意一样建筑。
+    unclejohn：上帝模式。
+    chaching：每次输入这条密技便可以多加10000现金。
+    mrmuscle：升级玩家的装甲。
+    bigsofty：降低玩家的装甲。
+    coffee：升级玩家的速度。
+    beer：降低玩家的速度。
+    shaft：升级玩家的火力。
+    shank：降低敌方的火力。
+#1    三十三、《死亡之屋》（HOUSE OF THE DEAD）
+    在主选单， 按住 ctrl键输入以下字符串获得相应密技功能：
+    SKIDMARX：启动密技及修改人物属性选单。
+    CREATURE：启动测试怪物功能。
+#1    三十四、《黑暗裂缝》（Dark Rift）
+    在游戏中输入字符串“kronos”的得到一名隐藏人物Sonork。
+#1    三十五、《风云》
+    赚钱秘方：在凤西村左上角有个卖东西的小贩，他肯出600两银子买你的人参（人参200两一支）。你便可到村子下方向一个外族商人买下许多人参，再去卖掉，每支可以赚400两！
+#1    三十六、《古文明霸王传》
+    1.密技激活方法
+    （1）在战场上主视窗按下 ESC 键。
+    （2）同时按下 ALT+CTRL+F5 三键，进入密码输入画面。
+    （3）键入：98U&JOCIV（大写）或JACK98进入密技模式，成功的话会有音效。
+    2.密技功能
+    F10：第八项功能可以储存宝物位置与物品编号、名称。
+    ALT+F9：第三项功能每压一次可以得到一份所有的物品。
+    ALT+V+滑鼠在人物身上：可以修改该人物属性。
+    ALT+R：人可再次活动。
+    ALT+N：任务马上结束。
+    DEL：可以杀死目标人物。
+    INSTER：可以唤出敌人、我方或是中立人物。
+    3.复制大法
+    复制一个武器，前提是玩家必须已拥有这样武器。到武器店把其他武器卖光，留下该武器，然后把该武器也卖了，这样屏幕上物品栏什么也没有，不管他，继续按“ENTER键卖物品，会发现仍然可以卖武器，数量为-1，多卖几次后，武器数量会变成二百多个。出店，再入店，就可以看见该武器。同样其他的物品只要能卖，就可以依法复制。（防具到防具店卖……）
+#1    三十七、《战国美少女：斩断云空》
+    加乃快速升级：在游戏第二章中，潜入彩云邸中，天心如来到采云家中遇到加乃后，加乃便会加入己方，在此之前如在城外多消灭敌人升高等级则加乃加入后等级相应提高，如在遇到加乃前天心是不是10级，加乃加入后也是10级。
+#1    三十八、《三国志VI》
+    1.鼠标右键
+    在地图中以下地方点鼠标右键二下会有以下功能：
+    台湾岛：可将城中的所有部队全数变成平民。
+    海南岛：增加使用群雄， 可更改操纵的君主。
+    主营：可更改国号 。
+    2.造就单挑大王
+    做一个新武将，能力值那里，先从第一个∶万能型开始，不要调能力，直接跳出来，再进入，选第二个：将军型，也不要调能力，也是直接跳出来……当豪杰型、军师型、文官型、任侠型都这样用过之后，开始新游戏，让登陆武将也出场，会发现他的单挑能力除了暗器不会以外，其他都会了。
+    3.新武将密技
+    在登陆新武将中做一百个新武将，当你做了99个后，第100个新武将的类型中多了一个国士无双型，不过只会有一个（但他的全部基本能力值都95以上）。
+#1    三十九、《刘备传》
+    在战斗画面中，以智力低的武将单挑智力高的武将。以武力低武将的单挑武力高的武将。尽管很难赢，但这样只要是单挑成功的话，那么以后的每场战斗包赢不输。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

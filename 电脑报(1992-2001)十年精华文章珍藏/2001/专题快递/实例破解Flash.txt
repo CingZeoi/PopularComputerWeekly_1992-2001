@@ -1,0 +1,90 @@
+实例破解Flash
+
+  
+2001年 35期
+
+好了，现在大家应该已经对Action Script Viewer的功能和操作有了一定的认识了，接着就让我们来实际操作一下吧。在以下的实例中我们将使用一个Flash4版本的swf文件为例进行破解，对Flash5版本的swf文件的破解方法和它相同。我们将只就Action script做相对简单的比较说明，需要详细了解的朋友可以参考《电脑报》2001年第11期D11版《悠游水泡》一文，源文件可以到http://www.Flashkit.com/movies/Animations/Bubble-hojo-817/index.shtml下载。
+　　先让我们看看bubble.swf，这是个小程序，只要用鼠标在该swf打开后的界面上一拖就会带起一串大小不一的水泡，水泡越往上浮越大，有些爆开了，有些就消失了，在下面的输入栏中可以调节水泡的数量和上浮速度。
+　　运行Action Script Viewer，打开bubble.swf。我们首先要做的既不是查看它的结构，也不是查看Action语句，而是先了解场景信息。选择utility下拉菜单下的movie information选项，会新弹出一个信息小窗口（^35060103a^），从它上面我们可以了解到该Flash的主场景的宽为320，高为240，播放速度为12帧/秒，主场景中共有两帧，背景色为白色。
+　　打开Flash，按我们所得到的信息新建一个场景。
+　　回到Action Scr-
+　　ipt Viewer，看一下swf窗口中的信息我们就会发现主场景下有两个关键帧，每帧都包含有Action（^35060103b^）。
+　　到Flash中建好的场景下建两个关键帧，接着要做的就是通过在Action Script Viewer中分别查看主场景下第1和第2关键帧中的Action语句，再把它们写到Flash中新建场景的相应的关键帧中去，我们可以发现两者的语法格式都是一样的（^35060103c^和^35060103d^）。如果是用Flash5的朋友可以通过force Flash5 mode将Action语句转为Flash5模式，再直接复制粘贴到Flash5中去，可以省不少力，但对于抱学习目的的朋友来说还是自己将Action语句输入一遍较好。
+　　第1帧：
+　　Start Drag（"dg"，L=0，T=0，R=320，B=240， lockcenter）
+　　Set Property（"gnist1"，Visibility）=0
+　　Set Variable:"gx"=GetProperty（"dg"，_x）
+　　Set Variable:"gy"=GetProperty（"dg"，_y）
+　　If（not（gx=gx1） or not（gy=gy1））
+　　Set Variable:"l"=m
+　　Loop While（not（l<0））
+　　Set Variable:"l"=l-1
+　　Set Variable:"Scale"=Random（25）+5
+　　Set Property（"/gnist1"， X Position）=（GetProperty（"dg"，_x）+Random（3））-Random（3）
+　　Set Property（"/gnist1"，Y Position）=（GetProperty（"dg"，_y）+Random（3））-Random（3）
+　　Set Property（"gnist1"，Visibility）=1
+　　Set Property（"/gnist1"，Rotation）=Random（20）+1
+　　Set Property（"/gnist1"，X Scale）=Scale
+　　Set Property:"/gnist1"，Y Scale）= Scale
+　　Set Variable:"n" = n + 1
+　　Set Variable:"bn"="gnist1"& n
+　　Duplicate Movie Clip（"gnist1"，bn，n）
+　　End Loop
+　　End If
+　　第2帧：
+　　Set Variable:"gx1"=GetProperty（"dg"，_x）
+　　Set Variable:"gy1"=GetProperty（"dg"，_y）
+　　（dg和gnist1是两个电影夹的instance name，稍后我们将破解重建它。）
+　　完成之后回到Action Script Viewer中去了解一下主场景中组件对象的信息以便在Flash中重建它们，此时请将预览窗口打开以给我们一个更直观的认识。一般来说我们应该从下到上来重建层，别管原来的Flash人家是怎么做的，我们在Flash中重建最好也按照Action Script Viewer一个组件一个层来进行。 如果我们还仔细观察一下第二帧中层旁边的图标，就会发现它们都是没有变化的层，所以我们只要做主场景第一帧的层就可以了。
+　　让我们看看最底层的信息（^35060103e^），可以得知该层含有一个变量框（editable......），变量名为g，坐标位置是x=41，y=225，从预览窗口中我们还可以看见它的初始数值是15。
+　　到Flash场景中新建一层并按照我们得到的信息来重建它（^35060103f^）。接着就用相同的办法将除了电影夹组件外整个主场景里的内容都构建出来，其实在这里我们大可不必“死做”，我们可以用先前介绍的Swifty Zeus将整个swf文件完全分层，然后再参照Action Script Viewer里的信息一个个导入到自己的swf场景里再作修改。
+　　完成后的Flash主场景看起来就比较清晰了（^35060103g^）。
+　　让我们再回到Action Script Viewer中来分析一下关键的电影夹组件，先看 movie clip，双击它将它在新的swf窗口中打开，我们就会发现这个电影夹组件是空的（^35060103h^），可能是用来判断鼠标的坐标。这就好办了，回到Flash中在主场景下新建一个空的电影夹组件就可以了，但是别忘了，它的instance name还是要和Action Script Viewer里的信息一致，要叫做dg（^35060103i^）。
+　　接着我们就该到Action Script Viewer里去看看7 movie clip了，同样双击将它在新的swf窗口中打开（^35060103j^），用file菜单下的“save as”选项将它另存为一个swf文件备用。用我们前面学到的知识去分析一下就可以知道该电影夹中有7帧，其中5个是关键帧，其中包括了两个空白关键帧，每个关键帧都含有对应的Action Script。
+　　到Flash中去在主场景下新建一个电影夹组件，别忘了将instance name改为相对应的gnist1。
+　　进入这个新建的空电影夹组件，选择file下的import选项将先前另存出去的7 movie clip的swf导入进来（^35060103k^），我们发现该电影夹导入后全变成了关键帧，没关系，反正我们通过Action Script Viewer得到了足够的信息，将多出来的关键帧删除（用clear keyframe）就可以了，现在结构就完全一样了（^35060103l^），我们可以参照Action Script Viewer里显示的Action语句将5个关键帧相对应的Action语句分别写入。
+　　第1帧：
+　　Set Variable: "gg" = /g
+　　Set Property（"g"，X Position）=GetProperty（"g"，_x） 
+　　Set Property（"g"，Y Position）=GetProperty（"g"，_y）-gg
+　　Set Property（"g"， Alpha）=GetProperty（"g"，_alpha）-3
+　　Set Property（""，X Scale）=GetProperty（""，_xscale）+Random（3）
+　　Set Property（""，Y Scale）=GetProperty（""，_yscale）+ Random（3）
+　　Set Variable:"opx"=GetProperty（"g"，_x）
+　　Set Variable:"opy"=GetProperty（"g"，_y）
+　　Set Variable:"a"=GetProperty（"g"，_alpha）
+　　If（（（bo=Random（8））and（a<50））and（80<（opxs+opys）））
+　　Go to and Play （4）
+　　End If
+　　（g是个电影夹的instance name）
+　　第2帧：
+　　Set Variable: "bo" = 1
+　　Set Variable: "opxs" = GetProperty（""，_xscale） 
+　　Set Variable: "opys" = GetProperty（""，_yscale） 
+　　If （not （0 < a））
+　　Go to and Stop （3）
+　　Else
+　　Go to and Play （1）
+　　End If
+　　（请注意在这里我们没用到ElseIf子句，如果用到了的话，Action Script Viewer会自动将它们分写成else子句和if子句。）
+　　第3帧：Remove Movie Clip ""
+　　第4帧：
+　　Set Property （"w"， X Position）= opx
+　　Set Property （"w"， Y Position）= opy
+　　Set Property （"w"， X Scale）= opxs
+　　Set Property （"w"， Y Scale）= opys
+　　Set Property （"w"， Alpha）= a
+　　（w是个电影夹的instance name）
+　　第7帧：Remove Movie Clip（""）
+　　这样就完成了吗？当然没有，回到Action Script Viewer里查看一下就会发现在7 movie clip中还包含有两个电影夹组件，将它们分别在新的swf窗口中打开并用“save as”另存为两个新的swf文件。
+　　再看看我们自己的电影夹，导入的只有一个图像组件。没问题，参考Action Script Viewer中的信息，我们将自己的电影夹组件的第一和第二帧的图像组件都转为电影夹组件（insert→convert to symbol），instance name也要和2 movie clip相符，叫g。将第四帧的图像组件也转为电影夹组件，instance name和Action Script Viewer里的6 movie clip的一样，叫w，这时看上去没什么变化，其实已经是大不一样了。
+　　分别进入instance name为g和w的两个电影夹组件，将刚才新存出来的2 movie clip和6 movie clip的两个相应的swf文件导入并删除它们本来的内容，我们会发现instance name叫g的电影夹组件的内容没有变化，而叫w的那个电影夹组件则一下子就有了5个关键帧，还包括一个空白关键帧（^35060103m^）。
+　　回Action Script Viewer里查看一下，发现这和对应的6 movie clip的结构完全一致，只是6 movie clip的空白关键帧里还有Action语句（^35060103n^）。将对应的Action语句写到自己的电影夹里去吧！
+　　第5帧： Remove Movie Clip ""
+　　恭喜你，破解重建工作完成了。测试一下影片，是不是和原来的swf文件一模一样啊？还能自己随意修改啊！总结下来，用Action Script Viewer做破解重建最好要做到三个一致--帧一致、Action Script一致以及组件结构一致，这样才能尽可能地减少出错的可能。
+　　编后：好了，几个具有代表性的破解软件就介绍完了，但这里要提醒大家一句，破解工具毕竟只是工具，不能代替自己的努力，如果你过分依赖工具无疑会限制自己的创意。就像一个老外对SWF Browser的评价那样--“如果我不小心丢失了自己的fla文件的话，我会很高兴用SWF Browser来将它找回，如果我想研究别人的swf的话，我会破解照做一遍，但绝不会将它当作自己的作品。如果我是一个小人的话，那SWF Browser这款软件就太危险了。”
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

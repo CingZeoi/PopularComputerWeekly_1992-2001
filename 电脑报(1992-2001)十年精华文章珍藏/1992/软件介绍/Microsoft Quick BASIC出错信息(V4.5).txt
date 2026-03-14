@@ -1,0 +1,920 @@
+Microsoft Quick BASIC出错信息(V4.5) 
+
+
+1992-12-25
+
+        ●引导态错       ●连接态错
+        ●编译态错       ●运行态错
+        每一种类型的错误都与程序发展过程中的特殊步骤有关,当使用QB或BC 命令引导入QuickBASIC时可能发生引导错。编译过程中可能发生编译错(及警告)。当程序运行时可能发生运行态错。只有当使用链接命令来链接用BC或其他语言编译器产生的目标文件时才可能发生链接错。
+        1.2节按字母顺序列出了引导态,编译及运行态出错信息以及所有的规定的出错代码。表1.1按数字顺序列出了运行态出错报文及出错代码。1.3节列出Microsoft Overlay Linker出错信息, 而1.4节列出了Microsoft Library Manager出错信息。
+        1.1 出错信息显示
+        在环境中当运行态错误发生时(使用缺省屏幕显示),错误信息出现在会话框中,光标放置在错误发生的行中。
+        在独立的可执行的程序中( 即在系统提示符下通过输入可执行文件的基本名就能够执行的程序),运行态系统打印出带有地址的出错信息,除非在BC命令行中指定了/D,/E,或/W选项。在这些情况下,出错范围后面跟有错误发生的行号。这类出错信息的标准形式如下:
+        Error n in module module-name at address segment:offset或Error n in line linenumber of module module-name at address segment:offset某些错误已列入错误代码清单,如果错误发生当进入错误捕获子程序时ERR的返回值设立相应的代码(用ON ERROR语句可以进入错误捕获子程序)ERR值保持不变,直到RESU
+        ME语句返回到对主程序的控制。
+        			表1.1 运行态错误代码
+        Deseription                	 Code	 Deseription
+        2	 syntax error	                53	 File not found
+        3	 RETURN without GOSUB      	54	 Bad file mode
+        4	Out of DATA                    	55	 File already open
+        5	 Illegal function call         	56	 FIELD statement active
+        6	 Overflow                      	57	 Device I/O error
+        7	 Out of memory                 	58	 File already exists
+        9	 Subscript out of rang         	59	 Bad record length
+        10	 Duplicate definition          	61	 Disk full
+        11	 Division by zero           	 62	 Input past end of file
+        13	 Type mismatch                	 63	 Bad record number
+        14	 Out of string space          	 64	 Bad file name
+        16	 String formula too complex   	 67	 Too many files
+        19	 No RESUME                    	 68	 Device unavailable
+        20	 RESUME without error         	 69	Communication-buffer overflow
+        24	 Device timeout               	 70	 Permission denied
+        25	 Device fault                 	 71	 Disk not ready
+        27	 Out of paper                 	 72	 Disk-media error
+        39	 CASE ELSE expected           	 73	 Advanced feature unavailable
+        40	 Variable requirted            	 74	 Rename across disks
+        50	 FIELD overflow               	 75	 Path/File access error
+        51	 Internal error                	 76	 Path not found
+        52	 Bad file name or number			
+        (表1.1列出了按数字顺序的错误代码,有关错误的解释请参阅按字母顺序的列表。)
+        1.2 调用、编译态、运行态出错信息
+        Argument-count mismatch
+        在QuickBASIC中使用了其他BASIC版本应用的某种功能,或者这种功能只能在DOS高版本下运行。(编译或运行态错)出错代码:73
+        Advanced feature unavailable
+        BASIC子程序或函数中使用的参数个数不正确。(编译态错)
+        Array already dimensioned
+        出错可能由下列原因引起:
+        ●使用多个DIM语句定义相同的静态数组。
+        ●数组初始代后使用DIM语句,动态数组使用DIM重新定义前,必须使用ERASE 语句重新分配内存单元;或用REDIM语句重新定义。
+        ●数组被定义后,出现OPTION BASE语句(编译态或运行态错)
+        Array not defined
+        使用一个未经定义的数组。(编译态错)
+        Array not dimensioned
+        使用一个未经定义的数组。如果使用BC编译,这个错误不“致命”,程序将被执行, 但结果可能不正确。(编译态错)
+        Array too big
+        没有足够的用户数据空间装入所定义的数组,请缩减数组大小或使用$DYNAMIC 元命令。假如数组空间超过64K,或数组不是动态的,并且/AH选择项没有被使用, 仍然会出现这个错误。请减小数组空间,或者使用/AH命令行选择项。使数组成为动态数组。(编译态错)
+        AS clause required
+        用AS语句定义的变量没有参数。如果变量的首次定义中具有AS子句, 与该变量有关的一系列语句如DIM,REDIM,SHARED,以及COMMON语句中必须具有AS子句。(编译态错)
+        AS clause required on first declaration
+        未曾使用AS子句定义的变量使用AS子句作为参量。(编译态错)
+        AS missing
+        编译程序需要关键字AS,如在OPEN“FILENAME”FOR INPUT AS#1语句中。(编译态错)
+        Asterisk missing
+        在用户类型的字符串定义中缺少星号(*)。(编译态错)
+        Bad file mode 
+        出错原因如下:
+        ●程序对顺序文件使用PUT或GET语句,或者对非I,O,或R 文件模式使用OPEN语句。
+        ●对不是以随机存取方式打开的文件使用FIELD语句。
+        ●对以输入形式打开的文件进行输出操作。
+        ●对以输出或拼接形式打开的文件进行输入操作。
+        ●QuickBASIC试图使用以压缩的格式存贮的包含文件,包含文件必须以文本格式存贮,重新装入包含文件,以文本格式存贮,然后再运行该程序。
+        ●试图装入一个错误的二进制程序。(运行态错)
+        出错代码:54
+        Bad file name
+        使用LOAD.SAVE.KILL或OPEN语句时,文件名非法(如:文件名字符太多)。(运行态错)
+        出错代码:64
+        Bad file name or number
+        语句或命令中使用的文件名或数字未经OPEN语句说明, 或者超出了程序中说明的文件数目。(运行态错)
+        出错代码:52
+        Bad record length
+        GET或PUT语句中所说明的记录变量的长度与相应的OPEN语句中所说明的记录长度不匹配。(运行态错)
+        出错代码:59
+        Bad record number
+        在PUT或GET语句中,记录的个数小于等于零。(运行态错)
+        出错代码:63
+        BASE missing
+        Quick BASIC版本需要在此处出现关键字BASE,例如在OPTION BASE中。(编译态错)
+        Binary source file
+        被编译的文件不是一个ASCII文件,所有以BASIC存贮的源文件必须用A选择项。在二进制源文件中,如果用户使用/Z1或/ZD CodeView选择项,QuickBASIC 也使用本出错信息提示。(编译态错)
+        Block IF without END IF
+        在IF结构块中,没有相应的ENDIF语句。(编译态错)
+        Buffer size expected after /C:
+        /C选择项后必须定义缓冲区大小。(BC引导错)
+        BYVAL allowed only with numeric arguments
+        BYVAL不接收字符串或记录参数。(编译态错)
+        /C:buffer size too large
+        通讯缓冲区的最大容量是32,767个字节。(BC引导错)
+        Cannot continue
+        调试过程中,用户的更改妨碍了连续执行。(运行态错)
+        Cannot find file (filename),Input path;
+        QuickBASIC找不到程序所需要的Quick library or utility (BC.EXE,LINK.EXE,L
+        IB.EXE,or QB.EXE)时,将出现此条出错报文,请输入正确的路径名,或按下CTRL+C键,返回DOS提示符。(QB引导错)
+        Cannot generate listing for BASIC binary source files
+        试图用BC命令与/A选择项编译一个二进制源文件,请去掉/A选择项,再重新编译。(BC引导错)
+        Cannot start with‘FN'
+        使用“FN”做为子程序或变量名的头两个字母,只有当调DEFFN函数时,“FN ”才能用作头两个字母。(编译态错)
+        CASE ELSE expected
+        在SELECT CASE语句中,没有匹配的情况。(运行态错)
+        出错代码:39
+        CASE without SELECT
+        SELECT CASE语句的前半部分丢失或拼写错误。(编译态错)
+        Colon expected after /C
+        在选择项与缓冲区大小的参数之间需要一个冒号“:”。(BC引导错)
+        Comma missing
+        需要逗号“,”。(编译态错)
+        COMMON and DECLARE must precede executable statements
+        COMMON语句或DECLARE语句位置出错。COMMON和DECLARE语句必须放在所有可执行语
+        句之前。除以下几个语句外,所有BASIC语句都是可执行的。
+        ▲COMMON
+        ▲DEFtype
+        ▲DIM(应用于静态变量)
+        ▲OPTION BASE
+        ▲REM
+        ▲TYPE
+        ▲所有元命令
+        (编译态错)
+        COMMON in Quick library too small
+        模块中的公共变量比当前装入Quick library中的公共变量多。(编译态错)
+        COMMON name illegal
+        在名字叫COMMON的块中,QuickBASIC遇到非法块名/blocknamel(例如块名是一个BASIC保留字),(编译态错)
+        Communication-buffer overflow
+        在远程通讯中,接收缓冲区溢出,在OPEN COM语句中/C选项或RB选项定义接收缓冲区的大小。应该经常查看该缓冲区空间或者经常给缓冲区置空(使用INPUT函数)(运行态错)
+        出错代码:69
+        CONST/DIM SHARED follows SUB/FUNCTION
+        CONST与DIM SHARED语句应该出现在所有子程序或FUNCTION过程定义之前。如果用BC类编译此程序,这个错误不是致命的,程序将会执行,但运行结果可能不正确。(编译态警告)
+        Controlstructure in IF...THEN...ELSE incomplete
+        在IF…THEN…ELSE单行语句中出现了不匹配的NEXT,WEND,ENDIF,END SELECT,或LOOP语句。(编译态错)
+        Data-memory overflow
+        内存中的程序数据太多,这个错误是由常量或静态数组数据太多造成的。如果用BC编译,或生成EXE文件或生成Librory命令,应关闭所有的调试选项. 如果内存仍然不够,请将用户程序分成几个部分,并使用CHAIN语句或使用DYNAMIC元命令.(C编译态错)
+        DECLARE required
+        在隐含调用SUB或FUNCTION过程之前,没有定义该过程.在隐含调用之前,所有过程都必须定义或说明.(编译态错)
+        DEF FN not allowed in control statements
+        在控制结构内部如IF...THEN...ELSE与 SELECT CASE中不允许定义DEF FN函数.(编译态错)
+        
+        DEF without END DEF 
+        在多行函数的定义中没有相应的END DEF语句.(编译态错)
+        DEF type character specification illegal
+        DEF type语句输入错,DEF后面只能跟LNG,DBL,INT,SNG,STR或者空格(对于用户定义
+        函数).(编译态错)
+        Device fault
+        驱动器返回硬件出错.如果数据传送给通讯文件时出现此报文,说明用OPEN COM语句测试的信号在这段时间内未被发现.(运行态错)
+        出错代码:25
+        Device I/O error
+        在驱动器进行I/O操作时出现I/O错误操作系统不能从错误状态恢复.(运行态错)
+        出错代码:57
+        Device timeout
+        在预定的时间内,程序没有从驱动器接到信息.(运行错)
+        出错代码:24
+        Device unavailable
+        需要进入的设备没有联机或者不存在.(运行态错)
+        出错代码:68
+        Disk full
+        没有足够的磁盘空间来完成PRINT,WRITE或CLOSE操作时,Quick BASIC向外设写目标文件或可执行文件时,如果磁盘空间不够也产生这个出错报文.(运行态错)
+        出错代码:61
+        Disk-media error
+        磁盘驱动器硬件在磁盘上查出了物理损伤(运行态错)
+        出错代码:72
+        Disk not ready
+        驱动器的门未关闭,或驱动器上无磁盘,(运行态错)
+        出错代码:71
+        Division by zero
+        表达式中除数为零,或指数运算结果为零的负数次幂.
+        DO without LOOP
+        DO...LOOP语句中丢失LOOP终止子句.(编译态错)
+        Document too large
+        文卷超出Quick BASIC的内部限制.应将此文卷划分成几个文件.
+        Duplicate definition
+        对已被定义过的项使用定义语句,例如,在LONST 语句和变量定义语句中使用相同的名字,或者过程与变量同名.
+        试图重复定义数组时,也会出现此错,重新定义动态数组时,必须使用DIM或REDIM(编译态错,或运行态错)
+        出错代码:10
+        Duplicate label
+        程序中的两行共用一个数字或标记,在一个模块中,所有行号或标记都必须是唯一的.
+        (编译态错)
+        Dynamic array element illegal 
+        在VARPTR中不允许使用动态数组元素.(编译态错)
+        Element not defined
+        没有定义用户定义类型的元素,例如,用户定义类型MYTYPE包含元素A、B和C,而在使用时出现变量D做为MY TYPE中的一个元素,就会导致此种错误.(编译态错)
+        ELSE without IF
+        使用ELSE子句但没有相应的IF语句,有时此种错误是由不正确的IF语句嵌套造成的.
+        (编译态错)
+        ELSEIF without IF
+        使用ELSE IF语句但没有与之相应的IF语名.(编译态错)
+        END DEF without DEF
+        使用ELSE DEF语句,但没有相应的DEF语句.(编译态错)
+        END IF without block IF
+        IF程序块的开始部分丢失.(编译态错)
+        END SELECT without SELECT
+        只有SELECT CASE结束语句,没有SELECT CASE开始句.SELECT CASE开始句可能丢掉(编译态错)
+        END SUB or END FUNCTION must be last line in window
+        在一个过程之后加一个代码,此处必须返回主模块或打开另一个模块.(编译态错)
+        END SUB/FUNCTION withcut SUB/FUNCTION
+        用户删除了SUB或FUCTION语句.(编译态错)
+        END TYPE without TYPE
+        END TYPE语句,丢失TYPE.(编译态错)
+        Equal sign missing
+        Quick BASIC需要一个等号.(编译态错)
+        Error during Quick BASIC initialization
+        产生这个错误有许多原因,最常见的原因是没有足够的内存空间装入Quick BASIC.如果装入Quick库,应该减少此库占的空间.
+        在不支持Quick BASIC的硬件上使用它,也会出现此错误.(QB引导错)
+        Error in loading file (filename)-Cannot find file
+        从一个文件改向输入到Quick BASIC时,会产生此种错误.该输入文件不在命令行指定的位置。(QB引导错)
+        Error in loading file (filename)-Disk I/O error这个错误由磁盘存取时发生的物理问题引起,例如驱动器的门未关闭.(QB引导错)
+        Error in loading file (filename)-DOS memory-aera error
+        将汇编语言的程序或POKE语句写入了DOS使用的内存区。(QB引导错)
+        Error in loading file(filename)-Invalid format
+        以非法格式装入Quick BASIC库,当使用不同版本Quick BASIC建立的库时,或者使用未经Quick BASIC的建库命令或LINK处理的/QU选项时,或者用Quick BASIC装入独立的库时,将会产生此种错误.(QB引导错)
+        Error in loading file(filename)-Out of memory
+        所需的内存空间大于可使用的空间.例如:无足够大的空间分配文件缓冲区.试将DOS缓冲区减小,释放已终止并滞留在内存的程序,或者清除某些设备驱动器. 如果数组很大,请在程序的开始使用元命令$DYNAMIC.如果已装入文卷, 则清除这些文卷可以释放一些内存.(运行态错)
+        EXIT DO not within DO...LOOP
+        在DO...LOOP语句之外使用了EXIT DO语句.(编译态错)
+        EXIT not within FOR...NEXT
+        在FOR...NEXT语句之外使用EXIT FOR语句.(编译态错)
+        Expected:item
+        这是一个句法错.光标出现在不该出现的项上.
+        Expression too complex
+        超越了一定的内部限制时,将产生这个错误,例如,在表达式evaluation期间,把与变量无关的字符串暂时赋给变量.大量的这种串的出现会产生此种错误.请简化表达式. 重新指定存放表达式的变量.(编译态错)
+        Extra file name ignored
+        命令行中说明的文件太多;该行最后的文件将丢失.(BC引导错)
+        Far heap corrupt
+        far-heap存贮在如下情况出错:
+        ●QB编译程序不支持DOS中已终止并遗留在内存的程序.
+        ●POKE语句修改了Quick BASIC使用的内存区.( 这样可能修改对数字或定长字符串的动态数组的定义)
+        ●程序调用了其他语言的子程序,而这个子程序修改了Quick BASIC使用的存贮区.
+        (这可能修改对数字或定长字符串的动态数组的定义)
+        ●(编译态错)
+        FIELD overflow
+        FIELD语句分配的字节大于随机文件中所说明的记录长度.
+        (运行态错)
+        出错代码:50
+        FIELD statement active
+        文件GET或PUT语句中使用的记录变量的空间已被FIELD语句占用,带有记录变量参数的GET或PUT语句仅仅应用于没有FIELD语句的文件中.(运行态错)
+        出错代码:56
+        File already exists
+        NAME语句定义的文件名已经以文件名的形式在磁盘上使用.(运行态错)
+        出错代码:58
+        File already open
+        从顺序输出方式的OPEN语句要打开一个已经打开的文件,或者用UNK语句对已经打开的文件进行操作.
+        (运行态错)
+        出错代码:55
+        File not found
+        用FILES,KILL,NAME,OPEN或RUN语句对一个不存在的文件进行操作.
+        (运行态错)
+        出错代码:53
+        File not found in module module-name at address segment:offset
+        FILE,KILL,NAME,OPEN或RUN语句中的文件不存在,这个出错报文等价于File not found报文。但是,此错误是在执行编译程序时产生的。模块名是正在调用的模块的名字.地址是存取错误代码的地址.(运行态错)
+        出错代码:53
+        File previously loaded
+        试图装入一个内存中已存在的文件.(编译态错)
+        Fixed-length string illegal
+        试图用一个定长字符串作为标准参数.(编译态错)
+        FOR index variable already in use
+        在嵌套的FOR循环中多次使用下标变量将会产生此种错误.(编译态错)
+        FOR index variable illegal
+        在FOR循环下标中使用错误的变量类型,将会产生此种错误.FOR循款下标变量必须是
+        简单的数字变量.(编译态错)
+        FOR without NEXT
+        每一个FOR语句必须配有一个NEXT语句.(编译态错)
+        Formal parameter specification illegal
+        函数或子程序的参数表中有错.(编译态错)
+        Formal parameters not unique
+        函数或子程序所说明的参数重复出现,如:SUB Get Name(A,B,C,A) STATIC.( 编译态错)
+        Function already defined
+        重新定义已经定义过的函数.(编译态错)
+        Function name illegal
+        在用户定义的函数名字中,使用了BASIC的保留字.(编译态错)
+        Function not defined
+        使用函数之前,必须先说明或定义这个函数.(编译态错)
+        GOSUB missing
+        在ON event语句中丢失了GOSUB.(编译态错)
+        GOTO missing
+        在ON ERROR语句中丢失了GOTO.(编译态错)
+        GOTO or GOSUB expected
+        Quick BASIC需要GOTO或GOSUB语句.(编译态错)
+        Help not found
+        所请求的帮助未被发现,而且程序所包含的错误妨碍了Quick BASIC产生变量表, 请按F5返回到产生错误行.Identifier cannot end with %, &, !, # or $
+        上面的后缀不允许出现在类型定义,子程序名或COMMON语句内出现的名字中.( 编译态错)
+        Identifier cannot include period
+        用户定义类型和记录元素的名字不能含有句号.句号只能用作记录变量的分隔符.此外,如果句号前部分的名字在程序某个地方的AS usertype子句中已经使用, 则变量名不能含有句号.如果程序在变量名中使用句号,建议将其改成混合形式.例如,变量ALPHA,BETA可以更改成ALphaBeta.(编译态错)
+        Identifier expected
+        试图使用identifier需要的数字或BASIC保留字.
+        Identifier too long
+        长度不能大于40个字符.
+        Illegal function call
+        超界的参数传送给到数学或字符串函数中,下列原因也会产生函数调用错误:
+        ●使用负数或过大的下标.
+        ●对负数进行非整数指数运算.
+        ●使用GET或PUT文件时,记录数为负.
+        ●赋予函数错误的或超界参数.
+        ●对非磁盘驱动器进行BLOAD或BSAVE操作.
+        ●在不支持I/O函数或语句的驱动器上进行该操作.(如LOC或LOF).
+        ●合并字符串时产生了比32,767还要长的字符串.(运行态错)
+        出错代码:5
+        Illegal in direct mode
+        语句只有在程序中才有效.
+        而在当前窗中不能使用.(编译态错)
+        Illegal number
+        数据格式不正确。也许是书写错误。如数字2p3将会产生这个错误。(编译态错)
+        Illegal in procedure or DEF FN
+        Illegal outside of SUB, FUNCTION, or DEFFN
+        该语句不允许在模块级代码中使用.(编译态错)
+        Illegal outside of SUB FUNCTION
+        该语句不允许在模块级代码或DEF FN函数中使用(编译态错)
+        Illegal outside of TYPE block
+        模块级码或DEF FN函数中不允许出现该语句(编译态错)
+        element As type子句仅允许在TYPE…END TYPE中使用.(编译态错)
+        Illegal type character in numeric constant
+        数值类型的常数中含有不匹配的类型说明符.(编译态错)
+        $INCLUDE-file access error
+        在元命令中命令的包含文件不能装入.(编译态错)
+        Include file too large
+        包含文件超越了Quick BASIC的内部限制,需将文件分成若干部分.(编译态错)
+        Input file not found
+        命令行中出现的源文件不在指定位置.(BC引导错)
+        INPUT missing
+        编译程序缺少关键字INPUT.(编译态错)
+        Input past end of file
+        使用INPUT语句读一个空文件,或者文件数据已经读完.可利用EOF函数测试文件结束来避免出现此错误.(运行态错)
+        出错代码:62
+        Input runtime module path:
+        如果运行态模块BRVN45.EXE未被发现就会出现此错误.应当输入正确的路径名.这种错误很严重,并难以捕获.(运行态错)
+        Integer between 1 and 32767 required
+        此语句需要整型参数.(编译态错)
+        Internal error
+        Quick BASIC发生了内部故障,用带有你文卷的Product Assistance Request表,向Microsoft公司说明在什么条件下出现哪些报文.(运行态错)
+        出错代码:51
+        Internal error near xxxx
+        装入xxxx时发生了Quick BASIC的内部故障.用带有你文卷的Product Assistance R
+        equest表,说明在什么条件下出现哪些报文.(编译态错)
+        Invalid character
+        Quick BASIC发现了无效字符.如在源文件中出现控制字符.(编译态错)
+        Invalid constant
+        用非法表过式指定常数值,注意,定义成常数的表达式可以包括数值型常量, 符号常量和除了指数运算以外的所有算术运算符或逻辑运算符. 定义成常量的字符串表达式仅可以包含简单的文字字符串.(编译态错)
+        Invalid DECLARE for BASIC procedure
+        在BASIC过程中使用DECLARE语句的关键字ALLAS,CDECL,或者是BYVAL.ALLAS,CDECL 和BYVAL仅可以在非BASIC过程中使用.(编译态错)
+        Label not defined
+        引用的行标记(如在GO TO语句中)在程序中不存在.(编译态错)
+        Left parenthesis missing
+        Quick BASIC需要左括号,或者REDIM语句给下标变量重新定义空间.(编译态错)
+        Line invalid,Start again
+        路径字符“\”或者“:”后使用了无效的文件名.(BC引导错)
+        Line number or label missing
+        在需要行号或行标志的语句中,这些符号丢失,例如:GO TO 语句.(编译态错)
+        Line too long
+        一行内只允许有255个字符.(编译态错)
+        LOOP without DO
+        引导DO...LOOP语句的DO丢失或拼写错.(编译态错)
+        Lower bound exceeds upper bound
+        下界超出了DIM语句定义的上界.(编译态错)
+        Math overflow
+        计算出的结果太大,不能在BASIC数据格式中表示出来.(编译态错)
+        $Metacommand error
+        元命令不正确,如果用BC编译时,此错误不是致命的,程序将运行,但结果可能不正确.
+        (编译态警告)
+        Minus sign missing
+        Quick BASIC需要一个减号.(编译态错)
+        Missing Event Trapping(/W)or Checking Between Statements(/V)option
+        程序包含需要这些选择之一的/N event语句.(编译态码)
+        Missing On Error(/E)option
+        使用BC命令时,编译包含ON ERROR语句的程序必须使用ON ERROR(/E)选项。( 编译态错)
+        Missing Resume Next(/X) option 
+        使用BC命令时,编译包含RESVME,RESVME NEXT,和RESVME。语句的程序必须使用RESVME NEXT(/X)选项。(编译态错)
+        Module level code too large
+        模块级码超越了Quick BASIC的内部限制。可将一些代码移动到SUB或FUNCTION 过程中。(编译态错)
+        Module not found。Unload module from program?
+        装入程序时,Quick BASIC未发现含有指定模块的文件,Quick BASIC将会产生一个空模块取代之。运行程序前必须将空模块删除掉。
+        Must be first statement on the line
+        在IF...THEN...ELSE结构中,IF,ELSE,ELSE IF与END IF仅能用行号或行标志引导。(编译态错)
+        Name of subprogram illegal
+        出错原因是子程序名使用了Quick BASIC保留 字,或者两个子程序同名。(编译态错)
+        Nested function defintion
+        在FUNCTION定义中又出现了FUNCTION定义,或在IF...THEN...ELSE 子句中发生上述情况。(编译态错)
+        NEXT missing for variable
+        有FOR语句而没有相应的NEXT语句。该变量是FOR循环的下标变量。(编译态错)
+        NEXT without FOR 每一个NEXT语句都应该与一个FOR语句相对应。(编译态错)
+        No line number in module-name at adress segment:offset
+        出错处理时,在行号表中找不到出错地址就会产生此错误。如果行号不是0_65,527 范围内的整数,也会产生此种错误。如果用户覆盖了行号表也会产生此错误。 这个错误很严重,而且难以发现。(运行态错)
+        No main module,Choose Set Main Module from the Run menu to select one 
+        程序还未装入主模块就试图运行,所有程序都必须有一个主模块。(编译态错)
+        No RESUME
+        程序在处理错误的过程中碰到程序结束标态。需要使用RESQUME语句修正这种情况。(运行态错)
+        出错代码:19
+        Not watchable
+        在观察表达式中指定变量,就会出现此错误。需确认在当前激活的视窗中模块级过程访问了应该匹配的变量。例如,模块级代码不能访问SUB或FUNCTION中的变量(运行态错)
+        Numeric array illgeal
+        VARPTR$的参数不能是数值型数组,只能是简单变量和字符串数组元素。(编译态错)
+        Only simple variables allowed
+        在READ与INPUT语句中,不允许使用用户定义类型的数组, 即允许使用非用户定义类型的数组(编译态错)
+        Operation requires disk
+        试图对外磁盘驱动口,如打印机或键盘进行取出或存入操作。(编译态错)
+        Option unknown:option
+        给出的选择非法。(BC引导错)
+        Out of DATA
+        执行READ语句时,DATA语句的数据已读完。(运行态错)
+        出错代码:4
+        Out of data space
+        应该修改数据空间请求。如下所述:
+        ●在OPEN语句的LEN子句中减小文件缓冲区。
+        ●使用元命令产生动态数组,动态数组比静态数组的数据量大得多。
+        ●使用定长字符串数组而不是变长字符串数组。
+        ●使用能满足要求的最小数据类型。尽可能使用整型数据。
+        ●尽量少使用小过程。Quick BASIC必须对每一个过程产生若干控制信息字节。
+        ●需要用CLEAR语句来修改栈空间,使用将够用的栈空间来满足要求。
+        ●源程序每行不要多于255个字符,这样的大行需要附加文本缓冲区空间。(编译态或运行态错)
+        Out of memory
+        所需的内存大于能够提供的内存量。例如,分配文件缓冲区时空间不够。可以减少DOS缓冲区,或者清除一些终止并滞留在内存的程序或去掉一些设备驱动器。如果数组很大,需要在程序开始加入一条元命令。如果内存中装有一些文卷, 清除文卷可以释放些内存空间。(BC引导错,编译态或运行态错)
+        出错代码:7
+        Out of paper
+        打印机无纸或未开电源。(运行态错)出错代码:27
+        Out of stack space
+        递归函数过程嵌套太深,激活子程序过多,FUNCTION与SUB调用太多时,将发生这种错误,应该使用CLEAR语句来增加程序分配的栈空间,这个错误不能被捕获。(运行态错)
+        Out of string space
+        字符串变量超越了分配给字符串的空间。(运行态错)
+        出错代码:14
+        Overflow
+        运算结果超界。其值超出了整型数范围及浮点数范围。(运行态错)
+        出错代码:6
+        Overflow in numeric constant
+        常数值太大。(编译态错)
+        Parameter type mismatch
+        子程序或FUNCTION参数的类型与DECLARE语句参数的类型或调用参数的类型不匹配。
+        (编译态错)
+        Path not found
+        在OPEN,MKDIR,CHDIR或RMDIR操作时,DOS无法找到指定路径。操作不能完成。(运行态错)
+        出错代码:16
+        Path/File access error
+        在OPEN,MKDIR,CHDIR或RMDIR操作时,DOS 无法使路径名与
+        文件名正确地联系起来。此操作不能完成。(编译态错或运行态错)
+        出错代码:75
+        Permisson denied
+        对写保护的磁盘进行写入操作或读写加锁文件。(运行态错)
+        出错代码:70
+        Procedure already defined in Quicklibrary
+        QuickBASIC过程与用户程序中的过程同名。(编译态错)
+        Procedure too large
+        过程超越了QuickBASIC的内部限制。 需要将此过程划分成几个过程使之缩小。(编译态错)
+        Program-memory overflow
+        编译一个代码段超过64K的程序。应该将此程序分成若干个模块,或使用CHAIN语句。( 编译态错)
+        Read error on standard input 
+        从键盘或改向输入的文件放读操作时会出现这个系统错误。
+        Record/string assignment required
+        LSET语句中丢失了字符串或丢失了记录变量参数。(编译态错)
+        Redo from start
+        在INPUT提示符下输入错误的数据或项目类型。需要用正确的形式重新输入数据。(运行态错)
+        Rename acrossd disks
+        试图用新的驱动器名更改文件名,这是不允许的。(运行态提示)
+        出错代码:74
+        Requires DOS 2.10 or later
+        在不正确的DOS版本下使用QuickBASIC。(QB引导或运行态错)
+        RESUME without error
+        在进入出错捕获子程序之前就遇到了RESUM语句。(运行态错)
+        出错代码:20
+        RETURN without GOSUB
+        RETURN 语句之前找不到与之匹配的GOSUB语句。(运行态错)
+        出错代码:3
+        Right parenthesis missing
+        QuickBASIC需要左(结束)括号。(编译态错)
+        SEG or BYVAL not allowed in CALLS
+        BYVAL与SEG只允许在CALL语句中应用。(编译态错)
+        SELECT without END SELECT
+        SELECT CASE语句中缺少了结束语句或拼写错误。(编译态错)
+        Semicolon missing
+        QuickBASIC需要一个分号“;”。(编译态错)
+        Separator illegal
+        在PRINT USING或WRITF语句中出现了非法的分界符。应使用分号或逗号做为分界符。
+        (编译态错)
+        Simple or array variable expected
+        编译程序需要变量参数。(编译态错)
+        Skipping forward to END TYPE statement
+        TYPE语句中的一个错误Quick BASIC忽略了TYPE与END TYPE之间的一切。(编译态错)
+        Statement cannot occur within $INCLUDE file
+        在包含文件中不允许出现SUB。..ENDSUB和FUNCTION...END FUNCTION语句块。使用文件菜单中的Merge命令将包含文件插入到当前模块中,或将包含文件作为独立的模块装入内存,如果把包含文件作为独立的模块装入,需要重新构造, 因为共享变量仅在模块范围内共享。(编译态错)
+        Statement cannot precede SUB/FUNCTION definition
+        过程定义前使用的语句只能是REM和DEF type语句。(编译态错)
+        Statement ignored
+        在使用BC命令编译含有TRON和TROFF语句的程序时没有用/D选项。这个错误不是致命
+        的。此程序将会执行,但是结果可能出错。(编译出错)
+        Statement illegal in TYPE block 
+        在TYPE与END TYPE之间只允许REM和element AS typename出现。(编译态错)
+        Statement unrecognizable
+        可能把一个BASIC的语句输入错了(编译态错)
+        Statements/labels illegal between SELECT CASE and CASE
+        在SELECT CASE与第一个CASE语句之前不能出现其他语句和行标志。 但是可以出现注释语句和语句分隔符。(编译态错)
+        STOP in module name at address segment:offset
+        程序中遇到STOP语句。(运行态错)
+        String assignment required 
+        REST语句缺少字符串设定。(编译态错)
+        String constant required for ALIAS
+        DECLARE语句中的关键字ALIAS应该是字符串常量参数。(编译态错)
+        String expression required
+        语句需要字符串表达式做参数。(编译态错)
+        String formula too complex
+        字符串太长或者INPUT语句中申请了15个以上字符串变量,应该将字符串公式拆开或将IMPUT语句分成几部分使之正确执行。(运行态错)
+        出错代码:16
+        String space corrupt
+        压缩堆栈时删除字符串空间的无效字符时,会产生此种错误。产生错误的原因如下:不恰当地修改字符串指针或字符串返回指针, 使用汇编语言子程序修改字符串时就会发生此错误。
+        使用的数组下标超界及字符串空间修改不充分, 过程调试码选项可用来在编译时超界的数组下标。
+        错误地使用POKE与/或DEF SEG语句可能会不适当地修改字符串空间。
+        两个相链接的程序间可能出现不匹配的COMMON语句。(运行态错)
+        String variable required
+        语句需要串变量参数。(编译态错)
+        SUB or FUNCTION missing
+        在DECLARE语句中没有相应的过程。(编译态错)         过程缺少一个结束语句。(编译态错)
+        Subprogram error
+        SUB或FUNCTION定义错,产生错误的原因如下:
+        该SUB或FUNCTION语句已经定义过
+        程序中包含错误的FUNCTION或SUB语句嵌套。
+        SUB或FUNCTION没有终止语句END SUB或END RUNCTION。(运行态错)
+        Subprogram not defined
+        调用未经定义的子程序。(编译态错)
+        Subprograms not allowed in control statements
+        子程序FUNCTION的定义不允许出现在如IF...THEN...ELSE与SELECT CASE 的控制结构中。(编译态错)
+        Subscript out of range
+        数组元素下标超出了该数组定义的界 限,或者存取一个没有维数的动态数组元素。 在编译时如果使用调试(/D)选项,就会产生此报文。如果数组空间超过64K,数组不是动态的,并且没有使用/AH选项,也会发生此错误,应该减少数组空间, 使数组变成动态或使用/AH命令行选项。(运行态错)
+        出错代码:9
+        Subscript syntax illegal
+        数组定义中有句法错。例如,数组定义既包含字符串数据类型又包含整型数据类型。(编译态错)
+        Syntax error
+        产生这个错误的原因很多,最常见的原因,编译时,是录入的BASIC关键字或参数出错。运行时,经常是DATA语句格式不正确。(编译态或运行态错)
+        出错代码:2
+        Syntax error in numeric constant
+        数字类型常量格式不正确。
+        (编译态错)
+        THEN missing
+        QuickBASIC缺少关键字THEN
+        (编译态错)
+        TO missing
+        QuickBASIC需要关键字TO。
+        (编译态错)
+        Too many arguments in function call
+        函数调用中的参数限制是60个。(编译态错)
+        Too many dimensions
+        数组维数不得超过60。(编译态错)
+        Too many files
+        编译时,包含 文件嵌 套层次大于5时,就会出现此种错误。运行时,试图用SAVE或OPEN语句建立新文件,使得文件目录数超过255个,也会发生此种错误。(运行态错或编译态错)
+        出错代码:67
+        Too many labels
+        ON...GOTO或ON...GOSUB语句行表中的行号数且超过了255(编译态错)或59( 编译应用的运行态错)Too many named COMMON bldoks
+        在名COMMON的块中允许的最大数是126。(编译态错)
+        Too many TYPE definitions
+        用户定义类型的最大数是240。
+        (编译态错)
+        Too many variables for INPUT
+        INPUT语句中变量的最大值是60。(编译态错)
+        Too many variables for LINE INPUT
+        LINE INPUT语句中只充许出现一个变量。(编译态错)
+        Type mismatch
+        变量的类型与要求不符合。例如,使用SWAP带有了字符串变量和数值型变量。( 编译态或运行态错)
+        出错代码:13
+        TYPE missing
+        END...TYPE语句中缺少关键字TYPE(编译态错)
+        Type more than 65535 bytes
+        用户定义类型不允许超过64K.(编译态错)
+        Type not defined
+        在TYPE语句中未定义用户类型参数。(编译态错)
+        TYPE statement improperly nested
+        过程中不允许定义用户定义类型。(编译态错)
+        TYPE without END TYPE
+        缺少与TYPE语句有关联的END TYPE语句。(编译态错)
+        Typed variable not allowed in expression
+        表达式不允许出现用户定义类型变量。如CALL ALPHA(x)中,x是用户定义类型。(编译态错)
+        Unexpected end of file in TYPE declaration
+        在TYPE...EDN TYPE块中出现了文件结束符
+        Unprintable error
+        出错报文不符合所存在的错误条件。这可能是由还未定义出错代码的ERROR  语句产生的(运行态错)
+        Unrecognized switch error:“QU”
+        使由不正确的Microsoft Overlay Lind r版本来建立。EXE文件或者Quick库。必须使用QuickBASIC分布盘中的连接程序来建立.EXE文件或Quick库。(编译态错)
+        Valid options:［/RUN］ file/AH/B/C:buf/G/NOHI/H/L［lib］/MBF/CMD string使用QuickBASIC的无效选项时,就会出现此种错误。(QB引导错)
+        Variable-length string required
+        FIELD语句中只允许变长字符串。(编译态错)
+        Variable name not unique
+        使用变量X,Y后,试图将X定义为用户定义类型。(编译态错)
+        Variable required
+        QuickBASIC遇到了没有变量参数的INPUT,LET,READ,或SHARED语句。(编译态错)
+        Variable required
+        在以BINARY方式打开的文件上进行操作时,GET或PUT语句不能定义变量。(运行态错)
+        WHILE without WEND
+        WHILE语句无相应的WEND语句时,将产生此错。(编译态错)
+        WEND without WHILE
+        WEND语句无相应的WHILE语句时将产生此错。(编译态错)
+        Wrong number of dimensions
+        数组维数出错。(编译态错)
+        1.3 链接中的出错信息
+        本节列出并叙述了Mierosoft Over lay Linker,LINK产生的出错信息。
+        致命的错误会导致链接程序停止运行。这些致命错误的信息形式如下:
+        location fatal error L1xxx:messagetext
+        非致命错误指可执行文件中的问题,LINK将产生可执行文件。非致命出错信息形式如下:
+        location:error L2xxx:messagetext
+        警告指的是可执行文件中的问题:LINK产生可执行文件,警告形式如下:
+        Location: warning L4xxx:messagetext在这些信息中, Location是指与错误有关连的输入文件,如果没有输入文件,则指的是LINK。
+        当用LINK连接目标文件时,会出现以下出错信息:
+        Number LINK Error Message
+        L1001 option:option name ambiguous
+        选项指示符后的选项名不唯一,例如:
+        LINK /N main;
+        产生这个错误的原因是LINK不能分辨以字母N开始的三个选项中哪个是需要的。
+        L1002 option:unrecognized option name
+        选项指示符(/)后面字符不确定。如:
+        LINK/ABCDEF main:
+        L1003 /QUICKLIB,/EXEPACK incompatible
+        定义两个不能同时使用的选项:
+        /QUICKLIB和/EXEPACK。
+        L1004 option:invalid numeric value
+        在LINK的一个选项中出现了无效值。例如,赋给字符串需要数值的选项。
+        L1006 option:stack size exceeds 65535 bytes
+        赋给/STACKSIZE选项的参数值超过了最大允许值:
+        L1007 option:interrupt number exceeds 255
+        赋给/OVERLAYINTERRUPT选项的参数值超过了255。
+        L1008 option:segment limit set too high
+        使用/SEGMENTS选项设立的段的数目限制超过了3072。
+        L1009 number:CPARMALLOC:illegal value
+        CPARMAXALLOC选项中说明的数值不在1_65,535之间。
+        L1020 no object modules specified
+        LINK没有找到目标文件名。
+        L1021 Cannot nest response files
+        响应文件中又产生了响应文件。
+        L1022 response line too long
+        响应文件中某行字符超过127个。
+        L1023 terminated by user
+        用户输入了CTRL+C或CRTL+BREAK。
+        L1024 nested right parentheses
+        命令行中重复段内容录入错。
+        L1025 nested left parentheses
+        命令行中重复段内容录入错。
+        L1026 unmatched right parenthesis
+        命令行中重复段内容说明的右括号丢失。
+        L1027 unmatched left parenthesis
+        命令行中,重复段内容说明的左括号丢失。
+        L1043 relocation table overflow
+        程序中出现了超过32,768的远距离调用,远距离转移或其他长指针。
+        如果可能,应用短指针代替长指针。然后重新产生目标模块。
+        L1045 too many TYPDEF records
+        目标模块包含的TYPDEF记录多于255个。这些记录定义了公共变量。这种错误仅仅在Microsoft FORTRAN编译程序或其他支持公共变量的编译程序所生成的程序中出现TYPDEF是DOS中的名词。在microsoft MS DOS Pprogrammer's Reference和其他DOS 参考中都有解释。
+        L1046 too many external symbols in one module ,
+        目标模块中说明了超过1023界限的外部符号。将此模块分成几个小模块。
+        L1047 too many group ,segment,and class names in one module
+        程序中包含的组名,段名和分类名太多,必须减少组名,段名和分类名的数目,并重新产生目标文件。
+        L1048 too many segments in one module
+        目标模块含有的段多于255个,应当分开模块或组合段。
+        L1049 too many segments
+        程序中包含的段数超过了最大值，使用具有缺省值128的/SEG MENTS选项指定合法的最大段数。在/SEGMENTS选择中的缺省值是128。它指定了合法的最大段数。
+        使用/SEGMENTS选项及适当的段数重新链接。
+        L1050 too many groups in one module
+        在一个模块内,LINK遇到了21组以上的定义((GRPDEF))。
+        减少定义组的数目或者分开模块(有关组的定义Microsoft MS-DOS
+        Programmer's Reference或其他DOS参考书。
+        L1041 too many groups
+        程序中定义的组数多于20个,却没有在DGROUP语句中计数。需要减少组的数目。
+        L1052 too many libraries
+        试图连接的库多于32个。
+        应当将加组合起来,或者使用需要较少库的模块。
+        L1053 out of memery for symbol table
+        对于符号表的大小没有固定的限制,但是它受可提供的内存空间的限制。
+        应当组合模块或段,然后重新生成目标文件,尽可能减 少公共符号。
+        L1054 requested segment too high
+        LINK没有足够的空间分配给要求的段号描述表。(缺省值是128或用/SEGMENTS选项指定其值)。
+        使用/SEGMENTS选项选择一个较小的段数重新连接(例如,如果已使用缺省值,其值为64),或消除内存中驻留的程序或外壳来释放一些内存空间。
+        L1056 too many overlays
+        程序中出现的复盖的定义多于63个。
+        L1057 data record too large
+        LEDATA记录(在目标模块中)包含的数据大于1024个字节。这是编译错。(LEDATA是DOS中的名词,在Microsoft MS-DOS Programmer's Reference和其他DOS 参考书中有解释。)
+        注意是哪种翻译器(编译还是汇编)产生的错误目标模块和环境。利用附上文卷的Product Assistance Request表将此错误情况报告给Microsoft公司.
+        L1063 out memory for Code View information
+        包含 调试信息的连接好的目标(.OBJ)文件太多。在生成EXE文件对话框中关闭Produce Debug Code选项。L1070 segment size exceeds 64K
+        一段内包含 的代码或数据的个数大于64K。应当用大模式进行编译和连接。
+        L1071 segment TEXT larger than 65520 bytes
+        这种错误通常只在较小模式的C程序中出现。但是如果具有段名_TEXT的程序使用/DOSSEG选项进行连接时,也会出现这种错误,小模式的C程序必须保留代码地址0与1;如果用于校准,这个范围可以增加到16。
+        L1072 common area longer than 65536 bytes 
+        程序出现的公共变量多于64K。只有在支持公共变量的编译程序所生成的程序中才会出现这种错误。
+        L1080 cannot open list file磁盘或根目录满。
+        删除或移出一些文件来释放空间。L1081 out of space for run file
+        可执行文件所在的磁盘已满。
+        释放更多的磁盘空间并重新启动LINK程序。
+        L1083 cannot open run file
+        磁盘或根目录满。
+        删除或移出一些文件来释放空间。
+        L1084 cannot open temporary file
+        磁盘或根目录满。
+        释放更多的目录空间并重新启动LINK程序。
+        L1085 cannot open temporary file 
+        磁盘或根目录满。
+        删除或移出一些文件来释放空间。
+        L1086 scratch file missing
+        发生了内部错误
+        注明问题的环境,并利用附上文卷的Product Assistance Reguest表与Microsoft公司联系。
+        L1087 unexected end -of-file on scratch file
+        存有LINK暂时输出文件的磁盘被消除了。
+        L1088 out space for file
+        磁盘中写列表文件的空间已满。
+        释放更多的磁盘空间并重新启动LINK程序。
+        L1076 filename:cannot open response file
+        LINK找不到指定的响应文件。
+        通常表示录入错。
+        L1090 cannot reopen list file
+        提示符下没有放入原始盘重新启动LINK程序
+        L1091 unexpected end-of-file on library
+        含有库的磁盘可能被清除了。
+        把包含 库的磁盘放回,并重新运行LINK程序。
+        L1093 object not found
+        在输入中指定来连接的目标文件未找到。
+        重新启动LINK程序并指定目标文件。
+        L1101 invalid object module
+        一个目标模块无效。
+        如果重新编译后仍出现该错误,请用附上文档的Product Assistance Request表与Microsoft公司联系。
+        L1102 unexpected end-of-file
+        对库进行错误的格式化。
+        L1103 attempt to access data outside segment bounds
+        目标模块中的数据记录所定义的数据超出了段尾。这是翻译错误。
+        注明生成错误目标模块的翻译程序(编译还是汇编)和环境。请利用附上文卷的Product Assistmce Request表把这个错误报告给Microsoft公司。
+        L1104 filename:not valid library
+        指定的文件不是合法的库文件。这个错误造成LINK程序运行中断。
+        L1113 unresolved COMDEF:internal error
+        注明出错的环境并利用附有文卷的Produet Assistance Request表与Microsoft 公司联系。
+        L1114 file not suitable for /EXEPACK;relink without 
+        对于连接完的程序,包装装入影象加上包装开销空间大于未包装装入影象。
+        不要使用/EXEPACK选项重新连接。
+        L1115 /QUICKLIB,overlays incomaatible
+        指定了复盖并且使用了/QUICKLIB选项。这两项不能同时使用。
+        L2001 fixup(s) without data
+        出现了一个前面缺少数据记录的FIXUPP记录。可能是编译错。(参阅中有关FIXUPP的详细资料)。
+        L2002 fixup overflow near number in frame segname target seg segname target offset number
+        产生这个错误的条如下:
+        ·一个组大于64K。
+        ·程序中包含段,短距离跳转或调用。
+        ·程序中的数据名与连接程序中库函数的名字冲突。
+        段内出现个汇编语言源文件中的EXTRN说明,例如:
+        code  SEGMEMT  public＇CODE
+        EXTRNmian:far
+        startPROCfar
+        callmain
+        ret
+        start ENDP
+        code ENDS
+        应该改成下面的结构:
+        EXTRN  main:far
+        codeSEGMENT public,CODE。
+        startPROC far
+        call main 
+        ret
+        start ENDP 
+        code  ENDS
+        修改源码文件并重新生成目标文件。(参考Microsoft MS-DOS Programmer's Reference中有关框架与目标段的资料。
+        03
+        试图用近距离调用或跳转指向远距离的段segname位移offet处的入口需要变成远距离调用或跳转,或者使入口变近。
+        04
+        LOBYTE fixup发生地址溢出。(Microsoft MS-DOS程序员参考手册中有详细资料。)
+        05
+        出现Microsoft链接程序不支持组装类型。这可能是一个编译错。注明出错环境并利用附上文卷的Product Assistance Request表与Microsoft 公司联系。
+        06
+        公共变量的NEAR和HUGE属性冲突, 只有支持公共变量的编译程序所生成的程序中才会出现这个错误。L2012 name:array-element size mismatch将远程公共数组定义成不同的数组元素空间。(例如,在一次定义数数组)。 这个错只有在支持远程公共数组的编译程序中才能产生。
+        L2013 LIDATA record too large
+        LIDATA记录包含的字节数大于512。这通常是由编译错误引起的。
+        L2024 name:symbol already defined
+        LINK程序发现公共符号重定义。请消除多余的定义。
+        L2025 name:symbol defined more than once
+        消除目标文件中多余的符号定义。
+        L2029 unresolved externals
+        在一个或多个模块中定义一个或多个外部符号, 但是在任何一个模块或库中都汉有将它们定义成公共符号。在出错信息后将会列出不可分辨的外部参数表。例如:
+        unresolved externals
+        EXIT in file(s):
+        MAIN.OBJ(main.for)
+        OPEN in file(s):
+        MAIN.OBJ(main.for)
+        在in file(s)之前的名字是不可分辨的外部符号。 下一行则是产生这些符号的目标模块表。如果图文件存在,这些信息及表也写进图文件中。
+        L2041 stack plus data exceed 64K
+        近程数据及堆栈空间的总和超过64K,减少堆栈空间来避免此错。
+        只有/DOSSEG选项成立LINK才能测试这个条件库的启动,自动选择这个选项。
+        L2043 Quick library support module missing
+        用户没有说明,或LINK找不到建立Quick库所需要的目标模块或库。
+        在QuickBASIC的环境下提供的库叫BQLB45.LIB。
+        L2044 name:symbol multiply defined,use/NOE
+        LINK发现一个可能的公共符号重定义。 这种错误通常是由重新定义一个正在库中定义过的符号而引起的。使用/NOEXTDICTIONARY选项重新连接。
+        这个合并中的错误与对同一符号的L2025错误说明确实是重定义错。
+        L4011 PACKCODE value exceeding 65500 unreliable
+        Intel 80286处理器中应用于长度超过65,500字节的包装代码的段空间可能靠不住。
+        L4012 load-high disables EXEPACK
+        不能同时使用/HIGH与/EXEPACK选项。
+        L4015 /CODEVIEW disablesl/DSALLOCATE
+        不能同时使用/CODEVIEW 
+        disables/DSALLOCATE选项
+        L4016/CODVIEW disables/EXEPACK
+        不能同时使用/CODEVIEW与/EXEPACK选项
+        L4020 name code-segment size exceeds 65500
+        在Intel 80286处理器中长度为65,501-65,536字节的代码段可能靠不住。
+        L4021 nostack segment
+        该程序不包含用STACK组合类型定义的堆栈段。使用Microsoft QuickBASIC 编译的模块时,此信息不会出现,但使用汇编语言模块时,此信息可能出现。
+        正常情况下,每一个程序都应定义成具有STACK组合类型的堆栈段。 当有特殊原因没有定义堆栈或没有STACK组合类型定义堆栈时,可以忽略这个出错信息。使用2.4之前的LINK版本链接,可能会产生这个错误,因为这些链接程序仅查寻一次库。
+        L4031 name:segment declared in more than one group一个段定义成两个不同组的成员。
+        需要修改源文件并重新生成目标文件。
+        L4034 more than 239 overlay segments:extra put in root程序中设有239个以上的段进行复盖。产生这个错误时,从234起的段被放置在根中, 即久驻留部分。
+        L4045 name of output file is name
+        由于未及时使用/QUICKLIB选项,对运行文件域的提示给出了不准确的缺省值。 在出错信息中将给出Quick库的名字。
+        L4050 too many public symbols for sorting
+        公共符号的个数过了/MAP选项要求的,可用于符号排序的空间。这些符号没有排序。
+        L4051 fiename:cannot find library
+        LINK找不到指定的文件。
+        需要输入新文件名,新路径名或路径加文件名。
+        L4053 VM.TMP:illegal file name:ignored
+        VN.TMP以目标文件名出现,需要更改文件名并重新链接。
+        L4045 fiename:cannot find file
+        LINK找不到指定的文件。需要输入新文件名,新路径名或路径加文件名。
+        1.4库出错信息
+        Microsoft库管理系统,即LIB产生的出错信息格式如下:
+        {filename |LIB}:fatal error U1xxx:messagetext
+        {filename |LIB}:error U2xxx:messagetxt
+        {filename |LIB}:warning U4xx:messagetext
+        如果输入文件名(filename存在,信息以该名开始,否则以应用系统的名字开始。如果可能,LIB显示一个警告并继续运行。出现致命错误时,LIB停止运行。
+        LIB可显示如下出错信息:
+        Number LIB Error Message
+        U1150 page size too small
+        输入库的页体积太小。这说明输入的库文件无效。
+        U1151 syntax error:illegal file specification
+        命令操作符如减号 (_)后没有模块名。
+        U1152 syntax error:option name missing
+        斜杠(/)后无选项。
+        U1153 syntax error:option value missing
+        选项/PAGESIZE后无值。
+        U1154 option unknown
+        选项不可识别。当前.LIB仅能识别/PAGESIZE选项。
+        U1155 syntax error:illegal input
+        命令不符合“DOS编译和链接”中说明的正确的库语法。
+        U1156 synuax error
+        命令不符合附录G“DOS编译和连接”中说明的正确的库语法。
+        U1157 comma or new line missing
+        命令行中缺少逗号或回车符。这意味着命令行中逗号的位置可能不对。
+        例如:
+        LIB math.lib,mod1+mod2;
+        正确格式如下:
+        LIB math.lib,mod1+mod2;
+        U1158 terminator missing
+        对“Output Library”提示符的响应或者启动库LIB 的响应文件的最后一行无回车结束标志。
+        U1161 cannot rename old library
+        LIB不能把旧的库名中的扩展名更改为.BAK。因为.BAK形式已经以写保护方式存在。需要改变旧的.BAK的保护方式
+        U1162 cannot reopen library
+        旧库改成具有.BAK扩展名后,就不能再打开。
+        U1163 error writing to cross-reference file
+        磁盘或根目录满。
+        删除或移出文件来释放空间。
+        U1170 too many symbols
+        库文件中符号的个数超过了4096。
+        U1171 insufficient memory
+        内存无足够的空间运行库。
+        删除一些外壳或驱留程序,或增加内存空间,然后重新运行。
+        U1172 no more virtual memory
+        注明出错的环境并用附上文卷的Produec Assistemce Request表通知Microsoft 公司。
+        U1173 internal failure
+        注明出错的环境并用附上文卷的Produce Assistance Request表通知Microsoft 公司。
+        U1174 mark:not allocated
+        注明出错的环境并用附上文卷的Produce Assistance Request表通知Mircosoft 公司。
+        U1175 free:not allocated
+        注明出错的环境并用附上文卷的produce Assistance Request表通知Mircosoft 公司。
+        U1180 write to extract file failed
+        磁盘或根目录满
+        删除或移出文件来释放空间。
+        U1181 Write to library file failed
+        删除或移出文件来释放空间。U1182 filename:cannot create extract file
+        磁盘或根目录满,或指定读取的文件已经以写保护方式存在。
+        释放磁盘空间或改变读取文件的保护。
+        U1183 cannot open response file
+        汉有找到响应文件。
+        U1184 unexpcted end-of-file on command input
+        对提示符的响应中,文件结束符出现过早。
+        U1185 cannot create new library
+        磁盘或根目录满,或库文件已经写保护方式存在。
+        释放磁盘空间或改变库文件的保护。
+        U1186 error writing to new library
+        磁盘或根目录满。
+        删除或移出文件来释放空间。
+        U1187 cannot open VW.TMP
+        删除或移出文件来释放空间。
+        U1188 cannot write to VM
+        注明出错环境,并利用附上文卷的Produce Assistance Request表通知Microsoft公司。
+        U1189 cannot read from VM
+        注明出错环境,并利用附上文卷的Prpduce Assistance Request表通知Microsoft公司。
+        U1190 interrupted by user
+        用户使用了CTRL+C或CTRL+BREAK键。
+        U1200 name:invalid library header
+        输入库文件的格式错。此文件不是一个库文件,或者文件已破坏。
+        U1203 name:invalid object module near location
+        用名字说明的模块不是有效的目标模块。
+        U2152 fileme: cannot create listing
+        磁盘或目录满,或交叉参考表文件已经以写保护方式存在。
+        U2155 modulenme:module not in library; ignored
+        在输入的库中没有找到指定的模块。
+        U2157 filename:cannot access file
+        库不能打开使用的文件。
+        U2158 libraryname:invalid
+        libray header;file ignored
+        输入库的格式错
+        U2159 filename:invalideformat hexnumber;ignored
+        文件的特征字节或hexnumber字的类型不是下面可识别类型之一:
+        Microsoft library,Intel library,Microsoft object,或XENIX archive
+        U4150 modulename:module redefinition ignored
+        加放库的模块与库中已存在的模块同名。或者,库中发现多个模块同名。
+        U4151 symbol:symbol redefined in module modulename,redefinition ignored
+        指定的符号在多个模块中说明。
+        U4153 number:page size too small;ignored
+        在/PAGE选项中说明的值小于16。
+        U4155 modulename:module not in library
+        更新的模块不在库中.LIB将此模块加到库中。
+        U4156 libraryname:output-library specification ignored
+        在指定的输出库中加一个新库名。例如:
+        LIB new.lib+one.obj,new.lst.lib
+        new lib不存在将导致这种错误。
+        U4157 Insufficient memory,extended dictionary not created。
+        LIB不能建立扩展目录,此库仍然有效。但是LINK 程序不能利用扩展库的优点加快链接。
+        U4158 Internal error,extended dictionary not created。
+        LIB不能建立扩展目录,此库仍然有效。但是LINK 程序不能利用扩展库的优点加快链接。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

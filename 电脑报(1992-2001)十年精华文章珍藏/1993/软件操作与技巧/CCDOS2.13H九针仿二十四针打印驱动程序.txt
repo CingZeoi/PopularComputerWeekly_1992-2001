@@ -1,0 +1,306 @@
+CCDOS2.13H九针仿二十四针打印驱动程序
+
+ 雷达
+1993-05-07
+
+        去年贵报曾推出了唐明理老师的《九针高点阵汉字打印驱动程序》和《CH&S2.13》等“经济型电脑”软件，确实为发挥家庭和学校的计算机效能，推动家庭和教育电脑的普及和发展作出了很大的贡献。
+        本人对2.13H的打印驱动程序进行反汇编后，对其分析、研究，用DEBUG.COM命令编制了一段汇编程序对PRTA@COM进行了修改，使其成为一个完善的九针仿二十四针打印驱动程序。修改后的驱动程序保留了原2.13H(包括40点阵字型打印)的所有打印功能，在九针打印机上可以实现2.13H的全部特殊打印功能，使拥有九针打印机的用户也能享受到2.13H丰富而又独特的打印功能，其使用方法与原驱动程序使用方法完全相同。
+        该程序主要对PRTA.COM三个部分进行了修改：
+        第一部分：由于LQ1500打印机的控制码与九针打印机相似，因此，将打印机型号功能选择固定为LQ1500打印机，并将其打印控制码和打印参数修改为九针打印机的控制码和参数，改变程序驻留长度。
+        第二部分：在上半行和下半行打印完毕处(480和4AA处)，跳转新增子程序，该子程序的功能主要是设置打印次数标志，将上半行或下半行打印子程序重复执行三次后，继续执行原后续程序。
+        第三部分：在取背景数据之后，调用原INT17H中断之前(193处)，跳转新增子程序，该子程序的功能是将每列24点按分三次压缩打印(点距为1/216英寸)的要求重新排列数据后，根据打印次数标志分三次压缩打印每行或半行(纵扩时)的汉字。
+        修改后的九针仿二十四针打印驱动程序，由于对原程序改动的很少，主程序部分仅有三处跳转或转子程序，因此运行很可靠，并且保留了原程序的全部功能(包括40点阵打印)，该程序打印的汉字非常漂亮，字形只比二十四针打印机打印的稍大一点点，打印质量与二十四针相差无几，速度仅比一般九针打印驱动程序慢1/3左右，可称为名符其实的九针仿二十四针打印驱动程序。使用该程序完全能够使对打印速度要求不高的九针打印机用户、特别是拥有家庭电脑并配有九针打印机的电脑爱好者打印出高质量的汉字，这对于家庭电脑的普及与应用具有一定的意义。
+        为了让拥有九针打印机的电脑爱好者都享受到2.13H丰富的打印功能，本报特将CCDOS2.3H九针仿二十四针打印驱动程序清单予以公布(修改源程序附后)。希望拥有九针打印机的电脑爱好者，特别是家庭拥有九针打印机的电脑爱好者充分利用该程序。建议修改前备份原程序，用DEBUG命令修改后，改名为9F24P.COM以免与原程序搞混，且将批处理命令也改为9F24P。使用方法与PRTA.COM相同。请注意该程序行距单位为1/72英寸，默认行距为12/72英寸。
+        该程序也可以用于“经济型电脑”，不过要对原2.13H的FILE1A.COM和FILE24A.COM稍作修改，24点阵字库也需作适当的裁减，如果有1.2M或1.44M软驱就不需要裁减了。具体修改如下：
+        A ＞DEBUG FILE1A.COM
+        -  E    1 0 D    0    ( A 盘 )
+        -  E    1 1 1    E B 2 3
+        -  E    1 E 0    0
+        -  E    2 9 C    0   ( A 盘 )
+        -  N    F I L E 1 A X . C O M
+        -  W
+        -  Q
+        B ＞DEBUG FILE24A.COM
+        -  E    1 0 A    0 1    ( B 盘 )
+        -  E    1 0 E    E B 2 3
+        -  E    1 E 0    0
+        -  E    5 1 3    0 1    ( B 盘 )
+        -  N    F I L E 2 4 A X . C O M
+        -  W
+        -  Q
+        以上是假设16点阵字库在A盘，24点阵字库在B盘，再建立适当的批处理命令，就可使用9针仿24针打印驱动程序了。例如使用24点阵宋体字：
+        COPY CON PP.BAT
+        9 F 2 4 P
+        B ：
+        A ： F I L E 2 4 A X    1 S S S S
+        A ： Z F 2 4    3
+        ＾  Z
+        运行PP后，就可以在无硬盘的“经济型电脑”上使用9针仿24针打印驱动程序了。
+        2.13汉字系统高级汉字打印驱动程序源程序清单：
+        
+        A＞DEBUG PRTA.COM
+        
+        ( 改 1 ：  )
+        
+        -  A    8 F 2
+        
+        2 0 E D ：  0 8 F 2    J M P    9 0 7
+        
+        2 0 E D ：  0 8 F 4
+        
+        -  A    D B 4
+        
+        2 0 E D ：  0 D B 4    N O P
+        
+        2 0 E D ：  0 D B 5    N O P
+        
+        2 0 E D ：  0 D B 6
+        
+        -  A    D 8 5
+        
+        2 0 E D ：  0 D 8 5    M O V    A L ，  4 C
+        
+        2 0 E D ：  0 D 8 7    J M P    D 8 C
+        
+        2 0 E D ：  0 D 8 9
+        
+        -  A    D D E
+        
+        2 0 E D ：  0 D D E    M O V    A L ，  0
+        
+        2 0 E D ：  0 D E 0
+        
+        -  A    D E 2
+        
+        2 0 E D ：  0 D E 2    M O V    A L ，  1
+        
+        2 0 E D ：  0 D E 4
+        
+        -  A    D F 3
+        
+        2 0 E D ：  0 D F 3    D B    0 C    0 7    3 C    C 0    0 3
+        
+        2 0 E D ：  0 D F 8    D B    3 9    B 7    C 2    3 2    3 4    D 5
+        
+        E B    2 4
+        
+        2 0 E D ：  0 E 0 0
+        
+        -  A    1 0 9 1
+        
+        2 0 E D ：  1 0 9 1    J B    1 0 A 1
+        
+        2 0 E D ：  1 0 9 3
+        
+        -  A    1 0 E 5
+        
+        2 0 E D ：  1 0 E 5    M O V    A L ，  5
+        
+        2 0 E D ：  1 0 E 7
+        
+        -  A    1 1 7 E
+        
+        2 0 E D ：  1 1 7 E    M O V    D X ，  B 2 0
+        
+        2 0 E D ：  1 1 8 1
+        
+        -  A    1 2 9
+        
+        2 0 E D ：  0 1 2 9    D B    2 0    2 0    C 0    D 7    2 0    2 0
+        
+        B 4    E F    2 0    2 0    2 0    2 0
+        
+        2 0 E D ：  0 1 3 5    D B    3 1    3 9    3 9    3 2    2 E    3 1
+        
+        3 2    2 E    3 2    3 8    0 D    0 A    2 4
+        
+        2 0 E D ：  0 1 4 2
+        
+        ( 改 ：  2 )
+        
+        -  A    4 8 0
+        
+        2 0 E D ：  0 4 8 0    J M P    A 7 0
+        
+        2 0 E D ：  0 4 8 3
+        
+        -  A    4 A A
+        
+        2 0 E D ：  0 4 A A    J M P    A 8 E
+        
+        2 0 E D ：  0 4 A D    N O P
+        2 0 E D ：  0 4 A E    N O P
+        
+        2 0 E D ：  0 4 A F
+        
+        ( 改 3 ：  )
+        
+        -  A    1 9 3
+        
+        2 0 E D ：  0 1 9 3    J M P    1 B 9
+        
+        2 0 E D ：  0 1 9 5
+        
+        -  A    1 B 8
+        
+        2 0 E D ：  0 1 B 8    N O P
+        
+        2 0 E D ：  0 1 B 9    J M P    A A E
+        
+        2 0 E D ：  0 1 B C
+        
+        ( 新 增 子 程 序 ：  )
+        
+        -  A    A 7 0
+        
+        2 0 E D ：  0 A 7 0    I N C      B Y T E    P T R  ［ 0 2 7 A ］
+        
+        2 0 E D ： 0 A 7 4    C M P      B Y T E    P T R ［ 0 2 7 A ］ ， 0 3
+        
+        2 0 E D ： 0 A 7 9    J Z        0 A 8 3
+        
+        2 0 E D ： 0 A 7 B    M O V      A L ， 1
+        
+        2 0 E D ： 0 A 7 D    C A L L    A 0 6
+        
+        2 0 E D ： 0 A 8 0    J M P      0 4 6 1
+        
+        2 0 E D ： 0 A 8 3    S U B      B Y T E    P T R    ［ 0 2 7 A ］ ， 0 3
+        
+        2 0 E D ： 0 A 8 8    C A L L    0 9 7 E
+        
+        2 0 E D ： 0 A 8 B    J M P      4 8 3
+        
+        2 0 E D ： 0 A 8 E    I N C      B Y T E    P T R ［ 0 2 7 A ］
+        
+        2 0 E D ： 0 A 9 2    C M P      B Y T E    P T R    ［ 0 2 7 A ］ ， 0 3
+        
+        2 0 E D ： 0 A 9 7    J Z        0 A A 1
+        
+        2 0 E D ： 0 A 9 9    M O V      A L ， 1
+        
+        2 0 E D ： 0 A 9 B    C A L L    A 0 6
+        
+        2 0 E D ： 0 A 9 E    J M P      0 4 8 6
+        
+        2 0 E D ： 0 A A 1    S U B      B Y T E    P T R    ［ 0 2 7 A ］ ， 0 3
+        
+        2 0 E D ： 0 A A 6    X O R      A X ， A X
+        
+        2 0 E D ： 0 A A 8    M O V      ［ 0 2 0 5 ］ ， A X
+        
+        2 0 E D ： 0 A A B    J M P      4 A F
+        
+        2 0 E D ： 0 A A E    C S ：
+        
+        2 0 E D ： 0 A A F    C M P      B Y T E    B T R    ［ 0 1 B 2 ］ ， 0 0
+        
+        2 0 E D ： 0 A B 4    J N Z      0 A C 0
+        
+        2 0 E D ： 0 A B 6    C S ：
+        
+        2 0 E D ： 0 A B 7    M O V      ［ 0 1 B 4 ］ ， A L
+        
+        2 0 E D ： 0 A B A    C S ：
+        
+        2 0 E D ： 0 A B B    I N C      B Y T E    P T R    ［ 0 1 B 2 ］
+        
+        2 0 E D ： 0 A B F    R E T
+        
+        2 0 E D ： 0 A C 0    C S ：
+        
+        2 0 E D ： 0 A C 1    C M P      B Y T E    P T R    ［ 0 1 B 2 ］ ， 0 1
+        
+        2 0 E D ： 0 A C 6    J N Z      0 A D 2
+        
+        2 0 E D ： 0 A C 8    C S ：
+        2 0 E D ：  0 A C 9    M O V
+        ［ 0 1 8 5 ］ ， A L
+        2 0 E D ： 0 A C C    C S ：
+        
+        2 0 E D ：  0 A C D    I N C
+        B Y T E    P T R    ［ 0 1 B 2 ］
+        
+        2 0 E D ： 0 A D 1    R E T
+        
+        2 0 E D ： 0 A D 2    P U S H      B X
+        
+        2 0 E D ： 0 A D 3    P U S H      C X
+        
+        2 0 E D ： 0 A D 4    C S ：
+        
+        2 0 E D ： 0 A D 5    M O V        B L ， ［ 0 2 7 A ］
+        
+        2 0 E D ： 0 A D 9    M O V        B H ， A H
+        
+        2 0 E D ： 0 A D B    P U S H      D X
+        
+        2 0 E D ： 0 A D C    M O V        D L ， A L
+        
+        2 0 E D ： 0 A D E    C S ：
+        
+        2 0 E D ： 0 A D F    M O V        A L ， ［ 0 1 B 4 ］
+        
+        2 0 E D ： 0 A E 2    C S ：
+        
+        2 0 E D ： 0 A E 3    M O V        D H ， ［ 0 1 B 5 ］
+        
+        2 0 E D ： 0 A E 7    M O V        C X ， 0 0 0 8
+        
+        2 0 E D ： 0 A E A    D E C        B L
+        
+        2 0 E D ： 0 A E C    J S          0 A F 8
+        
+        2 0 E D ： 0 A E E    J Z          0 A F 4
+        
+        2 0 E D ： 0 A F 0    R C L        D X ， 1
+        
+        2 0 E D ： 0 A F 2    R C L        A X ， 1
+        
+        2 0 E D ： 0 A F 4    R C L        D X ， 1
+        
+        2 0 E D ： 0 A F 6    R C L        A X ， 1
+        
+        2 0 E D ： 0 A F 8    R C L        D X ， 1
+        
+        2 0 E D ： 0 A F A    R C L        A X ， 1
+        
+        2 0 E D ： 0 A F C    R C L        D X ， 1
+        
+        2 0 E D ： 0 A F E    R C L        A L ， 1
+        
+        2 0 E D ： 0 B 0 0    R C L        D X ， 1
+        
+        2 0 E D ： 0 B 0  2    R C L        A L ， 1
+        
+        2 0 E D ： 0 B 0  4    L O O P      0 A F 8
+        
+        2 0 E D ： 0 B 0  6    M O V        A L ， A H
+        
+        2 0 E D ： 0 B 0  8    M O V        A H ， B H
+        
+        2 0 E D ： 0 B 0  A    P O P        D X
+        
+        2 0 E D ： 0 B 0  B    P O P        C X
+        
+        2 0 E D ： 0 B 0  C    P O P        B X
+        
+        2 0 E D ： 0 B 0  D    C S ：
+        
+        2 0 E D ： 0 B 0  E    S U B       B Y T E    P T R    ［ 0 1 B 2 ］ ， 0 2
+        
+        2 0 E D ： 0 B 1 3    J M P        0 1 A 0
+        
+        2 0 E D ： 0 B 1 6
+        
+        -  n    9 f 2 4 p . c o m
+        
+        -  w
+        W r i t i n g    0 1 0 8 3    b y t e s
+        
+        -  q
+        ( 湖北 雷 达 )
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

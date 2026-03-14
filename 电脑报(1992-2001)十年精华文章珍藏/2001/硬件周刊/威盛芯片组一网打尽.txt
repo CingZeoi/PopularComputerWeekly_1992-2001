@@ -1,0 +1,50 @@
+威盛芯片组一网打尽
+
+怪鸭兽 
+2001年 20期
+
+近年来，威盛电子（VIA）的芯片组产品发展，可谓平步青云，就连Intel都屡屡败在其手下。当然一个产品能在市场上站住脚根，必须有其优秀的性能。所以本文就让大家初步了解威盛公司主要的主板芯片组产品。
+　　#1一、VIA Apollo VP芯片组
+　　VIA Apollo VP芯片组由VT82C585VP、VT82C586、VT82C587-VP三块芯片组成，分别采用208-Pin PQFP、208-Pin PQFP、100-Pin PQFP封装。支持Intel、AMD、Cyrix的Socket 7架构CPU，支持50/60/66MHz总线频率。支持最大2MB的同步/异步管线突发式缓存；最大支持512MB内存容量，支持64位数据带宽，可以支持BEDO DRAM、EDO DRAM、FPM DRAM、SDRAM四种内存。最大数据传输率为Pio MODE 5、DMA MODE 3（33.3MB/s）。此外，还支持PCI接口（PCI总线速度为25/30/33MHz）、ISA接口、USB接口，以及支持硬盘节能。
+　　#1二、VIA Apollo VPX芯片组
+　　VIA Apollo VPX芯片组由VT82C585、VT82C586A两块芯片组成，分别采用208-Pin PQFP、208-Pin PQFP封装。支持UMA、PC’97规范、MODEM唤醒等功能。
+　　#1三、VIA Apollo VP2芯片组
+　　VIA Apollo VP2芯片组由VT82C595、VT82C586A两块芯片组成，分别采用328-Pin BGA、208-Pin PQFP封装。VIA Apollo VP2芯片组与VIA Apollo VPX芯片组的技术参数基本一样。
+　　#1四、VIA Apollo VP3芯片组
+　　VIA Apollo VP3芯片组由VT82C597、VT82C586B两块芯片组成，分别采用472-Pin BGA、208-Pin PQFP封装。VIA Apollo VP3芯片组是在VIA Apollo VP2芯片组的基础上，新加入75/83MHz总线频率功能、最大支持1GB内存容量、支持PCI 2.0接口，最主要的是加入AGP接口的支持。但是VIA Apollo VP3芯片组已不再支持BEDO DRAM内存。
+　　#1五、VIA Apollo MVP3芯片组
+　　VIA Apollo MVP3芯片组主要由VT82C598AT、VT82C586B两块芯片组成，分别采用476-Pin BGA、208-Pin PQFP封装。VIA Apollo MVP3芯片组是VIA Apollo VP3芯片组的增强版，可支持Super 7（100MHz外频）架构CPU，新加入95/100MHz总线频率功能、支持PCI 2.1接口（如^20030901a^1）。
+　　#1六、VIA Apollo MVP4芯片组
+　　VIA Apollo MVP4芯片组主要由VT82C501、VT82C686A两块芯片组成，分别采用492-Pin BGA、352-Pin BGA封装。支持Intel、AMD、Cyrix的Super 7架构CPU，支持ECC纠错功能，支持66/75/83/95/100MHz总线频率。最大支持2MB的同步管线突发式缓存和768MB内存容量，支持64位数据带宽，可以支持EDO DRAM、FPM DRAM、SDRAM三种内存。最大数据传输率为ULTRA DMA/66。VIA Apollo MVP4芯片组集成了Trident Blade3D显卡、AC’97声卡和MODEN功能，并且它还具备DVD硬件加速功能（如^20030901b^2）。
+　　#1七、VIA Apollo PRO芯片组
+　　VIA Apollo PRO芯片组主要由VT82C691、VT82C596A两块芯片组成，分别采用492-Pin BGA、324-Pin BGA封装。支持Intel的Slot 1架构CPU，最高主频可以支持到450MHz，支持66/100MHz总线频率。最大支持1GB内存容量，支持64位数据带宽，可以支持EDO DRAM、FPM DRAM、SDRAM三种内存。
+　　#1八、VIA Apollo PRO Plus芯片组
+　　VIA Apollo PRO Plus芯片组是VIA Apollo PRO芯片组的增强版，它主要由VT82C693、VT82C596A（或VT82C686A）两块芯片组成，分别采用492-Pin BGA、352-Pin BGA（324-Pin BGA）封装。VIA Apollo PRO Plus芯片组可支持450MHz主频以上的CPU。
+　　#1九、VIA Apollo PRO 133芯片组
+　　VIA Apollo PRO 133芯片组由VT82C693A、VT82C686A两块芯片组成，分别采用492-Pin BGA、352-Pin BGA封装。VIA Apollo PRO Plus芯片组最大支持1.5GB内存容量，支持VC133 DRAM、PC133 SDRAM内存，最大数据传输率为ULTRA DMA/66。
+　　#1十、VIA Apollo PRO 133A芯片组
+　　VIA Apollo PRO 133A芯片组由VT82C694×、VT82C686A（或VT82C596B）两块芯片组成，分别采用510-Pin BGA、352-Pin BGA（324-Pin BGA）封装。VIA Apollo PRO Plus芯片组最大支持1GB内存容量，可支持AGP 4×接口、AMR接口（如^20030901c^3）。
+　　#1十一、VIA Apollo ProSavage PM601芯片组
+　　VIA Apollo ProSavage PM601芯片组由VT82C601、VT8231两块芯片组成。支持Slot 1与Socket 370架构CPU，以及支持硬盘节能、UMA、PC’97规范、MODEM唤醒功能。
+　　#1十二、VIA Pro Savage PM133芯片组
+　　VIA Pro Savage PM133芯片组由VT8605、VT82C686A两块芯片组成，分别采用552-Pin BGA、376-Pin BGA封装。支持Slot 1与Socket 370架构CPU，最大支持1.5GB内存容量，支持64位数据带宽，可以支持VC133 DRAM、PC133 SDRAM内存。最大数据传输率为ATA/100。集成S3 Savage4 AGP4× 3D绘图和S3 Savage2000 2D绘图功能、10/100MB网卡芯片、AC’97软声卡和MODEM功能（如^20030901d^4）。
+　　#1十三、VIA Apollo PLE 133芯片组
+　　VIA Apollo PLE 133芯片组主要由VT82C601、VT82C686A两块芯片组成，分别采用510-Pin BGA、352-Pin BGA封装。VIA Apollo PLE 133芯片组的最大数据传输率为ULTRA DMA/66，支持PCI 2.2接口（PCI总线速度为30/33MHz）、AGP 2×接口。集成Trident Blade3D显卡、10/100MB网卡芯片、AC’97软声卡和MODEM功能。其他方面的参数与VIA Pro Savage PM133芯片组相同。
+　　#1十四、VIA Apollo Pro266芯片组
+　　VIA Apollo Pro133芯片组由VT8633、VT8233两块芯片组成。支持AMD的Socket A架构CPU，支持200MHz总线频率。最大支持4GB内存容量，可以支持PC100/133 SDRAM、DDR200/266内存。最大数据传输率为ATA/100。集成AC’97软声卡和MC’97 MODEM功能。此外，还支持PCI 2.1接口（PCI总线速度为30/33MHz）、AGP 4×接口、ACR接口、USB接口，以及支持硬盘节能、UMA、PC’98规范、ACPI电源管理功能、硬件环境监接功能、MODEM唤醒功能、V-Link Hub（如^20030901e^5）。
+　　#1十五、VIA Apollo KX133芯片组
+　　VIA Apollo KX133芯片组由VT8371、VT82C686A两块芯片组成，分别采用516-Pin BGA、352-Pin BGA封装。支持AMD的Slot A架构CPU，支持ECC纠错功能，支持200MHz总线频率。最大支持2GB内存容量，支持64位数据带宽，可以支持VC133 DRAM、PC133 SDRAM内存。最大数据传输率为ULTRA DMA/66。集成AC’97软声卡和MODEM功能。此外，还支持PCI 2.1接口（PCI总线速度为30、33MHz）、ISA接口、AGP 4×接口、USB接口，以及支持硬盘节能、UMA、PC’98规范、ACPI电源管理功能、硬件环境监接功能、MODEM唤醒功能（如^20030901f^6）。
+　　#1十六、VIA ProSavage KM133芯片组
+　　VIA Pro Savage KM133芯片组主要由VT8365、VT8231两块芯片组成，分别采用552-Pin BGA、376-Pin BGA封装。支持AMD的Socket A架构CPU，支持ECC纠错功能，支持66/100/133MHz总线频率。最大支持1.5GB内存容量，支持64位数据带宽，可以支持VC133 DRAM、PC133 SDRAM内存。支持ATA100硬盘数据传输规范。集成S3 Savage4 AGP 4× 3D绘图和S3 Savage2000 2D绘图功能、10/100MB网卡芯片、AC’97软声卡和MODEM功能。此外，还支持PCI 2.1接口（PCI总线速度为30、33MHz）、ISA接口、AGP 4×接口、USB接口，以及支持硬盘节能、UMA、PC’97规范、MODEM唤醒功能。
+　　#1十七、VIA Apollo KT133芯片组
+　　VIA Apollo KT133芯片组主要由VT8363、VT82C686B两块芯片组成。支持AMD的Socket A架构CPU，支持200MHz总线频率。最大支持1.5GB内存容量，可以支持VC133 DRAM、PC133 SDRAM内存。支持ATA66硬盘数据传输规范。集成AC’97软声卡和MC’97 MODEM功能，符合PC’98规范，并支持ACPI电源管理功能、硬件环境监测功能。其他方面的参数与VIA Pro Savage PM133芯片组相同。
+　　#1十八、VIA Apollo KT133A芯片组
+　　VIA Apollo KT133A芯片组主要由VT8363A、VT82C686B两块芯片组成。支持AMD的Socket A架构CPU，支持200/266MHz总线频率。其他方面的参数与VIA Apollo KT133芯片组完全相同。
+　　#1十九、VIA Apollo KT266芯片组
+　　VIA Apollo KX133芯片组主要由VT8366、VT8233两块芯片组成。支持AMD的Socket A架构CPU，支持200MHz总线频率。最大支持4GB内存容量，可以支持PC100/133 SDRAM、DDR200/266内存。支持ATA100硬盘数据传输规范，集成AC’97软声卡和MC’97 Modem功能、10/100MB网卡芯片、1/10MB HomePNA。在I/O接口方面，与VIA Apollo KT133芯片组基本相同。
+　　
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

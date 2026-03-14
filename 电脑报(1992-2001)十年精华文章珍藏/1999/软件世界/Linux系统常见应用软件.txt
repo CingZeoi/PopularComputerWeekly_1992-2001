@@ -1,0 +1,113 @@
+Linux系统常见应用软件
+
+薛启康、林朝阳、赵忠
+1999年 第18期 12版
+
+#1    X Window系统
+    X Window实际上是一个可移植的图形用户接口（GUI）的软件设计标准。它不属于操作系统，只是一个应用程序，其作用有点类似于DOS环境下的Windows3.X。它最重要的特征之一就是与设备无关的结构，因此X Window的可移植性非常强，它不仅能运行于Unix系统，而且能轻而易举地运行于各种支持X Window协议的VAX／VMS， MS－DOS及其他系统。同时由于X window系统的源代码是完全公开的，任何人都能修改或扩展它的功能以适应自己的要求，所以X Window系统已为许多人所接受，并成为事实上的工业标准。
+    X Window系统于1984年诞生在麻省理工学院 （MIT）电脑科学研究室，是从一个名叫W的实验性视窗系统发展而来的。经过多年的发展，X Window系统已有多种不同的版本。
+#1    文件管理器
+    在Linux系统中有没有类似于MS Windows中的文件管理器那样的东西呢。有，下面就向你介绍几款：
+#1    一、X－Files文件管理器
+    它是一个运行在X Window下的文件管理器，界面漂亮，操作简单。从如^181201a^所示界面可以看出，窗口左边上部几乎包含了所有的文件操作命令。
+    X－Files 支持三键鼠标，同时此程序也可以使用2键鼠标，但你最好将两键鼠标模拟成三键鼠标，否则软件的一些功能将无法使用。
+    下载地址：http://www.hut.fi/u/mkivinie/X－Files/
+#1    二、UC文件管理器The Unix Cockpit 3.0
+    它是一个图形界面文件管理器，运行在X Window环境下，各位可以看到，它有点类似于MS Windows 环境下的Norton Commander的界面。
+    它的主要功能有：
+    1.可以显示用户所要查看的目录；以树形方式显示文件系统结构。
+    2.菜单操作，同时支持键盘、鼠标操作，用鼠标执行命令。
+    3.支持工作状态下的shell功能。
+    4.可定制自己的菜单。
+    5.可进行删除文件、恢复文件、解压缩等操作。
+    下载地址：http://www.unix11.com/uc－linux2.035libc.tar.gz
+    下载时要注意：使用不同的函数库，要下载不同的软件包。
+#1    三、字符状态下的文件管理工具
+    对于无法使用X Window的用户，可以选择字符环境下的文件管理工具。MC－Might Commander 是一个字符环境下很好的文件管理工具。它类似于DOS下的PCTOOLS，也可以把它当作Linux下的Norton Commander。MC有全套的使用说明，用户可到如下地址找到使用手册：http://www.linuxgazette.com/issue23/wkndmech_dec97/mc_article.html
+    下载地址：http://www.gnome.org/mc/
+#1    压缩软件
+    Linux下压缩软件也相当多，现在摘要介绍几个。
+#1    一、gzip／gunzip
+    这是GNU推出的著名压缩／解压缩软件，和DOS下的PKZIP系列类似，gzip是用于压缩的，gunzip是用于解压缩的。实际上，在有些系统中，gzip和gunzip是一个文件，其中gunzip只是一个快捷链接而已，当以gunzip运行时，就是gzip以gzip－d来执行解压。在Windows系统中，gzip压缩的文件可以用WinZip进行解压。同样可以被WinZip处理的文件还有tar.gz文件或叫做tgz文件——这是tar的打包文件再用gzip压缩后得到的。
+#1    二 、zcat／zless／zmore
+    zcat可以直接在屏幕上列出gzip压缩过的文件内容，和它相似的还有zless。在Linux存放文档的目录/usr/doc中，有很多文档是用gzip压缩格式存放的。
+    要阅读这些文档无需事先解压，只要用zcat/zless/zmore等就可以打开了，它们会自动解压，相当方便。
+#1    三、bzip2／bunzip2／bzcat
+    这是压缩界的“新秀”，其压缩性能比gzip更优秀。虽然看上去是三个工具，但在Linux系统上，bunzip2和bzcat实际上都是链接。bunzip2相当于bzip2 －d，强制解压；bzcat相当于bzip2 －dc，强制解压并将结果送往标准输出。bzip2的特点是压缩性能更好，它在RedHat 以及TurboLinux中都已经有了，安装时请注意选上。
+#1    MP3播放器
+    运行在MS Windows上的MP3播放器现在已经相当多了！那么，在Linux下，我们可不可以播放MP3呢？告诉大家，没问题！
+#1    1.X11amp
+    X11amp是一个运行在Linux系统的X Window下播放MP3的应用程序。从功能上来说，X11amp MP3播放器同Windows 9x下的的Winamp功能完全相同，当然，也结合了Linux自身的一些特点，现有版本提供的功能如下：播放器同时提供查找文件、音量平衡、重放、MP3待播列表、拖拉播放、记时功能、快速跳转曲目、还可以加入别的插件等。
+    X11amp的外观同Winamp极其相似。此^181201b^为播放MP3曲目时的界面。各位可以看到，这就是Winamp嘛。不过，仔细一瞅，右下角有一个小企鹅，表示不是Winamp。对，是X11amp。
+    下载地址：http://www.x11amp/files/x11amp-0.9-beta1.1.tar
+    用户还可以到下列地址下载：
+ftp://ftp.freesoft.cei.gov.cn/pub/mirrors/ftp.redhat.com/redhat/contrib/libc6/i386/x11amp-devel-0.9-alpha2-2.i386.rpm
+#1    2.Xmp3play
+    除了X11amp以外，Xmp3play也是一个比较好的mp3播放器。
+    Xmp3play用户可以到此处下载：http://cray.tuug.utu.fi/~phoenix/xmp3player/
+    Linux下的MP3播放器还很多，Xaudio for Linux也是其中之一，有兴趣的用户可以到http://www.xaudio.com/下载其L版本的播放器。
+#1   办公系统软件
+    在日常办公中，我们经常要用的主要是字处理、电子表格等办公软件。在MS Windows环境下，这类软件很多。实际上，在Linux系统下，也有很多办公系统套件可供选择。
+#1    一、StarOffice
+    StarOffice是一个办公软件的套件，它是一个商业软件包，其中包括字处理、电子表格、幻灯片制作等MS Office软件包含有的软件。对于个人用户提供一个免费的版本。Caldera OpenLinux中包含有StarOffice办公套件。用户可以到以下站点下载：http://studio.linux.org.cn。
+    StarOffice Office Suite for Linux是为非商业用户准备的，商业用户要使用StarOffice Office 则需要许可证。用户可以在Caldera OpenLinux发行版中找到此软件包，也可以从以下站点取得StarOffice Office Suite：
+    ftp://ftp.gwdg.de/pub/linux/staroffice
+#1    二、Applixware office Applications
+    Applix Suite是一个办公室工具软件包，包括电子表格、图形、邮件和显示程序、支持框架结构、对象链接以及图形粘贴软件。安装Applix Suite需要135MB硬盘空间并且需要16M内存来顺利运行。
+    1.字处理软件：Applix Words
+    Applix Words要求运行在X Window系统下。
+    它提供文档内容的所见即所得功能，支持24种不同的方字处理文件格式；支持强化编辑宏命令；包括一个拼写字典；包括一个上下文敏感的帮助功能；可以建立并编辑超文本标记语言即HTML文件；可以完全由用户定制新的菜单或键盘命令；可以建立索引、表、表内容和备注。
+    有关Applix Word的资料可以到以下站点获得：
+    http://www.redhat.com
+    2.电子表格： Applixware
+    Applixware是电子表格程序，它也是Applix Suite软件包中10个应用程序之一。它同样支持对象链接，同软件包的其他应用程序集成在一起，具有电子表项拖曳功能、可以同时开多个观察口、具有数据库功能、支持3D图形、打印预览等。可以支持以下格式的文件：XLS（XLS3、XLS4、XLS5）、WKS、DIF、XDIF、CSV、SYLK、TEXT等。（^181201c^）
+#1    窗口管理器
+    目前在linux系统中使用最多的窗口管理器是：FVWM及其由此演化而来的FVWM2 、FVWM95等。
+#1    一、FVWM
+    FVWM 是一个虚拟的窗口管理器。它在桌面上支持虚拟窗口；内存开销少；提供三维视觉效果；引入支持窗口操作声音效果、分页、图标区和许多其他的功能模块。（^181201e^）
+    FVWM2在FVWM 窗口管理器的基础上进行了改进。其中有任务栏、有层次的启动菜单、图标、三维窗口按钮和滚动条等。定制起始菜单或根窗口菜单可以通过在桌面空白处点击鼠标左键进行。FVWM2的使用说明书中对定制系统的许多功能都有详细说明，用户可以通过阅读说明书以获得更多帮助。
+    在此窗口管理器中，用户可以修改窗口、图标及菜单使用的字体字形，同时可以修改窗口颜色、设置窗口外观，定制启动任务，定义菜单等。
+#1    二、最有前途的窗口管理器：
+    KDE KDE是目前最为流行，也是最被看好的窗口管理器，界面十分华丽。其特点有：安装文件系统只需用鼠标点击即可，将网络模拟为一个文件系统，终端窗口属性菜单调整，每个应用软件可以放置在不同的桌面上，有一个小的微型命令行窗口代替大的终端模拟窗口，具有任务管理功能，可以记住每个窗口的位置及所打开的应用软件等。
+    KDE软件包由8个压缩文件组成，用户必须全部下载它们，下载地址：http://www.kde.org，同时，用户可以在此网站上找到很多有关KDE的文档。（^181201f^）
+#1    浏览器
+    Linux是借助Internet成长并发展壮大起来的，所以对网络的访问自然是它的强项。运行在Linux中X Window下的浏览器为数不少，但是，最为著名的还是Netscape 的Communicator，目前版本为4.5x。IE还没有移植到Linux 系统中来。
+#1    一、Netscape Communicator 4.51 for Linux
+    同所有操作系统平台上的Communicator相同，Netscape提供有完整的源程序代码，同时，也提供已编译好的二进制代码。Communicator 4.51 for Linux的程序界面与Windows 9X下的Communicator界面完全相同。只不过在X Windows下，它显得更漂亮一点。在Linux上运行得非常稳定。
+    用户可以访问http://home.netscape.com/download/client_download.html网页，从中选择适合自己内核版本的软件包。Red Hat Linux 5发行版中已有Netscape 的communicator 4.0X软件包。在系统安装时，安装程序会缺省安装它。
+    对于其他的发行版，用户还要注意选择相应的软件包，注意软件包的种类，使用不同的函数库，要下载不同的包。Netscape Communicator 4.51的压缩文件大小在10M以下，其中包含了电子邮件、新闻阅读、页面编写器等组件。下载完成后，先用gzip将其解压缩，然后运行其安装程序即可。
+    在Netscape Communicator 4.51中，可以插入很多插件，具体内容请浏览：http://cgi.netscape.com/eng/mozilla/2.0/extensions/info.cgi。
+    对于一些有关音频、视频的插件，用户可以参阅：http://www.real.com/50/index.html
+#1    二、其他浏览器
+    1.Mosaic
+    它是最早的Web浏览器之一，很多浏览器都是由它发展改进而来的。它提供全部的源代码。下载地址：http://metalab.unc.edu/pub/Linux/apps/www/browsers/mosaic/。
+    2.Lynx浏览器
+    它是一个纯文本的浏览器，有多种参数选择，不支持图像、声音等。目的是为了提高访问速度。由于不需大量占用有限的传输线路，所以它的速度较一般的浏览器要快出很多。
+    Lynx的下载地址：http://lynx.browser.org （^181201g^） 
+#1    看图软件
+    EE是Electric Eyes的英文首字母缩写，中文意思就是电子眼。它是一个自由软件，可以自由复制、拷贝、开放源代码。
+    如果你的系统上还没有装上EE，可以到ftp://ftp.redhat.com去下载最新的rpm包，如果你是国内169网的用户，你还可以到169网内的镜像ftp://ftp.lug.org.cn/pub/mirror/ftp.redhat.com去下载。
+    EE可以方便地对图像的色彩、大小、方位等进行编辑；可以分别对灰度，以及红色、绿色、蓝色等单色进行调节；可以分别调节亮度、对比度以及色彩的纯度，并且整个调节过程都会很直观的显示出来，调节的结果也是立刻可见的。底部两排共十四个按钮，功能分别是：图像尺寸减半、图像尺寸减百分之十、恢复原始的图像尺寸、图像尺寸增加百分之十、图像尺寸增倍、按比率最大化、尽可能的最大化（不按比率）、定制图像尺寸、按当前看上去的图像大小修改图像文件、水平镜像（Flip）、垂直镜像、旋转图像，以及给整个桌面抓图、给单个窗口抓图。看看，功能强劲吧！此外，EE还可以帮你把喜欢的图像设置成桌面背景。只要在菜单上点击“File －> Set as Desktop Background”就可以了。
+    EE还可以用来浏览多幅图像，只要把在任意几个目录下的图像一一装载进来，然后在EE的导航条上，选择上一幅、下一幅，就可任意浏览了。此外EE还支持联机打印。
+#1    VCD播放器
+    长期以来，人们总是将多媒体技术同MS Windows 联系在一起。实际上，在Linux系统下，也有很多的多媒体应用软件，本文将为各位介绍在Linux下播放VCD的工具。
+#1    一、MpegTV Player 1.0
+    MpegTV Player是一个实时播放MPEG－1格式的纯软件VCD播放器，目前版本为1.0。
+    1.MpegTV Player的特性
+    安装MpegTVPlayer不需要特殊的硬件设备，只需运行X Window即可使用，当然，你的Linux系统上要安装有声卡，才能欣赏声色俱佳的VCD节目！
+    它还支持多种视频格式，可播放的CD格式有： Video CD及 Karaoke CD.
+    2.播放视频信息方式
+    MTV还可以直接从网络获取视频流信息，它可以直接从网络上的URL（ftp、http、etc）获取视频流，也可以在浏览器内部使用MpegTV Player。
+    3.控制界面
+    它模仿了录像机的播放控制键，如：播放、快进、快退、停止、定格、搜索、音量调节、静声、音量平衡、循环播放、画面放大缩小、自动播放等。播放过程会显示整个节目要用时间、已用时间。用户可以通过菜单操作。
+    可以到下面站点下载MpegTV Play：http://www.mpegtv.com。目前它的版本为1.0版，用户在下载时一定要注意，如果你用的Linux发行版本为Red Hat Linux 5.0以上及使用glibc库的版本，要下载相应的软件包，使用libc5的用户也要下载相应的软件包，否则运行有错。（^181201d^）
+#1    二、其他MPEG播放器：
+    各位可以到如下站点下载别的VCD播放器：
+    http://www.mpeg.org/xaudio/
+    http://www.powerweb.de/mpeg/xmp3play.html
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

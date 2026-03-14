@@ -1,0 +1,30 @@
+拨得云开见月明——Linux闪耀Comdex大展
+
+Insider
+1999年 第48期 09版
+
+
+　　11月15日～19日，IT业界最为著名的展览盛会Comdex Fall ＇99在美国的拉斯维加斯隆重举行。因为此次IT“英雄大会”适逢Comdex 20周年纪念，而且又是本世纪的最后一次盛会，所以今年的Comdex大展就被赋予了不同以往的特殊意义。超过20万的参观者云集“赌城”拉斯维加斯，数千家IT产商聚集一堂，Comdex的规模再创纪录。
+#1Linux商业展览
+　　今年， 开放源码运动的旗帜——Linux操作系统终于在Comdex这个IT产业的“T形”舞台上找到了一席之地，第一届Linux Business Expo（Linux商业展览）作为Comdex Fall ＇99的一个组成部分与Comdex同时在拉斯维加斯举办。据统计，约有3万多参观者兴致勃勃地参观了这次规模空前的Linux展览会。Linux Business Expo的成功举办，使其轻松地超过了由IDG（国际数据集团）在今年三月和八月举办的LinuxWorld展览和会议，成为迄今为止全球规模最大的Linux展览。
+　　包括Red Hat、SuSE、VA Linux Systems、TurboLinux、Corel、Caldera、SGI等在内的百余家著名的Linux厂商组团参加了本次Linux Business Expo。被誉为“Linux之父”的Linus Torvalds在Comdex上发表了主题演讲，题目是开放源代码造成的冲击和Linux未来走向。和近来人气值高涨的Linux一样，Linus的演讲也颇受瞩目，有数千的观众赶到现场聆听他的高论，在演讲进行的过程中，现场的观众多次爆发出热烈的欢呼。演讲的重点是开放源代码的积极性以及Linux在最近几个月的迅猛发展。Linus总结了Linux在过去一年的成长情况，并强调开放软件源代码绝对是未来软件产业发展的趋势。他希望让快乐的企鹅（Linux可爱的标志图案）到处都是，但同时也坦陈Linux要真正适合桌面应用还需假以时日。
+　　来自Linux阵营的业界巨头Red Hat公司的Robert Young、Corel的Michael Cowpland、Caldera Systems的Ransom Love等名声显赫的人物也在展会上发表了热情洋溢的讲演。参展的50多家Linux厂商也各显神通，施展浑身解数、不遗余力地为Linux鼓吹呐喊。VA linux systems公司在展会上专门开辟了一个称为E－mail Garden的专区，利用Linux平台为参观者提供收发电子邮件和访问Web服务的便利。Caldera公司则同部分协作厂商一起举办Linux培训活动，帮助人们掌握Linux的安装、配置和系统管理的方法。著名的工作站厂商Sun则发布了其免费办公套件的最新版本Star Office 5.1，该软件包能够运行在Linux、Windows、Solaris、OS/2等操作系统之上。
+　　展会上传出的好消息不断：先是加拿大的Corel公司正式推出其桌面版本的Corel Linux，著名的软件开发平台厂商Inprise（即以前的Borland公司）又宣布很快将发布Linux版本的软件开发工具。这一切都令遍布世界各地的Linux爱好者欣喜不已。
+#1Corel Linux向桌面挺进
+    11月17日，参展的Corel在Comdex上发布了万众期待的Corel Linux操作系统。它与目前市场上流行的其他Linux发行版本不同，它将注意力集中在Linux易用性的改进上，极力推动Linux操作系统向桌面挺进，Corel也渴望成为Linux的桌面领导者。Corel Linux的免费版本可以从该公司的Web网站www.corel.com上免费下载，预定于11月30日开始销售的标准版本的零售价则定在59.95美元。在Corel Linux的发布会上，Corel公司的总裁Michael Cowpland表示：“Corel Linux OS令建立庞大的Linux桌面市场的工作迈进了一大步，Corel能够推出具突破性及当今最容易使用的Linux OS，令我们感到振奋。我们今天所展示的一系列主流产品及绘图应用程序对Linux平台上的工作进展尤为重要，Corel成为Linux桌面的领导者无可置疑”。据透露，Corel目前正在为其著名的字处理软件WordPerfect和绘图软件CorelDRAW开发Linux版本。Linux版本的办公套件预定于明年的第二季度正式推出。
+    Linux一直是基于服务器应用上，因为易用性的原因一般的用户很难独立的安装和维护Linux系统。与目前统治桌面的微软Windows操作系统相比，Linux的确不是理想的桌面平台选择。然而，这种状况正在悄悄地发生着变化，Linux阵营的很多厂商和程序员都在积极地为Linux进军桌面作不懈努力，他们正在改进Linux系统的易用性，为Linux编写和移植更多的应用软件。Corel Linux的推出正是Linux走向桌面的最新动作。随着Linux系统本身的改进以及Star Office之类的应用软件的不断增多，Linux可望在不久的将来，向Windows统治的“桌面帝国”发起强有力的挑战。
+#1开发工具移居Linux
+　　本届Comdex大展上最令Linux开发者欢欣鼓舞的消息来自于老牌软件开发平台厂商Inprise。Inprise原名Borland，因其在80年代推出的Borland系列编程语言环境而蜚声国际，深受软件开发人员的喜爱。Borland推出的DOS平台开发工具Tourbo C 2.0、Borland C＋＋ 3.1曾经风靡一时。目前Windows平台开发工具Delphi、C＋＋ Builder等更是有数量众多的拥趸，在开发者中极具影响和号召力。
+　　此次，Inprise公司特意将展台设在了Linux Business Expo展区，显示了该公司对Linux平台的高度重视。在5天的展览期间，参观者询问得最多的问题就是Delphi和C＋＋ Builder的Linux版本何时上市?据Inprise工程师说，该公司计划为他们所有的开发工具推出Linux版本。事实上，Interbase的Linux版本已经推出多时了，Linux版的Visibroker也在不久前发布了。Inprise在展览会上演示了Java集成开发工具JBuilder的Linux版本，该版本与本季度刚刚推出的JBuilder 3 for Solaris极为相像。据称，JBuilder for Linux将在稳定的Linux版JDK（Java开发包）推出后正式上市。
+　　与此同时，Inprise也正在紧张地开发Linux版本的Delphi和C＋＋ Builder。到目前为止，Linux下的C＋＋和Object Pascal的编译器已经可以工作了。其实，早在今年九月，Inprise公司就已经公布了开发和支持Linux版本下的Delphi和C＋＋ Builder的计划。这个代号为Kylix的计划最初于1999年春启动，目标是将Inprise大获成功的Windows开发工具Delphi等移植到Linux平台上，以便世界各地的程序员能够更方便地为Linux开发应用程序。Kylix将提供与Windows平台下类似的集成开发环境，并采用可共享的可视化部件库（VCL）。Inprise许诺对几乎所有的开发工具和中间件提供Linux支持是一个极其显著的发展战略转移，它是基于Linux将最终成为主要的企业级应用平台的设想。按照Inprise官员的乐观看法，Linux也将很快成长为理想的工作站开发平台。
+　　Inprise公司的Linux产品经理Michael Swindell称：“我们将为专业的Linux开发工作铺平道路并制订标准。目前已经出现了大量的免费工具，但是它们中的很大部分都不太适合应用开发。通过发布快速应用开发环境（RAD），我们将使程序员们能够更快地为Linux开发新应用程序。”Kylix计划一旦实现，Linux平台下的应用程序开发的面貌就会焕然一新，成百上千的应用程序会很快出现，许多Windows应用也会被移植过来。有了好的Linux开发工具，独立软件开发商和硬件厂商才会更倾向于推出Linux版本的软件和驱动程序。Kylix将支持包括Red Hat在内的主要的Linux版本和数据库系统，也将集成Inprise的Midas多层应用体系。
+　　对于目前销售收入停滞不前的Inprise来讲，支持Linux就像进行一场赌博，其结果将在很大程度上取决于人们对Linux系统的接受程度。当然，主流开发工具的出现必将反过来刺激Linux的使用。按照Inprise的时间表，JBuilder for Linux将在2000年第一季度上市，而Delphi和C＋＋ Builder则将紧随其后在2000年年中面世，这绝对值得大家期待。
+　　在本次Linux Business Expo展览会上，著名的Linux Journal杂志和Comdex的主办者还一起评选并颁发了年度“企鹅最佳表现奖”（Penguin Playoffs）。今年的奖项如下：最佳Web解决方案授予了Turbo Linux推出的集群服务器Turbo Cluster Server；最佳硬件解决方案授予了PFU America的“Happy Hacking”Linux/Unix专用键盘；最佳办公解决方案授予了Appgen；最佳整体表现奖的得主则是Global Media公司的电子商务工具。
+　　为期5天的Comdex大展和Linux Business Expo已经降下了帷幕，但是它给人们带来的冲击和影响却远没有结束。众多的厂商和开发人员将更加努力地投入到研发和创新工作中去，我们完全有理由相信，Linux在新世纪里必将更加辉煌！
+
+
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

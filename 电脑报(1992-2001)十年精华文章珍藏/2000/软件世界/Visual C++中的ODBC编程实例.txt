@@ -1,0 +1,157 @@
+Visual C++中的ODBC编程实例
+
+黄立伟
+2000年 第43期 
+
+　　编者按：ODBC（开放式数据库连接）是一种使用SQL的程序设计接口，使用ODBC使数据库应用程序的编写者避免了与数据源相连接的复杂性。利用ODBC技术使得程序员从具体的DBMS中解脱出来，从而可以减少软件开发的工作量，缩短开发周期，并提高效率和软件的可靠性。这项技术目前已经得到了大多数DBMS厂商的广泛支持。
+　　Microsoft Developer Studio为大多数标准的数据库格式提供了32位ODBC驱动器。这些标准数据格式包括有：SQL Server、Access、Paradox、dBase、FoxPro、Excel、Oracle以及Microsoft Text。如果用户希望使用其他数据格式，则需要安装相应的ODBC驱动器及DBMS。
+　　用户使用自己的DBMS数据库管理功能生成新的数据库模式后，就可以使用ODBC来登录数据源。对用户的应用程序来说，只要安装有驱动程序，就能注册很多不同的数据库。登录数据库的具体操作参见有关ODBC的联机帮助。
+#1　　一、MFC提供的ODBC数据库类
+　　Visual C＋＋的MFC基类库定义了几个数据库类。在利用ODBC编程时，经常要使用到  CDatabase（数据库类）、CRecordSet（记录集类）和CRecordView（可视记录集类）。
+　　CDatabase类对象提供了对数据源的连接，通过它可以对数据源进行操作。
+　　CRecordSet类对象提供了从数据源中提取出的记录集。CRecordSet对象通常用于两种形式：动态行集（dynasets）和快照集（snapshots）。动态行集能与其他用户所做的更改保持同步，快照集则是数据的一个静态视图。每种形式在记录集被打开时都提供一组记录，所不同的是，当在一个动态行集里滚动到一条记录时，由其他用户或应用程序中的其他记录集对该记录所做的更改会相应地显示出来。
+　　CRecordView类对象能以控件的形式显示数据库记录，这个视图是直接连到一个CRecordSet对象的表视图。
+#1　　二、应用ODBC编程
+　　应用Visual C＋＋的AppWizard可以自动生成一个ODBC应用程序框架，步骤是：打开File菜单的New选项，选取Projects，填入工程名，选择MFC AppWizard （exe），然后按AppWizard的提示进行操作。
+　　当AppWizard询问是否包含数据库支持时，如果想读写数据库，那么选定Database view with file support；如果想访问数据库的信息而不想写回所做的改变，那么选定Database view without file support。
+　　选好数据库支持之后，Database Source 按钮会被激活，选中它去调用Data Options对话框。在Database Options对话框中会显示出已向ODBC注册的数据库资源，选定所要操作的数据库，如：Super_ES，单击OK后出现Select Database Tables对话框，其中列举了选中的数据库包含的全部表；选择要操作的表后，单击OK。在选定了数据库和数据表之后，就可以按照惯例继续进行AppWizard操作。
+　　特别需要指出的是：在生成的应用程序框架View类（如：CSuper_ESView）中，包含一个指向CSuper_ESSet对象的指针m_pSet，该指针由AppWizard建立，目的是在视表单和记录集之间建立联系，使得记录集中的查询结果能够很容易地在视表单上显示出来。
+　　要使程序与数据源建立联系，需用CDateBase::OpenEx（）或CDatabase::Open（）函数来进行初始化。数据库对象必须在使用它构造记录集对象之前初始化。
+#1　　三、实例
+#1　　1.查询记录
+　　查询记录使用CRecordSet::Open（）和CRecordSet::Requery（）成员函数。在使用CRecordSet类对象之前，必须使用CRecordSet::Open（）函数来获得有效的记录集。一旦已经使用过CRecordSet::Open（）函数，再次查询时就可以应用CRecordSet::Requery（）函数。
+　　在调用CRecordSet::Open（）函数时，如果将一个已经打开的CDatabase对象指针传给CRecordSet类对象的m_pDatabase成员变量，则使用该数据库对象建立ODBC连接;否则如果m_pDatabase为空指针，就新建一个CDatabase类对象，并使其与缺省的数据源相连，然后进行CRecordSet类对象的初始化。缺省数据源由GetDefaultConnect（）函数获得。也可以提供所需要的SQL语句，并以它来调用CRecordSet::Open（）函数，例如:Super_ESSet.Open（AFX_DATABASE_USE_DEFAULT，strSQL）;
+　　如果没有指定参数，程序则使用缺省的SQL语句，即对在GetDefaultSQL（）函数中指定的SQL语句进行操作:
+　　CString CSuper_ESSet::GetDefaultSQL（）
+　　{return _T（″[BsicData]，[MinSize]″）;}
+　　对于GetDefaultSQL（）函数返回的表名，对应的缺省操作是SELECT语句，即:
+　　SELECT ＊ FROM BasicData，MainSize
+　　在查询过程中，也可以利用CRecordSet的成员变量m_strFilter和m_strSort来执行条件查询和结果排序。m_strFilter为过滤字符串，存放着SQL语句中WHERE后的条件串；m_strSort为排序字符串，存放着SQL语句中ORDER BY后的字符串。如:
+　　Super_ESSet.m_strFilter=″TYPE=‘电动机’″;
+　　Super_ESSet.m_strSort=″VOLTAGE″;
+　　Super_ESSet.Requery（）;
+　　对应的SQL语句为:
+　　SELECT ＊ FROM BasicData，MainSize
+　　WHERE TYPE=‘电动机’
+　　ORDER BY VOLTAGE
+　　除了直接赋值给m_strFilter以外，还可以使用参数化。利用参数化可以更直观、更方便地完成条件查询任务。使用参数化的步骤如：
+　　S声明参变量:
+　　CString p1;
+　　float p2;
+　　S在构造函数中初始化参变量:
+　　p1=_T（″″）;
+　　p2=0.0f;
+　　m_nParams=2;
+　　S将参变量与对应列绑定:
+　　pFX－>SetFieldType（CFieldExchange::param）
+　　RFX_Text（pFX，_T（″P1″），p1）;
+　　RFX_Single（pFX，_T（″P2″），p2）;
+　　完成以上步骤后就可以利用参变量进行条件查询:
+　　m_pSet－>m_strFilter=″TYPE=? AND VOLTAGE=?″;m_pSet－>p1=″电动机″;
+　　m_pSet－>p2=60.0;
+　　m_pSet－>Requery（）;
+　　参变量的值按绑定的顺序替换查询字串中的“?”通配符。
+　　如果查询的结果是多条记录，可以用CRecordSet类的函数Move（）、MoveNext（）、MovePrev（）、MoveFirst（）和MoveLast（）来移动光标。
+#1　　2.增加记录
+　　增加记录使用AddNew（）函数，要求数据库必须是以允许增加的方式打开：
+　　m_pSet－>AddNew（）; //在表的末尾增加新记录
+　　m_pSet－>SetFieldNull（＆（m_pSet－>m_type）， FALSE）;
+　　m_pSet－>m_type=″电动机″;
+　　……
+　　//输入新的字段值
+　　m_pSet－>Update（）;
+　　//将新记录存入数据库
+　　m_pSet－>Requery（）;
+　　//重建记录集
+#1　　3.删除记录
+　　可以直接使用Delete（）函数来删除记录，并且在调用Delete（）函数之后不需调用Update（）函数：
+　　m_pSet－>Delete（）;
+　　if （!m_pSet－>IsEOF（））
+　　m_pSet－>MoveNext（）;
+　　else
+　　m_pSet－>MoveLast（）;
+#1　　4.修改记录
+　　修改记录使用Edit（）函数：
+　　m_pSet－>Edit（）;
+　　//修改当前记录
+　　m_pSet－>m_type=″发电机″;
+　　//修改当前记录字段值
+　　    ……
+　　m_pSet－>Update（）;   //将修改结果存入数据库
+　　m_pSet－>Requery（）;
+#1　　5.撤消操作
+　　如果用户选择了增加或者修改记录后希望放弃当前操作，可以在调用Update（）函数之前调用:
+　　CRecordSet::Move（AFX_MOVE_REFRESH）来撤消增加或修改模式，并恢复在增加或修改模式之前的当前记录。其中，参数AFX_MOVE_REFRESH的值为零。
+#1　　6.数据库连接的复用
+　　在CRecordSet类中定义了一个成员变量m_pDatabase:
+　　CDatabase＊ m_pDatabase;
+　　它是指向对象数据库类的指针。如果在CRecordSet类对象调用Open（）函数之前，将一个已经打开的CDatabase类对象指针传给m_pDatabase，就能共享相同的CDatabase类对象。如：
+　　CDatabase m_db;
+　　CRecordSet m_set1，m_set2;
+　　m_db.Open（_T（″Super_ES″））;  //建立ODBC连接
+　　m_set1.m_pDatabase=＆m_db;
+　　//m_set1复用m_db对象
+　　m_set2.m_pDatabse=＆m_db;
+　　// m_set2复用m_db对象
+#1　　7.SQL语句的直接执行
+　　虽然我们可以通过CRecordSet类完成大多数的查询操作，而且在CRecordSet::Open（）函数中也可以提供SQL语句，但是有时候我们还是希望进行一些其他操作，例如建立新表、删除表、建立新的字段等，这时就需要使用CDatabase类直接执行SQL语句的机制。通过调用CDatabase::ExecuteSQL（）函数来完成SQL语句的直接执行：
+　　BOOL CDB::ExecuteSQLAndReportFailure（const CString＆ strSQL）
+　　{TRY
+　　{m_pdb－>ExecuteSQL（strSQL）;
+　　//直接执行SQL语句}
+　　CATCH （CDBException，e）
+　　{CString strMsg;
+　　strMsg.LoadString（IDS_EXECUTE_SQL_FAILED）;
+　　strMsg＋=strSQL;
+　　return FALSE;}
+　　END_CATCH
+　　return TRUE;}
+　　应当指出的是，由于不同的DBMS提供的数据操作语句不尽相同，直接执行SQL语句可能会破坏软件的DBMS无关性，因此在应用中应当慎用此类操作。
+#1　　8.动态连接表
+　　表的动态连接可以利用在调用CRecordSet::Open（）函数时指定SQL语句来实现。同一个记录集对象只能访问具有相同结构的表，否则查询结果将无法与变量相对应。
+　　void CDB::ChangeTable（）
+　　{
+　　if （m_pSet－>IsOpen（））   m_pSet－>Close（）;
+　　switch （m_id）
+　　{
+　　case 0:
+　　m_pSet－>Open（AFX_DB_USE_DEFAULT_TYPE，
+　　″SELECT ＊ FROM SLOT0″）;
+　　//连接表SLOT0
+　　m_id=1;
+　　break;
+　　case 1:
+　　m_pSet－>Open（AFX_DB_USE_DEFAULT_TYPE，
+　　″SELECT ＊ FROM SLOT1″）; //连接表SLOT1
+　　m_id=0;
+　　break; }}
+#1　　9.动态连接数据库
+　　可以通过赋与CRecordSet类对象参数m_pDatabase来连接不同数据库的CDatabase对象指针，从而实现动态连接数据库。
+　　void CDB::ChangeConnect（）
+　　{CDatabase＊ pdb=m_pSet－>m_pDatabase;
+　　pdb－>Close（）;
+　　switch （m_id）
+　　{
+　　case 0:
+　　if （!pdb－>Open（_T（″Super_ES″）））
+　　//连接数据源Super_ES
+　　{
+　　AfxMessageBox（″数据源Super_ES打开失败″，″请检查相应的ODBC连接″， MB_OK|MB_ICONWARNING）;
+　　exit（0）;
+　　}
+　　m_id=1;
+　　break;
+　　case 1:
+　　if （!pdb－>Open（_T（″Motor″）））
+　　//连接数据源Motor
+　　{
+　　AfxMessageBox（″数据源Motor打开失败″，″请检查相应的ODBC连接″， MB_OK|MB_ICONWARNING）;
+　　exit（0）;
+　　}
+　　m_id=0;
+　　break; }}
+　　总结：Visual C＋＋中的ODBC类库可以帮助程序员完成绝大多数的数据库操作。利用ODBC技术使得程序员从具体的DBMS中解脱出来，从而可以减少软件开发的工作量，缩短开发周期，并提高效率和软件的可靠性。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

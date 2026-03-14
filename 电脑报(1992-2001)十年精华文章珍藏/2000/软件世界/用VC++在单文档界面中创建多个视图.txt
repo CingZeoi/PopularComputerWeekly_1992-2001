@@ -1,0 +1,143 @@
+用VC++在单文档界面中创建多个视图
+
+
+2000年 第46期 
+
+　　一个单文档界面中存在多个视图，并且可以根据需要进行视图的动态切换，这是当前比较流行的界面风格，它可以满足许多用户在操作和显示方面的需要。这种界面风格的主要代表软件是Outlook Express。而用VC＋＋实现这种风格的界面有一定难度，笔者就这个问题进行了研究，并归纳总结出两种实现方法（这些代码都在VC＋＋ 6.0下调试通过），使用时关键注意步骤和实现思路，不必拘泥于代码的形式。
+#1    方法一：静态创建切换法
+　　步骤描述：
+　　1．在窗口显示之前先将需要切换的所有的视图对象创建好，除首先显示的视图以外，其他在创建时都设置为不可见属性。
+　　CMyWinApp::InitInstance（）
+　　{    ......
+　　m_pViews[0] = pView1;
+　　m_pViews[1] = （CView＊） new CView2;
+　　CDocument＊ pCurrentDoc = （（CFrameWnd＊） m_pMainWnd）－>GetActiveDocument（）;
+　　// 初始化创建上下文相关指针
+　　CCreateContext newContext;
+　　newContext.m_pNewViewClass = NULL;
+　　newContext.m_pNewDocTemplate = NULL;
+　　newContext.m_pLastView = NULL;
+　　newContext.m_pCurrentFrame = NULL;
+　　newContext.m_pCurrentDoc = pCurrentDoc;
+　　// 最初激活视的ID为AFX_IDW_PANE_FIRST，对新创建的视图增加这个值，注意对CSplitterWnd不能这样使用
+　　UINT viewID[2];
+　　    viewID[1] = AFX_IDW_PANE_FIRST ＋ 1;
+　　CRect rect（0， 0， 0， 0）;
+　　for （ int nView=1; nView<NUMVIEWS; nView＋＋ ）　　{
+　　// 创建新的视图，创建的视图在应用中永久存在，直到应用程序退出，应用程序会自动删除新创建的视图
+　　m_pViews[nView]－>Create（NULL， NULL，
+　　（AFX_WS_DEFAULT_VIEW ＆ ～WS_VISIBLE），
+　　// AFX_WS_DEFAULT_VIEW代表（WS_BORDER | WS_VISIBLE | WS_CHILD）
+　　rect， m_pMainWnd， viewID[nView]， ＆newContext）;
+　　}
+　　// 当文档模板创建视图的时候，会自动发送WM_INITIALUPDATE消息，因此对于我们自己创建的视图，需要人工发送这条消息
+　　（（CForm2＊）m_pViews[1]）－>OnInitialUpdate（）;
+　　（（CVswapView＊）m_pViews[2]）－>OnInitialUpdate（）;
+　　......
+　　}
+　　2．视图的切换
+　　CView＊ CMyWinApp::SwitchView（ UINT nIndex ）
+　　{
+　　ASSERT（ nIndex >=0 ＆＆ nIndex < NUMVIEWS ）;
+　　CView＊ pNewView = m_pViews[nIndex];
+　　CView＊ pActiveView =（（CFrameWnd＊） m_pMainWnd）－>GetActiveView（）;
+　　if （ !pActiveView ） // 当前没有激活的视图
+　　return NULL;
+　　if （ pNewView == pActiveView ） // 当前视图和需要切换的视图相同
+　　return pActiveView;
+　　// 交换视图的窗口ID，使RecalcLayout（）可以工作
+　　UINT temp = ::GetWindowLong（pActiveView－>m_hWnd， GWL_ID）;
+　　::SetWindowLong（pActiveView－>m_hWnd， GWL_ID， ::GetWindowLong（pNewView－>m_hWnd， GWL_ID））;
+　　::SetWindowLong（pNewView－>m_hWnd， GWL_ID， temp）;
+　　// 显示新的视图，隐藏前一个视图
+　　pActiveView－>ShowWindow（SW_HIDE）;
+　　pNewView－>ShowWindow（SW_SHOW）;
+　　（（CFrameWnd＊） m_pMainWnd）－>SetActiveView（pNewView）;
+　　（（CFrameWnd＊） m_pMainWnd）－>RecalcLayout（）;
+　　pNewView－>Invalidate（）;
+　　return pActiveView;
+　　}
+#1    方法二：动态创建切换法
+　　步骤描述：
+　　1．删除当前的视图
+　　首先需要获得当前视图的指针，不能使用GetActiveView（）和GetActiveDocument（）这两个函数，当前视图有可能处在未激活状态，
+　　所以应该使用EnumChildWindows这个Win32API函数，函数定义如下：
+　　BOOL EnumChildWindows（
+　　HWND hWndParent， // 父窗口的句柄
+　　WNDENUMPROC lpEnumFunc，  // 用户自定义回调函数
+　　LPARAM lParam // 传给回调函数的自定义参数
+　　）;
+　　回调函数的定义如下:
+　　BOOL CALLBACK EnumChildProc（
+　　HWND hwnd， // 字窗口的句柄
+　　LPARAM lParam // 自定义参数
+　　）;
+　　EnumChildWindows函数遍历父窗口的所有子窗口，递归调用用户定义的回调函数，当回调函数返回FALSE时，停止遍历，
+　　至于何时返回FALSE，这根据用户自己需要编写的回调函数来决定。
+　　删除视图使用DeleteWindow（）这个函数，用delete也可以删除，但还要其他底层的操作，这里就不详细介绍了，因为删除视图使用DeleteWindow（）最合适、方便了。在删除视图的时候还要注意不能将文档同时自动删除。
+　　删除视图的代码如下：
+　　{ ......
+　　CWnd＊ pWnd;
+　　CWnd＊ pWndToDelete;
+　　// 使用EnumChildWindows查找从CView继承的子窗口
+　　::EnumChildWindows（m_hWnd， MyWndEnumProc， （LPARAM）＆（pWnd））;
+　　if（pWnd == NULL）
+　　{// 没有发现子窗口
+　　return FALSE;}
+　　// 发现子窗口，找到级别最高的子窗口，即父窗口为CMainFrame的窗口
+　　while（ lstrcmp（pWnd－>GetRuntimeClass（）－>m_lpszClassName， ″CMainFrame″） ）
+　　{
+　　pWndToDelete = pWnd;
+　　pWnd = pWnd－>GetParent（）;
+　　}
+　　// 确保视图被删除时文档不被删除
+　　pDoc－>m_bAutoDelete = FALSE;
+　　    // 删除视图
+　　    pWndToDelete－>DestroyWindow（）;
+　　    pDoc－>m_bAutoDelete = TRUE;
+　　    ......
+　　    }
+　　   用户定义的回调函数:
+　　    BOOL CALLBACK MyWndEnumProc（HWND hWnd， LPARAM ppWndLPARAM）
+　　    {
+　　        CWnd＊ pWndChild = CWnd::FromHandlePermanent（hWnd）;
+　　        CWnd＊＊ ppWndTemp = （CWnd＊＊）ppWndLPARAM;
+　　      if（ pWndChild ＆＆ pWndChild－>IsKindOf（RUNTIME_CLASS（CView）） ）
+　　      {
+　　          // 发现任何从CView继承的子窗口，将子窗口指针传递出去
+　　          ＊ppWndTemp = pWndChild;
+　　          // 停止继续搜索
+　　            return FALSE;
+　　        }
+　　        else
+　　        {
+　　          ＊ppWndTemp = NULL;
+　　          // 继续搜索
+　　          return TRUE;
+　　        }}
+　　   2．创建新的视图
+　　    CDocument＊ pCurrentDoc = （（CFrameWnd＊） m_pMainWnd）－>GetActiveDocument（）;
+　　    // 初始化创建上下文相关指针
+　　    CCreateContext newContext;
+　　    newContext.m_pNewViewClass = RUNTIME_CLASS（CView1）;
+　　    newContext.m_pCurrentDoc = pCurrentDoc;
+　　    newContext.m_pNewDocTemplate = NULL;
+　　    newContext.m_pLastView = NULL;
+　　    newContext.m_pCurrentFrame = NULL;
+　　    CView＊ pNewView = STATIC_DOWNCAST（CView， CreateView（＆newContext））;
+　　    if（ pNewView == NULL ）
+　　    {
+　　     return FALSE;
+　　    }
+　　    // 使用CreateView创建的视图不能自动调用OnInitialUpdate函数，需要人工调用OnInitialUpdate函数或者发送WM_INITIALUPDATE消息
+　　    pNewView－>OnInitialUpdate（）;
+　　   // 使用CreateView创建的视图不会自动显示并且激活，需要人工操作
+　　    pNewView－>ShowWindow（SW_SHOW）;
+　　    SetActiveView（pNewView）;
+　　    RecalcLayout（）;
+　　注：RUNTIME_CLASS宏含义
+　　每一个从CObject类继承的类，在定义DECLARE_DYNAMIC、DECLARE_DYNCREATE、DECLARE_SERIAL三个中任意一个宏时都会产生一个CRuntimeClass结构的静态对象，RUNTIME_CLASS返回的就是这个对象的指针，这个对象包含了其基类和本身在运行时刻的信息。以上是笔者在编写多个视应用在单文档的程序时整理出来的两种方法，因为VC＋＋的强大和灵活，笔者相信还有更加巧妙的方法实现这个功能，希望这篇文章能够起到抛砖引玉的作用，也希望广大VC＋＋编程爱好者对本文能够给予批评和指正。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

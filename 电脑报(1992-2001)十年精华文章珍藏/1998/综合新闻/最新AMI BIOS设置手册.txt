@@ -1,0 +1,109 @@
+最新AMI BIOS设置手册
+
+双木
+1998年 第09期 37版
+
+　　BIOS是英文Basic Input/Output System（基本输入/输出系统）的缩写，其程序储存在主板上的 EPROM或Flash ROM 内，作用是测试装在主板上的部件能否正常工作，并提供驱动程序接口，设定系统相关配备的组态。当你的系统配件与原CMOS参数不符合时，或CMOS参数遗失时，或系统不稳定时，就需要进入BIOS设定程序，以重新配置正确的系统组态。
+#1进入AMI BIOS设定程序
+　　1. 打开系统电源或重新启动系统，显示器屏幕将出现自我测试的信息；
+　　2. 当屏幕中间出现"Press <Del> to enter setup"提示时，按下<Del> 键，就可以进入BIOS设定程序。
+　　3. 以方向键移动至你要修改的选项，按下<Enter>键即可进入该选项的子画面；
+　　4. 使用 方向键及〈Enter〉键即可修改所选项目的值，也可用鼠标（包括PS/2鼠标）选择BIOS选项并修改。
+　　5. 任何时候按下<Esc>键即可回到上一画面；
+　　6. 在主画面下，按下<Esc>键，选择“Saving Changes And Exit"即可储存你的新设定并重新启动系统。选择“Exit Without Saving"，则会忽略你的改变而跳出设定程序。
+#1Standard Setup（标准设定）窗口
+　　Date/Time: 显示当前的日期/时间，可修改。
+　　Floppy Drive A，B: 设定软盘驱动器类型为None/720K/1.2M/1.44M/2.88M 。
+　　Pri Master/Slave以及Sec Master/Slave: 此选项可设定:
+　　HDD Type（硬盘类型）: Auto（自动检测）、SCSI（SCSI HDD）、CD－ROM驱动器、Floptical（LS－120大容量软驱）或是Type 1～47等IDE设备。
+　　LBA/Large: 硬盘LBA/Large 模式是否打开。目前540M以上的硬盘都要将此选项打开 （On），但在Novell Netware 3.xx或4.xx版等网络操作系统下要视情况将它关掉（Off）。
+　　Block Mode: 将此选项设为On，有助于硬盘存取速度加快，但有些旧硬盘不支持此模式，必须将此选项设为Off。
+　　32 Bit Mode: 将此选项设为On，有助于在32位的操作系统（如WIN95/NT）下加快硬盘传输速度，有些旧硬盘不支持此模式，必须将此选项设为Off。
+　　PIO Mode: 支持PIO Mode0～Mode5（DMA/33）。用BIOS程序自动检查硬盘时，会自动设置硬盘的PIO Mode。
+#1　　注意：当你在系统中接上一台IDE设备（如硬盘、光驱等）时，最好进入BIOS，让它自动检测。如果使用的是抽屉式硬盘的话，可将Type设成Auto，或将Primary以及Secondary的Type都改成 Auto 即可。所谓Primary指的是第一IDE接口，对应于主板上的IDE0插口，Secondary指的是第二IDE接口，对应于主板上的IDE1插口。每个IDE接口可接Master/Slave（主/从）两台IDE设备。
+#1Advanced Setup（高级设定）窗口
+　　1st/2rd/3rd/4th Boot Device: 开机启动设备的顺序，可选择由IDE0～3、SCSI、光驱、软驱、 Floptical （LS－120大容量软驱）或由Network（网络）开机。
+　　S.M.A.R.T For HardDisk: 开启（Enable）硬盘S.M.A.R.T 功能。如果硬盘支持，此功能可提供硬盘自我监控的功能。
+　　Quick Boot: 开启此功能后，可使开机速度加快。
+　　Floppy Drive Swap: 若将此功能Enable，可使A驱与B驱互换。
+　　PS/2 Mouse Support : 是否开启PS/2鼠标口，若设定为Enable，则开机时，将IRQ12保留给PS/2鼠标使用，若设定为Disable，则IRQ12留给系统使用。
+　　Password Check: 设定何时检查Password（口令），若设定成Setup时，每次进入BIOS设定时将会要求输入口令，若设定成Always时，进入BIOS或系统开机时，都会要求输入口令，但先决条件是必须先设定口令（Security窗口中的User选项）。
+　　Primary Display: 设定显示卡的种类。
+　　Internal Cache: 是否开启CPU内部高速缓存（L1 Cache），应设为Enable。
+　　External Cache: 是否开启主板上的高速缓存（L2 Cache），应设为Enable。
+　　System BIOS Cacheable: 是否将系统BIOS程序复制到内存中，以加快BIOS 存取速度。
+　　C000－DC00，16K Shadow: 此8项是将主内存的UpperMemory（上位内存区）开启，将所有插卡上 ROM程序映射到内存中，以加快CPU对BIOS的执行效率。Disable:不开启本功能；Enable:开启，且可提供读写区段功能；Cached:开启，但不提供读写功能。
+#1Chipset Setup（芯片组设定）窗口
+　　本功能中的选项有助于系统效率的提升，建议使用默认值。若将某些Chipset、DRAM/SDRAM或SRAM 部分的Timing值设得过快，可能会导致系统"死机"或运行不稳定，这时可试着将某些选项的速度值设定慢一点。
+　　USB Function Enabled: 此选项可开启USB接口的功能，如没有USB设备，建议将此选项设为Disable， 否则会浪费一个IRQ资源。
+　　DRAM Write Timing: 设定DRAM的写入时序，建议值如下:
+70ns DRAM: X－3－3－3； 60ns DRAM: X－2－2－2。
+　　Page Mode DRAM Read Timing: 设定DRAM读取时序，建议值如下 :
+70ns DRAM: X－4－4－4； 60ns DRAM: X－3－3－3。
+　　RAS Precharge Period: 设定DRAM/EDO RAM的Precharge（预充电）时间，建议设成4T。
+　　RAS to CAS Delay Time: 设定DRAM中RAS到CAS延迟时间，建议设定成3T。
+　　EDO DRAM Read Timing: 设定EDO DRAM读取时序，建议值如下:
+70ns DRAM : X－3－3－3； 60ns DRAM : X－2－2－2。
+　　DRAM Speculative Read: 此选项是设定DRAM推测性的引导读取时序，建议设定成Disable。
+　　SDRAM CAS Latency: 设定SDRAM的CAS信号延迟时序，建议设定值如下 :
+　　15ns（66MHz）/12ns（75MHz） SDRAM: 3
+　　10ns（100MHz） SDRAM: 2。
+　　SDRAM Timing: 设定SDRAM（同步内存）的时序，建议设定值如下:
+　　15ns（66MHz）/12ns（75MHz） SDRAM: 3－6－9
+　　10ns（100MHz） SDRAM: 3－4－7。
+　　注意：若系统使用SDRAM不稳时，建议将SDRAM速度调慢。
+　　SDRAM Speculative Read : 此选项是设定SDRAM推测性的引导读取时序，建议设定成Disable。
+　　Pipe Function: 此选项设定是否开启Pipe Function（管道功能），建议设定成Enable。
+　　Slow Refresh: 设定DRAM的刷新速率，有15/30/60/120us ，建议设在60us。
+　　Primary Frame Buffer: 此选项保留，建议设定成Disable。
+　　VGA Frame Buffer: 设定是否开启VGA帧缓冲，建议设为Enable。
+　　Passive Release: 设定Passive Release（被动释放）为Enable时，可确保CPU与PCI总线主控芯片（PCI Bus Master）能随时重获对总线的控制权。
+　　ISA Line Buffer: 是否开启ISA总线的Line Buffer，建议设为Enable。
+　　Delay Transaction: 设定是否开启芯片组内部的Delay Transaction（延时传送），建议设成 Disable。
+　　AT Bus Clock: 设定ISA总线时钟，建议设成Auto。
+#1Power Management Setup（能源管理）窗口
+　　能源管理功能可使大部份周边设备在闲置时进入省电功能模示，减少耗电量，达到节约能源的目的。电脑在平常操作时，是工作在全速模式状态，而电源管理程序会监视系统的图形、串并口、硬盘的存取、键盘、鼠标及其他设备的工作状态，如果上述设备都处于停顿状态，则系统就会进入省电模式，当有任何监控事件发生，系统即刻回到全速工作模式的状态。省电模式又分为“全速模式（Normal）、打盹模式 （Doze）、待命模式（Standby）、沉睡模式（Suspend）"，系统耗电量大小顺序:Normal>Doze>
+Standby > Suspend。
+　　Power Management/APM: 是否开启APM省电功能。若开启（Enable），则可设定省电功能。
+　　Green PC Monitor Power State/Video Power Down Mode/Hard Disk Power Down Mode : 设定显示器、显示卡以及硬盘是否开启省电模式，可设定成Standby、Suspend以及Off（即不进入省电模式）。
+　　Video Power Down Mode: 设定显示器在省电模式下的状态 :Disable: 不设定 ；Stand By: 待命模式；Suspend: 沉睡模式。
+　　Hard Disk Power Down Mode: 设定硬盘在省电模式下的状态。（同上）
+　　Standby Timeout/Suspend Timeout: 本选项可设定系统在闲置几分钟后，依序进入Standby Mode/Suspend Mode等省电模式。
+　　Display Activity: 当系统进入Standby Mode时，显示器是否进入省电模示，Ingroe:忽略不管；Monitor:开启。
+　　Monitor Serial Port/Paralell Port/Pri－HDD/Sec－ HDD/VGA /Audio/Floppy: 当系统进入省电模式后，是否监视串并行口、主从硬盘、显示卡、声卡、软驱的动作。Yes:监视，即各设备如有动作，则系统恢复到全速工作模式；No:不监视。
+　　Power Button Override: 是否开启电源开关功能。
+　　Power Button Function: 此选项是设定当使用ATX电源时，电源按扭（SUS－SW） 的作用。 Soft Off: 按一次就进入Suspend Mode，再按一次就恢复运行。Green: 按第一下便是开机，关机时要按住4秒。
+　　Ring resume From Soft Off:是否开启Modem唤醒功能。
+　　RTC Alarm Resume From Soft Off: 是否设定BIOS 定时开机功能。
+#1PCI/PnP Setup窗口
+　　此选项可设定即插即用（PnP）功能。
+　　OnBoard USB: 是否开启芯片组中的USB功能。
+　　Plug and Play Aware OS: 如你的操作系统（OS）具有PnP功能（如 Win95），此项应选Yes；若不是，则选No。如某些 PnP卡无法检测到时，建议设成No。
+　　PCI Latency Timer: 此选项可设定PCI时钟的延迟时序。
+　　Offboard PCI IDE Card: 如使用了其它的PCI IDE卡，则此项必须设定，这要视你的PCI IDE卡是插在哪个Slot（1－4）上而定，并设定以下各IDE IRQ 值。Slot5、6以及Hardwared为保留选项。
+　　Offboard PCI IDE Primary IRQ: 设定PCI IDE卡上IDE 0所要占用的INT＃ ，一般都是设定成INT＃A。
+　　Offboard PCI IDE Secondary IRQ: 设定PCI IDE卡上IDE 1所要占用的INT＃，一般都是设定成 INT＃B。
+　　Assign IRQ to PCI VGA Card: 指定一个IRQ给VGA卡使用，一般不用指定IRQ给VGA卡。
+　　IRQ 3、4、5、7、9、10、11、12、14、15/DMA Channel 0、1、3、5、6、7:本选项是设定各IRQ/DMA 是否让PnP卡自动配置，若设定成PCI/PnP，则BIOS检测到PnP卡时，会挑选你所有设成 PCI/PnP状态的其中一个IRQ/DMA来使用；反之，若设成ISA/EISA，则BIOS 将不会自动配置。一般设为PCI/PnP。
+#1Peripheral Setup（外围设备设定）窗口
+　　Onboard FDC: 是否启用主板上的软驱接口。
+　　Onboard Serial Port 1: 选择串行口1（COM1）的地址，一般设成Auto。
+　　Serial Port1 IRQ: 此选项可设定串行口1的IRQ，建议设成4。
+　　Onboard Serial Port 2: 选择串行口2的地址， 一般设成Auto。
+　　Serial Port2 Mode : 若设成 Normal，为一般接鼠标、Modem用；如有红外线装置（IrDA），则建议设成IrDA ASKIR。
+　　Serial Port2 IRQ: 此选项可设定串行口2的IRQ，建议设成3。
+　　Onboard Parallel Port: 选择并行口的地址。
+　　Onboard Parallel Mode: 选择并行口的传输模式（ECP/EPP/Normal）。默认为标准模式（Normal）。
+　　Parallel Mode IRQ : 设定并行口IRQ，建议设定成7。
+　　EPP Version: 设定EPP Mode为1.7或1.9 版。
+　　Onboard IDE : 是否启用主板上的PCI IDE0、IDE1接口。如果采用外接的IDE卡，则此项必须改成 Disable，反之则设成Both。此选项若设错，将会导致硬盘、光驱等IDE设备检测不到。
+#1Security（安全）窗口
+　　User:允许User（用户）设定密码，输入密码后，必须再输入一次确认。
+　　Anti－Virus：此选项开启后，可防止病毒入侵硬盘的Boot区以及BIOS。
+#1Utility （实用）窗口
+#1Detect IDE：此功能可以自动检测所有接在IDE0及IDE1上的设备，包括硬盘、CD－ROM、LS－120等，且会自动判断其PIO模式，以及LBA/Normal/Large模式，一次即可检测完毕。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,36 @@
+Cookie Pal帮你管好“甜饼”
+
+冯小民 
+2001年 8期
+
+    经常上网的朋友都知道，在上网时浏览过的网站会在系统中存放一些数据，数据中可能包含用户的姓名和登录该站点的密码等信息，以后再次访问该站点时，这些数据会自动发送到该站点。这些数据就是“Cookie”（中文译为“甜饼”）。它们通常存放在Windows的Cookie目录下。对于Cookie，褒贬不一，害怕它会泄密的网友则会在IE中将它设置为限制使用，因为在网上冲浪时，稍不留神这些“甜饼”可能会将你的秘密泄漏出去。所以，Cookie的管理就显得比较重要，如果你不放心Cookie，不妨用Cookie Pal来帮助你管好系统中的“甜饼”。
+　　    Cookie Pal是一个运行在Win95/98/NT 4.0下的专用于管理浏览器中Cookie的工具，它能自动替你接受或拒绝来自某些指定服务器上的Cookie，也可查看或删除已经保存在电脑上的Cookie，还能在接受或拒绝Cookie时用声音报警。
+　　    启动“Cookie Pal”之后，在系统的托盘区域会显示它的图标，在不同情况下图标的状态也会不同：当Cookie Pal没有监视任何浏览器时图标显示为，而在监视浏览器时图标将变成，在接受或拒绝Cookie时又显示为，而如果禁止Cookie Pal工作时图标将变成。
+　　    双击或用右键单击图标再选“show”命令都可以打开主窗口（^08040406a^1），在窗口中有五个标签项，下面分别介绍各个项的意思，搞清楚这些标签项就基本掌握了软件的使用方法。
+　　#1    1.Session标签
+　　    在该标签项下面的窗口中主要显示已经接收到的Cookie来自于哪个站点（如图1）。
+　　    在这个窗口中，如果选择右下方的“Sunmary”按钮，则“Server”下面显示试图发送Cookie的站点名称（主机名或者IP地址），“# Accepted”下面是已经接受的Cookie数目；“#Rejected”下面显示被拒绝的Cookie数目，“Time”则显示最近收到Cookie的时间，从时间的先后顺序上你可以很容易地查看最近有哪些站点试图向你发送Cookie；如果选择“Detail”，则窗口中显示的信息分别是：“Server”下面列出站点名，“Expires”显示Cookie在何时会自动失效（通常Cookie都会有一个时间限制），“Name”为发送来的Cookie的名称，“Value”下面显示Cookie的具体内容，“Time”表示收到Cookie的时间。当你从列表中选择一个Cookie后，窗口下方的“Always Accept”和“Always Reject”按钮将变亮，前者表示以后总是接受来自该站点的Cookie，后者表示总是拒绝。你可以自行确定是接受或拒绝，旁边的“clear”按钮则表示清除列表中的Cookie。
+　　#1    2.Filters标签
+　　    在这个页面上以两个窗口显示接受和拒绝Cookie的站点名称（如^08040406b^2），你可以分别添加或删除相关站点或者设定对已经存在于系统的Cookie进行何种操作。窗口中显示的站点名可能是主机名称或者主机的IP地址，例如，你要拒绝来自www.microsoft.com的Cookie，则在“Reject Cookies from”的下方单击“New”，然后在出现的对话框中输入服务器名“www.microsoft.com”（或者输入ping命令查出的它的IP地址）即可。
+　　    也可以在站点名称中用星号（*）作为通配符来表示一类站点，比如输入“*.abc.com ”可以匹配www1.abc.com、 www2.abc.com、xyz.abc.com等站点，但是当星号用在站点主机名中时，星号必须放在主机名的最前面并且其后只能包括两个部分，比如，“*.abc.com”是允许的，但“*.abc.def.com”（*后面包括abc、def、com三个部分）和“abc.*”（*号用在后面）则不允许；如果要用IP地址来表示站点并且要用星号来作通配符，则星号只能放在IP地址的最后面，例如“200.200.200.*”可以表示“200.200.200.1”、“200.200.200.2”、“200.200.200.255”等等站点。
+　　    对于来自不熟悉的服务器并且在上面的窗口列表中没有的Cookie怎么办？有三种选择：“Reject all”（拒绝所有）、“Accept all”（接受全部）、“Ask for confirmation”（询问是拒绝或接受），最好选择“Ask for confirmation”，让你查看之后再决定。当选择“Ask for confirmation”选项并且收到的Cookie包含三个部分时，会自动出现一个核对窗口让你选择拒绝或接受，单击“Never”或“Always”按钮之后，该站点名会自动出现在窗口列表中。
+　　    当选中窗口下面的复选项“Accept Cookies that expire”之后，可以从旁边的下拉列表框中选择Cookie终止的时间，也就是说，如果超过了这个时间限制，则系统就允许接受这些Cookie；而选中“Override Filters”复选项则表示Cookie在指定的时间限制期内也会被接受（即使在上面的“Reject Cookies from”列表中已经指定）。
+　　#1    3.Cookies标签
+　　    这里列出已有的Cookie名称、内容以及发送该Cookie的站点名，在这里可以根据需要查看或删除它们（^08040406c^3）。
+　　    在该窗口中，包含的信息为：“Server”表示发送Cookie的站点名（以域名或IP地址形式显示）；“Expires”表示Cookie将失效的日期和时间；“Name”下面列出Cookie的名称；“Value”则为Cookie的具体内容。单击这些项目可以使它们按升序（+）或降序（-）排列。
+　　    下方的几个按钮分别表示：“Netscape”显示在Netscape Navigator中的 Cookie（如果你的浏览器是Netscape Navigator）；“Internet Explorer”显示在Internet Explorer 中的Cookie （如果你的浏览器是IE）；“Opera”显示在Opera中的Cookie （如果你的浏览器是Opera），注意如果选择该项，则Cookie Pal只能显示或删除已经存在于Opera中的Cookie而不能阻止或过滤；“Delete”：永久删除在上面列表中选中的Cookie项目，如果发现某个Cookie不能删除，或删除之后又出现了，那么请先关闭浏览器再行删除（因为Netscape 和Opera 通常都会在运行期间在内存中保留Cookie）；“Refresh”为刷新，重新从硬盘上读取新的Cookie数据；“change”则可改变存放Cookie的目录（如果你的Cookie不是存放在Windows\Cookies下面的话）。
+　　#1    4.Sounds标签
+　　    该标签项下可以设置在处理Cookie时要播放的声音（如^08040406d^4）。
+　　    ●“Disable standard alert sound”：选中此项可禁止播放声音警告，但当你在上网浏览或者在运行Cookie Pal时其它程序的声音提示也会终止，当你关闭浏览器或Cookie Pal后其它程序的声音提示才能恢复正常。
+　　    ●“Play this sound when a Cookie is accepted”：设置当接受Cookie时播放的声音，你可以从下拉列表中选择希望听到的声音，如果觉得Cookie Pal预置的声音不好听，可以单击旁边的省略号按钮来选择其它声音文件（WAV文件），“TEST”按钮可以让你试听声音效果。如果不想在接受Cookie时听到声音，只须在下拉列表中选择“（None）”。
+　　    ●“Play this sound when a Cookie is rejected”：设置拒绝Cookie时的声音警告。
+　　    ●“Play this sound when the alert window is displayed”：设置当出现一个对话框要你确定接受或拒绝Cookie时的声音警告信息。
+　　#1    5.Configure标签
+　　    “Configure”标签用于配置Cookie Pal的有关项目，在该页面上进行的所有设置将被保存起来以便今后Cookie Pal调用（^08040406e^5）。
+　　    “Netscape”下面的“Cookie window title”表示在Netscape中Cookie窗口将要显示的标题；“Expiration date”后面设置Cookie 有效的时间，“Persist until”表示在某个日期之前存在，你需要在它后面输入日期；“Cookie” 后面文本框中必须输入“Cookie”这个单词以便在Netscape Navigator中显示Cookie警告对话框，如果没有这个单词，Cookie Pal 不会将警告框中的内容当作Cookie来处理；“Defaults”按钮用于设置默认的语言，如果你更改了语言，则必须重新用这种语言格式输入上面的文本框的内容匹配（否则Cookie Pal可能工作不正常）。
+　　    “Internet Explorer”下面的几个文本框可参照上面所述意思填写，一般而言，只需另外填写“Expiration date”后面的内容，其它取默认值即可。
+　　    “Exit when main window is closed”：选中此项则表示关闭主窗口时完全从内存中退出Cookie Pal程序（包括托盘区域的图标），如果不选此项，表示仅仅关闭主窗口，但还可以通过右击托盘上的小图标并选择“show”来激活程序；“Monitor IE4 Shell Integration”：此项如果选中，表示让Cookie Pal监视所有的资源管理器活动窗口，并且使窗口转换成浏览器窗口模样。在“Startup Options”下面的“Start with Windows”表示随Windows启动而自行启动，一直到关闭系统时才关闭Cookie Pal。“Start with Browser”表示当浏览器启动时才启动Cookie Pal，“Start manually”则表示人工启动（当你认为需要启动时才启动）。
+　　    如果你希望比较好地管理系统中的Cookie，不妨试试这个软件，下载地点http://www.kburra.com，试用期30天。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

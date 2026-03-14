@@ -1,0 +1,46 @@
+Internet基本知识问与答
+
+刘匀
+1996-04-26
+
+        答：Internet 是目前世界上最大的计算机网络，它由美国国防部高级计划研究署( DARPA )建立的ARPANET网发展而来。ARPANET 是最早出现的计算机网络之一， 现代计算机的许多概念和方法便来自ARPANET。在60、70年代，DARPA资助了在不同硬件环境下的分组交换技术的研究，正是由于硬件技术的分化以及与不同硬件技术打交道的经验，促使 DARPA对互联网的研究，并导致了TCP/IP的出现和发展。
+        1980年前后，DARPA开始将ARPANET上的所有机器转向TCP/IP协议，并以ARPANET为主干建立 Internet (又称为互联网间网，Connected Internet) 。1985年，美国国家科学基金会 ( NSF )开始涉足 TCP/IP 技术的研究和开发，1986年资助建立远程主干网 NSFNET，连通 NSF 的全部超级计算机中心并与ARPANET相连，还资助了许多地区网的建设，使全美主要的科研机构联入NSFNET，NSF 资助的所有网络均采用 TCP/IP 协议，而且是 Internet 的一部分，并已代替 ARPANET 成为 Internet 新的主干。
+        到今天，TCP/IP 技术以及 Internet已被广大计算机工作者、厂家和用户所接受，成为许多人工作环境的一部分。今天的 Internet 已不再是一个科研网，而已经发展成一个充满巨大商机的商业网。
+        简而言之，Internet 是一个使用 TCP/IP协议，连接了全球几万个计算机网络，三千多万台计算机和几千万用户的计算机互联网。
+        ■Internet上有什么?
+        答： Internet 是全球最大的计算机网络，它连接了全球的几千万台计算机，整个网络上的资源可以说是浩如烟海，它的内容很难用几句话来概括，它涉及政治，经济，文化，科学，娱乐等各个方面，可以说无所不包，无所不有。这些信息被按照特定的方式组织起来储存在计算机中，这些计算机是 Internet 网上的节点，人们可以利用各种搜索工具检索这些信息。
+        ■怎样连上Internet?
+        答：一般说来，连入 Internet 主要有异步拨号和专线接入这两种方式。异步方式是指通过公用电话系统( PSTN ) 与 Internet  接入服务的提供商的通信服务器相连，利用 TCP/IP 协议实现与 Internet 的连接。
+        专线接入是指用户通过数字专线( 如DDN，X.25 等 )与接入服务提供商的路由器相连。
+        异步方式接入投资小，配置简单，但速度较慢，易受干扰，适于普通用户。专线接入方式投资大，但是比较稳定，速度快，它适于将整个计算机局域网接入 Internet 。例如一个单位或一幢大楼中的计算机局域网接入就适合采用专线接入的方式。
+        ■连接Internet需要什么?
+        答：异步方式接入的用户需要一条电话线、一台 Hayes兼容的调制解调器(MODEM)或FAX/MODEM卡、一台 PC 机和相应的通讯连接软件。当然，向Internet 服务提供商申请一个帐号也是必不可少的。
+        专线接入比较复杂，不同的网络硬件和软件环境有不同的需要，在用户端，一条DDN 或 X.25 数字专线和完成路由功能的硬件设备或软件是必须的。
+        ■什么是SLIP/PPP?
+        答：SLIP 是指 Serial Line Internet Protocol，即串行线路网际协议，PPP 是指 Point to Point Protocol，即点到点协议。SLIP是早期使用的传送协议，现在多用PPP协议，它允许在串行线路上传送多种网络协议的数据报。关于SLIP/PPP的技术细节可参阅相关的 RFC ( Request For Comment )文件，这
+        些文件可在 ftp.merit.edu ，ftp.cnc.ac.cn，ftp.pku.edu.cn等处获取，或者与本文作者联系。
+        ■怎样使用SLIP/PPP联上Internet?
+        答：SLIP/PPP是通过电话线实现网络连接的一种方式。这里的连接是指从电话拨通到建立起协议这个过程。
+        首先，用户需要通过 MODEM拨通服务商的电话，在这里有些软件是使用AT指令进行手工拨号，也可以编辑拨号的脚本文件( Script File ) 实现自动连接；有些软件如 Windows95是自动连接，即拨号是自动的，连接也是按照脚本文件的设置进行的，但对特定的环境并不适用，所以用户需要修改脚本或设置拨号后弹出对话窗口以便进行手工连接。
+        其次，对方电话应答以后，在用户端可以看到提示信息，指示用户如何注册进入系统，用户根据提示输入指令。
+        最后，启动用户端软件的连接，则整个过程到此完毕。一般来讲，这时用户的计算机已被分配一个 IP 地址，成为 Internet 网上的一个节点，用户可以使用各类软件去获取Internet网上的各种信息。
+        有一点说明，拨号的软件必须是 SLIP/PPP 连接软件的拨号程序，例如Trumpet。用其他的具有拨号功能的终端仿真软件如Terminal 或 Telix，Kermit 等是不能建立SLIP/PPP连接的。
+        ■什么是SMTP，什么是POP，什么是POP3，什么是MIME?
+        答：SMTP(Simple Mail Transfer Protocol)即简单邮件传送协议POP(Post Office Protocol)即邮局协议。POP3(POP协议族的第三代，POP2还在使用，POP3是目前最常用的。MIME(Multipurpose Internet Mail Extensions)即扩展多用途的网际邮件。MIME是一种比较新的邮件数据格式的标准。
+        SMTP是TCP/IP协议族的一个成员，这种协议认为你的主机是永久连接在Internet上的，而且，认为你在网络上的主机在任何时候是可以被访问的。所以，它适用于永久连接在Internet的主机，但是无法使用通过SLIP/PPP连接的用户接收电子邮件。解决这个问题的办法是在邮件主机上同时运行SMTP和POP协议的程序，SMTP负责邮件的发送和在邮件主机上的分拣和存储，POP协议负责将邮件通过SLIP/PPP连接传送到用户的主机上。
+        POP是一种只负责接收的协议，不能通过它发送邮件。所以在一些基于winsock的电子邮件程序中都需要设定SMTP和POP服务器的地址。通常，二者在同一个主机上，即一个IP地址。由服务器中的SMTP程序发送邮件，由POP程序将邮件发回到本地主机。
+        ■什么是NEWSGROUP，如何获取NEWSGROUP?
+        答：NEWSGROUP即新闻组，它通过Internet的电子邮件发表个人关于某个问题的观点和看法，也可能是对某人的观点和看法的回复。这些信息都是以电子邮件的方式发送到某个新闻组服务器(News Server)，并以不同的新闻组名组织起来。然后由这个服务器再通过Internet向世界各地的新闻组服务器传送。
+        要获取新闻必须要有一台连接到Internet上的新闻组服务器，用户可以通过终端仿真到服务器主机上使用字符方式的新闻组阅读器，或者以SLIP/PPP的方式，使用基于Winsock的新闻组阅读器来阅读其上的内容。
+        ■什么是WWW?
+        答：WWW 是指 World Wide Web (环球网)。它是一种采用HTTP(Hyper Text Transmit Protocol 超文本传输协议)使客户机与服务器通过 Internet 进行数据交换的一种方式，客户端的 WWWBrowser浏览器通过HTTP向服务器发出请求，服务器端的HTTP后台守护进程通过 CGI( Common Gateway Interface )与应用程序进行数据交换，然后将HTML( Hyper Text Markup Language )格式的数据通过HTTP发回客户端的Browser，客户端的Browser 对 HTML语言进行解释，并将资料以图文并茂的形式显示在屏幕上。
+        WWW是目前Internet上最流行的信息浏览方式，WWW 服务器的数量以每月10% 的数量增长。用户可以通过WWW 的 Browser浏览器实现几乎所有的Internet功能如FTP，Gopher，E-mail等。
+        ■如何使用WWW的Browser(浏览器)?
+        答：现在比较有名的浏览器有Microsoft的Internet Explorer，Netscape公司的Netscape。它们的最新版本分别是 2.0 版和 2.01 版本。这两种浏览器可以运行在Unix、Windows3.x 以及Windows NT 和Windows 95多种操作系统环境下。下面以Netscape 2.0B4 For Windows 95 为例介绍。
+        首先在操作系统下执行 Setup，完成安装后，建立好拨号PPP连接，双击Netscape Navigator的图标启动系统。系统弹出Netscape窗口，在Location后面的对话框中应该输入你所要访问的地址，这个地址必须以http://开始，例如可以输入http://www.microsoft.com就可以访问美国微软公司的Homepage(起始页)。在http://后面也可以输入IP地址，如 http://198.105.232.4同样也可以访问微软公司的Homepage。
+        在Location后面也可以输入 FTP地址，但必须以ftp://开始，例如输入ftp://ftp.pku.edu.cn就可以访问北京大学的 FTP服务器。同样，在ftp://后面也可以输入IP地址。
+        Netscape的Browser还可以访问 Gopher服务器，例如输入gopher://gopher.cnc.ac.cn就可以访问中国科学院的Gopher服务器。gopher://后面可输入IP地址。当你的电脑与Internet某个 WWW或其他类型的服务器建立起连接以后，从服务器传回的数据会显示在 Browser的窗口中。在窗口中移动鼠标，当鼠标变为一个小手时，则表示可以继续往下建立连接。 在 Netscape Browser的菜单项中有 Bookmarks(书签)这一栏，当你访问了一个地点以后，可以点一下Bookmarks下的 Add Bookmark将当前这个地址加入到系统的 Bookmark中，以后要再到这个地点访问，则只须点一下Bookmarks下 这个地点的名称即可。Netscape Browser菜单项中的 Options是一些参数的设置，它们一般不用进行配置，但如果要使用 Netscape Mail或要指定外部的远程登录程序和图象阅读器时，或者要调整系统某个参数时，则必须修改 Options下的相应的参数。具体的操纵方法在以后的问与答中介绍。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,714 @@
+Norton Commander V4.5使用指南
+
+冯成兴
+1995-01-06
+
+        一、Norton Commander V4.5 简介
+        (一)Norton Commander V4.5 的安装盘和程序文件
+        Norton Commander V4.5 的安装盘共两张，第一张盘包括安装文件Install.exe及NC的主要文件：
+        4372ansi.set	将CP437转换为ANSI标准	
+        8502ansi.set 	将cp850转换为ANSI标准	
+        ansi2437.set 	将ANSI 转换为437 标准	
+        ansi2850.set 	将ANSI 转换为850 标准	
+        nc.cfg       	针对过滤器和观察器的配置文件	
+        nc.exe       	NC的加载文件	
+        nc.hlp       	NC的帮助文件	
+        nc.ico       	NC的图标文件	
+        ncedit.exe   	NC的文本编辑器	
+        ncmain.exe   	NC的文件管理器	
+        nczip.exe    	NC的压缩文件	
+        packer.exe   	NC的压缩解释程序	
+        packer.set   	packer.exe的程序文件	
+        readme.txt   	不包括在用户手册内的重要信息	
+        term90.exe   	终端仿真程序	
+        term90.hlp   	终端仿真程序的帮助文件	
+        term90.res   	终端仿真的资源文件	
+        testmdm.scx  	终端仿真器的字体文件	
+        cmpsrv.scx   	终端仿真器的字体文件	
+        genie.scx    	终端仿真器的字体文件	
+        datex.p      	电话号码记录文件
+        如果希望节约你的磁盘空间，可只安装该盘即可。
+        第二张盘只有一个压缩文件，nc_arc.exe  解压后为十余个文件观察器和格式转换程序。
+        (二)Norton Commander V4.5特点和主要功能
+        1.双面板显示：
+        Norton Commander V4.5 用户界面的第一行是主菜单条，最后两行分别是 DOS命令行和热键行，中间部分平均分为左、右两个面板，两个面板可以如 Pctools一样左边显示磁盘树形目录，右边显示磁盘文件。也可反过来，右边显示树形目录，左边显示磁盘文件。或一边显示文件或者目录，另一边显示一些信息或成为快速文件观察窗口。此外，两边还可以同时显示磁盘的目录树，两边同时显示磁盘文件，两边同时显示重要信息。这种灵活多样的显示方式，使你在左右面板之间拷贝和移动文件等十分直观方便。左右面板还可以同时或分别关闭或快速的相互交换内容。
+        2.方便的用户菜单：
+        操作者可以根据自己的需要编辑一个用户菜单，在NC中可随时用热键调出该菜单，选择自己需要的菜单项。你还可以设置成一进入NC时就弹出菜单，这样你可以非常方便地进入菜单设置的某一应用程序。
+        3.联机通讯和终端仿真：
+        NC支持所有的串、并口通讯，如果两台PC之间已通过串并口线连结，NC可以以最快速度在两机之间传输数据。如果用户已入网，NC的终端仿真功能可以使你的机器仿真终端，享用网络资源和实现远距离通讯。
+        4.各种格式文件观察器：
+        Norton Command具有观察各种格式文件的功能，它可以察看十余种不同的格式文件，包括GIF、BMP等图形文件和数据库、电子表格等。
+        5.灵活多样的操作方式：
+        菜单、命令行、热键均可操作。
+        6.独特的屏幕保护功能：
+        按设定的时间关闭屏幕，以保护显示器。
+        7.与中文平台极强的兼容能力：
+        NC在许多著名的中文系统中都能很好的运行。
+        二、Norton Commander V4.5 的安装和运行
+        (一)安装：
+        在硬盘上安装Norton Commander V4.5 可按下述方法进行。
+        1.将1号盘插入软驱，根据你的安装盘类型进入 A 或 B 提示符，然后键入Install 回车。
+        2.安装过程的第一屏将显示程序名称、版本号、出版公司和出版日期，之后，说明NC V4.5 版的新内容。其屏幕内容如下：
+        ┌────────────────────────┐
+        │The Norton Commander 4.5 Installation Program   │
+        │         Copyright (C) 1986-94, Symantec Corp.│
+        │               Welcome to Norton Commander 4.5│
+        │              Commander 4.5 New Features.       │
+        │                   Over 30 New Viewers          │
+        │                Compressed Files Handling       │
+        │                Improved File Management        │
+        │                  New Cloning Feature           │
+        │                   Improved User Menus          │
+        │            Advanced Features for power Users   │
+        │                  New Editor Features           │
+        │                   New shortcut Keys            │
+        │             Filter/Attribute Improvements      │
+        │                Plus Many Many More.....      │
+        │                  OK   Retun to DOS           │
+        └────────────────────────┘
+        1).30个以上的新文件查阅器。
+        2).压缩文件的处理。
+        3).改进的文件管理。
+        4).新的中性特点。
+        5).改进的用户菜单。
+        6).具有高效的电源使用特点。
+        7).新的具有众多特点的编辑器。
+        8).新的简化热键。
+        9).改进的文件过滤器及属性管理。
+        增加的还有很多、很多……
+        3.安装过程的第二屏说明安装程序将要完成的步骤：
+        ┌──────────────────────────────────┐
+        │             The Norton Commander 4.5 Installation Program        │
+        │               Copyright (C) 1986-94, Symantc Corp.             │
+        │                                                                    │
+        │       The installation will go through the following steps:        │
+        │   1.Find any old copies of the Norton Commander.                 │
+        │   2.Ask where you would like to install the new Commander.       │
+        │   3.Back up or delete old copies of the Commander, as you choce.   │
+        │   4.Copy new Commander files to the diretory you specified.      │
+        │   5.Move your Commander Menu file into your destination directory. │
+        │   6.Ask if you want us to change your AUTOEXEC>BAT file for you.   │
+        │   7.Unpack archived Norton Commander files.                      │
+        │             At any step along the way you may Cancel             │
+        │                the installtion and return to DOS               │
+        │                        OK  Return to DOS                       │
+        └──────────────────────────────────┘
+        1)查找NC的老版本拷贝。
+        2)向你提问打算安装新的命令解释器的地点。
+        3)根据你的选择，备份或删除老版本。
+        4)拷贝新的命令解释器到你指定的路径。
+        5)移动你过去的菜单文件到你指定的目录。
+        6)在你的要求下，改变你的Autoexec.bat文件。
+        7)扩展Norton Commander压缩档案中的文件。
+        4.要求你选择源文件所在的盘符A或B。
+        5.选择安装目标的路径。
+        程序默认C 盘下的NC目录，你可根据需要修改它。一旦你确定了目标路径后回车，屏幕将提示你插入 DISK1到指定的驱动器，选［ OK ］回车后即可开始安装。
+        6.1号盘安装完毕后，向你提问是否需要安装NC的文件查阅器，如果你需要安装，在将2号盘插入软驱之后便开始扩展查阅器的压缩文件，如若不需安装，可选择退出。
+        7.最后安装程序将向你提问是否要修改Autoexec.bat文件，你可根据需要予以选择。
+        在以上安装过程中， 机器操作者均可选择［ OK］ 继续安装， 也可随时选择Retun to DOS退出安装。
+        (二)运行Norton Commander 4.5
+        进入你在安装时指定的目录，键入NC回车后即可运行NC V4.5。此时，用Tab 或Ctrl+I键可将光条在两个面板之间移动，用Ins 键可以点亮面板中的目录或文件等结合下拉菜单、各功能键和热键，你将可以随心所欲的使用 Norton Commander 为你服务了。
+        三、Norton Commander V4.5下拉菜单的说明
+        进入NC界面后按功能键F9或者组合键 Ctrl+N 键，屏幕顶部将出现一个主菜单条：
+        ┌────────────────┐
+        │Left File Commands Options Right│
+        └────────────────┘
+        该菜单条中共五个选项，每个选项打开都是一个下拉菜单，如果菜单条中已经有光条出现，你可移动光条选择你希望的选项，也可按每个选项中的第一个大写字母来打开你需要的下拉菜单。下拉菜单一旦打开，移动光条可选择下拉菜单中的任何一项来执行。同时，每个选项里还有一个不同颜色的字母，按它同样可以执行该选项。
+        (一)Left  左面板菜单
+        ┌────────────────┐
+        │  Brief                       │
+        │  Full                        │
+        │  Info                        │
+        │  Tree                        │
+        │  Quick view                  │
+        │  Compressed File             │
+        │  Link                        │
+        │  On/Off         Ctrl-F1        │
+        ├────────────────┤
+        │  Name           Ctrl-F3        │
+        │  Extension      Ctrl-F4      │
+        │  Time           Ctrl-F5      │
+        │  Size           Ctrl-F6      │
+        │  Unsorted       Ctrl-F7        │
+        ├────────────────┤
+        │  Re-read                       │
+        │  Filter...                   │
+        │  Drive...       Alt-F1       │
+        └────────────────┘
+        该菜单是左部面板所显示内容的选择菜单，其每行的含义及使用方法如下：
+        1.Brief文件目录表的简捷显示：
+        左面板分成三栏显示文件，所有显示文件仅只有文件名和扩展名。如：
+        C:\
+        ┌───────┬───────┬─────┐
+        │Name		│Name		│Name│
+        │DOS SUB-DIR	│command com	│himem sys │
+        2.Full文件目录表的全部显示：
+        左面板以四栏显示文件，每一文件都有文件名、扩展名、文件尺寸、文件建立的日期和时间。如果是子目录则在其后显示SUB-DIR 以作说明。
+        C:\
+        ┌───────┬───────┬───────┬───┐
+        │Name		│Size		│Date		│Time  │
+        │nc  exe	│2912		│7-20-95	│5:28p │
+        3.Info信息显示：
+        该选项将显示以下一些信息。
+        1).NC版本号和出版日期。
+        2).基本内存和自由的内存空间。
+        3).右面板显示文件所在的磁盘的容量及自由空间。
+        4).当前目录中的文件数、目录数以及当前目录的大小。
+        5).磁盘卷标及地址。
+        4.Tree树形目录显示：
+        展示右面板文件所在磁盘的树形目录结构。
+        5.Quick veiw快速观察文件：
+        该选项分四种情况显示右面板光条所在目录或文件的内容。
+        1).如果是子目录，首先在第一行说明它是一个目录；然后显示这个目录中包含的下一级子目录个数；最后是文件数和所占磁盘空间。
+        2).如果是COM 文件，则指出其模式类型，并说明敲Enter键可以运行，敲F3键可以查看它。
+        3).如果是 EXE文件，将说明文件名、类型、校验和码、入口地址及运行时所占用的内存空间。如果非以上类型文件，使用该项将以ASCII 码显示其文件内容。
+        以上各项均可以用F3键放大到全屏查看，如果是数据文件，用F4键可以编辑它。
+        6.Compressed File 压缩文件查看：
+        利用该项可查看用arj 和pkzip 等压缩的档案文件的清单，如同这些压缩文件的L命令一样。
+        7.Link联接：
+        当联机通讯仿真终端时，该项选择通讯口。
+        ┌──────────────┐
+        │     Commander Link       │
+        │Choose which mode and purt  │
+        │  you want for this panel:  │
+        ├──────────────┤
+        │Serial Porls Parallel Porls │
+        │  ( )COM1:  ( )LPT1:        │
+        │  ( )COM2:  ( )LPT2:        │
+        │  ( )COM3:  ( )LPT3:        │
+        │  ( )COM4:  ( )LPT4:        │
+        ├──────────────┤
+        │Select communicalion mode   │
+        │  ( )Msster ( )Slave        │
+        ├──────────────┤
+        │ [Link]  [Clone]  [Cancel]  │
+        └──────────────┘
+        以上四个串口和四个并口可供你任意选择，(当然你的硬件必须具备这些口)()Master和()Siave可选择主机或是从机的通讯模式。
+        该对话框中的［Clone］选项是NC4.5的一个新特点，当你联机通讯时，如果通讯的Siave机中没有安装Norlon Commander选项Clone可进行无性繁殖，此时你不但可以在从机上运行NC4.5和安装一个标准的Link。也可以在主机和从机之间进行文件操作。Clone功能实现了联机通讯的单机握手。此时应注意的是上述操作只能通过串口电缆进行。
+        选择［Clone］按钮回车后，还会弹出Clone对话框：
+        ┌───────────────┐
+        │           Clone              │
+        │    Remole syslem porl---     │
+        │      ( )Remole PC COM1       │
+        │      ( )Remole PC COM2       │
+        │----------------------------  │
+        │  Type the following commands │
+        │on the receiving computer and │
+        │  then press the OK button  │
+        │   MODE COM1:2400.N.8.1.P     │
+        │         CTTY COM2:         │
+        ├───────────────┤
+        │  ［Ok］   ［Cione］          │
+        └───────────────┘
+        该对话框选择远端PC机的通讯口。
+        8.On/Off选项：
+        打开或关闭左菜单板，热键是Ctrl+F1。
+        9.Name按文件名排序，热键是Ctrl+F3。
+        10.Extension 按扩展名排序，热键是Ctrl+F4。
+        11.Time按文件建立时间排序，热键是Ctrl+F5。
+        12.Size按文件大小排序，热键是Ctrl+F6。
+        13.Unsorted反排序，热键是Ctrl+F7。
+        14.Re-read 重读文件：
+        执行该项可重读左菜单板显示的磁盘文件，热键是Ctrl+R。
+        15.Filer...过滤器：
+        该过滤器可按操作者需要选择不同的文件类型来显示，选择该项后弹出一个对话框。
+        ┌────────────────────────┐
+        │┌────────────┐┌────────┐│
+        ││   Filler               ││     Allribules ││
+        ││( )All files            ││［ ］Read only  ││
+        ││( )Execulab files       ││［ ］Archive    ││
+        ││( )Dalabase files       ││［ ］System     ││
+        ││( )Spreadsheel files    ││［ ］Hidden     ││
+        ││( )Word processor files ││［ ］Directories││
+        ││( )Graphics files       │└────────┘│
+        ││( )Comprssed files      │                    │
+        ││( )Cuslomised           │                    │
+        │└────────────┘                    │
+        │     ---------------------------------------    │
+        │                  ［Ok］ ［Canced］             │
+        │     ---------------------------------------    │
+        └────────────────────────┘
+        左窗口是文件类型过滤，它们是：
+        All files 所有文件。
+        Executable files可执行文件。
+        Database files数据库文件。
+        Spreadsheet files 电子试算表文件。
+        Word processor files字处理文件。
+        Graphics files图形文件。
+        Compressed files压缩文件。
+        Customised自定义类型文件。如果选择该项，需在下面输入匡内键入你的选择项。
+        右侧窗口是文件属性过滤，它们是：
+        Read only 只读文件。
+        Archive 档案文件。
+        System系统文件。
+        Hidden隐含文件。
+        Directories目录。
+        左边窗口只能选择其中一项，右窗口则可多项同时选择，选择时将光标调至所选项，用空格键确定，再选［OK］钮，回车即可。
+        16.Drive...左面板的驱动器选择，热键是Alt-F1。
+        在该项回车后，可弹出驱动器选择窗口，移动光标或按钮以及与驱动器相应的字母键选择驱动器。
+        (二)Files文件菜单：
+        ┏━━━━━━━━━━━━━━┓
+        ┃Help                  F1    ┃
+        ┃User menu             F2  ┃
+        ┃View                  F3  ┃
+        ┃Edit                  F4    ┃
+        ┃Copy                  F5    ┃
+        ┃Rename or move        F6    ┃
+        ┃Mark directory        F7    ┃
+        ┃Delete                F8    ┃
+        ┠──────────────┨
+        ┃File attrlbutes             ┃
+        ┠──────────────┨
+        ┃Select group         Gray + ┃
+        ┃Deselect group       Gray - ┃
+        ┃Invert selection     Gray * ┃
+        ┃Restore selection           ┃
+        ┠──────────────┨
+        ┃Quit                 F10    ┃
+        ┗━━━━━━━━━━━━━━┛
+        1.Help帮助，热键是F1。
+        该选项是Norton Commander的在线帮助，在NC的任何情况下选择该项，均可得到有关的帮助信息。
+        2.User menu 用户菜单，热键是F2。
+        用此功能可以编辑或使用一自定义的用户菜单，将自己经常需要使用的程序写入该菜单，你就可以十分方便的进入你想使用的程序环境。如果你的菜单项很多， 还可以在你的用户主菜单下面建立局部菜单，以分别管理，方便你的使用。
+        1).用户菜单的建立：
+        如果你的用户菜单还没有建立，可按F2或在该项回车，此时，屏幕上将弹出一个空菜单。击F6键，弹出如下窗口：
+        ┏━━━━━━━━━━┓
+        ┃Inset Menu Item ┃
+        ┃() Command┃
+        ┃() Menu ┃
+        ┗━━━━━━━━━━┛
+        选择Command 项将再弹出主菜单的编辑窗口：
+        ┏━━━━━━━━━━━━━━━━━┓
+        ┃          Edit Main Menu          ┃
+        ┃Hot key:                          ┃
+        ┠─────────────────┨
+        ┃Label:                            ┃
+        ┠─────────────────┨
+        ┃Command:                          ┃
+        ┃                                  ┃
+        ┠─────────────────┨
+        ┃  ［Ok］  ［cancle］          ┃
+        ┗━━━━━━━━━━━━━━━━━┛
+        其中，Hot key 为激活该菜单项的热键，Label 为该菜单的名称，Command 为该菜单的命令项，在这里犹如编写一个批处理文件一般，完成后选择［Ok］钮保存， 该菜单项的建立即告完成。
+        如果你需要编辑已有的菜单项，用F4键。如果需要删除一个菜单项，用F8键，如果你需要增加新的菜单项仍然使用F6键。
+        所有菜单建立之后，将来一旦选择该项，你编辑好的菜单即将弹出屏幕， 根据需要选中某项后回车，你立即便可进入某一应用程序。
+        2).子菜单的建立：
+        当你在击F6键弹出"Inset Menu Item" 窗口时选择了"menu"项，这时弹出的主菜单编辑窗口将没有Command 这一项，现在你编辑的不再是一项任务，而是一个子菜单项。如果你需要建立这个子菜单的各个菜单项，可以象建立主菜单项一般， 如法炮制即可。
+        3.View文件内容查看，热键F3：如果需要查看某一文件内容，你可以选好文件，然后在 View 项回车或直接按F3键，NC将以ASCII 码方式在全屏幕显示文件内容。此时，如果你用F4键可以将其转变为十六进制代码，用F7键可以搜索文件中的字符串。如果使用了F8键， 你可以在下面的菜单中选择观察器。
+        ┏━━━━━━━━━━━━━━━┓
+        ┃      Select Viewer           ┃
+        ┃  WordPrefct                ┃
+        ┃  Wordstar                  ┃
+        ┃  Word,Works                  ┃
+        ┃  Word for Windows          ┃
+        ┃  Write                     ┃
+        ┃  Multimate                 ┃
+        ┃  WordStar 2000             ┃
+        ┃  XyWrite                   ┃
+        ┃  Text View                 ┃
+        ┃  Windows Text View         ┃
+        ┃  Amipro                    ┃
+        ┃  Q&A Write                 ┃
+        ┃  Hex                         ┃
+        ┗━━━━━━━━━━━━━━━┛
+        NC可以模拟以上各种文本编辑软件和观察器的环境查看这些文件。需特别一提的是NC的 View 功能可以把一些 bmp和 gif等格式文件还原成图形显示出来。这使我们观察这些图形将十分方便。
+        4.Edit编辑，热键是F4：
+        该功能是一个文本编辑器，这个编辑器能编辑50K以下的文件，如果过长， 则只能查看。该编辑器的键盘定义如下：
+                 Edit (1/2) --Keyboard refeence
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃Cursor movement (光标变动)                                    ┃
+        ┃  Char left       ^S  or   ←     光标左移一个字符            ┃
+        ┃  Char right      ^D  or   →     光标右移一个字符              ┃
+        ┃  Word left       ^A  or   ^←    光标左移一个词              ┃
+        ┃  Word right      ^F  or   ^→    光标右移一个词              ┃
+        ┃  Line up         ^E  or   ↑     光标上移一行                ┃
+        ┃  Line down       ^X  or   ↓     光标下移一行                ┃
+        ┃  Page up         ^R  or   PgUp   上翻页                      ┃
+        ┃  Page down       ^C  or   PgDn   下翻页                      ┃
+        ┃  End of line     End             光标移到行尾                ┃
+        ┃  Start of line   Home            光标移到行首                ┃
+        ┃  Start of file   ^Home           光标移到文件头              ┃
+        ┃  End of file     ^End            光标移到文件尾                ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃Delete (删除)                                                   ┃
+        ┃Under cursor      ^G  or    Del   删除光标所在的字符            ┃
+        ┃Word left         ^W  or    ^BS   删除光标左边的一个词        ┃
+        ┃Under cursor      ^G  or    Del   删除光标所在的字符            ┃
+        ┃Word right        ^T              删除光标右边的一个词        ┃
+        ┃Line              ^Y              删除整行                      ┃
+        ┃To end of line    ^K              删除光标到行尾的内容          ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃Other (其它)                                                    ┃
+        ┃  Quote next char  ^Q             引用下一个字符              ┃
+        ┃  Quit             Esc or F10     退出                          ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃File Commands (文件命令)                                      ┃
+        ┃  Help            F1              帮助                        ┃
+        ┃  Save            F2              存盘                        ┃
+        ┃  Save as...      Shift + F2      以另一文件名存盘            ┃
+        ┃  Save and quit   Shift + F10     存盘并退出                  ┃
+        ┃  Print File      F9              打印文件                    ┃
+        ┃  Toggle backup   ALT F9          备份开关                    ┃
+        ┃  Insert File     ALT F5          插入文件                      ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃Block Commands (块命令)                                       ┃
+        ┃  Mark Block  (Start/End)    F3         建立块(块首块尾)    ┃
+        ┃  Unmark Block               Shift F3   取消块                ┃
+        ┃  Copy Block                 F5         拷贝块                ┃
+        ┃  Move Block                 F6         移动块                ┃
+        ┃  Delete Block               F8         删除块                  ┃
+        ┃                                                                ┃
+        ┃Search & Replace Commands (搜索和替换命令)                    ┃
+        ┃  Search and Replace forwards     F4         向前搜索和替换   ┃
+        ┃  search and Replace Backwards    Shift F4   向后搜索和替换     ┃
+        ┃  Repeat Search and Replace       ALT F4     重复搜索和替换   ┃
+        ┃  Search for a string Forwards    F7         向前搜索一字符串 ┃
+        ┃  Search for a string Backwards   Shift F7   向后搜索一字符串 ┃
+        ┃  Repeat Search for a String      ALT F7     搜索一字符串并替换 ┃
+        ┃                                                                ┃
+        ┃Other Command (其它命令)                                        ┃
+        ┃  Display in ANSI Format       ALT F1       以ANSI格式显示      ┃
+        ┃  Display in ASCII Format      ALT F2       以ASCII码格式显示   ┃
+        ┃  Insert Current Date          ALT F3       插入当前日期      ┃
+        ┃  Word Line Count              ALT F6       统计行数和单词总数┃
+        ┃  Goto Line                    ALT F8       到指定行            ┃
+        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        5.Copy 拷贝，热键是F5：
+        如果你要拷贝文件，先将需要拷贝的文件放在左或右面板中，然后将这些文件点为高亮，再按 F5 ，屏幕上将弹出 copy 窗口。
+        ┏━━━━━━━━━━━━━━━━━┓
+        ┃               Copy               ┃
+        ┃ Copy...to                        ┃
+        ┃ x:\xxx                          ┃
+        ┠─────────────────┨
+        ┃［］include sub directories       ┃
+        ┠─────────────────┨
+        ┃［Copy］  ［F10-Tree］  ［Cancel］┃
+        ┗━━━━━━━━━━━━━━━━━┛
+        在菜单中目标路径将默认另一面板的当前目录。如果需要拷贝到其它盘或其它目录，可在目标路径栏中输入希望的盘符和路径。也可按F10 键弹出目标盘的目录树，依次键入目标目录的第一个字母可找到目标路径，回车后退回 Copy 窗口，此时拷贝的目标路径已更改，选择［Copy］钮回车便可完成拷贝。
+        NC V4.5的拷贝功能还有一个独到之处，它可以将目录中所有文件连同目录及之下的子目录一起进行拷贝，这时只需把要拷贝的目录点亮(如果需拷贝多个目录，也将其余都点亮)，按F5键，在拷贝菜单栏中把光标调在 ［］ Includesub direc-tories  栏，用空格键将［］中填上 x，回车即可完成多个目录以及子目录和文件的同时拷贝。 NC V4.5的这一功能是很多工具软件都不具备的。
+        6.Rename or move  更名或移动，热键是F6
+        该选项可以修改目录或文件名，也可移动文件位置。 选中文件或目录后， 按F6 键，便弹出Rename对话框。
+        ┏━━━━━━━━━━━━━━━━┓
+        ┃           Rename               ┃
+        ┃ Rename   or   move   "XXXXXXXX.┃
+        ┃ XXX" to                        ┃
+        ┠────────────────┨
+        ┃[ ]Include sub directories      ┃
+        ┠────────────────┨
+        ┃[ Rename ][ F10-Tree ][ Cancel ]┃
+        ┗━━━━━━━━━━━━━━━━┛
+        如果要更名，只能选择一个文件或目录，此时，在兰色输入框内填入应修正的文件或目录名，回车即可。如果要移动文件，其操作方法与拷贝基本相同，只不过移动时删除源文件，拷贝时保留源文件而已。
+        7.Make dirctory建立目录，热键F7：
+        使用该功能，屏幕弹出Make direcetory 框，
+        ┏━━━━━━━━━━━━┓
+        ┃     Make directory     ┃
+        ┃Create the directory  ┃
+        ┗━━━━━━━━━━━━┛
+        在兰色输入框内键入盘符、路径和目录名，该目录即在指定的盘符、路径下建立。如果仅键入子目录名则默认路径为当前目录，所建目录在此目录之下。
+        8.Delete删除，热键是F8：
+        将需删除的文件或目录点成高亮，然后选择该项或者击F8键弹出Delete窗口：
+        ┏━━━━━━━━━━━━━━┓
+        ┃          Delete            ┃
+        ┃ You have selected X files  ┃
+        ┠──────────────┨
+        ┃[ ] Include sub directories ┃
+        ┠──────────────┨
+        ┃     Delete    Cancel       ┃
+        ┗━━━━━━━━━━━━━━┛
+        此时，如果你只需要删除文件或一个子目录，可直接回车。屏幕将弹出确认菜单，在Delete、All、Skip或retur四个选项中任选一项，你就可以删除一个文件，全部删除，删除下一个文件或干脆返回。
+        如若你想一次删除几个子目录或文件加子目录，那么在Delete菜单中用空格键把［］ Include sub dirctory 选项的［］里填入x ，然后回车确认即可。
+        NC V4,5 为确保安全，对系统文件或只读文件，在删除时要求你一个、一个的确认，而不能一次全部删除。NC这种删除带文件目录的功能也是其它工具软件少有的。
+        9.File attributes 文件属性：
+        该选项可以观察和更改文件的属性。
+        如果你需要查看文件属性，可将光条置于需查看的文件，然后选择该项回车， Attributes窗口将弹出。
+        ┏━━━━━━━━━━━━━━┓
+        ┃          Attributes        ┃
+        ┃Change file ateributes for  ┃
+        ┠──────────────┨
+        ┃       "XXXXXXXX.XXX"       ┃
+        ┠──────────────┨
+        ┃      [ ] Read only         ┃
+        ┃      [ ] Archiue           ┃
+        ┃      [ ] Hidden          ┃
+        ┃      [ ] System            ┃
+        ┠──────────────┨
+        ┃    [ Set ]  [ Cancel ]     ┃
+        ┗━━━━━━━━━━━━━━┛
+        所选文件属性在窗口中显示出来，反复按空格键可设置或清除文件属性。如果一次点亮了一个或众多文件，将弹出另一窗口，而不再显示文件原属性。
+        ┏━━━━━━━━━━━━━━┓
+        ┃        Attributes          ┃
+        ┃  Change file attributes    ┃
+        ┠──────────────┨
+        ┃ Set  Clear                 ┃
+        ┃［ ］［ ］Read only         ┃
+        ┃［ ］［ ］Archive           ┃
+        ┃［ ］［ ］Hidden            ┃
+        ┃［ ］［ ］System            ┃
+        ┠──────────────┨
+        ┃   ［ Set ］ ［ Cancel ］   ┃
+        ┗━━━━━━━━━━━━━━┛
+        在这个窗口中可以一次设置或清除所有选中文件的某一属性。
+        10.Select group   Gray + 选择一组文件，热键是小键盘上的+号:
+        按小键盘上的+号键弹出以下选择输入框。
+        ┏━━━━━━━━┓
+        ┃      Select    ┃
+        ┃Select the files┃
+        ┃*.*             ┃
+        ┗━━━━━━━━┛
+        如果此时回车，所有文件将被选择，如果在输入框内选择一类文件，如*.doc ， 回车后当前目录中扩展名为doc 的全部文件将被选中而点成高亮。
+        11.select group Groy - 取消选择：热键是小键盘上的-号。
+        该项将去除所有选择。
+        12.Lnvert selection Gyoy * 反转选择，热键是小键盘上的*键。
+        这个键是一个开关，反复敲击，可以将原来未选中的文件全部点亮，而对原来选中的文件则可去其选择。如果再按它，又恢复为开始的选择。
+        13.Restore selection 恢复选择：
+        原来选择了一些文件，因执行某一命令(如copy)后选择已去除，此时若使用该选项可恢复对原来文件的选择。
+        14.Quit退出NC，热键是F10。
+        (三)Command 命令菜单
+        1.NCD tree树形目录，热键是Alt+F10 ：
+        用该命令可显示当前盘的树形目录，如果用光标键调整光条位置，选中目录后回车当前面板即显示该目录的文件。如若键入目录字符，可快速搜索目录。击F2键可重新将当前盘搜索一遍。F6键可更改光条所在目录名。F7键可建立新的子目录名。F8键可删除光条所在目录。(只能删除空目录)
+        2.Find File 查找文件，热键是Alt+F9:
+        若需查找文件，使用这个命令会弹出文件查找窗口。         ┃         Find File            ┃
+        ┃                              ┃
+        ┃                              ┃
+        ┃File(s) to find:              ┃
+        ┠───────────────┨
+        ┃Containing:                   ┃
+        ┠───────────────┨
+        ┃[Ok]  [Change drive]  [Cancel]┃
+        ┗━━━━━━━━━━━━━━━┛
+        在File(s) to find 框中键入要找的文件名，如果是一类文件，可使用通配符，选择［OK］后即可在窗口上部空白处显示找到的文件及其所在路径。如果当前目录中未找到，用［ Change drive ］钮选择新的驱动器查找。此外，你如果在Containing框中键入了你所找文件中的某一字符串，那么，NC将把没有该字符串的文件过滤掉。
+        一旦你的文件找到后， 最后一行将变为如下内容，   Chdir,   New Search, Change drive, View, Quit FF选择 Chdir退回双面板状态，但当前目录已是你要找的文件所在目录，光条亦停留在所找目录上。Change drive 改变目录， View 查看你找到的文件内容，Quit FF 退出查找。
+        3.History 历史命令，热键是Alt+F8。
+        对于进入NC后在命令行使用过的命令，可以运用该项重新使用它。此时将弹出一History 窗口，该窗口包括了以前在命令行使用过的所有命令。    用光标键移动光条到希望重新执行的命令，回车即可。如果需要修改过去这个命令，可击F4键，选中的历史命令即被复制在History 窗口的最后一行，此时的光标亦出现在该行，现在就可对原来的命令进行编辑了。
+        4.EGA lines EGA行显示，热键Alt+F9。
+        这个命令是一个乒乓开关，如果显示器是 EGA，可将屏幕设置为24行或43行模式；如果你的显示器是 VGA，这个开关可以在25行与50行之间进行选择。
+        5.System information 系统信息。
+        该命令将报告你如下内容：
+        1).Computer 计算机：
+        计算机名称。
+        bios建立日期。
+        cpu 类型及速度。
+        数学协处理器类型。
+        显示器类型。
+        鼠标类型
+        2).Disks 磁盘：
+        硬盘尺寸。
+        软盘尺寸。
+        3).Memory  内存配置。
+        基本内存尺寸
+        扩展内存尺寸
+        扩充内存尺寸
+        4).Other information  其他信息
+        总线类型
+        串行口
+        并行口
+        键盘类型
+        操作系统
+        内存缓冲
+        如果在下面［ Memery Summary ］项回车，将向你报告内存驻留文件情况的摘要， 即DOS 内存块。
+        6.Swap pamels 面板交换。热键Ctrl-U。
+        该命令可相互交换左右面板的内容。
+        7.Pawels on/off 面板的关闭或打开。热键  Ctrl-O
+        这个开关可打开或关闭左右面板，如果关闭了左右面板，按上下箭头键，过去使用过的命令便一个、一个地出现在命令行。这样如同在内存中加载了Doskey一般。
+        8.Compare directory  比较目录。
+        使用这一选项你可比较左右面板两个目录中文件的不同，这时左面板中点为高亮的文件是右面板中所没有的文件。反之，右面板中高亮文件也是左面板的目录中所没有的。如果要使两个目录中文件一致，可十分方便的按下F5(copy)键得以实现。
+        9.Terminal Emulation  终端仿真。
+        该命令在联机时，仿真终端向外传输数据。在该命令这一列回车后，NC将调用term90.exe，这是以下拉菜单方式操作的仿真程序(具体操作方法，可在进入该文件后用F1调出联机帮助查看)这里将不予进一步的说明。
+        10.Menu file edit  菜单文件编辑。
+        这一命令使用后将弹出一选择框，向你提问是编辑主菜单还是局部菜单。选择后即可编辑用户菜单(其方法参见前面文件菜单中的"User menu" 项)
+        11.Extension file edit  扩充文件编辑。
+        该项尤如Windows 中的关联功能，使用这一功能，你可以在指定的扩展名文件上回车而将相关的应用程序打开，用时装入你选中的文件。
+        在该命令项上回车，弹出 Association对话框。如果这时还未建立文件扩展。 你可击F6键插入。这时，一个文件扩展编辑窗口将弹出。
+        ┌────────────────────┐
+        │Inset Association                       │
+        │File extension:                         │
+        │                                        │
+        ├────────────────────┤
+        │Command for this extension:             │
+        │                                        │
+        ├────────────────────┤
+        │( ) Filename with extension      (!.!)│
+        │( ) Filename without extension   (!)    │
+        │( ) Drive letter                 (!:) │
+        │( ) Pathname                     (!\)  │
+        │( ) User Definde                        │
+        ├────────────────────┤
+        │          ［ Ok ］ ［ Cancel ］         │
+        └────────────────────┘
+        以上窗口中，第一项可填入你希望成为与执行程序相关联的文件的扩展名。第二项是你的命令项，可键入你的执行命令。再下一框中的五项分别是：
+        1).文件名和扩展名，这是把相关文件的文件名和扩展名作为扩充命令的参数。
+        2).扩展名之外的文件名，仅把相关文件的文件名作为执行命令的参数。
+        3).驱动器字符，把驱动器字符作为执行命令的参数。
+        4).路径名，以路径名为执行命令的参数。
+        5).用户定义。
+        你A一旦设置好后按［ OK ］，即可使你的文件功能得到扩展。
+        例如：
+        在File extension: 这一栏中填入bas 。
+        在Command for this extension: 栏中键入qbasic。
+        在下面五项中选择 Filename with extension (!.!)
+        这样以后，你在NC介面下只要把光条移到某一扩展名为bas的basic文件，回车即可打开Qbasic，同时也把这一 bas文件装入Qbasic了。
+        如果你设置了几个应用程序都与同一扩展名文件相关，届时NC将向你提问，执行哪一应用程序，你可根据意愿进行选择。
+        (四)Option  选择菜单
+        ┏━━━━━━━━━━━━━━━┓
+        ┃Configuration...              ┃
+        ┃Editor...                     ┃
+        ┃Confirmations...              ┃
+        ┃Compression...                ┃
+        ┠───────────────┨
+        ┃Auto menu                     ┃
+        ┃Path prompt                   ┃
+        ┃Key bar            Ctrl-B     ┃
+        ┃Full screen                   ┃
+        ┃Mini status                   ┃
+        ┠───────────────┨
+        ┃ClockSave setup   Shift-F9    ┃
+        ┗━━━━━━━━━━━━━━━┛
+        1.Configuration...  配置：
+        该对话框可对五个项目进行配置。
+        1).屏幕颜色：
+        ()B & W 黑白方式        ()Laptop 便携机方式
+        ()Color1第一种彩色      ()Color2 第二种彩色。
+        2).屏幕中断保护的等待时间：
+        ［］ On 打开或关上屏幕保护
+        ［］ Miuntes  屏幕中断保护的时间设置。(可选择1-99分)
+        3).打印口选择：
+        该项选择你联接的打印口。
+        4).面板选择：
+        ［］ Show hidden files  选择是否显示隐含文件。
+        ［］ Ins moves doun 是否允许插入模式：
+        如果允许，在你用Ins 键选择文件时，光标将自动下移，否则光标将保持在原来的位置，除非你用光标键将其移动。
+        ［］ Select directories 是否选择目录：
+        如果在方括号里填上X，那么在你使用小键盘的*、＋、-号键选择文件时，目录将被当作文件也可被选，否则，只选文件不选目录。
+        ［］ Auto change directory 自动改变目录：
+        当你的NC面板一边是树形目录时，如果选择了该项，在你移动光条时， 当前目录立即随之改变，另一面板的文件表也随目录变化而变化。反之，则只有在你移动光条到某处目录回车后才有上述变化。
+        5).其它选择：
+        ［］ Menu bar alwaysvisible 菜单条是否经常出现：
+        可选择屏幕顶部主菜单条经常出现或者必须点按f9才出现。
+        ［］ Auto save setup 自动保存设置：
+        在退出NC时是否自动保存当前NC的设置。
+        ［］ Left-handed mouse 鼠标按钮管理：
+        该项的设置与否，可使鼠标左右按钮功能互换，这将有利于左手使用者。
+        ［］ fast mouse reset 快速鼠标重置。
+        ［］ Copy newer files only 只拷贝新文件：
+        如果对该项划X选择，当拷贝文件时不会拷贝那些与目标路径同名的文件，反之将以新文件覆盖目标路径中的同名文件。
+        2.Editor 选择文本编辑器：
+        选择该项回车后，弹出如下对话窗口：
+        ┌────────────────┐
+        │              Edit              │
+        │Select which editor use for F4: │
+        │( ) Built-in                    │
+        │( ) External                  │
+        │                                │
+        └────────────────┘
+        这个窗口要求你选择在按下f4键时调入哪个编辑器，如果选择第一项，使用NC自己的编辑器，如果选择第二项，使用外部编辑器。一旦指定外部编辑器，将要求你在下面浅蓝色框内写入执行外部编辑器的命令。以后，击f4键，调入外部编辑器，如果要使用NC原来的编辑器击Alt+F4键。
+        3.Confirmations...确认：
+        ┌──────────────┐
+        │       Confirmations        │
+        │［ ］ Copy                  │
+        │［ ］ Move                  │
+        │［ ］ Delete                │
+        │［ ］ Delete subdirectories │
+        │［ ］ Edit                  │
+        ├──────────────┤
+        │    ［ Ok ］ ［ Cancel ］   │
+        └──────────────┘
+        以上五项是指在拷贝文件、移动文件、删除文件、删除子目录和退出NC时是否需要提示确认，如果需要确认，在［］内划上X，否则不予提示确认。提示时将弹出一醒目的窗口向你示警，要求你确认。
+        4.Compression...压缩文件的设置：
+        ┌────────────────┐
+        │      Compression Options       │
+        │Storage method                  │
+        │    ( )Automatically select best│
+        │method                          │
+        │    ( ) Create smallest file    │
+        │    ( ) Use fastest method      │
+        ├────────────────┤
+        │General                         │
+        │ ［ ］ Confirm with password    │
+        ├────────────────┤
+        │    ［ Ok ］ ［ Cancel ］       │
+        └────────────────┘
+        以上对话框中Storage method是压缩方法选择，三个选项分别是：
+        1).自动选择最好的方法。
+        2).建立小型的文件。
+        3).使用快速的压缩方法。
+        General 选项是指压缩时是否设置口令。
+        5.Auto menu 自动菜单：
+        在选中该项后，进入NC时将自动弹出用户菜单。
+        6.Path prompt 路径设置：
+        选择该项，NC下部命令行的DOS 提示符内将显示当前路径。
+        7.Key bar 键盘条，热键是Ctrl+B：
+        在该项选择与否将决定进入NC后显不显示最后一行的热键条。
+        8.Full screen 所有屏幕：
+        该项将把NC的面板设置成屏幕的一半或全部屏幕。
+        9.Mini status 小形状态条：
+        如果选择该项，在面板的最一行会开劈一小窗口，显示你选中文件的个数和总字节数。
+        10.Clock 时钟
+        在屏幕左上角显示或关闭时钟。
+        11.Save setup保存设置，热键是Shift+F9：
+        保存你对NC的配置。
+        (五)Right 右面板菜单
+        该菜单除最后一项说明选择驱动器的热键是Alt+F2，与左面板略有不同外，其余部份均与左面板一样。
+        四、其它
+        (一)文件的压缩和释放：
+        1.Compress 压缩文件，热键是Alt+F5：
+        先将要压缩的文件或目录在目录表中点为高亮，然后按Alt+F5弹出以下对话框。
+        ┌───────────────────┐
+        │              Compress                │
+        │Compress X file using XXX to          │
+        │D:\default                           │
+        ├───────────────────┤
+        │［ ］ Include sub directoryies        │
+        │［ ］ Delete files afteruards         │
+        ├───────────────────┤
+        │［ Compress ］［ Select ］［ Cancel ］│
+        └───────────────────┘
+        以上框中第一个X是文件个数，后面三个XXX是你压缩文件使用的扩展名， 这将视你选择的压缩模式而定。下一行是一个输入框，该框内的驱动器名、路径和文件名都可以由用户键入。
+        第二框内的两个选项，第一个是是否包含子目录，第二个是压缩后，是否删除源文件。
+        最后的三个选择按钮中如果选择了［ Select ］将弹出下一对话框：
+        ┌───────────────────┐
+        │Select Compress Method                │
+        │( ) Commander compression             │
+        │( ) PKZIP 1.X/2.X                    │
+        │( ) ARJ                               │
+        │( ) ARC                               │
+        │( ) PAK                               │
+        │( ) ZOOM                              │
+        │( ) LHARC                             │
+        ├───────────────────┤
+        │       ［ Ok ］   ［ Cancel ］        │
+        └───────────────────┘
+        以上对话框中共有七个选项，其中第一个选项是NC自身已具备了的，若要用后面六个选项，必须将相关的应用程序拷贝到NC目录下，或者拷贝到DOS 的环境路径中。如果这个工作已完成，使用NC的文件压缩功能即可将文件压缩成以上各种模式。
+        2).压缩文件的释放：
+        在面板的文件表中点亮要释放的压缩文件，按Alt+F6键，一对话框弹出：
+        ┌────────────────────────┐
+        │                  Decompress                    │
+        │Decompress "xxxxxxxx.xxx" using ARJ to          │
+        │c:\                                            │
+        ├────────────────────────┤
+        │［ ］ Include sub directories                   │
+        ├────────────────────────┤
+        │［ Decompress ］［ Select method ］［ Cancel ］ │
+        └────────────────────────┘
+        该对话框中第一行的"xxxxxxxx.xxx"是你要释放的压缩文件名，后面的ARJ 可以是其它压缩程序，这取决于你压缩时使用的应用程序。第二行的盘符和路径由你输入，第三行的选择与否决定于你在压缩文件时包不包括子目录。
+        2.新文件的建立和编辑：
+        击Shift+F4弹出对话框
+        ┌───────┐
+        │     Edit     │
+        │Edit the file:│
+        └───────┘
+        在对话框中键入新的文件名，回车即可建立一个新文件并且已调入编辑器供你编辑。
+        3.随时可进行的屏幕中断保护：
+        把鼠标光标移至屏幕右上角，可立即实现屏幕的中断保护。
+        4.文件名和目录名的复制：
+        在NC中执行应用程序，只需将光条放在要执行的文件上，回车即可，如若要在执行程序后加参数，你就必须在DOS 命令行上老老实实地键入执行程序名后跟参数再回车。这样做效率很低，利用复制功能可提高操作速度。
+        在面板中将光条调至需要复制的文件名或目录名上，按Ctrl+Enter键，文件名或目录名将复制在DOS 命令行上，键入参数，回车即可执行应用程序。
+        5.快速回到根目录：
+        使用Ctrl+\组合键，无论你当前处在哪一级子目录，均可迅速退回到根目录。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

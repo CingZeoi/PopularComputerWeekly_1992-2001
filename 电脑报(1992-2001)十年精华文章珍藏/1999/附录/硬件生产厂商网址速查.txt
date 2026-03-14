@@ -1,0 +1,264 @@
+硬件生产厂商网址速查
+
+雨翎
+1999年 第53期 01版
+
+
+#1    一、CPU生产厂商
+    http://www.intel.com/                 Intel        
+    http://www.intel.com/cn/gb            Intel 中国        
+    http://www.amd.com                    AMD        
+    http://www.cyrix.com                  Cyrix        
+    http://www.chips.ibm.com/products/x86/     IBM x86        
+    http://www.chips.ibm.com/products/ppc/IBM   PowerPC        
+    http://www.idt. .                      IDT    
+    http://www.winchip.com                IDT WinChip   
+#1    二、主板生产厂商 
+    http://www.asus.com                   华硕（ASUS）    
+    http://www.msi.com.tw                 微星（MSI）    
+    http://www.soyo.com.tw                梅捷（SOYO）    
+    http://www.spacewalker.com            浩鑫（SHUTTLE）    
+    http://www.abit.com.tw                升技（Abit）    
+    http://www.qdigrp.com                 联想（QDI）    
+    http://www.a-trend.com                中凌（A-Trend）    
+    http://www.minstaple.com.tw           明致（Pcchips）    
+    http://www.aopen.com.tw               建基（Aopen）    
+    http://www.chaintech.com.tw           承启（Chaintech）    
+    http://www.fic.com.tw                 大众（FIC）    
+    http://www.gigabyte.com.tw            技嘉（GIGABYTE）    
+    http://www.epox.com                   磐英（Epox）    
+    http://www.ecs.com.tw                 精英（ECS）    
+    http://www.oceanhk.com/               海洋（OCTEK）     
+    http://www.jbound.com                 捷邦（JBound）    
+    http://www.jetway.com.tw/             捷波    
+    http://www.dataexpert.com.tw          联讯（DataExpert）    
+    http://www.fyi.com.tw                 福洋（FYI）    
+    http://www.freetech.com/              富基    
+    http://www.mycomp.com.tw/             迈肯    
+    http://www.dfi.com.tw/                友通    
+    http://www.soltek.com.tw              伟格    
+    http://www.vst.com.hk/chtml/mboard.htm          伟仕    
+    http://www.airwebs.com/               联尚（AIR）    
+    http://www.biostar-usa.com            映泰（BioStar）    
+    http://www.iwill.com.tw/              艾崴（Iwill）    
+    http://www.dtk.com.tw/                创宏（DTK）    
+    http://www.efa.com.tw/                忆华（EFA）    
+    http://www.intel.com/design/motherbd/          Intel    
+    http://www.lucky-star.com.tw/         联胜（LUCKY STAR）    
+    http://www.micronics.com/             万科（Micronics）    
+    http://www.pine-tech.com/             松景（Pine）    
+    http://www.magic-pro.com.hk           辉煌（Magic Pro）    
+    http://megastar.kamtronic.com         皇朝    
+    http://www.2themax.com/               天烽 
+    http://www.mida.com.cn/               美达（MIDA）    
+    http://www.espco.com                  金鹰（ESPCO）    
+    http://www.zeling.com                 则灵    
+    http://www.superpower.com.tw          上普（SuperPower）    
+    http://www.soltek.com.tw              硕泰克（SOLTEK）    
+    http://www.wintac.com.tw              太宇    
+    http://www.sowah.com                  崇和 SOWAH    
+#1    三、芯片组生产厂商    
+    http://developer.intel.com/design/agpsets/440bx/    Intel    
+    http://www.via.com.tw/                威盛（VIA）    
+    http://www.sis.com.tw                 矽统（SIS）    
+    http://www.chips.com                  CHIPS    
+    http://www.ali.com.tw                 扬智（ALi）    
+    http://www.opti.com                   Opti    
+    http://www.award.com                  Award    
+    http://www.phoenix.com/               PHOENIX      
+#1    四、内存生产厂商
+    http://www.lgs.co.kr/dram/sdram/      LGS（Goldstar）    
+    http://www.ic.nec.co.jp/english/products/memory/   NEC    
+    http://www.usa.samsungsemi.com/buy/decoder/  三星（SEC）    
+    http://www.mitsubishichips.com/data/datasheets/  lMITSUBISH    
+    http://www.micron.com/mti/msp/html/   （MICRON）    
+    http://www.toshiba.com/taec/nonflash/  东芝    
+    http://www.century-micro.com          Century     
+    http://www.kingmax.com                KINGMAX    
+    http://www1.pqi.com.tw                PQI（劲永）    
+#1    五、硬盘生产厂商
+    http://www.quantum.com                昆腾（Quantum）    
+    http://www.seagate.com                希捷（Seagate）    
+    http://www.maxtor.com                 迈拓（Maxtor）     
+    http://www.fujitsu.com                富士通（Fujitsu）    
+    http://samsungelectronics.com/hdd/    三星（Samsung）    
+    http://www.wdc.com                    西部数据（WD）     
+    http://www.storage.ibm.com            IBM    
+    http://www.jtscorp.com                JTS
+#1    六、显示卡生产厂商
+    http://www.leadtek.com.tw             丽台（Leadtek）    
+    http://www.biostar-usa.com            映泰（BioStar）     
+    http://www.yuan.com.tw                小影霸    
+    http://www.diamondmm.com              帝盟（Diamond）    
+    http://www.atitech.com                ATI    
+    http://www.s3.com                     S3    
+    http://www.cirrus.com                 CIRRUS LOGIC    
+    http://www.trid.com                   TRIDENT    
+    http://www.3dlabs.com                 3Dlabs    
+    http://www.powervr.com                NEC    
+    http://3dfx.com                       3Dfx    
+    http://www.matrox.com                 Matrox    
+    http://www.nvidia.com                 Nvidia    
+    http://www.videologic.com             Videologic    
+    http://www.canopuscorp.com/           Canopus    
+    http://www.creaf.com                  Creative    
+    http://www.deltrontech.com/           Deltron    
+    http://www.ingr.com/ics/              Intergraph    
+    http://www.jazzmm.com/                Jazz    
+    http://www.oaktech.com                Oak    
+    http://www.quantum3d.com/             Quantum3D    
+    http://www.tseng.com/                 Tseng    
+    http://www.dataexpert.com.tw          联讯    
+    http://www.gainward.com.tw            耕宇（CARDEX）       
+    http://www.elsa.com/                  Elsa    
+    http://www.accelgraphics.com          AGI    
+    http://www.stb.com                    STB    
+    http://www.zeling.com                 则灵      
+    http://www.asus.com.tw                华硕（ASUS）    
+    http://driver.triplex.com.tw          启亨 triplex    
+    http://www.mxic.com.tw><big></big>    MX 系列    
+    http://www.drivershq.com              Number Nine    
+    http://www.orchid.com                 Orchid    
+#1    七、声卡生产厂商    
+    http://www.analog.com                 Analog    
+    http://www.opti.com                   Opti    
+    http://www.aztech.com.sg              AZTECH    
+    http://www.esstech.com                ESS    
+    http://www.creaf.com                  Creative    
+    http://www.cmedia.com.tw              C-MEDIA    
+    http://www.addonics.com/tw/pmultimedia.htm     花王    
+    http://www.yamaha.com                 Yamaha    
+    http://www.ensoniq.com                Ensoniq    
+    http://www.s3..com/products/products.htm/sonvibes       S3    
+    http://www.aureal.com                 Aureal    
+    http://www.triplex.com.tw/c-index.htm          启享    
+    http://www.bocaresearch.com           Boca Research    
+    http://www.cardtech.com/              Cardinal    
+    http://www.logitech.com/              Logitech    
+    http://www.svtus.com/                 MediaVision    
+    http://www.topstar.com                Topstar      
+    http://www.orchid.com/                Orchid    
+    http://www.zoltrix.com/               Zoltrix    
+    http://www.aopen.com                  Aopen    
+    http://www.cirrus.com                 Crystal
+#1   八、光驱生产厂商
+    http://www.asus.com/cdroms.asp        华硕（ASUS）    
+    http://www.ita.sel.sony.com/products/storage/cddrives/  索尼    
+    http://www..pc.be.philips.com/cdrom/  飞利浦（Philips）    
+    http://nectech.com/cdrom/index.htm    NEC    
+    http://www.hitachi.com/storage/products/cd/  日立    
+    http://toshiba.com/taecdpd/cd.htm     东芝（Toshiba）    
+    http://samsungelectronics.com/cdrom/index.html     三星    
+    http://teac.com/dsp/cd/cd.html        太一（TEAC）     
+    http://www.mitsumi.com                美上美（Mitsumi）     
+    http://www.panasonic.com              松下（Panasonic）    
+    http://www.pioneerusa.com             先锋（Pioneer）
+#1    九、显示器生产厂商
+    http://www.viewsonic.com.tw/          ViewSonic（优派）    
+    http://www.monitors.be.philips.com    Philips    
+    http://samsungelectronics..com/monitor/    Samsung（三星）    
+    http://www.nsa-hitachi.com            Hitachi    
+    http://www.maginnovision.com          MAG（美格）    
+    http://www.sceptre.com                Sceptre（赛普特）     
+    http://www.adi.com.tw/                ADI     
+    http://www.hei.co.kr/eng/product/multi/monitor/  现代    
+    http://www.ita.sel.sony.com/          Sony    
+    http://www.acer.com/aac/products/a_view/index.html      Acer    
+    http://www.gvc.com.tw/                致福（GVC）    
+    http://www.plextor.com                Plextor    
+    http://www.dtk.com.tw/                DTK    
+    http://www.taxan.co.uk/               Taxan    
+    http://www.aocltd.com/                AOC    
+    http://www.huaqi.com                  华旗（爱国者）   
+#1   十、Modem生产厂商
+    http://www.hayes.com.cn               贺氏（Hayes）    
+    http://www.gvc.com.cn                 GVC    
+    http://www.3com.com                   3COM    
+    http://www.motorola.com               Motorola    
+    http://x2.usr.com                     U.S.Robotics    
+    http://www.star.com.cn                实达    
+    http://www.diamondmm.com/             Diamond    
+    http://www.archtek.com                Archtek    
+    http://www.leadtek.com.tw             丽台（Leadtek）    
+    http://www.taicom.com.tw              Taicom（台康）    
+    http://www.infotron.cn..net/fycs/modem.htm     志远    
+    http://www.globalvillage.com/         Global Village     
+    http://www.rockwell.com               Rockwell     
+    http://www.pinegroup.com              松景（PINE）    
+    http://www.magic-pro.com.hk           辉煌（Magic Pro）      
+    http://www.askey.com.cn               亚旭（ASKEY）    
+    http://www.modemhome.com.cn           联想（Legend）    
+    http://www.bestunion.com              群柏（Bestunion）    
+    http://www.allieddata.nt              Allied Data    
+#1    十一、打印机生产厂商
+    http://www.hp.com                     惠普（HP）    
+    http://www.usa.canon.com              佳能（Canon）    
+    http://www.epson.com                  爱普生（Epson）   
+    http://www.xerox.chinabyte.com        施乐（Xerox）    
+    http://www.brother.com                Brother    
+    http://www.lexmark.com                Lexmark（利盟）    
+    http://www.stonetr.com.cn             四通    
+    http://www.start.com.cn/              实达    
+    http://www.okidata.com/               Okidata     
+    http://www.olivettilexikon.com/       Olivetti    
+    http://www.genicom.com                Genicom
+#1    十二、扫描仪生产厂商
+    http://www.mustek.com.tw              Mustek    
+    http://www.microtekusa.com            Microtek    
+    http://www.rolanddga.com              Roland    
+    http://www.agfa.com                   AGFA（爱克发）    
+    http://www.tusc.com.cn                清华紫光    
+    http://www.xerox.chinabyte.com        施乐    
+    http://www.hp..com/cposupport/indexes/swin_dos.html     HP
+#1    十三、UPS生产厂商
+    http://www.apcc.com/                  APC   
+    http://www.exide.com.cn               Exide（爱克赛）    
+    http://www.xmkehua.com/               科华    
+    http://www.fuden.com.tw/              富山电机    
+    http://www.stk.com.cn                 山特
+#1    十四、音箱生产厂商
+    http://www.altecmm.com                Altec    
+    http://www.hifi.com                   Cambridge    
+    http://www.yamaha.com                 Yamaha    
+    http://www.cnortek.com                润宝    
+    http://www.jazzspeakers.com           JAZZ    
+    http://www.labtec.com                 Labtec
+#1    十五、整机生产厂商
+    http://www.ibm.com.cn                 IBM    
+    http://www.hp.com                     HP（惠普）    
+    http://www.compaq.com                 COMPAQ（康柏）    
+    http://www.dell.com                   DELL    
+    http://www.ast.com/                   AST（虹志）    
+    http://www.dec.com/                   DEC    
+    http://www.nec-computers.com/         NEC    
+    http://www.apple.com/                 Apple（苹果）    
+    http://www.digital.com.cn             Digital中国    
+    http://www.acer.com                   Acer    
+    http://www.packardbell.com/           Packard Bell    
+    http://www.gw2k.com/                  Gateway 2000    
+    http://www.olivetti.it/               Olivetti（好利获得）    
+    http://www.tulip.com/                 Tulip（郁金香）    
+    http://www.toshiba.co.jp/toshiba      （东芝）    
+    http://www.hitachipc.com              HITACHI    
+    http://www.hei.co.kr/eng/emain.htm    HYUNDAI    
+    http://168.160.224.34/                Hauppauge（哈博）    
+    http://www.lcs.legend.com.cn/         联想集团公司    
+    http://www.start.com.cn/><font size=2>       实达集团     
+    http://www.infotron.cn.net/fycs/truait.htm   同创电脑        
+    http://202.96.161.212/                长城    
+    http://www.huasun.com                 华胜    
+    http://www.unisbok.com                紫光笔记本    
+    http://www.langchao.com.cn            浪潮    
+    http://www.twinhead.com/              Twinhead（伦飞）    
+    http://www.hisensecomputer.com        海信    
+    http://www.stone-group.com            四通    
+    http://www.tongfang.com.cn/           清华同方    
+    http://www.infotron.cn.net/wsym/maxsta/maxsta.htm        恒升    
+    http://www.dh.com                     东海    
+    http://www.princepc.com               王子    
+    http://boc.fz.fj.cn                   福建中银（BOC）
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

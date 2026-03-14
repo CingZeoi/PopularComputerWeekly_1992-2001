@@ -1,0 +1,82 @@
+Windows 2000注册表直通车
+
+林斌 田治华
+2000年 第15期 
+
+　　我在安装了Windows 2000简体中文正式版后，发现它类似NT，提供了相当多的系统、管理工具，了解掌握这些新工具的使用方法，将会更有利于我们熟练使用Windows 2000。于是我首先对其管理核心“注册表编辑器”进行了一番研究，发现了一些新特性和运用修改技巧，现介绍如下。
+　　你可以选择菜单“开始／运行”，在弹出的运行对话框中输入“regedit”，再单击“确定”按钮来启动类似于Windows 9X的注册表编辑器（^15020305a^1）。
+　　它比Windows 9X下的注册表编辑器增加了许多功能。首先，在右边窗口的键值详细列表中增加了类型列，使我们可以很直观地了解键值的类型，如：如REG_SZ为字符串值，REG_DWORD为DWORD值，REG_BINARY为二进制值等；其次，在菜单栏中增加了类似IE的收藏菜单，提供了收藏夹功能，它可以方便你快速定位到需要经常修改的主键位置；第三，它还提供了记忆功能，即每次当你打开它时，左边窗口中的树形主键分支会自动展开，把焦点定位到你最近一次修改过的位置。
+　　除了上述类似于Windows 9X的注册表编辑器外，Windows 2000还提供了一个新版的注册表编辑器（注意：下面我们介绍的注册表修改都是在其中进行），位置在D:\WINNT\system32\regedt32.exe（假设D为Windows 2000的安装盘符），运行它，主界面如^15020305b^2所示。
+　　该注册表编辑器拥有多个子窗口，每个子窗口代表本地计算机上的一个预定义项（即五大根键）。这个注册表编辑器不仅可以显示编辑本地计算机的注册表项，还可以访问远程计算机的注册表，当访问远程计算机的注册表时，只可使用两个预定义项[HKEY_USERS]和[HKEY_LOCAL_MACHINE]。
+　　下面简要说明一下这些预定义项的含义：
+　　[HKEY_CURRENT_USER]：包含当前登录用户的配置信息的根目录。用户文件夹、屏幕颜色和控制面板设置存储在此处。该信息被称为用户配置文件，是 HKEY_USERS 的子项。
+　　[HKEY_USERS]：包含计算机上所有用户的配置文件的根目录。
+　　[HKEY_LOCAL_MACHINE]：包含针对该计算机（全部用户）的配置信息。
+　　[HKEY_CLASSES_ROOT]：是 HKEY_LOCAL_MACHINE\Software 的子项。此处存储的信息可以确保在Windows 资源管理器中使用正确的程序打开不同类型的文件。
+　　[HKEY_CURRENT_CONFIG]：包含本地计算机在系统启动时所用的硬件配置文件信息。
+　　这个新版注册表编辑器除了具备原来Windows 9X注册表编辑器全部功能外，最重要的是增加了“安全”菜单，也就是说，管理员可以给注册表项指派“权限”，这一功能在NT中早就采用了，但在面向单机的操作系统中还是首次提供。这使得注册表的安全性大大提高。下面以允许用户访问“控制面板”注册表项但不保存对它的任何修改为例，介绍一下如何指派“权限”。
+　　首先在[HKEY_CURRENT_USER]窗口单击“Control Panel”主键，然后选择“安全”菜单中的“权限”，在“Control Panel的权限”对话框中选择用户，再选中“读取”右边的“允许”复选框，最后单击“确定”即可（^15020305c^3）。
+　　类似于Window 9X的注册表，我们同样可以通过修改一些注册表项实现一些Windows 2000中无法直接设置的功能，特别是在目前多数Windows 9X的修改工具都无法在Windows 2000中正常使用的情况下，因此只好“自己动手，丰衣足食”了（注意：如果你需要练习使用这个新版注册表编辑器，建议将“选项”菜单中的“只读模式”打开，以保护你的注册表数据免遭意外的损坏和突然的改变。单击“只读模式”后，注册表编辑器将不保存所作的任何更改）。
+    1．加速菜单显示
+　　Windows 2000默认的菜单显示效果为“淡入淡出”，在这种效果下，修改菜单显示速度并不明显，所以请先将“淡入淡出效果”改为“滚动效果”。方法是在桌面上单击右键，选择“属性”，弹出“显示 属性”窗口，然后在“效果”标签下将“动画显示菜单和工具提示”右边的“淡入淡出效果”改为“滚动效果”。然后打开注册表编辑器，定位到[HKEY_CURRENT_USER\Control Panel\Desktop]，在右边窗口双击键值名“Menushowdelay”，将默认的值改为“0”或比“400”小的数值即可。该项取值范围是0～100000，单位是毫秒。
+　　2．更改登录背景
+　　打开注册表编辑器，定位到“HKEY_USERS\.DEFAULT\Control Panel\Desktop”，在右边窗口双击键值名“Wallpaper”，在文本输入框内将默认值“（无）”改为背景图片文件所在的路径位置即可。
+    在Windows 2000中，你可以运行WINNT\system32目录下的regedit32.exe程序，打开新版注册表编辑器窗口。在其中，你还可以进行以下设置。
+　　3．自动刷新窗口内容
+　　选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\System\Currentcontrolset\Control\Update分支，在右边窗口中可以看到DWORD型键值 “UpdateMode”。若将它的值设为0，则表示自动刷新；若将它的值设为1，则表示手工刷新，相当于在资源管理器窗口内按“F5”键或者在“查看”菜单中选择“刷新”命令。
+　　双击该键值，你就可以在“DWORD值编辑器”内设定它的值为“1”或“0”，最后再单击“确定”按钮即可。
+　　4．去掉“Windows Update”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoCommonGroups”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮，再将 “NoCommonGroups” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　5．去掉“文档”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoRecentDocsMenu”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoRecentDocsMenu”键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　6．去掉“查找”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoFind”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoFind” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　7．去掉“运行”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoRun”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoRun” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　8．去掉“注销”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoLogOff”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoLogOff” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　9．去掉“关闭系统”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoClose”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoClose” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　10．去掉“设置”菜单
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoSetFolders”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoSetFolders” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　11．自动清除“文档”菜单内容
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“ClearRecentDocsOnExit”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “ClearRecentDocsOnExit” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　12．让“文档”菜单中只显示你常用到的文件
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoRecentDocsHistory”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoRecentDocsHistory” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　13．查看“自启动”程序
+　　绝大多数“自启动”程序都是通过注册表加载的，而它们在“开始／程序／启动”菜单中是看不到的。这时，你可以选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run分支查看，也可以删除右边窗口中的一些键值而达到禁止某些程序自启动的目的。
+　　14．为 “新建”菜单减肥
+　　鼠标右键的快捷菜单中，“新建”菜单的子菜单随着你安装应用程序的增加，会变得越来越长，如果你想为它减肥，可以选择“本地机器上的HKEY_LOCAL_MACHINE”及“本地机器上的HKEY_LOCAL_ROOT”子窗口，选择“查看／搜索项”菜单，然后在查找对话框中输入“shellnew”，并选中“全字匹配”复选框，然后开始查找。找到对应程序项后将下面的shellnew子键删除掉即可。
+　　15．删除多余的配色方案
+　　打开“控制面板”窗口中的“显示”，然后在“显示属性”窗口中选择“外观”选项卡，在“方案”下拉列表框中，你可以看到多种配色方案，你可以删除不需要的方案。方法是选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Control Panel\Appearance\Schemes分支，这时在窗口的右边会出现系统自带的各种配色方案。
+　　将你认为无用的配色方案删除掉，但注意保留“Windows默认”一项即可。
+　　16．为“回收站”改名
+　　选择“本地机器上的HKEY_CLASSES_ROOT”子窗口，定位到HKEY_CLASSES_ROOT\CLSID\{645FF040－5081－101B－9F08－00AA002F954E}分支。双击右边窗口的“回收站”，弹出字符串编辑器，然后在文本输入框内，将“回收站”改为你喜欢的名字如“垃圾筒”并重新启动机器即可。
+　　在Windows 2000中，你可以运行WINNT\system32目录下的regedit32.exe程序，打开新版注册表编辑器窗口。在其中，你还可以进行以下设置。
+　　17．删除桌面上的系统图标
+　　当你想删除桌面上的“回收站”、“Internet Explorer”等系统设定的图标时，会发现它们不能用一般的方法删除。这时你可以选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace分支，在该分支下面有多个子键，这些子键对应桌面上的“系统”图标，在右边窗口你可以看到，如“Internet Explorer”等。要删除不需要的图标，只须删除对应的键值，再重新启动系统即可。
+　　18．去掉“网上邻居”图标
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoNetHood”，在数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。再将 “NoNetHood” 键值设为“1”，最后单击“确定”按钮并重新启动系统即可。
+　　19．隐藏指定的驱动器
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer分支，再选择“编辑”菜单下的“添加数值”命令，弹出添加数值窗口。在数值名称中输入“NoDrives”的数据类型下拉列表框中选择“REG_DWORD”，单击“确定”按钮。在接下来弹出的DWORD值编辑器对话框的“基数”分组框中选择“十进制”单选钮，在“数据”编辑框中输入你要隐藏的驱动器号并确定，重新启动系统后相应的驱动器即被隐藏。
+　　注意：在这里使用2的N次方（N=1，2，3，……）来代表一个驱动器号，如：A为 1， B为 2， C为 4， D为 8， E为 16， F为 32， G为 64……还有，如果你要隐藏A、B、C三个驱动器，输入7即可，因为7=1＋2＋4。
+　　20．定制按钮字体颜色
+　　选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USER\Control Panel\Colors分支，然后双击右边窗口中的“Buttontext”，将它的键值由原来的“0 0 0”改为“255 0 0”（代表红色）。关闭注册表编辑器重新启动系统后，按钮上的字体将显示为红色。
+　　21．在汉字后加空格
+　　你可以通过修改注册表，在Windows 2000中文版中实现在汉字后面加上空格的功能，以帮助某些英文排版软件（如PageMaker 6.5等）切词。方法是：选择“本地机器上的HKEY_CURRENT_USER”子窗口，定位到HKEY_CURRENT_USERS\Software\Microsoft\Windows\CurrentVersion分支，在该分支的下一级分支中，你可以看见许多种输入法，如：全拼、智能ABC、郑码等。单击它们之一，如：全拼，你就可以在右边窗口中看到键值名“插空格”，它的值可以为0（表示不插入空格）或1（表示插入空格），双击“插空格”，把它的键值修改为1即可。
+　　对于其它的输入法，如果它们没有“插空格”的键值名，可以新建并把它的键值设为1。
+　　22．消除软件显示乱码
+　　选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\fontassoc\Associated CharSet分支。将右边窗口内的“SYMBOL（02）”的键值（这是系统的机内码）改为“NO”即可。
+　　23．找回丢失的安装密码
+　　如果你不小心将Windows 2000的安装密码弄丢了，找回它的办法是：选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion分支，在窗口右边的ProductId键值中，就包含了安装密码的信息。
+　　24．加入登录信息
+　　你可以在Windows 2000登录窗口出现之前，弹出一个窗口，上面包含你自己输入的信息。方法是：选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Winlogon子键，然后在窗口右边找到“LegalNoticeCaption”和“LegalNoticeText”两个键值。如果没有，可以添加这两个键值。然后在这两个键值内分别输入你自己的信息。关闭注册表编辑器，重新启动系统。
+　　25．增加执行文件路径
+　　类似于在DOS中通过Autoexec.bat给执行文件增加path路径，你可以在Windows 2000中通过修改注册表增加执行文件路径。比如要为“C:\Program Files\abc\abc.exe”文件增加路径，可以选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\AppPaths分支，在窗口右边新建一个名为“abc.exe”的主键，选择该主键，将其默认值设为“C:\ProgramFiles\abc\abc.exe”；再新建名为“Path”的主键，将其值设为“C:\ProgramFiles\abc”。这样就可以通过在“运行”命令行中键入“abc.exe”或“abc”来运行该程序了。
+　　26．去掉IE内的分级审查口令
+　　选择“本地机器上的HKEY_LOCAL_MACHINE”子窗口，定位到HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Currentversion\Policies\Ratings分支，这里保存的是IE下“Internet属性”对话框的“内容”选项卡中的“分级审查”中的口令，该口令是经过加密的。窗口右边记录该口令有两个键值FileName0和Key，且二进制的“key”键值是加过密的。去掉口令的方法即是将Ratings子键下的这两个键值删除，如果没有口令，这个子键无键值。
+　　下次进入IE，你就可以安全地进入分级审查，并且可以直接跳过输入“旧密码”，加入新密码即可。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

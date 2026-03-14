@@ -1,0 +1,64 @@
+3D MAX影视动画大制作──“三维动画”爆炸篇
+
+张友伟 
+2001年 34期
+
+在33期的《电脑报》我们介绍了《3D MAX3．0影视动画大制作——可乐喷射动画》。你们如果试过，效果一定很爽吧？喜欢3D MAX动画制作的朋友或许觉得不过瘾，别急，这次我们带给大家的《“三维动画”爆炸篇》一定让你过足3D动画制作的瘾！经常看电视的朋友都看到过这样的片头动画：一块牌匾，随着一声巨响突然爆炸，火球乱蹦，正好炸成了一个镂空的牌匾。今天我就与各位三维动画爱好者共同探讨，再现其爆炸效果。
+　　#1一、创建物体
+　　1．点击Greate（创建）→Shapes→Rectangle（矩形）→Length（长）:150Width（宽）:470，Corner Radius（倒角）:20。
+　　2．点击Greate（创建）→Shapes→Text（文本）：输入“三维动画”字体选为隶书（字比较厚），Size:100，命名为Text1，并克隆拷贝一个，命名为Text2。
+　　3．选择刚刚创建的矩形，点击Modfiy（修改） →Edit spline（转换为曲线），在【Geometry】栏下点击Attach（焊接），用点击文本“三维动画”使矩形与文本成为一体（^34020801a^1）。
+　　4．点击Greate（创建）→Cameras→Target，选中相机将透视图变为当前视图，按“C”键，创建相机视图，位置如^34020801b^2所示。
+　　5．选择焊接后的文本，点击Modfiy（修改） →Extrude（挤压），在【Parameters】的选项里，设置Amount为5，其余不变（这样“三维动画”文本成为了一个镂空字，这是为下面质量光所设计的）。
+　　6．将步骤2克隆拷贝的文本重复步骤4。
+　　7．点击Greate（创建）→Geometry下面的下拉菜单（^34020801c^3）。
+　　Particle systems（粒子系统），在【Object Type】里面选择Parray，在【Basic parameters】下，用Pick object点击所克隆拷贝的文本（这已经将Text2作为了发射物体）。
+　　设置粒子系统：
+　　（1）展开【Basic parameters】栏下的【Viewport display】将其设为Mesh。
+　　（2）展开【Parameters Generation】，Speed（速度）：10．0Variation（变化）：45．，Divergence：32．， Emit start：0，Display until：125， Life：125（^34020801d^4）。
+　　（3）展开【Particle Type】在Particle types项内勾上Object Fragments； Object Fragment Controls项如下：Thickness：8．0， 勾上Number of chunks，Minimun：100（^34020801e^5）。
+　　注：在制作粒子动画时要反复播放动画，修改参数，以达到最佳效果。
+　　#1二、制作灯光
+　　8．点击Greate（创建）→Lights→Target spot（聚光灯），如（^34020801f^6、^34020801g^7）。
+　　注：圆1为Spot01．Target居中，圆2为Spot01居下，这样发出的质量光就不至于向下偏。
+　　（1）展开【General Parameters】项，勾上On和Cast Shadows项，On右边的颜色设为纯黄色（R255，G255，B0），Multip设为1．2。在Affect surfaces栏设Contra为0，Soften diff．为50．0，并勾上Diffu和Specula。
+　　（2）展开【Spotlight Parameters】项，Fotspot为26．1，Falloff为28．1，勾上Rectang（矩形透光），Pect的值是3．56，勾上Projector Map项的MAP栏。
+　　（3）展开【Attenuation Parameters】项，Near Attenuation下的Star设为0，End设为13，Far Attenuation下的Star设为150，End设为200，并勾上Use和Show。
+　　（4）展开【Show Parameters】项， 勾上Object shadows下的On铵钮。
+　　（5）展开【Atmospheres&Effects】项，点击Add钮，选择Volume light（质量光），后点击Setup进行设置：在Volume栏里内将Fog Color的颜色设为（R:255，G:242，B:135）。
+　　9．点击Greate（创建）→Lights→Omni Light，创建3个泛光灯，展开【General Parameters】项，勾上On On右边的颜色设为灰色（R180，G180，B180），其它不变，摆放位置如^34020801h^8所示。
+　　好，先将做好的成果保存，下期我们将进入到动画制作的精彩部分。
+　　    在3D MAX中调出我们在34期制作的成果，接下来我们进行后面精彩的制作部分。
+　　#1三、编辑材质
+　　10．添加背景：（1）打开材质编辑器（Material Editor）将Environment Map下的长空铵钮上的文字拖至空着的球体上即可。
+　　（2）由于背景是星空图片，所以可以适当加亮点，展开材质编辑器里面的【Output】菜单，将Output Amount设为1．58（此项用户可自定义调解）。
+　　11．镂空文字贴图：（1）展开【Shader Basic Parameters】，将贴图方式设为“Metal（金属）”
+　　（2）展开【Metal Basic Parameters】，Ambient的R:65，G:40，B:0，Diffuse的R:212，G:117，B:0。Specular level调为48，Glossiness调为74。
+　　（3）展开【Maps】点击Bump旁的长空钮（同时将Bump的值设为10），从中选择Noise贴图方式，再展开【Noise Parameters】在Noise Type项内勾上Turbulence并将Levels调为3．0。
+　　（4）点击Reflection旁的长空钮（同时将Reflectionp的值设为45），从中选择Bitmap贴图方式。在出现的窗口中选择Gold04．tga（^34020801a1^9）。
+　　12．粒子系统贴图：与步骤10一样，选中粒子只需点击（^340208011k^）即可。
+　　13．聚光灯贴图：（1）选中聚光灯（Target Spot）点击Modfiy（修改面板），展开【Spotlight Parameters】项，勾上Projector Map项内的Map按钮，并点击旁边的按钮，从中选择Noise贴图。
+　　（2）打开材质编辑器，把上面所述的按钮拖到材质编辑器的空球体上，然后调解Noise参数：展开【Noise Parameters】，Size调为32．0，Color#1的颜色设为纯红色，Color#2的颜色设为纯黄色（^34020801b1^10）。
+　　#1四、添加背景
+　　14．点击Rendering（渲染）→Environment（环境）在Background选项中勾上“Use Map”并点击Environment Map下的长空铵钮，从出现的窗口中选择Bitmap，在自动出现的窗口中选择背景图像Space006．JPG。
+　　#1五、制作动画
+　　15．聚光灯质量光动画：
+　　参数设置参见^34020801c1^11、^34020801d1^12、^34020801e1^13。
+　　注：为使聚光灯质量光动画效果更好，你可以随时修改其中的参数。
+　　#1六、粒子特技合成
+　　16．选中已建中的粒子系统，右键单击，从右键菜单中选择Properties项，其中有G-Buffer小项，将Object Channel设为1，其它不变。
+　　17．打开Rendering菜单下的Video Post。点击（^340208012k^）按钮，从中选出Camera01；点击（^340208013k^）按钮，从中选出Lens Effects Glow（^34020801f1^14）；点击（^340208014k^）按钮，再点击Files按钮，请你输入文件名123 ．avi（123 ．avi是输出动画的文件名，一般默认在Images里面）后按保存按钮，在视频压缩的压缩质量设为100（越高渲染的动画越清晰）点OK即可。
+　　18．双击Lens Effects Glow后，点击Setup按钮进行设置：（1）打开Properties项，勾上Source内的Object ID并设为1（与第15步骤“将Object Channel设为1”相对应）。
+　　（2）打开Preferences项，Effect项的Size设3．0，Color项勾上User，颜色设为R：255，G：85，B：0。
+　　（3）打开Inferno项，勾上Settings项的Electric（电弧），Motion为0，Direction为0，Quality为10，并勾上Red、Green、Blue。Parameters项的Size是20，Speed是0．2，Base是65，Ampl是100，Bias是50，Edge是100。
+　　如果你想查看你设置的效果如何，点击Preview、Update和VP queue按钮即可。如^34020801g1^15所示：
+　　#1七、声音合成
+　　19．打开轨迹视图（Track View），选中World下的Sound，右键单击选择Properties，再出来的Sound Options菜单中，点击Choose Sound按钮，从中选择你所需要的并且你有的波形文件。
+　　#1八、渲染
+　　20．打开Rendering下的Video Post，在工具栏中点击（^340208015k^）（Execute Sequence）按钮，如果你想渲染整个动画，可以点击Range，并指定0 To 100；渲染尺寸大小可根据你电脑的性能来选择，一般选择320×240或640×480。
+　　#1九、观看动画
+　　打开你的音箱，点击File→View File，在出现的窗口中选择（^34020801h1^16）。
+　　后记：你有没有看过《中国电视报全新改版》的广告“改版”两个字就是用的以上方法做的，只不过要把粒子系统（爆炸）去掉，然后把聚光灯做一个移动动画，自己去试试把。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

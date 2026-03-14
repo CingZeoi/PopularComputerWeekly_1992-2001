@@ -1,0 +1,340 @@
+PHP简明教程
+
+古三界
+2000年 第53期 
+
+    PHP（Hypertext Preprocessor，超文本预处理器）是一个递归的缩写名称，它是一种内嵌在HTML页面内的脚本语言。它的功能强大，使用方便，开发难度不大，而且可以免费使用。
+#1    一、PHP安装设置
+    PHP可以在多种操作系统下运行，现在的操作系统主要分为两类，一是Windows系列，一是UNIX系列。
+    在这两个系列的操作系统中安装设置PHP的运行环境是有很大的区别的，下面分别加以描述。
+#1    （一）类UNIX操作系统下安装设置
+    目前市面上流行的两大类免费的类UNIX操作系统FreeBSD和Linux，Linux系统比较流行，而且种类也挺多，如RedFlag，RedHat等系统。而FreeBSD只有一种类型，目前其Release版本是3.5，在这里以FreeBSD为例介绍类UNIX操作系统下的PHP安装设置过程，Linux与FreeBSD是相似的。
+    1.安装
+    首先到www.php.net去下载PHP的安装文件和http://www.apache.org 下载Apache WEB服务器。一般把下载文件放入/usr/目录下。
+    接下来开始安装设置，读者如不明白这些参数的意义，请不要随意改变。
+    先安装Apache和PHP。
+    tar -vzxf apache_1.3.x --x代表版本号如12或13等
+    tar -vzxf php-4.0.x或tar -vzxf php-3.0.x
+    cd apache_1.3.x
+    ./configure --prefix=/www --/www代表安装目录在根目录www下
+    cd ../php-4.0.x或cd ../php-3.0.x
+    ./configure --with-mysql --with-apache=../apache_1.3.x --enable-track-vars
+    make
+    make install
+    cd ../apache_1.3.x
+    PHP3：./configure --activate-module=src/modules/php3/libphp3.a
+    PHP4：./configure --activate-module=src/modules/php4/libphp4.a
+    make
+    make install
+    第一、二行命令利用tar将下载的压缩文件档解压还原在同名目录下，然后在 Apache 的解压目录下进行环境设定，--prefix 选项代表 Apache 的安装目录路径。然后进入 PHP 的解压目录中，进行PHP的环境设定，如果没有使用 MySQL 数据库，就可省略 --with-mysql 的选项，但一定要加入 --with-apache 选项，而且 Apache解压目录名一定要正确。设定完 PHP 之后就编译、安装到 Apache 的指定目录中。然后在 Apache 解压目录中再完成 PHP 的模式库安装后，再编译和安装 Apache 后就初步完成了安装工作。接着就是要设定 Apache 才能让 Web Server 顺利运作。
+    2.设置
+    首先设置php.ini文件，
+    cd ../php-4.0.x或cd ../php-3.0.x
+    PHP3：cp php3.ini-dist /usr/local/lib/php3.ini
+    PHP4：cp php.ini-dist /usr/local/lib/php.ini
+    读者可以编辑ini文件以符合自己要求，当然如果不清楚设置的话，则使用缺省设置，读者也可以指定另一个目录，但需要在第六步设定条件--with-config-file-path=/path接着设定Apache服务器，需要在Apache的设定文件httpd .conf或srm.conf中加入下面的字串。
+    PHP 3: AddType application/x-httpd-php3 .php3
+    PHP 4: AddType application/x-httpd-php .php
+    读者也可以设定另外的后缀名作为php的文件名。
+#1    （二） Windows下的安装
+    下载PHP的安装程序，准备安装，因为Windows系列的安装区别不大，本文以Windows 98下的安装为例。在安装前你应该已经安装好了PWS 4.0。
+    1.安装
+    释放压缩文件到指定的目录如C:＼PHP＼，然后复制php.ini-dist或php.ini-optimized到c:＼windows目录中（Windows NT和Windows 2000中应为c:＼winnt），并且重命名为php.ini 。
+    编辑你的php.ini文件，你可以改变extension_dir的设置为你的php的安装路径，如上面所说的“c:＼php”，选择你要加装的php的扩展模块，在ini文件里的extension=后面加入php_*.dll行，你也可以在脚本（script）里动态加载。PHP也提供了一些可以提供其它功能的附加模块，可以从相关网站下载。
+    2.设置
+    以上步骤完成以后，需要注意检查是否安装了DCOM98，如果没有，还要安装DCOM98，这可以在完整版的VB6中找到。还需要设置注册表，一般在下载的PHP压缩包里含有名为PWS-php4.reg的注册表文件。需要先用记事本修改这个文件，把其中的“［PUT PATH HERE］”替换为PHP的解压目录，需要注意目录分隔要用双斜线“＼＼”。存盘后在右键菜单中把它合并到注册表中就行了。
+    3.PHP附加库（扩展模块）
+    为了扩展PHP的功能，PHP提供了许多附加库，这些附加库都是以DLL文件的形式提供的，在使用前需要修改php.ini文件，用Extention设置所需的附加库。下表是常用的附加库，更多的附加库可以到网上下载。
+    Php_calendar.dll             日历转换
+    php_crypt.dll                加密模块
+    php_dbase.dll                Dbase的函数模块
+    php_imap4r2.dll              IMAP 4 函数
+    php_ldap.dll                 LDAP函数
+    php_msql1.dll                mSQL 1客户
+    php_msql2.dll                mSQL 2客户
+    php_mssql.dll                MSSQL 客户
+    php3_mysql.dll（PHP 4内建）    MySQL 的函数模块
+    php_nsmail.dll               Netscape邮件函数
+    php_oci73.dll                Oracle函数模块
+    php_zlib.dll                 ZLib函数模块
+#1    二、PHP语言入门
+    PHP脚本语言的使用并不难，如果有其它程序设计语言基础，可以很快掌握，即使没有其它语言基础经过稍多的学习也可以轻易掌握它。PHP有一个比较方便的专用编辑器PHPEditor可供使用，也可用UltraEdit、Editplus这样的编辑器，根据你的喜好选择。
+#1    （一）语法基础
+    1.如何在页面嵌入PHP代码
+    PHP可以嵌入到HTML的代码中间，也就是说可以把HTML和PHP代码混合在一起使用，这样写起代码会很惬意的。当然要有能区分PHP代码和HTML的方法，可以使用以下4种方法：
+    （1）<? echo （“这是最常用的方式”）; ?>
+    （2）<?php
+       echo（“如果你想服务于XML文档就是用这种方式”）;
+    ?>
+    （3）<script language=“php”>
+       echo （“指定脚本语言的方式”）;
+    </script>
+    （4）<% echo （“你也可以象ASP的风格一样写”）; %>
+    上面第（1）种第（4）种方式在Windows 98下需要单独设置才能使用。
+    2.程序的注释和如何结束语句
+    在PHP程序里，注释有如下三种注释方式：
+    （1）/* 第一行
+    第二行
+    多行注释 */
+    （2）// 单行注释
+    （3）# 单行注释
+    上面这三种注释可以混合使用，读者可以根据习惯选用，需要注意的是多行注释不能嵌套多行注释。
+    PHP语句之间使用“;” 分隔，它也是语句结束符。
+    3.小小的范例
+    我们了解了PHP简单的编码规范，现在可以编写一个简单的范例如下：
+    <html>
+      <head>
+         <title>第一个PHP程序</title>
+      </head>
+        <body>
+        <?php  echo “你好，这是我第一个PHP程序”; ?>
+    </body>
+    </html>
+    上面的例子实际上是一个标准的HTML的页面，因为PHP是解释执行的，所以只需把此文件放如我们设好的PHP环境里，就可以在浏览器上看到“你好，这是我第一个PHP程序”。
+#1    （二）常量和变量
+    首先看下面一个实例
+    范例：test2_1.php
+    <?php
+    //常量的演示
+    echo “_FILE_”; //输出：test2_1.php
+    echo “这是一个常量”; //输出：这是一个常量
+    define（“THECONSTANT”，“这是一个自定义的常量”）;
+    echo THECONSTANT; //输出：这是一个自定义的常量
+    //变量的演示
+    $StrOutput=“这是一个变量”;
+    echo $StrOutput; //输出：这是一个变量
+    echo “变量是这样诞生的：$StrOutput”; //输出：变量是这样诞生的：这是一个变量
+    echo “问题是这样出现的：$StrOutPut”; //输出：问题是这样出现的：
+    ?>
+    可以从以上的范例看出，在编写PHP文件的时候，可以省略HTML标头。
+    1.常量
+    上例中“_FILE_”就是一个常量，而这个常量是PHP系统内定的，就是代表PHP的当前文件名，当然还有很多的常量，象“TRUE”、“FALSE”等，读者如果需要的话可以去PHP的官方网站查询；如果觉得常量不够使用的话，也可以自己定义常量，就象上例的define（“常量名”，“常量的取值”）这种方式定义常量。
+    2.变量
+    PHP的变量是非常有意思的，上例中“$StrOutput”就是一个变量，可以看到变量前面都有一个“$”（美元）符号，所以非常好区分变量和程序里别的语句，同时PHP中的变量是可以不用预先定义而直接在代码里引用的，而且使用了“$”这样的符号，可以使我们的程序获得更大的自由，不但可以象平常一样引用变量，还可以在一个字符串里直接写，而PHP能自动获得变量的值，但是PHP对大小写区分很严格，在上面的例子中就很清楚的说明了这一点。
+    （1）变量的作用范围
+    PHP里的变量可以直接引用，我们定义了一个页面级的变量，它和在函数里的同名变量之间有什么关系？这就是变量的作用范围问题，如下例：
+    范例test2_2.php
+    <?php
+       $strtest="你说";
+    function output1（）
+    {
+       echo $strtest;
+    }
+    function output2（）
+    {
+       global $strtest;
+       echo $strtest;
+    }
+       output1（）;  //输出：
+       output2（）; //输出：你说
+    ?>
+    从上例可以看出，PHP如果直接在函数中引用与页面变量同名的变量，它会认为函数的变量是一个新的变量，当然什么也不输出，但如果我们在其前面增加一个“global”的话，就可以得到页面的同名变量的值，另一种同样的方法是$GLOBALS［"strtest"］；
+    （2）变量的变量
+    在php中变量与许多常用语言最大的区别就是增加了一个‘$’前缀，为什么单独拿出来讲呢？因为有了这一个前缀，同样增加了PHP的独特的一种处理方式，一个前缀代表普通的变量，但是两个前缀呢？这就是变量的变量，这样说大家可能有些不明白，请看下例。
+    范例：test2_3.php
+    <?
+       $name=″hello″;
+       $$name=″world″; //等同于$hello=″world″;
+       echo ″$name $hello″; //输出：hello world
+       echo ″$name $$name″; //同样输出：hello world
+     for（$i=1;$i<=5;$I++）
+    {
+       ${var."$i"}=$i;
+    }
+     echo $var3;  //输出：3
+    ?>
+    大家从上面的例子基本上可以理解$$name了，PHP的标准定义则是${$name}。我们有了变量的变量就可以实现动态增加变量了，这简直就是神奇。
+    （3）变量的类型
+    学过其它语言的读者会发现PHP定义的变量怎么没有定义类型呢？实际上PHP定义的变量缺省是没有类型的，变量在使用时由PHP自动自动确定变量的类型。就象下例演示的一样。
+    范例test2_4.php：
+    <? php
+      $strtype="字符串";
+     /*添加字符串*/
+      $strtype=$strtype."再增加一些字符串 ";
+     /* 另一种增加字符串方式，并换行*/
+      $str .= "＼n第二行的字符串";
+     /* 得到第一个字符*/
+      $strtype=＇This is a test.＇;
+      $first = $str［0］; //输出：T
+     /*得到最后一个字符*/
+      $strtype=＇This is still a test.＇;
+      $last=$str［strlen（$str）-1］;   //输出：.
+     //整数类型例子
+      $strtwo="2.5test";
+      $inttype=1;
+      echo （$inttype+$strtwo）   //输出：3.5
+      echo （"$inttype".$strtwo）     //输出：12.5test
+     //浮点数
+      $float1 = 1.732;
+      $float2 = 1.4E+2;
+      ?>
+    这样大家可以看出$strtype实际上是一个字符串型的变量，PHP支持五种变量类型：String、Integer、Floating-point numbers （Double）、Array、Object。
+    String是字符串类型。字符串变量是最常用的类型，两个字符串连接符则是"."，从上面的例子可以看出，PHP支持以“＼”后面的有特殊意义的字符，如“＼n”代表回车。
+    integer 为整数类型。在 32 位的操作系统中，它的有效范围是 -2，147，483，648 到 +2，147，483，647。要使用 16 进制数可以在前面加 0x。
+    double 为浮点数类型。在 32 位的操作系统中，它的有效范围是 1.7E-308 到 1.7E+308。对象和数组这两种类型比较复杂，请看函数和类。
+    我们也可以使用settype（变量，数据类型）函数强制转换数据类型，使用gettype（变量）获得变量类型。也允许这样强制转换$inttype = （int） $strtype;。
+#1    （三）运算符
+    1.算术运算符
+    算术运算 （arithmetic operators） 符号，是用来处理四则运算的符号，这是最简单，也最常用的符号，几乎所有语言的算术运算符都差不多，如^00100010a^。
+    2.逻辑运算符
+    逻辑运算通常用来获得逻辑值的真假，在所有的编程语言里，逻辑运算符是非常重要的，逻辑运算符如^00100010b^所示。
+    3.关系运算符
+    关系运算就是比较大小用的，如^00100010c^所示。
+    4.位运算符
+    PHP有下面一些二进制位运算符如^00100010d^。
+    5.运算符的优先级
+    不同的运算符在同一行程序里有不同的运算顺序，PHP程序里的运算顺序如^00100010e^，越往下表明运算符的优先级别越高，同时应注意结合规则。
+#1    （四）流程控制语句
+    编程人员最基本的工作之一就是要告诉计算机下一步的动作，而流程控制语句正是这方面让计算机做出选择，流程控制语句就象一个灌溉田地的水渠，在通过各个分岔时引导程序走向我们要求的地点。
+    1.if条件语句
+    if条件语句是我们最常用的一种分支语句，用法也符合人们思维的习惯，就想：if如果 expression（熊倪跳水得了最高分）是真的话 statements可以拿到金牌 else（否则）statements萨乌丁拿金牌。它在定义上有三种形式：
+    （1）第一种最简单的形式。
+    if （expression） statement；
+    （2）第二种带有else（否则）的形式。
+    if （expression） {
+      statement1；
+    } else {
+      statement2；
+    }
+    （3）第三种带有elseif的形式。
+    if （expression） {
+      statement1；
+    } elseif {
+      statement2；
+    } else{
+      statement3；
+    }
+    if条件语句是允许嵌套的，也就是在if语句中含有另外的if语句，但要注意嵌套层次，否则不能得到想要的结果。
+    2.循环语句
+    有时我们需要一遍一遍的重复做相同的事，如果我们都要一次一次的去做的话，是非常头疼的事，在计算机中则有专门的循环语句来做这些事情，当然这也是计算机的一个强项。
+    循环语句象一个圆，从开始到结束可以一遍一遍的执行，但最好不能是圆，否则我们会陷入死循环。因此，我们使用循环语句的时候，要有一个良好的出入口。
+    循环一般可以分为以下几种。
+    （1）while循环，也叫“当型循环”，就是说“当条件为真就执行循环体”，在PHP中的定义如下：
+    while （expression）
+    {statement}
+    这种循环先判断表达式为真再执行，可能一次也不执行。
+    （2）do while循环叫做“直到型循环”，它最少执行一次，意思就是“先执行循环体直到条件为真才退出”，PHP的定义为
+    do {
+        statement
+    } while （expr）;
+    上面两种循环都是不知道循环的次数，或者在条件比较模糊的情况下使用。
+    （3）for循环，在PHP4中有两种for循环，一是for，另一是foreach循环。他们主要的区别在于：
+    for循环用于循环次数已知的循环；
+    foreach则是针对数组和散列的循环；
+    for循环的PHP定义如下：
+    for （expr1; expr2; expr3） {
+        statement
+    }
+    下面是一个简单的例子：
+    <?php
+      for （$i = 1; $i <= 10; $i++） {
+       echo $i;
+    }
+    ?>
+    PHP有数组和散列，后面介绍它们的概念，数组元素个数没有固定，如果要访问每一个元素，用foreach可以从第一个元素访问到最后一个元素，这样我们可以不必求出元素的个数，就能遍历整个数组，在PHP中foreach循环的定义如下：
+    foreach（array_expression as $value） statement   //普通数组
+    foreach（array_expression as $key => $value） statement  //散列
+    请做一下下面的例子：
+    <？php
+    // foreach例一
+    $a = array （1， 2， 3， 17）;
+    foreach （$a as $v） {
+      echo "Current value of ＼$a: $v.＼n";
+    }
+    // foreach例二
+    $a = array （1， 2， 3， 17）;
+    $i = 0;
+    foreach（$a as $v） {
+      echo "＼$a［$i］ => $k.＼n";
+    }
+    // foreach例三
+    $a = array （
+     "one" => 1，
+     "two" => 2，
+     "three" => 3，
+     "seventeen" => 17
+    ）;
+    foreach（$a as $k => $v） {
+    echo "＼$a［$k］ => $v.＼n";
+    }
+    3.SWITCH多条件语句
+    在学习if条件语句时，我们注意到如果条件非常复杂的时候，就象我们排一个日程表时，如果再使用if语句就会非常的麻烦，而且程序不易阅读，这时我们推荐使用SWITCH语句，实际上一般只要是复合的条件都可以使用SWITCH语句，因为它能帮助我们编出结构清晰和比较容易改变条件表达式，PHP定义如下：
+    switch （expression） {
+      case condition1:
+          statement1;
+          break;
+      case condition2:
+          statement2;
+          break;
+          ......
+      default:
+      statement n;
+      break;
+    }
+    这时要介绍两个特殊的流程控制语句：break和continue。
+    break是可以跳出当前循环体的语句，而continue则是从当前执行continue语句处跳到执行条件判断的地方继续执行，如下例子：
+    <?php
+      For（$I=1;$I<=10;$I++）
+       {
+          if （$I==1） continue;
+          echo "测试:".$I;
+          if （$I==2） break;
+    }
+    ?>
+    上面的程序输出则是：测试:2，而且永远也执行不到$I=3。
+    4.引用文件
+    在我们编程的过程中，肯定会遇到很多的地方需要许多相同的模块或者函数，当然我们也可以使用复制和粘贴的方法把程序块放入到程序里，而一旦我们要修改这些语句中的一处，则必须修改所有粘贴的代码，这当然很累，所幸PHP提供了引用文件的方法，他们就是require，require-once，include，include-once。require方法会程序在执行前先读入 require 所指定引用的文件，使它变成 PHP 程序网页的一部份。而PHP的include方法则是PHP 的网页在遇到 include 所指定的文件时，才将它读进来。这种方式，更符合人们的习惯。
+    在我们编程时有时还会遇到这样一个问题，在我们极力保证函数和类的独立性和公用性的同时，而如果在程序里面我们调用了一个非公用文件里的类，但我们的另一个处理文件也调用了这个文件里的这个类，那么程序将会出错，说是重定义了这个类，因此，我们将不得不去重写文件或者丢弃它的独立性，但在PHP4里不存在这个问题，因为PHP4可以使用require-once和include-once方法，顾名思义也就是他们只调用一次我们所需要的文件，如果有两次调用文件的话，第二次调用的文件不起作用。
+#1    （五）数组
+    经过上面的学习，我们基本具有了使用PHP编程的条件，而我们所学的也是一切编程的基础，但若想更进一步，就需了解更强大的数据类型：数组。
+    假如变量是可以放入一本书的盒子的话，那么数组就是可以放许多书的书架，在PHP中不止可以放书，还可以放别的物品。
+    1.普通数组
+    我们在C、VB等语言里使用的数组，都是以数字作为下标来索引数组的值，在PHP中是这样表示的：$a［1］=1，$a［2］=2...$a［n］，虽然PHP的普通数组比C语言在数据类型方面前进了一大步（C语言里可以使用结构代替），而真正比C语言优越的是引入了哈希表（hash table联合数组）。
+    2.哈希表（联合数组）
+    可能大家这时候对哈希表数组，还是不太了解，实际上在C语言里我们使用了枚举的数据类型，就是譬如我们定义了星期的枚举变量，我们可以让这个枚举里含有星期一到星期日的名字，这样我们就可以直接引用星期的名字也能得到正确的值了，但是枚举需要预定义，数量也是定义好的，才能引用，在PHP将其归类到了这种联合数组，也就是说我们的下标不必非采用数字，这样数组的下标也成了我们可以发挥的地方。请看下例
+    范例：
+    <?php
+    $a［1］= $f; //普通数组
+    $a［"apple"］= "sweet"; //联合数组
+    $a［1］［0］= $f; //二维数组
+    $a［"apple"］［2］="tart"; //普通数组和联合数组连用
+    $a［"apple"］［4］［"color "］［0］= "bad"; //四维数组
+    ?>
+    实际上数组的维数最好不要超过三维，否则会给服务器带来极大的负担，就有些得不偿失了。
+#1    （六）函数
+    函数就是能执行特定功能的语句块。在这些年编程语言发展的趋势就是代码的重用性和结构清晰，象C的输入输出等就是用函数来完成的，在PHP里也是这样的，函数在PHP运用非常广泛，也是各种PHP函数使PHP变为强大的WEB编程脚本语言的原因之一，我们在前面的学习的过程中也遇到了不少，如“echo”、“require”等，而我们可以通过用户定义的函数使程序结构变得更清晰、更合理以及代码更简洁。PHP已经预定义了大量的函数，读者需要详细资料的话可以查询PHP的网站，而我们这里主要讲的是如何定义使用用户定义的函数。
+    1.用户定义函数
+    用户在解决一些问题时需要用户多次完成同样的工作，还有就是PHP没有解决的功能等这些问题，我们则提倡使用函数。PHP定义函数的方式，没有象变量定义那样非常严格，在这里大小写可以混用，可以在定义的时候使用大写，使用的时候用小写的函数名，从这点上可以看出PHP是非常地为编程人员着想，PHP的函数定义如下
+    function 函数名（参数1，参数2，...）
+     { 语句块
+    return 返回值}
+    PHP的函数可以有返回值，也可以没有返回值，这样可以省略上面的返回语句。
+    2.参数
+    <?php
+    $str=″我是参数1″;
+    $str2=″我是参数2″;
+    function testFunc（$testarg1，testarg2，testarg3=″我是测试″）
+    {
+    echo $testarg1.″＼n″;
+    echo $testarg2.″＼n″;
+    echo $testarg3.″＼n″;
+    $testarg1=$testarg1.″测试″;
+    $testarg2=$testarg2.″测试″;
+    }
+    testfunc（$str，＆$str2）;
+    echo $str.″＼n″;
+    echo $str2.″＼n″;
+    /*
+    调用里后输出：
+    我是参数1
+    我是参数2
+    我是测试
+    我是参数1
+    我是参数2测试
+    */
+    ?>
+    请注意看上面的函数，PHP的参数使用比较灵活，我们可以象C里面一样使用“＆”引用参数，在函数里改变参数的值的话，就直接改变了这个变量的值，也可定义参数的缺省值，这样可以在需要的时候省略参数。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

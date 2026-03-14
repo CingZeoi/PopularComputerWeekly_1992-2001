@@ -1,0 +1,247 @@
+JavaScript实例（HTML日历）
+
+Adong
+2000年 第53期 
+
+    目前在动态网页上使用时间已经是一个必须，但由于时间具有很多的特殊性，所以判断和录入都很麻烦，其中可能包括的问题有：时间的有效性检测、有效时间范围的检测、输入界面的美观等等，如果我们自己来做这个工作将花费很多时间，并且没有效率。所以把我做的一个用div实现的日历程序介绍给大家，这个程序可以解决前面提到的问题，希望大家可以利用这个用Javascript写的程序来完善自己的网站。
+    大家在很多网站上都可以看到对日期输入的处理，基本上可以分为这么几种处理方法:
+    1．利用下拉列表的形式分别对年、月、日进行选择，然后由脚本程序对选择的时间有效性进行判断。
+    2．弹出一个新的浏览器窗口，在窗口中显示一个日历，然后利用这个日历对日期进行选择。
+    3．在需要日期的网页内有一个利用层技术实现的浮动日历，当需要的时候这个浮动的日历显示出来，当日期选择完毕以后浮动的日历消失。
+    以上的三种方法都可以完成日期的输入，但好坏是显而易见的，第一种日期的选择没有经过正确性检测，并且站用的显示空间比较大。第二种虽然解决了日期有效性的问题，但第一次使用日历的时候速度很慢，并且必须关闭日历的窗口才可以进行其他的操作。第三种方法是最好的，可以很好的克服上述两种方法的缺点。在这里要说的就是第三中实现的方法。
+    本日历都是用Javascript写成的，包含在一个cele_date.js 的脚本文件中，在使用的时候只需要把这个脚本文件包含进网页中，然后调用里面的功能函数就可以了。下面是使用这个日历的HTML文件:
+    HTML文件如下：
+    <html>
+    <head>
+    <title>cele date</title>
+    <script language="javascript" src="cele_date.js">
+    </script>
+    </head>
+    <body  onclick="h_cele_date（）">
+    <script language="javascript">
+    init（）;
+    </script>
+    <INPUT id=text1 name=text1 style="CURSOR: text" >
+    <INPUT type="button" value="select date" id=button1 name=button1 language="javascript" onclick="show_cele_date（button1，＇2001-1-1＇，＇2004-1-1＇，text1）">
+    </body>
+    </html>
+    具体实现过程如下：
+    1． cript language="javascript" src="cele_date.js"></script>
+    把cele_date.js文件包含进网页中。
+    2．调用init（）函数，对日历进行初试化。
+    3．body中增加onclick事件，调用h_cele_date（）实现日历的隐藏.
+    4．在需要使用日历的按钮中增加onclick事件调用show_cele_date（button1，＇2001-1-1＇，＇2004-1-1＇，text1）函数，显示日历，每个参数的意义如下：
+    button1:调用日历的标签名称；
+    ＇2001-1-1＇:有效的起始时间；
+    ＇2004-1-1＇：有效的结束时间；
+    text1：存放返回日期的文本框名称。
+    通过上面的四的步骤就可以使用日历了，我们并不需要对脚本文件的程序非常明白，如果大家感兴趣可以自己分析脚本程序。
+    下面是脚本文件的全部源码，大家可以参考学习：
+    cele_date.js
+    /*
+    本程序由Adong制作 2000年8月22日 mailto:lidong.zhang@263.net
+    */
+    //有效的时间范围
+    var date_start，date_end，g_object
+    //左右部分的箭头变量的初试化
+    var a1=new Image;
+    var a2=new Image;
+    a1.src="images\\a1.gif";
+    a2.src="images\\a2.gif";
+    //对时间进行变换的方法mode :时间变换的类型0-年 1-月 2-直接选择月
+    function change_date（temp，mode）
+    {
+    //设置月和年的临时变量
+    var t_month，t_year
+	   //如果变换类型为月或直接选择月
+	   if （mode）{
+	       //如果为月
+	       if（mode==1）
+		   //计算要变换成的月的值
+		   t_month=parseInt（cele_date_month.value，10）+parseInt（temp，10）;
+		   else//直接选择月
+		   t_month=parseInt（temp）
+		   //判断月是否小于1月
+		   if （t_month<cele_date_month.options（0）.text） {
+			   //如果小于1月则为12月
+			   cele_date_month.value=cele_date_month.options（cele_date_month.length-1）.text;
+			   //再次调用改变时间函数
+			   change_date（parseInt（cele_date_year.value，10）-1，0）;
+			   }
+		   else{
+			   //如果月大于12
+			   if （t_month>cele_date_month.options（cele_date_month.length-1）.text）{
+				   //则为1月
+				   cele_date_month.value=cele_date_month.options（0）.text;
+				   //再次调用改变时间函数
+				   change_date（parseInt（cele_date_year.value，10）+1，0）;
+			   	   }			
+			   else
+				   {
+				   //对月的下拉列表赋值，并设置时间
+				   cele_date_month.value=t_month;
+				    set_cele_date（cele_date_year.value，cele_date_month.value）;				
+				   }
+		   }
+	   }
+	   else{//年变动的处理
+		   t_year=parseInt（temp，10）;
+		   //如果年的值小于列表中年的最小值则使用，列表中的最小值.	
+		   if （t_year<cele_date_year.options（0）.text） {
+			   cele_date_year.value=cele_date_year.options（0）.text;
+			   set_cele_date（cele_date_year.value，1）;				
+			   }
+		   else{//如果年的值大于列表中年的最大值则使用，列表中的最大值.	
+			   if （parseInt（t_year，10）>parseInt（cele_date_year.options（cele_date_year.length-1）.text，10））{
+				   cele_date_year.value=cele_date_year.options（cele_date_year.length-1）.text;
+				   set_cele_date（cele_date_year.value，12）;				
+				   }			
+   			   else//使用需要变换的年
+				   {cele_date_year.value=t_year;
+				    set_cele_date（cele_date_year.value，cele_date_month.value）;				
+				   }
+		   }
+	   }
+    }
+    //初始化日历
+    function init（d_start，d_end）
+    {
+ 	    var temp_str;
+	    var i=0
+	    var j=0
+	    //必须要有内容（奇怪）
+	    document.writeln（"<div   name=\"cele_date\" id=\"cele_date\"  style=\"display:none;z-index:100\"    style=\"LEFT: 69px; POSITION: absolute; TOP: 159px\" onClick=\"event.cancelBubble=true;\" >＆nbsp; </div>"）;
+	    //初试化表格，年的范围可以在这里直接更改
+	    window.cele_date.innerHTML="";
+	    temp_str="<table border=1 bordercolor=black  cellPadding=0 cellSpacing=0><tr><td> <table bordercolor=LightSkyBlue bgcolor=\"LightSkyBlue\" cellPadding=0 cellSpacing=0 border=1>";
+	    temp_str+="<tr><td colspan=7><center><b><u>CALENDAR</u></b></center></td></tr>"
+	    temp_str+="<tr><td colspan=7>";
+	    temp_str+="<center><img id=s_a1 name=s_a1 src=\"a1.gif\" language=\"javascript\" onclick=\"change_date（-1，1）\" >";//左面的箭头
+	    temp_str+=""//年
+	    temp_str+="<select name=\"cele_date_year\" id=\"cele_date_year\" language=\"javascript\" onchange=\"change_date（this.value，0）\">"
+	    for （i=1900;i<=2050;i++）
+	    {
+	    temp_str+="<OPTION value=\""+i.toString（）+"\">"+i.toString（）+"</OPTION>";
+	    }
+	    temp_str+="</select>＆nbsp;";
+	    temp_str+=""//月
+	    temp_str+="<select name=\"cele_date_month\" id=\"cele_date_month\" language=\"javascript\" onchange=\"change_date（this.value，2）\" >"
+	    for （i=1;i<=12;i++）
+	    {
+	    temp_str+="<OPTION value=\""+i.toString（）+"\">"+i.toString（）+"</OPTION>";
+	    }
+	    temp_str+="</select>＆nbsp;";
+	    temp_str+=""//右箭头
+	    temp_str+="<img id=s_a2 name=s_a2 src=\"a2.gif\" language=\"javascript\" onclick=\"change_date（1，1）\" >";
+	    temp_str+="</center></td></tr><tr><td style=\"width:20px\">"
+	    temp_str+="Su</td><td style=\"width:20px\">";temp_str+="Mo</td><td style=\"width:20px\">"; temp_str+="Tu</td><td style=\"width:20px\">"; temp_str+="We</td><td style=\"width:20px\">"
+	    temp_str+="Th</td><td style=\"width:20px\">";temp_str+="Fr</td><td style=\"width:20px\">"; temp_str+="Sa</td></tr>";
+	    temp_str+="<tr bgcolor=black><td style=\"height=4px;bgcolor:black\" colspan=7></td></tr>"
+	    //写日期部分的表格
+	    for （i=1 ;i<=6 ;i++）
+	    {
+	    temp_str+="<tr>";
+		   for（j=1;j<=7;j++）{
+			   temp_str+="<td name=\"c"+i+"_"+j+"\"id=\"c"+i+"_"+j+"\" style=\"CURSOR: hand\"  language=\"javascript\" onclick=\"td_click（this）\">＆nbsp;</td>"
+			   }
+        temp_str+="</tr>"	    
+	    }
+	    temp_str+="</td></tr></table></td></tr></table>";
+	    //写div中的内容
+	    window.cele_date.innerHTML=temp_str;
+	    //显示左右箭头
+	    document.all（"s_a1"）.src=a1.src
+	    document.all（"s_a2"）.src=a2.src
+    }
+     //设置时间，year:年;month:月
+    function set_cele_date（year，month）
+    {
+      var i，j，p，k
+      //根据年月生成时间
+      var nd=new Date（year，month-1，1）;
+      event.cancelBubble=true;
+      //为年月下拉框赋初始值
+      cele_date_year.value=year;
+      cele_date_month.value=month;
+      k=nd.getDay（）-1
+      //初始化日历的背景颜色，字体，光标等.
+      for （i=1;i<=6;i++）
+         for（j=1;j<=7;j++）
+         {
+         eval（"c"+i+"_"+j+".innerHTML=\"＆nbsp;\""）;
+         eval（"c"+i+"_"+j+".bgColor=\"LightSkyBlue\""）;
+         eval（"c"+i+"_"+j+".style.cursor=\"hand\""）;
+         eval（"c"+i+"_"+j+".style.fontWeight=\"bold\""）;
+         }
+      //绘制整个日历
+      while（month-1==nd.getMonth（））
+       { //日期加一天
+	     j=（nd.getDay（） +1）;
+	     //计算在日历中显示的位置
+         p=parseInt（（nd.getDate（）+k） / 7）+1;
+         //填写表格内容
+         eval（"c"+p+"_"+j+".innerHTML="+"\""+nd.getDate（）+"\""）;
+          //根据是否在有效日期范围内进行表格的字体颜色和光标的处理
+         if （nd>date_end || nd<date_start）
+         {
+         //eval（"c"+p+"_"+j+".style.backgroundImage.src=disble_ground.src"）;
+         eval（"c"+p+"_"+j+".style.color=\"Gainsboro\""）;
+         eval（"c"+p+"_"+j+".style.cursor=\"text\""）;
+         }else
+         eval（"c"+p+"_"+j+".style.color=\"black\""）;
+         nd=new Date（nd.valueOf（） + 86400000）
+       }
+    }
+   //sP：点击的对象；d_start-d_end有效的时间区段；需要存放值的控件；
+   function show_cele_date（eP，d_start，d_end，t_object）
+   {
+   //取被点击对象的坐标位置
+   var s，cur_d
+   var eT = eP.offsetTop;
+   var eH = eP.offsetHeight;
+   var dH = window.cele_date.style.pixelHeight;
+   var sT = document.body.scrollTop;
+   event.cancelBubble=true;
+   window.cele_date.style.left = eP.offsetLeft;
+   //计算日历的top位置
+   if（eT-dH >= sT ＆＆ eT+eH+dH > document.body.clientHeight+sT）
+   window.cele_date.style.top = eT-dH;
+   else
+   window.cele_date.style.top = eT+eH;
+   //生成有效起始时间
+   s=d_start.split（"-"）
+   date_start=new Date（s[0]，s[1]-1，s[2]）
+   //生成有效结束时间
+   s=d_end.split（"-"）
+   date_end=new Date（s[0]，s[1]-1，s[2]）
+   g_object=t_object
+   //生成当前时间
+   cur_d=new Date（）
+   //设置时间
+   set_cele_date（cur_d.getYear（），cur_d.getMonth（）+1）;
+   //显示日历
+   window.cele_date.style.display="block";
+   }
+   //当选择日期时执行的事件，t_object:被单击的对象
+   function td_click（t_object）
+   {
+   var t_d
+   //取有效日期
+   if （parseInt（t_object.innerHTML，10）>=1 ＆＆ parseInt（t_object.innerHTML，10）<=31 ）
+   {//生成时间变量
+    t_d=new Date（cele_date_year.value，cele_date_month.value-1，t_object.innerHTML）
+   //判断是否在有效时间范围内.如果在有效时间范围内，则生成时间，隐藏日历
+   if （t_d<=date_end ＆＆ t_d>=date_start）
+    {g_object.value=cele_date_year.value+"-"+cele_date_month.value+"-"+t_object.innerHTML
+    window.cele_date.style.display="none";}
+    }
+   }
+   //隐藏日历
+   function h_cele_date（）
+   {
+   window.cele_date.style.display="none";
+   }
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,327 @@
+CSS速查手册(2)
+
+hve 
+2001年 60期
+
+    3. 创建自定义样式
+　　　　在页面中，我们有时想让一些重要的文字或内容醒目，我们就需要把这些重要的文字或内容单独定义一个样式，来区别一般文字，我们可以通过创建自定义样式单独对重要内容定义CSS来完成。假设，我们要求把重要文字和内容的颜色定义成红色、并加粗来达到醒目的目的。
+　　　　单击新建样式，弹出新建对话框，在新建样式对话框里，样式表类型选Make Custom Style （class），这里我们建立内部样式表，选This Document Only，然后在上面的Name下拉框里输入你定义的样式名称，我们输入“.emphases”按OK，如下（^60090411h^）：
+　　　　注意：自定义样式的名称可以自己随意设定，一般根据其样式效果命名。在名称前必须有点号，如果漏写，系统也会自动帮你补上。
+　　　　弹出样式定义对话框，在Category（类别）里选Type，然后设置颜色为红色，Weight为bold，按OK，如图：（^60090411i^）
+　　　　然后在CSS Styles面板里多了一个名为emphases的自定义样式，这样一个新的样式我们就定义好了：（^60090411j^）
+　　　　我们来看一下原代码部分，我们可以看到在<head>区多了下列样式表代码：
+　　<style type="text/css">
+　　<!--
+　　.emphases {  font-weight: bold; color: #FF0000}
+　　-->
+　　</style>
+　　
+　　　　定义好了样式，现在我们就可以把这个自定义样式套用在需要的地方，在网页中选中文字，然后单击样式面板中的emphases样式。看看，是不是你要的效果。
+　　　　注意：如果我们选中的内容是一个表格或一个段落，那么整个表格或段落内的文字被定义了emphases样式，从原代码里我们可以看出是在<TABLE>或<P>标记后面加了class="emphases"参数，如：
+　　<TABLE class="emphases">
+　　……
+　　或
+　　<P class="emphases">
+　　……
+　　　　当我们把样式加在选中的几个文字上时，文字本身没有HTML标记所包围，就会自动加上<span>标记，例如：
+　　……<span class="emphases">重点</span>……
+　　　　注意：span标记本身没有任何意义，它专门为样式表指定选取范围，为样式表指定区域的还有div。
+　　
+　　    4. 创建重定义样式表
+　　　　重定义样式表是对某个HTML标记重新定义格式。例如，我们想重新格式化页面的段落，每个段落前空两格，并设定段落文字的大小和行距。
+　　　　单击新建样式，弹出新建对话框，在新建样式对话框里，样式表类型选择Redefine HTML Tag，我们仍然建立内部样式表，选This Document Only。当样式表类型选择Redefine HTML Tag时，上面下拉框的名字Name变成了Tag，表示输入的内容是HTML标记，点击下拉按钮，我们可以看到所有HTML标记都在Tag下拉框里，这里我们选段落标记P：（^60090411k^）
+　　　　按OK后，进入样式定义对话框，在Type里，我们设定字体大小为12象素，行距为文字尺寸的150%，如下图：（^60090411l^）
+　　　　在Block部分里，我们设定文本缩进，因为文字尺寸为12象素，所以两个字的空格就是24象素：（^60090411m^）
+　　　　按OK后，这个重定义样式就完成了。这时页面里每个段落的文字大小都是12象素，行距是150%，但是在Dreamweaver编辑器里我们看不到缩进的效果，不要紧，只要将文件保存，然后用浏览器打开就可以看到效果了。此时CSS样式表的原代码是：
+　　<style type="text/css">
+　　<!--
+　　.emphases {  font-weight: bold; color: #FF0000}
+　　p {  font-size: 12px; line-height: 150%; text-indent: 24px}
+　　-->
+　　</style>
+　　
+　　    5. 创建动态链接样式表
+　　　　下面我们来创建一组链接在不同状态下的样式。单击新建样式，弹出新建对话框，在新建样式对话框里，样式表类型选Use CSS Selector，我们仍然建立内部样式表，选This Document Only。当样式表类型选择Use CSS Selector时，上面下拉框的名字变成了Selector，表示输入内容为CSS选择符，单击下拉按钮，可以看到动态链接的4种状态：（^60090411n^）
+　　    ● a:active 选中超级链接状态 
+　　    ● a:hover 光标移上超级链接状态 
+　　    ● a:link 超级链接的正常状态，没有任何动作的时候 
+　　    ● a:visited 访问过的超级链接状态
+　　　　接下来我们对这几种状态分别设定，首先，选择a:link，OK后弹出样式定义对话框，我们设定无下划线，颜色为橙色，如下图：（^60090411o^）
+　　　　我们用同样的方法设定a:visited，设定无下划线，黄色，如下图：（^60090411p^）
+　　　　接下来设定a:hover，有下划线和上划线，颜色为橙色，并在Background设定背景为黄色：（^60090411q^）（^60090411r^）
+　　　　这里我们不对a:active进行设置，根据层叠规则a:active的样式会自动依照a:hover。这样所有动态链接的效果我们就设置好了，注意设置时的顺序。在浏览器中就我们就可以看到：此页面上未访问的链接无下划线，橙色；访问后的链接无下划线，黄色；鼠标指向链接时有上、下划线，橙色，并背景为黄色。样式表原代码为：
+　　<style type="text/css">
+　　<!--
+　　.emphases {  font-weight: bold; color: #FF0000}
+　　p {  font-size: 12px; line-height: 150%; text-indent: 24px}
+　　a:link {  color: #FF9900; text-decoration: none}
+　　a:visited {  color: #FFFF00; text-decoration: none}
+　　a:hover {  color: #FF9900; text-decoration: underline overline; background-color: #FFFF00}
+　　-->
+　　</style>
+　　
+　　　　这样定义动态链接时，整个页面的链接效果都会改变，如果我想在一个页面中定义两组以上的链接效果，该怎么做呢？在第四章里我们不是说过的类和伪类的混用可以在同一个页面中做不同的链接效果吗。点击新建样式，在选择符下拉框里，我们输入a.link2:link（当然可以先选择a:link，然后更改），如下图：（^60090411s^）
+　　　　这样我们就新建立了一个.link2类，我们为a.link2:link设定样式，红色，有下划线：（^60090411t^）
+　　　　根据上面的方法我们继续定义a.link2:visited和a.link2:hover，我们定义a.link2:visited为红色有下划线，a.link2:hover为红色无下划线，背景为白色。在CSS Styles面板里多了一个名称为link2的自定义样式。然后将此样式应用在某个动态链接上。保存后，用浏览器打开，我们可以看到两个完全不同的链接样式。全部CSS代码如下：
+　　<style type="text/css">
+　　<!--
+　　.emphases {  font-weight: bold; color: #FF0000}
+　　p {  font-size: 12px; line-height: 150%; text-indent: 24px}
+　　a:link {  color: #FF9900; text-decoration: none}
+　　a:visited {  color: #FFFF00; text-decoration: none}
+　　a:hover {  color: #FF9900; text-decoration: underline overline; background-color: #FFFF00}
+　　a.link2:link {  color: #FF0000; text-decoration: underline}
+　　a.link2:visited {  color: #FF0000; text-decoration: underline}
+　　a.link2:hover {  color: #FF0000; text-decoration: none; background-color: #FFFFFF}
+　　-->
+　　</style>
+　　
+　　    6. 其他样式表的定义
+　　　　我们还可以在Use CSS Selector里输入其他CSS选择符：ID选择符，以“#”号开头定义一个样式，例如：“#id-style”，然后建立一个ID为id-style的ID样式，ID样式表必须手动在HTML标记后加id="id-style"属性。
+　　　　含HTML标记的类选择符，例如：“p.red”，表示定义段落为red类的样式，此样式只对有class="red"属性的段落有效果。
+　　　　包含选择符，是指前一个HTML标记里包含着后一个HTML标记，例如：“div p”，表示定义在DIV里包含段落的样式。
+　　
+　　    7. 编辑、修改、删除样式表
+　　　　点CSS Styles面板中的按钮会打开编辑样式表对话框，如下图：（^60090411u^）
+　　　　按钮功能介绍：
+　　　　Link：链接外部样式表，这里可以选择链入外部样式表和导入外部样式表两种方式。
+　　　　New：新建样式。
+　　　　Edit：选中一个样式然后点Edit就可以进行编辑。
+　　　　Duplicate：复制一个样式，选中一个样式后点Duplicate按钮，弹出对话框，为复制的样式起一个新的名称，OK。
+　　　　Remover：移除一个样式或一个外部样式表，选中要删除的样式点Remove按钮，此样式就被删除了。
+　　　　在Style definition（样式定义）栏里可以看到此样式的内容。
+　　
+　　    8. 外部样式表
+　　　　建立外部样式表和建立内部样式表差不多，只是在新建的时候选择（New Style Sheet File），并保存为一个扩展名为.css的样式表文件。
+　　　　现在，我们把刚才实例中的样式表导出，然后再链接到其他页面。点击CSS Style面板菜单中的Export Style Sheet，系统弹出导出样式表对话框，我们将样式表文件保存为mystyle.css。用记事本打开mystyle.css文件可以看到如下样式表代码：
+　　.emphases {  font-weight: bold; color: #FF0000}
+　　p {  font-size: 12px; line-height: 150%; text-indent: 24px}
+　　a:link {  color: #FF9900; text-decoration: none}
+　　a:visited {  color: #FFFF00; text-decoration: none}
+　　a:hover {  color: #FF9900; text-decoration: underline overline; background-color: #FFFF00}
+　　a.link2:link {  color: #FF0000; text-decoration: underline}
+　　a.link2:visited {  color: #FF0000; text-decoration: underline}
+　　a.link2:hover {  color: #FF0000; text-decoration: none; background-color: #FFFFFF}
+　　　　然后转到其他页面中，点CSS Style面板中的链入外部样式表按钮（^60090411b^），链入刚才导出的样式表文件mystyle.css，此时这个样式表已经应用到新的页面中了。在新页面的<head>区添加了下列代码：
+　　<link rel="stylesheet" href="mystyle.css" type="text/css">
+　　　　此外，还可以导入外部样式表，导入方法如下：
+　　　　点击编辑样式表按钮（^60090411e^），打开编辑样式表对话框，点击LINK按钮，这时弹出”Link External Style Sheet”对话框，输入外部样式表的路径，选择Import（导入），确定。（^60090411v^）
+　　　　可以看到在<head>区的代码为：
+　　<style type="text/css">
+　　<!--
+　　@import "mystyle.css";
+　　-->
+　　</style>
+　　
+　　#1    六、 DW4中CSS属性详解
+　　　　在Dreamweaver4的CSS样式里包含了W3C规范定义的所有CSS1的属性，Dreamweaver4把这些属性分为Type（类型）、Background（背景）、Block（块）、Box（盒子）、Border（边框）、 List（列表）、Positioning（定位）、Extensions（扩展）八个部分，如下图，下面我们分别详细讲解。（^60090411w^）
+　　    1. Type（类型）
+　　　　Type面板主要是对文字的字体，大小，颜色，效果等基本样式进行设置。设置时，我们只对要改变的属性进行设置，没有必要改变的属性就空着。
+　　　　注意：属性名带*号的是指样式效果不能在编辑文档时显示，要用浏览器打开才能看到效果。（^60090411x^）
+　　　　Font：设置字体系列。什么叫字体系列呢？是指对文字设定几个字体，当遇到第一个字体不能显示的文字时会自动用系列中的第二个字体或后面的字体显示。相对应的CSS属性是“font-family”。
+　　　　注意：Dreamweaver4已经内置设定了6个系列的英文字体，一般英文字体我们用“Verdana， Arial， Helvetica， sans-serif”这个系列比较好看。如果不用这些字体系列，你就需要自己编辑字体系列，你可以通过下拉框最下面的“Edit Font List”来创建新的字体系列，也可以直接手动在下拉框里写字体名，字体之间用逗号隔开。中文网页默认字体是宋体，一般就空着不要选取任何字体。
+　　　　Size：定义文字的大小。你可以通过选取数字和度量单位来选择具体的字体大小，或者你也可以选择一个相对的字体大小。最好使用Pixels作为单位，这样不会在浏览器中文本变形。一般小字体用比较标准的12px。相对应的CSS属性是”font-size”。
+　　　　注意：CSS中长度的单位分绝对长度单位和相对长度单位，一般我们常用的绝对长度单位有：
+　　　　px：（像素）根据显示器的分辨率来确定长度。
+　　　　Pt：（字号）根据windows系统定义的字号大小来确定长度。
+　　　　Mm、cn、in：（毫米、厘米、英寸）根据显示的实际尺寸来确定长度。此类单位不随显示器的分辨率改变而改变。
+　　　　相对长度单位有：
+　　　　em：当前文本的尺寸。例如：{ font-size:2em}是指文字大小为原来的2倍。
+　　　　Ex：当前字母“x”的高度，一般为字体尺寸的一半。
+　　　　%：是以当前文本的百分比定义尺寸。例如：{ font-size:300%}是指文字大小为原来的3倍。
+　　　　Small、large：表示比当前小一个级别或大一个级别的尺寸。
+　　　　Style：定义字体样式为Normal、Italic、或者Oblique。Italic和Oblique是斜体字体。默认设置为 Normal。相对应的CSS属性是“font-style”。
+　　　　注意：Italic和Oblique都是斜体字体。而它们不同的是，Italic是斜体字，而Oblique是倾斜的文字，对于没有斜体的字体应该用Oblique。
+　　　　Line Height：设置文本所在行的行高。默认为Normal，你也可以自己键入一个精确的数值并选取一个计量单位。比较直观的写法用百分比，例如140%是指行高等于文字大小的1.4倍。相对应的CSS属性是“line-height”。
+　　　　Decoration：在文本中添加underline（下划线）、overline（上划线）、line-through（中划线）、blink（闪烁效果）。这些效果可以同时存在，将效果前的复选框选定即可。相对应的CSS属性是“text-decoration”。
+　　　　注意：链接的默认设置是Underline，我们可以通过选none去除下划线。Blink（闪烁效果）只在NC浏览器里可以看到。
+　　　　Weight：给字体指定粗体字的磅值。Normal等同于400；Bold等同于700。设粗体字一般用bold。相对应的CSS属性是“font-weight”。
+　　　　Variant：允许你选取字体的变种，选small-caps（小型大写字母）时，此样式区域内所有字母大写。相对应的CSS属性是“font-variant”。
+　　　　Case：将选区中每个单词的第一个字母转为大写，或者令单词全部大写或全部小写。参数：capitalize（单词首字母大写）、uppercase（转换成大写）、lowercase（转换成小写）、none（不转换）。相对应的CSS属性是“text-transform”。
+　　　　Color：定义文字颜色。相对应的CSS属性是“color”。
+　　　　注意：CSS中颜色的值有三种表示方法：
+　　    ● #RRGGBB格式，是由红绿蓝三种颜色的值组合，每种颜色的值为“00 – FF”的两位十六进制正整数。例如：#FF0000表示红色，#FFFF00表示黄色。
+　　    ● rgb（R，G，B）格式，RGB为三色的值，取0~255，例如：rgb（255，0，0）表示红色，rgb（255，255，0）表示黄色。
+　　    ● 用颜色名称。CSS可以使用已经定义好的颜色名称。例如：red表示红色，yellow表示黄色。
+　　
+　　    2. Background（背景）
+　　　　Background面板主要是对元素的背景进行设置，包括背景颜色、背景图象、背景图象的控制。一般是对BODY（页面）、TABLE（表格）、DIV（区域）的设置。（^60090411y^）
+　　　　Background Color：设置元素的背景色。相对应的CSS属性是“background-color”。
+　　　　Background Image：设置元素的背景图像。相对应的CSS属性是“background-image”。
+　　　　Repeat：确定背景图像是否以及如何重复。No Repeat：在元素的开头显示一遍图像。Repeat：在元素的背景部分水平和垂直方向平铺图像。Repeat-x and Repeat-y：分别在水平和垂直方向重复显示，默认为Repeat。相对应的CSS属性是“background-repeat”。
+　　　　注意：如果定义的元素的BODY，可以控制页面背景是否重复。
+　　　　Attachment：固定背景图像或者跟随内容滚动。参数fixed表示固定背景，scroll表示跟随内容滚动的背景。相对应的CSS属性是“background-attachment”。
+　　注意：如果定义的元素的BODY，可以使页面背景固定。
+　　　　Horizontal：指定背景图像的水平位置。可以指定为left（左边），center（居中），right（右边）；也可以指定数值，如20px是指背景距离左边20象素。相对应的CSS属性是“background-position”。
+　　　　Vertical：指定背景图像的垂直位置。可以指定为top（顶部），center（居中），bottom（底部）；也可以指定数值。相对应的CSS属性是“background-position”。
+　　　　注意：水平位置和垂直位置使用的是同一个CSS属性，在设置时要注意。
+　　
+　　    3. Block（区块）
+　　　　Block面板主要是设置对象文本的文字间距、对齐方式、上标、下标、排列方式、首行缩进等。（^60090411z^）
+　　　　Word Spacing：设置单词之间的间距。可以设置负值。相对应的CSS属性是“word-spacing”。
+　　　　注意：一般情况下IE不支持此属性，仅在MAC平台上的IE4+可用。
+　　　　Letter Spacing：设置字符之间的间距。可以指定负值。因为中文也是字符，这个参数可以设置文字间的间距。相对应的CSS属性是“letter-spacing”。
+　　　　Vertical Align：指定元素的垂直对齐方式。可以指定sub（下标）、super（上标）、top（与顶端对齐）、middle（居中）、bottom（与底端对齐）……。相对应的CSS属性是“vertical-align”。
+　　　　Text Align：设置文本的排列方式。Left（左对齐）、right（右对齐）、center（居中）、justify（两端对齐）。相对应的CSS属性是“text-align”。
+　　　　Text Indent：设置文本第一行的缩进值。负值用于将文本第一行向外拉。要在每段前空两格，可设置为2em，因为em是当前字体尺寸，2em就是两个字的大小。相对应的CSS属性是“text-indent”。
+　　　　Whitespace：设置如何处理元素内的空白符。有三个选项可选：Normal 会将空白符全部压缩；Pre 则会如同处理 pre 标签内的文本一样处理这些空白符（也就是说，所有的空白符，包括空格，标签，回车，等都会得以保留）；Nowrap 指定文本只有遇到 br 标签时才换行。相对应的CSS属性是“white-space”。
+　　
+　　    4. Box（盒子）
+　　　　Box面板主要设置对象的边界、间距、高度、宽度、和漂浮方式等。（^60090411a1^）
+　　　　Width：定义元素的宽。相对应的CSS属性是“width”。
+　　　　Height：定义元素的高。相对应的CSS属性是“height”。
+　　　　注意：宽和高定义的对象多为图片，表格，层等。
+　　　　Float：定义元素的漂浮方式。Left 表示对象浮在左边、right表示对象浮在右边、none 表示对象不浮动。相对应的CSS属性是“float”。
+　　　　Clear：不允许元素的漂浮。Left表示不允许左边有浮动对象、right表示不允许右边有浮动对象、none表示允许两边都可以有浮动对象、both不允许有浮动对象。相对应的CSS属性是“clear”。
+　　　　Padding：定义元素内容与其边框的空距（如果元素没有边框就是指页边的空白）。可以分别设置top（上补白）、right（右补白）、bottom（下补白）、left（左补白）的值。相对应的CSS属性分别是“padding; padding-top; padding-right; padding-bottom; padding-left”。
+　　　　Margin：定义元素的边框与其他元素之间的距离（如果没有边框就是指内容之间的距离）。可以分别设置top（上边界）、right（右边界）、bottom（下边界）、left（左边界）的值。相对应的CSS属性分别是“margin; margin-top; margin-right; margin-bottom; margin-left”。
+　　　　下面是补白、边框、边界之间的关系图：（^60090411b1^）
+　　
+　　    5. Border（边框）
+　　　　Border面板可以设置对象边框的宽度、颜色及样式。（^60090411c1^）
+　　　　Width：设置元素边的宽度。可以分别设定Top（上边宽）、Right（右边宽）、Bottom（下边宽）、Left（左边宽）的值。相对应的CSS属性分别是“border; border-top; border-right; border-bottom; border-left”。
+　　　　Color：设置边框的颜色。你可以分别对每条边设置颜色。相对应的CSS属性分别是“border-color; border-top-color; border-right-color; border-bottom-color; border-left-color”。
+　　　　注意：我们可以通过设置不同的颜色做出亮边和暗边的效果，这样元素看起来是立体的。
+　　　　Style：设置边框样式。可以设置为none（无边框）、dotted（点线）、dashed（虚线）、solid（实线）、double（双线）、groove（凹槽）、ridge（凸槽）、inset（凹边）、outset（凸边）等边框样式。相对应的CSS属性是“border-style”。
+　　　　注意：dotted（点线）、dashed（虚线）必须要IE5.5以上或者MAC平台支持，否则效果为实线。
+　　
+　　    6. List（列表）
+　　　　List面板可以设置列表项样式、列表项图片、和位置。（^60090411d1^）
+　　　　Type：设置列表项所使用的预设标记。可以设置的样式有：disc（实心圆）、circle（空心圆）、square（方块）、decimal（阿拉伯数字）、lower-roman（小写罗马数字）、upper-roman（大写罗马数字）、lower-alpha（小写英文字母）、upper-alpha（大写英文字母）、none（无项目符号）。相对应的CSS属性是“list-style-type”。
+　　　　Bullet Image：设置列表项的图像。值为图像的URL地址或路径。?相对应的CSS属性是“list-style-image”。
+　　　　Position：设置列表项在文本内还是在文本外。Inside：列表项目标记放置在文本以内，Outside：列表项目标记放置在文本以外。相对应的CSS属性是“list-style-position”。
+　　
+　　    7. Positioning（定位）
+　　　　Positioning面板就相当于对象放在一个层里来定位，它相当于HTML的DIV标记。你可以把定义看作为一个CSS定义的层。（^60090411e1^）
+　　　　Type：设定对象的定位方式。有三种方式：Absolute（绝对定位）、Relative（相对定位）、Static（无特殊定位）。相对应的CSS属性是“position”。
+　　　　Visibility：设定对象定位层的最初显示状态。有三种状态：Inherit（继承父层的显示属性）、Visible（对象可视）、Hidden（隐藏对象）。相对应的CSS属性是“visibility”。
+　　　　Z-Index：设置对象的层叠顺序。编号较大的层会显示在编号较小的层上边。变量值可以是正值也可以是负值。相对应的CSS属性是“z-index”。
+　　　　Overflow：设置如果层的内容超出了层的大小时如何处理。有四种处理方式：visible，增加层的大小，从而将层的所有内容显示出来；hidden，保持层的大小不变，将超出层的内容剪裁掉；Scroll，总是显示滚动条；Auto，只有在内容超出层的边界时才显示滚动条。相对应的CSS属性是“overflow”。
+　　　　Placement：设置对象定位层的位置和大小。可以分别设置left（左边定位）、top（顶部定位）、width（宽）、height（高）。相对应的CSS属性分别是“left; top; width; height”。
+　　　　Clip：定义定位层的可视区域。区域外的部分为不可视区，为透明的。可以理解为在定位层上放一个矩形遮罩的效果。相对应的CSS属性是“clip”。
+　　　　注意：此参数只要在绝对定位时有效。
+　　　　注意：当Type里设定了绝对定位后，会为对象加上一个绝对定位的层。这个CSS创建的层同一般的层一样有属性面板，也显示在层管理面板中。你可以通过设置这个定位层的属性面板修改上述参数，不过在此属性面板里改动的值会作为内嵌样式加在对象标记后面，下图是定位层的属性面板：（^60090411f1^）
+　　
+　　    8. Extensions（扩展）
+　　    （^60090411g1^）
+　　　　Page Break：在打印的时候强迫在样式控制的对象前后换页。
+　　　　Before：设置对象前出现的页分割符。设置为always时，始终在对象之前插入页分割符。相对应的CSS属性是“page-break-before”。
+　　　　After：设置对象后出现的页分割符。设置为always时，始终在对象之后插入页分割符。相对应的CSS属性是“page-break-after”。
+　　　　注意：以上IE5仅支持always值和空白值（null）。
+　　　　Cursor：当鼠标滑过样式控制的对象时改变鼠标形状。可以设置为hand（手型）、crosshair（“十”型）、text （“I”型）、wait（等待）、default（默认）、help（帮助）、e-resize（东箭头）、ne-resize（东北箭头）、n-resize（北箭头）、nw-resize（西北箭头）、w-resize（西箭头）、sw-resize（西南箭头）、s-resize（南箭头）、se-resize（东南箭头）和auto（自动）。
+　　　　Filter：在样式中加上滤镜特效。由于此属性内容比较多，我们将到下一章单独对滤镜介绍。
+　　
+　　#1    七、 滤镜
+　　　　CSS提供了一些内置的多媒体滤镜特效，使用这种技术可以把可视化的滤镜和转换效果添加到一个标准的HTML元素上，例如图片、文本容器、以及其他一些对象。Dreamweaver4提供了16种滤镜可供选择，如下图：（^60090411h1^）
+　　　　下面，我们就来看看在Dreamweaver4里如何方便的使用这些CSS滤镜。
+　　　　建立一个自定义样式“.filter”，在Filter下拉框里选Alpha滤镜，我们将“Alpha（Opacity=?， FinishOpacity=?， Style=?， StartX=?， StartY=?， FinishX=?， FinishY=?）”的Opacity参数设为50，后面的参数都删掉，如下图：（^60090411i1^）
+　　　　按OK后就建立了一个“.filter”的自定义样式，我们把这个样式应用到图片上，图片就是半透明的了。如果把这个样式应用到表格上，表格也变成了半透明状态了。注意所有滤镜效果都要在浏览器里才能看到。下面是原码：
+　　<style type="text/css">
+　　<!--
+　　.filter {  filter: Alpha（Opacity=50）}
+　　-->
+　　</style>
+　　　　注意：这个例子我们没有用到后面的几项参数，只用到Opacity参数，所以将其他参数删掉。
+　　　　下面我们来讲解每个滤镜的效果和参数：
+　　    1. Alpha：设置透明度
+　　　　Alpha（Opacity=?， FinishOpacity=?， Style=?， StartX=?， StartY=?， FinishX=?， FinishY=?）
+　　　　Opacity：透明度级别，范围是0-100，0代表完全透明，100代表完全不透明。
+　　　　FinishOpacity：设置渐变的透明效果时，用来指定结束时的透明度，范围也是0 到 100。
+　　　　Style：设置渐变透明的样式，值为0代表统一形状、1代表线形、2代表放射状、3代表长方形。
+　　　　StartX和StartY：代表渐变透明效果的开始X和Y坐标。
+　　　　FinishX和FinishY：代表渐变透明效果结束X和Y的坐标。
+　　
+　　    2. BlendTrans：图像之间的淡入和淡出的效果
+　　    BlendTrans（Duration=?）
+　　    Duration：淡入或淡出的时间。
+　　    注意：这个滤镜必须配合JS建立图片序列，才能做出图片间效果。
+　　
+　　    3. Blur：建立模糊效果
+　　　　Blur（Add=?， Direction=?， Strength=?）
+　　　　Add：是否单方向模糊，此参数是一个布尔值，true（非0）或false（0）。
+　　　　Direction：设置模糊的方向，其中0度代表垂直向上，然后每45度为一个单位。
+　　　　Strength：代表模糊的象素值。
+　　
+　　    4. Chroma：把指定的颜色设置为透明
+　　　　Chroma（Color=?）
+　　　　Color：是指要设置为透明的颜色。
+　　
+　　    5. DropShadow：建立阴影效果
+　　　　DropShadow（Color=?， OffX=?， OffY=?， Positive=?）
+　　　　Color：指定阴影的颜色。
+　　　　OffX：指定阴影相对于元素在水平方向偏移量，整数。
+　　　　OffY：指定阴影相对于元素在垂直方向偏移量，整数。
+　　　　Positive：是一个布尔值，值为true（非0）时，表示为建立外阴影；为false（0），表示为建立内阴影。
+　　
+　　    6. FlipH：将元素水平反转
+　　
+　　    7. FlipV：将元素垂直反转
+　　
+　　    8. Glow：建立外发光效果
+　　    Glow（Color=?， Strength=?）
+　　　　Color：是指定发光的颜色。
+　　　　Strength：光的强度，可以是1到255之间的任何整数，数字越大，发光的范围就越大。
+　　
+　　    9. Gray：去掉图像的色彩，显示为黑白图像
+　　
+　　    10. Invert：反转图像的颜色，产生类似底片的效果
+　　
+　　    11. Light：放置光源的效果，可以用来模拟光源在物体上的投影效果
+　　　　注意：此效果需要用JS设置光的位置和强度。
+　　
+　　    12. Mask：建立透明遮罩
+　　    Mask（Color=?）
+　　    Color：设置底色，让对象遮住底色的部分透明。
+　　
+　　    13. RevealTrans：建立切换效果
+　　    RevealTrans（Duration=?， Transition=?）
+　　　　Duration：是切换时间，以秒为单位。
+　　　　Transtition：是切换方式，可设置为从0到23。
+　　　　注意：如果做页面间的切换效果，可以在<head>区加上一行代码：<Meta http-equiv=Page-enter content=revealTrans（Transition=?，Duration=?） >。如果用在页面里的元素必须配合JS使用。
+　　
+　　    14. Shadow：建立另一种阴影效果
+　　    Shadow（Color=?， Direction=?）
+　　    Color：是指阴影的颜色。
+　　    Direction：是设置投影的方向，0度代表垂直向上，然后每45度为一个单位。
+　　
+　　    15. Wave：波纹效果
+　　    Wave（Add=?， Freq=?， LightStrength=?， Phase=?， Strength=?）
+　　　　Add：表示是否显示原对象，0表示不显示，非0表示要显示原对象。
+　　　　Freq：设置波动的个数。
+　　　　LightStrength：设置波浪效果的光照强度，从0到100。0表示最弱，100表示最强。
+　　　　Phase：波浪的起始相角。从0到100的百分数值。（例如：25相当于90度，而50相当于180度。）
+　　　　Strength：设置波浪摇摆的幅度。
+　　
+　　    16. Xray：显现图片的轮廓，X光片效果
+　　　　注意：在使用CSS滤镜时，必须使用在有区域的元素，比如表格，图片等。而文本，段落这样没有区域的元素不能使用CSS滤镜，对这样的元素我们可以设置元素的Height和Width样式或坐标来实现。
+　　　　看下面这个例子，我们对一行文字做阴影效果（dropshadow），新建自定义样式.shadow，在filter下拉框里选择“DropShadow（Color=?， OffX=?， OffY=?， Positive=?）”，我们设置为“DropShadow（Color=999999， OffX=2， OffY=2， Positive=1）”。然后把定义好的样式应用在页面中，我们发现在表格里的文字有了阴影，而段落里的文字却没有阴影。点CSS Styles面板里的编辑样式表按钮，给样式加上Height属性：（^60090411j1^）
+　　　　为了不影响原来对象的高度，我们设置的高度不能超过字体本身的高度。OK后，在浏览器中可以看到段落里的文字也有阴影了。
+　　
+　　#1    八、 简单介绍CSS结合JS的运用（针对事件动作）
+　　　　利用CSS配合JavaScript的可以做很多更酷的动态页面效果，在本教程的最后给大家简单介绍一下CSS配合JS的应用。首先，我们要搞清楚事件和动作的概念。在客户端脚本中，JavaScript 通过对事件进行响应来获得与用户的交互。例如，当用户单击一个按钮或者在某段文字上移动鼠标时，就触发了一个单击事件或鼠标移动事件，通过对这些事件的响应，可以完成特定的功能（例如，单击按钮弹出对话框，鼠标移动到文本上后文本变色等）。
+　　　　下面介绍几种常见的事件（还用更多事件，请查阅相关资料）：
+　　　　onClick：鼠标单击事件。（是指鼠标按下，然后松开时产生。）
+　　　　onDblClick：鼠标双击事件。（是指鼠标快速按下，松开，并再次按下时产生。）
+　　　　onMouseDown：鼠标按下事件。（鼠标按下时即产生。）
+　　　　onMouseUp：鼠标释放事件。（是指鼠标从按下的状态到弹起。）
+　　　　onMouseMove：鼠标移动事件。（是指在特定元素上移动鼠标。）
+　　　　onMouseOver：鼠标经过事件。（是指当指针从外界往元素上移动时产生。）
+　　　　onMouseOut：鼠标离开事件。（是指鼠标从特定元素上离开时产生。）
+　　　　onLoad：载入事件。（当图像或页面结束载入时产生。）
+　　　　onUnload：卸载事件。（当访问者离开页面时产生。）
+　　　　onScroll：滚动条滚动事件。（当访问者使用卷轴上移或下移时产生。）
+　　　　有了事件以后，我们就为事件加上动作。这里只说改变当前元素自定义样式的动作，我们可以用这个方法先设定好两个自定义的CSS样式，对象原先调用第一种样式，当产生鼠标事件时让对象应用到第二种CSS样式，而产生的鼠标效果，看下面这个例子。
+　　　　在网页中插入一个图像，自定义一个“.out”样式，用gray滤镜使图片变成黑白的：（^60090411k1^）
+　　　　将这个自定义样式应用到图片上，在浏览器中预览到图片变成了黑白，我们再定义一个样式“.over”，这个样式没有任何内容，是空样式，样式表代码如下：
+　　　　<style type="text/css">
+　　　　<!--
+　　　　.over {}
+　　　　.out {filter: Gray}
+　　　　-->
+　　　　</style>
+　　　　然后在图片标记（IMG）里加上“onMouseOver="this.className=＇over＇" onMouseOut="this.className=＇out＇"”，意思为当鼠标经过时，图片为over样式，即彩色正常图像；当鼠标离开时，图片为out样式，即黑白图像。onMouseOver和onMouseOut是鼠标事件，this.className=＇…＇表示当前对象的class名为…，注意大小写不要写错，JS对大小写非常敏感。
+　　　　这样这个效果就完成了，保存后在浏览器里打开，图像是黑白的，当鼠标移上去时，图像变成彩色，鼠标离开时，图像又变回黑白。只要发挥你的想象，通过this.className方法还可以做出很多好看的鼠标效果。
+　　　　到这里，所有教程的内容就都讲完了，希望大家在学习中能灵活运用属性及方法，深刻理解规律和概念。如对本文有疑问和意见，欢迎到www.5dmedia.com/bbs论坛讨论发言。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

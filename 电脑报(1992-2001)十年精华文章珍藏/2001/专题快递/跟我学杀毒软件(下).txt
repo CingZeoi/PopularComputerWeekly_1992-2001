@@ -1,0 +1,57 @@
+跟我学杀毒软件(下)
+
+  
+2001年 8期
+
+#1    一、 程序的安装
+　　    Norton AntiVirus 2001的安装方式采用的是由InstallShield制作的标准Windows应用程序安装模式，直接运行Setup.exe文件，之后连续单击“Next”按钮即可轻松将程序安装到系统中。在安装文件开始之前，程序会给出如^08060105a^5-1所示的设置界面，其中包括两个设置项目，其中“Enable Auto-protect at startup”表示在系统启动时自动加载病毒在线监测程序，“Schedule weekly scans of local hard drives”表示创建计划任务，每周执行一次本地磁盘的全面扫描。根据自己的需要选择即可。
+　　    在软件安装过程中，程序将进行提示，其中“Enable E-mail Protection”含义为使用NAV 2001提供的邮件保护功能，这样可以防止目前非常猖獗的邮件病毒，在此建议使用。不过此项功能只能保护几个著名的邮件客户端程序设置的邮箱账户，并不能监测我们常见的Foxmail等邮件程序。
+　　    除以上两个设置项目外，在软件安装过程中，程序还会给出对话框，其中包括了一些简单的设置，在此我们只给出相关的含义：
+　　    ● Enable automatic LiveUpdate at Startup：Windows启动时执行在线病毒代码库升级程序，以保证当前安装的软件所使用的扫描引擎和病毒代码库是最新的。
+　　    ● Create a Norton AntiVirus shortcut on my desktop：在系统桌面上创建NAV 2001的程序快捷图标。
+　　    ● View the Readme file when Setup is Done：安装完成后打开/阅读自述文件。
+　　    ● Run LiveUpdate after installation：软件安装完成后执行在线病毒代码库升级程序，以保证当前安装的软件所使用的扫描引擎和病毒代码库是最新的。
+　　    ● Scan for viruses after installation：安装结束后进行病毒扫描。
+　　    以上设置项目都以复选框方式给出，你可根据自己的需要进行选择设置。
+　　#1    二、扫描病毒
+　　    对于扫描病毒，可按以下步骤进行操作：
+　　    1. 从开始菜单中单击Norton AntiVirus 2001图标，或者直接双击程序在系统任务条中的Tray图标，启动程序。切换到“Scan for Virus”（扫描病毒）选项卡，此时程序会给出如^08060105b^5-2所示界面。在界面中的“What do you want to scan?”列表框中给出了程序默认提供的扫描策略，其中包括：
+　　    ● Scan my computer：扫描我的计算机下的所有硬盘驱动器；
+　　    ● Scan all removable drives（floppies， CDs， Zip drives， etc.）：扫描系统下所有的可移动驱动器；
+　　    ● Scan for a floppy disk:扫描指定的软盘；
+　　    ● Scan drives：扫描指定的驱动器；
+　　    ● Scan folders：扫描指定的文件夹；
+　　    ● Scan individual files：扫描任意文件。
+　　    根据自己的需要选择扫描对象。
+　　    2. 单击界面下边的“Run Scan Now”（现在开始扫描）按钮，程序开始扫描相应的对象，同时程序会给出一个扫描进程对话框，并开始病毒扫描操作。如果你选择扫描指定驱动器或文件夹/文件，程序会首先给出对话框“Scan Drives”（扫描驱动器）、“Scan Folders”（扫描文件夹）或“Scan Files”（扫描文件），要求你选择扫描对象。如果本次扫描没有发现病毒，程序会给出“Scan Results”（扫描结果）对话框，在其中给出本次扫描的文件数、所消耗的时间、扫描方式等。
+　　    3. 如果扫描过程中发现有病毒存在，程序会给出如^08060105c^5-3所示的病毒清除向导，在界面中的列表框中给出了发现的病毒列表。此外，在该界面中提供了相应的清除方式，包括“Automatic”（自动清除）和“Manual”（手动清除）。一般来讲，应该选择由程序自动清除。选择前者，单击“Next”按钮继续。
+　　    4. 此时出现所有感染病毒的文件列表。单击“Next”按钮，程序开始自动清除染毒文件中的病毒。如果病毒得以清除，程序会给出相应的扫描结果对话框。
+　　    5. 如果不能清除，程序也会给出相应的对话框（^08060105d^5-4），其中提供了隔离染毒文件“Quarantine the infected files”，不隔离染毒文件“Do not Quarantine”两个选项。如果选择前者，程序会自动完成相应操作，如果选择后者，程序也会给出关联的界面，继续询问用户是否删除染毒的文件“Delete the infected files”，或者是不删除“Do not delete”，根据自己的需要选择。单击“Next”按钮，程序给出列表对话框，通知用户列表中的染毒文件没有进行任何处理，系统仍然处于危险状态中，此时可以单击界面中的“Advice”（建议）按钮查看程序提供的处理建议。切换到下一界面，单击界面中的“Finish”（完成）按钮完成全部扫描。
+　　#1    三、创建扫描策略
+　　    以上我们给出的是使用程序提供的扫描对象设置进行病毒扫描的操作方法，如果你需要经常扫描某些特定的驱动器或文件夹，可以自己定义一个扫描策略，这样可以便于自己使用。具体方法如下：
+　　    1. 单击程序界面中的“Add Scan”（添加扫描）按钮，程序会给出“Norton AntiVirus Scan Wizard”界面，首先看到的是一个说明界面，单击“Next”按钮继续。
+　　    2. 程序给出如^08060105e^5-5所示界面。单击其中的“Add folders”（添加文件夹）或“Add files”（添加文件）按钮设置该扫描计划任务可扫描的对象。
+　　    3. 单击“Next”按钮切换到下一界面，在界面中的“Scan name”项中给你的扫描计划任务起一个名字，之后 单击“Finish”按钮，程序会自动将该计划任务添加到界面中的扫描计划任务列表框中。
+　　    此外，在NAV 2001的程序主界面中，如果单击病毒扫描界面中的“More Actions”（更多行动）按钮，程序会给出一个关联菜单，在其中提供了基于计划任务文件的换名、删除、编辑、属性等相关命令，你可以根据自己的需要选择使用。如果使用鼠标右键单击界面窗口中的扫描任务，程序同样会给出一个关联菜单，在其中提供的命令是相同的。
+　　#1    四、使用在线病毒监测功能（病毒防火墙）
+　　    在线监测功能是Norton AntiVirus 2001安装到系统后自动设置提供的，其标志是在系统任务条中多了一个Tray图标，此时你的系统就在该工具的监测之下了。如果程序发现有病毒文件存在，会立刻将文件病毒清除，并给出一个清除结果对话框，而你也可以继续使用清除了病毒的文件，完全不需要用户干预。如果它不能清除染毒文件（如光盘中的文件病毒），也会给出一个提示框，同时禁止对该文件进行存取或复制等操作。
+　　    如果需要设置在线病毒监测的运行方式，可按以下方法设置：
+　　    1.使用鼠标右键单击程序的Tray图标，并从关联的菜单中选择“Configure Norton AntiVirus”命令，程序会给出如^08060105f^5-6所示界面。
+　　    2.该界面中的“Start Auto-Protect when Windows startup”是系统启动自动运行该程序。在“Scan files when they are”项中提供的是监控方式设置，其中包括当运行或者是打开程序时“Run or opened”、创建或下载的文件“Created or downloaded”。在“How to respond when a virus is found”项中提供了当程序发现病毒时可采取的措施，其中包括：修复染毒文件“Repair the infected file”、拒绝存取染毒文件“Deny access to infected file”、删除染毒文件“Delete infected file”、隔离染毒文件“Quarantine the infected file”、试图修复，如果失败则隔离“Try to repair， then quarantine if unsuccessful”、用户自定义“Custom virus response”等几种方式，程序默认自动修复染毒文件。在“File types to scan”项中提供了程序可监测的文件类型设置，其中包括检测所有文件“All files”和只监测程序文件和文档文件“Program files and documents only”，“Enable SmartScan technology”表示使用NAV独有的SmartScan（智能扫描）技术，在此建议选择。界面最下边的“Show the auto-Protect icon in the tray”表示在系统任务栏显示程序的Tray图标。如果需要设置排除监测的文件类型，可单击“Select extensions”（选择延伸）按钮，程序会给出如^08060105g^5-7所示界面，单击界面中的“New”按钮可添加其他不需监测的文件类型。
+　　    3.以上项目设置结束后，切换到“Bloodhound”选项卡，程序会给出如图5-10所示界面。在该界面中提供了是否使用NAV独有的“Bloodhound”启发式扫描监控方式“Enable Bloodhound heuristics”，以及设置该项技术的监测等级。使用这项技术可以防止未知病毒对系统的入侵，程序默认使用该项功能。对于此项设置，程序提供了三个保护等级，你可根据自己的需要选择，程序默认使用中等的保护等级。
+　　    4.切换到“Advanced”选项卡，程序给出如^08060105h^5-8所示界面。在该界面中提供了两个设置项目：“Scan floppies for boot viruses on access”（访问软盘时首先扫描软盘看是否有引导型病毒存在）、“Scan floppies for boot viruses when shutting down Windows”（当退出Windows时扫描软盘驱动器看其中的软盘是否有引导型病毒存在）。对于前者建议使用，而后者多少不是很必要，而且每次关闭Windows时读取软驱很麻烦，也会延长系统关闭时间，建议不使用它。
+　　    到此全部设置结束，单击界面中的OK按钮保存设置并退出。
+　　    当NAV 2001的在线监测程序发现有病毒入侵系统后，会立刻报警，同时阻断染毒文件的运行，以及感染系统，根据病毒的不同，有时程序给出的是窗口方式的警告对话框，有时是蓝屏样的警告界面，此时千万不可选择“Ignore”（忽略）继续操作，而是应该使用程序界面中提供的杀毒功能对染毒文件进行扫描查杀，这是避免病毒入侵的最后一道防线。为以防万一，在清除了病毒载体后，还是应该对系统进行依次彻底扫描，以确保系统的安全。
+　　#1    五、以计划任务方式执行扫描
+　　    Norton AntiVirus 2001提供了以计划任务方式扫描病毒功能，如果需要使用这项功能，可按以下步骤操作：
+　　    1. 在程序界面中切换到“Scheduling”（计划表）选项卡，程序给出如^08060105i^5-9所示界面。单击“Add Event”（添加缺口）按钮，程序给出“Norton AntiVirus Scheduling Wizard”对话框，首先我们看到的是一个说明界面。单击“Next”按钮，程序给出如^08060105j^5-10所示界面，提供了四个复选框，其中：
+　　    ● Schedule a virus scan：创建一个病毒扫描计划。
+　　    ● Schedule LiveUpdate to update your virus protection：创建升级检测计划。
+　　    ● Schedule another program to run：创建一个基于任意应用程序的定时运行计划。
+　　    ● Schedule a message to be displayed：创建一个定时显示屏幕信息的计划。
+　　    在此我们选择第一个复选框。单击“Next”按钮继续。
+　　    2. 切换到下一界面，在其中的列表框中选择扫描方案。在此说明一点，程序提供的扫描方案是有限的，你可以使用前面我们提供的创建扫描方案功能首先创建一个计划任务扫描方案，然后在此选择。
+　　    3. 单击“Next”按钮，在关联界面中定义当前扫描计划的名称。完成后切换到下一界面，依次在其中设置该扫描计划的循环周期，开始，结束时间。最后单击界面中的“Finish”按钮，程序会自动将其添加到“Schedule Event”（计划表事件）列表框中，现在你就可以使用这个计划任务执行病毒扫描了。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

@@ -1,0 +1,115 @@
+QAPlus/WIN  6.0使用详解
+
+曹国钧
+1996-06-14
+
+        IBM 386, 486, Pentium, PS/2及其兼容机。
+        VGA或更好的图形卡。
+        至少有2MB的系统内存。
+        DOS 3.1(或更高版本) & Microsoft Windows 3.0 (建议使用3.1或更高版本)。
+        速率为2400bps或更快的Modem。
+        一些品牌机，如AST，康柏等随机装有QAplus测度软件。
+        对QAPLUS/WIN的操作，可按如下提示进行：
+        在启动QAPLUS/WIN后，将首先提示您是否需要作快速测试(Quick Test)。快速测试的项目如下：
+        System Board(系统板)     CPU Test
+        System Board             IC Data Paths Test
+        System Board             CMOS RAM Test
+        System Board             NPU Test
+        Memory(内存)             Checkerboard
+        Memory                   Inverse Checkerboard
+        Hard Drives(硬盘)        Controller Diagnostic Test
+        COM Port(COM端口)         Data Path Test
+        若需要快速测试，则按“Quick Test”按钮，否则按“OK”按钮，则进入了QAPLUS/WIN操作界面。
+        1.QAPLUS/WIN界面构成
+        QAPLUS/WIN界面构成参见下面的示意图。
+        2.QAPLUS/WIN界面测试按钮解释
+        在QAPLUS/WIN界面上有许多测试按钮，当您将鼠标器的指针放在这些按钮上时，将在屏幕的左下角的信息提示框中显示该按钮的含义(下面列出英文解释信息均在此框中显示)。
+        QAPLUS/WIN界面上的按钮分成三排：
+        第一排10个按钮，从左到右依次为：
+        ● Perform a comprehensive system test(执行一个复杂的系统测试)
+        在测试之前，首先需要在软盘驱动器A、B中放入高密盘。然后开始测试。在测试过程中需要回答一些问题，如时钟是否正常、显示是否正常等。
+        这要花费很长的时间，这是所有测试中最为全面的。它将告诉用户整个软件系统的各项检测是否通过。您在测试过程中，或者泡一杯咖啡，或者按ALT+TAB键到其他环境下做其他工作， 如字处理、电子报表等。
+        ● Perform a quick system checkup(执行一个快速的系统检查)
+        这是与开始启动QAPLUS/WIN时的快速测试相同。
+        ● save critical files(保存重要文件)
+        该按钮将为系统制作出一张应急盘，该盘将保存系统重要文件。
+        选择该按钮时，将要求您在软盘驱动器A中放入一张格式化的空盘。
+        按“OK”按钮，则将拷贝系统的重要文件到A盘中。拷贝结束后，将出现一个提示框。该提示框要求您将应急盘贴上写保护，并放在安全的地方。一旦系统出现了问题，可用此应急盘进行修复。
+        经分析，该应急盘拷贝了几个重要的磁盘维护程序(如FDISK、SCANDISK、FORMAT、CHKDSK、SYS)和QAPLUS/WIN、Windows 的初始化INI文件及Windows的组文件.GRP。您可从应急盘的autoexec.bat文件中看到这些重要文件名。
+        ● View the hardware and DOS configuration(查看硬件和DOS配置)
+        该按钮提供如下DOS信息：
+        Memory Map(内存映象)、Interrupts(中断)、Hardware Configuration(硬件配置)、Device Drivers(设备驱动程序)、Environment(环境空间)、Disk Partition(磁盘分区表)、BIOSInformation(BIOS信息)。
+        ● View the Windows environment resource(查看Windows的环境资源)
+        该按钮提供如下Windows信息：
+        Windows Tasks(Windows正在运行的任务)、Windows Setup(Windows设置信息)、Memory(Windows内存使用情况)、WIn Scaling(Windows尺寸信息)、Screen Device(监视器设备能力)、
+        Drive Utilization(驱动器利用情况)、RAM Utilization(内存利用情况)。
+        ● View information About the CMOS Setup(查看CMOS设置信息)
+        显示有关CMOS设置信息，如日期和时间、软驱配置、显示器类型等。
+        ● Quick access to view and edit the configuration files(快速查看与编辑配置文件)
+        选择该按钮，则显示Windows Resource Control Center(Windows资源控制中心)对话框。利用该对话框，您可以编辑配置文件：Autoexec.bat、config.sys、win.ini、system.ini。当您选择QAMATCH按钮时，您可打开一个文件作为现在编辑文件的对照或参考。
+        ● Print DOS,Windows and CMOS information(打印DOS、WINDOWS和CMOS信息)
+        利用该按钮，打印DOS、WINDOWS和CMOS信息。这些信息可以送到打印机或一个文本文件中。
+        按setup按钮，将设置打印机，有关设置方法请参见Windows使用手册。
+        ● Get QUick technical support on-line(获取快速的技术支持)
+        通过调制解调器MODEM获得技术支持。
+        ● Online reference to QAPLUS/WIN
+        选择此按钮，可获得QAPLUS/WIN的帮助信息。
+        第二排5个按钮：
+        ● System Board-Select and run tests on the system board components
+        选择系统有关部件进行测试，这可节省检测时间。下面的按钮与此类似。
+        ● Video-Select and run tests on the Video adapter
+        选择显示器适配器有关部件进行测试。
+        ● Multimedia-Select and run tests on the sound card and CD-ROM
+        选择CD-ROM和声音卡有关部件进行测试。
+        ● Hard Drivers-Select and tests run on the hard disk drivers
+        选择硬盘驱动器有关部件进行测试。
+        ● Floppy Drivers-Select and tests run on the floppy disk drivers
+        选择软盘驱动器有关部件进行测试。
+        第三排5个按钮：
+        ● Memory-Select and run the tests on the system memory
+        选择内存的部件进行测试。
+        ● COM Port-Select and run the tests on the serial I/O Ports
+        选择COM端口的有关部件进行测试。
+        ● Printers-Print a sample document to test the printer
+        打印机打印情况测试。
+        ● Mouse/Key-Select and run tests on the Mouse and Keyboard
+        对键盘和鼠标器进行测试。
+        ● Network-Select and run the Network
+        对网络通讯进行测试。在测试之前必须选择一台服务器。
+        3.QAPLUS/WIN界面菜单解释
+        QAPLUS/WIN提供了六个菜单，分别为File、Tests、Info、Perference、Tools、Help。
+        下面是几个重要的菜单项。
+        (1) Log Results
+        选择该菜单项，可弹出“Log Information”的对话框。
+        在system ID options框中输入系统ID信息，如序列号、工作中心、机器类型。在Open File框中输入登录文件名称及其目录。在File Type 框中选择登录文件类型，如ASC、CSV等。
+        Log文件记录了测试信息。
+        (2) QAPlus Report!
+        选择该菜单项，可弹出“QAPLUS Report!”对话框。
+        该对话框给出测试报告。首先选择Choose a log file按钮，则弹出“Choose a log file”对话框。
+        选择Log Results菜单生成的Log文件，如qaplusw.txt。按OK按钮。然后可选择Diagnostic Report 、 Hardware  Configuration  Report 、Report Output按钮生成对应的测试报告。
+        (3) Launch Application
+        该菜单项用于执行应用程序。选择该菜单项，则弹出QAPLUS/Win Open对话框。
+        您可在此对话框中选择应用程序文件名，然后按OK按钮即可。
+        (4) Disk Perference
+        该菜单项显示磁盘的使用效率。选择该菜单项，则出现“QAPLUS/DIsk Perference Tester[Untitled]”对话框。
+        选择Run!菜单，则出现test descrption对话框。
+        在该对话框中输入测试描述名字。按OK按钮，则出现一个提示信息框。
+        该对话框提示用户：在测试过程中，不要移动鼠标指针或按任何键。
+        当退出Disk Perference时，则弹出Save As对话框，要求您将测试结果以*.DPR保存起来。
+        (5) CPU Perference
+        该菜单项显示出PowerMeter II Perference Panel(TM)对话框。该对话框显示了Whetstones(Million's)、Dhrystones(Thousands)、MIPS(Tens)指标信息。
+        (6) Test Perference
+        该菜单项用于配置QAPLUS/WIN的测试参数，如：Number of Passes(通过次数)、Interactive Pause(交互暂停)、Testing Options(测试选项)、Pause After Pass(在通过后暂停)、Pause After Error(在出现错误后暂停)。
+        (7) Control Panel
+        该菜单项调用Windows的控制面板。
+        (8) RAM Chip Locator
+        该菜单项用于定位内存芯片的错误。选择该菜单项后，则出现一个对话框。
+        按OK按钮后，则出现配置系统(Configure System)对话框。
+        您可选择Add按钮增加系统配置名称，或按Delete按钮删除系统配置名称。
+        在内存配置框(bank0、bank1、Bank2、Bank3)上快速点两下鼠标键，则弹出“Add ram banks”的对话框。
+        根据您内存实际容量配置合适的SIMM大小。例如，您的微机配置了8MB内存，则可在Bank0、Bank1上各配置4MB的SIMM。
+        当您选择Locate Chip菜单中的Find SIMM Address菜单项，则出现一个对话框。在该对话框中可输入内存地址及错误位，则可查找出可能出错的内存条。错误的内存条以闪烁红色的标记显示。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

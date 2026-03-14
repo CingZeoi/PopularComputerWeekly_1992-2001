@@ -1,0 +1,618 @@
+Turbo C++错误信息(V2.0) 
+
+
+1992-12-25
+
+        本附录列出的出错信息中用单引号括起的单词 代表一个通用的名或值,用户在屏幕上看到的出错信息是把这个单词用具体的名或值取代后的信息。例如:如果有一个C++函数goforit出现错误,用户在屏幕上看到的实际信息为:
+        goforit must be declared with no arguments
+        要查阅这一条信息,必须找下面这一条信息:
+        function must be declared with no arguments
+        下面列出本附录错误信息中用引号括起来的通用名和值, 用户得到的出错信息应该先用相应的名或值取代,然后再查阅。
+        手册中看到的 	 屏幕上看到的
+        argument	  一个命令行或其它参数
+        class 	 一个类名
+        field 	 一个域引用
+        filename 	 一个文件名(扩展名可有可无)
+        group 	 一个组名
+        identifier 	一个标识符(变量名或其它)
+        Language	一个程序语言的名字
+        member 	 数据成员或成员函数的名字
+        message 	一个信息串
+        module	  一个模块名
+        number 	 一个实际数
+        option	  一个命令行或其它选择项
+        parameter	  一个参数名
+        segment 	 一个段名
+        specifier 	 一个类型说明符
+        symbol 	 一个符号
+        xxxxh 	 一个后面跟着h的4位十六进制数
+        本附录按ASCII字母顺序列出出错信息。以符号(等号,逗号,括号等 )开头的信息通常放在前面。 由于上表列举的变量开头的错误信息不能以在屏幕上实际看到的出错信息的字母顺序排 列,所以所有这类信息总是放在每个错误信息表的开始处。
+        如果变量出现在错误信息正文后面,例如:
+        Incorrect command__Lineargument
+        那么可以按这条出错信息的字母顺序查找,此处可在“I”开头的信息中找。
+        一、运行错误
+        Turbo C++只有少量运行错误信息。下面按字母顺序列出。
+        ●Abnormal program termination程序不正常结束。这是因为程序在运行时发现内存不够造成的。另外, 调用函数abort将显示出该信息。有些运行错误在最后将调用abort函数,因此会显示出该信息。
+        ●Divide by 0
+        用整数除以0。该错误可被signal函数探知。另外,还将调用abort函数,并使程序非正常结束。
+        ●Floating point error: Divide by 0
+        除数为0。如1.0/0.0。
+        ●Floating point error: Domain
+        结果不是一个数。如,0.0/0.0。
+        ●Floating point error: Overflow
+        在完全丢失精度的情况下,结果是+∞或-∞。如:
+        double x=le200*le200
+        ●Floating point error: Partial loss of precision
+        在浮点操作时,丢失了精度。缺省时该错误被屏蔽,可调用control87来消除屏蔽。
+        ●Floating point error:Underflow
+        浮点操作时产生下溢,下溢值用0.0替换。缺省时该错误被屏蔽,可调用control87 来消除屏蔽。
+        ●Floating point error: Stack fault
+        浮点操作引起堆栈溢出。该错误不常出现,可能是由于汇编码使用的寄存器太多, 或者是没有说明浮点函数。
+        注意:上述这些浮点错误可以用函数control 187屏蔽,也可以用函数signal捕获。另外,这些浮点错误还将调用函数abort。以打印出:Abnormal program termination。并调用exit(3)。
+        ●Null pointer assignment
+        当一个small或medium内存模式的程序退出时, 将检查程序数据段开头的若干个字节的内容是否改变。如果这些字节内容被改变,则显示该信息, 通常这是因为有一个值被存进一个未初始化的指针中。尽管产生这个错误的程序在其它方面看上去运行正常,但它反映程序内部有严重错误,应对其予以重视。对一个未初始化的指针间接赋值可能导致不可预料的后果(在large、compact 或huge内存模式下,还可能出现“死锁”)。在集成调试器中可跟踪null指针。
+        ●Stack overflow
+        Turbo C++程序中堆栈缺省大小是4096字节。这对于大多数程序来说是足够的,但是当程序执行复杂递归或大量使用局部数据时可能出现堆栈溢出。 只有当打开堆栈检查功能时才可能得到该信息。若要改正此错误,可以换用较大的内存模式试一试, 或者通过改变全局变量stklen的值来增加堆栈大小,还可以减少程序对堆栈的使用。为了减少函数的局部数据数量,可以将其说明为静态变量(static)。例如:
+        void anyfunction(void)
+        {
+        static int buf［2000］； /*分配在数据段中*/
+        int list ［2000］; /*分配在堆栈中*/
+        将局部变量说明为static,有两个缺点:
+        1.它将永久地占用全局变量和堆栈以外的空间,不过这还只是个小缺点。  2.若一个函数中的变量说明为静态的,那么该函数不能递归调用或异步调用。因为对于说明为Static的变量,每次调用函数时对该变量使用的是相同的空间而不是分开的空间。
+        二、编译错误
+        由Turbo C++编译器(TC或TCC)产生的诊断信息分为三类:致命错误、错误和警告。
+        ●致命错误:使得编译过程立即停止。应该采取适当的解决办法,然后重新编译。
+        ●错误:表示程序语法错误,磁盘或内存存取错误以及命令行错误。编译器将完成当前编译阶段,然后停止。并且编译器在每个编译阶段(预处理,分析,优化和代码生成) 都将尽可能多地找出源程序中的真正错误。
+        ●警告:不终止编译过程。它表明条件有疑问,而这些条件作为语言的部分是合法的。当使用和机器有关的结构时,编译器总是生成警告信息。
+        编译器按下列格式显示信息:先是信息类型,然后是文件名和行号, 最后才是信息内容。在下面的每类信息中将按照字母顺序列出。 
+        1. 致命错误
+        ●Bad call of inline function
+        在使用一个宏定义的内部函数(预定义的宏)时没有用正确的方式调用它。C中预定义的内部函数是以双下划线(__)为开头和结尾的.
+        ●Irreducible expression tree
+        错误行上的某个表达式使得代码生成器无法产生代码。这是一个编译器内部错误,这时将不翻译该表达式。如果编译器曾出现过该错误,请通知Borland公司。
+        ●Out of memory
+        编译时内存溢出。要么增加机器内存,如果你的机器已有640K内存, 就应该简化源文件。
+        ●Register allocation failure
+        错误行上的某个表达式太复杂,以致代码生成器无法产生该表达式的代码。这也是一个编译器内部错误。请简化该表达式。如果出现此错误,请通知Borland公司。
+        2.错误
+        ●constructorcannot return a value
+        C++的构造函数的return语句不能有一个表达式作为返回值。
+        ●constructoris not a base class of class
+        一个C++的类构造函数class试图调用一个基类构造函数constructor,或者是你试图改变class::constructor的访问权限。constructor不是class的一个基类。检查你的说明。
+        ●functionlcannot be distinguished from function2
+        函数1和2的说明中参数类型表的差别不足以区分它们。 可尝试将某一个函数中的参数类型或参数次序改变一下。
+        ●functionis ambiguous
+        在函数调用中,不止一个重载函数的参数表可以和调用的参数表匹配(使用缺省的参数转换规则)。应该对一个或多个参数进行显式类型转换来解决这种二义性问题。
+        ●functionmust be declared with no arguments该C++操作符函数不能有参数。
+        ●functionmust be declared with one argument该C++操作符函数只能有一个参数。
+        ●functionmust be declared with two arguments该C++操作符函数必须有两个参数。
+        ●functionwas previously declared without static该函数在此处说明为静态的,但在前面却已经说明为外部的(extern)或全局的。ANSI C不允许这种情况出现。
+        ●functionwsa previously declared with the language language该函数在不同的地方用不同的语言修饰词(cdecl,pascal或interrupt)说明,这是错误的。
+        ●identifier cannot be declared in an anonymous union无名的联合中不能有成员函数或静态成员。无名的联合只能包含数据成员。
+        ●identifier cannot be used in static member function
+        一个静态的成员函数只能使用它所在的类中的静态成员,尽管它有完全的访问权限。此错误是由于试图使用一个需要用this指针的成员。
+        ●identifieris inaccessible because also in class
+        将一个类既作为直接基类又作为间接基类是不合法的。 可使基类在两处说明为虚拟的。
+        ●identifier is not a data member and cant be initialized here
+        在一个构造函数中只能对数据成员初始化。 此信息表示初始化表中含有一个静态成员或函数成员。
+        ●identifieris not a member of struct
+        identifier被当作一个结构成员来引用,但它不是一个结构成员。请检查你的说明。
+        ●identifieris not a parameter
+        在一个旧形式函数定义的形参说明部分中idenitfier被说明,但却不是作为一个参数被列举的,可以去掉此说明或可把identifier作为一个参数。
+        ●identifieris not legal here
+        类型说明符identifier和其它类型名冲突或重复,或者它被当作一个typedef名字使用,而此时在这个作用域中它不是一个typedef名字。
+        ●identifieris virtual and cannot be explicitly initialized
+        一个C++类的构造函数试图调用一个基类构造函数identifier,但该基类是一个虚基类。 虚基类不能被显式地初始化,编译程序会自动地隐含调用基类的缺省构造函数base::base()。
+        ●identifiermust be a member function
+        大多数C++的操作符函数可以是类成员或普通的非成员函数,但有一些只能是类的成员函数。这些是operator=、operator→和operator()及以及类型转换。
+        ●identifiermust be a member function or have an argument of class type
+        大多数操作符函数必须有一个显式或隐式的类类型参数。 此操作符函数在类外说明且没有 一个显式的类类型参数。
+        ●identifiermust be a previously defined class or struct
+        企图把identifier说明为一个基类,但它不是一个类,或者它还没有被完全定义。 请修改该名字或重新排列这些说明。
+        ●identifier must be a previously defined enumeration tag
+        企图把identifier作为枚举标记使用,但是它还没有被说明。纠正此名字或将说明重新排 列。
+        ●identifiermust be a previouslyde fined structure tag企图把idebtififier作为结构标记作用，但是还没有被说明。纠正此名字或将说明重新排列。
+        ●identifierspecifies multiple or duplicate access
+        一个基类可以被说明为public或private,但不能两者都有,该访问说明符对一个基类只能出现一次。
+        ●memberis not accessible
+        C++类成员member被说明为private或protected,因此不能从该函数中引用。有时出现在企图调用一个可访问的重载成员函数(或构造函数)中,但是其参数匹配一个不可访问的函数。重载函数检查总是在可访问性检查之前完成,如果是这个问题,请试着用一个或多个参数的显式类型转换来选择期望的可访问函数。
+        ●specifierhas already been included
+        此类型说明符在当前说明中出现了一次以上,删除或改变其中的一次。
+        ●=expected
+        变量初始化时缺赋值运算符(=)。
+        ●,expected
+        在一个说明表、初始化表或参数表中缺逗号(,)。
+        ●{expected
+        一个块或初始化表的开头缺左花括号({)。
+        ●(expected
+        参数表前缺左圆括号。
+        ●}expected
+        一个块或初始化表的结尾缺右花括号(})
+        ●)expected
+        参数表尾缺右圆括号。
+        ●:expected after private /protected/public
+        保留字private/protected/public的后面必须是一个冒号(:)。
+        ●::requires a preceding identifier in this context
+        在一个说明中,C++双冒号(::) 的前面必须有一个限定类名。而非限定的双冒号只能用在表达式中来指明全局作用域,而不能用在一个说明中。
+        ●.*operands do not match
+        C++点星操作符(.*)的右边必须是一个指针,指向该操作符左边给出的类的一个成员。
+        ●#operator not followed by macro argument name
+        在宏定义中,#可用来指明将其后的宏参数替换为一个串,因此#后面必须是一个宏参数名。
+        ●Access can only be changed to public or protected
+        一个C++派生类可以修改一个基类成员的访问权限,但是只能变为public或protected。 一个基类成员不能为private。
+        ●Access declarations cannot grant or reduce access
+        一个C++的派生类可以修改一个基类成员的访问权限,但只能恢复它为基类中的访问权限,不能加大或减少它的访问权限。
+        ●Access specifier specifier found in a union
+        C++存取说明符public private protected不能用在联合中。
+        ●Ambiguity between functionl and function2
+        两个命名的重载函数同时使用所提供的参数,不允许这种二义性。
+        ●Ambiguous conversion functions:typeland type2
+        企图用多种方法将一个已提供的类型转换到期望的类型。
+        ●Array bounds missing］
+        在数组说明中缺右方括号(］)。
+        ●Array must have at least one element
+        ANSI C和C++要求数组被定义为至少有一个元素。以前的一个程序设计技巧是把结构的数组成员说明为零元素长,然后用函数malloc来分配实际所需的空间。现在仍然可以使用这个技巧,但是数组长度至少有一个元素。当然,长度未知大小的数组说明(注意, 不同于定义)是允许的。
+        例如:
+        char ray［］;  /*未知长度的定义_非法*/ 
+        char ray［0］; /*长度为0的定义_非法*/ 
+        extern char ray［］;/*未知长的说明_OK*/
+        ●Array of references is not allowed
+        引用类型的数组是非法的。 因为不允许有指向引用的指针和数组名被强制转换成指针。
+        ●Array size too large
+        数组长度超过64K字节。
+        ●Assembler statement too long
+        内嵌式汇编语句的代码长度不能超过480字节。
+        ●Attempting to return a reference to local name identifier
+        一个C++的函数返回一个引用类型,但你试图返回一个指向局部(自动)变量的引用, 这是非法的。因为在函数退出时这个引用所指的变量就没有了。可以返回一个指向任何静态的或全局变量的引用或者可以改变这个函数为返回一个值。
+        ●Bad file name format in include directive包含文件名必须用双引号(“”)或尖括号(<>)括起来。
+        ●Bad ifdef directive syntax#指令必须有一个标识符(并且没有其它东西)作为指令体。
+        ●Bad ifndef directive syntax同前一条错误信息。
+        ●Bad return type for a type conversion operator
+        C++类型转换成员函数指定了一个不同于该类型本身的返回类型。对转换函数operator T 的说明不能指定任何返回类型。
+        ●Bad syntax for pure function definition
+        纯虚函数由说明时加=0来表示的。你写的程序与此类似,但不完全一样。
+        ●Bad undef directive syntax#undef指令必须有一个标识符(并且没有别的东西)作为指令体。
+        ●Base classclassis included more than once
+        一个C++的类可以从许多个基类直接派生而来,但一个指; 定的基类只能被直接派生一次。
+        ●Base class class is initialized more than once
+        在一个C++的类构造函数中,跟在构造函数头后面的初始化表不止一次包含了基类class。
+        ●Base  class cannot be declared protected
+        C++基类必须是public或private,但不能是protected。
+        ●Bit field cannot be static
+        只有普通的C++类数据成员可以被说明为static,而位域则不行。
+        ●Bit fields must by signed or unsigned int
+        位域必须被说明为一个有符号或无符号的整数类型。在ANSI C中,位域只能是signed或unsigned int类型,而不能是char或long等类型。
+        ●Bit fields must contain at least one bit 
+        已命名的位域的宽度不能是零(或小于0)。而一个未命名位域的宽度可以是0,这是一种约定,用来将后面的位域成员的地址强制对齐为字节边界(或者是字边界,如果使用了-a选择项的话)。
+        ●Bit field too large
+        给出的位域宽度超过了16位。
+        ●Body already defined for this function
+        同一个函数只能有一个函数体。
+        ●Call of non-function
+        被调用的名字没有被说明为一个函数。可能是函数说明有错或函数名拼错。
+        ●Cannot assign1identifier1 to identifier2
+        赋值运算符(=)(或复合赋值运算符,如+=)的两边必须类型兼容 ,且不能是数组。你企图把类型为identifier1右边表达式赋给类型为identifier2的左边目标。
+        ●Cannot call mainfrom within the program
+        C++不允许递归调用函数main。
+        ●Canot cast from identifier1 to identifier2
+        类型identifier1到identifier2的强制转换是不允许的。
+        在C中,一个指针可以转换成整型或另一个指针。一个整型可以转换为任何整型、浮点型或指针类型。一个浮点类型可以转换为一个整型或浮点类型。结构和数组不能互相转换。通常不能将一个Void类型转换。
+        在C++中,检查用户定义的转换和构造函数是否存在,如果不存在的话,就应用上述的规则(除了指向类成员的指针外)。在整型类型中,只有常数0可能转换成成员指针。
+        成员指针可能转换成一整型量或类似的成员指针。 如果一个成员指针原先指向一数据成员或函数成员;那么类似的成员指针也可指向一个数据成员或函数成员,进行类型转换的限定类必须是和原来相同的或是原来类的基类。
+        ●Cannot create Variable for abstract class class 
+        抽象类_那些具有纯虚函数的类_不能直接使用,只能用来派生其它类。
+        ●Connot define a pointer or reference to a reference
+        不允许有指向引用的指针或指向引用的引用。
+        ●Cannot find class::class (class&) to copy a vector
+        当一个C++的类class1包含有一个类clsaa2的数组(向量)时, 而你又想从类Class1的另一个对象中构造类Class1的一个对象,这就需要一个class2::class2(class2&)的构造函数,这样数组元素才能被构造, 这个构造函数只有一个参数(指向它的类的引用)并称为一个引用构造函数。
+        通常编译程序自动地提供一个引用构造函数,但是你为类class2定义了一个构造函数,此构造函数有一个class&的参数和带缺省值的附加参数, 这样的引用构造函数既不存在也不能被编译程序所产生。这是因为无法区分class2::class2(class2&)和class2::class2(class2&,int=1)。你必须重新定义这个构造函数使之不是所有的参数都有缺省值。然后你可以定义一个引用构造函数或由编译程序产生一个。
+        ●Cannot find identifier::identifier()to initialize a vector
+        当一个C++的类class1包含一个类class2的数组(向量)时,而你又想构造一个不是从类class1的另一个对象中构造一个类class1的对象,就需要一个构造函数class2::class2(),这样数组的元素才能被构造。 这个无参数的构造函数称为缺省构造函数。编译程序会自动提供一个缺省构造函数,除非你已定义过任何类class2的构造函数。那样的话,编译程序是不会自动提供缺省构造函数的,用户必须提供一个。
+        ●cannot find class::class()to initialize base class
+        每当要构造一个C++的派生类class2时,必须先构造它的每一个基类class1。如果class2的构造函数没有说明一个class1(作为class2的头部)的构造函数,就必须有一个class1::class1()作为基类的构造函数。编译程序会自动提供一个缺省构造函数,除非你已定义过任何类class1的构造函数。那样的话, 编译程序是不会自动提供缺省构造函数的,用户必须提供一个。
+        ●Cannot find class::class() to initialize field identifier
+        当一个C++类class1包含一个类class2的成员时,而你希望构造一个类class1的对象但不是从类class1的另一个对象中构造,就必须有一个class2::class2()的构造函数,才能构造这样的成员。 这个无参数构造函数称作缺省构造函数。编译程序将自动提供一个缺省构造函数,除非你为类class2定义过任何构造函数,这样的话编译程序是不会自动提供缺省的构造函数的,用户必须提供一个。
+        ●cannot find class::operator=(class&) to copy a vector
+        当一个C++类class包含一个类class2的一个数组(向量)时而你又想复制一个类class1,就必须有一个赋值操作符class2::operator=(class2&)才能复制数组的元素。通常编译程序自动提供这样的操作符。 但是如果你对类class2已有一个operator=定义,但没有用一个类型为class2的参数,编译程序不会自动提供,你必须自己提供一个。
+        ●Cannot have a near member in a far class
+        一个C++类的所有成员都必须是far型的,其成员是一个先前说明为near(或缺省)的类。
+        ●Cannot initialize a field
+        不能对结构和联合以及C++类初始化单个域。结构和联合可以使用初始化表来初始化,而C++类则只能通过使用构造函数来初始化。
+        ●Cannot initialize type1 with type2
+        企图用类型为type2的值来初始化一个类型为type1的目标,初始化规则基本上和赋值相同。
+        ●Cannot modify a const object这指明对说明为const的对象的非法操作,比如赋值给该对象。
+        ●Cannot overload main函数main不能被重载。
+        ●Cannot specify base classes except when defining the class
+        当指定一个C++类时,派生该类的那些基类只能在该类定义的那一点被指定。当只说明类标记时(如class c;),不能指定这些基类。
+        ●Case outside of switch 
+        case语句出现在switch语句之外。这通常是因为括号不匹配造成的。
+        ●Case statement missing:
+        case语句必须在常数表达式后紧跟一个冒号。case语句中的表达式或者遗漏了冒号或者在冒号前有另外的符号。
+        ●Character constant too long
+        字符常数只能是一或两个字符长。
+        ●Classclasshas a constructor and cannot be hidden
+        C中的结构名和一般名字有不同的名字空间,而C++中通常可以共享名字空间。C++ 中可以区分带有构造函数的类,因为构造函数的说明和一般函数说明 很相象, 可以避免这种混淆。
+        ●Classes cannot be initialized with{}
+        通常的C结构可用花括号中的一组值来初始化,C++类只能用构造函数对其初始化,如果该类有构造函数,私有成员、虚函数或虚基类的话。
+        ●Class member member declared outside its class
+        C++类成员函数只能在类说明之内被说明。不同于非成员函数。 它们不能被说明多次或者在其它地方说明。
+        ●Compound statement missing}
+        程序结尾缺少闭花括号。可能是括号不配对。
+        ●Conflicting type modifiers
+        这出现在一个指针的说明中同时给出了near和far关键字。 对一个指针只能用一个地址修饰符(far或near),对一个函数只能用一个语言修饰(cdecl,pascal,interrupt)说明。
+        ●Constant expression requird
+        说明数组时必须固定给出其大小。通常此类错误是因为拼错一个#define常量。
+        ●Constructor cannot have a return type specification
+        C++构造函数有一个隐含的由编译器使用的返回类型, 但你不能说明一个返回类型或返回一个值。
+        ●Conversion of near pointer not allowed
+        当程序当前不在运行时,表达式计算框中的near指针不能被转换为far指针。这是因为转换需要知道用户程序中DS寄存器当前值,而用户程序不存在。
+        ●Could not find a match for argument (s) 找不到一个C++函数其参数与你提供的参数相匹配。
+        ●Could not find file file name  编译程序找不到命令行上给出的文件。●Declaration does not specify a tag or an identifier
+        该说明没有说明任何东西,这可能是一个结构,联合无标记或变量,C++要求此处应给以说明。
+        ●Declaration is not allowed here  说明不能被用作for,while,do,if或switch控制语句。
+        ●Declaration missing;  结构或联合成员的域的说明后面缺分号。
+        ●Declaration syntax error  说明中缺某些符号或者有多余的符号。
+        ●Declaration terminated incorrectly
+        一个说明有额外的或不正确的结束符号。如函数体后面放了一个分号。在一个类开头和左花括号之间加一个分号的C++成员函数的说明也会产生此错误。
+        ●Declaration was expected
+        缺说明。通常是因为缺界符(如逗号、分号、右圆括号及右花括号)引起的。
+        ●Declare operator delete (void*) or (void*, size__t)
+        delete运算符可以只有一个void*类型的参数,还可以再加一个类型为size__t的第二个参数。 后一种形式比前一种形式优先使用,全局运算符delete已被说明为后一种形式,因此若想重新说明则必须小心。
+        ●Default outside of switch
+        default语句出现在switch语句之外。可能是括号不匹配引起的。
+        ●Default value missing
+        若在C++函数说明中,有一个参数有缺省值,那么它后面的所有参数都必须有缺省值。
+        ●Define directive needs an identifier
+        #define之后的第一个非空白符必须是一个标识符。
+        ●Destructor cannot have a return type specification
+        C++释放函数不能返回一个值,也不能给它指定一个返回类型。
+        ●Destructor for classis not accessible
+        这个C++类的释放函数是protected或private,此处不能被调用来释放该类。如果一个类的释放函数是private,这个类就不能被释放,也就不能被使用。说明为protected的释放函数只能被派生类访问, 这种方法用来保证不会创建任何基类的实例而只能从基类中派生类。
+        ●Destructor name must match the class name
+        在一个C++的类中用否定号(~)来说明该类的释放函数,释放函数的名字和类名相同,只是在其前面加(~)号。在你的程序中把~号用在其它名字前面。
+        ●Division by zero	在一个常数表达式中,求余或除法运算的除数为零。
+        ●do statement must have whiledo语句缺while关键字。
+        ●do -while statement missing(do语句中,while关键字后面缺)。
+        ●do -while statement missing(do语句中,测试表达式后面缺)。
+        ●do-while statement missing;do语句测试表达式的右圆括号后面缺分号。
+        ●Duplicate caseswitch语句的每一个case都必须有唯一的常数表达式值。
+        ●Enum syntax error枚举说明不能包含一个格式不正确的标识符。
+        ●Error directive:message
+        这条错误信息是源程序中的#error伪指令被处理时产生的, 该指令的正文被显示在此信息中 (取代massage)
+        ●Error writing output file
+        当编译器在写，OBJ、，EXE或临时文件时出现了 DOS错误。可能是磁盘空间不够,或者是用 -n选择项 (或Options |Directories|Output输入框)给出的目录不正确。
+        ●Expression expected
+        缺表达式。当前的符号不能做为表达式开头。该信息可以出现在if 或while语句的控制表达式或者变量初始化等处。它常常是不小心插入或删除一个符号。
+        ●Expression if too complicated
+        编译程序可以处理相当复杂的表达式,但有成百上千项的表达式太复杂。请分成两个或更多的表达式。
+        ●Expression of arithmetic type expected
+        一元加(+)和一元减(-)运算符的操作数必须是算术类型表达式__只能是char、short、int、long、enum、float、double及 long double类型。
+        ●Expression of integral type expected
+        求反运算符(~)的操作数必须是整数类型表达式(char、short、int、long及 enum)。
+        ●Expression of scalar type expected
+        运算符(!)、(++)及(_)的操作数类型错误。只能是标量类型:char, short, int, long, enum, float, double, longdouble和指针类型。
+        ●Expression syntax
+        当编译器分析一个表达式的语法时,若 发现一些严重错误则给出这一条总的信息。可能是有两个连续的操作符、括号不匹配或遗漏 ，也可能是前一条语句缺分号。
+        ●Expression type does not match the return typereturn表达式的类型不能转换为该函数的返回类型。
+        ●extern variable cannot be initialized存储类型为extern的变量不能在说明中初始化。
+        ●Extra parameter in call当通过原型定义的指针调用函数时，参数给多了。
+        ●Extra parameter in call function对命名函数(用原型定义)调用时参数太多。
+        ●Field field cannot be used without an object在class::field式中,field是一个一般(非静态)成员, 并且此处没有和该域有关的类。例如写为obj。class::field是合法的,不应该写成  chass::field。
+        ●Field field is ambiguous in class
+        你必须用合格的基类名来限定这个域引用。在C++类class中,域field 可出现不止一个的基类中,也没有被限定指明是哪一个。这只适于多重继承中, 因为在多重继承中每个基类名不能在一个由同样基类派生出来的派生类中被相同的域名隐藏。C++语言规则要求在检查访问权限 (private, protected, public)之前先测试这种二义性。因此只有一个( 或没有)域可被访问,也可以得到这个信息。
+        ●Field identifier expected
+        缺一个结构或C++类域名字。元素选择运算符(或→)的右边必须是其左边的结构或类中的一个域名字。
+        ●File must contain at least one external declaration
+        ANSI C 和C++要求编译单元至少包含一些说明,不能为空。
+        ●Flie name too long
+        #include伪指令给出的文件名太长(应该不超过79个字符)。
+        ●For statement missing(for关键字后缺左圆括号)。
+        ●For statement missing)for语句的控制表达式之后缺右圆括号。
+        ●For statement missing;for语句的某个表达式后面缺分号。
+        ●Found: instead of::在说明及表达式中,C++类名字和其成员之间应用双冒号(::)分开,而不是冒号(:)
+        ●Friend declarations need a function signature如果说明一个友元函数,必须同时提供参数类型,这样在重载时才能找到正确的函数。
+        ●Friends must be functions or classes, not fieldsC++类的friend必须是一个函数或另一个类,一个域不能是一个friend。
+        ●Function call missing)函数调用的参数表出现某种语法错,比如漏了右括号或右括号不匹配。
+        ●Function calls not supported
+        在集成调试器表达式计算中,不允许出现函数(包括隐式转换函数,构造函数释放函数,重载操作符,内部函数)调用。
+        ●function defined inline after use as extern
+        函数 在使用之后不能再成为内部函数。要么将内部定义移到文件的前头, 要么将其整个删掉。
+        ●Function definition cannot be a typedefed declaration
+        在C++中,不能用typedef名字来定义一个函数。例如,类型F表示无参数且返回int类型的函数:typedef int F (void);则,象下面这样把g定义F为类型的函数是非法的:
+        F g { / * 。。.* / }
+        但是可以象下面这样,定义g为返回指向类型F的指针的函数:
+        F *g (...) {/ * ... * / }
+        ●Function function cannot be static
+        只有普通成员函数及运算符new和delete可以被说明为静态的。而构造函数、 释放函数及其它运算符都不行。
+        ●Functions cannot return arrays or functions  函数不能返回一个数组或函数,但可以返回指向它们的指针。
+        ●Function should return a value一个有返回值的函数却没有return语句或有return语句但没给出返回值。
+        ●functions may not be part of a struct or union函数不能作为C结构或联合的成员。但指向函数的指针可以是C 结构或联合成员,而C++中允许函数为成员。
+        ●Global anonymous union not staticC++中,在文件级的全局无名联合必须是静态的。
+        ●Goto statement missing labelgoto关键字的后面必须跟一个标识符。
+        ●Group overflowed maximum size:name在组(如DGROUP)中所有段的大小之和超过64K。
+        ●Identifieridentifier cannot have a type qualifier此处不能用C++的限定名class::identifier。 限定名不能用于typedef名字,函数说明(除了在文件级的定义中),局部变量或函数的参数中,或一个类成员( 除了用它本身类名作为限定,这是多作的但合法)。
+        ●Identifier expected
+        在C中。在一旧式函数头的参数表中缺标识符。
+        ●If statement missing(if关键字后缺左圆括号。
+        ●If statement missing)if语句的测试表达式之后缺右圆括号。
+        ●Illegal character character (Oxvalue)输入文件中有无效字符,其十六进制值被打印出来。该错误也可能是由于将多余的参数传递给一个函数宏引起的。
+        ●Illegal initialization
+        初始化必须是常数表达式,但其中可以出现一个全局extern 或static变量的地址加上或减去一常量。
+        ●Illegal octal digit  八进制常数中出现了非八进制数字(如8或9)
+        ●Illegal parameter tomit
+        ●Illegal pointer subtraction不能用非指针值减去指针。
+        ●Illegal structure operation
+        对结构的操作非法。只能对结构使用元素选择(.)、取地址(&)及赋值(=)运算, 或者以参数形式传送给函数或从函数返回。
+        ●Illegal to take address of bit field  取一个位域成员地址的操作是非法的,虽然可以取其它类型域的地址。
+        ●Illegal use of floating point对浮点数执行了非法运算(如移位,位布尔操作,条件(?:)或某些其它操作)>。
+        ●Illegal use of pointer非法指针运算。指针运算只能为加、减、赋值、比较,间接引用(*)或→操作
+        ●Im proper use of typedef identifier你的源文件中在表达式中应出现一个变量的地方却出现了typedef名。 检查符号的说明和可能的拼写错误。
+        ●Improper use of typedef symbol同上一条错误信息。
+        ●In compatible type conversion不能执行所要求的类型转换。
+        ●Incorrect command-line option:option不认识的命令行参数。         ●In correct number format
+        十六进制数中出现了十进制小数点。
+        ●In correct use of defaultdefault关键字后面缺冒号。
+        ●Inline assembly not allowed in an inline function
+        C++内部函数中不能有嵌入式汇编语句。你可以将函数改为一个宏, 删去inline存储类或去掉嵌入的汇编代码。
+        ●Invalid indirection间接运算符(*)的操作数必须是一个非void指针。
+        ●Invalid macro argument separator宏定义中,参数必须用逗号分隔开。编译程序在这里遇到一参数后有其它字符。
+        ●Invalid pointer addition两个指针相加是非法的。
+        ●Invalid use of dot标识符后必须紧跟一个元素选择运算符(。))
+        ●Items of typetype need constructors and cannot be passed with...将一个需要构造函数的类型对象传递给一个可变长度的参数表(用,...指定)是非法的。
+        ●Left side must be a structure元素选择(.)或C++的点-星(.*)运算符的左边必须是结构类型。
+        ●Linkage specification not allowed链接说明符(如externC)只能出现在文件级上。将此函数说明移出文件级。
+        ●Lvalue required
+        赋值运算的左边应是一个可寻址的表达式。包括算术或指针变量,结构域引用, 或通过指针的引用,或数组元素。
+        ●Macro argument syntax error宏定义的参数必须是一个标识符。编译程序在应该是参数的地方遇到了一些非标识符的字符。
+        ●Macro expansion too Long  宏扩展不能大于4096个字符。
+        ●Main must have a return type of int。  函数main有特殊的要求,其中之一是它不能被说明为具有非int类型的返回类型。
+        ●May compile only one file when an output file name is given。
+        你选择了-o命令行选择项,它只允许一个输出文件名字。这样只编译第一个文件而把其它文件忽略了。
+        ●Member member is initialized more than once.
+        在一个C++类的构造函数中,构造函数头后面的初始化表不止一次包含同样的域。
+        ●Member functions can only have static storage class.对成员函数唯一可用的存储类说明符是static。
+        ●Misplaced break.
+        编译程序在一个switch语句或循环结构外面遇到了break语句。
+        ●Misplaced continue.  编译程序在一个循环结构外遇到continue语句。
+        ●Misplaced decimal point编译程序在浮点常数的指数部分遇到了小数点。
+        ●Misplaced elif directive.
+        编译程序遇到了#elif指令,但却没有任何与之匹配的#if,#ifdef,或#ifndef指令。
+        ●Misplaced else.
+        编译程序遇到了else语句但却没有任何与之匹配的if语句。 这可能是由于出现了多余的else语句,也可能由于多了个逗号,丢失了一个花括号或在前面的if语句中有语句错引起。
+        ●Misplaced else directive.编译程序遇到了一个#else指令而没有任何与之匹配的#if,#ifdef或#ifndef指令。
+        ●Misplaced endif directive.编译程序遇到一个#endif指令而没有任何与之匹配的#if,#ifdef 或#ifndef指令。
+        ●Multiple base classes require explicit class names.在一个C++流的构造函数中,如果此类有不止一个直接基类, 在它的构造函数头的每个基类构造函数的调用必须包含基类名字。
+        ●Multiple declaration for identifier.此标识符非法地被说明多次。这可能是由于int a; double a;象这样的矛盾说明,或一个函数以不同方式说明两次, 或一个标号在同一个函数中重复说明或对不是extern函数或简单变量的说明重复多次。
+        ●Multiple scope qualifiers.C++的标识符用一个以上的类名来限定,而最多只能用一个类名来限定标识符。
+        ●Must take address of memory location.在源 文件中对一个不能使用地址操作符(&)的表达式如寄存器,使用了地址操作符。
+        ●Need an identifier to declare.
+        此处期望一个标识符来完成这个说明, 这可能是因为一个typedef 没有名字或在文件级有多余的分号,或是一个类名不适当地当作标识符的另一个类型。
+        ●new and delete not supported.在集成调试表达求值 中不支持new或delete操作符。
+        ●No: following the ?
+        在表达式中问号(?)和冒号(:)操作符不匹配。 可能是丢失冒号也可能是由于括号嵌套错或丢失括号。
+        ●No base class to initialize.
+        这个C++的类构造函数试图隐式调用一个基类的构造函数,但该类的说明并不带基类。请检查你的说明。
+        ●No body defined for this inline function.此C++函数在内部说明,但没有函数体。 内部函数体一般放在与函数说明相同的头文件中,不管是成员函数还是一般的内部函数。
+        ●No constructor parameters allowed for array of class.当你说明一个C++类数组应该无参数可以传给类的构造函数。无参数的构造函数( 缺省构造函数)才可以被用来构造数组的每一个元素。
+        ●No file name ending.  在#include语句中文件名丢失应有的号或尖括号。
+        ●No file name given.Turbo C++命令行编译 (TCC)的命令行中没有文件名,应该指明源文件名。
+        ●No matching.左、右括号不匹配,请检查表达式中的括号。
+        ●Nonportable pointer conversion.在一个指针和整型之间需要一个隐式转换,但它们的类型大小不一样,如果不用类型强制转换就无法进行。这种转换可能没有什么意义,所以要明确你想做的是什么。
+        ●Non__virtual functionfunctiondeclared pure.只有虚函数可以说明为纯的,因为派生类必须可以隐藏它们。
+        ●Not an allowed type.你的源文件中说明一些禁用的类型,例如一个函数返回一个函数或返回一个数组。
+        ●Not a valid expression format type.在求值中或在显示窗中无效的格式说明符跟在表达式后面。一个有效的格式说明符是可选的,后面跟着格式字符(c,d,f［n］, h, x, m, p, r或 s)的重复值。
+        ●No type information.调试时这个变量无类型信息。模块可能以调试开关关闭的方式编译或者是被另外的编译或汇编建立。
+        ●Numeric constant too large.不能产生大于十六进制\XFF或八进制\377的转义符序列的字符和串。双字节的字符常量可以用第二个反斜线来表示。例如,\XOD\XOA代表一个双字节常量, 跟在转义序列后面的数字文字串可以象下面形式那样分开:
+        printf(“\XOD”“12345”);
+        这将在回车后打印出12345
+        ●Object must be initialized.这个C++的对象说明为const,但没有被初始化。必须在说明点对它初始化, 否则没有值赋给它。
+        ●Only one of a set of overloaded functions can be function.C++的函数被缺省重载,编译程序对每个函数赋予一个新的名字。如果你希望用函数function的说明来隐藏编译程序所赋的新的名字,可以用相同的名字来隐藏这组函数中的一个(否则边接程序会发现具有同一名字的不只一个全局函数)。
+        ●Operand expected.在当前表达式求值时,编译程序对所有操作符已用完了操作数。检查是否有多余的操作符(+,*,/等)或丢失的变量名。
+        ●Operands are of differing or in compatible type.一个二元操作符(+,/,==等)左右两边不能以这种方式组合在一起(类型不相容)。
+        ●Operator［］missing.C++重载操作符operator［］说明成 operato［,必须补上］或修改此说明。
+        ●Operator→ must return a pointer or a class.C++重载操作符函数operator→ 必须说明为返回一个类或指向类、结构或联合的指针,无论是哪种情况,它必须是操作符→能作用的对象。
+        ●Operator cannot be applied to these operand types.二元操作符(+,-,==)左,右两边操作数不是对此操作符合法的类型,例如你试图要把两个数组相加。
+        ●Operator delete must a single parameter of type void*.这个重载的delete操作符使用了其它方式说明。
+        ●Operator delete must return void.这个重载的delete操作符使用了其它方式说明。
+        ●Operator new must have an initial parameter of type size.操作符new 可以说明为带有任何数量的参数, 但它至少有一个参数代表要分配的空间大小(一般要求第一个参数为sizet类型)。
+        ●Operator new must have a single parameter of type size
+        ●Operator new must return an object of type void*.这个重载的new操作符使用了其它方式说明。●Other objects cannot be declared in a function definition.一个函数体后面不能用逗号分隔后再将其它的说明加入表中,例如:
+        int f (), j;    / *函数f说明,逗号j也为整型* /
+        int f (){return o;},j;/ *函数f在此定义,逗号是非法* /
+        ●Overlays only supported in medium, large and huge memory models.只有使用中模式,大模式和巨模式的程序可以使用覆盖。
+        ●Overloadable operator expected.大多数C++的操作符都可以重载。但域选择符··*和::以及条件表达式? *    *不能重载。预处理操作符#和##既不是C也不是C++操作符,因此也不能重载。 当然操作符的标点如分号也不能重载。
+        ●Overloaded function is not allowed here.当你改变一个派生类的基类成员的访问保护权时,该成员不能是一个重载函数。
+        ●Overloaded function resolution not supported.在集成调试表达式求值时不能分辨重载函数和操作符,即使有一个地址也不能分辨。
+        ●Parameterparametermissing name在函数定义头部,这个参数只有类型说明而无参数名,这在C中是非法的,但在C++ 中是允许的,只是无法在函数中引用这个参数。
+        ●Parmeter names are used only with a function body.
+        在说明一个函数(而不是带函数体的定义)时,必须使用空括号或函数原型,只有一组参数名是不允许的,下列为函数说明的例子:
+        int func();    /*没有原型的说明,合法*/
+        int func (int ,int );/*函数原型说明,合法*/
+        int func (int i, int j);/*在原型中有参数名,合法*/
+        int func (i, j);/*只有参数名,非法*/
+        ●Pointer required on left side of→在箭号→的左边只能允许是一个指针。
+        ●Pointer to a static member cannot be created.
+        C++的类成员指针只能为普通数据和函数成员创建。你不能创建一个指向一个静态成员的成员指针。
+        ●Previously specified default argument value cannot be changed
+        当一个C++函数的一个参数说明为有一个缺省值时,对同一个函数的其它说明中不能改变也不能没有这个值●Pure function functionnot overridden in class一个纯虚函数既不能被隐藏(给一个新的说明)也不能在派生类中重说明为纯的。
+        ●Reference membermemberis not initialized引用必须初始化。一个引用类型的类成员在该类的所有构造函数 中必须提供一个初始值。这就是说不能依赖编译程序对这样的类产生构造函数,因为无法知道对这种引用如何初始化。
+        ●Reference membermemberneeds a temporaty for initialization用户为一个引用类型提供了一个初始化的值,而该值不是一个引用类型的左值,编译程序必须为初始化产生一个临时单元,而此处又明显地无空间存放这个临时单元,该初始化为非法的。
+        ●Register is the only storage class allowed对函数参数唯一可用的存储类说明符是register。
+        ●Repeat count needs an lvalue在观察或计算窗中逗号之前的表达式必须是一个可操作的存储区域(左值), 例如下面的表达式是无效的。
+        i++, 10d
+        x=y, 10m
+        ●Right side of 。* is not a member pointer
+        C++的。*操作符右边必须是一个指向类成员的指针,而该类就是此操作符左边指明的。在这里右边不是一个成员指针。
+        ●Side effects are not allowed
+        在观察窗中不允许有诸如赋值,++或--这样有副作用的操作。常见的错误是将测试x 和 y是否相等的表达式 x==y写成 x=y,而这是不允许的。
+        ●Size of identifier is unknown or zero
+        这个标识符被用在一个需要知道它的大小的地方。 比如一个结构名只被说明尚未定义或一个extern数组无大小说明。具有指向这类项(如 sizeof)的某些引用或指向此类型的间接引用指针是非法的,重新安排你的说明才可得到这个标识符的大小。
+        ●Sizeof may not be applied to a bit fieldsizeof 返回一个数据对象的字节数。这种情况不适用于位域。
+        ●Sizeof may not be applied to a functionsizeof只能用于数据对象而不能是函数,你可以要求指向一个函数指针的大小。
+        ●Size of the type is unknown or zero这个类型用在一个需要知道它的大小的地方。 例如一个结构名可能只被说明尚未定义。具有指向这种项(如sizeof)的某些引用或指向此类型的间接引用指针是非法的,重新安排你的说明才可得到该类型的大小。
+        ●Size of this expression is unknown or zero这个表达式涉及到不知大小的类型或变量,而且它用在需要知道它的大小的地方。例如一个结构可能只被说明尚未定义或一个extern数组无大小说明。具有指向这种项(如 sizeof)的某些引用或指向此类型的间接引用指针是非法的。 重新安排你的说明才能得到大小。
+        ●Statement is required here.C和C++程序的某些部分需要一个语句(甚至只要是一个分号), 它可以放在一个标号和它出现的块尾部之间,也可放在if, do, while 或for语句之后。
+        ●Statement missing;编译程序遇到一个后面没有分号的表达式语句。
+        ●Static and union members cannot require initialization.具有一个构造函数或任何虚函数的类或是从一个类中派生出来的类必须被初始化。 类的静态数据成员不能被初始化,因此也不能是这种需要初始化的类型。
+        ●Storage classstorage class not allowed for a field.在C中在一个域说明中不允许有存储类说明。在C++中一个域可以是一个typedef类型,一个数据域可以是 static,一个函数域可以是 inline,除此之外是不允许的。
+        ●Storage classstorage class not allowed for a functiou.在C和C++中一个函数可以为extern 或static。在C++中,一个函数可以为 inline除此之外是不允许的,且只能出现一个存储类。
+        ●Storage classstorage classis not allowed here此处不允许这种存储类。可能是说明了两个存储类,而只能说明一个。
+        ●Structure size too large.你的源文件说明一个大于64K的结构。
+        ●Subscripting missing ］编译程序遇到一个缺少用方括号］的下标表达式。这可能由于丢失或多用了一个操作符,或括号不配对。
+        ●Switch selection expression must be of integral typeswith语句中括号内的选择表达式值必须为一个整型类型 (char,short,int,long,enum)。你可以用显示类型转换使之符合这种要求。
+        ●Switch statement missing .(在switch 语句中编译程序在关键字switch 后面没有找到左括号“(”●Switch statement missing )在switch语句中编译程序在测试表达式后没有找到右括号“)”。
+        ●thiscan only be used within a member function在C++中this这个保留字只能用在类成员函数中。
+        ●Too few parameters in call通过函数指针对一个带有函数原型的函数调用时参数个数不够。 原型给出了所有参数。
+        ●Too few parameters in call to function对使用一个原型说明的命名函数的调用参数个数太少。
+        ●Too many decimal points编译程序遇到一个带有不止一个小数点的浮点常量。
+        ●Too many default cases在一个switch语句中编译程序遇到不止一个 default语句。
+        ●Too many error or warning messages在编译停止以前最多可有255个错误和警告。
+        ●Too many exponents编译程序在一个浮点常量中遇到了不止一个指数。
+        ●Too many initializers编译程序遇到了比说明中需要初始化对象多的初始化量。
+        ●Too many storage classes in declaration一个说明中不能有一个以上的存储类说明符。
+        ●Too many types in declaration一个说明中不能有一个以上的基本类型:char,int,float,double,struct,union,enum或 typedef名。
+        ●Too much global data defined in file全局数据说明的总和不能超过64K字节。对任何可能太大的数组说明进行检查。 如果所有的说明都是需要的,可考虑对程序进行整理或使用far变量。
+        ●Trying to derive a far class from a near base如果一个类型说明为(或缺省为)near,所有的派生类都应当是 near
+        ●Trying to derive a near class from a far base如果一个类型说明(或缺省为)far,所有的派生类都应当是 far。
+        ●Two consecutive dots省略号是三个点(…),十进制小数点或成员选择符是一个点(·)。在C的程序中两个连续的点是不合法的。
+        ●Two operands must evaluate to the same type在条件表达式操作符(?:)中冒号两边表达式的类型应该相同,除了象char转成int,float转成doubl或void*转成特定的指针这样常见的转换。 在这种表达式中对不同类型的两边表达式的求值是不会自动转换的, 这可能是一个错误或者只不过需要把一边表达式类型转换成另一边的类型。
+        ●Type mismatch in parameternumber通过函数指针调用一个用原型说明的函数,给定的参数number(由1 开始从左到右计数)不能转换成所说明的参数类型。
+        ●Type mismatch is parameternumberin call to function你的源文件说明了一个具有原型的命名函数,给定的参数number(由1 开始从左到右计数)不能转换所说明的参数类型。
+        ●Type mismatch in parameterparameter你的源文件说明了一个具有原型的函数并通过函数指针调用它, 而命名的参数不能转换成所说明的参数类型。
+        ●Type mismatch in parameterparameterin call to function源文件说明一个具有原型的命名函数,命名的参数不能转换成所说明的参数类型。
+        ●Type mismatch in rede claration of identifier源文件中对一个已说明过的变量用不同类型重说明。 这可能是在一个函数被调用而后面的说明为返回一个非整型的类型。若是这种情况你必须在第一次调用它之前说明该函数。
+        ●Type name expected
+        下述情况可能产生这种错误:
+        ·在说明一个文件级变量或一个静态域时既不是用一个类型名,也不是用一个存储类来说明。
+        ·在说明一个typedef中对名字没有给出类型。
+        ·在对一个C++类说明一个释放函数时,释放函数不是一个类型名(它应该是和它的类名相同)。
+        ·所提供的C++基类名不是一个类名。
+        ●Type qualifier identifier must be a struct or class name.在quall::identifier中C++的限定名不是 struct或 class的名字。
+        ●Unable to create output file filename.此错误由于工作盘满或写保护引起。如果是工作盘满,可把不需要的文件删掉并重编译。如果是写保护,可把源文件移到可写的磁盘中并重编译。 此错误也可能是因为输出目录不存在引起的。
+        ●Unable to create turboc＄In由于不能访问磁盘或磁盘满,编译程序不能产生临时文件TURBOC＄LN
+        ●Unable to execute commandcommandTLINK或 TASM没有找到或可能是磁盘坏。
+        ●Unable to open include file filename编译程序不能找到这个命名文件,这也可能是#include文件包含的正是源文件, 或者是在你的根目录上没有把 FILES置为 CONFIG.SYS(可试试用 FILES=20)。 检查命名文件是否存在。
+        ●Unable to open input file filename此错误发生在源文件没有找到的情况。检查文件名是否有拼写错误或者文件是否在正确的盘或目录上。
+        ●Undefined label identifier在函数中有一个goto转移的标号,但该标号无定义。
+        ●Undefined structure structure在编译程序指出该错误之前源文件的某个地方使用了命名的结构( 通常是用指向一个结构的指针),但是没有对此结构的定义。 此错误可能由于结构名拼写错误或遗漏说明引起。
+        ●Undefind symbol identifier该命名的标识符没有说明,这可能是由于在此处或在说明处的拼写错误,也可能是在说明该标识符时发生错误。
+        ●Unexpected}在不期望的地方遇到一个多余的右花括号“}”,请检查是否丢失了左花括号“{”。
+        ●Unexpected)--check for matching parenthesis在不期望的地方遇到一个多余的右括号“)”,请检查是否丢失了左括号“(”。
+        ●Unexpected: found在不期望之处遇到了多余的冒号,请检查是否丢失问号?。
+        ●Unexpected end of file in comment started on line number源程序在一个注释中间就结束了,这通常是由于丢失注释结束符(* /)引起的。
+        ●Unexpected end of file in conditional started on line nember源文件在编译遇到#endif之前就结束了。可能是 #endif丢失或拼写错误。
+        ●Union cannot have a base type一般说来,一个C++的类可以是union类型,但这样的类是不能从其它类中派生的。
+        ●Union members cannot require initialization由于一个联合成员的生存期是不确定的, 说明一个需要用某些类型进行初始化的联合成员是非法的。
+        ●Unknown language,must be c or c++在C++的结构中:
+        extern name type func(/*…*/):
+        引号中的名字必须是C 或C++,其它语言的名字不能识别。可以说明一个外部的Pascal函数而不要编译程序把它改名为:
+        extern“c"int pascal func {/*…*/}
+        一个C++(可以被重载)函数可以说明为Pascal并允许用编译程序改名(为了允许重载)为如下形式:
+        extern int pascal func{/ *…* /}
+        ●Unknown preprocessor directive:identifier编译程序在一行开头遇到字符#,而跟在#号后面的指令名不是下列之一:define,undef,line,if,ifdef,ifndef,include,else 或endif。
+        ●Unterminated string or character constant在一个串或字符常量开始后编译程序没有找到结束的引号。
+        ●Use.or→to call function你试图调用一个没有提供对象的成员函数。
+        ●Use::to take the address of a member function如果f是类c的一个成员函数,你可以用&c::f取它的地址。 注意此处用的是类名而不是对象名,而用 ::分隔类名和函数名(成员函数指针并不是真正的指针类型,也不指向任何的特定示例)。
+        ●Use; to terminate declarations此说明没有用一个逗号或分号结束。
+        ●User break
+        在集成环境中,当编译或连接时你键入Ctrl-Break(这并不是错误,只不过是种确认)。
+        ●Value of type void is not allowed.
+        一个类型为Void的值根本没有值,因此不能出现在那些需要实际值的地方,包括一个赋值句的右部,一个函数的实参以及if,for或while语句的控制表达式。
+        ●Variable identifieris initialized twice.此变量不止一次被初始化。多次说明一个文件级变量是合法的,但它只能被初始化一次,即使两次初始化是相同的也不合法。
+        ●Variable name expected.在使用地址操作符(&)或者当C++返回一个指向一对象的引用时 , 必须提供一个实际对象。这通常是一个变量名。这种情况下, 编译程序被要求取一个不合适对象的地址。
+        ●Vectors of classes must use the default constructor.当初始化一个类的向量(数组)时,你必须使用无参数的构造函数,这称为缺省的构造函数,这就是说对这样的数组初始化时不要提供构造函数参数。
+        ●Virtual function function1 conflicts withfunction2.一个虚函数具有和基类的虚函数相同的参数类型,而返回值类型却不同,这是不合法的。
+        ●Virtual specified more than once。C++保留字virtual在一个成员函数的说明中只能出现一次。
+        ●Void & is not a valid type.指向一个无值的引用显然是非法类。 这通常是在你使用这个引用类型或试图对它初始化之前发现此错误。
+        ●While statement missing(.在while语句中在关键字 while后面没有左括号“(”。
+        ●While statement missing).在while语句的测试表达式后面没有右括号“)”。
+        ●Wrong number of arguments in call of macro.源文件调用一个命名的宏时使用的参数数目不对。
+        3.警告
+        ●function1hides virtual function function2基类中的虚函数通常被派生类中的一个说明所隐藏。在这种情况下,一个同名但不同参数类型的说明将导致在进一步的派生类不能访问虚函数。
+        ●identifier is declared as both external and static一个标识符隐式或显式说明为全局的或外部的,同时又说明为静态的。该标识符就被当作是静态的。你应查看一个该标识符的所有说明。
+        ●identifierdeclared but never used源文件中说明这个变量的块刚刚结束,但该变量从来没有用过。此警告表示编译程序遇到复合语句或函数的闭花括号。该变量的说明是复合语句或函数的开始部分。
+        ●identifieris assigned a value that is never used该标识符被赋值后在函数的其它地方从未用过, 此警告只在编译程序遇到块结束符时才给出。
+        ●identifieris both a structure tag and a name, now obsolete在C中,一个标识符既被用作结构标记名又被用作变量或typedef名字是完全合法的。
+        如:struct s {int i,j;}s;或typedef structs {int i, j;} s;在C中是正确的,但在C++中则是不适当的。
+        ●Ambiguous operators need parentheses此警告表示在同时使用二种移位操作,关系或位逻辑操作时没有加括号,或者是加减操作和移位操作放在一起而不加括号,程序员经常对这些操作符的优先性混淆。
+        ●Assigningtype to enumeration将整数值赋给枚举类型,通常这是一个错误,但是把它降为警告是为了给现存程序一次运行的机会。
+        ●Assignment to this is obsolete,use X::operator new instead在C++的早期版本中,只有一种方法用来控制对象类的分配,即通过在构造函数内给this参数赋值。但现在已不鼓励这种用法,因为有一种更好, 更安全和更通用的技术来代替它,即定义一个成员函数 operator new。
+        ●Base initialization without a class name is now obsoleteC++ 的早期版本对一个基类的初始化是通过在构造函数头部的后面只跟着该基类的构造函数参数表来实现的。而现在则提倡包含该基类的名字。新方法使得代码更加清晰,并且是当有多个基类时必须使用新方法。
+        旧格式:
+        derived::derived(int i):(i,10)  {…}
+        新格式:
+        derived::derived(int i):base(i,10) {…}
+        ●Bit fields must be signed or unsigned it在Turbo C++中,字位域必须被说明为有符号或无符号整数类型。在 ANSIC 中位域只能为有符号或无符号 int类型(不能为 char或 long等类型)。
+        ●Both return and return with a value used一个函数中的return语句,有的返回值,有的又不返回值。虽然在C中这是合法的, 但通常是一个错误。可能是函数结束时漏掉了return语句。
+        ●Call to function with no prototype调用函数之前应先给出该函数原型。注意,若想得到该信息必须打开警告Prototypes required。
+        ●Call to function function with no prototype同前一条信息。
+        ●Code has no effect编译器遇到一段没有任何用处的代码。例如下面的语句a+b;
+        对两个变量都不起作用。该操作是不必要的,并可能是一个错误。
+        ●Constant is long
+        编译器遇到一个大于32767的十进制常数或者一个大于65535的八(或十六)进制常数,但该常数的后面没有字母l或L。编译器将把该常数当作long型整数处理。
+        ●Constant member member is not initializedC++类中包含的常数成员member没有初始化。注意, 常数成员只能初始化而不能赋值。
+        ●Constant out of range in comparison在一个比较运算中,一个常数子表达式超出了其它子表达式类型的允许范围。例如,用一个无符号量和-1比较是无意义的。为了得到一个大于32767(十进制)的无符号常量你可以把此常量写成unsigned(例如,(unsigned)65535)或在常量后面加后缀u或U。当出现这种情况时,编译器将仍然生成该比较运算的代码,即使这段代码结束后总是得到相同的结果(如,一个char类型表达式和4000比较)。
+        ●Conversion may lose significant digits 对一个赋值操作或其它情况,你的源程序需要从long或unsigned long转换成int或unsigned int类型。因为int类型和long类型的变量长度不同。 这种转换可能会改变一个程序的执行。
+        ●Declaration does not specify a tag or an identifier一个说明语句没有说明任何东西。这通常是指在一个结构或联合的说明中,既没有给出标记名也没有给出变量。
+        一些早期的C编译器允许下面的说明:
+        struct {int a; int b; };
+        甚至还允许a和b被用作某些变量的一般域:允许出现象x。b这样的表达式,即使x不是结构类型。现在已不鼓励这种用法,但该警告可以帮助你找出这样的情况。
+        ●Declare function prior to use in prototype一个函数原型引用了一个还未说明的结构类型, 原型中的说明和原型外的说明是不同的,例如:
+        int func (struct s * ps);
+        struct s {/ *... */};
+        因为在func原型作用域中没有结构s,参数ps的类型是指向未定义的结构s,这和以后说明的结构s不同。这将导致以后出现类型不相容的警告和错误信息。要解决此问题,你可以把结构s的说明移到任何要引用它的原型之前或者在说明struct s 中给予完整定义。如果函数参数是一个struct而不是一个指向struct的指针,只有不完全说明是不够的,必须在原型之前给予这个结构的完全说明。
+        ●Division by zero除数为0。
+        ●Functions containing reserved word are not expanded inline包含下列保留字
+        do  while  switch  continue
+        for gotobreakcase
+        中任何一个的函数不能被内部扩展,即使该函数被指定为inline也是一样。该函数仍是完全合法的,但将被处理为一般静态(非全局)函数。因此在每一个调用该函数的编译单元中均将出现一份该函数的拷贝。
+        ●Function should return a value函数被说明为具有非int和void的返回类型,但该函数的return语句没有返回任何值。
+        ●Hexadecimal value contains more than 3 digit在C的早期版本中,一个十六进制的转义序列包含的数字不能超过三个。而新的ANSI 标准则允许出现任意个数字,只要其值在字节范围之内即可。这个警告是由于一个转义符序列用多个0打头(例如“\x00045”)引起的。
+        ●Ill-formed pragmaPragma后面不是Turbo C++能识别的与之匹配的指令。
+        ●Initialization is only partially bracketed当初始化一个结构时,可以用花括号把每个结构成员的初始化量括起来,如果一个成员本身是一个数组或结构,可以使用嵌套括号。这样才能保证每个成员被赋予期望的值。
+        ●Initialization with inappropriate type一个枚举类型的变量被初始化为一个不同类型的值。例如,下面的说明enum count {zero, one, two} x=2; 将引起该警告,因为2是int类型而不是enum count类型。当给一个枚举类型变量赋值或初始化时,最好是用枚举标识符代替整数文字(如用two代替2。)
+        ●Initializing identifier with type企图初始化一个枚举变量为一个不同的类型。通常这表示一个错误,之所以改为警告是为了给现存程序一次运行机会。
+        ●Mixing pointers to signed and unsigned char在没有显式使用强制转换的情况下,企图把一个char指针改变为unsigned char指针,或反之(严格地说,这是不正确的,但是在8086CPU上通常是无害的)。
+        ●No declaration for function function如果在调用一个函数时没有先对该函数说明则给出此信息。在C中可以说明一个函数为“int fun ()”这样形式而不给出原型。在C++中每个函数说明都是一个原型, 此例等效于“ int fun (void)”。
+        ●Non-const function function called for const object一个非const类型的成员函数被一个const对象调用。这是一个错误,但把它变为警告是为了让现存程序能够运行。
+        ●Nonportable pointer comparison企图将指针和一个非指针值(除了常数零以外)进行比较。如果该比较是正确的,那么可以使用类型强制转换来消除该警告。
+        ●Nonportable pointer conversion在期望为一个指针或整型量的地方使用了一个非零整数值。 整数类型和指针的大小相同。如果确实想这么做,请显式给出类型强制转换。
+        ●Obsolete syntax; use ::instead在一个说明或定义中,C++的早期版本是用一个句号(。)或一个冒号(:)把成员名字和它的类名字分开。现在已不再使用这种语法,而改用双冒号(::)。旧语法:
+        void myclass.func(int i){/ *···* /}
+        新语法:
+        void myclass::func(int i){/ *···* /}
+        ●Overload in now unnecessary and obsolete早期的C++版本要用保留字oveload来标记重载函数名。现在的C++使用“类型完全连接”方案,所有的函数不需要另外标记就可以重载,不再使用overload了。
+        ●Parameterparameter is never used在函数中说明的函数参数在函数体中从来没有使用过。 这可能是也可能不是一个错误,请检查是否拼错单词。另外,如果在函数体内重新定义该参数为一个自动(局部) 变量则也将导致该警告,这时,该参数将被自动变量所屏蔽,所以不会被用到。
+        ●Possible use of identifier before definition表达式中使用了未赋值变量。
+        ●Possibly incorrect assignment当编译器遇到一个测试表达式(指if、 while或 do-while语句中的测试表达式) 的主运算符是一个赋值运算符时将产生该警告。若想消除该警告,请用圆括号将此赋值表达式括起来,然后和零进行比较。如,下面的if语句:
+        if (a=b)…
+        应改为
+        if (a=b)!=0)…
+        ●Program flow can skip this initialization; try using{ }变量的初始化被一条if语句控制着,因此可能跳过去。可能需要一对花括号把该块括起来以控制该变量的范围。
+        ●Redefinition of macro is not identical源文件中用一个和原来不同的内容重定义一个宏,新内容将取代旧内容。
+        ●Restarting compile using assembly如果启动编译器时,命令行上没有给出-B选择项且源程序中也没有#pragma inline 语句,那么当遇到asm语句时编译器将给出该警告,并重新开始编译过程,以便处理嵌入式汇编语言。
+        ●Structure passed by value如果“用传值方法传送结构”的警告被作用, 那么这个警告就会在任何用传值方法把结构作为参数传递的时候产生。这多半是在传送结构参数时漏掉了地址操作符&。 由于结构可以用传值方法传递,这个疏漏是可接受的。此警告只是为编译程序提供的一种警告方式。
+        ●Style of function definition is now obsolete在C++中,下面这种旧的C函数定义格式是非法的:
+        int func (p1,p2)
+        int p1,p2;
+        {/ *... * /}
+        其它的C++编译器可能也不允许这种用法。         ●Temporary used to initializeidentifier
+        Temporary used for parameternumber in call to identifier
+        Temporary used for parameterparameterin call to identifier
+        Temporary used for parameter number
+        Temporary used for parameterparameter
+        在C++中一个引用类型的变量或参数必须赋给指向相同类型对象的引用。如果类型不匹配,实际值赋给一个正确类型的临时对象,然后把这个临时对象的地址赋给引用类型的变量或参数。此警告的意思是这个引用类型的变量或参数不指向你的期望对象,而是指向一个临时变量。例如:
+        f (int &);  /*参数为指向int的引用 * /
+        char c;
+        f (c);
+        对于用C的地址调用函数f,编译程序产生等效C++源代码:
+        int x=c, f(x);
+        ●Undefined structure identifier在源文件中使用一个命名结构或指向一个结构的指针,但没有对它加以定义。这可能是由于结构名拼写错误或漏掉说明。
+        ●Unknown assembler instruction编译程序遇到一个带有不合法操作码的内部汇编语句。检查操作码的拼写。此警告缺省为off。
+        ●Unreachable code一个break、continue,goto或return语句后面不是标号或循环或函数的结束, 编译程序将用一常量测试条件来检查while,do和for循环,试图找到循环不能达到的地方。
+        ●Untyped bit field assumed signed int没有指定类型的位域将假定是有符号的int类型。有的编译器则假定缺省是unsigned int 类型。你最好明确指定其类型。
+        ●Void functions may not return a value源程序中说明当前函数返回void,但编译程序遇到一个带值的返回语句,此返回语句的值将被忽略。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

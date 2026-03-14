@@ -1,0 +1,33 @@
+专业显卡大观园
+
+吴刚 
+2001年 44期
+
+随着价格的逐步下滑，专业显卡已走下了“神坛”，进入“寻常百姓家”。由于用途的不同，专业显卡与一般的3D显卡在硬件构造上存在着很大的差异。专业显卡一般都拥有强劲的浮点性能，甚至比CPU的浮点运算速度更快。普通显卡的浮点运算大都依靠CPU来完成，当需要处理大量3D数据时，经常会出现捉襟见肘的现象。另外，大多数专业显卡的2D显示、RAMDAC（数模转换）、3D渲染都是采用独立的芯片完成，而普通3D显卡都是将这些功能集成到一块主芯片中。另外专业显卡一般都采用十层以上的PCB板，大量使用高档的元器件，产品的品质和稳定性要远远优于普通显卡。
+　　#11.ELSA Gloria Ⅲ
+　　Gloria Ⅲ（^44030901a^1）是ELSA Gloria系列的第三代产品，采用的是NVIDIA的Quadro2 Pro图形芯片（第一代Gloria采用的是3Dlabs的GlintMX芯片，第二代为NVIDIA的Quadro芯片）。NVIDIA的Quadro2 Pro芯片是GeForce2 Pro芯片的专业版，配有64MB DDR显存，核心频率为250MHz，显存频率为200MHz，每秒钟可以生成3100万个多边形，像素填充率为1000Mpixels/s，纹理填充率为2000Mtexels/s。
+　　Gloria Ⅲ拥有两个输出接口:DVI接口和标准的VGA接口。需要注意的是，用户在使用双显示输出时有很多功能上的限制，这是因为Quadro2 Pro芯片并不真正拥有所谓的TwinView双显示输出功能。
+　　#12.ELSA Synergy 2000
+　　Synergy2000（^44030901b^2）是ELSA今年刚推出的一款入门级专业显卡，采用的是Quadro2 EX图形芯片。Quadro2 EX与Quadro2 MXR非常相似，它们都是由GeForce2 MX芯片转化而来的专业图形芯片，只不过Quadro2 EX的性能指标要逊色于先前推出的Quadro2 MXR，这也决定了Synergy2000是一款比SynergyⅢ更低端的专业显卡。Synergy2000的核心频率为175MHz，350MHz RAMDAC，每秒钟可以生成2000万个多边形，像素填充率为350Mpixels/s，配有32MB SDRAM显存，显存频率为166MHz，可提供的最大带宽为2.7GB/s。Quadro2 MXR和Quadro2 EX的主要区别在于核心/显存频率、像素填充率、提供的最大带宽和多边形的生成速度，因此Quadro2 EX更像是Quadro2 MXR的低频版本。
+　　除了性能上的差异外，Synergy2000与SynergyⅢ在外形上也有较大的区别，首先Quadro2 EX芯片上没有任何散热装置，甚至连简单的散热片也没有，这表明Synergy2000散发的热量要比SynergyⅢ少；其次是Synergy2000只提供了一个标准的VGA接口，不具有双显示输出功能。
+　　#13.ELSA GLoria DCC
+　　Gloria DCC（^44030901c^3）是ELSA最新推出的一款面向高端市场的专业显卡，采用的是NVIDIA的Quadro DCC图形芯片，Quadro DCC其实就是GeForce3的专业化版本。与上一代图形芯片Quadro2（Gloria Ⅲ）相比，Quadro DCC无论在支持的3D特效方面，还是运算速度上都有了长足的进步。ELSA GLoria DCC主要是为那些从事角色动画、虚拟现实以及游戏开发的专业用户设计的，它采用了ELSA最新推出的MAXtreme驱动，可以为GLoria DCC用户提供更为优越的性能和稳定性。
+　　GLoria DCC可以说是专为3DS MAX4量身定做的产品，内建有nFinite FX引擎，可以完全支持3DS MAX4的Vertex Shader和Pixel Shader功能插件，可以实现实时变形、Bump Mipping、运动模糊、环境映射等诸多特效，为3DS MAX4用户带来真正所见即所得的效果。ELSA最新推出的MAXtreme还专门针对3DS MAX4进行了优化，可以大幅度提高3DS MAX4的设计效率。另外Gloria DCC的OpenGL驱动程序也经过了特别的优化，可以为Maya、Softimage等许多专业图形应用软件提供完美的支持。
+　　#14.ATI FireGL4
+　　FireGL4（^44030901d^4）是FireGL归属ATI后推出的第一款专业显卡。它采用的是IBM RC1000 渲染处理器，时钟频率为150MHz，几何运算采用的是IBM GT1000处理器，时钟频率为205MHz，采用128MB DDR显存，显存频率为150MHz，像素填充率为512 Mpixels/s，每秒钟可以生成2900万个多边形。FireGL4带有两个DVI数字接口，因此可以直接接驳两台数字显示设备，与ELSA Gloria Ⅲ不同的是，FireGL4随卡附赠了一个DVI转VGA的转接头。另外FireGL4还对Stereographics推出的3D立体眼镜提供了支持，不过这需要应用程序的配合。由于空间不足，3D立体眼镜的接口只能放在额外的挡板上，也正是由于这个大号的挡板和散热器，使FireGL4在主板上需要占用两个插槽的空间。FireGL4还有一个引人注目的特点，就是它采用了铜散热片。
+　　#15.Diamond（帝盟）FireGL2
+　　与FireGL1相比，FireGL2（^44030901e^5）增加了一个专门的几何运算处理器，因此它的性能较FireGL1有了很大的提高。FireGL2采用了IBM RC1000渲染处理器，时钟频率为120MHz，几何运算处理器采用的是IBM GT1000，时钟频率为190MHz，采用256位内存接口，像素填充率为410Mpixels/s，每秒钟可以生成2700万个多边形。值得一提的是，FireGL2采用的几何运算处理器是专门为专业OpenGL应用设计的，与Quadro2 Pro类似，FireGL2同样带有64MB DDR显存。
+　　FireGL2带有一个15针标准的VGA接口和一个DVI数字接口，除了这两个常见的接口以外，FireGL2还带有一个类似于S端子的立体图形接口。FireGL2与FireGL4采用同样的渲染和几何处理器，只不过FireGL4的频率更高，显存数量更多、速度更快。其实在FireGL2和FireGL4之间还存在着一个FireGL3，它的渲染和几何处理器的频率与FireGL2相同，但却拥有与FireGL4同样多的128MB DDR显存和两个DVI数字接口。
+　　#16.3Dlabs OXYGEN GVX420
+　　OXYGEN GVX420（^44030901f^6）是3Dlabs公司最新推出的一款产品，它采用了3Dlabs新一代Glint R4图形芯片和Glint GammaG2几何运算处理器，最大可支持到256MB显存，支持DVD加速，内建300MHz高速RAMDAC，完全支持DirectX 7及OpenGL 1.2 ICD。GVX420拥有两颗Glint R4芯片和一颗Glint GammaG2芯片，配有128MB SGRAM显存。GVX420采用了全长卡设计，并附有一块PCI子卡，子卡提供了两个DVI 数字输出接口，主卡则提供了3D立体眼镜接口和两个标准的VGA接口。GVX420具有多屏幕OpenGL和扩展屏幕管理功能，并都拥有OpenGL加速功能，可以支持的最大虚拟显示分辨率在CRT上可达4096×1536，在数字液晶显示器上可达3200×1200。
+　　Glint R4图形芯片采用统一设计，使数据处理和传递更加有效，数字条纹间插技术可以确保两颗Glint R4芯片更加有效地并行工作。Glint Gamma G2是3Dlabs推出的第二代几何运算处理器，能够提供100%硬件OpenGL 1.2加速和光源处理。
+　　#17.3Dlabs WildcatⅡ5110
+　　WildcatⅡ5110（^44030901g^7）是Intense3D推出的最新一款专业显卡。与GVX420一样，WildcatⅡ5110也是一个超级“肥胖”的家伙。另外WildcatⅡ5110的耗电量也相当惊人，依照3Dlabs的要求，WildcatⅡ5110需要50W电能的支持。
+　　与FireGL4一样，WildcatⅡ5110也要占用两个插槽的空间。WildcatⅡ 5110带有一个15针标准的VGA接口和一个DVI数字接口，由于只有一个PanelLink芯片，所以WildcatⅡ 5110无法接驳两个数字平板显示器，不过通过DVI转VGA的转接头，WildcatⅡ5110可以进行模拟双显示输出。WildcatⅡ5110拥有两个独立的几何运算芯片和两个独立的光影运算芯片，一般的OpenGL应用程序可以同时运用两颗芯片的运算能力，不过在双显输出模式下，两颗芯片也可以独立工作。WildcatⅡ5110可以同时支持24个几何光源，这是其他专业显卡无法相比的，如FireGL4和GVX420都只能支持16个，Gloria Ⅲ只支持8个。
+　　WildcatⅡ5110拥有128MB SGRAM显存，其中64MB作为显示缓冲区，另外64MB则作为材质缓存使用。WildcatⅡ5110每秒钟可以生成1500万个多边形，接近Gloria Ⅲ 3100万个的一半，可是WildcatⅡ5110的性能却要远远优于Gloria Ⅲ，这再次表明多边形生成速度、像素/纹理填充率并不是决定专业显卡性能的重要因素。
+　　#18.Leadtek（丽台）WinFast 3D L3200
+　　WinFast 3D L3200（^44030901h^8）是丽台离开专业显卡市场前推出的最后一款产品。WinFast 3D L3200配有两颗3Dlabs生产的Glint R3处理器和最新的Glint Gamma2几何处理器，300MHz RAMDAC，拥有64MB SGRAM显存，256位内存接口，7个独立的DMA引擎，分辨率最大支持到2048×1536，像素填充率为230Mpixels/s，每秒钟可以生成630万个多边形。WinFast 3D L3200主处理器是GlintR3，它完全支持OpenGL1.2，支持单像素光源的凹凸映射。在一个时钟周期内，GlintR3支持双重双线性映射和三重纹理混合。作为L2800的增强版本，L3200配备了威力更为强劲的Glint Gamma2几何处理器（L2800采用的是Glint Gamma1几何处理器）。
+　　WinFast 3D L3200带有两个标准的15针VGA接口和一个3D眼镜接口，可以同时连接两台模拟显示器。另外L3200还具有DVD硬件加速和回放功能。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

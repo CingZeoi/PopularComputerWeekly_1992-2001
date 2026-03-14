@@ -1,0 +1,83 @@
+多用途音频播放器Winamp 1.9易操作简
+
+胡君军
+1998年 第51期 09版
+
+#1    一、概述
+    Winamp 1.9是98年初发布的，它与旧版本的Winamp相比，不仅修正了一些错误（Bug），而且功能有了很大的提高。可以说Winamp本质上是一个多用途的音频播放器。
+     将新版的Winamp安装后，在Winamp文件夹下有两个新的文件夹：Plugins和Skins， 新增加的功能就在这里。
+    Plugins是一种新型的PlugIn，过去的PlugIn只有两种类型，一种用于增强声音效果，另一种用于在播放时显示动态图形以增强视觉效果。新型的PlugIn可用来使Winamp能播放更多格式的文件，从而将Winamp扩展成为一个多用途的音频播放器。
+    Skin的中文意思是“皮肤”，在这里指Winamp播放窗口的外观。
+#1    二、Winamp的重要设置
+    1. PlugIn的设置
+    由于PlugIn的加入，使Winamp的操作界面有些改变，主要体现在参数设置（OptionsPreferences）的“Input”窗口中，如^5100wa1^。
+    窗口中列出两个PlugIn，选择一个，然后按“Configure”按钮就可以对这个PlugIn的各种参数进行设置。
+    Winamp 1.9还必须将相应的PlugIn文件装入特定的文件夹（Winamp文件夹下的Plugins文件夹），可以在Winamp中进行设置。单击主窗口左上角的系统按钮，选择“OptionsPreferences”，再单击“Plug-ins”标签，如^5100wa2^。
+    在这个窗口中，将所有装入的PlugIn分为Visualization（可视化）和Sound Processing（声音处理）两部分，可从列表中任意选择。选择分两步，首先在“Library”中选择一个PlugIn库，然后再在“Module”中选择该库中的一个具体的功能模块。选定后按“Test”按钮看一下效果，如果不满意，可按“Configure”按钮进行一些特征修改，或者重选一个。
+    2. 外观设置
+    Winamp的播放窗口是固定的，如^5100wa3^。
+    但用的时间长了，可能会觉得很单调，可以通过设置换一副面孔。用Skin就可以随心所欲地将其改换。
+    启动Winamp后，就可以选择装入的Skin了。单击主窗口左上角的系统按钮，选择“Options ->Select Skin”，在列表中任意选择。另外，如果选择“Download Skins”按钮，还可以通过Internet立即下载“http://www.winamp.com/”上最新的Skin。
+#1    三、Winamp界面的使用
+    Winamp启动后，出现一个非常简洁的播放界面，如^5100wa4^。
+    图中最下面一排左边六个播放控制按钮和一般的家用音响没什么两样。 标明SHUFFLE的那个按钮可打乱歌曲的排列顺序播放，旁边带小弧线的那个是让选入播放列表的歌曲不停地巡环播放，通常称之为重复按钮。
+    播放界面上还有两个标明EQ和PL的按钮。EQ按钮用于打开一个软件均衡器，如^5100wa4^。
+    其作用与音响中的均衡器相当，能增加各个频段的音量；PL按钮用来编辑播放列表，。在播放歌曲以前，用户可以通过这个表指定一系列要播放的歌曲，同时，还可以编辑一些与歌曲有关的信息，供播放时显示。
+    另外，播放窗口上还有三个左右滑动的按钮，分别用来控制音量大小、左右音量平衡、歌曲播放进度。
+    最有趣的是在左边靠近显示框的一个长条形按钮，这个按钮没有文字说明，很不起眼，但用鼠标一按，就会竖着显示出“OPIDV”五个字母。上下移动鼠标，指针指向的一个字母会高亮度显示，表示被选定。这五个字母代表五个功能，它们是：
+    O：Options Menu（打开选项菜单）
+    P：Preferences Box（打开参数设置窗口）
+    I：File Info Box（打开歌曲信息编辑菜单）
+    D：Toggle Doublesize Mode（放大或缩小播放界面）
+    V：Execute Visualization Plug-in（运行可视化插件）
+#1    四、Winamp的功能菜单
+    除了使用比较直观的播放界面外，Winamp还有一些功能菜单，用来执行特定的功能和设置各种选项。
+    1. 主菜单
+    点一下播放窗口左上角的系统按钮，打开主菜单。下面对所列各选项作简要说明。
+    Winamp：打开软件说明窗口，在此可以了解关于Winamp的很多信息。
+    Play File：选择播放文件，操作方法属于典型的Windows 95风格。
+    Play Location：指定一个Internet上的可播放文件，进行网络播放。
+    View File Info：显示所播放歌曲的有关信息。在播放歌曲时，播放窗口上方有一个长条形的显示窗口，用来显示与歌曲有关的信息，这些信息就是在File  Info Box窗口中编辑的。
+    Graphical EQ：打开软件均衡器。
+    Playlist Editor：打开播放列表。
+    Options：打开选项菜单。
+    Playback：打开播放控制菜单。除了常见的一些操作外，菜单中还提供了多种控制方式，使播放控制更加灵活。
+    Visualization：打开可视化控制菜单。
+    Exit：退出。
+    2. 选项菜单（Options）
+    点出主菜单，选择“Options”即可看到选项菜单。
+     Repeat和Shuffle两项与播放窗口中的重复按钮和SHUFFLE按钮功能相同。
+    Time elapsed和Time remaining用来选择播放显示框中时间的显示，一种是播放时间、一种是剩余时间。
+    Always On Top可以使播放窗口任何时候都不被别的窗口覆盖。
+    WindowsShade Mode可以将播放窗口缩小为一个细条。
+    Double size可以将播放窗口放大或还原。
+    EasyMove可以使窗口的移动更加容易。将EasyMove置为有效后，按住窗口内任意的空白区都可以拖动窗口。
+    3. 参数设置窗口（ Preferences）
+    Winamp中所有的操作参数均在这里设定，下面按窗口中所分的六个标签分别说明。
+    Input：这项中有1.9版的新增功能，前面已说明。
+    Display：设置Winamp在Windows 95中的显示风格。例如可以将“Show Splash Screen”一项设置为有效（前面有一个小勾），退出并重新启动Winamp，看看有什么变化。
+    Visualization：用来设置播放窗口中显示框的显示方式。例如可选择在播放歌时是按频谱分析的方式或是按类似示波器的方式显示。
+    Streaming：设置代理服务器，进行网络播放。
+    Initial Setup：用来对Winamp能播放的文件进行登记，这样，在Windows下双击这些文件即可自动启动Winamp进行播放。另外，在这个窗口中还可以在Windows的开始菜单和桌面上建立Winamp的快捷方式。
+    Plug-ins：PlugIn设置，前面已说明。
+#1    五、Winamp的常见问题
+    1. 用Winamp播放歌曲时为什么有跳音？
+    首先要看用的是什么CPU，Pentium以下的CPU可能会出现这种情况。其次可以在参数设置（Preferences）窗口的Input中提高Priority的设置，还可以提高Buffering值。
+    2. 在PⅡ-300上播放时，如果移动其他窗口的滚动条会引出直跳声，这是为什么？
+    这可能是由于显示卡占用了声卡的总线带宽引起的，关于这个问题可以在http://www.steinberg-us.com/support/serviceweb/win/winfaq/vgakills.html找到答案。
+    3. 为什么Winamp不能使用3dfx插件？
+    首先，3dfx插件要求有带Voodoo芯片的3D卡，若是其他显示卡则不能运行。其次，你可能要更新3D卡的驱动程序。
+#1    六、Winamp中的热键
+    Alt-F或按鼠标右键（在播放窗口的空白区域）——弹出主菜单。
+    Z，X，C，V，B——分别对应五个播放钮（倒、放、暂停、停、前进）。
+    上下箭头——调节音量。
+    左右箭头——让播放的歌曲一次前进或倒退5秒。
+    Ctrl-Tab——在各个打开的Winamp的窗口之间切换。
+    Ctrl+J——指定并跳到播放歌曲的一个时间点。
+    J——在播放歌曲列表中跳到一首指定的歌。
+    Alt+3——打开当前播放歌曲的信息窗口，相当于双击主窗口中的歌曲名显示区域。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

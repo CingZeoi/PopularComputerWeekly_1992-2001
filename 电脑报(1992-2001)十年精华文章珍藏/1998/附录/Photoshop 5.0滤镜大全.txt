@@ -1,0 +1,446 @@
+Photoshop 5.0滤镜大全
+
+征刚
+1998年 第51期 38版
+
+    PhotoShop的滤镜就是通过分析影像中各个像素的值，根据滤镜中各种不同功能的要求，调用各自不同的运算模块，以达到希望得到的效果。
+    滤镜中共分为三个部分：第一部分是上次执行的部分，当上次执行了某个滤镜之后，需要再次执行可直接选第一项：Last Filter。不过，当执行完某种滤镜之后，“Last Filter”就会变为上次执行的滤镜名字。“Fade”是指淡化上次滤镜执行的效果。
+    第二部分是PhotoShop自已的滤镜，也是Photoshop的核心内容之一。^5100ph1^
+    第三部分是其它公司为PhotoShop开发各种丰富多彩的滤镜。
+    下面就PhotoShop 5.0 的第二部分作详细的说明。
+#1    一、Artistic（艺术化效果）
+    Colored Pencil: 铅笔效果。在画素描时为了表达物体的光线、明暗变化，大量采用把铅笔线条细密、整齐的排列、交叉在一起的方法（我们称为笔触），以一种块的效果体现光与影的关系，即把物体的高光、背光、明暗交接线、各个过渡区、物体后面的空间，理解为一个个细小的面（块），再用这种块把物体的材质、光、影表现出来。这个滤镜即产生这种块的效果，并在需处理的影像上产生呈90°交叉的细腻整齐的铅笔笔触（不过在绘画中这种类90°的交叉倒是不常用，因为显得比较生硬、不柔和），用于处理一幅需要勾边效果或笔画比较生硬的背景影像，Colored Pencil可以保持影像中明显的边缘和粗略的外观。
+    Pencil Width：指笔画的宽度。
+    Stroke Pressure：指笔画的力度。
+    Paper Brightness：指滤镜中笔画所采用的色彩和亮度，它们随着滑块的移动，取值从背景色逐渐过渡到黑色。
+    Cutour:剪贴效果。使所处理影像产生出一幅彩色的剪贴画效果。这个滤镜能计算所处理影像的像素，使其接近的部分综合成为一种颜色，从而使原来影像中细腻的色彩变成一块一块的颜色。
+    No. of Levels：控制色彩的层次。
+    Edge Simplicity：控制画面色块的简单程度。
+    Edge Fidelity：保持原图像轮廓的真实程度。    
+    Dry Brush:  干刷效果。干刷，指油画、水粉画中使用的扁扁的画笔，并且使用的是干画法。所以这个滤镜处理出来的效果就是典型的油画效果，使影像中的色彩产生出类似油画画刷沾上又厚又稠的颜料，一笔一笔抹出来的效果。用这个滤镜明显能感觉到影像中有颜料堆积起来的“厚”的感觉。
+    Brush Size：画笔的尺寸。
+    Brush Detail：画笔的细节。
+    Testure：结构。指笔触错落有致的结构。
+    Film Grain:胶卷颗粒。这个滤镜既然叫Film就必然和胶卷、影片之类的东西有关，它不仅可以在影像上产生细小的颗粒效果，还能使所选择的区域产生强光照射的效果或者使主题的饱和度大大增加，如一个普通的红苹果，让它鲜艳夺目、娇艳欲滴。如果需突出一幅影像的主题可以对主题以外的区域进行处理使之产生使用劣质胶卷所产生的颗粒，这样使主题呼之欲出、或者加强一点亮度，使主题纯净得近乎透明。
+    Grain：颗粒大小。
+    Highlight Area：高光区范围。
+    Intensity：强度。
+    Fresco:  壁画效果。这个滤镜不仅仅可以产生所谓壁画效果还可以产生印象派作品的效果。这里的Fresco“壁画”效果，我们理解是指的一种绘画手法，该滤镜是把图像中一小片相同或相近的像素汇集到一些小点上，使之产生类似印象派作品的效果。这个滤镜的值不宜太大，而且还需使用Fade。  
+    Brush Size：笔画尺寸。
+    Brush Detail：笔画细节。
+    Testure：质地。
+    Neon Glow:  氖光效果。所谓氖光效果即模仿氖光灯照射的效果。在处理目标上覆盖各种类型的光，使用时能产生较强的神秘感，接合其它光线合用较好。
+    Glow Size：光照射在物体周围的尺寸。
+    Glow Brightness：光的强度。
+    Glow Color：光的颜色。
+    Paint Daubs:  涂抹效果。涂抹效果是指使用某种工具来涂抹的意思。Paint Daubs可以让你挑选各种不同尺寸（从1到50）、不同类型的笔刷。在使用中还可以通过调节不同的明暗对比度和笔刷的大小模仿油画中铲刀的效果，把色彩成块状堆积，显得比较厚重。
+    Brush Size：画笔尺寸。
+    Sharpness：锐利程度。
+    Brush Type：画笔类型，有以下六种类型：
+    Simple：简单类型。
+    Light Rough ：明亮粗糙。
+    Dark Rough：黑暗粗糙。
+    Wide Sharp：锋利的宽笔触。
+    Wide Blurry：模糊的宽笔触。
+    Sparkle：发光。
+    Palette Knite:刮刀效果。指在油画中使用刮刀的效果。油画中有一种特殊的画笔叫刮刀，用于直接把颜料在调色板上混合，然后用刮刀抹在画布上，形成一种独特的，或粗犷或厚重的感觉。有时颜料堆积太厚，干后需要用刀刮去一部分，这个滤镜即模仿这个效果。不过这个滤镜的值不宜太大，否则可能会处理成大面积的渲染效果。
+    Stroke Size：笔画尺寸。
+    Stroke Detail：笔触细节。
+    Softness：柔和程度。
+    Plastic Wrap:  塑料薄膜。很明显，是指用塑料薄膜包裹的效果，用这个滤镜可以轻而易举的实现波光粼粼的月光水面效果。
+    Highlight Strength：突出光线。
+    Detail：细节。
+    Smoothness：平滑程度。
+    Poster Edges:镶边纹理。根据影像像素和对比度的不同，给不同的部分加上一层边的效果。
+    Rough Pastels:  粗蜡笔效果。指按照一定的笔触交叉的粗蜡笔画效果。该滤镜古典风格明显，但笔触明显的显得生硬，缺少手绘的优美感觉。
+    Edge Thickness 指的是边缘厚度（这里用“厚”字比较好一点），  Edge Intensity 边缘力度，指的是镶上边之后的对比强度， Posterization  指镶边后对色彩的渲染程度，是比较生硬一些，还是柔和一些。
+    Stroke Length：笔画长度。
+    Stroke Detail：笔触细节。
+    Texture：纹理，有以下几种：
+    Brick：砖。
+    Burlap：粗麻布。
+    Canvas：帆布。
+    Sandstone：沙岩。
+    Load Texture：从其它Photoshop文件中提取图案。
+    Light Direction：光线方向，有以下可选项：
+    Bottom：从底部。
+    bot.Loft：从底从左。    Left：从左。    Top Left：从上从左。     Top：从上。    top Right：从上从右。    Right：从右。      Bot.Right：从底从右。
+    Smudge Stick:  条状涂抹效果。用手指头沾颜料在未干的画布上自左上方向右下方涂抹的感觉。
+    Stroke Length：笔画长度。
+    Highlight Area：高光区。
+    Intensity：强度。
+    Sponge:  海绵效果。用海绵当笔在画布上吸收多余水份的效果。指用一块海绵，在当前选定的区域，一吸一按，所产生的斑驳的效果。
+    Brush Size：笔画尺寸。
+    Definition：轮廓的精确度。
+    Smoothness：平滑程度。
+    Underpainting:  背景纹理效果。指把当前影像作为背景时的一种创作手法，使当前影像产生一些粗犷的质感，如亚麻布、帆布、矿石等。
+    Brush Size：笔画尺寸。
+    Texture Coverage：纹理覆盖。
+    Scaling：缩放比例。
+    Relief：起伏。
+    Invert：影像反转。
+    Watercolor:  水彩效果。当需要处理一幅水彩画风格的影像时，或为了简化影像，采用的使影像中的色彩象是沾满了水和颜料一样相互渲染的效果。
+    Brush Detail：画笔细节。
+    Shadow Intensity：投影强度。
+    Texture：质地。
+#1    二、Blur（柔化）
+    这六个柔化滤镜可以柔化、修饰一幅影像或一个选择区域。它们可以通过转化像素的方法平滑地处理影像中生硬的部分。注意：在一个层中使用blur滤镜时，必须将图层面板中的Preserve Transparency（保持透明）关掉，否则没有任何效果。
+    Blur: 柔化效果。使选择区内的影像产生虚化的效果。可以平滑的转换影像中生硬的部分。
+    Blur More: 加强柔化。比Blur更强烈的柔化效果。
+    Gaussian Blur: 高斯式柔化。用一种可调整数值的柔化方式快速柔化一个选择区域。这个滤镜可以加入低频的细节并且使所处理的影像产生模糊的效果。
+    Radius: 柔化半径，指以多少像素为单位进行柔化。
+    Preview：预视开关。
+    Motion Blur: 动态柔化。这个滤镜的效果是通过一个固定的曝光时间来捕捉一个快速移动的对象，把影像处理成一个特殊的动态效果。使用这个滤镜时可以确定一个从0°到360°的值，以产生一个动态的模糊方向，还可以调整强度，其值为从1到999。
+    Angle：角度。
+    Distance：距离。
+    Radial Blur: 辐射柔化。该滤镜把一幅静止的影像处理成运动的效果，它模拟了照相机镜头的两种变化：旋转和变焦。当我们选择Spin（旋转）时，Radial Blur产生了一个以当前选择区的中心为圆心开始旋转，从圆心向外逐渐模糊的效果（原理：举起摄像机对准天空，然后原地转一圈，即类似这个效果）；如果选择的是Zoom（变焦）则出现从中心向外呈幅射状的逐渐模糊的效果（原理：按照相机快门的同时猛推变焦镜头）。这个滤镜模糊程度取决于它的值：从1到100，不过其值设定的越大运算时间越长。它还有三个选项：Draft（草稿）、Good（正常）、Best（最佳），选择Draft时，运算速度较快，但效果略差，且有轻微颗粒；选择Best时，影像产生比较平滑的模糊效果。
+    Smart Blur: 精确柔化。使用Smart Blur时，它首先在你选择的距离内搜索计算不同的像素，然后使这些不同的像素产生相互渲染或模糊的效果。它也有三个选项：Normal（正常）、Edge only（仅仅勾边）：用黑白效果勾画出影像中明显的轮廓、 Overlay Edge（重叠勾边）：把影像中明显的轮廓勾上边。
+    Radius：半径。
+    Threshold：界限，指柔化程度。
+    Quality：质量，有以下三个可选项。
+    Low：低。
+    Medium：中等。
+    High：高。
+    Brush Strokes（笔触）
+    象Artistic一样，Brush Skrokes也可以通过笔刷和笔划的变化使一幅影像产生艺术绘画的风格。
+    Accented Edges：强化边界。此滤镜可以对影像中明显的边界产生强调的作用。通过调整Edge Brightness可以改变“边界”的亮度，Edge Width（边宽）即指所谓边界的渲染程度。
+    Edge Width：边界宽度。
+    Edge Brightness：边界亮度。
+    Smoothness：平滑程度。
+    Angled strokes：笔画倾斜。在影像中产生类似45°的交叉、倾斜的笔触。这个滤镜可以使相邻的两个明度不一样的区域产生方向相反的笔触。
+    Direction Balance：平衡方向。
+    Stroke Length：笔画长度。
+    Sharpness：锐利，指影像中的对比强度。
+    Crosshatch：网线阴影。在影像中产生网状交叉的笔画形状，可以用来在影像的阴影部分产生铅笔笔触或油画画刷的痕迹。
+    Stroke Length：笔画长度。
+    Sharpness：锐利。
+    Strength：力度。
+    Dark strokes：黑笔触。此滤镜能在影像中产生强烈的黑色阴影。
+    Balance：平衡笔触着笔方向。
+    Black Intensity：黑色区域强度。
+    White Intensity：白色区域强度。
+    Ink outlines：墨水轮廓。可以把影像处理成钢笔画效果或碳棒效果，甚至可以在影像中加入碳笔那种细细柔软的笔触，非常艺术化的一个滤镜。
+    Stroke Length：笔画长度。
+    Dark Intensity：阴影强度。
+    Light Intensity：光线强度。
+    上面的五个滤镜总是在强化影像内色彩的边界，而以下的这三个滤镜可以使边界产生模糊的感觉。
+    Spatter：飞溅效果。当背着画板出去用水粉画实地写生时，一幅优美的风景画即将完成，突然天降暴雨，雨点砸在你的画上，这个滤镜就是这个效果。
+    Spray Radius：水珠半径。
+    Smoothness：平滑程度。
+    Sprayed Strokes：喷雾器。有时候在室内做画，没有雨来帮忙，可是又想让自已的画产生雨水飞溅的效果，怎么办呢？这时候就需要一个喷水的工具——Sprayed Strokes。这个滤镜比Spatter产生的效果更均匀一些，而且可以选择喷射的角度，由于画板是垂直摆放的，所以如果喷水量大，画中的颜料要向下渲染。
+    Stroke Length：笔画长度。
+    Spray Radius：水珠半径。
+    Stroke Direction：笔画方向，有以下四个可选项。
+    Right diag：右倾斜。
+    Horizontal：水平方向。
+    Left Diag：左倾斜。
+    Vertical：垂直方向。
+    Sumi-e：水墨画风格。可以使影像产生浓重的墨汁渲染的效果。好象用一枝湿毛笔沾上墨汁在渲纸上渲染的样子，可以使影像上渲染浓重的黑色，并且色块之间的边界变得模糊了。不过老外想学东方的绘画风格似乎总是掌握不了精髓，他们总是在强调对比、明暗之类的，水墨画那种大笔勾画万千世界静于一方薄纸的效果，这个滤镜恐怕表现不出来。
+    Stroke Width：笔画宽度。
+    Stroke Pressure：笔触压力。
+    Contrast：对比度。
+#1    三、Distort（变形）
+    这一系列滤镜都是用几何学的原理来把一幅影像变形，创造出3D效果或其它的整体变化。每一个滤镜都能产生一种或数种特殊效果，但都离不开一个特点——对影像中所选择区域的变形、扭曲。
+    Diffuse Glow：光芒四射。这个滤镜可以在影像中加入白色的光芒，形成光芒四射令人不可逼视的效果。
+    Graininess：颗粒。
+    Glow Amount：光芒强度。
+    Clear Amount：清除光芒。
+    Displace：位移。用另一幅PHOTOSHOP格式的图片中的颜色和形状来确定当前影像中图形的改变形式。当横向比例和纵向比例被设置成100％时，位移的比例最大。如果选择的图片和所处理的影像大小不一样可以选择Stretch to fit（扩展）或者Tile（平铺）以决定位移的形式。用Wrap Around（连续画面）和Repeat Edge Pixels（重复边缘像素）确定一些不可预知的部分。  
+    Glass：玻璃效果。使一幅影像产生通过不同的玻璃看到的状态。你可以在一幅影像上创建富有特色的玻璃透镜。
+    Distortion：变形。
+    smoothness：平滑。
+    Testure：纹理，有以下可选项。
+    Blocks：砖块。
+    Canvas：帆布。
+    Frosted：霜花。
+    Tiny Lens：透镜。
+    Load Texture：从其它PhotoShop纹理文件。
+    Scaling：缩放比例，指以上各种纹理的缩放比例。
+    Ocean Ripple：水波纹。使图像上产生一层水波纹，好象是透过水面出看这幅图像一样。
+    Ripple Size：波纹尺寸。
+    Ripple Magnitude：波纹数量。
+    Pinch：挤压。一个把影像挤压变形、收缩膨胀以产生离奇效果的滤镜。
+    Amount：指确定影像挤压变形的值。
+    Polar Coordinates： 极坐标转换。此滤镜将图形中假设的直角坐标转换为极坐标，或将假设的极坐标转换为直角坐标，如前者：把矩形的上边往里压缩，下边向外延伸，最后上边的区域形成圆心部分，下边的区域形成圆周部分，从而使影像产生畸形失真的现象。
+    Rectangular to polar：直角坐标转换成极坐标。
+    Polar to Rectangular：极坐标转换成直角坐标。
+    Ripple： 波纹。使影像产生波纹起伏的效果。
+    Amount：数量。
+    Size：尺度，有以下三个选项。
+    Small：小波浪。
+    Medium：中波浪。
+    Large：大波浪。
+    Shear：修改。沿着对话框中一条指定的曲线扭曲影像。
+    Undefined Areas：对于不确定区域。
+    Wrap Around：连续画面。
+    Repeat Edge Pixels：重复边缘像素。
+    Spherize： 球形。把影像中所选定的球形区域（当然，其它形状也可）扭曲膨胀或变形缩小，Spherize 还能膨胀或收缩水平方向、垂直方向的影像。
+    Mode：模式。
+    Normal：正常模式。
+    Horizontal Only：仅仅改变水平方向。
+    Vertical Only：仅仅改变垂直方向。
+    Twirl：旋转。在影像的选择区域内产生旋转的效果，选择区中心旋转得比边缘利害，可以指定旋转角度。
+    Angle：角度。
+    Wave：波。和Ripple产生的效果类似，但是Wave可以更强烈的控制所产生的效果。Wave可以把影像的像素处理成为三种不同的变化：Sine，正弦波；Triangle，锯齿波；Square，方波。
+    Number of Generators:振动的数量。
+    Wavelength：波长。
+    Amplitude：振幅。
+    Scale：刻度。
+    Horiz：水平。
+    Vert：垂直。
+    Randomize：随机排列。
+    ZigZag：涟漪。使所选择的影像产生象涟漪一样波动的效果。
+    mount：波纹的数量。
+    Ridges：波纹。
+    Style：风格，有以下三个选项。
+    Around Cinter：围绕中心。
+    Out from Center：从中心向外扩散。
+    Pond Ripples：池塘波纹。
+#1    四、Noise（随机色）
+    这四个滤镜起到在影像中加入或消除干扰的作用，可以在影像中消除各种不协调的乱点和划痕，或创建一些不寻常的纹理。
+    Add Noise：加入干扰。可以在影像中加入一些随机的像素。
+    Amount：加入的干扰数量。
+    Distribution：状态。
+    Uniform：统一状态。
+    Gaussian：高斯。
+    Monochromatic：单一噪声。
+    Despeckle：清除干扰。检测所有的选择区域并且柔化影像中色彩交接的边缘，此滤镜没有可选项，可消除影像中细小的颗粒，使画面的色彩填充比较饱满。
+    Dust & Scratches：灰尘与划痕。这个滤镜把影像中的杂色理解为不同的像素，试图平衡这些锐化的部分并且修改影像中的一些瑕疵。在这个滤镜的对话框中Threshold 可以增加一些细小的颗粒并且提高对比度，也就是说，它可以增加影像中的干扰。使用方法：1、通过View（视图）中Zoom 调整影像大小，以方便观察使用效果；2、把Threshold 的滑杠拖至0 以便滤镜能检测影像中所有的像素，（Threshold 在这些像素未被删除之前计算它们的值）；3、拖动Radius 滑杠以确定滤镜搜索杂点的大小，值为Pixels（像素，从1到16）；4、拖动Threshold 滑杠，使刚才被删除的杂点逐渐显现出来，以修正第三部的操作。
+    Median：中间值。清除一幅影像的杂色，可以中和这幅影像中杂乱细小的亮度高的像素。这个滤镜按照Radius 给出的值搜索同一选择范围内亮度相似的像素，删除那些和周围像素不一致的像素，并用它们的中间值代替它们。
+#1    五、Pixelate（块化处理）
+    Color Halftone：彩色网格。这个滤镜用一个大的网格屏蔽在影像的每一个通道上。操作步骤：1、在第一个数值框输入一个值（4到127）用以确定网格中最大点的半径；2、在Screen Angles 中选择适当的通道并赋值，如果影像是Grayscale 模式，就只能使用通道1 ，如果是RGB模式使用通道1、2、3， 如果是CMYK模式，使用全部四个通道。
+    Cystallize：结晶。使影像产生象结晶一样的效果，结晶后每一个小面的色彩由原影像位置中主要的色彩代替。
+    Cell Size：单元尺寸。
+    Facet：手绘。使一幅通过扫描仪或数码相机得到的影像产生手绘的效果，或者把一幅现实主义的图画处理成印象派的效果。
+    Fragment：不聚焦（或重影）。把一幅影像的像素创建四个副本，并使它们相互平衡，偏移，产生重影的效果。
+    Mezzotint：雕版印刷。把一幅影像随机的转换成类似木刻套色印刷的效果。在这个滤镜的弹出式菜单里可以选择一些细节：*  dot  各种类型的点的效果，*  line  各种类型的线的效果。
+    Fine dots：精细的点。
+    Medium dots：中等的点。
+    Grainy dots：颗粒状的点。
+    Coarse dots：粗糙的点。
+    Short Lines：短线条
+    Medium Lines：中等的线条。
+    Long Lines：长线条。
+    Short Strokes：短笔画。
+    Medium Strokes：中等的笔画。
+    Long Strokes：长笔画。
+    Mosaic：马塞克。把影像处理成马赛克效果。在弹出式菜单里设定一个值：像素的平方，这个值就是处理后影像的一个最小的可视单元，也就是马赛克的大小，这个滤镜将统一各个单元内的色彩，形成马赛克效果。
+    Pointillize：斑点。在图像上覆盖一层斑点，通常用于处理一幅背景图像。
+#1    六、Render（渲染）
+    这一系列滤镜用来处理3D效果，云的图案，折射效果，模拟灯光。你可以象在三维空间一样把一幅影像处理成三维效果，如正方体、球体、圆柱体等。
+    3D Transform：三维造型。这个滤镜使一幅平但的二维图像产生立体的三维效果。这是PhotoShop5.0新增的一个表现3D的滤镜，其操作步骤如下：1.打开一幅材质图。2.点取Filter/Render/3D Transform。3.选择你想创建的三维图形：立方体、球体、圆柱体。4.选取工具后，在影像中用鼠标拖出一个图形。5.用箭头或其它工具移动框架上的定位点到位置和形状。图中两个钢笔头似的工具叫定位点工具：增加或删除定位点，它们只对圆柱形有效，且只能增加或删除右边线上的定位点，合适后单击“OK”。一幅PhotoShop的三维图形就做出来了。
+    在Camera照相机面板里有两个选项：Field of View：视野，Dolly：移动，指移动照相机的位置。 在Options（选项）下还有一个对话框，用来设置渲染的分辨率和是否显示影像背景。
+    Clouds：云。用一个随机值产生一个云的图案。这个云的色彩取自前景色和背景色之间，如果需要一幅对比强烈的云，在点取Clouds 之前，按住Alt 键。
+    Difference Clouds：混合云彩。随机产生一个混合着云彩和背景图案的图像。这个滤镜用前景色、背景色和原图像的色彩、造型，混合出一个带有背景图案的云的造型。这个滤镜反复使用，次与次之间产生互为负片的色彩，而且多次使用以后会出现大理石一样的纹理。
+    Lens Flare：炫光摄影。生成摄像机镜头炫光效果。这个滤镜模仿照相机逆光摄影时的状态。
+    Brightness:产生的亮斑的大小、亮度。
+    Flare Center：拖动十字光标可设定炫光位置。
+    50-300mm Zoom：50-300毫米变焦。
+    35mm Prime：35毫米镜头。
+    105mm Prime：105毫米镜头。
+    Lighting Effects：舞台灯光。你的RGB图像提供无数种灯光效果。这个滤镜提供17种灯光的风格，3种灯光的类型，可以设定4 种灯光的性质，可以处理出丰富的舞台灯光效果。
+    Style：灯光的风格，具有17种之多。
+    2 o＇clock Spotlight：聚光灯。
+    Blue Omni：蓝泛光灯。
+    Circle of Light：以圆环扩展的灯光。
+    Crossing：交叉点。
+    Crossing Down：在下面交叉聚光。
+    Default：缺省值。
+    Five Lights Down：五盏向下的灯光。
+    Five Lights up：五盏向上的灯光。
+    Flash Light：手电筒。
+    Flood light：泛光灯。
+    Parallel Directional：平行方向。
+    RGB Lights：RGB灯光。
+    Soft Direct Lights：柔和直接的光。
+    Soft Omni：柔和和泛光灯。
+    Soft Spotlight：柔和的聚光灯。
+    Three Down：三盏向下的灯光。
+    Triple Spot：三重照明。
+    Light Type：灯光类型。 
+    Directional：单向灯。
+    Omni：泛光灯。
+    Spotlight：聚光灯。
+    Intensity:亮度，从负数到峰值。
+    Focus：焦点，从窄到宽。
+    Properties：特性。
+    Gloss：光洁度，从粗糙到光滑发亮。
+    Material：材质，从塑料到金属。
+    Exposure：曝光，从小到大。
+    Ambience：范围，从负片到正片。
+    Texture Channet：纹理通道。
+    White is high；白色为峰值。
+    Height：纹理高度，从平整到隆起。
+    Texture Fill：纹理填充。用一个Grayscale 文件或文件的一部分对所选择的图像进行纹理填充。
+#1    七、Sharpen（锐化）
+    这一组滤镜通过再聚焦，加强邻近像素的对比，把模糊的地方清晰化，达到锐化的目的。
+    Sharpen：锐化。通过增强像素之间的对比，使图像清晰起来。
+    Sharpen Edhes：边缘锐化。这个滤镜分析图像的色彩，仅仅加强图案边缘的对比，整体图像的效果不变。
+    Sharpen Move：加强锐化。由于Sharpen 锐化的效果过于温柔，所以使用这个滤镜一次即可达到强烈的锐化效果。
+    Unsharp Mask：钝化屏蔽。为了给专业人员对图像进行色彩修正，PhotoShop 提供了Unsharp Mask  用于调理图案边缘细节的对比，并且在边缘产生修正明暗交接线，或者创建虚幻的边缘图案。这个滤镜表达的是一个传统的摄影合成技巧，用于修正摄影、扫描所产生的模糊图像，它在屏幕的效果要比实际打印更为强烈一点，如果用于打印输出，需要设定好对话框中的值。操作步骤如下：1.点取Filter/Sharpen/Unsharp Mask  。  2.在弹出式对话框中设定Amount（总值——增加对比像素的总值）的值，如果用于高分辨率输出，其值一般设定为150％——200％之间；设定Radius 的值，这个值确定锐化边缘时参考像素的大小，用于打印输出时，能常设为1——2之间，因为取一个小值，它只对边缘进行锐化，如果取一个很大的值，就等于设定了一个很宽的像素区域，那么整个图像都会产生很强烈的锐化效果，不仅葬失了很多细节，图像的风格也荡然无存，至于Threshold （界限）的默认值为0 ，通常设定在2——20之间。
+#1    八、Sketch（草图）
+    Bas Relief：浮雕。把一幅图像处理成浮雕效果（如果前景色和背景象是黑白两色的话）。使用Bas Relief 时原图像中明亮的色彩使用背景色，较暗的色彩使用前景色。
+    Detail：细节。
+    Smoothness：平滑程度。
+    Chalk & Charcoal：粉笔与炭精画。使用这个滤镜时，以粉笔画的笔触和效果用背景色代替原图像中高光区和中间色部分，以大约45°倾斜的炭精条笔触和效果用前景色代替原图像中阴暗部分。
+    Charcoal Area：炭笔区域。
+    Chalk Area：粉笔区域。
+    Stroke Pressure：笔画力度。
+    Charcoal：炭精画。把一幅图像处理成用炭精条画出的效果。
+    Charcoal Thickness：笔触密度。
+    Detail：细节。
+    Light/Dark Balance：明暗平衡。
+    Chrome：铬印染。把一幅图像处理成发亮的液体金属的样子。
+    Detail：细节。
+    Smoothness：平衡。
+    Conte Crayon：蜡笔画。此滤镜把一幅影像处理成仅仅由前景色和背景色组成的带有蜡笔笔触的作品。原影像中明亮的区域由背景色代替，而阴暗面由前景色代替。为了效果真实和突出风格，通常把前景色改为黑色、血红色等蜡笔常用的颜色；而把背景色改为一个明亮的颜色。
+    Foreground Level：前景平衡程度。
+    Background Level：背景平衡程度。
+    Scaling：缩放比例。
+    Relief：起伏。
+    Light direction：光线方向。
+    Graphic Pen：钢笔画。此滤镜使一幅影像产生钢笔画的效果。和前面的滤镜一样，原影像中的阴暗面用前景色，也就是钢笔笔触的墨水色，背景色是指画纸的颜色（素描中越是阴暗面才越是需要用笔来表达，随着逐渐画到高光区，笔画逐渐轻了起来，即明亮的区域用画纸的颜色来表达）。
+    Stroke Length：笔画长度
+    Light/Dark Balance：明暗平衡。
+    Stroke Direction：笔画方向。
+    Halftone Pattern：网板图案。此滤镜把一幅影像处理成用前景色和背景色组成的带有网板图案的图像作品，用这处滤镜可以轻易制作出带有某种色彩倾向的怀旧风格的作品。
+    Size：网格尺寸。
+    Contrast：对比度。
+    Pattern Type：图案类型，有以下三种。
+    Circle：圆环。
+    Dot：点状。
+    Line：线型。
+    Note Paper：标志图案。这个滤镜主要是简化影像色彩，并且结和着Grain和Emboss的特点，使所处理的影像产生一种标志的效果。
+    Image Balance：影像平衡。
+    Graininess：颗粒。
+    Relief：浮雕。
+    Photocopy：影印件。该滤镜把一幅影像模仿成影印件的效果。这个滤镜只突出一些明显的边界轮廓，其轮廓用前景色勾出，其余部分使用背景色。
+    Detail：细节。
+    Darkness：背光部分。
+    laster：石膏。把一幅影像处理成一个石膏模型，然后再用前景色和背景色渲染成彩色图像。
+    Image Balance：影像平衡。
+    Smoothness：平滑程度。
+    Light Position：光线位置。
+    Reticulation：网格。模仿网眼覆盖效果。
+    Density：密度。
+    black Level：黑色层次。
+    White Level；白色层次。
+    Stamp：图章。简化影像，使之产生印章的效果。
+    Light/Dark Balance：明暗平衡。
+    Smoothness：平滑程度。
+    Torn Edges：分裂边界。这个滤镜重新组合影像的边缘，然后再前景色和背景色渲染出彩色效果。
+    Image Balance：影像平衡。
+    Smoothness：平滑程度。
+    Contrast：对比度。
+    Water Paper：吸水纸。把一张粗糙的画纸浸湿的效果。
+    Fiber Length：纤维长度。
+    Brightness：亮度。
+    Contrast：对比度。
+#1    九、Stylize（风格化）
+    Stylize 这一组滤镜通过像素的位移或提高像素之间的对比，查找边缘跟踪轮廓，产生一系列别具风格的效果。
+    Diffuse：扩散。移动像素的位置，使图像产生油画或毛玻璃的效果。Normal：随机移动像素值，忽略色彩值；Darken Only：用比较暗的像素替换明亮的像素；Lighten Only：用高亮度的像素替换比较暗的像素。
+    Normal：正常。
+    Darken Only：仅仅变暗。
+    Lighten Only：仅仅变亮。
+    Emboss：浮雕。使图像产生浮雕效果。
+    Angle：角度。
+    Height：高度。
+    Amount：数量。
+    Extrude：三维背景。产生一个三维的立体效果，可以使图素挤压出许多正方形或三角形。    Type 类型： Blocks 方块。  Pyramids：棱锥。
+    Size：尺寸。指一个方块或棱锥所占的像素大小。
+    Depth：深度。
+    Random：随机的。
+    Level-based：基本值。
+    Solid Front Faces：前方表面立体化。
+    Mask Incomplete Blocks：不完整屏蔽。
+    Find Edges：寻找边界。描绘一幅图像的边缘，使用这外滤镜后系统自动寻找、识别影像的边缘，用优美的细线描绘它们，并且给背景填充白色，使一幅色彩浓郁的影像变成别具风格的速写。
+    Glowing Edges：发光边界。这外滤镜的Find Edges 相反，它用耀眼的线条描绘一幅影像的边缘，并且把影像的背景填充成黑色。
+    Edge Width：边的宽度。
+    Edge Brightness：边缘亮度。
+    Smoothness：平滑程度。
+    Solarize：曝光效果。使一幅影像产生正片和负片叠加投影的效果。
+    Tiles：磁砖效果。使一幅影像产生磁砖平辅的效果。
+    Number of Tiles：磁砖数量。
+    Maximum Offset：最大偏移量。
+    Fill Empty Areas With：空白区域填充。
+    Background Color：背景色。
+    Foreground Color：前景色。
+    Inverse Image：图像反转。
+    Unaltered Image：不改变图像。
+    Trace Contore：轮廓描绘。用细线描绘影像的轮廓。这个滤镜产生的是一种异乎寻常的简洁效果——白色底色上简单的勾勒出影像细细的轮廓（关闭某些通道，底色会变成其它颜色）。
+    Level：程度。
+    Edge：边缘。
+    Lower：降低。
+    Upper：升高。
+    Wind：起风。使影像产生大风刮起或快速移动的效果。
+    Method：方式。
+    Wind：起风。
+    Blast：大风。
+    Stagger：暴风。
+    Direction：方向。
+    From the lift：从左边起风。
+    From the right：从右边起风。
+#1    十、Texture（纹理）
+    这一系列滤镜使影像的表面纹理或深部材质产生变化。
+    Craquelure：裂纹效果。这个滤镜顺着影像的轮廓产生浮雕或石制品特有的裂变效果。
+    Crack Spacing：裂纹间距。
+    Crack Depth：裂纹深度。
+    Crack Brightness：裂纹亮度。
+    Grain：颗粒化。用不同状态的颗粒改变影像的表面纹理。
+    Intensity：强度。
+    Contrast：对比度。
+    Grain type：颗粒类型。
+    Regular：常规。
+    Soft：柔软。
+    Sprinkles：喷洒。
+    Clumped：块状。
+    Contrasty：强烈对比。
+    Enlarged：扩张。
+    Stippled：刻画。
+    Horizontal：水平。
+    Vertical：垂直。
+    Speckle：斑点。
+    Mosaic Tiles：马赛克平铺。好象影像是由马赛克、磁砖和着水泥铺出来的一样。
+    Tile Size：瓷砖尺寸。
+    Grout Width：（填充的）水泥宽度。
+    Lighten grout：水泥亮度。
+    Patchwork：拼贴效果。这又是一种马赛克拼贴的效果，而且马赛克之间还可以产生浓重的阴影。
+    Square Size：方格尺寸。
+    Relief：起伏。
+    Stained Glass：彩色玻璃。用前景色把影像分割成象植物细胞、蜂巢一样拼贴成的纹理。
+    Cell Size：蜂巢尺寸。Border Thickness：镶边厚度。
+    Light Intensity：光线强度。
+    Testurizer：纹理构成。使用选定的纹理代替影像的表面纹理。    Scaling：缩放比例。
+    Relief：起伏。
+    Light Direction：光线方向。
+#1    十一、Video（视频）
+    De-Interlace：消除混杂信号。此滤镜在用于视频输出时消除混杂信号的干扰，使影像平滑、清晰。
+    Eliminate：清除。
+    Odd Fields：奇数域。
+    Even Fields：偶数域。
+    Create New Fields by：创建新域。
+    Duplication：复写。
+    Interpolation：插点方式。
+    NTSC Colors：NTSC色彩。此滤镜用于解决以NTSC制式输出时色域变窄的问题。
+#1    十二、Other（其它）
+    Custom：自定义。让你设计自已的滤镜。
+    Load：调出过去设定的值。
+    Save：当前设定的值存盘。
+    Scale：缩放比例。
+    Offset：偏移。
+    High Pass：高质变换。产生一个与Gasussian Blur 相反的效果，是个很有特色的滤镜。
+    Radius：半径。
+    Maximum：放大亮部。此滤镜可以扩大影像中的亮部区域。
+    Minimum：放大暗部。此滤镜可以扩大影像中的暗部区域。
+    Offset：偏移。此滤镜可以使影像上下左右移动指定的距离。
+    Horizontal：像素水平移动。（正值右移，负值左移）
+    Vertical：像素垂直移动。（正值上移，负值下移）
+    Undefined Areas：不确定区域。
+    Set to Background：设置成背景色。
+    Repeat Edge Pixiels：重复边缘像素。
+    Wrap Around：连续画面。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

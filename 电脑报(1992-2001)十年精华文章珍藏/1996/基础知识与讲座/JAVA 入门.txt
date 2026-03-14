@@ -1,0 +1,269 @@
+JAVA 入门
+
+李 毅
+1996-06-28
+
+        JAVA是SUN微系统公司所开发的新一代面向对象的程序语言。它融合了C、C+ + 、Objective C 等传统程序语言的优点和特性，去芜存菁，是一种小巧玲珑的新一代程序语言。它是一种简单、动态、面向对象、分布式、解释执行、健壮、安全、结构中立、可移植、高效能、具有多线程能力的新一代语言。
+        二、JAVA语言基础
+        (一)  JAVA语言的基本组成
+        JAVA语言主要由以下五种元素组成：标识符、关键字、文字、运算符和分隔符。这五种元素有着不同的语法含义和组成规则，它们互相配合，共同完成JAVA语言的语意表达。
+        1. 标识符
+        变量、类和方法都需要一定的名称，我们将这种名称叫作标识符。在JAVA中，所有的标识符都必须以一个字母、下划线或美元符$作开头。后面的字符包括数字(0-9)，所有从A-Z的大写字母和a-z的小写字母，以及所有在十六进制0xc0前的ASCII码。
+        如下对照表可让你对标识符的命名规则有一个具体的了解：
+        合 法	                非 法	
+        alan	         alan#        //#为非法字符	
+        doorOpen	 door-open    //-为非法字符	
+        X        	 boolean      //boolean为关键字	
+        team7_play 	 7player      //不能以数字开始
+        2. 关键字
+        关键字是JAVA语言本身使用的标识符，它有其特定的语法含义。所有的JAVA关键字将不能被用作标识符，如：for、while、boolean等都是 JAVA 语言的关键字。
+        3. 文字
+        文字，其实就是通常所说的数据。文字的不同表现形式，也就是不同的数据类型，JAVA的数据类型有：整型、浮点型、布尔型、字符型、字符串型。
+        整型数据是最普通的数据类型，它的表现方式有：十进制、十六进制和八进制。基数为10的十进制是我们最熟悉的。基数为16的十六进制表示法，也是程序设计中常常用到的，在十六进制中，每一位数字相当于4个二进制0和1的组合。十六进制整数用0-9的10个数字和字母A-F代表10-15这些整数，十六进制整数必须以0X作为开头。
+        每一个整型数据占有32位的存储空间，即四个字节。这意味着整形数据所表示的范围在 -2,147,483,648和2,147,483,648之间，假如由于某些原因，必须表示一个更大的数，64位的长整型应该是足够的。如果想把一个整数强制存为一个长型(long)，可以在数据后面加字母l。
+        浮点数据用来代表一个带小数的十进制数。例如1.5或43.7。 它们或者是标准形式，或者是用科学计数法的形式。如：3.1415，0.1，.6，.02243，2.997E8等。
+        标准的浮点数叫做单精度浮点数，它的存储空间为32位，也就是四个字节。也有64位的双精度浮点数。可以用D后缀确定你想使用这种双精度浮点数。
+        布尔类型是最简单的一种数据类型，布尔数据只有两种状态：真和假，通常用关键字true和false来表示这两种状态。
+        字符型数据是由一对单引号括起来的单个字符。它可以是字符集中的任意一个字符，如：`a'，`b'。
+        字符串数据类型是用一对双引号括起来的字符序列，字符串数据实际上是由String类所实现，而不是C语言中所用的字符数组。每一个字符串数据将产生一个String 类的新的实例，读者不必对字符串与类这个概念发生关系而感到担心，由于类的特性，你不必担心如何去实现它们，它们会自己照顾好自己，需要说明的是字符串在JAVA里作为类只是出于安全的考虑。
+        下面给出了几个字符串的例子。
+        字符串描述 	          对应值	
+        ""                    Let's go
+        "Let's go"	          Two	
+        "Two\nLines"  	  Lines	
+        
+        4. 运算符
+        任何语言都有自己的运算符，JAVA语言也不例外，如 +、-、*、/ 等都是运算符，运算符的作用是与一定的运算数据组成表达式来完成相应的运算。对不同的数据类型，有着不同的运算符。
+        5. 分隔符
+        分隔符用来使编译器确认代码在何处分隔。‘{'、‘}'、‘;'、‘:'都是JAVA语言的分隔符。
+        (二) 变量
+        为了在JAVA中存储一个数据，必须将它容纳在一个变量之中。定义一个变量的两个基本要素是：类型和标识符，通常你可以用如下语法去说明变量：
+        type identifer ［,identifer］；
+        该语句告诉编译器用“type”的类型和以“identifer”为名字建立一个变量， 这里的分号将告诉编译器这是一个说明语句的结束；方格中的逗号和标识符表示你可以把几个类型相同的变量放在同一语句进行说明，变量名中间用逗号分隔。
+        1. 整数变量的说明
+        整型变量按所占内存大小的不同可分为四种不同的类型，最短的整型是byte，它只有八位长，然后是短整型short，它有16位，int类型有32位，长整型long是64位。
+        例如：byte a; short row;int numberOfSportor;long treeCount;int x,y,z;
+        2. 浮点变量的说明
+        浮点类型可用关键字float或double来说明，float型的浮点变量用来表示一个32位的单精度浮点数，而double型的浮点变量用来表示一个64位的双精度浮点数。double型所表示的浮点数比float型更精确。
+        例如：float alpha;double speed;
+        3. 字符变量说明
+        JAVA使用16位的Unicode字符集。因此JAVA字符是一个16位的无符号整数，字符变量用来存放单个字符，它不是完整的字符串。例如：char a; a=`c';
+        4. 布尔变量说明
+        布尔型有真和假两个逻辑值，另外，逻辑运算符也将返回布尔类型的值 ，例如：boolean mouseOn; mouseOn=true;
+        布尔型是一个独立的类型，它不像C语言中的布尔型代表0和1两个整数， 由于这个原因，JAVA中的布尔类型不能转换成数字。
+        5. 定义数组型变量
+        int i［］;
+        char c［］;
+        float f［］［］;
+        6. 变量的使用范围
+        当说明了一个变量后，它将被引入到一个范围当中，也就是说，该名字只能在程序的特定范围内使用。变量的使用范围是从它被说明的地方到它所在那个块的结束处，块是由两个大括号所定义的，例如：
+        class Example
+        {
+        public static void main( String args［］)
+        {    
+        int i;
+        .........
+        }
+        public void function()
+        {    
+        char c;
+        ..........
+        }
+        }
+        整型变量i在方法main 中说明， 因为 main 的块不包括 function 块， 所以任何在function块中对i的引用都是错误的。对字符型变量c也同样如此。
+        在某一个特定情形中，变量能被别的变量所隐藏，如：在一个块中说明一个变量，而在这个块中建立一个新块并且在其中定义相同名字的变量 ，这样在第二个块中， 程序对该变量的使用均是指第二次定义的那个变量。这样我们说，第一个变量被隐藏了。变量隐藏的示例如下：
+        class Example
+        {
+        public static void main(String args［］)
+        {
+        int i;   //   ***
+        boolean try=true;
+        While (try)
+        {
+        int i;  //以下对变量i的引用均指这里定义的i
+        .........
+        }  //以下对变量i的引用均指***处定义的i
+        ........
+        }
+        }
+        当定义一个变量时，首先必须明确它的活动范围，并根据它的实际功能来命名，此外还应尽量使用详细的注释，这些办法可以使你能够清晰地区分变量，变量被隐藏的问题也会大大减少。
+        7. 类型转换
+        系统方法System.in.read返回一个整型数值，但却常常想要把它当作一个字符来使用。当有一个整数需要把它变成一个字符时需要做一个类型转换：把整数转换为一个字符。从一种类型转换到另一种类型可以使用下面的语句：
+        int a;
+        char b;
+        a=(int)b;
+        加括号的int告诉编译器你想把字符变成整型并把它放在a里，另一方面，如果想做相反的转换，可以使用：b=(char) a;
+        整型和字符型变量位长不同是非常重要的，整型是32位长，字符型是16位长， 所以当从整型转换到字符型可能会丢失信息。同样，当把64位的长整型数转换为整型时，由于长整型可能有比32位更多的信息，也很可能会丢失信息。即使两个量具有相同的位数，比如整型和浮点型(都是32位)，在转换小数时也会丢失信息，JAVA不象c/c++ 那样允许自动类型转换，当进行类型转换要注意使目标类型能够容纳原类型的所有信息，不会丢失信息的类型转换有：
+        原始类型    目标类型
+        byte      short,char,int,long,float,double
+        short     int,long,float,double
+        char      int,long,float,double
+        int       long,float,double
+        long      float,double
+        float     double
+        (三) 运算符
+        在定义了的变量之后，通常都要对变量赋值、改变变量的值和使用变量进行计算，这都是运算符的作用。  1. 整形运算符
+        (1) 单运算符
+        运算符 	   实际操作	       例子
+        - 	   改变整形数符号      -i
+        ++ 	   加1                 i++
+        --  	   减1                 i--
+        (2) 双运算符
+        运算符 	  实际操作	 例子
+        +	         加运算  	 a+b
+        - 	         减运算   	 a-b
+        *  	         乘运算    	 a*b
+        / 	         除运算   	 a/b
+        %   	 取模运算 	 a%b
+        &    	 与运算   	 a&b
+        |     	 或运算   	 a|b
+        ^     	 异或运算 	 a^b
+        〈〈    	 左移    	 a〈〈b
+        〉〉    	 右移    	 a〉〉b //(高位用符号位填充)
+        〉〉〉    	 右移   	 a〉〉〉b//(高位用零填充)
+        (3) 比较运算符
+        运算符	实际操作	例子
+        〈	        小于 	        a〈b
+        〉  	大于  	        a〉b
+        〈=   	小于等于	a〈=b
+        〉=    	大于等于 	a〉=b
+        ==    	等于     	a==b
+        !=    	不等于   	a!=b
+        以上的运算符，除了新增的〉〉〉之外，确实与C语言分毫不差呢!
+        2.浮点运算符与整形运算符基本类似：
+        有-，+，*，/，+=，-=，*=，/=，++，--，%，%=等；
+        3.数组运算符new：
+        使用举例：
+        int a［］=new int［10］;
+        char c［］［］=new char［10］［10］;
+        float f［］［］=new float［5］［］;
+        4.字符串运算
+        字符串联接:+
+        三、JAVA语言的语法
+        作为新一代的编程语言，JAVA 所设计出的程序自然也是非常漂亮的， 这当然归根于JAVA完美的语法结构，它的基本语法如下：
+        语法类型	  基 本 形 式
+        if-else	  if(boolean)statement else statement
+        switch	    switch(expression1)
+        ｛
+        case  expression2:statement
+        case expression3:statement
+        ......
+        default:statement
+        ｝
+        break	     break［label］;
+        continue 	 continue［label］;
+        return    	return expression;
+        for    	for(expression1;expression2;expression3) statement
+        while 	    while(boolean)statement
+        do-while 	 do statement while(boolean);
+        label    	 label:statement
+        我们不难看出，不仅是数据类型，在语法结构上，JAVA语言与C语言也非常类似。
+        四、简单实例
+        下面用几个具体例子，以便对此有一个更深的认识:
+        1.用if-else来构成多分支语句：
+        if (a〉5)b=1
+        else if(a〉4)b=2
+        else if(a〉3)b=3
+        ...
+        else b=-1
+        2.while和do-while循环
+        boolean flag1=true;
+        while(flag1)
+        ｛
+        System.out.println("hi!Welcom to java!\n");
+        ｝
+        boolean flag2=false;
+        do
+        ｛
+        ...
+        ｝
+        while(flag2);
+        3.switch分支
+        这是JAVA程序的一部分，它的功能是用来统计并输出用户所输入的ASCⅡ码中，数字、空格键及其余类型的键的数量。
+        int numberOfWhite=0,NumberofDigits=0,numberOfOthers=0;
+        char c;
+        while ((c=(char)System.in.read())!=-1&&c!=′\n′
+        ｛
+        switch(c)
+        ｝
+        case ′0′:
+        case ′1′:
+        case ′2′:
+        ......
+        case ′9′:numberOfDigits++;break;
+        case ′′:
+        case ′\n′:
+        case ′\n′:numberOfWhite++;break;
+        default:numberOfOthers++;
+        ｝
+        ｝
+        System.out.printf1n("\nResults:\n");
+        System.out.printf1n("digits="+numberOfDigits+"\n");
+        System.out.printf1n("other="+numberOfOthers+"\n");
+        System.out.printf1n("spaces="+numberOfWhite+"\n");
+        4.for循环
+        int i,a［］=new int［10］;
+        for (i=0;i〈10;i++)a［i］=0;
+        5.label标记的应用
+        char a;
+        outer://这是出口标记
+        for(int i=0;i〈10;i++)
+        for(int j=0;j〈10;j++)
+        ｛
+        a=(char)System.in.read();//从键盘读入字符
+        if(a==′b′)
+        ｛
+        break outer;
+        ｝
+        if (a==′c′)
+        ｛
+        continue outer;
+        ｝
+        ｝
+        五、JAVA中的对象方法    
+        有了数据和语句， 在今天就必然会使人联想到一个概念：对象， 事实上， 所有的JAVA程序都必须通过对象来实现，也就是JAVA是一个完全的面向对象语言，那它是怎样实现和使用对象的呢?
+        定义对象的语法格式为：
+        JAVA对象的说明与定义必须定义在同一文件中，实际上定义等同于说明。
+        ［import〈package names〉;］
+        class〈classname〉［extends〈classname〉］
+        ｛
+        〈member data declarations〉
+        〈member function declarations
+        ｝
+        以下的程序定义了一个简单的JAVA类：HelloWorldApp， 它的功能是在屏幕上输出一句问候语：Hello World(程序名为：HelloWorldApp.java)。
+        class HelloWorldApp
+        ｛
+        public static void main (String args［］)
+        ｛
+        System.out.println("Hello World!");
+        ｝
+        ｝
+        它的功能是在运行3W的查询软件(如Netscape Navigator,Hot JAVA) 的窗口上显示一串字符："Hello World!"。
+        熟悉C++语言的读者大概可以看出，上面的HelloWorld类实际继续了一个基类：java.applet.Applet，同时还重定义了它的两个方法函数：Init和Paint，其中paint方法通常是用来绘制用户区域的，JAVA的Applet类还提供了许多别的方法供程序员使用。如：
+        keydown: 处理用户的键盘消息；
+        mouseDown,mouseUp: 处理用户的鼠标按键消息；
+        mouseEnter,mouseExit:处理鼠标进入或离开用户区域的消息；
+        mouseDrag:处理鼠标拖动消息；
+        mouseMove:处理鼠标移动消息；
+        用户只需在这些方法中填入自己的代码即可处理和响应这些消息，这与C++的Windows编程是很相象的。
+        六、JAVA与HTML
+        不过JAVA的Applet必须通过HTML来调用，以下就是一段HTML程序，通过它可以调用上面的Applet。
+        〈HTML〉
+        〈HEAD〉
+        〈TITLE〉A Simple Program〈/TITLE〉
+        〈/HEAD〉
+        〈BODY〉
+        Here is the output of my java program:
+        〈APPLET CODE="HelloWorld.class"WIDTH=150 HEIGHT=25〉
+        〈/APPLETT〉
+        〈/BODY〉
+        〈/HTML〉
+        当用户通过 Netscape  Navigator 调入这段 HIML 文档时， 会通过 APPLET  CODE="HelloWorld.class"WIDTH=150 HEIGHT=25这句话去调用相应的JAVA程序，并开始解释执行，用户就会在屏幕上看到“Hello World”这句话。当然，在此之前， 你还需要将你的JAVA程序进行编译，即执行JAVAC命令：
+        javac HelloWorld.java
+        运行上述命令后会生成HelloWorld.class文件以供HTML调用。
+        JAVA竞能如此EASY的制作一个HOME PAGE，不想亲自试试吗?
+        短短几十分钟内，你可能已成为一名JAVA高手，但千万不要浅尝辄止!JAVA 语言的博大精深之处绝非短短几千字的文章所能概括的，它的良好的交互特性，强大的网络通信能力，多线程的工作方式，美妙的多媒体类库都要靠你自己去揣摩了。
+ 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

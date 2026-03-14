@@ -1,0 +1,139 @@
+学用VC++进行Winsock编程──Client端
+
+朱小华 
+2001年 1期
+
+    说到Winsock，可能很多人还不太了解，但说到OICQ、ICQ、Foxmail、Netants、CuteFTP以及大名鼎鼎的BO2K等等，大家都应该是很熟悉的。如今是网络时代，这些基于网络的软件真的是红红火火!那你有没有想过这些软件是怎么写出来的呢?这就是本文将要介绍的内容：Socket编程!
+　　    Socket（中文译名：套接字）最初在Unix上出现，并很快成为Unix上最流行的网络编程接口之一。后来，微软将它引入到Windows中并得到实现，于是从Windows 95、WinNT4开始，系统就内置了Winsock1.1，后来到了Windows98、Windows2000，它内置的Winsock DLL更新为Winsock2.2。Winsock1.1有2种I/O方式，2种I/O模型，到了Winsock2.2，则有了2种I/O方式，5种I/O模型。另外，Winsock2.2对Socket进行了很多扩充与改进，包括名字解析、异步处理等。这些都是很有用的内容，但也比较复杂，要想在短短一篇文章里讲清楚是不可能的，本文的目的只是为你开个头，俗话说：万事开头难！其实Winsock编程是很例行公式化的。不过值得注意的是：有时它也很难把握，因为它编程的对象是网络，有时你发现运行程序得不到预期的结果，但却很难调试出到底哪里出了问题！
+　　    下面将向你介绍基本的Socket的客户端函数，并给出了一个简单的多线程端口扫描器的源代码!
+　　    先讲一下基本的编程步骤：
+　　    1.由于Winsock目前有两个版本：2.2和1.1，所以我们首先必须判断系统所支持的Winsock版本！这就要靠WSAStartup函数了！另外还有一个WSACleanup函数！这两个函数是Winsock编程必须调用的，其中WSAStartup函数的功能是初始化Winsock DLL，因为在Windows下，Socket是以DLL的形式实现的。1.1版本的DLL为Winsock.dll，而2.2版本的DLL则为Wsock32.dll，其中在2.2版本的系统中，对Winsock1.1函数的调用会由Wsock32.dll自动映射到Winsock.dll。WSAStartup函数的功能就是初始化DLL，其函数原型为:
+　　    int WSAStartup （WORD wVersionRequested，LPWSADATA lpWSAData）;
+　　    其中第一个参数为你所想需要的Winsock版本！低字节为主版本，高字节为副版本！由于目前Winsock有两个版本：1.1和2.2，因此该参数可以是0x101或0x202；第二个参数是一个WSADATA结构，用于接收函数的返回信息！WSAStartup函数调用成功会返回0，否则返回非0值！
+　　    示例代码：
+　　    WSADATA wsaData;
+　　    if（WSAStartup（0x101，&wsaData））
+　　    {
+　　    //错误处理!
+　　    }
+　　    这里有一点题外话，由于Win 95，Win NT4自带的Winsock是1.1版本的，所以如果你的程序是基于Winsock2.2的，那很可能无法在上面运行！因此，如果你希望你写的程序被所有Windows平台支持的话，最好将其声明成1.1版的，不过这样将无法使用很多Winsock2.2才有的特性！至于WSACleanup的用法很简单，用“WSACleanup（）;”就行了！另外，在DLL内部维持着一个计数器，只有第一次调用WSAStartup才真正装载DLL，以后的调用只是简单的增加计数器，而WSACleanup函数的功能则刚好相反，每调用一次使计数器减1，当计数器减到0时，DLL就从内存中被卸载！因此，你调用了多少次WSAStartup，就应相应的调用多少次的WSACleanup。
+　　    2.创建套接字
+　　    创建套接字有两个函数，socket和WSASocket，前者是标准的Socket函数，而后者是微软对Socket的扩展函数。socket函数有3个参数，第一个是指定通信发生的区域，在UNIX下有AF_UNIX、AF_INET、AF_NS等，而在Winsock1.1下只支持AF_INET，到了2.2则添了AF_IRDA（红外线通信）、AF_ATM（异步网络通信）、AF_NS、AF_IPX等；第2个参数是套接字的类型，在AF_INET地址族下，有SOCK_STREAM、SOCK_DGRAM、SOCK_RAW三种套接字类型。SOCK_STREAM也就是通常所说的TCP，而SOCK_DGRAM则是通常所说的UDP，而SOCK_RAW则是用于提供一些较低级的控制的；第3个参数依赖于第2个参数，用于指定套接字所用的特定协议，设为0表示使用默认的协议。socket函数调用成功返回一个套接字描述符，错误则返回SOCKET_ERROR。
+　　    示例代码：
+　　    SOCKET sk;
+　　    sk=socket（AF_INET，SOCK_STREAM，0）;
+　　    if（sk==SOCKET_ERROR）
+　　    {
+　　    //错误处理
+　　    }
+　　    3.连接服务器
+　　    在成功调用了socket函数后，对客户端来说就是与服务器端建立连接。同样，建立连接需要两个函数：connect和WSAConnect。前者是标准的Socket函数，后者是微软的扩展函数。connect函数有3个参数，第1个是连接所使用的套接字描述符，第2个参数是一个sockaddr结构，sockaddr结构是一个通用的结构，它只是简单地定义了一个字节数组，在TCP/IP下一般将其解释为sockaddr_in结构，第3个参数则是该结构的长度，一般用sizeof函数来取得。connect函数调用失败则返回SOCKET_ERROR！
+　　    示例代码：
+　　    sockaddr_in sock;
+　　    sock.sin_family=AF_INET;
+　　    sock.sin_port=htons（80）;
+　　    sock.sin_addr.s_addr=inet_addr（“202.205.210.1”）;
+　　    if（connect（sk，（sockaddr*）&sock，sizeof（sock）==SOCKET_ERROR）
+　　    {    
+　　    //错误处理    
+　　    }
+　　    这里有一点要说明的是，用于填写sockaddr_in结构的值必须是以网络字节顺序表示的值，而不能直接使用本机字节顺序的值。之所以这样规定是因为在网络上存在不同的系统，不同的系统中数据存储时所采用的字节排列顺序是不同的，有的是高字在前，低字在后，而有的刚好相反。为了统一，规定了一个所谓的网络字节顺序。htonl函数可以将本地的unsigned long数据转换为网络字节顺序的数据。htons则是将unsigned short的数据转换为网络字节顺序的数据。而ntohs、ntohl的功能则是刚好相反。另外，sockaddr_in结构的sin_addr.s_addr成员要求是用来描述对方地址的一个值，即网际地址值，而实际应用中，我们得到的大多是IP地址或域名，如202.210.205.1或www.cfan.cn.net，可以用inet_addr函数将点分法表示的IP地址转换为所要求的值，可以用gethostbyname、WSAAsynGetHostbyName取回用易用名表示的主机的信息。gethostbyname函数调用成功会返回一个hostent结构的指针，若错误则返回NULL。下面介绍一下gethostbyname函数的用法。
+　　    hostent *host;
+　　    .......
+　　    host=gethostbyname（“www.cfan.cn.net”）
+　　    if（host==NULL）
+　　    {    
+　　    //错误处理    
+　　    sock.sin_addr.s_addr=*（（unsigned long*）host→h_addr_list[0]）;
+　　    ......
+　　    4.发送和接收数据
+　　    由于这里建立的是SOCK_STREAM类型的连接，故发送可以采用的函数有send和WSASend，而接收可以采用recv和WSARecv，同样，全小写的函数是标准的Socket函数，以WSA开头的是微软的扩展函数send函数有4个参数：第一个是发送操作所用的套接字描述符，第二个是所要发送的数据缓冲区的地址，为char*类型，至于其它类型的数据可以用强制类型转换（char*）。在接收端再用强制类型转换转换回来！第3个参数是所发送的缓冲区的大小，也就是所要发送的字节数！第4个参数是一个附加标志，可以为0、MSG_OOB、MSG_DONTROUTE，熟悉电脑的用户应该对OOB这个字眼不陌生，因为Win95有一个很有名的系统漏洞就是所谓的“OOB错误”，一不小心就会系统崩溃（Win98则有个ICMP错误，用SOCK_RAW类型的套接字会涉及ICMP！）。如果对所发送的数据没特殊要求，直接设为0。recv函数的参数也是4个其涵义与send函数差不多。只是其第二个参数是指向用于接收数据的缓冲区的地址。Send、recv调用成功返回所发送或接收的字节数，如果调用失败则返回SOCKET_ERROR!
+　　    示例代码（send函数）：
+　　    SOCKET sk;
+　　    char szTest[]=“This is an example!”
+　　    int iRet;
+　　    ......（这里省略创建套接字，连接...）
+　　    iRet=send（sk，szTest，strlen（szTest），0）;
+　　    if（iRet==SOCKET_ERROR）    
+　　    {
+　　    //错误处理    
+　　    }
+　　    else if（iRet!=strlen（szTest））
+　　    MessageBox（NULL，“未发送所有的数据”，“警告”，MB_OK）;
+　　    示例代码（recv函数）
+　　    SOCKET sk;
+　　    char szTest[20]
+　　    int iRet;
+　　    ......（这里省略创建套接字，连接......）
+　　    iRet=recv（sk，szTest，20，0）;
+　　    if（iRet==SOCKET_ERROR）
+　　    {
+　　    //错误处理
+　　    }
+　　    szTest[iRet]=＇\0＇;//这一行代码不可少！因为recv函数不会自动将数据缓冲末尾设为表示数据结束的空中止符（＇\0＇），因此，一不留神就会出现缓冲区越界。当然也可以在调用recv函数前先将缓冲区清0（用ZeroMemory或memset），不过还是建议加上这一句。
+　　    5.断开连接
+　　    用closesocket.closesocket（sk）;另外，也可以用shutdown来关闭套接字，这样可以提供更多的选项控制，由于篇幅所限，这里不再深入！
+　　    这样，客户端的基本（基本）内容就讲完了！下面小弟给出一个简单的多线程端口扫描器的源代码（警告：在未经允许的情况下用端口扫描器对他人的计算机进行扫描以及对他人的计算机实施端口攻击是违法的行为）。
+　　    这是一个典型的TCP端口扫描器，通过用connect函数对服务器进行尝试连接来判断该服务器上的端口是否开放。这个扫描器是多线程的，现在的Winsock编程大多数采用多线程技术，这样可以充分利用带宽，如Netants的5个蚂蚁下载，一些FTP软件的多线程上传，等等！为了增强代码的可读性，我没加错误处理!
+　　    //Source Code In C++Builder5
+　　    #include <vcl.h>
+　　    #pragma hdrstop
+　　    #include “Unit1.h”
+　　    #include <winsock.h>
+　　    #include <stdio.h>
+　　    #define threadNum 10//线程数
+　　    #define mutexName “Welcome to LoveBcb.yeah.net”
+　　    #pragma package（smart_init）
+　　    #pragma resource “*.dfm”
+　　    typedef struct g_scan //这是一个自定义的结构
+　　    {
+　　    char szFile[40];//用于存放结果的文件名
+　　    char szMutex[40];//用于存放互斥体的名字，这是多线程保证线程安全的一种方法
+　　    unsigned short sPort;//扫描的起始端口，本机字节顺序
+　　    unsigned short ePort;//扫描的终止端口，本机字节顺序
+　　    unsigned long  goalI;//目标主机IP，网络字节顺序
+　　    int Result;//用于存放结果
+　　    }*PG_SCAN;
+　　    TForLover *ForLover;//这是窗体
+　　    HANDLE hThread[threadNum];
+　　    g_scan gscan[threadNum];
+　　    DWORD dwThreadId，dwThreadCode;
+　　    unsigned short usPart;//用于分割所要扫描的端口数，分配给各个线程
+　　    unsigned long ulIp;
+　　    int iLiveThread;//用于存放活动的线程数
+　　    unsigned long ServerIp（char*serverip）;
+　　    DWORD WINAPI ScanPort（LPVOID lp）
+　　    /*这是主线程函数ScanPort*/
+　　    DWORD WINAPI ScanPort（LPVOID lp）
+　　    {
+　　    PG_SCAN pgscan=（PG_SCAN）lp;
+　　    char szResult[40];
+　　    sockaddr_in sock;
+　　    unsigned short nowPort=pgscan→sPort-1;//用于存放当前扫描的端口号
+　　    FILE*fp;//文件指针
+　　    HANDLE hMutex=OpenMutex（MUTEX_ALL_ACCESS，false，pgscan→szMutex）;
+　　    SOCKET sk=socket（AF_INET，SOCK_STREAM，0）;
+　　    sock.sin_family=AF_INET;
+　　    sock.sin_addr.s_addr=pgscan→goalIp;
+　　    while（nowPort<pgscan→ePort）
+　　    {
+　　    sock.sin_port=htons（++nowPort）
+　　    if（connect（sk，（sockaddr*）&sock，sizeof（sock））==SOCKET_ERROR）
+　　    continue;
+　　    /*由于这里用的是阻塞方式的套接字，所以返回SOCKET_ERROR一般意味着无法连接，于是用continue结束本次循环，即重新开始一次循环。如果返回值不是SOCKET_ERROR的话，表示连接成功，也就是说目标主机上开放了此端口*/
+　　    wsprintf（szResult，“目标主机:%s端口:%d开放\r\n”，inet_ntoa（sock.sin_addr），nowPort）;    WaitForSingleObject（hMutex，INFINITE）;
+　　    /*用WaitForSinleObject保证线程安全INFINITE表示一直等待，直到互斥体有信号*/
+　　    fp=fopen（pgscan→szFile，“a”）;
+　　    fwrite（szResult，sizeof（char），strlen（szResult），fp）;
+　　    fclose（fp）;
+　　    pgscan→Result++;
+　　    ReleaseMutex（hMutex）;//释放互斥体
+　　    closesocket（sk）;//由于已经建立了连接，所以这里要关闭连接
+　　    sk=socket（AF_INET，SOCK_STREAM，0）;//重新创建一个套接字
+　　    }
+　　    
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

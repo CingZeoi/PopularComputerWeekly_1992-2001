@@ -1,0 +1,101 @@
+Linux 实用技巧
+
+李文龙   lwl888@263.net
+2000年 第29期 
+
+　　Linux虽然“不复杂”，但要用好它却还有不少“讲究”。原因是要用好还涉及到相当数量的技巧。笔者在此收集、整理了一些Linux技巧，希望能为大家“用顺”Linux提供方便。
+#1    1.在Redhat下显示彩色目录及文件列表
+　　用ls －－color －－F命令，参数－－color指示用彩色显示，参数－F会在文件／目录名后加一个字符来指示它的类别。 
+　　建议初学者用man ls看看详细信息。比如用－l参数列出文件／目录的绝大部分信息（长格式显示）；用－a参数列出所有文件；包括首字符为“.”的隐含文件；用－N参数不处理文件名直接显示，这样在中文环境下就可以显示中文文件名了。还要注意ls与其它命令搭配使用可以生出很多技巧（最简单的如“ls －l | more”）。 
+　　为了方便起见，你可以编辑／etc／bashrc或home目录下的.bashrc，加入一行： 
+　　alias ls=″ls －－color －F －N″ 
+　　重新运行一下bash会立即生效，如果加在／etc／bashrc里则对所有使用bash shell的用户有效。如果使用的是其它的shell，则去找对应的配置文件。注意它不是／etc／aliases文件，那是sendmail的别名配置文件。 
+　　ls显示的颜色是可以修改的，请参考“Colours with Linux terminals”，它里面有个shell脚本可以显示所有的ANSI颜色。你可以去看一下／etc／DIR_COLORS或＄HOME／.dir_colors，要注意两个文件的作用范围不同。
+　　也可以用dircolors －p命令列出设置，更详细信息见“man dircolors”。 
+#1    2.列出除某些类型文件外的当前目录内所有文件
+　　使用Ksh，用ls !（＊.Z）命令可以显示所有文件，除了＊.Z文件。
+　　这个命令在一个目录里有许多种类型文件时很有用。
+#1    3.删除一个目录下的所有文件和子目录及子目录下的所有文件
+　　用rm －rf ／tmp／example命令
+　　这些都是给懒人们准备的，新手最好多用man命令学习。要是你英语不好，就只好等待中文版了。
+#1    4.快速进入某些目录 
+　　键入 cd～（或cd SHOME）可进入用户的home目录. 
+　　键入 cd － 可进入上一次所在的目录. 
+#1    5.显示环境变量
+　　echo S HOME 显示家目录 
+　　echo S PATH 显示可执行文件搜索路径
+　　env 显示所有环境变量（可能很多，最好用″env | more″，″env | grep PATH″等）
+　　修改环境变量，在bash下用export，在csh下用setenv。比如：
+　　export PATH=SPATH:／usr／local／bin
+　　要想知道export的具体用法，可以用shell的help命令：help export
+#1    6.查找文件
+　　使用find命令，比如：
+　　find ／usr －name XF86＊ 在／usr目录下（包含子目录）查找名字前四个字母为XF86的文件
+　　find . －name netscape －print 在当前目录下（包含子目录）查找名为netscape的文件
+　　find ／home －nouser 在／home目录下查找没有用户属主的文件（用户账号被删除但有遗留文件）
+　　find ／var －newer test 在／var目录下查找比test文件日期更新的文件
+　　find命令有很多参数，注意用man命令查看。
+　　更快速的查找文件是使用locate，第一次使用locate之前用updatedb来更新文件／目录名数据库。
+　　它把文件／目录信息写到数据库中，以后查找起来就特别快。updatedb放在crontab中而且缺省配置是在半夜自动执行。locate存在轻微的安全性问题，因为普通用户可以用它来取得自己不能访问的目录／文件的部分信息。现在有个secure locate，把uid／gid也保存到数据库中，用户在locate时先比较权限。
+#1    7.控制台下回卷屏幕
+　　如何查看已经卷过屏幕的信息呢？试试这两个按键组合：shift＋PageUp和shift＋PageDown，它们对xterm／nxterm／cxterm／xxgdb都有效。而KDE带的KVT已经做得很好了。 
+#1    8.查看文件内容的特殊方法
+　　相信你对最基本的cat和less已经很熟悉了，如果有特殊的要求呢：
+　　如果你只想看文件的前5行，可以使用head命令，如：
+　　head －5 ／etc／passwd
+　　如果你想查看文件的后10行，可以使用tail命令，如：
+　　tail －10 ／etc／passwd
+　　tail －f ／var／log／messages
+　　参数－f使tail不停地去读最新的内容，这样有实时监视的效果，当你在ppp拨号的过程中用它岂不是很方便！
+　　查看文件中间一段，你可以使用sed命令，如: 
+　　sed －n ′5，10p′ ／etc／passwd 
+　　这样你就可以只查看文件的第5行到第10行。 
+#1    9.启动一个程序时让它立即进入后台运行方式
+　　看过前面一篇bash的介绍应该明白Ctrl＋z／bg／fg的用法。有些程序工作起来挺费时间，在它后面加个＆符号看看，例如“updatedb ＆”，“netscape ＆”等等。这样这个shell会释放出来干别的活。请注意这样出来的程序父进程仍然是这个shell，若你退出这个shell，这些程序也会被kill掉。建议退出shell之前用jobs命令查看后台作业。
+#1    10.使用nohup（不挂起）命令
+　　如果想进程在你退出系统后还能执行，可以使用nohup命令如：
+　　％ nohup tar －cf ／dev／tape ／home ＆
+　　如logout退出后再重新登录的话，使用“ps”命令可以看到进程还在执行。注意，要想把命令真正放到后台运行，nohup必须与＆操作同时使用。有些软件自己能处理SIGHUP信号，如wget，对它们则无须用nohup。
+　　你还可以用nohup来实现ppp回拨：先拨号上去，然后以nohup执行一个自制的脚本，如“sleep 60； ppp－start－script”等等。最后logout退出并挂断电话等着就是。
+#1    11.快速查找某个程序运行中的PID号／关机
+　　例如想查找inetd可以用：ps aux | grep inetd命令；又如想找到最耗内存的进程可以用： ps aux | sort ＋4n命令。找到进程的PID之后就可以用kill命令给它发信号，或者强制杀死它。如：kill －9 xxx（某个进程的PID）。
+　　在Linux下还提供了一个killall命令，可以直接使用进程的名字而不是PID号，如killall －HUP inetd；又如killall xdm。killall会把信号发给以指定名字的程序运行的所有进程。用killall －l可以列出所有可用的信号。
+　　下面给大家介绍一下qps，它是用qt写的图形界面，综合了free、top、ps及kill的特点，还可以看到进程的Socket／Memory Map／Files信息。还有为KDE写的ktop，优点是列出了父子进程的关系。
+　　shutdown －r now 杀掉所有进程立即重新启动；
+　　shutdown －h now 杀掉所有进程立即停机；
+　　shutdown －h ＋5 ″Warning: After 5 minutes I＇ll shutdown″ 给用户发消息并在5分钟后停机。
+　　相关命令有reboot，halt，poweroff，init等。
+　　要想实现软件关掉电源，则你的PC机必须是ATX结构的，然后去配置编译内核，打开charactor device／Advanced Power Management support／Power off on shutdown这一项。
+#1    12.查找Xwindow下的字体信息，特别是字符映射表（内码）
+　　xlsfonts 列出所有字体；
+　　xfontsel 分类列出所有字体并显示示范文本；
+    xfd 显示某个字体文件中的所有字符及内码，比如用 xfd －fn hanzigb16fs 查看中文内码，再用xfd －fn cclib16st查看cxterm所用字库的内码与XF86的不同（注意最高位）。 
+#1    13.添加／删除用户
+　　可以用useradd username（或者adduser username）添加一个名为username的用户，然后用passwd username指定口令。用户的信息记录在／etc／passwd文件里，由于每个用户都可以（而且必须能）读出这个文件然后就可以crack出其它用户的密码，为安全考虑现在都使用shadow。
+　　真正的口令密码记录在／etc／shadow里，而这个文件只有以root权限才能读出。Redhat 5.1以下版本没有直接使用shadow，需要用pwconv转换一下，如果要变回来，可以用pwunconv。提示：在／etc／skel目录记录了一个用户应该有的基本文件（可以用ls －a ／etc／skel／查看），useradd会自动把这些文件复制到用户的家目录下并置上适当的权限（除非添加用户时用了－m参数: useradd －m xxx）。如果你在这个目录下键一个public_html的目录，则以后添加的用户在它的家目录下都会自动有个同名的目录，这样每个用户都有了“个人主页”。
+　　删除用户可以用userdel username或userdel －r username命令（有些发行版可能是deluser），－r参数会删除这个用户的家目录，但是在系统里别的地方还可能有此用户的信息，所以在删除用户之前最好还要用find ／ －user username等方式去查找相关信息。
+　　如果要临时禁止一个用户，可以在／etc／passwd文件中此用户的密码这一项第一个字符前添加一个＊号。
+　　如果把密码域改为空，则此用户不需要密码就可以进入系统，当你忘记root口令时，可以用软盘启动把原来的root安装上来，直接去改passwd文件。
+　　长用户名的问题，在Redhat发行版中已经做得很好了，也允许用户名中有空格。如果你手上的发行版不支持，可以到／usr／include／utmpbits.h里把UT_NAMEDSIZE改为32，重新编译相关程序。
+　　另一个直观的配置工具是linuxconf，比如可以用它来配置pppuser等等。这里只能给一些线索，你可以多看″man useradd″，″man shadow″，″man group″，″man userdel″......
+#1    14.列出一个目录占用的空间
+　　可以用du或du －s或du －k命令。
+　　du －s | sort －n 可以迅速发现那个目录是最大的。
+　　用df可以看到已安装的文件系统的空间大小及剩余空间大小。
+　　如果你用quota限制了用户空间大小的话，可以用quota －v查看用户的磁盘空间信息。
+#1    15.如何驱动声卡
+　　RedHat 自带的2.0.34－1 kernel中用了模块化的声卡驱动，有许多声卡都只需要恰当地配置 ／etc／conf.modules 就行了，不需要重建 kernel，也不需要其它软件；但是 sndconfig 配置程序只支持 sb声卡，其它声卡要按照／usr／dos／rhsound－1.5／README.modules.usage 的要求自己写／etc／conf.modules，如对OPTI929／930／931 系列要加
+　　alias sound mad16
+　　options mad16 io=xxx irq=xxx dma=xxx cdtype=0
+　　options sb mad16=1
+　　options opl3 io=xxx
+　　注意对mad16.o模块用depend sb.o。修改设置后不需要重启动，用lsmod看看已经启动的modules，用rmmod卸载sound，sb等，再play sound时，kerneld将会自动加载，用lsmod查看，应该有
+　　mad16
+　　opl3
+　　sb
+　　sound
+　　在RedHat5.1中，只要使用支持清单中的声卡，这样配置都没有问题，你马上就可以听到优美的声音。
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

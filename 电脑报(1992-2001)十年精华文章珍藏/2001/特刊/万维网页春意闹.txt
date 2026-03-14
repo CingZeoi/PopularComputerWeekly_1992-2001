@@ -1,0 +1,135 @@
+万维网页春意闹
+
+周辉腾 张金贵 
+2001年 4期
+
+新年临近，一切都洋溢着节日的喜庆气氛，“老去又逢新岁月，春来更有好花枝”，我们精心雕琢的网页在节日里应该要有不同于平日的精彩呈献给读者。从暖色调的喜庆颜色搭配方案到一系列恭贺新禧的内容，迎春的网页字里行间渗透的应该是节日的祥和、喜庆。
+　　#1    古色古香的垂直布局
+　　“千门万户瞳瞳日，总把新桃换旧符”，过年贴春联是国人的传统习俗。网页上能不能也“贴”一些春联呢？我们知道春联除了“横批”之外都是垂直走向的，所以在以前如果想要在网页中“贴”春联就必须使用图像或者窄到只能容纳一个文字的表单元格。因为春联一般字数不多，采用这两种办法模拟垂直布局实现起来都不是太困难。但是如果需要采用这种布局的字很多，比如是一首贺年的唐诗，如果还采用那些方法不仅编排困难，而且会造成代码冗长，不利于整个网页的快速显示。W3C正在制订的CSS3标准中有一个已经得到浏览器支持的“writing-mode”的属性可以实现文字的垂直布局，采用这种布局的文字起始于每页的右上角，其走向是向下的，换行时，下一行回到页面顶部并位于前一行的左侧。
+　　writing-mode属性有两个要探讨的值：tb-rl和lr-tb。其中tb-rl表示自上而下、从右向左，说明了应用这种样式的元素的内容走向；lr-tb表示从左向右、自上而下，它是所有文字的默认走向，也是我们平常最熟悉的典型的水平走向。与其它任何CSS属性一样，可通过外部CSS文件，或通过对象模型（style.writingMode，用法：object.style.writingMode=sFlow，sFlow的默认值为“lr-tb”）在一列上指定这些值。值得一提的是，虽然是东亚语言引发了对垂直布局的支持这一思路，但是任何语言文字都可以采用垂直文字走向。在这种走向中，单独字符的方向取决于它们所属的语言或文稿。为了保持垂直排版的传统，东亚文字的字符均采取竖直方向显示，而其它所有字符，包括拉丁文字符，在采用垂直布局时则顺时针旋转90°显示。
+　　大部分可视的HTML元素都支持writing-mode属性，但是body元素例外，它总是采取水平布局，但它所包含的元素却可以采用垂直布局。因为浏览器总是将可视区定位于起始标记中最顶端元素的原点，所以如果要把原点放置在屏幕右上角的话，还需在一个支持writing-mode的全局元素中，将主体上的方向属性设置为RTL（从右向左），然后再将方向属性设置回LTR（从左向右）才行。请看以下例子：
+　　<html>
+　　<body style=“direction:rtl”>
+　　<div style=“direction:ltr; writing-mode:tb-rl; width:768px”>
+　　<p><u>爆竹声中一岁除</u><br>
+　　<u>春风送暖入屠苏</u><br></p>
+　　</div>
+　　</body>
+　　</html>
+　　这段代码在IE5.5中的显示效果如^04049103a^1。我们可以看到，使用 writing-mode来实现垂直布局文字的下划线与传统方式一致，效果很好。如果再结合其它CSS属性来修饰这些文字，那么绝对可以在节省大量页面体积的前提下做出与使用图像相媲美的效果来，连整个网页都可以古色古香一回了。
+　　#1    新年钟声倒计时
+　　相信大家对每年春节联欢晚的新年钟声倒计时都有很深的印象吧？电视机前的每个中华儿女都与主持人和现场观众一起关注新旧交替的时刻，气氛是多么的热烈！要是你的网页中也有这样的倒计时，要是新年钟声敲响的那一刻正好有人在你的站点上停留……
+　　<script language=“JavaScript”><!--
+　　var springDay=new Date（“1/24/2001”）;  //新年
+　　function cutdown（）{  //倒计时函数
+　　var today，days，hours，minutes，seconds，intHours，intMinutes，intSeconds;
+　　today=new Date（）; //当前时间
+　　days=Math.floor（（springDay.getTime（）-today.getTime（））/（1000*60*60*24））; //计算剩余天数
+　　intHours=today.getHours（）;hours=（12>intHours）?（23-intHours）:（＇0＇+eval（23-intHours））;     intMinutes=today.getMinutes（）;minutes=（50>intMinutes）?（59-intMinutes）:（＇0＇+（59-intMinutes））;
+　　intSeconds=today.getSeconds（）;seconds=（50>intSeconds）?（59-intSeconds）:（＇0＇+（59-intSeconds））; /*以上三行分别计算剩余时间的小时、分钟、秒钟的数目*/
+　　if（days）>0 timeString=＇离春节还有＇+eval（days+1）+＇天＇;
+　　else if（days==0）{
+　　if（hours==＇00＇ && minutes==＇00＇ && seconds==＇00＇） timeString=false;
+　　else timeString=＇新年钟声将在＇+hours+＇个小时＇+minutes+＇分钟＇+seconds+＇秒之后敲响＇;
+　　}
+　　else timeString=＇已经是蛇年了＇;
+　　if（!timeString） window.alert（＇蛇年到了，《电脑报》恭祝各位读者新年快乐！＇）;     }
+　　cutdownDiv.innerHTML=timeString;  //输出
+　　downing=window.setTimeout（＇cutdown（）＇，100）;
+　　}
+　　window.onload=cutdown;  //网页载入完成开始倒计时
+　　//--></script>
+　　<!-- 请在页面的<body>...</body>之间插入以下代码，用于现实倒计时 -->
+　　<div id=“cutdownDiv”></div>
+　　#1    闹腾腾的网页
+　　热闹是新春的主题曲，所以这时候的网页可以一改平日的“文静”面孔了，从喜气洋洋的背景音乐到变化的标题栏、状态栏等平日里觉得过于嘈杂的东西这时候可以斟酌着使用。
+　　#1    背景音乐
+　　新春的网页要体现温馨、祥和、气氛热烈，背景音乐当然是必不可少的，一首欢快的民族乐曲《喜洋洋》会将这一切体现得淋漓尽致。
+　　IE：<bgsound src=“bgsound/喜洋洋.mid” loop=“1”>（“bgsound/喜洋洋.mid”是背景音乐的路径与文件名，“loop”是循环次数，缺省值为无限循环）
+　　Netscape：<embed src=“bgsound/喜洋洋.mid” autostart=“True” hidden=“True” loop=“False”>（autostart=“True”允许自动播放，hidden=“True”不显示播放控件，loop=“False”不循环播放）
+　　#1    变化的标题栏
+　　网页的标题是由“<title>……</title>”标签设定的，使用文档的title方法（document.title）可以动态更改这个值。使用了下面代码的网页的标题栏会不停地滚动，显得生气勃勃。
+　　<script language=“JavaScript”><!--
+　　var m1=＇:春节快乐:＇;
+　　var m2=＇:Happy spring festival:＇;
+　　var msg=m1+m2;var msg=msg+msg;
+　　function titnimation（）{
+　　msg=msg.substring（2，msg.length）+msg.substring（0，2）;
+　　document.title=msg;
+　　}
+　　if（document.all） setInterval（＇titnimation（）＇，300）;
+　　//--></script>
+　　#1    状态栏跑马灯
+　　这种方法非常简单，应用也比较广泛，如果将以上“变化的标题栏”的代码的倒数第四行改作“window.status=msg”就成了一种简单的跑马灯，看起来也很热闹。
+　　总之，凡是符合节日大气氛要求的东西都可以放心使用在网页中，但是要适当，我们强调的是“闹”，而不是“乱”。
+　　#1    让网页绽放礼花
+　　在现实生活中，每逢佳节，我们都要放烟花以示庆贺，五彩缤纷的烟花给节日带来了欢乐、祥和、喜庆的气氛。如今春节将至，想不想让你的网页也带上点节日的喜庆气氛呢？下面我们就用Java Applet制作一个背景是礼花绽放效果的网页，朵朵礼花盛开，给你的网页增添不少动人魅力。前景是色彩不断变换的文字，而且可以做成超链接，效果非常奇特。
+　　具体制作方法如下：
+　　1.新建一个网页，查看它的源代码。
+　　2.把下面的一段代码复制到<body></body>之间，然后保存文件。
+　　<APPLET CODE=“fireworkTitle.class” WIDTH=“300” HEIGHT=“100”>
+　　<PARAM name=“text1” value=“阖家欢乐！”>
+　　<PARAM name=“font1” value=“TimesRoman”>
+　　<PARAM name=“style1” value=“bold”>
+　　<PARAM name=“size1” value=“48”>
+　　<PARAM name=“text2” value=“万事如意！”>
+　　<PARAM name=“font2” value=“Helvetica”>
+　　<PARAM name=“style2” value=“bold italic”>
+　　<PARAM name=“size2” value=“48”>
+　　<PARAM name=“text3” value=“电脑报”>
+　　<PARAM name=“font3” value=“TimesRoman”>
+　　<PARAM name=“style3” value=“bold italic”>
+　　<PARAM name=“size3” value=“48”>
+　　<PARAM name=“URL1” value=“http://202.102.233.131”>
+　　<PARAM name=“URL2” value=“http://www.cpcw.com”>
+　　<PARAM name=“URL3” value=“http://www.yesky.com”>
+　　<PARAM name=“bgcolor” value=“000000”>
+　　<PARAM name=“textcolor1” value=“multi”>
+　　<PARAM name=“textcolor2” value=“multi”>
+　　<PARAM name=“textcolor3” value=“multi”>
+　　<PARAM name=“max” value=“32”>
+　　<PARAM name=“rad1” value=“20”>
+　　<PARAM name=“rad2” value=“40”>
+　　<PARAM name=“timer1” value=“26”>
+　　<PARAM name=“timer2” value=“52”>
+　　<PARAM name=“h1” value=“0”>
+　　<PARAM name=“h2” value=“64”>
+　　<PARAM name=“delay” value=“60”>
+　　</APPLET>
+　　3.去网络上下载一个ZIP文件，里面包含有两个class文件，这是Java Applet程序运行所必需的文件，网址是：http://202.102.233.134/wsxy/java/fireworktitle.zip，下载后解压到与保存网页相同的目录下。
+　　4.在浏览器中打开保存的网页，预览网页效果如^04049103b^2！赶快把它上传到你的网站上去吧，让大家与你一块分享节日的快乐。不过要注意，在上传时，必须同时上传解压缩后的两个class文件，而且要与网页文件保存在同一个目录下。
+　　事实上我们还可以根据自己的爱好改变礼花绽放的效果，使它与你的网页更加协调，更有特色，这需要修改代码中的相应参数。
+　　本例中有三个循环变色显示的文字超链接：“阖家欢乐”、“万事如意”、“电脑报”，分别对应原代码中的text1、text2、text3，你可以根据需要在参数中输入自己想要显示的文字内容。
+　　font1、font2、font3定义字体的类型。
+　　size1、size2、size定义字体的大小。
+　　style1、style2、style3定义字体的样式，有粗体bold、斜体italic等。
+　　url1url2url3是三个文字的超链接所分别指向的网址。
+　　bgcolor背景色，用十六进制表示。
+　　textcolor文字颜色，是允许变换颜色。
+　　max礼花的数量。
+　　rad1、rad2开始、结束时礼花园环的半径。
+　　timer1、timer2礼花出现、消失的时间。
+　　h1、h2变换显示的颜色数。
+　　delay文字显示延迟时间。
+　　自动弹出祝贺窗口
+　　如果你想在别人访问你的网站时自动弹出一个恭祝新年快乐的小窗口，可以将下列代码加入网页的HTML中的<HEAD>---<HEAD>之间：
+　　<script language=“JavaScript”>
+　　<!--
+　　var gt = unescape（＇%3e＇）;
+　　var popup = null;
+　　var over = “Launch Pop-up Navigator”;
+　　popup = window.open（＇＇， ＇popupnav＇， ＇width=200，height=170，resizable=1，scrollbars=auto＇）;
+　　if （popup!= null）{ 
+　　if （popup.opener == null）{ 
+　　popup.opener = self;
+　　}
+　　popup.location.href = ＇在这里写文件的名字.htm＇;
+　　}
+　　//-->
+　　</script>
+　　注：Width=200是调整窗口的宽度，height=170调整窗口的高度，对于scrollbars=auto语句，你可以去掉auto加上相应的数字（如scrollbars=23）来调整窗口是否有滚动条。在popup.location.href里加入窗口中所需要的文件名。
+　　
+　　 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

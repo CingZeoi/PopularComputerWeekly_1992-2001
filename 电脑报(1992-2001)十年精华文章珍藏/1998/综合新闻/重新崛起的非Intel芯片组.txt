@@ -1,0 +1,59 @@
+重新崛起的非Intel芯片组
+
+钟原
+1998年 第02期 37版
+
+　　Intel公司凭借其强大的CPU研制能力，在Pentium级芯片组市场上刮起了Intel风暴，并于1997年5月推出Pentium II处理器。
+　　在Intel只承诺支持SLOT 1结构的AGP卡时，原本在Intel芯片组风暴下淡出的芯片组厂商，无疑找到了千载难逢的机会。威盛公司（VIA）于1997年5月率先开发出第一套Pentium级、支持AGP功能的芯片组，使Socket 7结构的主板在性能上直逼SLOT 1结构的Pentium II 系统。这套芯片组被美国InfoWorld杂志喻为：爬出Intel市场阴影，对强大的Intel展开回击的秘密武器。随后，矽统（SIS）、扬智（ALi）及AMD公司也纷纷推出基于Socket 7，支持AGP功能的超级芯片组。在支持AGP功能的SLOT 1主板＋Pentium II系统的售价居高不下，Socket 7系统无论是销售量还是市场占有率仍占绝对优势的情况下，这些非Intel芯片组的推出似乎预示着，非Intel芯片组厂家已经吹响了再次崛起的号角。
+　　为了让您对非Intel芯片组有较全面的了解，下面将对新推出的超级AGP芯片组及目前仍在使用的Pentium级芯片组作较完整的介绍。
+#1　　VIA台湾威盛公司芯片组^023701a^
+    VIA的秘密武器VP3芯片组为两片结构：北方芯片为VT82C597（ATX主板选用）或VT82C597AT（Baby AT主板选用），均采用456脚的BGA封装，0.5μm的高速低功率CMOS制造工艺；南方芯片VT82C586B，是一个高度集成的周边控制芯片，采用208脚的PQFP封装，0.5μm混压模式（3.3V/5V）高速低功率CMOS制造工艺。该芯片组优异的性能主要体现在：
+　　·支持各系列Socket 7规格的CPU，包括Intel Pentium、Pentium MMX，AMD K5、K6，Cyrix 6X86、6X86MX，以及刚发表的IDT WinChip C6微处理器；而且支持Cyrix 6X86特有的Linear Burst快取加速存取模式。
+　　·支持66.6、75MHz总线频率，33.3MHz PCI总线；
+　　·支持传统的DRAM、EDO DRAM、SDRAM存储器以及新一代DDR（Double Data Rate） SDRAM（简称SDRAM2）存储器，并且支持ECC存储器。
+　　·可管理的最大内存：384MB SDRAM或768MB FPM/EDO；
+　　·最高支持2MB 二级高速缓存；
+　　·提供AGP（Accelerateed graphics Port图形加速端口），符合AGP v1.0规范；
+　　·支持Ultra DMA 33；
+　　·支持通用串行总线（USB）；
+　　·混压模式：3.3V分离式存储器、PCI总线以及AGP端口信号控制，可容许5V信号的输入；
+　　由于VIA VP3芯片组大约比Intel 440LX芯片组便宜一半，并且各主板厂家可沿用原先的Socket 7主板的设计经验，轻松地开发出支持AGP的Pentium主板，这一价格上的极大优势无疑将掀起一场Socket 7结构的AGP Pentium主板高潮，目前已有大众的VA－503、PA2012及皇朝的AI5VG等主板采用VP3芯片组。
+　　VIA公司除了支持AGP的超级芯片组VP3外，目前在市场上尚有以下几种不支持AGP功能的芯片组：
+　　●82C570M   Apollo  Master
+　　这是VIA公司早期生产的采用PQFP方式封装的586档次芯片组，支持Pentium P54C、Cyrix 6X86、AMD K5 CPU。目前，这种芯片组已经不再生产使用。
+　　●82C580VP  Apollo  VP1/VPX
+　　这是VIA公司生产的第二代586档次芯片组，由三片芯片组成：82C585VP、82C586VP、82C587VP。仍然采用PQFP方式封装。在集成度和性能上都有所提高，支持Pentium P54C、Cyrix 6X86、AMD K5 CPU；支持FPM、EDO、BEDO、SDRAM、BSRAM等多种类型的存储器；支持双CPU和UMA结构；支持USB总线。
+　　●82C580VPX  Apollo  VPX/97
+　　这是VIA公司生产的第三代586档次芯片组，支持MMX微处理器。在性能上相当于Intel 430TX芯片组，完全支持PC97规范。可与P54、P55、M1、M2、K5、K6等各种CPU配合使用。该芯片组还支持ACPI、Ultra DMA33和USB。
+　　●82C590VP  Apollo  VP2/97
+　　Apollo  VP2/97的前期产品是 Apollo  VP2。VP2/97除了保持VPX/97的全部功能外，还把RTC（实时时钟）和CMOS RAM集成到芯片组内，支持ECC、SDRAM、512M内存、2M CACHE。
+#1　　SiS矽统公司芯片组^023701b^
+    SiS也于最近推出了支持AGP功能的芯片组SiS5591，采用该芯片组的主板也开始在市场上崭露头角，如技嘉公司的GA－586SG。SiS5591芯片组采用两片结构，与3595配合使用，在性能上与VIA的 VP3芯片组极为相似，只是在支持的总线频率上略有提高，达到了83MHz。
+　　除此之外，SiS公司还有支持586的早期产品SiS5511、SiS5512、SiS5513，这几组芯片仅支持P54、M1、K5处理器，不支持当前微机的新技术。随后推出的SiS5571在性能上有所改进，支持384MB内存、512KB  CACHE、USB、SDRAM，并且把RTC和KBC（键盘控制器）芯片都集成到芯片组内。当前使用较多的芯片组是5581/5582、5591/5598。
+　　●SiS5581/5582芯片组
+　　其性能与430TX相当，支持最高75MHz的总线频率，支持SDRAM存储器、ACPI、USB等，芯片内集成了RTC和KBC，并且采用了改善PCI总线和CACHE性能的多种新技术。
+　　●5597/5598芯片组
+　　是SiS公司最近推出的高性能芯片组，是单颗芯片的芯片组，没有南方芯片与北方芯片的区别，只是5597是针对LPX、NLX主板设计的，5598是针对ATX、Baby AT主板设计的，它们的区别只在为适应不同类型主板重新定义了芯片组接脚的位置。5597/5598支持75MHZ的主频，支持FPM、EDO、SDRAM等各种存储器，支持USB接口、ACPI等新技术；在该芯片组内还集成了2D图形加速器。
+　　ALi台湾扬智公司芯片组
+　　台湾扬智公司ALi的支持AGP功能的芯片组ALADDIN （阿拉丁）V，于1997年11月10日才正式公布，相信内地市场很快便能见到相应的主板产品。该芯片组仍然为两片结构：北方芯片M1541，采用456脚的BGA封装；南方芯片则可选择适用笔记本电脑的M1533，或适用桌面电脑的M154C，两者都采用328脚的BGA封装，新的南方芯片M1543C是原来ALADDIN Ⅳ M1543的增强芯片，不但保持Super I/O置入在芯片组内，更增加了Fast Infra Red（FIR）控制输出?入的功能，并提供3个UART，除保留一个给FIR使用外，尚有两个分别给COM1、COM2使用。
+　　ALADDIN V芯片组在整体性能上可与VIA的VP3芯片组相媲美，甚至在部分功能上还更胜一筹，主要表现在：
+　　·支持的总线频率可以从66MHz、75MHz、83MHz到100MHz，高达100MHz的总线频率将使各非Intel厂家即将推出的300MHz CPU真正发挥出潜在的高性能。 
+　　·具备Pentium II的AGP 2X功能；
+　　·提供3个USB Port的功能及Hot－Key开机功能； 
+　　目前在市场上尚能见到以下几种不支持AGP功能的芯片组：
+　　●Aladdin III
+　　由M1521和M1523两片芯片组成，支持P54、M1、K5等处理器，也支持SDRAM和ECC技术，在性能上与Intel的82430HX芯片组相当。
+　　●Aladdin IV
+　　由M1531和M1533两片芯片组成，是一套专为笔记本电脑设计的芯片组，在性能上比Aladdin III有所提高。支持采用MMX技术的微处理器P55C、M2、K6，还支持ACPI、Ultra DMA33等新技术。
+　　●Aladdin IV＋
+　　是由Aladdin IV衍生而来，在沿用北方芯片M1531的情况下将南方芯片改进为更先进的M1543，增加了Ultra I/O功能，从而成为适用于桌上型电脑的新型芯片组。
+#1　　AMD公司芯片组^023701c^
+　　一说到AMD，首先便想到被炒得沸沸扬扬的K6，其实AMD像Intel一样涉足芯片组市场是顺理成章的，只不过AMD公司目前生产的芯片组均为VIA公司授权后生产的“复制品”， AMD 的AMD 640AGP芯片组就是由VIA公司授权的VP3芯片组，其技术性能与VP3芯片组相同。
+　　另外，AMD 公司还在生产586芯片组AMD－640，其实它就是在VIA公司授权后生产的仿Apollo VP2/97芯片组，由采用BGA封装的北方芯片AMD－640和PQFP封装的南方芯片AMD－645组成，但AMD－640在性能上作了进一步的优化，能更好地支持自己所生产的K6处理器，使K6的性能发挥到极致。
+#1　　OPTI公司芯片组
+　　在486时代曾红极一时的OPTI公司，似乎还没在Intel公司的芯片组风暴中喘过气来，至今没见到其支持AGP功能的Socket 7结构芯片组，这里只能就其尚在使用的586芯片组作个简单介绍。OPTI公司早期的产品有OPTI 506/507、OPTI Viper－M等，目前使用的芯片组是OPTI Vendetta（82C750）和OPTI Viper Xpress。这两组芯片组都支持P54、M1、K5等CPU，支持EDO、SDRAM存储器和ECC技术，也支持Ultra DMA33和USB。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

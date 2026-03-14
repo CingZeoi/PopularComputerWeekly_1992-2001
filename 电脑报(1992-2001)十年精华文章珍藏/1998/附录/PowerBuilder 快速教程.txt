@@ -1,0 +1,313 @@
+PowerBuilder 快速教程
+
+于华
+1998年 第51期 09版
+
+#1    一、前言    
+    1.PowerBuilder简介
+    PowerBuilder是美国PowerSoft公司推出的基于WINDOWS下的客户/服务器体系结构的面向对象的可视化软件开发工具，该软件在微机上运行，并能通过网络调用后台UNIX平台上的数据库，从而大大促进了大型数据库管理系统的普及，至于它面向对象的特点和可视化的开发环境，则使它更加光芒四射。
+    2.PowerBuilder的安装
+    （1）将安装光盘放入光驱，系统将自动启动PowerBuilder5.0的安装程序，给出setup画面，上面有两个选项：
+    InstallProducts：安装PowerBuilder。
+    UninstallProducts：卸载PowerBuilder。
+    （2）选Install Products，单击“next”，将给出一个对话框，上面有三个选项：
+    16-bit：安装16位版本。
+    32-bit-short names：以短文件名方式安装32位版本。
+    32-bit-long names：以长文件名方式安装32位版本。
+    （3）点击所需版本，单击“next”，将给出“setup options”画面，上面有三个选项：
+    Typical：标准安装，包括大多数用户都需要的部分。
+    Compact：最小化安装，只安装PowerBuilder5.0所必须的部件。
+    Custom：手工定制安装。
+    （4）点击“Typical”，单击“next”，输入待安装路径名，系统缺省为“c：＼pwrs”。
+    （5）单击“next”，将给出“Product Available”对话框，上面列出了四个产品：
+    PowerBuilder5.0Enterprise for Intel32：PowerBuilder5.0集成开发环境。
+    Informaker5.0 for Intel32：报表生成工具。
+    WatcomC++Class Builder for Intel32：C++类库生成器。
+    PB5.0 Deployment Kit for Intel 32：产品发行工具箱。
+    （6）选择所需产品，单击“next”，输入用户名和单位名，然后连续单击“next”，系统显示“Begin Installation”，单击“OK”开始安装，安装完成后，单击“Finish”按钮，系统将提示重新启动，单击“OK”关闭对话框。
+    （7）关机，重新启动系统，PowerBuilder就可以使用了。 
+    3.PowerBuilder的集成开发环境
+    双击PowerBuilder图标，屏幕显示如^510pb01^所示，屏幕上方是菜单条，菜单条下方是一行工具条，称为PowerBar，PowerBar上有各种对象的类型名称。
+    PowerBar上的按钮有大小两种方式显示，在工具条上右击鼠标，然后选择Showtext就可以在两种显示方式间切换.当处在小按钮状态时，把鼠标定位在某个按钮上几秒钟，此按钮的右下方将显示一个小黄条，说明该按钮的作用。
+    当点击PowerBar上的某个按钮后，会在屏幕左方产生一列针对该对象操作的工具按钮，称为PaintBar。
+    一些不太常用的按钮未放在默认的PowerBar上，如果需要使用，则右击PowerBar，选择Customize，将所需按钮从Selectedpalette框中拖至Currenttoolbar框中即可。
+    为了方便用户操作，PowerBuilder还为它的几乎所有的对象提供了快捷菜单，将鼠标指在某个对象上，然后按鼠标右键，就会出现列有能够施用于该对象所有操作命令的快捷菜单，用户若要对该对象实施某个操作，只需要选择相应的菜单项即可。如同前面讲到的PowerBar在大小按钮间切换的操作。
+    4.命名规范
+    PowerBuilder中有许多重要的对象，例如应用，窗口，数据窗口，菜单等，PowerBuilder的软件开发过程实际上就是构造上述一系列对象的过程，为了在开发过程对这些对象加以区别，约定采用下列命名规则：
+    数据窗口：d_； 菜单：m_；窗口：w_；
+    窗口中的数据窗口控件：dw_。
+    例如某个窗口对象可以叫它w_main
+#1    二、数据库的设计
+    （一）数据库的建立
+    1.配置ODBC
+    ODBC是微软公司提出的开放式数据库互连标准接口，它以关系数据库标准查询语言SQL来存取连接到的数据源。
+    PowerBuilder自身带有一个功能强大的内置数据库Sybase SQL Anywhere，用ODBC接口连接到该数据库的方法是：单击PowerBar上的“ODBC”按钮，将给出“Configure ODBC”对话框，在“Installed Drivers”列表框中选择“Sybase SQL Anywhere5.0”，单击“Create”按钮，将给出“SQL Anywhere ODBC Configuration”对话框，在“Data Source Name”编辑框中输入“newdb”，在“UserID”编辑框中输入“dba”，在“Password”编辑框中输入“sql”，在“DatabaseName”编辑框中输入“newdb”，单击“OK”关闭“SQL Anywhere ODBC Configuration”对话框，单击“close”关闭“Configure ODBC”对话框。
+    2.建立数据库
+    单击PowerBar上的“Database”按钮，将给出“Select Tables”对话框，单击“Cancel”按钮，进入“DatabasePaint”，单击“File”菜单中的“Create Database”菜单项，将给出“Ceate Logical Database”对话框，在“Database Name”后输入所创建数据库的路径和文件名，如“newdb”，在“UserID”后输入“dba”，在“Password”后输入“sql”，“Start Command”后是启动数据库的程序名，一般取缺省值，点击“OK”。
+    至此，建立了一个名为newdb的数据库。
+    （二）表的建立
+     此时的newdb数据库中还没有一张表，下面将建一个名为Student的表：
+    点击PainterBar上的“CreateTable”按钮，将给出“CreateTable”对话框，如^510pb02^所示。  
+    在“Name”下面输入字段名， 在“Type”下面输入字段类型时只须用鼠标打开下拉框选择合适的数据类型即可。Width、Null等属性可根据需要设置。
+    输入所有的字段后退出，PowerBuilder将提示是否存盘，选“是”，输入表名“student”，点击“OK”，表student就建好了。
+    这时屏幕的空白区域出现了一个表，表头是student，字段名在下边显示出来。如^510pb03^所示。
+    单击PaintBar上的“Table Properties”按钮，将给出表的属性对话框，单击“Primay Key”标签，在“Table Columns”列表框中选择作为主键的字段名，例如num，单击“OK”，就为表student定义了一个主键num。
+    （三）数据操作
+    单击Painter Bar上的“Preview”按钮，此时PowerBuilder将打开此表的“EditData”窗口，如^510pb04^所示，窗口左边有一列按钮，用于对数据的操作，其中“Insert row”按钮用于插入一个新行，“Del row”按钮用于删除光标所在行，“Retrieve”按钮用于检索该表的数据，“Save”按钮用于存储输入的数据。
+    点击“Insert row”按钮插入一个新行，然后在其中输入数据，不妨多插入几行。
+    输入完数据后，点击“Save”更新数据库，关闭“Edit Data”窗口。
+#1    三、应用的建立
+    （一）应用的概念
+    Powerbuilder把一个解决实际问题的应用程序叫做application，即应用。通过在application级写代码，可以展开一个程序框架。
+    （二）应用的建立
+    1.点击PowerBar上的“Appl”按钮，在主窗口的“File”菜单上点击“New”，将给出“Select New Application library” 对话框，在“File Name”下面输入新建应用的程序名（以pbl为扩展名），例如输入student.pbl；
+    2.点击“ok”，将给出“Save Application”对话框，如^510pb05^所示，在Application下输入应用的实际名，不妨也输入student；
+    3.点击“OK”，PowerBuilder提示是否让它产生一个应用模板，这个模板在某些情况下会有用处，但一般选“NO”。
+    此时，已建立了一个新的应用，如^510pb06^所示。这时主窗口的标题已经变成了“PowerBuilder-student”，即当前应用是“student”。
+    如果希望打开不同的应用而不是新建，可点击PaintBar上的“Open按钮”，在相应的子目录中去查找即可。
+#1    四、数据窗口
+    数据窗口是PowerBuilder为解决用户的数据同数据库中的数据之间的转换问题而提供的一种比较完善的解决方案.借助于数据窗口，能够非常方便的将从用户那里所采集到的数据存储到数据库中，同时，数据库中的数据也能够通过数据窗口而以一种比较合适的方式表现在用户面前。在这个过程中，开发人员所要做的不是大量的繁琐的编程，而是利用PowerBuilder提供的工具一点点画出数据窗口。
+    在数据窗口的设计过程中，有两个基本的概念，一是数据源，指数据是从哪个数据库的哪个表中来，二是数据的表示方式，也就是说数据以何种方式呈现在用户面前。
+    点击PowerBar上的“DataWnd”按钮，将给出“Select Data Window”对话框，然后点击“New”按钮，将给出“New Data Window”对话框，如^510pb07^所示，此对话框的上半部是Data Source，即数据源，共有下面几大类：
+    1.Quick Select：从一个表中读取数据，如果读取了该表的所有列，则默认各列都是可更新的；
+    2.SQL Select：从多个表中读取数据。如果表超过一个，则读取的各列默认是不可更新的；
+    3.Query：功能相当于SQL Select，只是将查询语句存在一个用Power Bar上”Query”按钮建立的查询对象中；
+    4.External：可以读取非数据库中表的数据；
+    5.Stored Procedure：存储过程型Data Window。
+    对话框的下半部是Presentation Style。即数据的表示方式，共有下面几大类：
+    1.Freeform：数据从上向下排列；
+    2.Tabular：各列从左向右排列；
+    3.Grid：与Tabular相似，只是标题和各列有方框；
+    4.Label：标签型data window ，可以制作小标签；
+    5.Group：可将数据依某些字段分组；
+    6.Graph：用图形（如饼图，直方图）来表示表中的数据；
+    7.N-up：当显示的字段总长度较少时，可在屏幕上一行显示几条记录；
+    8.Cross Tab：交叉表，可统计各行各列的各种汇总统计数据； 
+    9.OLE2.0：显示非数据库数据；
+    10.RichText：超文本格式；
+    11.Composite：复合表，可将前几种datawindow放入Composite型的datawindow中，主要用于多个datawindow的连续显示和打印。
+    这里选“Data Source”中的“Quick Select”和“Presentation Style”中“Grid”，点击“Ok”，将给出“Quick Select”对话框，如^510pb08^所示。
+    在“Table”下面选择表，在“Columns”下面选择字段，则相应字段出现窗口下方，然后点击“Ok”，出现“datawindow”的设计屏幕，如^510pb09^所示。
+    这时点击Painter Bar上的“Preview”按钮，则PowerBuilder就会从数据库中检索数据并显示出来。
+    选择菜单上的“关闭”，Power Builder会问是否存盘，选择“是”，将给出“Save DataWindow”对话框，输入新建的DataWindow的名字，例如d_student，然后点击“Ok”，至此一个datawindow 就建好了。
+#1    五、菜单
+    （一）菜单的设计
+    在创建菜单前，应先设计好菜单的结构。下面给出一个简单的菜单结构，在以后的菜单定义过程中，将以此结构为例：
+    File［F］
+    Information［I］ 显示数据信息
+    Exit［E］退出
+    Data［D］ 
+    Insert［I］插入一行数据 
+    Del［D］ 删除一行数据
+    （二）菜单的定义过程
+    点击PowerBar上的“Menu”按钮，将给出“Select Menu”对话框，然后点击“New”按钮，将给出菜单的创建窗口。
+    1.菜单项的创建
+    在菜单创建窗口左下方“Menu Bar Items”下方的空白格中输入“File［&F］”，其中&号的作用是指定其后的那个字母作为该菜单条项的热键。PowerBuilder会在窗口右下方的“Menu Item Name：”编辑框中显示“M-filef”作为所创建的菜单条选项默认的名称。
+    然后用鼠标点击“Menu For：File［&F］”的空白框，并输入“Intormation［&I］”。
+    按照上述过程定义好“Exit”菜单项，则整个“File［F］”菜单就创建好了。
+    点击“File［F］”右边的空白区域，将出现一个空白编辑框，输入“Data［&D］”，然后以上述同样的过程创建好“Data［D］”菜单。
+    2.快捷键
+    快捷键可使用户通过直接按下某个组合键的方法执行与某菜单项相对应的命令。
+    定义某个菜单项的快捷键时，首先选定该菜单项，然后在菜单创建窗口的右边点击“Shortcut Key”标签，从“Key”下拉列表中选择一个键名，再根据需要选取“Alt、Ctrl、Shift”这三个复选框。PowerBuilder将把用户的快捷键设定显示在相应菜单项名称右边的那个框中。 
+    3.菜单的帮助说明
+    PowerBuilder可以为菜单项创建帮助说明，当用户加亮显示某菜单项时，在窗口下部的状态条中显示关于该菜单项的功能说明。
+    在菜单创建窗口中，选择创建的“File［F］”菜单条下的“Exit”菜单项，然后点击右边的“General”标签，单击“MDE Mircrohelp：”下方的空白框，输入“Exit program”，即为“Exit”菜单项设置了帮助说明。
+    各项设置工作完成后，退出菜单创建窗口，PowerBuilder会提示你是否存盘，选“Yes”，输入“m_student”作为刚创建的菜单的名称，点击“Ok”保存。
+#1    六、窗口
+    在PowerBuilder中，窗口是图形用户界面中最基本的元素，创建一个窗口，并将前面讲过的数据窗口和菜单窗口嵌入，就构成了自己开发的数据库应用系统的用户界面。
+    点击PowerBar上的“Window”按钮，将给出“Select Window”对话框；然后点击“New”钮，将给出窗口的创建窗口。
+    （一）窗口的属性
+    单击Paint Bar上的“Properties”图标，将给出“window”对话框，上面有六个属性页，如^510pb11^所示。
+    1.一般属性（General标签）
+    Title：定义窗口的标题，缺省为Untitled。
+    Menu Name：为用户创建的窗口指定一个菜单名，内容为空时表示没有菜单。此时可以输入“m_student”。
+    Tag：该编辑框可以输入一个与窗口相关的字符串，以便在程序中使用该属性，其本身并无特殊意义。
+    Visible：指定窗口的可见性。
+    Enable：是否允许用户对所创建窗口中的各个控件进行操作。
+    Border：指定窗口是否要边框。
+    Title Bar：指定窗口是否显示标题栏。
+    Control Menu：是否为用户创建的窗口加上一个通用的控制菜单。
+    Maximize Box：是否为用户创建的窗口加上一个最大化按钮。
+    Minimize Box：是否为用户创建的窗口加上一个最小化按钮。
+    Resizable：是否允许用户修改窗口大小。
+    Window Type：指定窗口的类型。
+    Window Color：指定窗口的颜色。
+    2.窗口的位置（Position标签）
+    单击Position标签，可以设置窗口的位置：
+    X.Y：指窗口左上角的位置。
+    Width，Height：指定窗口的宽度和高度。
+    Initial：该组框指定窗口被打开的显示方式。
+    3.鼠标指针（Pointer标签）
+    Pointer属性页指定程序运行时用户将鼠标指针移动到该窗口中时鼠标指针的形状。
+    4.窗口图标（Icon标签）
+    该属性页为用户创建的窗口指定一个图标，显示在窗口标题栏的控制菜单位置。
+    5.窗口滚动方式（Scroll标签）
+    该属性页为用户创建的窗口设置工具栏的初始位置。
+    其中Visible指定工具条是否可见，Alignment组框指定工具栏显示位置。
+    （二）窗口的内容
+    1.控件的种类
+    所创建窗口的内容由不同种类的控件组成。在窗口的创建窗口左边有一列PaintBar，上面有一个“Ok”命令按钮，点击它将列出所有可以嵌入窗口的控件，常用的控件有：
+    CommandButton：命令按钮。
+    PictureButton：图象按钮。
+    Static Text：静态文本。
+    SingleLineEdit：单行编辑控件。
+    EditMask：带格式编辑控件。
+    MultilineEdit：多行编辑控件。
+    ListBox：列表框。
+    CheckBox：复选框。
+    RadioButton：单选钮。
+    DataWindow：数据窗口控件。
+    DropDownListBox：下拉列表框。
+    Picture：图象。
+    GroupBox：组框。
+    Graph：图表。
+    OLE：OLE对象。
+    将上述控件嵌入所创建窗口的方法是：先在PaintBar上点击某个控件，然后在网点区域再点击鼠标左键即可。
+    对于已经嵌入窗口的控件，可以将鼠标放在它们上面，按住左键，就可拖动它们，也可以将鼠标放在它们的边界上，当鼠标变成双箭头形式时，按住左键，可缩放此控件。
+    然后在网点区域内加上一个数据窗口控件和两个命令按钮。
+    由于命令按钮是新建的，显示的文字是“None”。用鼠标左键单击它，它的四周就会出现四个黑点，这时可以在网点区域左上方的空白框里修改该命令按钮上的文字，将两个按钮修改为“Find”和“Exit”。
+    在数据窗口控件内的空白区域上双击，将给出“DataWindow”属性框，如^510pb12^所示。
+    选“d-student”，连续点击“OK”，则将前面设计的数据窗口“d_student”嵌入到当前的数据窗口控件中。如^510pb13^所示。
+    退出窗口的创建窗口，系统将提示存盘，输入“w_student”，点击“OK”，就创建好了窗口。 
+#1    七、Power Script语言
+    PowerBuilder的编程语言称为PowerScript，用于将前面创建的应用、窗口、菜单和数据窗口对象组织起来，成为一个完整的应用程序。
+    （一）数据类型
+    1.int：16位带符号数，范围从-32768到32767。
+    2.long：32位带符号数，范围从-2147483648到2147483647。
+    3.real：6位精度带符号的浮点数，范围从1.17E-38到3.4E+38。
+    4.double：15位精度带符号的浮点数，范围从2.2E-308到1.7E+308。
+    5.uint：16位无符号数，范围从0到65535。
+    6.ulong：32位无符号数，范围从0到4294967295。
+    7.char：单个字符。
+    8.string：字符串，最大长度60000字节。
+    9.time：时间类型。
+    10.datetime：日期时间组合型。
+    11.boolean：布尔类型，为TURE或FALSE。
+    12.blob：二进制大对象数据。
+    （二）运算符
+    1.算术运算符：+、-、*、/、^。
+    2.关系运算符：=、>、<、<>、>=、<=。
+    3.逻辑运算符：NOT、AND、OR。
+    4.串运算符： + （将两个字符串连接成一个字符串）。
+    （三）变量定义
+    除blob和decimal外，任何类型的变量均可显式地定义并赋值。例如：
+    intcount//count是整型变量
+    stringser［5］//定义一个长度为5的字符串型数组
+    （四）语句
+    1.赋值语句。
+    例如，count=5
+    str=“abc”
+    2.调用语句：call。
+    3.选择语句。
+    格式1：CHOOSE CASE表达式
+    CASE值1
+    语句体1
+    CASE值2
+    语句体2
+     .
+     .
+     .
+    CASEELSE
+    语句体
+    END CHOOSE
+     格式2：IF 条件成立 THEN
+    语句体
+     ELSE
+    语句体
+     ENDIF
+    4.循环语句。
+    格式1：DOWHILE（或UNTIL）条件
+    语句体
+    LOOP
+    格式2：DO
+    语句体
+     LOOPWHILE（或UNTIL）条件
+    5.GOTO语句：GOTO标号。
+    6.EXIT：用于退出循环控制。
+    7.CONTINUE：用于继续循环控制。
+    8.HALT：终止程序的运行。
+    （五）嵌入式SQL
+    CLOSECursor//关闭游标
+    CLOSEProcedure //关闭特定数据库的存储过程procedure
+    COMMIT //提交
+    CONNECT //连接到特定数据库上
+    DECLARECursor //定义一个游标
+    DECLAREProcedure//定义一个储存过程
+    DELETE //删除特定行的语句
+    DISCONNECT //和特定数据库断开连接
+    EXECUTE //执行特定数据库存储过程
+    FETCH //提取
+    INSERT//插入
+    OPEN //打开游标
+    ROLLBACK//滚动操作
+    SELECT //关系选择语句
+    UPDATE //更新由select选择出的行
+    UPDATE WhereCurrent of cursor //更新游标所在的当前行
+    （六）常用函数
+    1.Message Box（ ）：在屏幕上信息窗口，用于向用户显示出错，警告及其他重要信息
+    格式：MessageBox（title，text{，Icon{，Button{，Default}}}），其中大括号表示的相应成分可以省略。
+     title：指定信息窗口的标题
+     text：指定信息窗口的文本
+    2.Open（windowname）：打开一个窗口。
+    3.Close（windowname）：关闭一个窗口。
+    4.Run（String）：在应用程序中启动其他DOS或window程序。String指定要运行程序的文件名
+    5.Objectname.SetFocus（ ）： 使objectname指定的对象成为输入焦点。
+    6.dwcontrol.settransobject（transaction）：使由dwcontrol指定的数据窗口控件使用由transaction指定的事务对象。
+    7.dwcontrol.retrieve（ ）：把数据装入dwcontrol指定的数据窗口控件。
+    8.dwcontrol.update（ ）：用dwcontrol指定的数据窗口控件中的数据更新数据库。
+    9.Insert Row（row）：在数据窗口的主缓冲区插入一个空行，其中row是插入行的行号。
+    10.Delete Row（row）：在数据窗口的主缓冲区删除一行，其中row是删除行的行号。
+    11.Set Row（row）：把参数row指定的行作为当前行。
+    12.Set Column（column）：把参数column指定的列作为当前列。
+    13.Get Row（ ）：返回当前行的行号。
+    14.Get Column（ ）：返回当前列的列号。
+    15.SetItem（row，column，value）：把row行column列置值value。
+    16.Reset（ ）：清除数据窗口中的所有行。
+#1    八、编程
+    （一）事件
+    所谓事件是指PowerBuilder的对象（例如窗口、命令按钮等）发生的某件事情（例如打开、关闭、点击等），PowerBuilder就是针对这些事件编写程序，从而把一系列对象和操作联系在一起，成为一个数据库应用系统。
+    （二）应用程序对象事件
+    在应用的建立界面下，点击PainterBar的“Script”按钮，则给出书写应用及Script的窗口，打开“Select Event”列表，可以看到PowerBuilder对应用预定义的事件。
+    close：当关闭应用，结束程序运行时，PowerBuilder搜索其中的“script”并执行。    idle：当应用程序在运行中停止等待命令时，每隔多长时间执行某段script。
+    open：当打开应用时，执行某段script。
+    systemerror：当应用程序出现错误时，执行某段script。
+    最常用的是open事件，例如针对应用student的open事件写如下程序。如^510pb14^所示。
+    sqlca.DBMS=‘ODBC’
+    sqlca.database=‘newdb’
+    sqlca.userid=‘dba’
+    sqlca.dbpass=‘sql’
+    sqlca.dbparm=“ConnectString=‘DSN=newdb；UID=dba；PWD=sql’”
+    connect；
+    if sqlca.sqlcode< >0 then
+    MessageBox（“sorry！cannotconnect”，sqlca.sqlerr text）
+    halt
+    return
+    else
+    open（w_student）
+    end if
+    程序的前几行是给PowerBuilder内置的全局对象“sqlca”的一些属性赋值，然后执行“connect”，将的“sqlca”和具体的数据库“newdb”连接，如果连接不成功，则“sqlca”的“sqlcode”属性不为0，用messagebox函数显示出错信息，程序终止。否则打开窗口“w_student”。    （三）菜单对象的事件
+    在菜单的创建界面下，选中“File”菜单下的“Exit”菜单项，单击PainterBar上的“Script”按钮，则打开了该菜单项的“Script”书写窗口，从“Select Event”下拉列表中，可以看到系统为菜单项定义的事件。
+    clicked：当点击菜单项时，执行某段script。
+    selected：当使菜单项高亮度显示时，执行某段script。
+    例如针对“File”菜单下的“Exit”菜单项的“clicked”事件，其“script”（如^510pb17^所示）为“close （w_student）”。
+    即当点击“Exit”菜单项时，则关闭“w_student”窗口。
+    （四）窗口对象的事件
+    在嵌入控件界面的网点区域内点击鼠标右键，选择“Script”菜单项，则打开“w_student”的“script”书写窗口，针对其“open”事件，其“script”为“dw_1.settransobject（sqlca）”，如^510pb15^所示。
+    即给出“w_student”中的数据窗口控件“dw_1”设置通讯区域“sqlca”，这样，控件“dw_1”中调用的“datawindow”对象在程序运行时，就和PowerBuilder内置的全局对象“sqlca”建立了联系。这时可以存盘退出“w_student”的“script”书写窗口。
+    （五）窗口中控件的事件
+    在嵌入控件界面的命令按钮“find”上点击鼠标右键并选择“script” ，则打开此命令按钮的“script”书写窗口，如^510pb16^所示。
+    其“clicked”事件的script为“dw-1.retrieve（ ）”。
+    即当点击“find”按钮时，数据窗口控件“dw_1”所调用的“datawindow”对象从数据库中检索数据。
+    同样的方法可以为命令按钮“exit”中clicked事件写下script为“close （parent）”。
+    即当点击“Exit”按钮时，关闭该按钮所在的窗口，其中“parent”是一个关键字，指控件所在窗口。
+#1    九、应用程序的编译与运行
+    1.应用程序的试运行
+    当前面的工作全部做完之后，一个简单的数据库应用程序也就完成了。这时点击PowerBar上的“run”按钮，程序开始运行。运行前，PowerBuilder可能会提示将创建的对象存盘，存盘后，程序才开始运行。这时可以试试自己开发的这个应用程序是否能满足自己的要求，还有哪些地方需要修改和完善。当应用程序能满足要求时，就可以编译成可执行文件。
+    2.应用程序的编译
+    单击PowerBar上的“Project”图标，将给出“SelectProject”对话框，单击“New”按钮，将给出“SelectExcutable”对话框，从中指定将要生成的可执行文件的名称和路径。单击“保存”按钮，将进入“ProjectPaint”。
+    单击PaintBar上的“Build”按钮，稍过片刻，系统即可生成可执行文件。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

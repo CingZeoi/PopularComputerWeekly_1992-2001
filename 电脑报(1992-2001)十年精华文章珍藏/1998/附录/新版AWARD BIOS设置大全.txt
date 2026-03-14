@@ -1,0 +1,313 @@
+新版AWARD BIOS设置大全
+
+钟原
+1998年 第52期 36版
+
+    在586以上档次的PC中，AWARD Software公司开发的BIOS产品占了较大的比例。AWARD BIOS在发展过程中，不断地推出各种新的版本，增加各种功能，以适应各类不同主板CMOS参数的设置要求。下面介绍华硕P2B主板采用的 AWARD  BIOS设置程序中各设置项的功能和具体的设置方法。
+#1    一、P2B主板及其BIOS的特点
+    P2B主板及其BIOS的主要特点是：
+    1．支持Intel Pentium II 多种不同时钟频率（233-400MHz）和不同L2（512KB/256KB）的处理器。
+    2．采用最新的Intel 440BX AGP芯片组，支持100MHz总线频率，支持AGP总线。
+    3．采用2Mb可编程闪速存储器为BIOS存储芯片。
+    4．支持桌面管理系统，支持UDMA33硬盘技术。
+    5．支持并行PCI技术。
+    不同主板采用的AWARD BIOS设置程序可能不完全相同，但具有相同性能特点的其它类型主板的AWARD BIOS设置程序大同小异，因此理解了AWARD  BIOS（P2B）设置程序中各设置项的功能和具体的设置方法就能够作到举一反三。
+#1    二、AWARD BIOS设置程序主菜单
+    AWARD BIOS设置程序主菜单提供了十类功能设置和两种退出方式，它们分别是：
+    1．STANDARD CMOS SETUP（标准CMOS设置）。
+    2．BIOS FEATURES SETUP（BIOS特性设置）。
+    3．CHIPSET FEATURES SETUP（芯片组特性设置）。
+    4．POWER MANAGEMENT SETUP（电源管理设置）。
+    5．PNP AND PCI SETUP（即插即用和PCI设置）。
+    6．LOAD BIOS DEFAULTS（装载BIOS缺省值）。
+    7．LOAD SETUP DEFAULTS（装载设置缺省值）。
+    8．SUPERVISOR PASSWORD（管理口令设置）。
+    9．USER PASSWORD（用户口令设置）。
+    10．IDE HDD AUTO DETECTION（IDE硬盘自动检测）。
+    11．SAVE AND EXIT SETUP（保存设置值后退出设置程序）。
+    12．EXIT WITHOUT SAVING（不保存设置值退出设置程序）。
+#1    三、AWARD BIOS各设置项的功能和设置方法
+    1．STANDARD CMOS SETUP（标准CMOS设置）
+    该菜单项用于设置基本的CMOS参数：日期、时间、硬盘参数、软盘参数、显示器类型、出错停机选择等。
+    （1）Date
+    本项以“月－日－年”格式设置当前日期。设置范围为：月（1－12）、日（1－31）、年（～2079）。设置键是< Page Up >/< Page Down >或者<+>/<->。
+    （2）Time
+    本项以“时－分－秒”格式设置当前时间。设置范围为：时（00－23）、分（00－59）、秒（00－59）。设置键是< Page Up >/< Page Down >或者<+>/<->。
+    （3）Hard Disks
+    本项用于设置Primary Master（IDE1口主设备）、Primary Slave（IDE1口从设备）、Secondary Master（IDE2口主设备）、Secondary Slave（IDE2口从设备）的各种参数。各种参数的意义如下：
+       TYPE：用来说明设备的类型，有以下几种选择值：
+    ●AUTO  在系统中存储了1－45类硬盘参数，使用本设定值时，将由系统自动检测IDE设备的类型而给定参数，用户不必再设置其它参数了；
+    ●USER  如果使用的硬盘是预定义的45类以外的硬盘，即可选择本项，然后由用户自己按照硬盘的实际参数进行设置；
+    ●None  如果没有安装IDE设备，应该选择本项，当选择SCSI或者CD－ROM设备时也应该选择本项。
+    SIZE：表示硬盘容量，本参数不必设置而由系统自动计算给出。
+    CYLS：硬盘柱面数。应该说明的是，在LBA和LARGE模式下，可能与实际的磁盘柱面数不同，这是因为对于大容量硬盘还要进行参数换算的缘故。
+    HEAD：硬盘磁头数。
+    PRECOMP：写预补偿值。磁盘片在写入信息之后被磁化成一个个相邻的小的磁化区单元。根据同性相斥，异性相吸的原理，如两相邻磁化单元的极性相异则相互吸引，否则便相互排斥。无论是吸引还是排斥，都会使这些磁化单元偏离原来写入时的位置，因此在记录密度很高的情况下，相邻两个脉冲之间有可能互相干涉，如连续写入两个1时有可能产生重叠，以至读出时，数据无法分离或丢失数据。在盘片的内圈（高磁道）比外圈（低磁道）的位密度高，这种情况更容易发生。所谓预补偿写是指在写入时，偏离正常的位置（前移或后移），使得写入的磁化区域完成相互排斥或吸引后的实际位置正好是正确的读出位置。预补偿值由用户在CMOS设置中指定。预补偿写柱面是需预补偿写入的第一个柱面，其值由厂商的产品说明中给出。对于用户自定义硬盘，其预补偿值由用户在CMOS设置中指定。
+    LANDZ：着陆区即磁头起停扇区。目前采用的磁盘都是温氏硬盘。温氏硬盘机的主要特点有两点:其一是采用了全封闭方式，即把盘片和读写头以及定位机构都集成在一个密封的舱内。其二是采用了接触式起停，即系统不工作时，磁头不退出盘面，停留在磁盘表面的“起停区”上。而在工作时，由于盘片的高速旋转，根据空气动力学原理，磁头可起飞并悬浮在盘片表面0.1nm以上，因此磁头在读写盘片的“数据区”时与盘片表面是不接触的。从而保证了磁盘有很长的使用寿命。“起停区”在盘片的最内圈（即最高数据磁道之外），即使被磁头擦伤也不会影响硬盘的使用。
+    MODE：硬盘工作模式。EIDE支持三种硬盘工作模式:NORMAL、LBA和LARGE模式。因此本项有这四种设定值：
+    ●NORMAL  普通模式
+    这是原有的IDE方式。在此方式下对硬盘访问时，BIOS和IDE控制器对参数不作任何转换。在普通模式下支持的最大柱面数为1024，最大磁头数为16，最大扇区数为63，每扇区字节数为512。因此支持最大硬盘容量为:
+    512×63×16×1024=528MB。即使硬盘的实际物理容量更大，但可访问的硬盘空间也只能是528MB。
+    ●LBA （Logical Block Addressing）  逻辑块地址模式
+    这种模式所管理的硬盘空间可达8.4GB。在LBA模式下，设置的柱面、磁头、扇区等参数并不是实际硬盘的物理参数。在访问硬盘时，由IDE控制器把由柱面、磁头、扇区等参数确定的逻辑地址转换为实际硬盘的物理地址。在LBA模式下，可设置的最大磁头数为255，其余参数与普通模式相同。由此可计算出可访问的硬盘容量为:
+    512×63×255×1024=8.4GB。
+    ●LARGE   大硬盘模式
+    当硬盘的柱面超过1024而又不为LBA支持时可采用此种模式。LARGE模式采取的方法是把柱面数除以2，把磁头数乘以2，其结果总容量不变。例如，在NORMAL模式下柱面数为1220，磁头数为16，进入LARGE模式则柱面数为610，磁头数32。这样在DOS看来柱面数小于1024，即可正常工作。相反的转换进程由BIOS的INT 13H完成，以便取得正确的硬盘地址。
+    LARGE模式支持的最大硬盘容量为:521×63×32×512=1GB。用户可根据配置的实际硬盘在上述三种工作模式中选择设置。
+    ●AUTO  系统自动选择硬盘的工作模式。
+    （4）Drive A/B
+    本项用来设置软盘驱动器的容量和外形尺寸。选择本项后，系统将给出各类软盘驱动器的参数供你选择。
+    ●Floop 3 Mode Support
+    本项用来设置是否允许安装使用日本标准的软盘驱动器。日本标准的软盘驱动器为1.2MB、3.5英寸。本项的设定值有：
+    ●Drive A允许驱动器A使用日本标准
+    ●Drive B允许驱动器B使用日本标准
+    ●Both   允许驱动器A和B使用日本标准
+    ●Disable禁止驱动器A和B使用日本标准
+    （5）Video
+    本项用来设置显示子系统的类型。可以设置的值是EGA/VGA、Mono、CGA40、CGA80。对于VGA以上档次的显示子系统应该选择EGA/VGA。
+    （6）Halt On
+    本项用来设置开机自检出错的停机条件。有以下五种设定值：
+    ●All Error  当BIOS检测到任一个错误时，系统都将停机。
+　　●No Error   当BIOS检测到任何非严重错误时，系统都不停机。
+　　●All，But Keyboard   除了键盘错误以外，系统检测到任何错误都将停机。
+    ●All，But Diskette   除了磁盘驱动器的错误以外，系统检测到任何错误都将停机。
+    ●All，But Disk/Key  除了磁盘驱动器和键盘的错误以外，系统检测到任何错误都将停机。
+    2．BIOS FEATURES SETUP（BIOS特性设置）
+    本组设置项用来进行系统BIOS特性设置。选择不同的设置项，对于整个系统的性能和速度有较大的影响，因此应该按照要求和硬件的配置认真地设置。各个设置项及其意义详述如下：
+    ●CPU Internal Core Speed
+    本项可用来设置CPU内核的工作频率为350MHz。如果使用的CPU不是这个频率，应该把此项设置为Disable。
+    ●Boot Virus Detection
+    本项用来设置病毒告警功能。本项的设置值为Enabled和Disabled。如果选择Enabled，则在系统启动和工作时，任何修改系统引导扇区或者分区表的操作都将使得系统挂起并且给出下面的警告信息“WARNING，Disk Boot secter is to be modified， Type “Y”to accept write or “N”to abort write”，此时键入“Y”才能写入，而键入“N”则无法写入。这对于保护硬盘免受病毒攻击是很有作用的。如果本项选择Disabled，则保护不起作用。在安装某些软件时（如Windows 95等）安装程序要写引导扇区和分区表，为了避免安装出错，可把本项设置为Disabled。
+    ●CPU Level 1 Cache
+    本项用来设置允许（Enabled）还是禁止（Disabled）PII  CPU中的一级Cache工作。一般应该设置为Enabled。
+    ●CPU Level 2 Cache
+    本项用来设置允许（Enabled）还是禁止（Disabled）PII CPU外的二级Cache工作。一般应该设置为Enabled。如果为了判断二级Cache是否正常工作，可以比较两种设置值下，机器的工作情况，以进行故障诊断。
+    ●CPU Level 2 Cache ECC Check
+    本项用来设置允许（Enabled）还是禁止（Disabled）二级Cache的ECC（自动纠错）功能。本项一般应该设置为Enabled。
+    ●BIOS Update
+    本项用来设置允许（Enabled）还是禁止（Disabled）在系统初始化时BIOS更新CPU内部的数据。本项一般应该设置为Enabled。
+    ●Quick Power On Self Test
+    本项用来设置允许（Enabled）还是禁止（Disabled）在系统冷启动或者复位启动时快速进行POST（上电自检）。设置Enabled时，启动过程中只进行一次内存自检，因此启动速度较快。设为Disabled时，系统启动时将对内存进行三次自检，因此将增加启动时间。本项一般可设置为Enabled，除非你的内存工作不太可靠。
+    ●HDD Sequence SCSI/IDE 
+    如果系统同时安装了SCSI硬盘和IDE硬盘，可有本项来选择系统启动时的引导盘。本项的设置值为：IDE和SCSI。这样就可以在不同的硬盘中安装多个不同的操作系统，而由本项的设定值来选择引导哪个操作系统。
+    ●Boot Sequence
+    本项用来设置系统引导的磁盘顺序。其选择值如下：
+      A，C：表示先从Ａ盘（软盘）引导，如没有装入A盘，再从C盘引导。
+      C，A：表示引导盘的顺序为C，A。一般可以按照这种方式设置以防止有些用户误用软盘启动导入病毒。
+      CD-ROM，C，A：表示引导盘的顺序为CD-ROM，C，A。
+      C，CD-ROM，A：表示引导盘的顺序为C，CD-ROM，A。
+      C Only：表示只能从C盘引导。
+    如果系统安装有多个硬盘驱动器，也可以有其它的选择值。
+    ●Boot Up Floopy Seek
+     本项用来设置允许（Enabled）还是禁止（Disabled）在系统启动时，对软盘驱动器作寻道自检。
+    ●Floopy Disk Access Control
+    本项用来设置软盘驱动器的工作方式。设置值如下：
+      R/W：软盘驱动器为可读可写方式。
+      Read Only：软盘驱动器为只读方式。
+    ●IDE HDD Block Mode Sectors
+    本项用来设置IDE设备的块模式的扇区数，块模式是指在每次中断时都传送指定的若干个扇区的数据。当配置的硬盘支持块模式时，可允许按此模式工作，以提高访问硬盘速度。对于不支持块方式的老式硬盘应禁止按此模式工作，以避免硬盘访问出错。本参数的设定值在不同的BIOS版本中不完全相同，在本版本中的设置值为：
+    HDD MAX：硬盘块方式允许的最大扇区数，一般使用本设置值。
+    2/4/8/16/32：设置为2/4/8/16/32个扇区。
+    Disabled：禁止使用块方式。
+    ●Security Option
+    本项用来选择是在系统启动（System）时，还是在进入系统BIOS设置（Setup）时要求输入口令，以便检查用户的合法性。使用本项的前提是你已经设置了口令。系统启动口令在“USER PASSWORD”中设置，系统BIOS设置口令在“SUPERVISOR PASSWORD”中设置。
+    ●PS/2 Mouse Function Control
+    本项用来设置PS/2鼠标中断请求为IRQ12。本项的设置值为Auto或者Disabled。当设为Auto时，系统启动将自动检测PS/2鼠标是否存在，如果存在就把IRQ12分配给它使用，否则就留给其它设备使用。而本项设置为Disabled时则禁止此项功能。
+    ●PCI/VGA Palette Snoop
+    本项称为调色板检测。如果系统中使用了与VGA不兼容的显示卡（例如，在ISA总线上使用了与VGA不兼容的控制器，而VGA控制器在PCI总线），可能会出现显示颜色不正常的现象，当选择本项为Enabled时，可以使这种情况得到改善。但是如果系统中是在PCI总线上使用的VGA兼容控制器，就应该把本项设置为Disabled。
+    ●OS/2 Onboard Memory >64M
+    如果使用了OS/2系统，而且安装的内存容量超过了64MB，那么本项应该设置为Enabled，否则应该设置为Disabled。
+    ●Video ROM BIOS Shadow
+    Shadow RAM是RAM中的一个特殊区域。Shadow RAM也称为“影子”内存。它是为了提高系统效率而采用的一种专门技术。
+    Shadow RAM所使用的物理芯片仍然是CMOS的DRAM芯片。Shadow RAM也占据了系统主存的一部分地址空间。其编址范围为C0000～FFFFF， 即为1MB主存中768KB～1024KB区域，这个区域通常也称为内存保留区，用户程序不能直接访问。
+    Shadow RAM的功能是存放各种ROM BIOS的内容。或者说Shadow RAM中的内容是ROM BIOS的拷贝。所以也把它称为ROM Shadow（即Shadow RAM的内容是ROM BIOS的“影子”）。在机器上电时，系统BIOS将自动地把其自身以及显示BIOS、其它适配器BIOS装入到Shadow RAM的指定区域中。由于Shadow RAM的物理编址与对应的ROM是相同的。所以，当需要访问BIOS时，只需访问Shadow RAM即可，而不必再访问ROM。这样做的目的，是为了减少访问BIOS的时间开销，从而提高系统的效率。系统运行过程中，读取BIOS中的数据或调用BIOS中的程序模块是相当频繁的。显然，采用了Shadow技术后，将大大提高系统的工作效率。
+    本项用来设置允许（Enabled）还是禁止（Disabled）将显示卡上的显示BIOS从ROM中装入Shadow RAM中。一般应该设置为Enabled。
+    ●C8000－C BFFF TO DC000－DFFFF
+    在1M主存地址空间中，768KB～1024KB区域即为Shadow RAM区。在系统设置中，又把这个区域按16KB大小的尺寸分为块，由用户设定是允许（Enabled ）还是禁止（Disabled ）使用。可以按照所使用的I/O适配卡上ROM的地址来选择使用Shadow RAM。不使用的区域应该设置为Disabled。
+    ●Boot Up Numlock Status
+    本项用来设置系统启动时Numlock键的状态，当选择为ON时，系统自动打开小键盘上的数字键。而设置为OFF时，自动打开小键盘上的控制键。
+    ●Typematic Rate Setting 
+    本项用来允许（Enabled ）还是禁止（Disabled ）键盘速率设置。当设置为Enable时，可以修改影响键盘输入率的两个参数：键盘输入延时和键盘输入重复速率。如本项的设定值为“Disabled”则禁止修改这两个参数。但平时本项应设置为Disabled。
+    ●Typematic Rate （Chars/Sec）
+     本项用来设置键盘输入重复速率。键盘输入重复速率（Typematic rate）以每秒多少个字符计数。它是指按下某键不放，经延时出现第二个字符后，再以每秒钟重复显示该字符个数的速率。可以设置的值有：6，8，10，12，15，20，24，30。
+    ●Typematic Delay （Msec） 
+    本项用于设置键盘输入延时。键盘输入延时（Typematic rate delay）以毫秒计时。它是指当按下一个键之后，保持不放，在屏幕出现第一个字符之后，延时多长时间再重复出现第二个相同的字符。可选择的设置值有：250，500，750，1000。
+    3．CHIPSET FEATURES SETUP（芯片组特性设置） 
+    本组设置的内容与系统使用的集成电路芯片组有关，因此这是芯片级的设置。不同的芯片组功能特性不同，因此应该选择的设置值也应该是不同的。本组设置对于整个系统的性能和速度也有较大的影响，因此应该按照要求和芯片的特性认真地设置。不同版本的BIOS对芯片级设置的区别很大，设置时应该按照主板手册的说明进行。各个设置项及其意义详述如下：
+    ●SDRAM CAS Latency
+    CAS的意思是“列地址选通信号（Column Address Strobe）”，只有在列地址选通之后，才能进行内存读取。本设置项的作用是设置SDRAM列选通之后的延迟时间（以时钟周期T为单位）。也就是说在这个延迟时间之后，才能读出正确数据。设置值取决于SDRAM的速度和总线时钟。可选择的设置值是2T和3T，一般可选2T，如果内存条质量不好，引起错误，可以改为3T试试。
+    ●SDRAM RAS to CAS Latency
+    RAS的意思是“行地址选通信号（Row Address Strobe）”，只有在行地址选通之后，才能发出列选通信号，然后才能进行内存读写。本设置项的作用是设置SDRAM行选通到列选通的延迟时间（以时钟周期T为单位）。可选择的设置值是3T / 4T / 7T，一般可选3T，如果内存条质量不好，引起错误，可以改为4T / 7T试试。
+    ●SDRAM RAS Prechage Time
+    SDRAM需要预充电来支持读写和刷新操作，以节省时间。本项用来设置SDRAM的预充电时间，在此时间内，不能发出其它内存操作命令。本项的设置值一般设为3T。
+    ●DRAM Idle Time
+    本项用来设置SDRAM中已经打开的页面，在多长时间内没有被访问，就将自动关闭。可选的设置值为2T/4T/6T/8T，一般可选2T。
+    ●Snoop Ahead
+     本项用来允许（Enabled ）还是禁止（Disabled ）PCI流（PCI Streaming）工作模式。
+    ●16bit I/O Recovery Time
+    本项用来设置16位I / O循环操作的恢复时间，单位为总线时钟（BUSCLK）。本项的设置值为1/2/3/ NA。如果选择NA，表示本设置无效，而采用系统缺省值。
+    ●8bit I/O Recovery Time
+    本项用来设置8位I/ O循环操作的恢复时间，单位为总线时钟（BUS CLK）。本项的设置值为1～8/NA。如果选择NA，表示本设置无效，而采用系统缺省值。
+    ●Video Memory Cache Mode
+    本项用来设置显存的缓存模式。在使用PII处理器的一些高级主板中，采用了一种称为USWC（Uncacheable Speculative Write Combining ）的视频存储器新技术。这种技术能够进一步提高显示速度。但是采用这种技术必须要显示卡支持。如果显示卡不支持这种技术，则只能设置为UC（Uncacheable）。
+    ●PCI 2.1 Support（Enabled）
+     本项用来允许（Enabled ）还是禁止（Disabled ）对PCI总线2.1版的支持。
+    ●Memory Hole at 15M-16M（Disabled）
+     本项用来允许（Enabled ）还是禁止（Disabled ）使用内存15－16MB这一段空间。由于15M－16M是保留给系统使用的，因此一般ISA扩展卡只能访问15MB以内的空间，所以也把15－16MB这段空间称为内存空洞。本功能如果被设置成Enable时，可以允许ISA总线寻址存储器中15MB－16MB这段地址空间。
+    ●DRAM are xx bits wide
+    本项用来设置内存条的数据位宽度。如果内存条具有纠错功能，也就是8位数据位和1位校验位，那么它所需要的数据传输宽度是72位。对于没有校验位的内存条，它所需要的数据传输宽度为64位。
+    ●Data Integrity
+    本项用来选择使用（ECC ）还是不使用（NonECC）ECC功能。如果使用的内存条具有校验位，则可以选择ECC（Error Checking and Correcting）来检测存储器发生的错误。
+    ●Onboard FDC Controlled（Enabled）
+    本项用来允许（Enabled ）还是禁止（Disabled ）使用主板上集成的软盘驱动器控制器。
+    ●Onboad FDC Swap A & B
+    本项用来选择是否交换A、B两个软盘驱动器的盘符。本功能和BIOS功能设置菜单的软驱互换是不同的，本功能的作用就像将两个软驱的端口作了物理上的互换一样。本项的设置值为：No Swap或Swap A，B。
+    ●Onboard Serial Port 1
+    本项用来设置串口（COM1）的中断号与I / O地址。可以设成3F8H（IRQ4，2F8H（IRQ3，3E8H（IRQ4，2E8H（IRQ10以及Disable。
+    ●Onboard Serial Port 2
+    本项用来设置串口（COM2）的中断号与I / O地址。可以设成3F8H（IRQ4，2F8H（IRQ3，3E8H（IRQ4，SE8H（IRQ10以及Disable。
+    ●Onboard Parallel Port
+    本项用来设置并口（LPT）的中断号与I/O地址。
+    ●Parallel Port Mode
+    本项用来设置并口的工作模式。可选择的设置值为：
+    Normal：正常速度单向传输。
+    EPP：按EPP标准高速双向传输。
+    ECP：按ECP标准高速双向传输。
+    ECP＋EPP：同时支持EPP和ECP标准。
+    EPP口（enhanced parallel port）即增强并行口。它是由Intel、Xircom、Zenith和其它一些公司开发的，目的是在外部设备间进行双向通信。ECP（extended capabilities port）即扩展并行口。由Microsoft和Hewlett-Packard开发。它具有和EPP一样高的速率和双向通信能力，但在多任务环境下，它能使用DMA（直接存储器访问），所需缓冲区也不大，因此能提供更加稳定的性能。
+    ●ECP DMA Select
+    本项用来设置并口ECP模式的DMA通道。因此本项只在并口工作模式选择ECP或ECP＋EPP时有效。可以设成DMA 1，3，或是Disable。
+    ●UART2 Use Infrared
+    UART是一个缩写词，其含义是：通用异步接收发送器（Universal Asynchronous Receiver/Transmitter）。一般主板上集成两个UART。本项可设置为Enabled或者Disabled。
+    当设为Enable时，将启动主板上的红外线传输功能，并将主板上第二个串口UART设为支持红外线传输的设备。如果原来第二个串口是作COM2用，此时，COM2将会失去作用。如果设置为Disable，则将第二个串口给COM2用。
+    ●On Board PCI IDE Enable
+    本项用来设置主板PCI IDE接口的使用状态。其设置值为：
+    Enable Primary IDE Channel：允许使用IDE1接口。
+    Enable Secondary IDE Channel：允许使用IDE2接口。
+    Both：允许同时使用IDE1和IDE2接口。
+    Disable Both：不允许使用两个IDE口（若只有SCSI硬盘，可选择这个设置值）。
+    ●IDE 0 Master PIO/DMA Mode
+    ●IDE 0 Slave PIO/DMA Mode
+    ●IDE 1 Master PIO/DMA Mode 
+    ●IDE 0 Slave PIO/DMA Mode
+    EIDE（增强型IDE接口）提供了两个接口插座，分别称为第一IDE（Primary）接口插座和第二IDE（Secondary）接口插座。每个插座又可连接两个设备，分别称为主（Master）和从（Slave）设备。因此一共可连接四台设备。EIDE支持SFFC （Small Form Factor Commitee）制定的新的宿主传输标准，如PIO （Programmed Input/Output）Mode 3以及PIO Mode 4，其突发数据传输率可达11.1MBps和16.6MBps；也支持Multiword Mode 1 DMA以及Multiword Mode 2 DMA，其突发数据传输率为13.3MBps和16.6MBps。上述四项分别用来设置每个IDE设备自己的传输模式。其设置值可选择0/0，1/0，2/0，3/1，4/2或者Auto，如果对硬盘的参数不清楚，可选择Auto。
+    4．POWER MANAGEMENT SETUP（电源管理设置）
+    本菜单项用作电源管理的相关设置，以期减少系统的电源消耗。当系统在设定的时间未被使用，系统将自动关闭屏幕以及硬盘并降低系统的工作频率。
+    ●Power Management
+    本项用来选择电源管理的工作模式。其设置值为：
+    Max Saving：在此设置下，从无操作到主机（包括硬盘等设备）进入后备状态的时间为2分钟；其它无操作计时器设置为1分钟。由于1分钟是比较短的时间，所以工作时常会进入停机的节能状态。
+    Min Saving：预定义的时间为可选择时间的最大值。在此设置下，在此设置方式下，从无操作到硬盘进入后备状态的时间为1-15分钟（可由用户设置）；其它无操作计时器均设置为1小时。
+    Disabled：不使用节电功能。
+    User Define：用户自行设置节电方式。
+    ●Video Off Option
+    本项用来决定何时将屏幕关闭。在Power Management选择User Define后本选项有效，可选择的设置值有：
+    Susp，stby→off：只在暂停和等待状态进入显示器节能模式。
+    Suspend→off：只在暂停状态进入显示器节能模式。
+    Always on：在任何时候都不进入显示器节能模式。
+    All modes→off：任何节能状态均进入显示器节能模式。
+    ●Video Off  Method
+    显示器断电方式有三种：
+    Blank Screen/Suspend：只关闭屏幕显示，称为黑屏（Screen blank），适用于非节能类型的显示器。
+    V/H SYNC + Blank/Off：关闭屏幕显示，并且还断开VGA显示卡传到显示器的水平同步（H-SUYNC）和垂直同步（V-SYNC）信号，从而逐步关闭显示器大部分电路的电源，这是目前主要的显示器节能方式，需要符合“能源之星”或DPMS的显示器支持。
+    DPMS：即 Display Power Management System（显示器电源管理系统），由操作系统通过DPMS显示卡控制DPMS显示器，实现节能。需要符合DPMS规范的显示卡和显示器。
+    本项提供多种将屏幕关闭的方法。可选择的设置值为：
+    DPMS  OFF： DPMS关闭。
+    DPMS  Reduce ON： DPMS部分打开。
+    Blank Screen：关闭屏幕显示（黑屏）。
+    V/H SYNC＋Blank：关闭屏幕显示、水平同步和垂直同步信号。
+    DPMS Standby： DPMS等待。
+    DPMS Suspend： DPMS挂起。
+    ●**PM Timers **
+    以下几项用来设置节电管理的控制时间。
+    HDD Power Down：本项用来设置系统在多长时间不工作后，停止IDE硬盘电机转动。时间可以在1－15分钟内设定。如果设置为Disable，则禁止硬盘停转。本功能对SCSI硬盘无效。
+    Doze Mode：Doze  mode可翻译为“打盹”模式。在系统由于某种原因暂时停止工作后，则电源管理系统中Doze定时器（Doze Timer）开始对初始设定值作倒计时。当倒计数值为0时，则转入“打盹”模式。在这种模式下，CPU和微机系统都将在正常频率的二分之一下工作。本项用来设置Doze定时器的初始值，即进入Doze模式的时间。
+    Standby Mode：一旦进入“打盹”模式，电源管理系统中的等待定时器（Standby Timer）开始对初始设定值作倒计时。当倒计数值为0时，则转入等待模式（Standby Mode）。本项用来设置定时器的初始值。进入等待模式后，系统将降低CPU时钟频率。此外，还可按照用户的设定关闭显示器屏幕（黑屏）。
+    Suspend Mode：进入等待模式之后，另一个定时器，挂起定时器（Suspend Timer）开始对初始设定值作倒计时，一旦计数完毕则转入挂起模式（Suspend Mode）。进入挂起模式后，CPU时钟停止且系统处于休眠状态，也可由用户设定关闭显示器等外设电源。本项用来设置挂起定时器的初始值。
+    以上三项必须在 Power Management设置为User Define时，才能进行设置。具体的设置值可为30秒，1，2，4，8，20，30，40分钟，1小时和Disabled 。而在Max Saving下，系统会在一分钟内依次进入Doze、Standby和Suspend三个节电状态。在Min Saving下，会在一小时内依次进入节电状态。
+    ●**Power Up Control**
+    以下几项用来设置ATX电源开关按键的功能，是控制系统进入睡眠还是Soft－Off的状态，或是系统的开机、重新开机与调制解调器有数据进入时的Soft－Up状态等设置。
+    PWR Button <4 Secs
+    本项用来设置电源按键的功能。可选择的设置值为：
+    Soft  Off：表示如果ATX开关被按下不到四秒，ATX开关为一般的系统关机钮。
+    Suspend：表示如果ATX开关被按下不到四秒，系统进入挂起状态。
+    No Function：取消所有ATX开关被按下少于四秒的各种功能设置。
+    无论什么设置，将ATX开关按下超过四秒，系统都将关机。
+    ●PWR Up On Modem Act
+    本项用来设置允许（Enabled）还是禁止（Disabled）在调制解调器接收到信号时将电脑从关机状态下启动。
+    ●AC PWR Loss Restart
+    本项用来设置允许（Enabled）还是禁止（Disabled）在电脑因电源中断后，当供电恢复时，电脑是否自行重新启动。
+    ●Wake On LAN
+    本项用来设置允许（Enabled）还是禁止（Disabled）与本主板配合的具备网络唤醒功能的网卡（如华硕PCI－L101高速乙太网卡）的网络唤醒功能是否开启。设为Enabled即开启Wake On LAN功能。
+    这个功能配置要求720mA＋5V以上容量的ATX电源。
+    ●Automatic Power Up
+    本项用来在指定的日期和时间启动电脑，其设置值如下：
+    Everyday：指定每天启动电脑的时间，其格式为时，分，秒“hh:mm:ss”。
+    By Date：指定启动电脑的日期和时间，日期值为1～31。
+    Disabled：禁止使用本功能。
+    ●**Fan Monitor**
+    以下几项用来设置对外壳风扇、CPU风扇与电源风扇转速的监视功能。
+    Chassis Fan Speed：本项用来设置机箱风扇的报警转速。其设置值为：
+    ××××RPM ：指定风扇每分钟的转数，超过此转数即给出报警信号
+    Ignore：禁止使用本功能。
+    ●CPU Fan Speed
+    本项用来设置CPU风扇的报警转速。其设置值与上一项相同。
+    ●Power Fan Speed
+    本项用来设置电源风扇的报警转速。其设置值与上一项相同。
+    ●**Thermal Monitor**
+    以下几项用来设置主板与CPU的温度监视。
+    CPU Temperature：本项用来设置CPU的报警温度，设置值为：
+    65C/149F：超过摄氏65度或者华氏149度，即报警停机。
+    Ignore：禁止使用本功能。
+    ●MB Temperature
+    本项用来设置主板的报警温度，设置值为：
+    41C/105F：超过摄氏41度或者华氏105度，即报警停机。
+    Ignore：禁止使用本功能。
+    ●**Voltage Monitor**
+    本项用来设置对电压输出值监视。超过设定值即报警。如果设置为Ignore则禁止本功能。各报警设定值如下表一。
+     表一  
+    额定输出电压值（V） 设定值（V）
+      Vcore Voltage       2.8
+      3.3                 3.5
+       5                  4.9
+      +12                 11.5
+      -12                -11.2 
+       -5                 -4.8
+    5．PNP AND PCI SETUP（即插即用与PCI设置）
+    本菜单项用来设置即插即用和PCI插槽的特性。
+    ●PNP OS Installed
+    本项的设置值是Yes或者No。如果设置为Yes，则安装了具有即插即用功能的操作系统之后，所有的中断都会被操作系统重新安排。如果操作系统没有即插即用功能，或是要避免中断被重新安排，应设置为No。
+    ●Slot 1（RIGHT）IRQ to Slot 3（Auto）
+    这些选项用来设置该PCI插槽使用的中断号。SLOT 1（最右边）是最靠近存储器的。 可以选择的设置值有：NA，5，7，9，10，11，12，14，15，Auto。 人工设置时可按主板手册中给出的值进行选择，但要注意避免冲突。一般可选自动（Auto）设置。
+    ●PCI Latency Timer 
+    本项用来设置PCI总线的响应延时，延时值与主板的性能有关。各种主板的取值不同，本主板可选择的设置值为0～255，单位是PCI Clock。取值越小，响应速度越快。用户手册一般都给出一个适合于本机的缺省值（一般为32），比缺省值大时会影响速度，比该值小时有可能造成PCI总线响应不及。
+    ●IRQ xx Used By ISA
+    本项用来设置某个IRQ通道是否只分配给ISA总线使用，xx为3至15。可选值为No/ICU和Yes。本项实质上是人工分配PCI与ISA总线占用的IRQ资源。如果确认某个ISA插卡使用IRQ xx，可以把该IRQ设置为Yes。否则都应选为No/ICU，以便把IRQ的分配交给ICU（ISA CONFIGURATION UTILITY）来设置，使IRQ资源自动分配给PCI和ISA总线上的插卡。
+    ●DMA x Used By ISA
+    本项用来设置某个DMA是否只分配给ISA总线使用，x为1、3、5等。可选值为No/ICU和Yes。本项实质上是人工分配PCI与ISA总线占用的DMA资源。除非确认某个ISA插卡使用DMA x，否则都应选为No/ICU将DMA的分配交给ICU（ISA CONFIGURATION UTILITY）来设置。使DMA资源自动分配给PCI和ISA总线上的插卡。
+    ●ISA MEM Block BASE
+    本项用来为非PNP的ISA卡设置其起始地址。位址值可以设成C800，CC00，D000，D400，D800，DC00其中之一。如果在系统上有这种ISA卡，又没有用ICU自行分配位址时，请从那六个选项中选择一个位址。
+    ●ISA MEM Block SIZE
+    在进行ISA MEM Block BASE设置后，屏幕上会给出本设置项，要求输入ISA卡的块大小。可以选择的设置值为8K，16K，32K到64K不等。也可以设置为No/ICU，由 ICU来配置。
+    ●SYMBIOS SCSI BIOS
+     本项用来设置允许（Auto）还是禁止（Disabled）启动主板上的SYMBIOS SCSI BIOS。如果没有配置SCSI硬盘应该设置为Disabled
+    ●USB IRQ
+     本项用来设置允许（Enabled）还是禁止（Disabled）保留IRQ＃给USB装置使用，如果并没有使用USB装置，请将这个选项Dsiabled。
+    6．LOAD BIOS DEFAULTS（装载BIOS缺省值）
+    本项用来自动装入缺省的安全设置值。此项缺省设置的设定值，一般比较保守。例如“读写定时值”设置的得比较大，Shadow设置为“Disabled”，系统引导速度设置为“低速”等。在这种设置下，整个系统的工作速度将比较慢，但是系统可以很稳定的工作。使用安全缺省设置通常有两种目的：一是有利于系统的启动，当微机各个部件之间的工作速度不能完全匹配或者相互之间的兼容性比较差时，采用这种设置往往是可行的。二是用于故障诊断，如果微机在标准设置下不能正常工作，出现各种故障，而在安全缺省设置下能够正常工作，那么你可以比较两种设置的不同之处，从中找出故障的原因。
+    7．LOAD SETUP DEFAULTS（装载设置缺省值）
+    本项用来自动装入缺省的标准设置值。这种缺省设置一般是厂家推荐的设置，其设置值能够比较好地发挥系统硬件的性能，也能够保持系统较为稳定的工作。对于硬件系统不是十分熟悉的用户很适合选择此项缺省设置。不同版本的BIOS设置程序中，对本项的名称不同，但是意义是基本相同的。
+    8．SUPERVISOR PASSWORD（管理口令设置）
+    本菜单项可用来设置开机口令和进入BIOS系统设置程序口令。
+    9．USER PASSWORD（用户口令设置）
+    本菜单项只能用来设置开机口令。如果进入BIOS设置程序，也只能修改本项。
+    10．IDE HDD AUTO DETECTION（IDE硬盘自动检测）
+    本项功能可以对IDE接口的硬盘进行参数自动检测。检测的结果将会自动显示出来并存入CMOS RAM中。
+    11．SAVE AND EXIT SETUP（保存设置值后退出设置程序）
+    如果要保存修改后的设置参数并要退出设置程序时，应该使用本项。如果不保存设置就关机，则修改的设置会不能保存下来。
+    12．EXIT WITHOUT SAVING（不保存设置值退出设置程序）
+    如果不需要保存新修改的设置参数并要退出设置程序时，可以选择本项方式退出BIOS设置程序。
+
+
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。

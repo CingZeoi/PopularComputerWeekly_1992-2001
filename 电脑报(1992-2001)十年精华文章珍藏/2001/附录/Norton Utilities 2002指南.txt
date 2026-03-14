@@ -1,0 +1,64 @@
+Norton Utilities 2002指南
+
+杜伟 袁宁 
+2001年 60期
+
+    Norton Utilities 2002是由美国Symantec公司开发的一套针对Windows 9x/ME/NT/2000/XP操作系统的个人计算机实用工具集成软件。它集磁盘编辑、磁盘诊断与修复、系统优化、系统性能测试与文件清除等多种功能于一身，被视为计算机用户的得力助手。
+　　#1    一、Optimization Performance（优化性能）
+　　    1．Speed Disk（磁盘优化加速）
+　　    硬盘使用时间长了，加上不断的对文件进行存储、删除，会导致硬盘文件不连续存储，定期使用硬盘碎片整理工具进行磁盘优化就非常重要。Speed Disk可以将硬盘上的文件重组并重新配置，以实现最快的存取，这样可以在一定程度上提高系统或文件的运行速度和存取速度。
+　　    （1）常规整理
+　　    从Norton Utilities 2002的主窗口中，选择“Optimize Performance”功能模块，然后单击启动“Speed Disk”项。
+　　    Speed Disk的界面相当直观，界面中直接提供了磁盘列表，磁盘文件占用图示、磁盘文件占用图例等内容。如果需要执行磁盘碎片整理，可首先在界面中选择需要整理的磁盘驱动器，然后单击界面左边的“Analysis”按钮以分析磁盘碎片占用状况，程序会以图示方式给出磁盘文件分布状态。单击“Start Optimizing”按钮，程序会首先检测磁盘中是否有错误，并重新进行文件分析，然后即进行文件碎片的整理。
+　　    （2）自定义工作任务
+　　    如果你想自己设置将某些文件整理排放到磁盘的开始位置，或者将某些特定的文件排放到磁盘的最后（如经常编辑的文件），或设置不能移动/整理的文件，你可以单击“Drive Options”按钮，在打开的界面中提供了四个选项卡：“Files First”（设置排列在磁盘前面的文件）、“Files Last”（设置排放在磁盘后面的文件）、“Files At End”（设置排列在最后的文件）、“Unmovable Files”（设置不可移动的文件），用户可以根据自己的需要进行选择。
+　　    程序提供的另一项功能是以计划任务方式整理磁盘，该项功能的具体用法是：单击“Schedule Options”按钮，在打开的界面中的“Select a Drive”项中选择需要整理的磁盘，选中“Enable Schedule”复选框，激活计划任务设置功能，然后在“Frequency”项中设置该项计划的循环周期、在“Start”项中设置计划任务的开始时间、在“Specify Stop Time”项中设置计划任务的中止时间。在“Optimize Based on Threshold”项中设置自动执行优化整理的限制条件，其中包括自动检测磁盘碎片状态并执行整理，如果需要自己定义，可选中“Only optimize drive if fragmentation level reaches X%”选项，它表示当磁盘碎片占到整个磁盘占用空间的设定比例时开始整理磁盘。全部设置结束后，单击 “Apply”按钮添加创建的计划任务即可。
+　　    2．Norton Optimization Wizard（全面优化向导）
+　　    Norton Optimization Wizard专注于优化硬盘上的交换文件、注册表配置，并通过不断地优化这些交换文件和注册表来实现优化机器系统性能的目的。
+　　    由于Norton Optimization Wizard是全向导式操作，所以只要启动程序后一路单击“Next”按钮即可。最后单击“Reboot”重新启动电脑，然后开始进行如下过程：启动“Speed Disk”整理C盘；在C盘上建立一个交换文件Win386.swp；在C盘上建立一个映像文件Image.dat。
+　　#1    二、Find and Fix Problems（查找和修复问题）
+　　    1．Norton System Doctor（系统医生）
+　　    Norton System Doctor可以监视硬盘空间、CPU利用率、内存状况、系统当前是否正常等，我们可以相当清楚地了解系统运作的情况。
+　　    Norton System Doctor随系统启动运行，我们可以根据需要，在"Sensors"菜单中随意添加监视项目，如Memory（内存）、Disk（磁盘）、System（系统）、Internet/Network（网络监控）、Performance（性能监控）、Information（信息监控）。如，要监控系统电源的使用情况，可点击“Sensors”菜单，选择“System→Battery Power”命令，此时将新增一个“AC Power”小窗口。如果鼠标双击该小窗口，会弹出一个对话框，如果有什么问题，就会出现“Show Current Alarm”对话框，点击它就可以看到“系统医生”给出的处理建议了。
+　　    2．Norton WinDoctor（Windows医生）
+　　    Norton WinDoctor是专门用于对Windows注册表键值、开始菜单、桌面快捷方式等进行检查、修复的工具，它在全面检查系统后会提供详细列表，并可以让你进行自动修复或者手工修复。
+　　    启动WinDoctor后，会出现一个向导。选中 “Perform all Norton WinDoctor tests（Recommended）”项，然后点击“下一步”按钮，Norton WinDoctor便开始对系统进行逐项检查，检查结束单击“完成”按钮继续。如果系统存在问题，会出现已经找到错误的界面，在“Problems Found”列表中，将问题罗列出来，点击工具栏的“Repair“或“Repair All”按钮，即可对发现的问题进行修复。
+　　    3．Norton Disk Doctor（磁盘医生）
+　　    Norton DiskDoctor又称NDD，是Norton Utilities里最出名的工具，用于诊断和修复各种磁盘问题。运行它后会执行数项测试，检查从磁盘分区表到磁盘实体表面的所有部分。如果NDD发现问题，它将会在执行修复之前通知用户，用户可以根据需要进行修复（也可让NDD自动修复）。
+　　    启动NDD后，在磁盘驱动器选择列表中选取需要检查的磁盘，单击“Diagnose”按钮即开始检查，NDD会自动检测Partition Table分区表、Boot Record File引导记录、File Structure文件结构、Directory Structure目录结构、Compressed Disk压缩盘和Surface Test磁盘表面测试。当发现错误时，它首先会询问用户是否修复，然后再询问你是否存储反操作的文件，以便不成功时用于恢复。
+　　    4．UnErase Wizard（反删除向导）
+　　    Unerase Wizard可以帮助你恢复由“Norton防护”所保护的已经删除文件、Windows资源回收站中的文件。它可以搜索想要恢复的文件中所包含的文件名称或关键字，这在你忘记文件名称但却记得文件主题时是非常有用的。另外，在NU安装完成后，桌面上的回收站会被Unerase代替，这大大增强了Windows的反删除能力。
+　　    启动UnErase Wizard，程序会要求用户选择恢复那些文件，包括Find recently deleted files（搜寻最近删除的文件）；Find all protected files on local drives（在本地硬盘搜索被保护的文件）；Find all recoverable files matching your criteria（搜索所有可恢复并且符合你的要求的文件），根据自己的需要进行选择。然后点击“下一步”，UnErase Wizard便开始在你所选定的范围内搜索所有的文件，搜索完毕后，会出现一个找到的文件详细列表，列表中将列出这个被删除文件的文件名、原始位置、删除的时间、文件的类型以及大小。选择需要恢复的文件，点击“Recover”按钮即可对删除的文件进行恢复。
+　　#1    三、System Maintenance（系统维护）
+　　    1．System Information（系统信息）
+　　    System Information可以给你有关电脑、连接至你电脑的周边设备——键盘、鼠标、打印机、多媒体装置，以及电脑中的Internet和网络连接的详细资料。
+　　    在System Information的窗口中，我们可以看到硬件和操作系统方面的信息，如CPU、BIOS的型号和Windows的版本号等，最下面是Benchmark（基准）、Details（详细信息）、Reports（报告）、Close（结束）、Help（帮助）五个工具按钮。分别点击“System（系统）”、“Display（显示）”、“Printer（打印机）”、“Memory（内存）”、“Drive（驱动器）”、“Input（输入）”、“Multimedia（多媒体）”、“Network（网络）”、“Internet（国际互联网）”标签，系统便会收集并显示有关该类别的基本资料。
+　　    2．Norton WipeInfo（清除信息）
+　　    Norton WipeInfo是专门对硬盘上面的文件信息进行彻底清除操作的工具。你可以删除文件、删除文件夹以及清除硬盘中的自由空间。对于删除文件和文件夹，程序提供了多次快速重写以及使用美国政府安全标准的（DoD 5220.22-M）标准执行删除，而如果你担心以前删除的文件会被其他人恢复，可以使用程序提供的清除磁盘自由空间功能“Free Space”功能进行彻底清除。除可以在程序界面中进行删除操作外，程序还会在系统鼠标右键菜单中添加相应的清除命令，这样在资源管理器就直接可以完成删除操作。
+　　#1    四、Registry Management（注册表管理）
+　　    1．Norton Registry Editor（注册表编辑器）
+　　    Norton Registry Editor功能非常强大，它能帮助你浏览、编辑并备份Windows的注册表。同时，还能对网上的其他注册表进行操作。
+　　    （1）备份注册表
+　　    从Norton Utilities 2002的主窗口选择Registry Management功能模块，然后单击启动Norton Registry Editor项。点击“File→Backup Entire Registry…"菜单命令，打开“另存为"对话框。在"文件名"框内输入保存的文件名。单击"保存在"右边下箭头，选择存放的路径。然后点击"保存"按钮，即可将当前计算机的整个注册表保存到指定的文件（.reg）中。
+　　    （2）导入注册表文件
+　　    点击“File→Import Registry File”菜单命令，将弹出“打开”对话框。然后，从文件列表框中选定要导入的文件。单击“打开”按钮即可将指定的文件导入注册表中。
+　　    （3）导出注册表文件
+　　    除了可以备份（导出）整个注册表外，我们也可以只备份注册表的某个分支（或称子键）。首先，从主窗口左边注册表树形结构中，选择需要备份的分支。然后点击“File→Export Registry File”菜单命令，打开“Export Registry File”对话框。
+　　    在该对话框中：在“From Where”列表框中选择要备份的注册表数据库。默认是本地计算机注册表（Local Registry）。如果你的计算机与远程计算机连接，则还可选择“Remote Registry Connections”，这样就可以备份远程计算机上的注册表信息了；在“Export Range”框内选择导出范围，选择All，表示要导出整个注册表。选择Selected Branch，表示要导出选定的分支。设置完毕后，在“文件名”框内输入保存的文件名。单击“保存在”右边下箭头，选择存放的路径。然后点击“保存”按钮即可。
+　　    2．Norton Registry Tracker（注册表跟踪器）
+　　    Norton Registry Tracker可以帮助你恢复任何不想执行的注册表变更，并持续追踪你系统上的注册表、文件与文件夹所做的变更。你可以使用Norton注册表跟踪器快速修复和还原的功能，将所追踪的项目还原成变更之前的状态。
+　　    （1）新建一个追踪
+　　    点击“File→New snapshot”，打开“New snapshot”对话框，单击“OK”按钮，程序将开始记录注册表发生的变更，如果注册表没有发生变化，将自动更名为最近一次追踪。
+　　    （2）快速修复注册表项
+　　    点击“File→Quick Fix”菜单命令，在出现的对话框中将罗列出发生了改变的注册表项，从中选取需要修复的注册表项，点击“OK”按钮即开始修复。
+　　    （3）还原所有
+　　    点击“File→Restore”菜单命令，在出现的对话框中选择要还原的系统配置文件及注册项。然后，点击“OK”按钮开始还原。
+　　    [HJ*4]五、Norton Utilities 2002 选项设置
+　　    点击主界面中的“Options”按钮，将出现选项设置对话框，我们可以对Norton Utilities 2002进行相关的属性设置。
+　　    “General Settings”（常规设置）：在该标签中可以设置是否在启动时显示启动画面（Display Splash Screens）及是否显示程序功能介绍（Display Program Introductions）。
+　　    “Startup Programs”（程序运行）：可以设置在Windows启动时同时启动哪个程序。这里有三个选项，其中对“Norton Disk Doctor”及“Norton System Doctor”的设置只能对当前用户，“Norton System Doctor”是对所有的用户有效。
+　　    “Norton Protection”（文件保护）：用于设置是否启用Norton的文件保护功能。使用“文件保护”功能再配合“Uneraze Wizard”（反删除向导）可以很容易的将彻底删除的文件恢复。默认情况下保护所有的驱动器，如果你不想保护某个驱动器，你可以在“Drive”中选择不需要保护的驱动器，然后取消“Enable protection”复选框即可。你还可以设置保护的天数，当过了多少天后可清除保护的文件。
+　　    “Recycle Bin”（回收站）：用于设置当鼠标双击回收站后是启动Norton的反删除向导（Uneraze Wizard）、列出所有被保护的文件（All Protected files）还是打开标准的回收站。这个可以根据自己的使用习惯来设置。“Title”则为回收站的名称，你可以更改它，如输入“我的回收站”。当你设置完成后，点击“确定”按钮设置生效。注意，“Norton Protection”及“Recycle Bin”这两个标签需要安装了Norton CleanSweep 2002后才有。 
+ 
+----------
+本文由 张赐荣 收集整理，更多有关“《电脑报》1992-2001十年精华文章合集”的内容，请访问：“https://prc.cx/”。
